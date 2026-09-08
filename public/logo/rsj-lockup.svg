@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 200" width="760" height="200" role="img" aria-label="R.S. Johnson Plumbing LLC">
+  <g transform="translate(0 6) scale(0.78)" fill="none">
+    <path d="M140 22 V150 A35 35 0 0 1 70 150 V138 A24 24 0 0 0 46 114 H18" stroke="#2B2B2B" stroke-width="34" stroke-linejoin="round"/>
+    <rect x="112" y="6" width="56" height="18" rx="2" fill="#2F6FE0"/>
+    <rect x="116" y="112" width="48" height="14" rx="2" fill="#2F6FE0"/>
+    <rect x="8" y="90" width="16" height="48" rx="2" fill="#2F6FE0"/>
+  </g>
+  <g font-family="Georgia, 'Times New Roman', serif" font-weight="700" fill="#2B2B2B" letter-spacing="1">
+    <text x="150" y="58" font-size="44">R.S.</text>
+    <text x="150" y="122" font-size="58">OHNSON PLUMBING</text>
+    <text x="748" y="176" font-size="40" text-anchor="end">LLC</text>
+  </g>
+</svg>
