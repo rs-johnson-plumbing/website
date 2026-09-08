@@ -1,30 +1,21 @@
 "use client";
 
 import { useState } from "react";
-import Link from "next/link";
 import { home, site, link } from "@/lib/content";
 import { Button } from "@/components/ui/Button";
-import { Icon } from "@/components/ui/Icon";
 import { cn } from "@/lib/cn";
 
 type Audience = "homeowners" | "builders";
-type Card = { label: string; helper: string; link: string; hrefKey: "tel" | "book" | "bid"; track: string };
-
-function resolve(key: Card["hrefKey"]): string {
-  if (key === "tel") return site.phone.tel;
-  return link(key);
-}
 
 /**
  * Two-door homepage hero.
  *
- * Desktop: homeowners door left (55%, off-white, filled Book Service) and
- * builders door right (45%, charcoal, outlined Request a Bid), side by side
- * with a shared top baseline.
+ * Desktop: homeowners door left (55%, off-white) and builders door right
+ * (45%, charcoal), side by side with a shared top baseline.
  *
  * Mobile: a segmented For Homeowners / For Builders control under the header
- * flips between the two doors. Each door shows two situation cards instead of
- * stacked full-width buttons.
+ * flips between the two doors. Each door is centered: headline, one line,
+ * two stacked buttons with the phone number visible, and a credentials line.
  */
 export function HomeHero() {
   const [audience, setAudience] = useState<Audience>("homeowners");
@@ -55,72 +46,57 @@ export function HomeHero() {
       <section className="grid grid-cols-1 lg:grid-cols-[55%_45%] lg:items-start">
         {/* Homeowners door */}
         <div className={cn("bg-offwhite text-charcoal", audience !== "homeowners" && "hidden lg:block")}>
-          <div className="flex flex-col items-start gap-4 px-gutter-m py-7 lg:ml-auto lg:max-w-[calc(1440px*0.55)] lg:gap-5 lg:px-gutter lg:py-[72px]">
+          <div className="flex flex-col items-center gap-4 px-gutter-m py-8 text-center lg:ml-auto lg:max-w-[calc(1440px*0.55)] lg:items-start lg:gap-5 lg:px-gutter lg:py-[64px] lg:text-left">
             <div className="hidden text-[14px] font-bold uppercase tracking-[0.04em] text-slate lg:block">{h.homeowners.eyebrow}</div>
-            <h1 className="text-h1-m lg:min-h-[106px] lg:text-h1">{h.homeowners.heading}</h1>
-            <p className="max-w-[520px] text-[16px] lg:min-h-[58px] lg:text-body">{h.homeowners.line}</p>
-            <div className="hidden lg:block lg:pt-2">
-              <Button href={link("book")} variant="filled" track="book-hero">
-                {h.homeowners.button}
+            <h1 className="text-[32px] font-bold leading-[1.1] tracking-[-0.01em] lg:min-h-[106px] lg:text-h1 lg:font-bold">{h.homeowners.heading}</h1>
+            <p className="max-w-[520px] text-[16px] leading-[1.5] lg:min-h-[58px] lg:text-body">{h.homeowners.line}</p>
+            <div className="flex w-full flex-col gap-2.5 lg:w-auto lg:flex-row lg:gap-3 lg:pt-2">
+              <Button href={link("book")} variant="filled" track="book-hero" className="h-[52px] w-full lg:w-auto">
+                {h.homeowners.primary}
+              </Button>
+              <Button href={site.phone.tel} variant="outlined" track="call-hero" className="h-[52px] w-full bg-white lg:w-auto">
+                {h.homeowners.secondary}
               </Button>
             </div>
-            <SituationCards cards={h.homeowners.cards as Card[]} />
-            <div className="flex items-center gap-2 text-[13px] text-slate lg:hidden">
-              <Icon name="star" size={14} filled className="text-blue" />
-              <span>{h.homeowners.trustLine}</span>
+            <div className="flex flex-wrap justify-center gap-x-3 gap-y-1 text-[13px] font-semibold text-slate lg:hidden">
+              {h.homeowners.credentials.map((c, i) => (
+                <span key={c} className="inline-flex gap-3">
+                  {i > 0 && <span aria-hidden="true">·</span>}
+                  {c}
+                </span>
+              ))}
             </div>
           </div>
         </div>
 
         {/* Builders door */}
         <div id="builders" className={cn("bg-charcoal text-offwhite", audience !== "builders" && "hidden lg:block")}>
-          <div className="flex flex-col items-start gap-4 px-gutter-m py-7 lg:mr-auto lg:max-w-[calc(1440px*0.45)] lg:gap-5 lg:px-gutter lg:py-[72px]">
+          <div className="flex flex-col items-center gap-4 px-gutter-m py-8 text-center lg:mr-auto lg:max-w-[calc(1440px*0.45)] lg:items-start lg:gap-5 lg:px-gutter lg:py-[64px] lg:text-left">
             <div className="hidden text-[14px] font-bold uppercase tracking-[0.04em] text-ondark-muted lg:block">{h.builders.eyebrow}</div>
-            <h2 className="text-h1-m text-offwhite lg:min-h-[106px] lg:text-h1">{h.builders.heading}</h2>
-            <p className="max-w-[520px] text-[16px] text-ondark-muted lg:min-h-[58px] lg:text-body">{h.builders.line}</p>
-            <div className="hidden lg:block lg:pt-2">
-              <Button href={link("bid")} variant="outlined-dark" track="bid-hero">
-                {h.builders.button}
+            <h2 className="text-[32px] font-bold leading-[1.1] tracking-[-0.01em] text-offwhite lg:min-h-[106px] lg:text-h1 lg:font-bold">{h.builders.heading}</h2>
+            <p className="max-w-[520px] text-[16px] leading-[1.5] text-ondark-muted lg:min-h-[58px] lg:text-body">{h.builders.line}</p>
+            <div className="flex w-full flex-col gap-2.5 lg:w-auto lg:flex-row lg:gap-3 lg:pt-2">
+              <Button href={link("bid")} variant="filled" track="bid-hero" className="h-[52px] w-full lg:hidden">
+                {h.builders.primary}
+              </Button>
+              <Button href={link("bid")} variant="outlined-dark" track="bid-hero" className="hidden h-[52px] lg:inline-flex">
+                {h.builders.primary}
+              </Button>
+              <Button href={site.phone.tel} variant="outlined-dark" track="call-hero-builders" className="h-[52px] w-full lg:hidden">
+                {h.builders.secondary}
               </Button>
             </div>
-            <SituationCards cards={h.builders.cards as Card[]} dark />
-            <div className="text-[13px] text-ondark-muted lg:hidden">{h.builders.trustLine}</div>
+            <div className="flex flex-wrap justify-center gap-x-3 gap-y-1 text-[13px] font-semibold text-ondark-muted lg:justify-start">
+              {h.builders.credentials.map((c, i) => (
+                <span key={c} className="inline-flex gap-3">
+                  {i > 0 && <span aria-hidden="true">·</span>}
+                  {c}
+                </span>
+              ))}
+            </div>
           </div>
         </div>
       </section>
     </>
-  );
-}
-
-function SituationCards({ cards, dark = false }: { cards: Card[]; dark?: boolean }) {
-  return (
-    <div className="grid w-full grid-cols-2 gap-3 lg:hidden">
-      {cards.map((c) => {
-        const href = resolve(c.hrefKey);
-        const cls = cn(
-          "flex flex-col gap-2 rounded-card border p-4 hover:no-underline",
-          dark ? "border-darkborder bg-darkcard text-offwhite" : "border-hairline-strong bg-white text-charcoal",
-        );
-        const inner = (
-          <>
-            <span className={cn("text-[15px] font-bold", dark && "text-white")}>{c.label}</span>
-            <span className={cn("min-h-[36px] text-[13px] leading-snug", dark ? "text-ondark-helper" : "text-slate")}>{c.helper}</span>
-            <span className={cn("inline-flex items-center gap-1 whitespace-nowrap text-[15px] font-bold", dark ? "text-blue-ondark" : "text-blue")}>
-              {c.link}
-              <Icon name="arrow-right" size={16} strokeWidth={2} />
-            </span>
-          </>
-        );
-        return href.startsWith("tel:") ? (
-          <a key={c.label} href={href} className={cls} data-track={c.track}>
-            {inner}
-          </a>
-        ) : (
-          <Link key={c.label} href={href} className={cls} data-track={c.track}>
-            {inner}
-          </Link>
-        );
-      })}
-    </div>
   );
 }
