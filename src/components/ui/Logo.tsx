@@ -59,20 +59,47 @@ export function Badge({ className, title }: { className?: string; title?: string
 }
 
 /**
- * Header and footer logo: the round badge, plus the serif wordmark from the
- * desktop breakpoint up. Phones show the badge alone.
+ * Full lockup: the two-tone mark as the J of JOHNSON, "R.S." above,
+ * "PLUMBING" beside, "LLC" tucked under on the right. Same drawing as
+ * /public/logo/rsj-lockup.svg. Scales by height; width follows.
+ */
+export function Lockup({ className, title, reversed = false }: { className?: string; title?: string; reversed?: boolean }) {
+  const ink = reversed ? "#F7F5F0" : "#2B2B2B";
+  return (
+    <svg viewBox="0 0 760 200" aria-hidden={title ? undefined : true} role={title ? "img" : undefined} className={className}>
+      {title && <title>{title}</title>}
+      <g transform="translate(0 6) scale(0.78)" fill="none">
+        <path d="M140 22 V150 A35 35 0 0 1 70 150 V138 A24 24 0 0 0 46 114 H18" stroke={ink} strokeWidth="34" strokeLinejoin="round" />
+        <rect x="112" y="6" width="56" height="18" rx="2" fill="#2F6FE0" />
+        <rect x="116" y="112" width="48" height="14" rx="2" fill="#2F6FE0" />
+        <rect x="8" y="90" width="16" height="48" rx="2" fill="#2F6FE0" />
+      </g>
+      <g fontFamily="Georgia, 'Times New Roman', serif" fontWeight="700" fill={ink} letterSpacing="1">
+        <text x="150" y="58" fontSize="44">
+          R.S.
+        </text>
+        <text x="150" y="122" fontSize="58">
+          OHNSON PLUMBING
+        </text>
+        <text x="748" y="176" fontSize="40" textAnchor="end">
+          LLC
+        </text>
+      </g>
+    </svg>
+  );
+}
+
+/**
+ * Header and footer logo: the full lockup, small. About 40px tall on phones
+ * and 52px on desktop, which keeps the wordmark readable without crowding
+ * the nav.
  */
 export function Logo({ size = "header", className }: Props) {
   const isHeader = size === "header";
-  const badge = isHeader ? "h-11 w-11 lg:h-14 lg:w-14" : "h-12 w-12";
-  const word = isHeader ? "hidden lg:inline text-[20px]" : "text-[18px]";
+  const dims = isHeader ? "h-10 w-[152px] lg:h-[52px] lg:w-[198px]" : "h-11 w-[167px]";
   return (
-    <Link href="/" aria-label={`${site.name} home`} className={cn("flex items-center gap-3 text-charcoal hover:no-underline", className)}>
-      <Badge className={cn("shrink-0", badge)} />
-      <span className={cn("font-serif font-bold whitespace-nowrap", word)}>
-        {site.shortName}
-        <span className="hidden lg:inline"> LLC</span>
-      </span>
+    <Link href="/" aria-label={`${site.name} home`} className={cn("flex items-center text-charcoal hover:no-underline", className)}>
+      <Lockup className={cn("shrink-0", dims)} title={site.name} />
     </Link>
   );
 }
