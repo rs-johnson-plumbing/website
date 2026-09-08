@@ -11,6 +11,16 @@ type Props = {
   withJsonLd?: boolean;
 };
 
+function initials(name: string): string {
+  return name
+    .split(/\s+/)
+    .map((part) => part[0])
+    .filter(Boolean)
+    .slice(0, 2)
+    .join("")
+    .toUpperCase();
+}
+
 export function PersonCard({ member, compact = false, withJsonLd = !compact }: Props) {
   const personLd = {
     "@context": "https://schema.org",
@@ -23,7 +33,13 @@ export function PersonCard({ member, compact = false, withJsonLd = !compact }: P
   if (compact) {
     return (
       <div className="flex items-center gap-3">
-        <PhotoPlaceholder photo={member.photo} aspect="1/1" className="w-14 shrink-0 !p-1 text-[10px]" />
+        <div
+          role="img"
+          aria-label={member.photo.alt}
+          className="flex h-14 w-14 shrink-0 items-center justify-center rounded-full border border-dashed border-hairline-strong bg-sand text-[15px] font-bold text-slate"
+        >
+          {initials(member.name)}
+        </div>
         <div>
           <div className="text-[15px] font-bold">{member.name}</div>
           <div className="text-[14px] text-slate">{member.title}</div>

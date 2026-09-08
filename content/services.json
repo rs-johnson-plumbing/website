@@ -4,95 +4,300 @@
     "name": "Water heaters",
     "icon": "water-heater",
     "short": "Repair, replacement, tankless",
-    "hubShort": "repair, replacement, tank and tankless installation",
+    "hubShort": "Repair, replacement, tank and tankless installation",
     "metaDescription": "Water heater repair, replacement, and tankless installation in St. Charles County from Master Plumber Ryan Johnson and crew. Call or text 314-220-1827 or book online.",
-    "intro": "[What we fix paragraph — water heaters]",
-    "problems": ["No hot water", "Hot water runs out fast", "Rumbling or popping from the tank", "Rust-colored water", "Moisture around the base", "Unit is [10–12] years old"],
+    "intro": "We repair and replace gas and electric tank water heaters and install tankless systems. If your heater is under [8] years old and the problem is a thermostat, element, or valve, repair usually makes sense. If it's older and leaking from the tank itself, replacement is the only fix — and we'll tell you which one it is before we start.",
+    "problems": [
+      "No hot water",
+      "Hot water runs out fast",
+      "Rumbling or popping from the tank",
+      "Rust-colored water",
+      "Moisture around the base",
+      "Unit is [10–12] years old"
+    ],
     "whatToExpect": "[What to expect paragraph — water heaters]",
-    "crew": ["tyler", "ryan"]
+    "crew": [
+      "tyler",
+      "ryan"
+    ],
+    "hub": {
+      "heading": "Water heater repair and replacement",
+      "anchor": "Water heaters",
+      "paragraph": "We repair and replace gas and electric tank water heaters and install tankless systems. If your heater is under [8] years old and the problem is a thermostat, element, or valve, repair usually makes sense. If it's older and leaking from the tank itself, replacement is the only fix — and we'll tell you which one it is before we start.",
+      "whatWeDo": [
+        "Same-day diagnosis and repair when parts are available",
+        "Tank replacement, including code upgrades (expansion tank, pan, venting) that inspectors in St. Charles County require",
+        "Tankless installation and conversion, including gas line sizing",
+        "Annual flush and anode inspection to extend tank life"
+      ],
+      "photo": {
+        "src": "/photos/site-water-heater-install.jpg",
+        "alt": "Water heater installation in St. Charles County by R.S. Johnson Plumbing",
+        "caption": "Tank and tankless installs"
+      },
+      "link": "Water heater repair and replacement"
+    }
   },
   {
     "slug": "leaks-and-repairs",
     "name": "Leaks and repairs",
     "icon": "drop",
     "short": "Pipes, valves, fixtures",
-    "hubShort": "pipe leaks, valves, shutoffs, low water pressure",
+    "hubShort": "Pipe leaks, valves, shutoffs, low water pressure",
     "metaDescription": "Leak detection and plumbing repair in St. Charles County. Pipes, valves, shutoffs, and low water pressure fixed by a licensed crew. Call or text 314-220-1827 today.",
-    "intro": "[What we fix paragraph — leaks and repairs]",
-    "problems": ["Stains on a ceiling", "Soft spot in drywall", "Musty smell in a closet", "Water bill jumped", "Dripping shutoff valve", "Low pressure through the house"],
+    "intro": "Pinhole leaks in copper, failed fittings, frozen and split lines in winter, and the shutoff valve that won't shut off. We find the source, fix it properly, and check the surrounding lines so you're not calling us back for the next joint over.",
+    "problems": [
+      "Stains on a ceiling",
+      "Soft spot in drywall",
+      "Musty smell in a closet",
+      "Water bill jumped",
+      "Dripping shutoff valve",
+      "Low pressure through the house"
+    ],
     "whatToExpect": "[What to expect paragraph — leaks and repairs]",
-    "crew": ["tyler", "ryan"]
+    "crew": [
+      "tyler",
+      "ryan"
+    ],
+    "hub": {
+      "heading": "Leak repair and pipe repair",
+      "anchor": "Leaks",
+      "paragraph": "Pinhole leaks in copper, failed fittings, frozen and split lines in winter, and the shutoff valve that won't shut off. We find the source, fix it properly, and check the surrounding lines so you're not calling us back for the next joint over.",
+      "whatWeDo": [
+        "Supply line and drain line leak repair",
+        "Shutoff valve and pressure-reducing valve replacement",
+        "Frozen pipe repair and prevention",
+        "Repiping sections or whole homes where older materials are failing"
+      ],
+      "photo": {
+        "src": "/photos/site-leak-repair.jpg",
+        "alt": "Leak repair on a copper supply line",
+        "caption": "Leak repair on a copper supply line"
+      },
+      "link": "Leaks and repairs"
+    }
   },
   {
     "slug": "drains-and-sewer",
     "name": "Drains and sewer",
     "icon": "drain",
     "short": "Clogs, camera inspection, main lines",
-    "hubShort": "clogs, camera inspections, main line repair and replacement",
+    "hubShort": "Clogs, camera inspections, main line repair and replacement",
     "metaDescription": "Drain cleaning, sewer camera inspection, and main line repair in St. Charles County. Licensed crew, upfront pricing. Call or text 314-220-1827 or book online now.",
-    "intro": "[What we fix paragraph — drains and sewer]",
-    "problems": ["Drain that keeps clogging", "Toilet gurgles when the washer drains", "Sewer smell in the house", "Slow drains throughout", "Water backing up in the basement", "Roots in the main line"],
+    "intro": "From a slow bathroom sink to a main line backing up into the basement, we clear it and find out why it happened. We run a camera on recurring main-line problems so you can see the cause — roots, a belly in the line, a break — instead of guessing.",
+    "problems": [
+      "Drain that keeps clogging",
+      "Toilet gurgles when the washer drains",
+      "Sewer smell in the house",
+      "Slow drains throughout",
+      "Water backing up in the basement",
+      "Roots in the main line"
+    ],
     "whatToExpect": "[What to expect paragraph — drains and sewer]",
-    "crew": ["danny", "ryan"]
+    "crew": [
+      "danny",
+      "ryan"
+    ],
+    "hub": {
+      "heading": "Drain cleaning and sewer repair",
+      "anchor": "Drains and sewer",
+      "paragraph": "From a slow bathroom sink to a main line backing up into the basement, we clear it and find out why it happened. We run a camera on recurring main-line problems so you can see the cause — roots, a belly in the line, a break — instead of guessing.",
+      "whatWeDo": [
+        "Kitchen, bath, laundry, and floor drain clearing",
+        "Main sewer line clearing and camera inspection",
+        "Sewer line repair and replacement, including [trenchless options where the line allows]",
+        "Advice on what's actually worth fixing versus watching"
+      ],
+      "photo": {
+        "src": "/photos/site-sewer-camera.jpg",
+        "alt": "Sewer camera inspection in O'Fallon MO",
+        "caption": "Camera inspection"
+      },
+      "link": "Drains and sewer"
+    }
   },
   {
     "slug": "toilets-and-faucets",
     "name": "Toilets and faucets",
     "icon": "faucet",
     "short": "Repair and replacement",
-    "hubShort": "repair and replacement",
+    "hubShort": "Repair and replacement",
     "metaDescription": "Toilet and faucet repair and replacement in St. Charles County. Running toilets, dripping faucets, and new fixtures installed right. Call or text 314-220-1827.",
-    "intro": "[What we fix paragraph — toilets and faucets]",
-    "problems": ["Toilet runs constantly", "Toilet rocks or leaks at the base", "Faucet drips", "Low flow at one fixture", "Handle is loose or stuck", "Want a new fixture installed"],
+    "intro": "The unglamorous work that makes up most homeowner calls. Running toilets, toilets that rock, faucets that drip or spray, and fixtures you'd like to swap for something newer. We stock common parts on the truck and can usually handle these in one visit.",
+    "problems": [
+      "Toilet runs constantly",
+      "Toilet rocks or leaks at the base",
+      "Faucet drips",
+      "Low flow at one fixture",
+      "Handle is loose or stuck",
+      "Want a new fixture installed"
+    ],
     "whatToExpect": "[What to expect paragraph — toilets and faucets]",
-    "crew": ["tyler", "chris"]
+    "crew": [
+      "tyler",
+      "chris"
+    ],
+    "hub": {
+      "heading": "Toilet and faucet repair and replacement",
+      "anchor": "Toilets and faucets",
+      "paragraph": "The unglamorous work that makes up most homeowner calls. Running toilets, toilets that rock, faucets that drip or spray, and fixtures you'd like to swap for something newer. We stock common parts on the truck and can usually handle these in one visit.",
+      "whatWeDo": [
+        "Toilet repair, reset, and replacement",
+        "Kitchen and bath faucet repair and replacement",
+        "Shower valve and cartridge replacement",
+        "Garbage disposal replacement"
+      ],
+      "photo": {
+        "src": "/photos/site-faucet-replacement.jpg",
+        "alt": "Faucet replacement in a kitchen",
+        "caption": "Faucet replacement in a kitchen"
+      },
+      "link": "Toilets and faucets"
+    }
   },
   {
     "slug": "bath-and-kitchen-remodel",
     "name": "Bath and kitchen remodel",
     "icon": "tub",
     "short": "Rough-in to fixture set",
-    "hubShort": "rough-in through fixture set",
+    "hubShort": "Rough-in through fixture set",
     "metaDescription": "Bath and kitchen remodel plumbing in St. Charles County, rough-in through fixture set. Master Plumber on every job. Call or text 314-220-1827 to talk it through.",
-    "intro": "[What we fix paragraph — remodel plumbing]",
-    "problems": ["Moving a sink, tub, or toilet", "Adding a bathroom", "Converting a tub to a shower", "New kitchen layout", "Island sink or pot filler", "Updating old supply lines during a remodel"],
+    "intro": "Most of our week is remodel and new-construction work for builders, and homeowners get the same crew. If you're moving a sink, adding a shower, converting a tub, or gutting a kitchen, we handle the rough-in, coordinate with your contractor or tile setter, and come back for the fixture set and walkthrough.",
+    "problems": [
+      "Moving a sink, tub, or toilet",
+      "Adding a bathroom",
+      "Converting a tub to a shower",
+      "New kitchen layout",
+      "Island sink or pot filler",
+      "Updating old supply lines during a remodel"
+    ],
     "whatToExpect": "[What to expect paragraph — remodel plumbing]",
-    "crew": ["chris", "ryan"]
+    "crew": [
+      "chris",
+      "ryan"
+    ],
+    "hub": {
+      "heading": "Bathroom and kitchen remodel plumbing",
+      "anchor": "Remodels",
+      "paragraph": "Most of our week is remodel and new-construction work for builders, and homeowners get the same crew. If you're moving a sink, adding a shower, converting a tub, or gutting a kitchen, we handle the rough-in, coordinate with your contractor or tile setter, and come back for the fixture set and walkthrough.",
+      "whatWeDo": [
+        "Relocating supply and drain lines",
+        "Shower pan and valve rough-in",
+        "New fixture installation and trim-out",
+        "Working directly with your contractor's schedule"
+      ],
+      "photo": {
+        "src": "/photos/site-remodel-rough-in.jpg",
+        "alt": "Bathroom remodel plumbing rough-in",
+        "caption": "Bathroom remodel rough-in"
+      },
+      "link": "Bath and kitchen remodel"
+    }
   },
   {
     "slug": "gas-lines",
     "name": "Gas lines",
     "icon": "gas",
     "short": "New runs, repairs, appliance hookups",
-    "hubShort": "new runs for ranges, grills, fireplaces, and generators; leak repair",
+    "hubShort": "New runs for ranges, grills, fireplaces, and generators; leak repair",
     "metaDescription": "Gas line installation and repair in St. Charles County. New runs for ranges, grills, fireplaces, and generators by a licensed Master Plumber. Call 314-220-1827.",
-    "intro": "[What we fix paragraph — gas lines]",
-    "problems": ["New gas range or dryer", "Outdoor grill or fire pit line", "Standby generator hookup", "Gas fireplace insert", "Suspected gas leak", "Old fittings that need replacing"],
+    "intro": "New gas runs for a range, outdoor grill, fireplace insert, or standby generator, and repairs when you smell gas or a line fails inspection. Gas work is permitted and inspected in St. Charles County and its municipalities; we pull the permit and meet the inspector.",
+    "problems": [
+      "New gas range or dryer",
+      "Outdoor grill or fire pit line",
+      "Standby generator hookup",
+      "Gas fireplace insert",
+      "Suspected gas leak",
+      "Old fittings that need replacing"
+    ],
     "whatToExpect": "[What to expect paragraph — gas lines]",
-    "crew": ["ryan", "mike"]
+    "crew": [
+      "ryan",
+      "mike"
+    ],
+    "hub": {
+      "heading": "Gas line installation and repair",
+      "anchor": "Gas lines",
+      "paragraph": "New gas runs for a range, outdoor grill, fireplace insert, or standby generator, and repairs when you smell gas or a line fails inspection. Gas work is permitted and inspected in St. Charles County and its municipalities; we pull the permit and meet the inspector.",
+      "whatWeDo": [],
+      "callout": {
+        "lead": "If you smell gas:",
+        "text": "leave the house, then call your gas utility's emergency line first. Call us after the utility has made it safe."
+      },
+      "photo": {
+        "src": "/photos/site-gas-line-grill.jpg",
+        "alt": "Gas line run for an outdoor grill",
+        "caption": "Gas line run for an outdoor grill"
+      },
+      "link": "Gas lines"
+    }
   },
   {
     "slug": "sump-pumps",
     "name": "Sump pumps",
     "icon": "pump",
     "short": "Install, replace, battery backup",
-    "hubShort": "installation, replacement, battery backup",
+    "hubShort": "Installation, replacement, battery backup",
     "metaDescription": "Sump pump installation, replacement, and battery backup in St. Charles County. Keep the basement dry before the next heavy rain. Call or text 314-220-1827 today.",
-    "intro": "[What we fix paragraph — sump pumps]",
-    "problems": ["Pump runs constantly", "Pump never runs", "Water in the basement after rain", "Pump is loud or vibrating", "No battery backup", "Don't know how old the pump is"],
+    "intro": "Basements in this part of Missouri depend on sump pumps, and pumps fail quietly until the day they don't. We replace worn pumps, install battery backup systems that run when the power goes out in a storm, and correct discharge lines that dump water right back against the foundation.",
+    "problems": [
+      "Pump runs constantly",
+      "Pump never runs",
+      "Water in the basement after rain",
+      "Pump is loud or vibrating",
+      "No battery backup",
+      "Don't know how old the pump is"
+    ],
     "whatToExpect": "[What to expect paragraph — sump pumps]",
-    "crew": ["danny", "tyler"]
+    "crew": [
+      "danny",
+      "tyler"
+    ],
+    "hub": {
+      "heading": "Sump pump installation and replacement",
+      "anchor": "Sump pumps",
+      "paragraph": "Basements in this part of Missouri depend on sump pumps, and pumps fail quietly until the day they don't. We replace worn pumps, install battery backup systems that run when the power goes out in a storm, and correct discharge lines that dump water right back against the foundation.",
+      "whatWeDo": [
+        "Sump pump testing and replacement",
+        "Battery backup and water-powered backup systems",
+        "Check valve, float, and discharge line repair",
+        "Pit and basin work"
+      ],
+      "photo": {
+        "src": "/photos/site-sump-pump.jpg",
+        "alt": "Sump pump with battery backup in a basement",
+        "caption": "Sump pump with battery backup"
+      },
+      "link": "Sump pumps"
+    }
   },
   {
     "slug": "emergency-plumbing",
     "name": "Emergency plumbing",
     "icon": "bolt",
     "short": "Leaks, no hot water, backups",
-    "hubShort": "burst pipes, active leaks, sewer backups, no hot water",
+    "hubShort": "Burst pipes, active leaks, sewer backups, no hot water",
     "metaDescription": "Emergency plumbing in St. Charles County. Burst pipes, active leaks, sewer backups, and no hot water handled by a licensed crew. Call or text 314-220-1827 now.",
-    "intro": "[What we fix paragraph — emergency plumbing]",
-    "problems": ["Burst pipe", "Active leak you can't stop", "Sewer backing up", "No hot water", "Water heater leaking", "Frozen pipes"],
+    "intro": "Burst pipe, water pouring through a ceiling, sewer backing up, no hot water in January. Call 314-220-1827 — for emergencies, call rather than book online so we can talk you through shutting off water while we're on the way.",
+    "problems": [
+      "Burst pipe",
+      "Active leak you can't stop",
+      "Sewer backing up",
+      "No hot water",
+      "Water heater leaking",
+      "Frozen pipes"
+    ],
     "whatToExpect": "[What to expect paragraph — emergency plumbing]",
-    "crew": ["tyler", "ryan"]
+    "crew": [
+      "tyler",
+      "ryan"
+    ],
+    "hub": {
+      "heading": "Emergency plumbing",
+      "anchor": "Emergency",
+      "paragraph": "Burst pipe, water pouring through a ceiling, sewer backing up, no hot water in January. Call 314-220-1827 — for emergencies, call rather than book online so we can talk you through shutting off water while we're on the way.",
+      "whatWeDo": [],
+      "link": "Emergency plumbing"
+    }
   }
 ]

@@ -12,6 +12,7 @@ import reviewsJson from "../../content/reviews.json";
 import faqsJson from "../../content/faqs.json";
 import projectsJson from "../../content/projects.json";
 import homeJson from "../../content/home.json";
+import plumbingJson from "../../content/plumbing.json";
 
 export type IconName =
   | "star"
@@ -53,6 +54,15 @@ export type Service = {
   problems: string[];
   whatToExpect: string;
   crew: string[];
+  hub: {
+    heading: string;
+    anchor: string;
+    paragraph: string;
+    whatWeDo: string[];
+    callout?: { lead: string; text: string };
+    photo?: Photo;
+    link: string;
+  };
 };
 
 export type City = { slug: string; name: string; tier: 1 | 2 };
@@ -113,6 +123,7 @@ export const team = teamJson as unknown as TeamContent;
 export const reviews = reviewsJson as unknown as ReviewsContent;
 export const faqs = faqsJson;
 export const home = homeJson;
+export const plumbing = plumbingJson;
 export const projects = projectsJson as unknown as ProjectsContent;
 
 export const SITE_URL = site.siteUrl;
