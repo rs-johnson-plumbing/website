@@ -1,0 +1,70 @@
+{
+  "heading": "Here's who shows up at your door — and your job site",
+  "line": "Every plumber on our crew is licensed, insured, background-checked, and drives a marked R.S. Johnson truck.",
+  "groupPhoto": { "src": "/photos/crew-group.jpg", "alt": "Whole crew standing in front of two marked company trucks", "caption": "Whole crew in front of two trucks" },
+  "members": [
+    {
+      "id": "ryan",
+      "name": "Ryan Johnson",
+      "title": "Owner · Master Plumber",
+      "role": "Runs every bid, walks every job, and still takes service calls",
+      "bio": "I started R.S. Johnson Plumbing in [year] after [#] years working for other outfits, because I wanted to do the work the way I'd want it done in my own house: show up when we say we will, leave it cleaner than we found it, and explain what we fixed and why. Most of our work is new construction and remodels for builders across St. Charles County, and we take on homeowner repairs in between. I've lived in O'Fallon since [year] with [family detail], and there's a good chance we've already worked on a house on your street.",
+      "badges": ["Missouri Master Plumber", "[#] years in the trade", "O'Fallon since [year]"],
+      "photo": { "src": "/photos/crew-ryan.jpg", "alt": "Ryan Johnson in a company shirt in front of an R.S. Johnson Plumbing truck", "caption": "Ryan in company shirt in front of truck" },
+      "featured": true,
+      "placeholder": false
+    },
+    {
+      "id": "mike",
+      "name": "Mike Delgado",
+      "title": "Master Plumber",
+      "role": "Leads most of our new-construction rough-ins.",
+      "bio": "Mike has been plumbing for 14 years and is the one Ryan puts on a job when the framing crew is moving fast and the underground has to be right the first time. He grew up in St. Peters, and his weekends belong to his daughter's softball schedule.",
+      "photo": { "src": "/photos/crew-mike.jpg", "alt": "Mike Delgado, Master Plumber, in a company shirt", "caption": "Mike in company shirt" },
+      "placeholder": true
+    },
+    {
+      "id": "tyler",
+      "name": "Tyler Brandt",
+      "title": "Master Plumber",
+      "role": "Your service call for water heaters, leaks, and repairs.",
+      "bio": "Tyler has been plumbing for 9 years and handles most of our homeowner repair calls — if you've got no hot water on a Sunday, he's the truck you'll see pull up. He lives in Wentzville with his wife and two dogs and is a lifelong Cardinals fan, for better or worse.",
+      "photo": { "src": "/photos/crew-tyler.jpg", "alt": "Tyler Brandt, Master Plumber, in a company shirt", "caption": "Tyler in company shirt" },
+      "placeholder": true
+    },
+    {
+      "id": "chris",
+      "name": "Chris Okafor",
+      "title": "Master Plumber",
+      "role": "Trim-out and fixture specialist on custom homes.",
+      "bio": "Chris has been plumbing for 11 years and does most of our finish work — setting fixtures, tile-side details, and the final walkthroughs with builders and homeowners. He's from Lake St. Louis originally and restores old pickup trucks when he's not on a job.",
+      "photo": { "src": "/photos/crew-chris.jpg", "alt": "Chris Okafor, Master Plumber, in a company shirt", "caption": "Chris in company shirt" },
+      "placeholder": true
+    },
+    {
+      "id": "danny",
+      "name": "Danny Reyes",
+      "title": "Master Plumber",
+      "role": "Drains, sewer lines, and the jobs nobody else wants.",
+      "bio": "Danny has been plumbing for 8 years and runs our drain and sewer work, from camera inspections to full line replacements. He grew up in Dardenne Prairie, still lives a few miles from where he was raised, and is the guy on the crew who brings the donuts.",
+      "photo": { "src": "/photos/crew-danny.jpg", "alt": "Danny Reyes, Master Plumber, in a company shirt", "caption": "Danny in company shirt" },
+      "placeholder": true
+    }
+  ],
+  "whoShowsUp": {
+    "heading": "Here's who shows up at your door",
+    "items": ["Licensed and background-checked", "Marked truck and company shirt", "Text before we arrive"],
+    "line": "No call center, no rotating subcontractors — the crew on this page is the crew at your door.",
+    "button": "Meet the Team"
+  },
+  "howWeWork": {
+    "homeowners": { "heading": "For homeowners", "items": ["Text before arrival", "Company shirt and ID", "We clean up"] },
+    "builders": { "heading": "For builders", "items": ["Same crew on your job start to finish", "Daily check-in with your super", "We schedule and meet inspections"] }
+  },
+  "promises": [
+    { "icon": "clock", "title": "We show up when we say", "line": "You get a text with a name and ETA before we arrive" },
+    { "icon": "tag", "title": "Price before we start", "line": "Upfront pricing, no surprises on the invoice" },
+    { "icon": "sparkle", "title": "Cleaner than we found it", "line": "Shoe covers, drop cloths, and we haul out what we bring in" },
+    { "icon": "phone", "title": "You talk to the plumber", "line": "Owner-operated — Ryan answers the phone, not a call center" }
+  ]
+}

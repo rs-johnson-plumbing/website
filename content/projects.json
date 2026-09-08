@@ -1,0 +1,12 @@
+{
+  "heading": "Recent builder work",
+  "items": [
+    { "id": "chesterfield-01", "city": "Chesterfield", "type": "Custom home", "scope": "Full rough-in through trim, 4.5 baths, tankless water heater [placeholder]", "photo": { "src": "/photos/project-chesterfield-01.jpg", "alt": "Plumbing rough-in at a custom home under construction in Chesterfield, Missouri", "caption": "Chesterfield custom home rough-in" }, "featured": true },
+    { "id": "town-and-country-01", "city": "Town and Country", "type": "Whole-house remodel", "scope": "Master bath and kitchen re-plumb, new fixtures throughout [placeholder]", "photo": { "src": "/photos/project-town-and-country-01.jpg", "alt": "Plumbing work during a whole-house remodel in Town and Country, Missouri", "caption": "Town and Country whole-house remodel" }, "featured": true },
+    { "id": "ofallon-01", "city": "O'Fallon", "type": "Spec build", "scope": "Underground through trim on a 3-bath two-story [placeholder]", "photo": { "src": "/photos/project-ofallon-01.jpg", "alt": "Finished plumbing fixture trim-out at a spec home in O'Fallon, Missouri", "caption": "O'Fallon spec build trim-out" }, "featured": true },
+    { "id": "wentzville-01", "city": "Wentzville", "type": "Spec build", "scope": "[Scope placeholder]", "photo": { "src": "/photos/project-wentzville-01.jpg", "alt": "Plumbing rough-in at a spec home in Wentzville, Missouri", "caption": "Wentzville spec build" }, "featured": false },
+    { "id": "wildwood-01", "city": "Wildwood", "type": "Whole-house remodel", "scope": "[Scope placeholder]", "photo": { "src": "/photos/project-wildwood-01.jpg", "alt": "Plumbing work during a whole-house remodel in Wildwood, Missouri", "caption": "Wildwood whole-house remodel" }, "featured": false },
+    { "id": "st-charles-01", "city": "St. Charles", "type": "Custom home", "scope": "[Scope placeholder]", "photo": { "src": "/photos/project-st-charles-01.jpg", "alt": "Plumbing trim-out at a custom home in St. Charles, Missouri", "caption": "St. Charles custom home" }, "featured": false }
+  ],
+  "contractorQuote": { "quote": "[Contractor quote placeholder]", "author": "[Name]", "company": "[Builder company]", "city": "[City]" }
+}
