@@ -1,0 +1,601 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  *{box-sizing:border-box;}
+  body{margin:0;background:#F7F5F0;overflow-x:hidden;}
+  a{color:#2F6FE0;text-decoration:none;}
+  a:hover{color:#1F4FB0;text-decoration:underline;}
+  section[id]{scroll-margin-top:136px;}
+  .rsj-btn:hover{opacity:0.88;text-decoration:none;}
+  .rsj-card:hover{border-color:#2F6FE0;}
+  .rsj-nav-desktop a:hover{text-decoration:underline;text-underline-offset:6px;text-decoration-thickness:1.5px;color:#2B2B2B;}
+  .rsj-nav-desktop{display:flex;}
+  .rsj-nav-desktop a{white-space:nowrap;}
+  header > *:first-child{margin-right:32px;}
+  @media (max-width:1280px){
+    .rsj-logo-word{font-size:17px;}
+    .rsj-nav-desktop{gap:20px !important;font-size:15px !important;}
+  }
+  .rsj-hamburger{display:none;}
+  .rsj-sticky-bottom{display:none;}
+  .rsj-logo-word{font-size:20px;}
+  .rsj-anchor{display:inline-flex;align-items:center;gap:6px;color:#6E7178;font-size:15px;font-weight:500;white-space:nowrap;padding:14px 0;border-bottom:3px solid transparent;margin-bottom:-1px;transition:color 0.15s,border-color 0.15s;}
+  .rsj-anchor:hover{color:#2B2B2B;text-decoration:none;border-bottom-color:#C9C6BE;}
+  .rsj-anchor-active{color:#2F6FE0 !important;font-weight:700 !important;border-bottom-color:#2F6FE0 !important;}
+  .rsj-anchor-bar::-webkit-scrollbar{display:none;}
+  .rsj-faq-btn:hover{color:#2F6FE0;}
+  @media (max-width:1140px){
+    body{padding-bottom:76px;}
+    header{height:60px !important;}
+    header svg[viewBox="0 0 34 34"]{width:24px;height:24px;}
+    .rsj-logo-word{font-size:16px !important;}
+    .rsj-header-call-mobile{height:36px;padding:0 12px !important;align-items:center;}
+    .rsj-hamburger{width:24px !important;height:24px !important;margin-left:12px !important;padding:0 !important;}
+    .rsj-hamburger svg{width:20px;height:14px;flex-shrink:0;}
+    .rsj-utility{padding:0 12px !important;height:auto !important;min-height:32px;justify-content:center !important;font-size:12px !important;}
+    .rsj-utility > div{gap:12px !important;flex-wrap:wrap;justify-content:center;padding:6px 0;}
+    .rsj-utility-extra{display:none !important;}
+    .rsj-nav-desktop{display:none !important;}
+    .rsj-hamburger{display:flex !important;border:0 !important;}
+    .rsj-header-call-mobile{display:flex !important;}
+    .rsj-sticky-bottom{display:flex !important;}
+    .rsj-header-pad{padding:0 12px 0 20px !important;}
+    .rsj-llc{display:none;}
+    .rsj-section-pad{padding:48px 20px !important;}
+    .rsj-two-col{grid-template-columns:1fr !important;gap:28px !important;}
+    .rsj-band{grid-template-columns:1fr !important;gap:24px !important;}
+    .rsj-band-photo{order:-1;}
+    .rsj-grid-4{grid-template-columns:repeat(2,1fr) !important;}
+    .rsj-grid-3{grid-template-columns:1fr !important;}
+    .rsj-grid-5{grid-template-columns:repeat(2,1fr) !important;}
+    .rsj-action-blocks{gap:12px !important;}
+    .rsj-block{border:1px solid #D8D3C5;border-radius:8px;padding:16px;background:#F7F5F0;}
+    .rsj-block-btn{background:transparent !important;border:0 !important;color:#2F6FE0 !important;padding:0 !important;text-align:left !important;}
+    .rsj-block-btn::after{content:" →";}
+    .rsj-anchor-bar{top:60px !important;}
+    .rsj-anchor{font-size:14px;padding:12px 0;}
+    .rsj-body{font-size:16px !important;}
+    .rsj-cta-row{flex-direction:column !important;align-items:stretch !important;}
+    .rsj-cta-row a{text-align:center;}
+    h1{font-size:34px !important;}
+    h2{font-size:26px !important;}
+    section[id]{scroll-margin-top:110px;}
+  }
+</style>
+</helmet>
+
+<div style="font-family:'Manrope',sans-serif;color:#2B2B2B;">
+
+<!-- HEADER -->
+<header style="position:sticky;top:0;z-index:20;display:flex;align-items:center;justify-content:space-between;height:80px;padding:0 64px;background:#F7F5F0;border-bottom:1px solid #E3DFD5;" class="rsj-header-pad">
+  <a href="./RS Johnson Plumbing Homepage.dc.html" style="display:flex;align-items:center;gap:10px;color:#2B2B2B;">
+    <svg width="34" height="34" viewBox="0 0 34 34" fill="none" aria-hidden="true" style="flex-shrink:0;"><path d="M9 4 L9 18 A8 8 0 0 0 25 18 L25 12 L32 12" stroke="#2B2B2B" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+    <span class="rsj-logo-word" style="font-family:Georgia,serif;font-weight:700;white-space:nowrap;">R.S. Johnson Plumbing<span class="rsj-llc"> LLC</span></span>
+  </a>
+  <div style="display:flex;align-items:center;">
+    <nav class="rsj-nav-desktop" aria-label="Primary" style="align-items:center;gap:28px;font-size:16px;font-weight:500;color:#2B2B2B;white-space:nowrap;">
+      <a href="#" aria-current="page" style="color:#2B2B2B;text-decoration:underline;text-underline-offset:6px;text-decoration-thickness:1.5px;">For Homeowners</a>
+      <a href="./For Builders.dc.html" style="color:#2B2B2B;">For Builders</a>
+      <a href="#service-area" style="color:#2B2B2B;">Service Area</a>
+      <a href="./RS Johnson Plumbing Homepage.dc.html#our-team" style="color:#2B2B2B;">Our Team</a>
+      <a href="./RS Johnson Plumbing Homepage.dc.html#reviews" style="color:#2B2B2B;">Reviews</a>
+    </nav>
+    <a href="tel:3142201827" class="rsj-btn rsj-nav-desktop" style="margin-left:40px;background:#2F6FE0;color:#FFFFFF;border-radius:8px;padding:12px 20px;font-size:15px;font-weight:700;white-space:nowrap;">Call or Text 314-220-1827</a>
+    <a href="tel:3142201827" class="rsj-btn rsj-header-call-mobile" style="display:none;background:#2F6FE0;color:#FFFFFF;border-radius:8px;padding:10px 16px;font-size:14px;font-weight:700;white-space:nowrap;">Call</a>
+    <button class="rsj-hamburger" aria-label="Open menu" aria-expanded="{{navOpen}}" onClick="{{toggleNav}}" style="background:transparent;border:0;width:40px;height:40px;margin-left:8px;align-items:center;justify-content:center;cursor:pointer;padding:0;">
+      <svg width="22" height="16" viewBox="0 0 22 16" fill="none" aria-hidden="true"><line x1="0" y1="1" x2="22" y2="1" stroke="#2B2B2B" stroke-width="2"></line><line x1="0" y1="8" x2="22" y2="8" stroke="#2B2B2B" stroke-width="2"></line><line x1="0" y1="15" x2="22" y2="15" stroke="#2B2B2B" stroke-width="2"></line></svg>
+    </button>
+  </div>
+</header>
+
+<sc-if value="{{navOpen}}" hint-placeholder-val="{{false}}">
+  <nav aria-label="Mobile" style="display:flex;flex-direction:column;padding:16px 20px 24px;background:#F7F5F0;border-bottom:1px solid #E3DFD5;gap:16px;font-size:16px;font-weight:600;">
+    <a href="#" onClick="{{closeNav}}" style="color:#2B2B2B;">For Homeowners</a>
+    <a href="./For Builders.dc.html" style="color:#2B2B2B;">For Builders</a>
+    <a href="#service-area" onClick="{{closeNav}}" style="color:#2B2B2B;">Service Area</a>
+    <a href="./RS Johnson Plumbing Homepage.dc.html#our-team" style="color:#2B2B2B;">Our Team</a>
+    <a href="./RS Johnson Plumbing Homepage.dc.html#reviews" style="color:#2B2B2B;">Reviews</a>
+  </nav>
+</sc-if>
+
+<main>
+
+<!-- COMPACT HERO -->
+<section class="rsj-two-col rsj-section-pad" style="display:grid;grid-template-columns:1fr 380px;gap:64px;align-items:start;padding:56px 64px 48px;background:#F7F5F0;">
+  <div style="display:flex;flex-direction:column;align-items:flex-start;gap:20px;">
+    <h1 style="margin:0;font-size:48px;font-weight:600;line-height:1.1;color:#2B2B2B;">Plumbing services in St. Charles County</h1>
+    <p class="rsj-body" style="margin:0;font-size:18px;line-height:1.7;color:#2B2B2B;">Licensed, insured, and based in O'Fallon. Master Plumber Ryan Johnson and the crew on our team page handle emergency and scheduled plumbing across St. Charles and West St. Louis County — water heaters, drains and sewer, leaks, toilets and faucets, remodels, gas lines, and sump pumps.</p>
+    <div style="display:flex;align-items:center;gap:8px;font-size:14px;color:#6E7178;">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="#2F6FE0" aria-hidden="true"><path d="M12 2l2.9 6.6 7.1.6-5.4 4.7 1.7 7-6.3-3.9-6.3 3.9 1.7-7L2 9.2l7.1-.6z"></path></svg>
+      <span>Nextdoor Neighborhood Favorite 2023 · Licensed and insured in Missouri</span>
+    </div>
+  </div>
+  <aside aria-label="Get service" style="border:1px solid #E3DFD5;border-radius:8px;background:#FFFFFF;padding:24px;display:flex;flex-direction:column;gap:16px;">
+<div class="rsj-action-blocks" style="display:grid;grid-template-columns:1fr 1fr;gap:12px;width:100%;margin-top:0;">
+  <div class="rsj-block" style="display:flex;flex-direction:column;gap:10px;">
+    <div style="font-size:15px;font-weight:700;color:#2B2B2B;">Emergency service</div>
+    <div style="font-size:14px;line-height:1.4;color:#6E7178;min-height:40px;">Leak, no hot water, backed-up drain</div>
+    <a href="tel:3142201827" class="rsj-btn rsj-block-btn" style="background:#2F6FE0;color:#FFFFFF;border-radius:8px;padding:14px 20px;font-size:16px;font-weight:700;white-space:nowrap;text-align:center;">Call Now</a>
+  </div>
+  <div class="rsj-block" style="display:flex;flex-direction:column;gap:10px;">
+    <div style="font-size:15px;font-weight:700;color:#2B2B2B;">Scheduled service</div>
+    <div style="font-size:14px;line-height:1.4;color:#6E7178;min-height:40px;">Repairs, water heaters, remodels</div>
+    <a href="#book" class="rsj-btn rsj-block-btn" style="background:transparent;color:#2B2B2B;border:1.5px solid #2B2B2B;border-radius:8px;padding:14px 20px;font-size:16px;font-weight:700;white-space:nowrap;text-align:center;">Book Online</a>
+  </div>
+</div>
+    <a href="#message" style="font-size:15px;font-weight:700;">Or message us and we'll call you back</a>
+    <div style="border-top:1px solid #E3DFD5;padding-top:16px;display:flex;flex-direction:column;gap:10px;font-size:14px;font-weight:600;color:#2B2B2B;">
+      <span style="display:flex;align-items:center;gap:8px;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#2F6FE0" stroke-width="2" aria-hidden="true"><path d="M12 2l3 6 7 1-5 5 1 7-6-3-6 3 1-7-5-5 7-1z"></path></svg>Missouri master plumber</span>
+      <span style="display:flex;align-items:center;gap:8px;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#2F6FE0" stroke-width="2" aria-hidden="true"><path d="M12 3l7 3v6c0 5-3 8-7 9-4-1-7-4-7-9V6z"></path></svg>Licensed and insured</span>
+      <span style="display:flex;align-items:center;gap:8px;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#2F6FE0" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="9"></circle><path d="M9 12l2 2 4-4"></path></svg>Upfront pricing</span>
+    </div>
+  </aside>
+</section>
+
+<!-- STICKY ANCHOR BAR -->
+<nav aria-label="On this page" class="rsj-anchor-bar rsj-header-pad" style="position:sticky;top:80px;z-index:15;background:#F7F5F0;border-top:1px solid #E3DFD5;border-bottom:1px solid #E3DFD5;padding:0 64px;overflow-x:auto;scrollbar-width:none;">
+  <div style="display:flex;justify-content:space-between;gap:12px;align-items:center;min-width:max-content;width:100%;">
+    <a href="#services" class="rsj-anchor {{ac.services}}"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0;"><rect x="3" y="3" width="7" height="7" rx="1"></rect><rect x="14" y="3" width="7" height="7" rx="1"></rect><rect x="3" y="14" width="7" height="7" rx="1"></rect><rect x="14" y="14" width="7" height="7" rx="1"></rect></svg><span>Services</span></a>
+    <a href="#signs" class="rsj-anchor {{ac.signs}}"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0;"><path d="M12 3L2 21h20L12 3z"></path><line x1="12" y1="10" x2="12" y2="14"></line><circle cx="12" cy="17.5" r="0.6" fill="currentColor"></circle></svg><span>Signs</span></a>
+    <a href="#water-heaters" class="rsj-anchor {{ac.waterHeaters}}"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0;"><rect x="7" y="3" width="10" height="18" rx="4"></rect><line x1="9" y1="8" x2="15" y2="8"></line><line x1="9" y1="12" x2="15" y2="12"></line></svg><span>Water heaters</span></a>
+    <a href="#drains-sewer" class="rsj-anchor {{ac.drainsSewer}}"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0;"><circle cx="12" cy="12" r="9"></circle><path d="M8 9l4 4-4 4M16 9l-4 4 4 4"></path></svg><span>Drains and sewer</span></a>
+    <a href="#leaks" class="rsj-anchor {{ac.leaks}}"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0;"><path d="M12 3c3 4 6 7.5 6 11a6 6 0 1 1-12 0c0-3.5 3-7 6-11z"></path></svg><span>Leaks</span></a>
+    <a href="#toilets-faucets" class="rsj-anchor {{ac.toiletsFaucets}}"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0;"><path d="M5 12h9a3 3 0 0 1 3 3v1H8"></path><circle cx="17" cy="8" r="2"></circle><path d="M17 10v2"></path></svg><span>Toilets and faucets</span></a>
+    <a href="#remodels" class="rsj-anchor {{ac.remodels}}"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0;"><rect x="4" y="13" width="16" height="6" rx="2"></rect><path d="M6 13V9a2 2 0 0 1 2-2"></path></svg><span>Remodels</span></a>
+    <a href="#gas-lines" class="rsj-anchor {{ac.gasLines}}"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0;"><path d="M12 3c1 3 4 5 4 9a4 4 0 0 1-8 0c0-2 1-3 1-3s1 2 2 2c0-3 1-5 1-8z"></path></svg><span>Gas lines</span></a>
+    <a href="#sump-pumps" class="rsj-anchor {{ac.sumpPumps}}"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0;"><circle cx="12" cy="9" r="6"></circle><path d="M12 15v6M9 21h6"></path></svg><span>Sump pumps</span></a>
+    <a href="#emergency" class="rsj-anchor {{ac.emergency}}"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0;"><path d="M13 2L4 14h6l-1 8 9-12h-6z"></path></svg><span>Emergency</span></a>
+    <a href="#why-us" class="rsj-anchor {{ac.whyUs}}"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0;"><path d="M12 3l7 3v6c0 5-3 8-7 9-4-1-7-4-7-9V6z"></path><path d="M9 12l2 2 4-4"></path></svg><span>Why us</span></a>
+    <a href="#faq" class="rsj-anchor {{ac.faq}}"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0;"><circle cx="12" cy="12" r="9"></circle><path d="M9.5 9.5a2.5 2.5 0 1 1 3.5 2.3c-.7.4-1 .9-1 1.7"></path><circle cx="12" cy="17" r="0.6" fill="currentColor"></circle></svg><span>FAQ</span></a>
+  </div>
+</nav>
+
+<!-- SERVICES GRID -->
+<section id="services" class="rsj-section-pad" style="padding:72px 64px;background:#F7F5F0;">
+  <h2 style="margin:0 0 12px;font-size:32px;font-weight:600;color:#2B2B2B;">What we do for homeowners</h2>
+  <p class="rsj-body" style="margin:0 0 32px;font-size:18px;line-height:1.7;color:#6E7178;max-width:720px;">Every service below has its own page with details on what we fix, what to expect, and what it typically involves.</p>
+  <div class="rsj-grid-4" style="display:grid;grid-template-columns:repeat(4,1fr);gap:20px;">
+    <a href="#water-heaters" class="rsj-card" style="border:1px solid #E3DFD5;border-radius:8px;padding:24px;display:flex;flex-direction:column;align-items:flex-start;gap:12px;color:#2B2B2B;transition:border-color 0.15s;">
+      <span style="display:flex;align-items:center;justify-content:center;width:40px;height:40px;border-radius:10px;background:#E3EBFB;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#2F6FE0" stroke-width="1.6" aria-hidden="true"><rect x="7" y="3" width="10" height="18" rx="4"></rect><line x1="9" y1="8" x2="15" y2="8"></line><line x1="9" y1="12" x2="15" y2="12"></line></svg></span>
+      <div style="font-size:18px;font-weight:500;">Water heaters</div>
+      <div style="font-size:15px;line-height:1.5;color:#6E7178;">Repair, replacement, tank and tankless installation</div>
+    </a>
+    <a href="#drains-sewer" class="rsj-card" style="border:1px solid #E3DFD5;border-radius:8px;padding:24px;display:flex;flex-direction:column;align-items:flex-start;gap:12px;color:#2B2B2B;transition:border-color 0.15s;">
+      <span style="display:flex;align-items:center;justify-content:center;width:40px;height:40px;border-radius:10px;background:#E3EBFB;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#2F6FE0" stroke-width="1.6" aria-hidden="true"><circle cx="12" cy="12" r="9"></circle><path d="M8 9l4 4-4 4M16 9l-4 4 4 4"></path></svg></span>
+      <div style="font-size:18px;font-weight:500;">Drains and sewer</div>
+      <div style="font-size:15px;line-height:1.5;color:#6E7178;">Clogs, camera inspections, main line repair and replacement</div>
+    </a>
+    <a href="#leaks" class="rsj-card" style="border:1px solid #E3DFD5;border-radius:8px;padding:24px;display:flex;flex-direction:column;align-items:flex-start;gap:12px;color:#2B2B2B;transition:border-color 0.15s;">
+      <span style="display:flex;align-items:center;justify-content:center;width:40px;height:40px;border-radius:10px;background:#E3EBFB;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#2F6FE0" stroke-width="1.6" aria-hidden="true"><path d="M12 3c3 4 6 7.5 6 11a6 6 0 1 1-12 0c0-3.5 3-7 6-11z"></path></svg></span>
+      <div style="font-size:18px;font-weight:500;">Leaks and repairs</div>
+      <div style="font-size:15px;line-height:1.5;color:#6E7178;">Pipe leaks, valves, shutoffs, low water pressure</div>
+    </a>
+    <a href="#toilets-faucets" class="rsj-card" style="border:1px solid #E3DFD5;border-radius:8px;padding:24px;display:flex;flex-direction:column;align-items:flex-start;gap:12px;color:#2B2B2B;transition:border-color 0.15s;">
+      <span style="display:flex;align-items:center;justify-content:center;width:40px;height:40px;border-radius:10px;background:#E3EBFB;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#2F6FE0" stroke-width="1.6" aria-hidden="true"><path d="M5 12h9a3 3 0 0 1 3 3v1H8"></path><circle cx="17" cy="8" r="2"></circle><path d="M17 10v2"></path></svg></span>
+      <div style="font-size:18px;font-weight:500;">Toilets and faucets</div>
+      <div style="font-size:15px;line-height:1.5;color:#6E7178;">Repair and replacement</div>
+    </a>
+    <a href="#remodels" class="rsj-card" style="border:1px solid #E3DFD5;border-radius:8px;padding:24px;display:flex;flex-direction:column;align-items:flex-start;gap:12px;color:#2B2B2B;transition:border-color 0.15s;">
+      <span style="display:flex;align-items:center;justify-content:center;width:40px;height:40px;border-radius:10px;background:#E3EBFB;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#2F6FE0" stroke-width="1.6" aria-hidden="true"><rect x="4" y="13" width="16" height="6" rx="2"></rect><path d="M6 13V9a2 2 0 0 1 2-2"></path></svg></span>
+      <div style="font-size:18px;font-weight:500;">Bath and kitchen remodel plumbing</div>
+      <div style="font-size:15px;line-height:1.5;color:#6E7178;">Rough-in through fixture set</div>
+    </a>
+    <a href="#gas-lines" class="rsj-card" style="border:1px solid #E3DFD5;border-radius:8px;padding:24px;display:flex;flex-direction:column;align-items:flex-start;gap:12px;color:#2B2B2B;transition:border-color 0.15s;">
+      <span style="display:flex;align-items:center;justify-content:center;width:40px;height:40px;border-radius:10px;background:#E3EBFB;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#2F6FE0" stroke-width="1.6" aria-hidden="true"><line x1="4" y1="15" x2="14" y2="15"></line><circle cx="17" cy="15" r="3"></circle><line x1="20" y1="15" x2="20" y2="9"></line></svg></span>
+      <div style="font-size:18px;font-weight:500;">Gas lines</div>
+      <div style="font-size:15px;line-height:1.5;color:#6E7178;">New runs for ranges, grills, fireplaces, and generators; leak repair</div>
+    </a>
+    <a href="#sump-pumps" class="rsj-card" style="border:1px solid #E3DFD5;border-radius:8px;padding:24px;display:flex;flex-direction:column;align-items:flex-start;gap:12px;color:#2B2B2B;transition:border-color 0.15s;">
+      <span style="display:flex;align-items:center;justify-content:center;width:40px;height:40px;border-radius:10px;background:#E3EBFB;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#2F6FE0" stroke-width="1.6" aria-hidden="true"><circle cx="12" cy="9" r="6"></circle><path d="M12 15v6M9 21h6"></path></svg></span>
+      <div style="font-size:18px;font-weight:500;">Sump pumps</div>
+      <div style="font-size:15px;line-height:1.5;color:#6E7178;">Installation, replacement, battery backup</div>
+    </a>
+    <a href="#emergency" class="rsj-card" style="border:1px solid #E3DFD5;border-radius:8px;padding:24px;display:flex;flex-direction:column;align-items:flex-start;gap:12px;color:#2B2B2B;transition:border-color 0.15s;">
+      <span style="display:flex;align-items:center;justify-content:center;width:40px;height:40px;border-radius:10px;background:#E3EBFB;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#2F6FE0" stroke-width="1.6" aria-hidden="true"><path d="M13 2L4 14h6l-1 8 9-12h-6z"></path></svg></span>
+      <div style="font-size:18px;font-weight:500;">Emergency plumbing</div>
+      <div style="font-size:15px;line-height:1.5;color:#6E7178;">Burst pipes, active leaks, sewer backups, no hot water</div>
+    </a>
+  </div>
+</section>
+
+<!-- SIGNS -->
+<section id="signs" class="rsj-section-pad" style="padding:72px 64px;background:#FFFFFF;border-top:1px solid #E3DFD5;border-bottom:1px solid #E3DFD5;">
+  <h2 style="margin:0 0 12px;font-size:32px;font-weight:600;color:#2B2B2B;">Signs you need a plumber</h2>
+  <p class="rsj-body" style="margin:0 0 40px;font-size:18px;line-height:1.7;color:#2B2B2B;max-width:820px;">Most expensive plumbing repairs start as something small that went unaddressed for a season. If you're seeing any of these in your home, it's worth a call before it becomes a bigger job.</p>
+  <div class="rsj-grid-3" style="display:grid;grid-template-columns:repeat(3,1fr);gap:32px 40px;">
+    <div style="display:flex;flex-direction:column;gap:12px;">
+      <span style="display:flex;align-items:center;justify-content:center;width:40px;height:40px;border-radius:10px;background:#E3EBFB;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#2F6FE0" stroke-width="1.6" aria-hidden="true"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 2"></path></svg></span>
+      <h3 style="margin:0;font-size:20px;font-weight:600;">A drain that keeps clogging</h3>
+      <p class="rsj-body" style="margin:0;font-size:17px;line-height:1.7;color:#2B2B2B;">One clog is normal. The same drain clogging every few weeks usually means buildup deeper in the line, a partial obstruction, or a problem in the main sewer line. Plunging and store-bought drain cleaners treat the symptom and can damage older pipes.</p>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:12px;">
+      <span style="display:flex;align-items:center;justify-content:center;width:40px;height:40px;border-radius:10px;background:#E3EBFB;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#2F6FE0" stroke-width="1.6" aria-hidden="true"><path d="M12 3c3 4 6 7.5 6 11a6 6 0 1 1-12 0c0-3.5 3-7 6-11z"></path></svg></span>
+      <h3 style="margin:0;font-size:20px;font-weight:600;">Water where it shouldn't be</h3>
+      <p class="rsj-body" style="margin:0;font-size:17px;line-height:1.7;color:#2B2B2B;">Stains on a ceiling, a soft spot in drywall, a musty smell in a closet, or a water bill that jumped without explanation. Hidden leaks do the most damage because they go unnoticed the longest.</p>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:12px;">
+      <span style="display:flex;align-items:center;justify-content:center;width:40px;height:40px;border-radius:10px;background:#E3EBFB;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#2F6FE0" stroke-width="1.6" aria-hidden="true"><path d="M4 16a8 8 0 0 1 16 0"></path><path d="M12 16l4-5"></path><line x1="3" y1="20" x2="21" y2="20"></line></svg></span>
+      <h3 style="margin:0;font-size:20px;font-weight:600;">Low or uneven water pressure</h3>
+      <p class="rsj-body" style="margin:0;font-size:17px;line-height:1.7;color:#2B2B2B;">A single fixture with weak flow is usually the fixture. Low pressure through the whole house points to a supply-side issue — a failing pressure-reducing valve, a leak, or mineral buildup in older lines.</p>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:12px;">
+      <span style="display:flex;align-items:center;justify-content:center;width:40px;height:40px;border-radius:10px;background:#E3EBFB;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#2F6FE0" stroke-width="1.6" aria-hidden="true"><path d="M4 14c2-2 4-2 6 0s4 2 6 0 4-2 6 0"></path><path d="M4 9c2-2 4-2 6 0s4 2 6 0 4-2 6 0"></path><path d="M4 19c2-2 4-2 6 0s4 2 6 0 4-2 6 0"></path></svg></span>
+      <h3 style="margin:0;font-size:20px;font-weight:600;">Sewer smell or gurgling drains</h3>
+      <p class="rsj-body" style="margin:0;font-size:17px;line-height:1.7;color:#2B2B2B;">A sewer odor in the house, or a toilet that gurgles when the washer drains, means air and wastewater are going somewhere they shouldn't. This is a main-line warning sign and should be looked at quickly.</p>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:12px;">
+      <span style="display:flex;align-items:center;justify-content:center;width:40px;height:40px;border-radius:10px;background:#E3EBFB;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#2F6FE0" stroke-width="1.6" aria-hidden="true"><rect x="7" y="3" width="10" height="18" rx="4"></rect><line x1="9" y1="8" x2="15" y2="8"></line><line x1="9" y1="12" x2="15" y2="12"></line></svg></span>
+      <h3 style="margin:0;font-size:20px;font-weight:600;">Water heater acting up</h3>
+      <p class="rsj-body" style="margin:0;font-size:17px;line-height:1.7;color:#2B2B2B;">Lukewarm water, hot water that runs out fast, rumbling or popping from the tank, rust-colored water, or moisture around the base. Most tank water heaters last [10–12] years; many homes built in St. Charles County in the [late 1990s and 2000s] are on their second or third unit, and a lot of those are due.</p>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:12px;">
+      <span style="display:flex;align-items:center;justify-content:center;width:40px;height:40px;border-radius:10px;background:#E3EBFB;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#2F6FE0" stroke-width="1.6" aria-hidden="true"><circle cx="12" cy="9" r="6"></circle><path d="M12 15v6M9 21h6"></path></svg></span>
+      <h3 style="margin:0;font-size:20px;font-weight:600;">A sump pump you haven't thought about</h3>
+      <p class="rsj-body" style="margin:0;font-size:17px;line-height:1.7;color:#2B2B2B;">If you haven't heard your sump pump run in a while, or you don't know how old it is, it's worth testing before the next heavy rain. Sump pumps in this area work hard, and a failed pump shows up as a flooded basement.</p>
+    </div>
+  </div>
+</section>
+
+<!-- WATER HEATERS (photo left) -->
+<section id="water-heaters" class="rsj-band rsj-section-pad" style="display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:start;padding:72px 64px;background:#F7F5F0;">
+  <div class="rsj-band-photo" role="img" aria-label="Water heater installation in St. Charles County by R.S. Johnson Plumbing" style="aspect-ratio:4/3;border-radius:8px;border:1px solid #D8D3C5;background:repeating-linear-gradient(135deg,#E3DFD5,#E3DFD5 12px,#ECE8DC 12px,#ECE8DC 24px);display:flex;align-items:center;justify-content:center;text-align:center;padding:24px;">
+    <span style="font-family:'Courier New',monospace;font-size:13px;color:#6E7178;max-width:260px;">photo — tank and tankless installs</span>
+  </div>
+  <div style="display:flex;flex-direction:column;gap:16px;">
+    <div style="display:flex;align-items:center;gap:14px;">
+      <span style="display:flex;align-items:center;justify-content:center;width:40px;height:40px;border-radius:10px;background:#E3EBFB;flex-shrink:0;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#2F6FE0" stroke-width="1.6" aria-hidden="true"><rect x="7" y="3" width="10" height="18" rx="4"></rect><line x1="9" y1="8" x2="15" y2="8"></line><line x1="9" y1="12" x2="15" y2="12"></line></svg></span>
+      <h2 style="margin:0;font-size:32px;font-weight:600;color:#2B2B2B;">Water heater repair and replacement</h2>
+    </div>
+    <p class="rsj-body" style="margin:0;font-size:18px;line-height:1.7;">We repair and replace gas and electric tank water heaters and install tankless systems. If your heater is under [8] years old and the problem is a thermostat, element, or valve, repair usually makes sense. If it's older and leaking from the tank itself, replacement is the only fix — and we'll tell you which one it is before we start.</p>
+    <div style="font-size:16px;font-weight:700;">What we do:</div>
+    <ul class="rsj-body" style="margin:0;padding-left:22px;display:flex;flex-direction:column;gap:8px;font-size:18px;line-height:1.6;">
+      <li>Same-day diagnosis and repair when parts are available</li>
+      <li>Tank replacement, including code upgrades (expansion tank, pan, venting) that inspectors in St. Charles County require</li>
+      <li>Tankless installation and conversion, including gas line sizing</li>
+      <li>Annual flush and anode inspection to extend tank life</li>
+    </ul>
+    <a href="#" style="font-size:16px;font-weight:700;">Water heater repair and replacement →</a>
+  </div>
+</section>
+
+<!-- DRAINS AND SEWER (text left) -->
+<section id="drains-sewer" class="rsj-band rsj-section-pad" style="display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:start;padding:72px 64px;background:#FFFFFF;border-top:1px solid #E3DFD5;border-bottom:1px solid #E3DFD5;">
+  <div style="display:flex;flex-direction:column;gap:16px;">
+    <div style="display:flex;align-items:center;gap:14px;">
+      <span style="display:flex;align-items:center;justify-content:center;width:40px;height:40px;border-radius:10px;background:#E3EBFB;flex-shrink:0;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#2F6FE0" stroke-width="1.6" aria-hidden="true"><circle cx="12" cy="12" r="9"></circle><path d="M8 9l4 4-4 4M16 9l-4 4 4 4"></path></svg></span>
+      <h2 style="margin:0;font-size:32px;font-weight:600;color:#2B2B2B;">Drain cleaning and sewer repair</h2>
+    </div>
+    <p class="rsj-body" style="margin:0;font-size:18px;line-height:1.7;">From a slow bathroom sink to a main line backing up into the basement, we clear it and find out why it happened. We run a camera on recurring main-line problems so you can see the cause — roots, a belly in the line, a break — instead of guessing.</p>
+    <div style="font-size:16px;font-weight:700;">What we do:</div>
+    <ul class="rsj-body" style="margin:0;padding-left:22px;display:flex;flex-direction:column;gap:8px;font-size:18px;line-height:1.6;">
+      <li>Kitchen, bath, laundry, and floor drain clearing</li>
+      <li>Main sewer line clearing and camera inspection</li>
+      <li>Sewer line repair and replacement, including [trenchless options where the line allows]</li>
+      <li>Advice on what's actually worth fixing versus watching</li>
+    </ul>
+    <a href="#" style="font-size:16px;font-weight:700;">Drains and sewer →</a>
+  </div>
+  <div class="rsj-band-photo" role="img" aria-label="Sewer camera inspection in O'Fallon MO" style="aspect-ratio:4/3;border-radius:8px;border:1px solid #D8D3C5;background:repeating-linear-gradient(135deg,#E3DFD5,#E3DFD5 12px,#ECE8DC 12px,#ECE8DC 24px);display:flex;align-items:center;justify-content:center;text-align:center;padding:24px;">
+    <span style="font-family:'Courier New',monospace;font-size:13px;color:#6E7178;max-width:260px;">photo — camera inspection</span>
+  </div>
+</section>
+
+<!-- LEAKS (photo left) -->
+<section id="leaks" class="rsj-band rsj-section-pad" style="display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:start;padding:72px 64px;background:#F7F5F0;">
+  <div class="rsj-band-photo" role="img" aria-label="Leak repair on a copper supply line" style="aspect-ratio:4/3;border-radius:8px;border:1px solid #D8D3C5;background:repeating-linear-gradient(135deg,#E3DFD5,#E3DFD5 12px,#ECE8DC 12px,#ECE8DC 24px);display:flex;align-items:center;justify-content:center;text-align:center;padding:24px;">
+    <span style="font-family:'Courier New',monospace;font-size:13px;color:#6E7178;max-width:260px;">photo — leak repair on a copper supply line</span>
+  </div>
+  <div style="display:flex;flex-direction:column;gap:16px;">
+    <div style="display:flex;align-items:center;gap:14px;">
+      <span style="display:flex;align-items:center;justify-content:center;width:40px;height:40px;border-radius:10px;background:#E3EBFB;flex-shrink:0;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#2F6FE0" stroke-width="1.6" aria-hidden="true"><path d="M12 3c3 4 6 7.5 6 11a6 6 0 1 1-12 0c0-3.5 3-7 6-11z"></path></svg></span>
+      <h2 style="margin:0;font-size:32px;font-weight:600;color:#2B2B2B;">Leak repair and pipe repair</h2>
+    </div>
+    <p class="rsj-body" style="margin:0;font-size:18px;line-height:1.7;">Pinhole leaks in copper, failed fittings, frozen and split lines in winter, and the shutoff valve that won't shut off. We find the source, fix it properly, and check the surrounding lines so you're not calling us back for the next joint over.</p>
+    <div style="font-size:16px;font-weight:700;">What we do:</div>
+    <ul class="rsj-body" style="margin:0;padding-left:22px;display:flex;flex-direction:column;gap:8px;font-size:18px;line-height:1.6;">
+      <li>Supply line and drain line leak repair</li>
+      <li>Shutoff valve and pressure-reducing valve replacement</li>
+      <li>Frozen pipe repair and prevention</li>
+      <li>Repiping sections or whole homes where older materials are failing</li>
+    </ul>
+    <a href="#" style="font-size:16px;font-weight:700;">Leaks and repairs →</a>
+  </div>
+</section>
+
+<!-- TOILETS AND FAUCETS (text left) -->
+<section id="toilets-faucets" class="rsj-band rsj-section-pad" style="display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:start;padding:72px 64px;background:#FFFFFF;border-top:1px solid #E3DFD5;border-bottom:1px solid #E3DFD5;">
+  <div style="display:flex;flex-direction:column;gap:16px;">
+    <div style="display:flex;align-items:center;gap:14px;">
+      <span style="display:flex;align-items:center;justify-content:center;width:40px;height:40px;border-radius:10px;background:#E3EBFB;flex-shrink:0;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#2F6FE0" stroke-width="1.6" aria-hidden="true"><path d="M5 12h9a3 3 0 0 1 3 3v1H8"></path><circle cx="17" cy="8" r="2"></circle><path d="M17 10v2"></path></svg></span>
+      <h2 style="margin:0;font-size:32px;font-weight:600;color:#2B2B2B;">Toilet and faucet repair and replacement</h2>
+    </div>
+    <p class="rsj-body" style="margin:0;font-size:18px;line-height:1.7;">The unglamorous work that makes up most homeowner calls. Running toilets, toilets that rock, faucets that drip or spray, and fixtures you'd like to swap for something newer. We stock common parts on the truck and can usually handle these in one visit.</p>
+    <div style="font-size:16px;font-weight:700;">What we do:</div>
+    <ul class="rsj-body" style="margin:0;padding-left:22px;display:flex;flex-direction:column;gap:8px;font-size:18px;line-height:1.6;">
+      <li>Toilet repair, reset, and replacement</li>
+      <li>Kitchen and bath faucet repair and replacement</li>
+      <li>Shower valve and cartridge replacement</li>
+      <li>Garbage disposal replacement</li>
+    </ul>
+    <a href="#" style="font-size:16px;font-weight:700;">Toilets and faucets →</a>
+  </div>
+  <div class="rsj-band-photo" role="img" aria-label="Faucet replacement in a kitchen" style="aspect-ratio:4/3;border-radius:8px;border:1px solid #D8D3C5;background:repeating-linear-gradient(135deg,#E3DFD5,#E3DFD5 12px,#ECE8DC 12px,#ECE8DC 24px);display:flex;align-items:center;justify-content:center;text-align:center;padding:24px;">
+    <span style="font-family:'Courier New',monospace;font-size:13px;color:#6E7178;max-width:260px;">photo — faucet replacement in a kitchen</span>
+  </div>
+</section>
+
+<!-- REMODELS (photo left) -->
+<section id="remodels" class="rsj-band rsj-section-pad" style="display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:start;padding:72px 64px;background:#F7F5F0;">
+  <div class="rsj-band-photo" role="img" aria-label="Bathroom remodel plumbing rough-in" style="aspect-ratio:4/3;border-radius:8px;border:1px solid #D8D3C5;background:repeating-linear-gradient(135deg,#E3DFD5,#E3DFD5 12px,#ECE8DC 12px,#ECE8DC 24px);display:flex;align-items:center;justify-content:center;text-align:center;padding:24px;">
+    <span style="font-family:'Courier New',monospace;font-size:13px;color:#6E7178;max-width:260px;">photo — bathroom remodel rough-in</span>
+  </div>
+  <div style="display:flex;flex-direction:column;gap:16px;">
+    <div style="display:flex;align-items:center;gap:14px;">
+      <span style="display:flex;align-items:center;justify-content:center;width:40px;height:40px;border-radius:10px;background:#E3EBFB;flex-shrink:0;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#2F6FE0" stroke-width="1.6" aria-hidden="true"><rect x="4" y="13" width="16" height="6" rx="2"></rect><path d="M6 13V9a2 2 0 0 1 2-2"></path></svg></span>
+      <h2 style="margin:0;font-size:32px;font-weight:600;color:#2B2B2B;">Bathroom and kitchen remodel plumbing</h2>
+    </div>
+    <p class="rsj-body" style="margin:0;font-size:18px;line-height:1.7;">Most of our week is remodel and new-construction work for builders, and homeowners get the same crew. If you're moving a sink, adding a shower, converting a tub, or gutting a kitchen, we handle the rough-in, coordinate with your contractor or tile setter, and come back for the fixture set and walkthrough.</p>
+    <div style="font-size:16px;font-weight:700;">What we do:</div>
+    <ul class="rsj-body" style="margin:0;padding-left:22px;display:flex;flex-direction:column;gap:8px;font-size:18px;line-height:1.6;">
+      <li>Relocating supply and drain lines</li>
+      <li>Shower pan and valve rough-in</li>
+      <li>New fixture installation and trim-out</li>
+      <li>Working directly with your contractor's schedule</li>
+    </ul>
+    <a href="#" style="font-size:16px;font-weight:700;">Bath and kitchen remodel →</a>
+  </div>
+</section>
+
+<!-- GAS LINES (text left) -->
+<section id="gas-lines" class="rsj-band rsj-section-pad" style="display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:start;padding:72px 64px;background:#FFFFFF;border-top:1px solid #E3DFD5;border-bottom:1px solid #E3DFD5;">
+  <div style="display:flex;flex-direction:column;gap:16px;">
+    <div style="display:flex;align-items:center;gap:14px;">
+      <span style="display:flex;align-items:center;justify-content:center;width:40px;height:40px;border-radius:10px;background:#E3EBFB;flex-shrink:0;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#2F6FE0" stroke-width="1.6" aria-hidden="true"><line x1="4" y1="15" x2="14" y2="15"></line><circle cx="17" cy="15" r="3"></circle><line x1="20" y1="15" x2="20" y2="9"></line></svg></span>
+      <h2 style="margin:0;font-size:32px;font-weight:600;color:#2B2B2B;">Gas line installation and repair</h2>
+    </div>
+    <p class="rsj-body" style="margin:0;font-size:18px;line-height:1.7;">New gas runs for a range, outdoor grill, fireplace insert, or standby generator, and repairs when you smell gas or a line fails inspection. Gas work is permitted and inspected in St. Charles County and its municipalities; we pull the permit and meet the inspector.</p>
+    <div role="note" style="display:flex;gap:12px;align-items:flex-start;padding:16px 18px;border:1px solid #E3DFD5;border-left:3px solid #2B2B2B;border-radius:8px;background:#F7F5F0;">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#2B2B2B" stroke-width="1.8" aria-hidden="true" style="flex-shrink:0;margin-top:2px;"><path d="M12 3L2 21h20L12 3z"></path><line x1="12" y1="10" x2="12" y2="14"></line><circle cx="12" cy="17.5" r="0.6" fill="#2B2B2B"></circle></svg>
+      <p class="rsj-body" style="margin:0;font-size:17px;line-height:1.6;"><strong>If you smell gas:</strong> leave the house, then call your gas utility's emergency line first. Call us after the utility has made it safe.</p>
+    </div>
+    <a href="#" style="font-size:16px;font-weight:700;">Gas lines →</a>
+  </div>
+  <div class="rsj-band-photo" role="img" aria-label="Gas line run for an outdoor grill" style="aspect-ratio:4/3;border-radius:8px;border:1px solid #D8D3C5;background:repeating-linear-gradient(135deg,#E3DFD5,#E3DFD5 12px,#ECE8DC 12px,#ECE8DC 24px);display:flex;align-items:center;justify-content:center;text-align:center;padding:24px;">
+    <span style="font-family:'Courier New',monospace;font-size:13px;color:#6E7178;max-width:260px;">photo — gas line run for an outdoor grill</span>
+  </div>
+</section>
+
+<!-- SUMP PUMPS (photo left) -->
+<section id="sump-pumps" class="rsj-band rsj-section-pad" style="display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:start;padding:72px 64px;background:#F7F5F0;">
+  <div class="rsj-band-photo" role="img" aria-label="Sump pump with battery backup in a basement" style="aspect-ratio:4/3;border-radius:8px;border:1px solid #D8D3C5;background:repeating-linear-gradient(135deg,#E3DFD5,#E3DFD5 12px,#ECE8DC 12px,#ECE8DC 24px);display:flex;align-items:center;justify-content:center;text-align:center;padding:24px;">
+    <span style="font-family:'Courier New',monospace;font-size:13px;color:#6E7178;max-width:260px;">photo — sump pump with battery backup</span>
+  </div>
+  <div style="display:flex;flex-direction:column;gap:16px;">
+    <div style="display:flex;align-items:center;gap:14px;">
+      <span style="display:flex;align-items:center;justify-content:center;width:40px;height:40px;border-radius:10px;background:#E3EBFB;flex-shrink:0;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#2F6FE0" stroke-width="1.6" aria-hidden="true"><circle cx="12" cy="9" r="6"></circle><path d="M12 15v6M9 21h6"></path></svg></span>
+      <h2 style="margin:0;font-size:32px;font-weight:600;color:#2B2B2B;">Sump pump installation and replacement</h2>
+    </div>
+    <p class="rsj-body" style="margin:0;font-size:18px;line-height:1.7;">Basements in this part of Missouri depend on sump pumps, and pumps fail quietly until the day they don't. We replace worn pumps, install battery backup systems that run when the power goes out in a storm, and correct discharge lines that dump water right back against the foundation.</p>
+    <div style="font-size:16px;font-weight:700;">What we do:</div>
+    <ul class="rsj-body" style="margin:0;padding-left:22px;display:flex;flex-direction:column;gap:8px;font-size:18px;line-height:1.6;">
+      <li>Sump pump testing and replacement</li>
+      <li>Battery backup and water-powered backup systems</li>
+      <li>Check valve, float, and discharge line repair</li>
+      <li>Pit and basin work</li>
+    </ul>
+    <a href="#" style="font-size:16px;font-weight:700;">Sump pumps →</a>
+  </div>
+</section>
+
+<!-- EMERGENCY -->
+<section id="emergency" class="rsj-section-pad" style="padding:72px 64px;background:#2B2B2B;color:#F7F5F0;">
+  <div style="max-width:820px;display:flex;flex-direction:column;gap:16px;">
+    <h2 style="margin:0;font-size:32px;font-weight:600;color:#F7F5F0;">Emergency plumbing</h2>
+    <p class="rsj-body" style="margin:0;font-size:18px;line-height:1.7;color:#F7F5F0;">Burst pipe, water pouring through a ceiling, sewer backing up, no hot water in January. Call 314-220-1827 — for emergencies, call rather than book online so we can talk you through shutting off water while we're on the way.</p>
+    <p style="margin:0;font-size:16px;line-height:1.6;color:#C9C6BE;"><strong style="color:#F7F5F0;">Emergency response:</strong> [Mon–Sat 7am–6pm / after-hours line — CONFIRM WITH RYAN BEFORE PUBLISHING]</p>
+    <div style="margin-top:4px;"><a href="tel:3142201827" class="rsj-btn" style="display:inline-block;background:#2F6FE0;color:#FFFFFF;border-radius:8px;padding:14px 24px;font-size:16px;font-weight:700;white-space:nowrap;">Call 314-220-1827</a></div>
+  </div>
+  <div style="margin-top:40px;">
+    <div style="font-size:16px;font-weight:700;margin-bottom:16px;">While you wait:</div>
+    <div class="rsj-grid-3" style="display:grid;grid-template-columns:repeat(3,1fr);gap:16px;">
+      <div style="border:1px solid #5C5C5C;background:#3A3A3A;border-radius:8px;padding:20px;font-size:16px;line-height:1.6;color:#F7F5F0;">Find your main water shutoff — usually in the basement near where the water line enters, or at the meter</div>
+      <div style="border:1px solid #5C5C5C;background:#3A3A3A;border-radius:8px;padding:20px;font-size:16px;line-height:1.6;color:#F7F5F0;">Turn off the water heater if the tank is leaking</div>
+      <div style="border:1px solid #5C5C5C;background:#3A3A3A;border-radius:8px;padding:20px;font-size:16px;line-height:1.6;color:#F7F5F0;">Don't run water or flush if the problem is a sewer backup</div>
+    </div>
+  </div>
+  <a href="#" style="display:inline-block;margin-top:28px;font-size:16px;font-weight:700;color:#A9C4F5;">Emergency plumbing →</a>
+</section>
+
+<!-- BUILDERS -->
+<section id="builders" class="rsj-section-pad" style="padding:56px 64px;background:#F7F5F0;border-bottom:1px solid #E3DFD5;">
+  <div class="rsj-two-col" style="display:grid;grid-template-columns:1fr auto;gap:40px;align-items:start;">
+    <div style="display:flex;flex-direction:column;gap:12px;max-width:820px;">
+      <h2 style="margin:0;font-size:32px;font-weight:600;color:#2B2B2B;">Builders and contractors</h2>
+      <p class="rsj-body" style="margin:0;font-size:18px;line-height:1.7;">If you're a general contractor or builder, our new-construction and renovation work is on its own page: capabilities by phase, recent projects, and how to request a bid.</p>
+    </div>
+    <a href="./For Builders.dc.html" class="rsj-btn" style="background:transparent;color:#2B2B2B;border:1.5px solid #2B2B2B;border-radius:8px;padding:14px 24px;font-size:16px;font-weight:700;white-space:nowrap;justify-self:start;">For Builders</a>
+  </div>
+</section>
+
+<!-- WHERE WE WORK -->
+<section id="service-area" class="rsj-two-col rsj-section-pad" style="display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:start;padding:72px 64px;background:#FFFFFF;border-bottom:1px solid #E3DFD5;">
+  <div style="display:flex;flex-direction:column;gap:20px;">
+    <h2 style="margin:0;font-size:32px;font-weight:600;color:#2B2B2B;">Where we work</h2>
+    <p class="rsj-body" style="margin:0;font-size:18px;line-height:1.7;">We're based in O'Fallon and serve St. Charles County and West St. Louis County. Most of our homeowner calls come from:</p>
+    <div>
+      <h3 style="margin:0 0 8px;font-size:18px;font-weight:700;">St. Charles County</h3>
+      <p class="rsj-body" style="margin:0;font-size:18px;line-height:1.8;"><a href="#">O'Fallon</a> · <a href="#">St. Charles</a> · <a href="#">St. Peters</a> · <a href="#">Wentzville</a> · <a href="#">Lake St. Louis</a> · <a href="#">Dardenne Prairie</a> · Cottleville · Weldon Spring</p>
+    </div>
+    <div>
+      <h3 style="margin:0 0 8px;font-size:18px;font-weight:700;">West St. Louis County</h3>
+      <p class="rsj-body" style="margin:0;font-size:18px;line-height:1.8;">Chesterfield · Wildwood · Ballwin · Kirkwood · Manchester · Ellisville · Creve Coeur · Town and Country · Clayton · Ladue</p>
+    </div>
+    <p class="rsj-body" style="margin:0;font-size:18px;line-height:1.7;">Not sure if you're in range? Text us your address at <a href="sms:3142201827">314-220-1827</a>.</p>
+  </div>
+  <div role="img" aria-label="Flat map of St. Charles County and West St. Louis County centered on O'Fallon, Missouri" style="aspect-ratio:4/3;border-radius:8px;border:1px solid #D8D3C5;background:repeating-linear-gradient(135deg,#E3DFD5,#E3DFD5 12px,#ECE8DC 12px,#ECE8DC 24px);display:flex;align-items:center;justify-content:center;text-align:center;padding:24px;">
+    <span style="font-family:'Courier New',monospace;font-size:13px;color:#6E7178;max-width:260px;">flat map — St. Charles County and West St. Louis County, centered on O'Fallon</span>
+  </div>
+</section>
+
+<!-- WHY US -->
+<section id="why-us" class="rsj-section-pad" style="padding:72px 64px;background:#F7F5F0;">
+  <h2 style="margin:0 0 32px;font-size:32px;font-weight:600;color:#2B2B2B;">Why homeowners call us</h2>
+  <div class="rsj-grid-5" style="display:grid;grid-template-columns:repeat(5,1fr);gap:16px;">
+    <div style="border:1px solid #E3DFD5;border-radius:8px;padding:24px;display:flex;flex-direction:column;gap:10px;background:#FFFFFF;">
+      <h3 style="margin:0;font-size:18px;font-weight:600;">You talk to the plumber</h3>
+      <p style="margin:0;font-size:15px;line-height:1.6;color:#2B2B2B;">Ryan answers the phone and bids every job. There's no call center and no dispatcher between you and the person doing the work.</p>
+    </div>
+    <div style="border:1px solid #E3DFD5;border-radius:8px;padding:24px;display:flex;flex-direction:column;gap:10px;background:#FFFFFF;">
+      <h3 style="margin:0;font-size:18px;font-weight:600;">A Master Plumber on every job</h3>
+      <p style="margin:0;font-size:15px;line-height:1.6;color:#2B2B2B;">Ryan holds a Missouri Master Plumber license [license # and link to the state or county lookup]. The crew is licensed, insured, and background-checked, and you can see who they are on our team page.</p>
+    </div>
+    <div style="border:1px solid #E3DFD5;border-radius:8px;padding:24px;display:flex;flex-direction:column;gap:10px;background:#FFFFFF;">
+      <h3 style="margin:0;font-size:18px;font-weight:600;">Price before we start</h3>
+      <p style="margin:0;font-size:15px;line-height:1.6;color:#2B2B2B;">You get the price before work begins. If we open something up and find more, we stop and talk before we go further.</p>
+    </div>
+    <div style="border:1px solid #E3DFD5;border-radius:8px;padding:24px;display:flex;flex-direction:column;gap:10px;background:#FFFFFF;">
+      <h3 style="margin:0;font-size:18px;font-weight:600;">The same crew builders trust</h3>
+      <p style="margin:0;font-size:15px;line-height:1.6;color:#2B2B2B;">Most of our work is new construction and remodels for builders in St. Charles County — schedules that don't tolerate no-shows. Homeowners get the same crew and the same standard.</p>
+    </div>
+    <div style="border:1px solid #E3DFD5;border-radius:8px;padding:24px;display:flex;flex-direction:column;gap:10px;background:#FFFFFF;">
+      <h3 style="margin:0;font-size:18px;font-weight:600;">Neighbors recommend us</h3>
+      <p style="margin:0;font-size:15px;line-height:1.6;color:#2B2B2B;">R.S. Johnson was a Nextdoor Neighborhood Favorite in 2023 and has [24] neighbor recommendations. [Google rating and count when available.]</p>
+    </div>
+  </div>
+  <div style="display:flex;gap:28px;flex-wrap:wrap;margin-top:24px;">
+    <a href="./RS Johnson Plumbing Homepage.dc.html#our-team" style="font-size:16px;font-weight:700;">Meet the team →</a>
+    <a href="./RS Johnson Plumbing Homepage.dc.html#reviews" style="font-size:16px;font-weight:700;">Read reviews →</a>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq" class="rsj-two-col rsj-section-pad" style="display:grid;grid-template-columns:1fr 2fr;gap:64px;align-items:start;padding:72px 64px;background:#FFFFFF;border-top:1px solid #E3DFD5;">
+  <h2 style="margin:0;font-size:32px;font-weight:600;color:#2B2B2B;">Common questions</h2>
+  <div style="display:flex;flex-direction:column;border-top:1px solid #E3DFD5;">
+    <sc-for list="{{faqs}}" as="f" hint-placeholder-count="7">
+      <div style="border-bottom:1px solid #E3DFD5;">
+        <button class="rsj-faq-btn" aria-expanded="{{f.open}}" onClick="{{f.toggle}}" style="width:100%;display:flex;justify-content:space-between;align-items:center;gap:16px;text-align:left;background:transparent;border:0;padding:20px 0;cursor:pointer;font-family:inherit;font-size:18px;font-weight:600;color:#2B2B2B;">
+          <span>{{f.q}}</span>
+          <span style="flex-shrink:0;color:#6E7178;font-size:22px;line-height:1;">{{f.glyph}}</span>
+        </button>
+        <sc-if value="{{f.open}}" hint-placeholder-val="{{false}}">
+          <p class="rsj-body" style="margin:0;padding:0 40px 20px 0;font-size:18px;line-height:1.7;color:#2B2B2B;">{{f.a}}</p>
+        </sc-if>
+      </div>
+    </sc-for>
+  </div>
+</section>
+
+<!-- CLOSING CTA -->
+<section class="rsj-section-pad" style="background:#2B2B2B;padding:64px;text-align:center;display:flex;flex-direction:column;align-items:center;gap:20px;">
+  <h2 style="margin:0;font-size:32px;font-weight:600;color:#F7F5F0;">Need a plumber in St. Charles County?</h2>
+  <div class="rsj-cta-row" style="display:flex;gap:12px;flex-wrap:wrap;justify-content:center;">
+    <a href="tel:3142201827" class="rsj-btn" style="background:#2F6FE0;color:#FFFFFF;border-radius:8px;padding:14px 24px;font-size:16px;font-weight:700;white-space:nowrap;">Call or Text 314-220-1827</a>
+    <a href="#book" class="rsj-btn" style="background:transparent;color:#F7F5F0;border:1.5px solid #F7F5F0;border-radius:8px;padding:14px 24px;font-size:16px;font-weight:700;white-space:nowrap;">Book Online</a>
+  </div>
+  <p style="margin:0;font-size:15px;color:#C9C6BE;">Mon–Sat [hours] · Emergency line [confirm]</p>
+</section>
+
+</main>
+
+<!-- FOOTER -->
+<footer style="background:#F7F5F0;padding:64px 64px 32px;border-top:1px solid #E3DFD5;" class="rsj-section-pad">
+  <div class="rsj-grid-3" style="display:grid;grid-template-columns:repeat(3,1fr);gap:40px;margin-bottom:40px;">
+    <div>
+      <div style="font-family:Georgia,serif;font-size:18px;font-weight:700;margin-bottom:8px;color:#2B2B2B;">R.S. Johnson Plumbing LLC</div>
+      <div style="font-size:15px;color:#6E7178;margin-bottom:12px;">Based in O'Fallon, MO</div>
+      <div style="font-size:15px;margin-bottom:4px;"><a href="tel:3142201827" style="color:#2B2B2B;">314-220-1827</a></div>
+      <div style="font-size:15px;"><a href="mailto:info@rsjohnsonplumbing.com" style="color:#2B2B2B;">info@rsjohnsonplumbing.com</a></div>
+    </div>
+    <div>
+      <div style="font-size:15px;font-weight:700;margin-bottom:12px;color:#2B2B2B;">Services</div>
+      <ul style="list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:8px;font-size:15px;color:#6E7178;">
+        <li><a href="#water-heaters" style="color:#6E7178;">Water heaters</a></li><li><a href="#leaks" style="color:#6E7178;">Leaks and repairs</a></li><li><a href="#drains-sewer" style="color:#6E7178;">Drains and sewer</a></li><li><a href="#toilets-faucets" style="color:#6E7178;">Toilets and faucets</a></li><li><a href="#remodels" style="color:#6E7178;">Bath and kitchen remodel</a></li><li><a href="#gas-lines" style="color:#6E7178;">Gas lines</a></li><li><a href="#sump-pumps" style="color:#6E7178;">Sump pumps</a></li><li><a href="#emergency" style="color:#6E7178;">Emergency plumbing</a></li>
+      </ul>
+    </div>
+    <div>
+      <div style="font-size:15px;font-weight:700;margin-bottom:12px;color:#2B2B2B;">Service area</div>
+      <ul style="list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:8px;font-size:15px;color:#6E7178;">
+        <li>O'Fallon</li><li>St. Charles</li><li>St. Peters</li><li>Wentzville</li><li>Lake St. Louis</li><li>Dardenne Prairie</li><li>Chesterfield</li><li>Wildwood</li><li>Ballwin</li><li>Kirkwood</li>
+      </ul>
+    </div>
+  </div>
+  <div style="border-top:1px solid #E3DFD5;padding-top:20px;font-size:13px;color:#6E7178;">R.S. Johnson Plumbing LLC · Missouri Master Plumber License #[number] · Licensed and insured</div>
+</footer>
+
+<!-- MOBILE STICKY BOTTOM BAR -->
+<div class="rsj-sticky-bottom" style="position:fixed;bottom:0;left:0;right:0;z-index:30;padding:10px 16px;background:#F7F5F0;border-top:1px solid #E3DFD5;gap:10px;">
+  <a href="tel:3142201827" class="rsj-btn" style="flex:1;text-align:center;background:#2F6FE0;color:#FFFFFF;border-radius:8px;padding:12px;font-size:15px;font-weight:700;">Call</a>
+  <a href="#book" class="rsj-btn" style="flex:1;text-align:center;background:transparent;color:#2B2B2B;border:1.5px solid #2B2B2B;border-radius:8px;padding:12px;font-size:15px;font-weight:700;">Book</a>
+</div>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { navOpen: false, active: 'services', openFaq: 0 };
+  sections = ['services','signs','water-heaters','drains-sewer','leaks','toilets-faucets','remodels','gas-lines','sump-pumps','emergency','why-us','faq'];
+  keys = { 'services':'services','signs':'signs','water-heaters':'waterHeaters','drains-sewer':'drainsSewer','leaks':'leaks','toilets-faucets':'toiletsFaucets','remodels':'remodels','gas-lines':'gasLines','sump-pumps':'sumpPumps','emergency':'emergency','builders':'builders','service-area':'serviceArea','why-us':'whyUs','faq':'faq' };
+  faqData = [
+    { q: 'What areas do you serve?', a: "St. Charles County and West St. Louis County — including O'Fallon, St. Charles, St. Peters, Wentzville, Lake St. Louis, Dardenne Prairie, Cottleville, Weldon Spring, Chesterfield, Wildwood, Ballwin, Kirkwood, Manchester, Ellisville, Creve Coeur, Town and Country, Clayton, and Ladue. If you're nearby and not listed, text us your address." },
+    { q: 'Do you handle emergencies?', a: 'Yes. Call 314-220-1827 for burst pipes, active leaks, sewer backups, and no hot water. [Hours / after-hours policy — CONFIRM.]' },
+    { q: 'Are you licensed and insured?', a: 'Yes. Ryan Johnson is a Missouri Master Plumber [license #], and R.S. Johnson Plumbing LLC is fully insured. We pull permits and meet inspections on work that requires them.' },
+    { q: 'How does pricing work?', a: 'We quote the price before starting. For repairs, that\'s usually after a short diagnosis on site. For water heaters, remodels, and larger jobs, we can often quote from photos and a phone call.' },
+    { q: 'Do you work with builders and contractors?', a: 'Yes — new construction and renovation plumbing is most of our business. See our builders page for capabilities and how to request a bid.' },
+    { q: 'Should I repair or replace my water heater?', a: "If it's under about [8] years old and the tank isn't leaking, repair is usually worth it. If the tank itself is leaking or the unit is past [10–12] years, replacement is the better investment. We'll tell you which before we quote." },
+    { q: 'Can I book online?', a: 'Yes, for scheduled service — repairs, water heaters, remodel work. For emergencies, call so we can help you shut off water while we\'re on the way.' }
+  ];
+  componentDidMount() {
+    this.onScroll = () => {
+      if (this.raf) return;
+      this.raf = requestAnimationFrame(() => {
+        this.raf = null;
+        const threshold = 150;
+        let current = this.sections[0];
+        for (const id of this.sections) {
+          const el = document.getElementById(id);
+          if (el && el.getBoundingClientRect().top <= threshold) current = id;
+        }
+        if (current !== this.state.active) {
+          this.setState({ active: current }, () => {
+            const bar = document.querySelector('.rsj-anchor-bar');
+            const link = bar && bar.querySelector('a[href="#' + current + '"]');
+            if (bar && link && bar.scrollWidth > bar.clientWidth) {
+              bar.scrollTo({ left: link.offsetLeft - 20, behavior: 'smooth' });
+            }
+          });
+        }
+      });
+    };
+    window.addEventListener('scroll', this.onScroll, { passive: true });
+    this.onScroll();
+  }
+  componentWillUnmount() { window.removeEventListener('scroll', this.onScroll); }
+  renderVals() {
+    const ac = {};
+    for (const id of this.sections) ac[this.keys[id]] = id === this.state.active ? 'rsj-anchor-active' : '';
+    const faqs = this.faqData.map((f, i) => ({
+      q: f.q, a: f.a, open: this.state.openFaq === i, glyph: this.state.openFaq === i ? '−' : '+',
+      toggle: () => this.setState(s => ({ openFaq: s.openFaq === i ? -1 : i }))
+    }));
+    return {
+      navOpen: this.state.navOpen,
+      toggleNav: () => this.setState(s => ({ navOpen: !s.navOpen })),
+      closeNav: () => this.setState({ navOpen: false }),
+      ac, faqs
+    };
+  }
+}
+</script>
+</body>
+</html>

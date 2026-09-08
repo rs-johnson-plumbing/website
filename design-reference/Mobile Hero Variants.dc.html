@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<meta name="design_doc_mode" content="canvas">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  body{margin:0;background:#EDEAE2;}
+  a{color:#2F6FE0;text-decoration:none;}
+  a:hover{color:#1F4FB0;text-decoration:underline;}
+  .rsj-seg{flex:1;padding:10px 12px;border-radius:6px;border:0;background:transparent;color:#6E7178;font-family:inherit;font-size:15px;font-weight:700;cursor:pointer;white-space:nowrap;}
+  .rsj-seg-active{background:#FFFFFF;color:#2B2B2B;box-shadow:0 1px 2px rgba(0,0,0,0.08);}
+  .rsj-card:hover{border-color:#2F6FE0;text-decoration:none;}
+  .rsj-btn:hover{opacity:0.88;text-decoration:none;}
+</style>
+</helmet>
+
+<section style="font-family:'Manrope',sans-serif;color:#2B2B2B;padding:48px 40px 40px;">
+  <div style="max-width:1400px;margin:0 auto 28px;">
+    <div style="font-size:13px;letter-spacing:0.06em;text-transform:uppercase;color:#6E7178;font-weight:700;">Turn 3 · Clearer Call / Book on phone</div>
+    <div style="font-size:15px;color:#6E7178;margin-top:6px;">Less text, more obvious actions. <a href="#3a">3a</a> and <a href="#3c">3c</a> are designed to combine.</div>
+  </div>
+  <div style="display:flex;flex-wrap:wrap;gap:40px;justify-content:center;align-items:flex-start;">
+    <div id="3a" style="display:flex;flex-direction:column;gap:14px;align-items:flex-start;">
+      <div style="display:flex;align-items:center;gap:10px;">
+        <span style="display:inline-flex;align-items:center;justify-content:center;min-width:30px;height:26px;padding:0 8px;border-radius:6px;background:#2B2B2B;color:#F7F5F0;font-size:13px;font-weight:700;">3a</span>
+        <span style="font-size:16px;font-weight:700;">Icon-led action tiles</span>
+        <span style="font-size:14px;color:#6E7178;">The tiles are the buttons</span>
+      </div>
+      <x-import component-from-global-scope="IOSDevice" from="./ios-frame.jsx" hint-size="402px,874px">
+        <div style="font-family:'Manrope',sans-serif;color:#2B2B2B;background:#F7F5F0;min-height:100%;padding-top:62px;box-sizing:border-box;display:flex;flex-direction:column;">
+          <header style="display:flex;align-items:center;justify-content:space-between;height:60px;padding:0 12px 0 16px;border-bottom:1px solid #E3DFD5;">
+            <a href="#" aria-label="R.S. Johnson Plumbing home" style="display:flex;align-items:center;gap:8px;color:#2B2B2B;"><svg width="24" height="24" viewBox="0 0 34 34" fill="none" aria-hidden="true"><path d="M9 4 L9 18 A8 8 0 0 0 25 18 L25 12 L32 12" stroke="#2B2B2B" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"></path></svg><span style="font-family:Georgia,serif;font-size:16px;font-weight:700;white-space:nowrap;">R.S. Johnson Plumbing</span></a>
+            <div style="display:flex;align-items:center;gap:12px;">
+              <a href="tel:3142201827" class="rsj-btn" style="display:flex;align-items:center;height:36px;background:#2F6FE0;color:#FFFFFF;border-radius:8px;padding:0 12px;font-size:14px;font-weight:700;white-space:nowrap;">Call</a>
+              <button aria-label="Open menu" style="background:transparent;border:0;width:24px;height:24px;display:flex;align-items:center;justify-content:center;cursor:pointer;padding:0;"><svg width="20" height="14" viewBox="0 0 22 16" fill="none" aria-hidden="true"><line x1="0" y1="1" x2="22" y2="1" stroke="#2B2B2B" stroke-width="2"></line><line x1="0" y1="8" x2="22" y2="8" stroke="#2B2B2B" stroke-width="2"></line><line x1="0" y1="15" x2="22" y2="15" stroke="#2B2B2B" stroke-width="2"></line></svg></button>
+            </div>
+          </header>
+          <div role="tablist" style="padding:8px 20px;border-bottom:1px solid #E3DFD5;">
+            <div style="display:flex;gap:4px;padding:4px;background:#E3DFD5;border-radius:8px;">
+              <button role="tab" aria-selected="true" class="rsj-seg rsj-seg-active">For Homeowners</button>
+              <button role="tab" aria-selected="false" class="rsj-seg">For Builders</button>
+            </div>
+          </div>
+          <div style="padding:20px 20px 20px;display:flex;flex-direction:column;gap:14px;">
+            <div style="font-size:32px;font-weight:600;line-height:1.15;">Emergency or scheduled plumbing services</div>
+            <p style="margin:0;font-size:16px;line-height:1.6;color:#6E7178;">Licensed crew serving St. Charles and St. Louis County.</p>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;">
+              <a href="tel:3142201827" class="rsj-btn" style="display:flex;flex-direction:column;align-items:flex-start;gap:10px;padding:18px 16px;background:#2F6FE0;color:#FFFFFF;border-radius:8px;">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"></path></svg>
+                <span style="font-size:18px;font-weight:700;line-height:1.2;">Call now</span>
+                <span style="font-size:13px;line-height:1.4;color:#DCE6FA;">Leak, no hot water, backed-up drain</span>
+              </a>
+              <a href="#book" class="rsj-btn" style="display:flex;flex-direction:column;align-items:flex-start;gap:10px;padding:18px 16px;background:#FFFFFF;color:#2B2B2B;border:1.5px solid #2B2B2B;border-radius:8px;">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#2B2B2B" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"></rect><path d="M3 10h18M8 3v4M16 3v4"></path><path d="M9 15l2 2 4-4"></path></svg>
+                <span style="font-size:18px;font-weight:700;line-height:1.2;">Book online</span>
+                <span style="font-size:13px;line-height:1.4;color:#6E7178;">Repairs, water heaters, remodels</span>
+              </a>
+            </div>
+            <div style="display:flex;align-items:center;gap:6px;font-size:13px;color:#6E7178;"><svg width="13" height="13" viewBox="0 0 24 24" fill="#2F6FE0" aria-hidden="true"><path d="M12 2l2.9 6.6 7.1.6-5.4 4.7 1.7 7-6.3-3.9-6.3 3.9 1.7-7L2 9.2l7.1-.6z"></path></svg><span>Nextdoor Neighborhood Favorite 2023 · Licensed and insured</span></div>
+          </div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px 16px;padding:20px;border-top:1px solid #E3DFD5;border-bottom:1px solid #E3DFD5;">
+            <div style="display:flex;align-items:center;gap:10px;font-size:14px;font-weight:500;"><span style="display:flex;align-items:center;justify-content:center;width:32px;height:32px;border-radius:50%;background:#E3EBFB;flex-shrink:0;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#2F6FE0" stroke-width="1.6" aria-hidden="true"><path d="M12 2l3 6 7 1-5 5 1 7-6-3-6 3 1-7-5-5 7-1z"></path></svg></span>Missouri master plumber</div>
+            <div style="display:flex;align-items:center;gap:10px;font-size:14px;font-weight:500;"><span style="display:flex;align-items:center;justify-content:center;width:32px;height:32px;border-radius:50%;background:#E3EBFB;flex-shrink:0;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#2F6FE0" stroke-width="1.6" aria-hidden="true"><path d="M12 3l7 3v6c0 5-3 8-7 9-4-1-7-4-7-9V6z"></path></svg></span>Licensed and insured</div>
+            <div style="display:flex;align-items:center;gap:10px;font-size:14px;font-weight:500;"><span style="display:flex;align-items:center;justify-content:center;width:32px;height:32px;border-radius:50%;background:#E3EBFB;flex-shrink:0;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#2F6FE0" stroke-width="1.6" aria-hidden="true"><circle cx="12" cy="12" r="9"></circle><path d="M9 12l2 2 4-4"></path></svg></span>Upfront pricing</div>
+            <div style="display:flex;align-items:center;gap:10px;font-size:14px;font-weight:500;"><span style="display:flex;align-items:center;justify-content:center;width:32px;height:32px;border-radius:50%;background:#E3EBFB;flex-shrink:0;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#2F6FE0" stroke-width="1.6" aria-hidden="true"><path d="M4 11l8-6 8 6v8a1 1 0 0 1-1 1h-4v-6H9v6H5a1 1 0 0 1-1-1z"></path></svg></span>Family owned in O'Fallon</div>
+          </div>
+          <div style="padding:24px 20px 120px;font-size:14px;color:#6E7178;">Page continues: services, who shows up, reviews…</div>
+          <div style="position:sticky;bottom:0;display:flex;gap:10px;padding:10px 16px 38px;background:#F7F5F0;border-top:1px solid #E3DFD5;margin-top:auto;">
+            <a href="tel:3142201827" class="rsj-btn" style="flex:1;text-align:center;background:#2F6FE0;color:#FFFFFF;border-radius:8px;padding:12px;font-size:15px;font-weight:700;">Call</a>
+            <a href="#book" class="rsj-btn" style="flex:1;text-align:center;background:transparent;color:#2B2B2B;border:1.5px solid #2B2B2B;border-radius:8px;padding:12px;font-size:15px;font-weight:700;">Book</a>
+          </div>
+        </div>
+      </x-import>
+    </div>
+    <div id="3b" style="display:flex;flex-direction:column;gap:14px;align-items:flex-start;">
+      <div style="display:flex;align-items:center;gap:10px;">
+        <span style="display:inline-flex;align-items:center;justify-content:center;min-width:30px;height:26px;padding:0 8px;border-radius:6px;background:#2B2B2B;color:#F7F5F0;font-size:13px;font-weight:700;">3b</span>
+        <span style="font-size:16px;font-weight:700;">Headline + two buttons</span>
+        <span style="font-size:14px;color:#6E7178;">Nothing else above the fold</span>
+      </div>
+      <x-import component-from-global-scope="IOSDevice" from="./ios-frame.jsx" hint-size="402px,874px">
+        <div style="font-family:'Manrope',sans-serif;color:#2B2B2B;background:#F7F5F0;min-height:100%;padding-top:62px;box-sizing:border-box;display:flex;flex-direction:column;">
+          <header style="display:flex;align-items:center;justify-content:space-between;height:60px;padding:0 12px 0 16px;border-bottom:1px solid #E3DFD5;">
+            <a href="#" aria-label="R.S. Johnson Plumbing home" style="display:flex;align-items:center;gap:8px;color:#2B2B2B;"><svg width="24" height="24" viewBox="0 0 34 34" fill="none" aria-hidden="true"><path d="M9 4 L9 18 A8 8 0 0 0 25 18 L25 12 L32 12" stroke="#2B2B2B" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"></path></svg><span style="font-family:Georgia,serif;font-size:16px;font-weight:700;white-space:nowrap;">R.S. Johnson Plumbing</span></a>
+            <div style="display:flex;align-items:center;gap:12px;">
+              <a href="tel:3142201827" class="rsj-btn" style="display:flex;align-items:center;height:36px;background:#2F6FE0;color:#FFFFFF;border-radius:8px;padding:0 12px;font-size:14px;font-weight:700;white-space:nowrap;">Call</a>
+              <button aria-label="Open menu" style="background:transparent;border:0;width:24px;height:24px;display:flex;align-items:center;justify-content:center;cursor:pointer;padding:0;"><svg width="20" height="14" viewBox="0 0 22 16" fill="none" aria-hidden="true"><line x1="0" y1="1" x2="22" y2="1" stroke="#2B2B2B" stroke-width="2"></line><line x1="0" y1="8" x2="22" y2="8" stroke="#2B2B2B" stroke-width="2"></line><line x1="0" y1="15" x2="22" y2="15" stroke="#2B2B2B" stroke-width="2"></line></svg></button>
+            </div>
+          </header>
+          <div role="tablist" style="padding:8px 20px;border-bottom:1px solid #E3DFD5;">
+            <div style="display:flex;gap:4px;padding:4px;background:#E3DFD5;border-radius:8px;">
+              <button role="tab" aria-selected="true" class="rsj-seg rsj-seg-active">For Homeowners</button>
+              <button role="tab" aria-selected="false" class="rsj-seg">For Builders</button>
+            </div>
+          </div>
+          <div style="padding:24px 20px 20px;display:flex;flex-direction:column;gap:16px;">
+            <div style="font-size:36px;font-weight:600;line-height:1.1;">Plumbing repairs, fast.</div>
+            <div style="display:flex;flex-direction:column;gap:10px;">
+              <a href="tel:3142201827" class="rsj-btn" style="display:flex;align-items:center;gap:14px;height:64px;padding:0 18px;background:#2F6FE0;color:#FFFFFF;border-radius:8px;">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"></path></svg>
+                <span style="display:flex;flex-direction:column;gap:2px;"><span style="font-size:17px;font-weight:700;line-height:1.2;">Call 314-220-1827</span><span style="font-size:13px;color:#DCE6FA;">Emergencies and same-day repairs</span></span>
+              </a>
+              <a href="#book" class="rsj-btn" style="display:flex;align-items:center;gap:14px;height:64px;padding:0 18px;background:#FFFFFF;color:#2B2B2B;border:1.5px solid #2B2B2B;border-radius:8px;">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#2B2B2B" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"></rect><path d="M3 10h18M8 3v4M16 3v4"></path><path d="M9 15l2 2 4-4"></path></svg>
+                <span style="display:flex;flex-direction:column;gap:2px;"><span style="font-size:17px;font-weight:700;line-height:1.2;">Book online</span><span style="font-size:13px;color:#6E7178;">Water heaters, fixtures, remodels</span></span>
+              </a>
+            </div>
+            <p style="margin:0;font-size:14px;line-height:1.5;color:#6E7178;">Licensed, insured crew serving St. Charles and St. Louis County. Upfront pricing, text before we arrive.</p>
+            <div style="display:flex;align-items:center;gap:6px;font-size:13px;color:#6E7178;"><svg width="13" height="13" viewBox="0 0 24 24" fill="#2F6FE0" aria-hidden="true"><path d="M12 2l2.9 6.6 7.1.6-5.4 4.7 1.7 7-6.3-3.9-6.3 3.9 1.7-7L2 9.2l7.1-.6z"></path></svg><span>Nextdoor Neighborhood Favorite 2023 · Licensed and insured</span></div>
+          </div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px 16px;padding:20px;border-top:1px solid #E3DFD5;border-bottom:1px solid #E3DFD5;">
+            <div style="display:flex;align-items:center;gap:10px;font-size:14px;font-weight:500;"><span style="display:flex;align-items:center;justify-content:center;width:32px;height:32px;border-radius:50%;background:#E3EBFB;flex-shrink:0;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#2F6FE0" stroke-width="1.6" aria-hidden="true"><path d="M12 2l3 6 7 1-5 5 1 7-6-3-6 3 1-7-5-5 7-1z"></path></svg></span>Missouri master plumber</div>
+            <div style="display:flex;align-items:center;gap:10px;font-size:14px;font-weight:500;"><span style="display:flex;align-items:center;justify-content:center;width:32px;height:32px;border-radius:50%;background:#E3EBFB;flex-shrink:0;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#2F6FE0" stroke-width="1.6" aria-hidden="true"><path d="M12 3l7 3v6c0 5-3 8-7 9-4-1-7-4-7-9V6z"></path></svg></span>Licensed and insured</div>
+            <div style="display:flex;align-items:center;gap:10px;font-size:14px;font-weight:500;"><span style="display:flex;align-items:center;justify-content:center;width:32px;height:32px;border-radius:50%;background:#E3EBFB;flex-shrink:0;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#2F6FE0" stroke-width="1.6" aria-hidden="true"><circle cx="12" cy="12" r="9"></circle><path d="M9 12l2 2 4-4"></path></svg></span>Upfront pricing</div>
+            <div style="display:flex;align-items:center;gap:10px;font-size:14px;font-weight:500;"><span style="display:flex;align-items:center;justify-content:center;width:32px;height:32px;border-radius:50%;background:#E3EBFB;flex-shrink:0;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#2F6FE0" stroke-width="1.6" aria-hidden="true"><path d="M4 11l8-6 8 6v8a1 1 0 0 1-1 1h-4v-6H9v6H5a1 1 0 0 1-1-1z"></path></svg></span>Family owned in O'Fallon</div>
+          </div>
+          <div style="padding:24px 20px 120px;font-size:14px;color:#6E7178;">Page continues: services, who shows up, reviews…</div>
+          <div style="position:sticky;bottom:0;display:flex;gap:10px;padding:10px 16px 38px;background:#F7F5F0;border-top:1px solid #E3DFD5;margin-top:auto;">
+            <a href="tel:3142201827" class="rsj-btn" style="flex:1;text-align:center;background:#2F6FE0;color:#FFFFFF;border-radius:8px;padding:12px;font-size:15px;font-weight:700;">Call</a>
+            <a href="#book" class="rsj-btn" style="flex:1;text-align:center;background:transparent;color:#2B2B2B;border:1.5px solid #2B2B2B;border-radius:8px;padding:12px;font-size:15px;font-weight:700;">Book</a>
+          </div>
+        </div>
+      </x-import>
+    </div>
+    <div id="3c" style="display:flex;flex-direction:column;gap:14px;align-items:flex-start;">
+      <div style="display:flex;align-items:center;gap:10px;">
+        <span style="display:inline-flex;align-items:center;justify-content:center;min-width:30px;height:26px;padding:0 8px;border-radius:6px;background:#2B2B2B;color:#F7F5F0;font-size:13px;font-weight:700;">3c</span>
+        <span style="font-size:16px;font-weight:700;">Quiet hero, strong sticky bar</span>
+        <span style="font-size:14px;color:#6E7178;">The bar is always the answer</span>
+      </div>
+      <x-import component-from-global-scope="IOSDevice" from="./ios-frame.jsx" hint-size="402px,874px">
+        <div style="font-family:'Manrope',sans-serif;color:#2B2B2B;background:#F7F5F0;min-height:100%;padding-top:62px;box-sizing:border-box;display:flex;flex-direction:column;">
+          <header style="display:flex;align-items:center;justify-content:space-between;height:60px;padding:0 12px 0 16px;border-bottom:1px solid #E3DFD5;">
+            <a href="#" aria-label="R.S. Johnson Plumbing home" style="display:flex;align-items:center;gap:8px;color:#2B2B2B;"><svg width="24" height="24" viewBox="0 0 34 34" fill="none" aria-hidden="true"><path d="M9 4 L9 18 A8 8 0 0 0 25 18 L25 12 L32 12" stroke="#2B2B2B" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"></path></svg><span style="font-family:Georgia,serif;font-size:16px;font-weight:700;white-space:nowrap;">R.S. Johnson Plumbing</span></a>
+            <div style="display:flex;align-items:center;gap:12px;">
+              <a href="tel:3142201827" class="rsj-btn" style="display:flex;align-items:center;height:36px;background:#2F6FE0;color:#FFFFFF;border-radius:8px;padding:0 12px;font-size:14px;font-weight:700;white-space:nowrap;">Call</a>
+              <button aria-label="Open menu" style="background:transparent;border:0;width:24px;height:24px;display:flex;align-items:center;justify-content:center;cursor:pointer;padding:0;"><svg width="20" height="14" viewBox="0 0 22 16" fill="none" aria-hidden="true"><line x1="0" y1="1" x2="22" y2="1" stroke="#2B2B2B" stroke-width="2"></line><line x1="0" y1="8" x2="22" y2="8" stroke="#2B2B2B" stroke-width="2"></line><line x1="0" y1="15" x2="22" y2="15" stroke="#2B2B2B" stroke-width="2"></line></svg></button>
+            </div>
+          </header>
+          <div role="tablist" style="padding:8px 20px;border-bottom:1px solid #E3DFD5;">
+            <div style="display:flex;gap:4px;padding:4px;background:#E3DFD5;border-radius:8px;">
+              <button role="tab" aria-selected="true" class="rsj-seg rsj-seg-active">For Homeowners</button>
+              <button role="tab" aria-selected="false" class="rsj-seg">For Builders</button>
+            </div>
+          </div>
+          <div style="padding:20px 20px 24px;display:flex;flex-direction:column;gap:12px;">
+            <div style="font-size:32px;font-weight:600;line-height:1.15;">Emergency or scheduled plumbing services</div>
+            <p style="margin:0;font-size:16px;line-height:1.6;">Licensed crew serving St. Charles and St. Louis County. Call for emergencies; book online for water heaters, repairs, and remodels.</p>
+            <div style="display:flex;flex-direction:column;gap:10px;margin-top:4px;">
+              <div style="display:flex;align-items:center;gap:12px;font-size:15px;"><span style="display:flex;align-items:center;justify-content:center;width:36px;height:36px;border-radius:50%;background:#E3EBFB;flex-shrink:0;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#2F6FE0" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"></path></svg></span><span><strong>Emergency?</strong> <span style="color:#6E7178;">Leak, no hot water, backup — call.</span></span></div>
+              <div style="display:flex;align-items:center;gap:12px;font-size:15px;"><span style="display:flex;align-items:center;justify-content:center;width:36px;height:36px;border-radius:50%;background:#E3EBFB;flex-shrink:0;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#2F6FE0" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"></rect><path d="M3 10h18M8 3v4M16 3v4"></path></svg></span><span><strong>Scheduled?</strong> <span style="color:#6E7178;">Repairs, water heaters, remodels — book.</span></span></div>
+            </div>
+            <div style="display:flex;align-items:center;gap:6px;font-size:13px;color:#6E7178;"><svg width="13" height="13" viewBox="0 0 24 24" fill="#2F6FE0" aria-hidden="true"><path d="M12 2l2.9 6.6 7.1.6-5.4 4.7 1.7 7-6.3-3.9-6.3 3.9 1.7-7L2 9.2l7.1-.6z"></path></svg><span>Nextdoor Neighborhood Favorite 2023 · Licensed and insured</span></div>
+          </div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px 16px;padding:20px;border-top:1px solid #E3DFD5;border-bottom:1px solid #E3DFD5;">
+            <div style="display:flex;align-items:center;gap:10px;font-size:14px;font-weight:500;"><span style="display:flex;align-items:center;justify-content:center;width:32px;height:32px;border-radius:50%;background:#E3EBFB;flex-shrink:0;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#2F6FE0" stroke-width="1.6" aria-hidden="true"><path d="M12 2l3 6 7 1-5 5 1 7-6-3-6 3 1-7-5-5 7-1z"></path></svg></span>Missouri master plumber</div>
+            <div style="display:flex;align-items:center;gap:10px;font-size:14px;font-weight:500;"><span style="display:flex;align-items:center;justify-content:center;width:32px;height:32px;border-radius:50%;background:#E3EBFB;flex-shrink:0;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#2F6FE0" stroke-width="1.6" aria-hidden="true"><path d="M12 3l7 3v6c0 5-3 8-7 9-4-1-7-4-7-9V6z"></path></svg></span>Licensed and insured</div>
+            <div style="display:flex;align-items:center;gap:10px;font-size:14px;font-weight:500;"><span style="display:flex;align-items:center;justify-content:center;width:32px;height:32px;border-radius:50%;background:#E3EBFB;flex-shrink:0;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#2F6FE0" stroke-width="1.6" aria-hidden="true"><circle cx="12" cy="12" r="9"></circle><path d="M9 12l2 2 4-4"></path></svg></span>Upfront pricing</div>
+            <div style="display:flex;align-items:center;gap:10px;font-size:14px;font-weight:500;"><span style="display:flex;align-items:center;justify-content:center;width:32px;height:32px;border-radius:50%;background:#E3EBFB;flex-shrink:0;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#2F6FE0" stroke-width="1.6" aria-hidden="true"><path d="M4 11l8-6 8 6v8a1 1 0 0 1-1 1h-4v-6H9v6H5a1 1 0 0 1-1-1z"></path></svg></span>Family owned in O'Fallon</div>
+          </div>
+          <div style="padding:24px 20px 120px;font-size:14px;color:#6E7178;">Page continues: services, who shows up, reviews…</div>
+          <div style="position:sticky;bottom:0;display:flex;gap:10px;padding:12px 16px 40px;background:#FFFFFF;border-top:1px solid #E3DFD5;box-shadow:0 -8px 24px rgba(43,43,43,0.10);margin-top:auto;">
+            <a href="tel:3142201827" class="rsj-btn" style="flex:1.3;display:flex;align-items:center;justify-content:center;gap:8px;height:56px;background:#2F6FE0;color:#FFFFFF;border-radius:8px;font-size:15px;font-weight:700;white-space:nowrap;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"></path></svg>Call 314-220-1827</a>
+            <a href="#book" class="rsj-btn" style="flex:1;display:flex;align-items:center;justify-content:center;gap:8px;height:56px;background:transparent;color:#2B2B2B;border:1.5px solid #2B2B2B;border-radius:8px;font-size:15px;font-weight:700;white-space:nowrap;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#2B2B2B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"></rect><path d="M3 10h18M8 3v4M16 3v4"></path></svg>Book</a>
+          </div>
+        </div>
+      </x-import>
+    </div>
+  </div>
+</section>
+
+<section style="font-family:'Manrope',sans-serif;color:#2B2B2B;padding:48px 40px 40px;border-top:1px solid #D8D3C5;">
+  <div style="max-width:1400px;margin:0 auto 28px;">
+    <div style="font-size:13px;letter-spacing:0.06em;text-transform:uppercase;color:#6E7178;font-weight:700;">Turn 2 · Situation cards with jump toggle</div>
+    <div style="font-size:15px;color:#6E7178;margin-top:6px;">Builds on <a href="#1a">1a</a>: the For Homeowners | For Builders control sits under the header and flips the hero between the two personas. No scrolling.</div>
+  </div>
+  <div style="display:flex;flex-wrap:wrap;gap:40px;justify-content:center;align-items:flex-start;">
+    <div id="2a" style="display:flex;flex-direction:column;gap:14px;align-items:flex-start;">
+      <div style="display:flex;align-items:center;gap:10px;">
+        <span style="display:inline-flex;align-items:center;justify-content:center;min-width:30px;height:26px;padding:0 8px;border-radius:6px;background:#2B2B2B;color:#F7F5F0;font-size:13px;font-weight:700;">2a</span>
+        <span style="font-size:16px;font-weight:700;">Situation cards + toggle</span>
+        <span style="font-size:14px;color:#6E7178;">Tap a tab to flip the hero</span>
+      </div>
+      <x-import component-from-global-scope="IOSDevice" from="./ios-frame.jsx" hint-size="402px,874px">
+        <div style="font-family:'Manrope',sans-serif;color:#2B2B2B;background:#F7F5F0;min-height:100%;padding-top:62px;box-sizing:border-box;display:flex;flex-direction:column;">
+          <header style="display:flex;align-items:center;justify-content:space-between;height:64px;padding:0 12px 0 16px;border-bottom:1px solid #E3DFD5;">
+            <a href="#" aria-label="R.S. Johnson Plumbing LLC home" style="display:flex;align-items:center;gap:8px;color:#2B2B2B;"><svg width="30" height="30" viewBox="0 0 34 34" fill="none" aria-hidden="true"><path d="M9 4 L9 18 A8 8 0 0 0 25 18 L25 12 L32 12" stroke="#2B2B2B" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"></path></svg><span style="font-family:Georgia,serif;font-size:15px;font-weight:700;white-space:nowrap;">R.S. Johnson Plumbing</span></a>
+            <div style="display:flex;align-items:center;gap:8px;">
+              <a href="tel:3142201827" class="rsj-btn" style="background:#2F6FE0;color:#FFFFFF;border-radius:8px;padding:10px 16px;font-size:14px;font-weight:700;white-space:nowrap;">Call</a>
+              <button aria-label="Open menu" style="background:transparent;border:0;width:40px;height:40px;display:flex;align-items:center;justify-content:center;cursor:pointer;padding:0;"><svg width="22" height="16" viewBox="0 0 22 16" fill="none" aria-hidden="true"><line x1="0" y1="1" x2="22" y2="1" stroke="#2B2B2B" stroke-width="2"></line><line x1="0" y1="8" x2="22" y2="8" stroke="#2B2B2B" stroke-width="2"></line><line x1="0" y1="15" x2="22" y2="15" stroke="#2B2B2B" stroke-width="2"></line></svg></button>
+            </div>
+          </header>
+          <div role="tablist" style="padding:12px 20px;background:#F7F5F0;border-bottom:1px solid #E3DFD5;">
+            <div style="display:flex;gap:4px;padding:4px;background:#E3DFD5;border-radius:8px;">
+              <button role="tab" aria-selected="{{jHome}}" class="rsj-seg {{jHomeClass}}" onClick="{{jumpHome}}">For Homeowners</button>
+              <button role="tab" aria-selected="{{jBuild}}" class="rsj-seg {{jBuildClass}}" onClick="{{jumpBuild}}">For Builders</button>
+            </div>
+          </div>
+          <sc-if value="{{jHome}}" hint-placeholder-val="{{true}}">
+          <div style="padding:28px 20px 28px;display:flex;flex-direction:column;gap:16px;">
+            <div style="font-size:34px;font-weight:600;line-height:1.1;">Emergency or scheduled plumbing services</div>
+            <p style="margin:0;font-size:16px;line-height:1.6;">Licensed crew serving St. Charles and St. Louis County.</p>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:4px;">
+              <a href="tel:3142201827" class="rsj-card" style="display:flex;flex-direction:column;gap:8px;border:1px solid #D8D3C5;border-radius:8px;padding:16px;background:#FFFFFF;color:#2B2B2B;">
+                <span style="font-size:15px;font-weight:700;">Emergency service</span>
+                <span style="font-size:13px;line-height:1.4;color:#6E7178;min-height:36px;">Leak, no hot water, backed-up drain</span>
+                <span style="font-size:15px;font-weight:700;color:#2F6FE0;white-space:nowrap;">Call now →</span>
+              </a>
+              <a href="#book" class="rsj-card" style="display:flex;flex-direction:column;gap:8px;border:1px solid #D8D3C5;border-radius:8px;padding:16px;background:#FFFFFF;color:#2B2B2B;">
+                <span style="font-size:15px;font-weight:700;">Scheduled service</span>
+                <span style="font-size:13px;line-height:1.4;color:#6E7178;min-height:36px;">Repairs, water heaters, remodels</span>
+                <span style="font-size:15px;font-weight:700;color:#2F6FE0;white-space:nowrap;">Book online →</span>
+              </a>
+            </div>
+            <div style="display:flex;align-items:center;gap:8px;font-size:13px;color:#6E7178;">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="#2F6FE0" aria-hidden="true"><path d="M12 2l2.9 6.6 7.1.6-5.4 4.7 1.7 7-6.3-3.9-6.3 3.9 1.7-7L2 9.2l7.1-.6z"></path></svg>
+              <span>Nextdoor Neighborhood Favorite 2023 · Licensed and insured</span>
+            </div>
+          </div>
+          </sc-if>
+          <sc-if value="{{jBuild}}" hint-placeholder-val="{{false}}">
+          <div style="background:#2B2B2B;padding:28px 20px 28px;display:flex;flex-direction:column;gap:16px;">
+            <div style="font-size:34px;font-weight:600;line-height:1.1;color:#F7F5F0;">New construction and renovation</div>
+            <p style="margin:0;font-size:16px;line-height:1.6;color:#C9C6BE;">Rough-in through trim. Custom homes, spec builds, whole-house remodels.</p>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;">
+              <a href="tel:3142201827" class="rsj-card" style="display:flex;flex-direction:column;gap:8px;border:1px solid #5C5C5C;background:#3A3A3A;border-radius:8px;padding:16px;color:#F7F5F0;">
+                <span style="font-size:15px;font-weight:700;color:#FFFFFF;">Talk it through</span>
+                <span style="font-size:13px;line-height:1.4;color:#D9D6CE;min-height:36px;">Schedule questions or plan review</span>
+                <span style="font-size:15px;font-weight:700;color:#A9C4F5;white-space:nowrap;">Talk to Ryan →</span>
+              </a>
+              <a href="#bid" class="rsj-card" style="display:flex;flex-direction:column;gap:8px;border:1px solid #5C5C5C;background:#3A3A3A;border-radius:8px;padding:16px;color:#F7F5F0;">
+                <span style="font-size:15px;font-weight:700;color:#FFFFFF;">Get a Bid</span>
+                <span style="font-size:13px;line-height:1.4;color:#D9D6CE;min-height:36px;">Upload plans and we'll bid it</span>
+                <span style="font-size:15px;font-weight:700;color:#A9C4F5;white-space:nowrap;">Request a bid →</span>
+              </a>
+            </div>
+            <div style="font-size:13px;color:#C9C6BE;">[##] homes plumbed · [##] builder partners · Trade partner since 2022</div>
+          </div>
+          </sc-if>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px 16px;padding:20px;border-top:1px solid #E3DFD5;border-bottom:1px solid #E3DFD5;">
+            <div style="display:flex;align-items:center;gap:10px;font-size:14px;font-weight:500;"><span style="display:flex;align-items:center;justify-content:center;width:32px;height:32px;border-radius:50%;background:#E3EBFB;flex-shrink:0;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#2F6FE0" stroke-width="1.6" aria-hidden="true"><path d="M12 2l3 6 7 1-5 5 1 7-6-3-6 3 1-7-5-5 7-1z"></path></svg></span>Missouri master plumber</div>
+            <div style="display:flex;align-items:center;gap:10px;font-size:14px;font-weight:500;"><span style="display:flex;align-items:center;justify-content:center;width:32px;height:32px;border-radius:50%;background:#E3EBFB;flex-shrink:0;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#2F6FE0" stroke-width="1.6" aria-hidden="true"><path d="M12 3l7 3v6c0 5-3 8-7 9-4-1-7-4-7-9V6z"></path></svg></span>Licensed and insured</div>
+            <div style="display:flex;align-items:center;gap:10px;font-size:14px;font-weight:500;"><span style="display:flex;align-items:center;justify-content:center;width:32px;height:32px;border-radius:50%;background:#E3EBFB;flex-shrink:0;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#2F6FE0" stroke-width="1.6" aria-hidden="true"><circle cx="12" cy="12" r="9"></circle><path d="M9 12l2 2 4-4"></path></svg></span>Upfront pricing</div>
+            <div style="display:flex;align-items:center;gap:10px;font-size:14px;font-weight:500;"><span style="display:flex;align-items:center;justify-content:center;width:32px;height:32px;border-radius:50%;background:#E3EBFB;flex-shrink:0;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#2F6FE0" stroke-width="1.6" aria-hidden="true"><path d="M4 11l8-6 8 6v8a1 1 0 0 1-1 1h-4v-6H9v6H5a1 1 0 0 1-1-1z"></path></svg></span>Family owned in O'Fallon</div>
+          </div>
+          <div style="padding:24px 20px 120px;font-size:14px;color:#6E7178;">Page continues: services, who shows up, reviews…</div>
+          <div style="position:sticky;bottom:0;display:flex;gap:10px;padding:10px 16px 38px;background:#F7F5F0;border-top:1px solid #E3DFD5;margin-top:auto;">
+            <a href="tel:3142201827" class="rsj-btn" style="flex:1;text-align:center;background:#2F6FE0;color:#FFFFFF;border-radius:8px;padding:12px;font-size:15px;font-weight:700;">Call</a>
+            <a href="#book" class="rsj-btn" style="flex:1;text-align:center;background:transparent;color:#2B2B2B;border:1.5px solid #2B2B2B;border-radius:8px;padding:12px;font-size:15px;font-weight:700;">Book</a>
+          </div>
+        </div>
+      </x-import>
+    </div>
+  </div>
+</section>
+
+<section style="font-family:'Manrope',sans-serif;color:#2B2B2B;padding:48px 40px 80px;border-top:1px solid #D8D3C5;">
+  <div style="max-width:1400px;margin:0 auto 28px;">
+    <div style="font-size:13px;letter-spacing:0.06em;text-transform:uppercase;color:#6E7178;font-weight:700;">Turn 1 · Mobile hero variants</div>
+    <div style="font-size:15px;color:#6E7178;margin-top:6px;">Three treatments of the phone hero. Same structure in each: persona label → headline → subhead → two situation blocks → trust line. Frames scroll.</div>
+  </div>
+  <div style="display:flex;flex-wrap:wrap;gap:40px;justify-content:center;align-items:flex-start;">
+
+    <!-- ===== 1a Situation cards ===== -->
+    <div id="1a" style="display:flex;flex-direction:column;gap:14px;align-items:flex-start;">
+      <div style="display:flex;align-items:center;gap:10px;">
+        <span style="display:inline-flex;align-items:center;justify-content:center;min-width:30px;height:26px;padding:0 8px;border-radius:6px;background:#2B2B2B;color:#F7F5F0;font-size:13px;font-weight:700;">1a</span>
+        <span style="font-size:16px;font-weight:700;">Situation cards</span>
+        <span style="font-size:14px;color:#6E7178;">No hero buttons; cards are the actions</span>
+      </div>
+      <x-import component-from-global-scope="IOSDevice" from="./ios-frame.jsx" hint-size="402px,874px">
+        <div style="font-family:'Manrope',sans-serif;color:#2B2B2B;background:#F7F5F0;min-height:100%;padding-top:62px;box-sizing:border-box;display:flex;flex-direction:column;">
+          <header style="display:flex;align-items:center;justify-content:space-between;height:64px;padding:0 16px;border-bottom:1px solid #E3DFD5;">
+            <div style="display:flex;align-items:center;gap:10px;">
+              <button aria-label="Open menu" style="background:transparent;border:1.5px solid #2B2B2B;border-radius:8px;width:40px;height:40px;display:flex;align-items:center;justify-content:center;cursor:pointer;"><svg width="18" height="14" viewBox="0 0 18 14" fill="none" aria-hidden="true"><line x1="0" y1="1" x2="18" y2="1" stroke="#2B2B2B" stroke-width="2"></line><line x1="0" y1="7" x2="18" y2="7" stroke="#2B2B2B" stroke-width="2"></line><line x1="0" y1="13" x2="18" y2="13" stroke="#2B2B2B" stroke-width="2"></line></svg></button>
+              <svg width="26" height="26" viewBox="0 0 34 34" fill="none" aria-hidden="true"><path d="M9 4 L9 18 A8 8 0 0 0 25 18 L25 12 L32 12" stroke="#2B2B2B" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+              <span style="font-family:Georgia,serif;font-size:14px;font-weight:700;white-space:nowrap;">R.S. Johnson Plumbing LLC</span>
+            </div>
+            <a href="tel:3142201827" class="rsj-btn" style="background:#2F6FE0;color:#FFFFFF;border-radius:8px;padding:10px 14px;font-size:14px;font-weight:700;white-space:nowrap;">Call</a>
+          </header>
+          <div style="padding:28px 20px 24px;display:flex;flex-direction:column;gap:16px;">
+            <div style="font-size:13px;font-weight:700;letter-spacing:0.04em;text-transform:uppercase;color:#6E7178;">Homeowners</div>
+            <div style="font-size:34px;font-weight:600;line-height:1.1;">Emergency or scheduled plumbing services</div>
+            <p style="margin:0;font-size:16px;line-height:1.6;">Licensed crew serving St. Charles and St. Louis County.</p>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:4px;">
+              <a href="tel:3142201827" class="rsj-card" style="display:flex;flex-direction:column;gap:8px;border:1px solid #D8D3C5;border-radius:8px;padding:16px;background:#FFFFFF;color:#2B2B2B;">
+                <span style="font-size:15px;font-weight:700;">Emergency service</span>
+                <span style="font-size:13px;line-height:1.4;color:#6E7178;min-height:36px;">Leak, no hot water, backed-up drain</span>
+                <span style="font-size:15px;font-weight:700;color:#2F6FE0;white-space:nowrap;">Call now →</span>
+              </a>
+              <a href="#book" class="rsj-card" style="display:flex;flex-direction:column;gap:8px;border:1px solid #D8D3C5;border-radius:8px;padding:16px;background:#FFFFFF;color:#2B2B2B;">
+                <span style="font-size:15px;font-weight:700;">Scheduled service</span>
+                <span style="font-size:13px;line-height:1.4;color:#6E7178;min-height:36px;">Repairs, water heaters, remodels</span>
+                <span style="font-size:15px;font-weight:700;color:#2F6FE0;white-space:nowrap;">Book online →</span>
+              </a>
+            </div>
+            <div style="display:flex;align-items:center;gap:8px;font-size:13px;color:#6E7178;">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="#2F6FE0" aria-hidden="true"><path d="M12 2l2.9 6.6 7.1.6-5.4 4.7 1.7 7-6.3-3.9-6.3 3.9 1.7-7L2 9.2l7.1-.6z"></path></svg>
+              <span>Nextdoor Neighborhood Favorite 2023 · Licensed and insured</span>
+            </div>
+          </div>
+          <div style="margin:0 20px 24px;background:#2B2B2B;border-radius:8px;padding:24px 20px;display:flex;flex-direction:column;gap:14px;">
+            <div style="font-size:13px;font-weight:700;letter-spacing:0.04em;text-transform:uppercase;color:#C9C6BE;">Builders and general contractors</div>
+            <div style="font-size:26px;font-weight:600;line-height:1.15;color:#F7F5F0;">New construction and renovation</div>
+            <p style="margin:0;font-size:15px;line-height:1.6;color:#C9C6BE;">Rough-in through trim. Custom homes, spec builds, whole-house remodels.</p>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;">
+              <a href="tel:3142201827" class="rsj-card" style="display:flex;flex-direction:column;gap:8px;border:1px solid #4A4A4A;border-radius:8px;padding:14px;color:#F7F5F0;">
+                <span style="font-size:14px;font-weight:700;">Talk it through</span>
+                <span style="font-size:13px;line-height:1.4;color:#C9C6BE;min-height:36px;">Schedule questions or plan review</span>
+                <span style="font-size:14px;font-weight:700;color:#8FB1F2;white-space:nowrap;">Talk to Ryan →</span>
+              </a>
+              <a href="#bid" class="rsj-card" style="display:flex;flex-direction:column;gap:8px;border:1px solid #4A4A4A;border-radius:8px;padding:14px;color:#F7F5F0;">
+                <span style="font-size:14px;font-weight:700;">Get a number</span>
+                <span style="font-size:13px;line-height:1.4;color:#C9C6BE;min-height:36px;">Upload plans and we'll bid it</span>
+                <span style="font-size:14px;font-weight:700;color:#8FB1F2;white-space:nowrap;">Request a bid →</span>
+              </a>
+            </div>
+          </div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px 16px;padding:20px;border-top:1px solid #E3DFD5;border-bottom:1px solid #E3DFD5;">
+            <div style="display:flex;align-items:center;gap:10px;font-size:14px;font-weight:500;"><span style="display:flex;align-items:center;justify-content:center;width:32px;height:32px;border-radius:50%;background:#E3EBFB;flex-shrink:0;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#2F6FE0" stroke-width="1.6" aria-hidden="true"><path d="M12 2l3 6 7 1-5 5 1 7-6-3-6 3 1-7-5-5 7-1z"></path></svg></span>Missouri master plumber</div>
+            <div style="display:flex;align-items:center;gap:10px;font-size:14px;font-weight:500;"><span style="display:flex;align-items:center;justify-content:center;width:32px;height:32px;border-radius:50%;background:#E3EBFB;flex-shrink:0;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#2F6FE0" stroke-width="1.6" aria-hidden="true"><path d="M12 3l7 3v6c0 5-3 8-7 9-4-1-7-4-7-9V6z"></path></svg></span>Licensed and insured</div>
+            <div style="display:flex;align-items:center;gap:10px;font-size:14px;font-weight:500;"><span style="display:flex;align-items:center;justify-content:center;width:32px;height:32px;border-radius:50%;background:#E3EBFB;flex-shrink:0;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#2F6FE0" stroke-width="1.6" aria-hidden="true"><circle cx="12" cy="12" r="9"></circle><path d="M9 12l2 2 4-4"></path></svg></span>Upfront pricing</div>
+            <div style="display:flex;align-items:center;gap:10px;font-size:14px;font-weight:500;"><span style="display:flex;align-items:center;justify-content:center;width:32px;height:32px;border-radius:50%;background:#E3EBFB;flex-shrink:0;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#2F6FE0" stroke-width="1.6" aria-hidden="true"><path d="M4 11l8-6 8 6v8a1 1 0 0 1-1 1h-4v-6H9v6H5a1 1 0 0 1-1-1z"></path></svg></span>Family owned in O'Fallon</div>
+          </div>
+          <div style="padding:24px 20px 120px;font-size:14px;color:#6E7178;">Page continues: services, who shows up, reviews…</div>
+          <div style="position:sticky;bottom:0;display:flex;gap:10px;padding:10px 16px 38px;background:#F7F5F0;border-top:1px solid #E3DFD5;margin-top:auto;">
+            <a href="tel:3142201827" class="rsj-btn" style="flex:1;text-align:center;background:#2F6FE0;color:#FFFFFF;border-radius:8px;padding:12px;font-size:15px;font-weight:700;">Call</a>
+            <a href="#book" class="rsj-btn" style="flex:1;text-align:center;background:transparent;color:#2B2B2B;border:1.5px solid #2B2B2B;border-radius:8px;padding:12px;font-size:15px;font-weight:700;">Book</a>
+          </div>
+        </div>
+      </x-import>
+    </div>
+
+    <!-- ===== 1b Switcher ===== -->
+    <div id="1b" style="display:flex;flex-direction:column;gap:14px;align-items:flex-start;">
+      <div style="display:flex;align-items:center;gap:10px;">
+        <span style="display:inline-flex;align-items:center;justify-content:center;min-width:30px;height:26px;padding:0 8px;border-radius:6px;background:#2B2B2B;color:#F7F5F0;font-size:13px;font-weight:700;">1b</span>
+        <span style="font-size:16px;font-weight:700;">Switcher</span>
+        <span style="font-size:14px;color:#6E7178;">One filled button per persona, text link beneath</span>
+      </div>
+      <x-import component-from-global-scope="IOSDevice" from="./ios-frame.jsx" hint-size="402px,874px">
+        <div style="font-family:'Manrope',sans-serif;color:#2B2B2B;background:#F7F5F0;min-height:100%;padding-top:62px;box-sizing:border-box;display:flex;flex-direction:column;">
+          <header style="display:flex;align-items:center;justify-content:space-between;height:64px;padding:0 16px;border-bottom:1px solid #E3DFD5;">
+            <div style="display:flex;align-items:center;gap:10px;">
+              <button aria-label="Open menu" style="background:transparent;border:1.5px solid #2B2B2B;border-radius:8px;width:40px;height:40px;display:flex;align-items:center;justify-content:center;cursor:pointer;"><svg width="18" height="14" viewBox="0 0 18 14" fill="none" aria-hidden="true"><line x1="0" y1="1" x2="18" y2="1" stroke="#2B2B2B" stroke-width="2"></line><line x1="0" y1="7" x2="18" y2="7" stroke="#2B2B2B" stroke-width="2"></line><line x1="0" y1="13" x2="18" y2="13" stroke="#2B2B2B" stroke-width="2"></line></svg></button>
+              <svg width="26" height="26" viewBox="0 0 34 34" fill="none" aria-hidden="true"><path d="M9 4 L9 18 A8 8 0 0 0 25 18 L25 12 L32 12" stroke="#2B2B2B" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+              <span style="font-family:Georgia,serif;font-size:14px;font-weight:700;white-space:nowrap;">R.S. Johnson Plumbing LLC</span>
+            </div>
+            <a href="tel:3142201827" class="rsj-btn" style="background:#2F6FE0;color:#FFFFFF;border-radius:8px;padding:10px 14px;font-size:14px;font-weight:700;white-space:nowrap;">Call</a>
+          </header>
+          <div role="tablist" style="padding:12px 20px;border-bottom:1px solid #E3DFD5;">
+            <div style="display:flex;gap:4px;padding:4px;background:#E3DFD5;border-radius:8px;">
+              <button role="tab" aria-selected="{{v2Home}}" class="rsj-seg {{v2HomeClass}}" onClick="{{v2ShowHome}}">For Homeowners</button>
+              <button role="tab" aria-selected="{{v2Build}}" class="rsj-seg {{v2BuildClass}}" onClick="{{v2ShowBuild}}">For Builders</button>
+            </div>
+          </div>
+          <sc-if value="{{v2Home}}" hint-placeholder-val="{{true}}">
+            <div style="padding:28px 20px 28px;display:flex;flex-direction:column;gap:16px;">
+              <div style="font-size:13px;font-weight:700;letter-spacing:0.04em;text-transform:uppercase;color:#6E7178;">Homeowners</div>
+              <div style="font-size:34px;font-weight:600;line-height:1.1;">Emergency or scheduled plumbing services</div>
+              <p style="margin:0;font-size:16px;line-height:1.6;">Licensed crew serving St. Charles and St. Louis County.</p>
+              <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:4px;">
+                <div style="display:flex;flex-direction:column;gap:6px;"><span style="font-size:15px;font-weight:700;">Emergency service</span><span style="font-size:13px;line-height:1.4;color:#6E7178;">Leak, no hot water, backed-up drain</span></div>
+                <div style="display:flex;flex-direction:column;gap:6px;"><span style="font-size:15px;font-weight:700;">Scheduled service</span><span style="font-size:13px;line-height:1.4;color:#6E7178;">Repairs, water heaters, remodels</span></div>
+              </div>
+              <div style="display:flex;flex-direction:column;align-items:center;gap:14px;margin-top:8px;">
+                <a href="tel:3142201827" class="rsj-btn" style="background:#2F6FE0;color:#FFFFFF;border-radius:8px;padding:14px 32px;font-size:16px;font-weight:700;white-space:nowrap;">Call Now</a>
+                <a href="#book" style="font-size:15px;font-weight:700;">Book online →</a>
+              </div>
+              <div style="display:flex;align-items:center;justify-content:center;gap:8px;font-size:13px;color:#6E7178;margin-top:4px;">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="#2F6FE0" aria-hidden="true"><path d="M12 2l2.9 6.6 7.1.6-5.4 4.7 1.7 7-6.3-3.9-6.3 3.9 1.7-7L2 9.2l7.1-.6z"></path></svg>
+                <span>Nextdoor Neighborhood Favorite 2023 · Licensed and insured</span>
+              </div>
+            </div>
+          </sc-if>
+          <sc-if value="{{v2Build}}" hint-placeholder-val="{{false}}">
+            <div style="padding:28px 20px 28px;display:flex;flex-direction:column;gap:16px;background:#2B2B2B;color:#F7F5F0;">
+              <div style="font-size:13px;font-weight:700;letter-spacing:0.04em;text-transform:uppercase;color:#C9C6BE;">Builders and general contractors</div>
+              <div style="font-size:34px;font-weight:600;line-height:1.1;">New construction and renovation</div>
+              <p style="margin:0;font-size:16px;line-height:1.6;color:#C9C6BE;">Rough-in through trim. Custom homes, spec builds, whole-house remodels.</p>
+              <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:4px;">
+                <div style="display:flex;flex-direction:column;gap:6px;"><span style="font-size:15px;font-weight:700;">Talk it through</span><span style="font-size:13px;line-height:1.4;color:#C9C6BE;">Schedule questions or plan review</span></div>
+                <div style="display:flex;flex-direction:column;gap:6px;"><span style="font-size:15px;font-weight:700;">Get a number</span><span style="font-size:13px;line-height:1.4;color:#C9C6BE;">Upload plans and we'll bid it</span></div>
+              </div>
+              <div style="display:flex;flex-direction:column;align-items:center;gap:14px;margin-top:8px;">
+                <a href="#bid" class="rsj-btn" style="background:#2F6FE0;color:#FFFFFF;border-radius:8px;padding:14px 32px;font-size:16px;font-weight:700;white-space:nowrap;">Request a Bid</a>
+                <a href="tel:3142201827" style="font-size:15px;font-weight:700;color:#8FB1F2;">Talk to Ryan →</a>
+              </div>
+              <div style="text-align:center;font-size:13px;color:#C9C6BE;margin-top:4px;">[##] homes plumbed · [##] builder partners · Trade partner since 2022</div>
+            </div>
+          </sc-if>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px 16px;padding:20px;border-top:1px solid #E3DFD5;border-bottom:1px solid #E3DFD5;">
+            <div style="display:flex;align-items:center;gap:10px;font-size:14px;font-weight:500;"><span style="display:flex;align-items:center;justify-content:center;width:32px;height:32px;border-radius:50%;background:#E3EBFB;flex-shrink:0;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#2F6FE0" stroke-width="1.6" aria-hidden="true"><path d="M12 2l3 6 7 1-5 5 1 7-6-3-6 3 1-7-5-5 7-1z"></path></svg></span>Missouri master plumber</div>
+            <div style="display:flex;align-items:center;gap:10px;font-size:14px;font-weight:500;"><span style="display:flex;align-items:center;justify-content:center;width:32px;height:32px;border-radius:50%;background:#E3EBFB;flex-shrink:0;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#2F6FE0" stroke-width="1.6" aria-hidden="true"><path d="M12 3l7 3v6c0 5-3 8-7 9-4-1-7-4-7-9V6z"></path></svg></span>Licensed and insured</div>
+            <div style="display:flex;align-items:center;gap:10px;font-size:14px;font-weight:500;"><span style="display:flex;align-items:center;justify-content:center;width:32px;height:32px;border-radius:50%;background:#E3EBFB;flex-shrink:0;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#2F6FE0" stroke-width="1.6" aria-hidden="true"><circle cx="12" cy="12" r="9"></circle><path d="M9 12l2 2 4-4"></path></svg></span>Upfront pricing</div>
+            <div style="display:flex;align-items:center;gap:10px;font-size:14px;font-weight:500;"><span style="display:flex;align-items:center;justify-content:center;width:32px;height:32px;border-radius:50%;background:#E3EBFB;flex-shrink:0;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#2F6FE0" stroke-width="1.6" aria-hidden="true"><path d="M4 11l8-6 8 6v8a1 1 0 0 1-1 1h-4v-6H9v6H5a1 1 0 0 1-1-1z"></path></svg></span>Family owned in O'Fallon</div>
+          </div>
+          <div style="padding:24px 20px 120px;font-size:14px;color:#6E7178;">Page continues: services, who shows up, reviews…</div>
+          <div style="position:sticky;bottom:0;display:flex;gap:10px;padding:10px 16px 38px;background:#F7F5F0;border-top:1px solid #E3DFD5;margin-top:auto;">
+            <a href="tel:3142201827" class="rsj-btn" style="flex:1;text-align:center;background:#2F6FE0;color:#FFFFFF;border-radius:8px;padding:12px;font-size:15px;font-weight:700;">Call</a>
+            <a href="#book" class="rsj-btn" style="flex:1;text-align:center;background:transparent;color:#2B2B2B;border:1.5px solid #2B2B2B;border-radius:8px;padding:12px;font-size:15px;font-weight:700;">Book</a>
+          </div>
+        </div>
+      </x-import>
+    </div>
+
+    <!-- ===== 1c Smart sticky bar ===== -->
+    <div id="1c" style="display:flex;flex-direction:column;gap:14px;align-items:flex-start;">
+      <div style="display:flex;align-items:center;gap:10px;">
+        <span style="display:inline-flex;align-items:center;justify-content:center;min-width:30px;height:26px;padding:0 8px;border-radius:6px;background:#2B2B2B;color:#F7F5F0;font-size:13px;font-weight:700;">1c</span>
+        <span style="font-size:16px;font-weight:700;">Smart sticky bar</span>
+        <span style="font-size:14px;color:#6E7178;">No hero buttons; the bottom bar follows the switcher</span>
+      </div>
+      <x-import component-from-global-scope="IOSDevice" from="./ios-frame.jsx" hint-size="402px,874px">
+        <div style="font-family:'Manrope',sans-serif;color:#2B2B2B;background:#F7F5F0;min-height:100%;padding-top:62px;box-sizing:border-box;display:flex;flex-direction:column;">
+          <header style="display:flex;align-items:center;justify-content:space-between;height:64px;padding:0 16px;border-bottom:1px solid #E3DFD5;">
+            <div style="display:flex;align-items:center;gap:10px;">
+              <button aria-label="Open menu" style="background:transparent;border:1.5px solid #2B2B2B;border-radius:8px;width:40px;height:40px;display:flex;align-items:center;justify-content:center;cursor:pointer;"><svg width="18" height="14" viewBox="0 0 18 14" fill="none" aria-hidden="true"><line x1="0" y1="1" x2="18" y2="1" stroke="#2B2B2B" stroke-width="2"></line><line x1="0" y1="7" x2="18" y2="7" stroke="#2B2B2B" stroke-width="2"></line><line x1="0" y1="13" x2="18" y2="13" stroke="#2B2B2B" stroke-width="2"></line></svg></button>
+              <svg width="26" height="26" viewBox="0 0 34 34" fill="none" aria-hidden="true"><path d="M9 4 L9 18 A8 8 0 0 0 25 18 L25 12 L32 12" stroke="#2B2B2B" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+              <span style="font-family:Georgia,serif;font-size:14px;font-weight:700;white-space:nowrap;">R.S. Johnson Plumbing LLC</span>
+            </div>
+            <a href="tel:3142201827" class="rsj-btn" style="background:#2F6FE0;color:#FFFFFF;border-radius:8px;padding:10px 14px;font-size:14px;font-weight:700;white-space:nowrap;">Call</a>
+          </header>
+          <div role="tablist" style="padding:12px 20px;border-bottom:1px solid #E3DFD5;">
+            <div style="display:flex;gap:4px;padding:4px;background:#E3DFD5;border-radius:8px;">
+              <button role="tab" aria-selected="{{v3Home}}" class="rsj-seg {{v3HomeClass}}" onClick="{{v3ShowHome}}">For Homeowners</button>
+              <button role="tab" aria-selected="{{v3Build}}" class="rsj-seg {{v3BuildClass}}" onClick="{{v3ShowBuild}}">For Builders</button>
+            </div>
+          </div>
+          <sc-if value="{{v3Home}}" hint-placeholder-val="{{true}}">
+            <div style="padding:28px 20px 28px;display:flex;flex-direction:column;gap:16px;">
+              <div style="font-size:13px;font-weight:700;letter-spacing:0.04em;text-transform:uppercase;color:#6E7178;">Homeowners</div>
+              <div style="font-size:34px;font-weight:600;line-height:1.1;">Emergency or scheduled plumbing services</div>
+              <p style="margin:0;font-size:16px;line-height:1.6;">Licensed crew serving St. Charles and St. Louis County.</p>
+              <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:4px;">
+                <div style="display:flex;flex-direction:column;gap:6px;border-left:2px solid #2F6FE0;padding-left:12px;"><span style="font-size:15px;font-weight:700;">Emergency service</span><span style="font-size:13px;line-height:1.4;color:#6E7178;">Leak, no hot water, backed-up drain</span></div>
+                <div style="display:flex;flex-direction:column;gap:6px;border-left:2px solid #2B2B2B;padding-left:12px;"><span style="font-size:15px;font-weight:700;">Scheduled service</span><span style="font-size:13px;line-height:1.4;color:#6E7178;">Repairs, water heaters, remodels</span></div>
+              </div>
+              <div style="display:flex;align-items:center;gap:8px;font-size:13px;color:#6E7178;margin-top:4px;">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="#2F6FE0" aria-hidden="true"><path d="M12 2l2.9 6.6 7.1.6-5.4 4.7 1.7 7-6.3-3.9-6.3 3.9 1.7-7L2 9.2l7.1-.6z"></path></svg>
+                <span>Nextdoor Neighborhood Favorite 2023 · Licensed and insured</span>
+              </div>
+            </div>
+          </sc-if>
+          <sc-if value="{{v3Build}}" hint-placeholder-val="{{false}}">
+            <div style="padding:28px 20px 28px;display:flex;flex-direction:column;gap:16px;background:#2B2B2B;color:#F7F5F0;">
+              <div style="font-size:13px;font-weight:700;letter-spacing:0.04em;text-transform:uppercase;color:#C9C6BE;">Builders and general contractors</div>
+              <div style="font-size:34px;font-weight:600;line-height:1.1;">New construction and renovation</div>
+              <p style="margin:0;font-size:16px;line-height:1.6;color:#C9C6BE;">Rough-in through trim. Custom homes, spec builds, whole-house remodels.</p>
+              <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:4px;">
+                <div style="display:flex;flex-direction:column;gap:6px;border-left:2px solid #F7F5F0;padding-left:12px;"><span style="font-size:15px;font-weight:700;">Talk it through</span><span style="font-size:13px;line-height:1.4;color:#C9C6BE;">Schedule questions or plan review</span></div>
+                <div style="display:flex;flex-direction:column;gap:6px;border-left:2px solid #2F6FE0;padding-left:12px;"><span style="font-size:15px;font-weight:700;">Get a number</span><span style="font-size:13px;line-height:1.4;color:#C9C6BE;">Upload plans and we'll bid it</span></div>
+              </div>
+              <div style="font-size:13px;color:#C9C6BE;margin-top:4px;">[##] homes plumbed · [##] builder partners · Trade partner since 2022</div>
+            </div>
+          </sc-if>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px 16px;padding:20px;border-top:1px solid #E3DFD5;border-bottom:1px solid #E3DFD5;">
+            <div style="display:flex;align-items:center;gap:10px;font-size:14px;font-weight:500;"><span style="display:flex;align-items:center;justify-content:center;width:32px;height:32px;border-radius:50%;background:#E3EBFB;flex-shrink:0;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#2F6FE0" stroke-width="1.6" aria-hidden="true"><path d="M12 2l3 6 7 1-5 5 1 7-6-3-6 3 1-7-5-5 7-1z"></path></svg></span>Missouri master plumber</div>
+            <div style="display:flex;align-items:center;gap:10px;font-size:14px;font-weight:500;"><span style="display:flex;align-items:center;justify-content:center;width:32px;height:32px;border-radius:50%;background:#E3EBFB;flex-shrink:0;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#2F6FE0" stroke-width="1.6" aria-hidden="true"><path d="M12 3l7 3v6c0 5-3 8-7 9-4-1-7-4-7-9V6z"></path></svg></span>Licensed and insured</div>
+            <div style="display:flex;align-items:center;gap:10px;font-size:14px;font-weight:500;"><span style="display:flex;align-items:center;justify-content:center;width:32px;height:32px;border-radius:50%;background:#E3EBFB;flex-shrink:0;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#2F6FE0" stroke-width="1.6" aria-hidden="true"><circle cx="12" cy="12" r="9"></circle><path d="M9 12l2 2 4-4"></path></svg></span>Upfront pricing</div>
+            <div style="display:flex;align-items:center;gap:10px;font-size:14px;font-weight:500;"><span style="display:flex;align-items:center;justify-content:center;width:32px;height:32px;border-radius:50%;background:#E3EBFB;flex-shrink:0;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#2F6FE0" stroke-width="1.6" aria-hidden="true"><path d="M4 11l8-6 8 6v8a1 1 0 0 1-1 1h-4v-6H9v6H5a1 1 0 0 1-1-1z"></path></svg></span>Family owned in O'Fallon</div>
+          </div>
+          <div style="padding:24px 20px 120px;font-size:14px;color:#6E7178;">Page continues: services, who shows up, reviews…</div>
+          <sc-if value="{{v3Home}}" hint-placeholder-val="{{true}}">
+            <div style="position:sticky;bottom:0;display:flex;gap:10px;padding:10px 16px 38px;background:#F7F5F0;border-top:1px solid #E3DFD5;margin-top:auto;">
+              <a href="tel:3142201827" class="rsj-btn" style="flex:1;text-align:center;background:#2F6FE0;color:#FFFFFF;border-radius:8px;padding:12px;font-size:15px;font-weight:700;">Call</a>
+              <a href="#book" class="rsj-btn" style="flex:1;text-align:center;background:transparent;color:#2B2B2B;border:1.5px solid #2B2B2B;border-radius:8px;padding:12px;font-size:15px;font-weight:700;">Book</a>
+            </div>
+          </sc-if>
+          <sc-if value="{{v3Build}}" hint-placeholder-val="{{false}}">
+            <div style="position:sticky;bottom:0;display:flex;gap:10px;padding:10px 16px 38px;background:#2B2B2B;border-top:1px solid #4A4A4A;margin-top:auto;">
+              <a href="tel:3142201827" class="rsj-btn" style="flex:1;text-align:center;background:transparent;color:#F7F5F0;border:1.5px solid #F7F5F0;border-radius:8px;padding:12px;font-size:15px;font-weight:700;white-space:nowrap;">Talk to Ryan</a>
+              <a href="#bid" class="rsj-btn" style="flex:1;text-align:center;background:#2F6FE0;color:#FFFFFF;border-radius:8px;padding:12px;font-size:15px;font-weight:700;white-space:nowrap;">Request a Bid</a>
+            </div>
+          </sc-if>
+        </div>
+      </x-import>
+    </div>
+
+  </div>
+</section>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { v2: 'home', v3: 'home', j: 'home' };
+  renderVals() {
+    const { v2, v3, j } = this.state;
+    return {
+      jHome: j === 'home', jBuild: j === 'build',
+      jHomeClass: j === 'home' ? 'rsj-seg-active' : '', jBuildClass: j === 'build' ? 'rsj-seg-active' : '',
+      jumpHome: () => this.setState({ j: 'home' }), jumpBuild: () => this.setState({ j: 'build' }),
+      v2Home: v2 === 'home', v2Build: v2 === 'build',
+      v2HomeClass: v2 === 'home' ? 'rsj-seg-active' : '', v2BuildClass: v2 === 'build' ? 'rsj-seg-active' : '',
+      v2ShowHome: () => this.setState({ v2: 'home' }), v2ShowBuild: () => this.setState({ v2: 'build' }),
+      v3Home: v3 === 'home', v3Build: v3 === 'build',
+      v3HomeClass: v3 === 'home' ? 'rsj-seg-active' : '', v3BuildClass: v3 === 'build' ? 'rsj-seg-active' : '',
+      v3ShowHome: () => this.setState({ v3: 'home' }), v3ShowBuild: () => this.setState({ v3: 'build' })
+    };
+  }
+}
+</script>
+</body>
+</html>

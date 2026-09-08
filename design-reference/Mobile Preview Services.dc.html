@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<style>
+  body{margin:0;background:#EDEAE2;}
+  a{color:#2F6FE0;text-decoration:none;}
+  a:hover{color:#1F4FB0;text-decoration:underline;}
+</style>
+</helmet>
+<div style="font-family:'Manrope',sans-serif;min-height:100vh;display:flex;flex-direction:column;align-items:center;gap:20px;padding:40px 24px;box-sizing:border-box;">
+  <div style="font-size:13px;letter-spacing:0.06em;text-transform:uppercase;color:#6E7178;font-weight:600;">Phone preview — Homeowner services, 390px</div>
+  <x-import component-from-global-scope="IOSDevice" from="./ios-frame.jsx" hint-size="430px,900px">
+    <div style="width:100%;height:100%;padding-top:62px;box-sizing:border-box;background:#F7F5F0;">
+      <iframe src="./Homeowner Services.dc.html" title="Homeowner services page, phone layout" style="width:100%;height:100%;border:0;display:block;background:#F7F5F0;"></iframe>
+    </div>
+  </x-import>
+  <div style="display:flex;gap:20px;font-size:14px;font-weight:700;"><a href="./Homeowner Services.dc.html">Open desktop view</a><a href="./Mobile Preview.dc.html">Phone preview: Homepage</a></div>
+</div>
+</x-dc>
+</body>
+</html>
