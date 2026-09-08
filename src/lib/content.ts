@@ -11,6 +11,7 @@ import teamJson from "../../content/team.json";
 import reviewsJson from "../../content/reviews.json";
 import faqsJson from "../../content/faqs.json";
 import projectsJson from "../../content/projects.json";
+import homeJson from "../../content/home.json";
 
 export type IconName =
   | "star"
@@ -104,10 +105,15 @@ export type CitiesContent = {
 };
 
 export const cities = citiesJson as unknown as CitiesContent;
-export const team = teamJson as typeof teamJson & { members: TeamMember[] };
-export const reviews = reviewsJson as typeof reviewsJson & { items: Review[] };
+export type TeamContent = Omit<typeof teamJson, "members"> & { members: TeamMember[] };
+export type ReviewsContent = Omit<typeof reviewsJson, "items"> & { items: Review[] };
+export type ProjectsContent = Omit<typeof projectsJson, "items"> & { items: Project[] };
+
+export const team = teamJson as unknown as TeamContent;
+export const reviews = reviewsJson as unknown as ReviewsContent;
 export const faqs = faqsJson;
-export const projects = projectsJson as typeof projectsJson & { items: Project[] };
+export const home = homeJson;
+export const projects = projectsJson as unknown as ProjectsContent;
 
 export const SITE_URL = site.siteUrl;
 

@@ -24,11 +24,26 @@
   "founded": "[year]",
   "yearsInTrade": "[##]",
   "nav": [
-    { "label": "For Homeowners", "href": "/plumbing" },
-    { "label": "For Builders", "href": "/for-builders" },
-    { "label": "Service Area", "href": "/service-area" },
-    { "label": "Our Team", "href": "/our-team" },
-    { "label": "Reviews", "href": "/reviews" }
+    {
+      "label": "For Homeowners",
+      "href": "/plumbing"
+    },
+    {
+      "label": "For Builders",
+      "href": "/for-builders"
+    },
+    {
+      "label": "Service Area",
+      "href": "/service-area"
+    },
+    {
+      "label": "Our Team",
+      "href": "/our-team"
+    },
+    {
+      "label": "Reviews",
+      "href": "/reviews"
+    }
   ],
   "cta": {
     "headerDesktop": "Call or Text 314-220-1827",
@@ -45,7 +60,8 @@
     "message": "/contact#message",
     "bid": "/for-builders#request-a-bid",
     "nextdoor": "[nextdoor-url]",
-    "googleReviews": "[google-reviews-url]"
+    "googleReviews": "[google-reviews-url]",
+    "tel": "tel:3142201827"
   },
   "proof": {
     "nextdoorAward": "Nextdoor Neighborhood Favorite 2023",
@@ -54,10 +70,26 @@
     "googleCount": "[count] reviews"
   },
   "trustBar": [
-    { "icon": "star", "label": "Missouri Master Plumber" },
-    { "icon": "shield", "label": "Licensed and insured" },
-    { "icon": "check-circle", "label": "Upfront pricing" },
-    { "icon": "phone", "label": "You talk to the plumber" }
+    {
+      "icon": "star",
+      "label": "Missouri Master Plumber"
+    },
+    {
+      "icon": "shield",
+      "label": "Licensed and insured"
+    },
+    {
+      "icon": "check-circle",
+      "label": "Upfront pricing"
+    },
+    {
+      "icon": "star",
+      "label": "Nextdoor Neighborhood Favorite 2023"
+    },
+    {
+      "icon": "phone",
+      "label": "You talk to the plumber"
+    }
   ],
   "closingCta": {
     "heading": "Need a plumber?",
@@ -69,8 +101,14 @@
     "areaHeading": "Service area",
     "reviewsHeading": "Reviews",
     "reviewLinks": [
-      { "label": "Nextdoor", "hrefKey": "nextdoor" },
-      { "label": "Google reviews", "hrefKey": "googleReviews" }
+      {
+        "label": "Nextdoor",
+        "hrefKey": "nextdoor"
+      },
+      {
+        "label": "Google reviews",
+        "hrefKey": "googleReviews"
+      }
     ]
   }
 }
