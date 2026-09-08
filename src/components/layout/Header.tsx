@@ -11,9 +11,9 @@ import { cn } from "@/lib/cn";
 
 /**
  * Sticky header. Desktop (80px): logo left, five nav links, filled phone
- * button. Mobile (60px): 24px mark plus short wordmark, filled Call button,
- * hamburger that opens a stacked nav panel. The current page link is
- * underlined.
+ * button. Mobile (60px): 24px mark plus short wordmark and a hamburger that
+ * opens a stacked nav panel. No Call button on mobile: the sticky bottom bar
+ * carries it on every page. The current page link is underlined.
  */
 export function Header() {
   const [open, setOpen] = useState(false);
@@ -42,17 +42,9 @@ export function Header() {
           <Button href={site.phone.tel} variant="filled" size="sm" track="call-header" className="ml-10 hidden lg:inline-flex">
             {site.cta.headerDesktop}
           </Button>
-          <a
-            href={site.phone.tel}
-            data-track="call-header-mobile"
-            className="inline-flex h-9 items-center justify-center rounded-btn bg-blue px-4 text-[14px] font-bold text-white hover:opacity-[0.88] lg:hidden"
-            aria-label={`${site.phone.note} ${site.phone.display}`}
-          >
-            {site.cta.headerMobile}
-          </a>
           <button
             type="button"
-            className="ml-3 flex h-10 w-10 items-center justify-center text-charcoal lg:hidden"
+            className="-mr-2 flex h-10 w-10 items-center justify-center text-charcoal lg:hidden"
             aria-label={open ? "Close menu" : "Open menu"}
             aria-expanded={open}
             aria-controls="mobile-nav"

@@ -110,5 +110,10 @@
         "hrefKey": "googleReviews"
       }
     ]
+  },
+  "notFound": {
+    "heading": "That page isn't here",
+    "line": "The link may be old, or the page hasn't been built yet. Try one of these instead.",
+    "button": "Back to Home"
   }
 }
