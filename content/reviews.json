@@ -1,0 +1,24 @@
+{
+  "heading": "What neighbors say",
+  "pageHeading": "What neighbors and builders say",
+  "summary": [
+    { "source": "Nextdoor", "line1": "Neighborhood Favorite 2023", "line2": "24 recommendations" },
+    { "source": "Google", "line1": "[rating]", "line2": "[count] reviews" }
+  ],
+  "items": [
+    { "id": "bl-wildwood", "quote": "Ryan is wonderful. He's honest, reliable and knows his stuff.", "author": "B.L.", "city": "Wildwood", "source": "Nextdoor", "audience": "homeowner", "date": "[date]", "featured": true },
+    { "id": "jr-ofallon", "quote": "R.S. Johnson Plumbing… super!", "author": "J.R.", "city": "O'Fallon area", "source": "Nextdoor", "audience": "homeowner", "date": "[date]", "featured": true },
+    { "id": "neighbor-stl", "quote": "R.S. Plumbing is terrific.", "author": "Neighbor", "city": "St. Louis", "source": "Nextdoor", "audience": "homeowner", "date": "[date]", "featured": true },
+    { "id": "kg-ofallon", "quote": "I recommend R.S. Johnson Plumbing LLC.", "author": "K.G.", "city": "O'Fallon area", "source": "Nextdoor", "audience": "homeowner", "date": "[date]", "featured": false },
+    { "id": "as-chesterfield", "quote": "Recommended R.S. Johnson to a neighbor who needed a plumber fast.", "author": "A.S.", "city": "Chesterfield", "source": "Nextdoor", "audience": "homeowner", "date": "[date]", "featured": false, "paraphrase": true },
+    { "id": "builder-1", "quote": "[Contractor quote placeholder]", "author": "[Name]", "company": "[Builder company]", "city": "[City]", "source": "Builder", "audience": "builder", "date": "[date]", "featured": true, "placeholder": true },
+    { "id": "builder-2", "quote": "[Contractor quote placeholder]", "author": "[Name]", "company": "[Builder company]", "city": "[City]", "source": "Builder", "audience": "builder", "date": "[date]", "featured": false, "placeholder": true },
+    { "id": "builder-3", "quote": "[Contractor quote placeholder]", "author": "[Name]", "company": "[Builder company]", "city": "[City]", "source": "Builder", "audience": "builder", "date": "[date]", "featured": false, "placeholder": true }
+  ],
+  "leaveReview": {
+    "heading": "Leave a review",
+    "google": "Review on Google",
+    "nextdoor": "Recommend on Nextdoor"
+  },
+  "seeAll": "See all reviews"
+}

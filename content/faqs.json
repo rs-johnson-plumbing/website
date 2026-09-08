@@ -1,0 +1,21 @@
+{
+  "home": {
+    "heading": "Common questions",
+    "line": "Straight answers before you call.",
+    "items": [
+      { "q": "What areas do you serve?", "a": "St. Charles County and West St. Louis County — O'Fallon, St. Charles, St. Peters, Wentzville, Lake St. Louis, Dardenne Prairie, Cottleville, Weldon Spring, Chesterfield, Wildwood, Ballwin, Kirkwood, Manchester, Ellisville, Creve Coeur, Town and Country, Clayton, and Ladue." },
+      { "q": "Do you handle emergencies?", "a": "Yes. Burst pipes, active leaks, sewer backups, and no hot water. Call or text 314-220-1827 and you'll reach Ryan directly. [Emergency and after-hours policy — confirm.]" },
+      { "q": "Do you work with builders and contractors?", "a": "Most of our week is builder work — new construction and renovation plumbing, rough-in through trim, for custom homes, spec builds, and whole-house remodels. Use the Request a Bid form and Ryan will have a number back within [# business days]." },
+      { "q": "Are you licensed and insured?", "a": "Yes. Ryan Johnson is a Missouri Master Plumber, license #[number], and the company is fully insured. Every plumber on the crew is licensed and background-checked." },
+      { "q": "How does pricing work?", "a": "You get a price before we start. We look at the job, explain what it needs, and give you a number. No surprises on the invoice." }
+    ]
+  },
+  "service": {
+    "heading": "Common questions",
+    "items": [
+      { "q": "How soon can you get here?", "a": "[Response time — confirm.] Call or text and we'll give you a real window, not a four-hour guess." },
+      { "q": "Do you charge for an estimate?", "a": "[Estimate policy — confirm.]" },
+      { "q": "Who will show up?", "a": "One of the licensed plumbers on our team page, in a marked truck and company shirt. You'll get a text with a name and ETA before we arrive." }
+    ]
+  }
+}

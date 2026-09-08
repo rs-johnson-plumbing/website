@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Georgia&display=swap" rel="stylesheet">
+<style>
+  *{box-sizing:border-box;}
+  body{margin:0;background:#F7F5F0;padding-bottom:0;overflow-x:hidden;}
+  a{color:#2F6FE0;text-decoration:none;}
+  a:hover{color:#1F4FB0;text-decoration:underline;}
+  .rsj-btn:hover{opacity:0.88;}
+  .rsj-card:hover{border-color:#2F6FE0;}
+  .rsj-tile:hover{text-decoration:none;}
+  .rsj-nav-desktop a:hover{text-decoration:underline;text-underline-offset:6px;text-decoration-thickness:1.5px;color:#2B2B2B;}
+  .rsj-nav-desktop{display:flex;}
+  .rsj-nav-desktop a{white-space:nowrap;}
+  header > *:first-child{margin-right:32px;}
+  @media (max-width:1280px){
+    .rsj-logo-word{font-size:17px;}
+    .rsj-nav-desktop{gap:20px !important;font-size:15px !important;}
+  }
+  .rsj-hamburger{display:none;}
+  .rsj-mobile-panel{display:none;}
+  .rsj-sticky-bottom{display:none;}
+  .rsj-audience-switch{display:none;}
+  .rsj-seg{flex:1;padding:10px 12px;border-radius:6px;border:0;background:transparent;color:#6E7178;font:inherit;font-size:15px;font-weight:700;cursor:pointer;white-space:nowrap;}
+  .rsj-seg-active{background:#FFFFFF;color:#2B2B2B;box-shadow:0 1px 2px rgba(0,0,0,0.08);}
+  .rsj-logo-word{font-size:20px;}
+  @media (max-width:1140px){
+    body{padding-bottom:76px;}
+    header{height:60px !important;}
+    header svg[viewBox="0 0 34 34"]{width:24px;height:24px;}
+    .rsj-logo-word{font-size:16px !important;}
+    .rsj-header-call-mobile{height:36px;padding:0 12px !important;align-items:center;}
+    .rsj-hamburger{width:24px !important;height:24px !important;margin-left:12px !important;padding:0 !important;}
+    .rsj-hamburger svg{width:20px;height:14px;flex-shrink:0;}
+    .rsj-utility{padding:0 12px !important;height:auto !important;min-height:32px;justify-content:center !important;font-size:12px !important;}
+    .rsj-utility > div{gap:12px !important;flex-wrap:wrap;justify-content:center;padding:6px 0;}
+    .rsj-utility-extra{display:none !important;}
+    .rsj-nav-desktop{display:none !important;}
+    .rsj-hamburger{display:flex !important;}
+    .rsj-two-col{grid-template-columns:1fr !important;}
+    .rsj-hero-photo{order:2;}
+    .rsj-hero-text{order:1;}
+    .rsj-services-grid{grid-template-columns:repeat(2,1fr) !important;}
+    .rsj-hero-buttons{flex-direction:column !important;align-items:stretch !important;}
+    .rsj-hero-btn-primary{width:100%;}
+    .rsj-hero-btn-row2{display:flex;gap:10px;width:100%;}
+    .rsj-hero-btn-row2 a{flex:1;}
+    .rsj-builder-band{flex-direction:column !important;align-items:flex-start !important;gap:20px !important;}
+    .rsj-sticky-bottom{display:flex !important;}
+    .rsj-audience-switch{display:flex !important;}
+    .rsj-eyebrow{display:none !important;}
+    .rsj-hamburger{border:0 !important;}
+    .rsj-llc{display:none;}
+    .rsj-trust{padding:20px !important;display:flex !important;flex-direction:column !important;gap:12px !important;}
+    .rsj-trust > div{font-size:14px !important;}
+    .rsj-tile{border-radius:8px;padding:18px 16px !important;gap:10px !important;}
+    .rsj-tile-icon{display:block !important;}
+    .rsj-tile-label{font-size:18px !important;line-height:1.2;min-height:0 !important;}
+    .rsj-block-btn{display:none !important;}
+    .rsj-tile-primary{background:#2F6FE0 !important;color:#FFFFFF !important;border:1.5px solid #2F6FE0;}
+    .rsj-tile-primary .rsj-block-help{color:#DCE6FA !important;}
+    .rsj-tile-secondary{background:#FFFFFF;color:#2B2B2B;border:1.5px solid #2B2B2B;}
+    .rsj-tile-dark-secondary{background:transparent;color:#F7F5F0;border:1.5px solid #F7F5F0;}
+    .rsj-tile-dark-secondary .rsj-block-help{color:#D9D6CE !important;}
+    .rsj-action-blocks{grid-template-columns:1fr 1fr !important;gap:12px !important;}
+    .rsj-aud-homeowners .rsj-builder-col{display:none !important;}
+    .rsj-aud-builders .rsj-homeowner-col{display:none !important;}
+    .rsj-desktop-only{display:none !important;}
+    .rsj-section-pad{padding:56px 20px !important;}
+    .rsj-header-pad{padding:14px 20px !important;}
+    .rsj-logo-word{font-size:16px;white-space:nowrap;}
+    .rsj-header-call-mobile{display:flex !important;}
+    header{gap:12px;}
+    .rsj-hero-grid{grid-template-columns:1fr !important;}
+    .rsj-hero-col-pad{padding:20px 20px 24px !important;}
+    .rsj-hero-h{font-size:32px !important;line-height:1.15 !important;}
+    .rsj-pills{display:none !important;}
+    .rsj-trust-mobile{display:flex !important;}
+    .rsj-hero-col-pad{gap:12px !important;}
+    .rsj-hero-sub{font-size:16px !important;}
+    .rsj-action-blocks{margin-top:0 !important;}
+    .rsj-block-help{min-height:0 !important;}
+    .rsj-audience-switch{padding:8px 20px !important;}
+    .rsj-hero-sub{white-space:normal !important;min-height:0 !important;}
+    .rsj-hero-h{min-height:0 !important;}
+    h1{font-size:34px !important;}
+    h2{font-size:26px !important;}
+  }
+  @media (max-width:480px){
+    .rsj-header-call{padding:10px 12px !important;font-size:13px !important;}
+    .rsj-logo-word{font-size:14px;}
+  }
+</style>
+</helmet>
+
+<div style="font-family:'Manrope',sans-serif;color:#2B2B2B;">
+
+<!-- HEADER -->
+<header style="position:sticky;top:0;z-index:20;display:flex;align-items:center;justify-content:space-between;height:80px;padding:0 64px;background:#F7F5F0;border-bottom:1px solid #E3DFD5;" class="rsj-header-pad">
+  <div style="display:flex;align-items:center;gap:10px;">
+    <svg width="34" height="34" viewBox="0 0 34 34" fill="none" aria-hidden="true" style="flex-shrink:0;">
+      <path d="M9 4 L9 18 A8 8 0 0 0 25 18 L25 12 L32 12" stroke="#2B2B2B" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"></path>
+    </svg>
+    <span class="rsj-logo-word" style="font-family:Georgia,serif;font-weight:700;color:#2B2B2B;white-space:nowrap;">R.S. Johnson Plumbing<span class="rsj-llc"> LLC</span></span>
+  </div>
+  <div style="display:flex;align-items:center;">
+    <nav class="rsj-nav-desktop" aria-label="Primary" style="align-items:center;gap:28px;font-size:16px;font-weight:500;color:#2B2B2B;white-space:nowrap;">
+      <a href="./Homeowner Services.dc.html" style="color:#2B2B2B;">For Homeowners</a>
+      <a href="./For Builders.dc.html" style="color:#2B2B2B;">For Builders</a>
+      <a href="#service-area" style="color:#2B2B2B;">Service Area</a>
+      <a href="#our-team" style="color:#2B2B2B;">Our Team</a>
+      <a href="#reviews" style="color:#2B2B2B;">Reviews</a>
+    </nav>
+    <a href="tel:3142201827" class="rsj-btn rsj-nav-desktop" style="margin-left:40px;background:#2F6FE0;color:#FFFFFF;border-radius:8px;padding:12px 20px;font-size:15px;font-weight:700;white-space:nowrap;">Call or Text 314-220-1827</a>
+    <a href="tel:3142201827" class="rsj-btn rsj-header-call-mobile" style="display:none;background:#2F6FE0;color:#FFFFFF;border-radius:8px;padding:10px 16px;font-size:14px;font-weight:700;white-space:nowrap;">Call</a>
+    <button class="rsj-hamburger" aria-label="Open menu" aria-expanded="{{navOpen}}" onClick="{{toggleNav}}" style="background:transparent;border:1.5px solid #2B2B2B;border-radius:8px;width:40px;height:40px;margin-left:8px;align-items:center;justify-content:center;cursor:pointer;">
+      <svg width="22" height="16" viewBox="0 0 22 16" fill="none" aria-hidden="true"><line x1="0" y1="1" x2="22" y2="1" stroke="#2B2B2B" stroke-width="2"></line><line x1="0" y1="8" x2="22" y2="8" stroke="#2B2B2B" stroke-width="2"></line><line x1="0" y1="15" x2="22" y2="15" stroke="#2B2B2B" stroke-width="2"></line></svg>
+    </button>
+  </div>
+</header>
+
+<div class="rsj-audience-switch" role="tablist" aria-label="Choose audience" style="padding:12px 20px;background:#F7F5F0;border-bottom:1px solid #E3DFD5;">
+  <div style="display:flex;gap:4px;width:100%;padding:4px;background:#E3DFD5;border-radius:8px;">
+    <button role="tab" aria-selected="{{isHomeowners}}" class="rsj-seg {{homeTabClass}}" onClick="{{showHomeowners}}">For Homeowners</button>
+    <button role="tab" aria-selected="{{isBuilders}}" class="rsj-seg {{builderTabClass}}" onClick="{{showBuilders}}">For Builders</button>
+  </div>
+</div>
+
+<sc-if value="{{navOpen}}" hint-placeholder-val="{{false}}">
+  <nav aria-label="Mobile" style="display:flex;flex-direction:column;padding:16px 20px 24px;background:#F7F5F0;border-bottom:1px solid #E3DFD5;gap:16px;font-size:16px;font-weight:600;">
+    <a href="#homeowner-services" onClick="{{closeNavHomeowners}}" style="color:#2B2B2B;">For Homeowners</a>
+    <a href="./For Builders.dc.html" style="color:#2B2B2B;">For Builders</a>
+    <a href="#service-area" onClick="{{closeNav}}" style="color:#2B2B2B;">Service Area</a>
+    <a href="#our-team" onClick="{{closeNav}}" style="color:#2B2B2B;">Our Team</a>
+    <a href="#reviews" onClick="{{closeNav}}" style="color:#2B2B2B;">Reviews</a>
+  </nav>
+</sc-if>
+
+<main>
+
+<!-- HERO -->
+<section id="homeowner-services" class="rsj-hero-grid rsj-aud-{{audience}}" style="display:grid;grid-template-columns:55% 45%;align-items:start;">
+  <div class="rsj-hero-col-pad rsj-homeowner-col" style="background:#F7F5F0;padding:72px 64px;display:flex;flex-direction:column;align-items:flex-start;gap:20px;">
+    <div class="rsj-eyebrow" style="font-size:14px;font-weight:700;letter-spacing:0.04em;text-transform:uppercase;color:#6E7178;">Homeowners</div>
+    <h1 class="rsj-hero-h" style="margin:0;font-size:48px;font-weight:600;line-height:1.1;color:#2B2B2B;min-height:106px;">Emergency or scheduled plumbing services</h1>
+    <p class="rsj-hero-sub" style="margin:0;font-size:18px;line-height:1.6;color:#2B2B2B;min-height:58px;max-width:520px;">Licensed crew serving St. Charles and St. Louis County.</p>
+    <div style="margin-top:8px;"><a href="#book" class="rsj-btn" style="display:inline-block;background:#2F6FE0;color:#FFFFFF;border-radius:8px;padding:14px 24px;font-size:16px;font-weight:700;white-space:nowrap;">Book Service</a></div>
+  </div>
+  <div id="builders" class="rsj-hero-col-pad rsj-builder-col" style="background:#2B2B2B;padding:72px 64px;display:flex;flex-direction:column;align-items:flex-start;gap:20px;">
+    <div class="rsj-eyebrow" style="font-size:14px;font-weight:700;letter-spacing:0.04em;text-transform:uppercase;color:#C9C6BE;">Builders and general contractors</div>
+    <h2 class="rsj-hero-h" style="margin:0;font-size:48px;font-weight:600;line-height:1.1;color:#F7F5F0;min-height:106px;">New construction and renovation</h2>
+    <p class="rsj-hero-sub" style="margin:0;font-size:18px;line-height:1.6;color:#C9C6BE;min-height:58px;max-width:520px;">Rough-in through trim. Custom homes, spec builds, whole-house remodels.</p>
+    <div style="margin-top:8px;"><a href="./For Builders.dc.html#request-a-bid" class="rsj-btn" style="display:inline-block;background:transparent;color:#F7F5F0;border:1.5px solid #F7F5F0;border-radius:8px;padding:14px 24px;font-size:16px;font-weight:700;white-space:nowrap;">Request a Bid</a></div>
+  </div>
+</section>
+
+<!-- TRUST BAR -->
+<section aria-label="Credentials" class="rsj-trust" style="display:flex;justify-content:space-between;gap:20px;padding:20px 64px;background:#F7F5F0;border-top:1px solid #E3DFD5;border-bottom:1px solid #E3DFD5;">
+  <div style="display:flex;align-items:center;gap:10px;font-size:15px;font-weight:500;color:#2B2B2B;white-space:nowrap;"><span style="display:flex;align-items:center;justify-content:center;width:34px;height:34px;border-radius:50%;background:#E3EBFB;flex-shrink:0;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#2F6FE0" stroke-width="1.6" aria-hidden="true"><path d="M12 2l3 6 7 1-5 5 1 7-6-3-6 3 1-7-5-5 7-1z"></path></svg></span>Missouri Master Plumber</div>
+  <div style="display:flex;align-items:center;gap:10px;font-size:15px;font-weight:500;color:#2B2B2B;white-space:nowrap;"><span style="display:flex;align-items:center;justify-content:center;width:34px;height:34px;border-radius:50%;background:#E3EBFB;flex-shrink:0;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#2F6FE0" stroke-width="1.6" aria-hidden="true"><path d="M12 3l7 3v6c0 5-3 8-7 9-4-1-7-4-7-9V6z"></path></svg></span>Licensed and insured</div>
+  <div style="display:flex;align-items:center;gap:10px;font-size:15px;font-weight:500;color:#2B2B2B;white-space:nowrap;"><span style="display:flex;align-items:center;justify-content:center;width:34px;height:34px;border-radius:50%;background:#E3EBFB;flex-shrink:0;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#2F6FE0" stroke-width="1.6" aria-hidden="true"><circle cx="12" cy="12" r="9"></circle><path d="M9 12l2 2 4-4"></path></svg></span>Upfront pricing</div>
+  <div style="display:flex;align-items:center;gap:10px;font-size:15px;font-weight:500;color:#2B2B2B;white-space:nowrap;"><span style="display:flex;align-items:center;justify-content:center;width:34px;height:34px;border-radius:50%;background:#E3EBFB;flex-shrink:0;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#2F6FE0" stroke-width="1.6" aria-hidden="true"><path d="M12 2l2.9 6.6 7.1.6-5.4 4.7 1.7 7-6.3-3.9-6.3 3.9 1.7-7L2 9.2l7.1-.6z"></path></svg></span>Nextdoor Neighborhood Favorite 2023</div>
+  <div style="display:flex;align-items:center;gap:10px;font-size:15px;font-weight:500;color:#2B2B2B;white-space:nowrap;"><span style="display:flex;align-items:center;justify-content:center;width:34px;height:34px;border-radius:50%;background:#E3EBFB;flex-shrink:0;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#2F6FE0" stroke-width="1.6" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"></path></svg></span>You talk to the plumber</div>
+</section>
+
+<!-- Photos removed for now: when available, add a two-column strip here, max 320px tall, one image per column, captions "Technician at a customer's front door" and "Rough-in in a framed house". -->
+
+<!-- SERVICES -->
+<section aria-labelledby="services-h" style="padding:80px 64px;" class="rsj-section-pad">
+  <div style="display:flex;justify-content:space-between;align-items:baseline;gap:20px;flex-wrap:wrap;margin-bottom:8px;">
+    <h2 id="services-h" style="margin:0;font-size:32px;font-weight:600;color:#2B2B2B;">What we fix and install</h2>
+    <a href="./Homeowner Services.dc.html" style="font-size:15px;font-weight:700;white-space:nowrap;">See All Services<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-3px;margin-left:4px;"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></a>
+  </div>
+  <p style="margin:0 0 32px;font-size:16px;color:#6E7178;">Repairs and installs for homes across St. Charles and St. Louis County.</p>
+  <div class="rsj-services-grid" style="display:grid;grid-template-columns:repeat(4,1fr);gap:20px;">
+    <div class="rsj-card" style="border:1px solid #E3DFD5;border-radius:8px;padding:24px;display:flex;flex-direction:column;align-items:flex-start;gap:12px;transition:border-color 0.15s;">
+      <span style="display:flex;align-items:center;justify-content:center;width:40px;height:40px;border-radius:10px;background:#E3EBFB;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#2F6FE0" stroke-width="1.6" aria-hidden="true"><rect x="7" y="3" width="10" height="18" rx="4"></rect><line x1="9" y1="8" x2="15" y2="8"></line><line x1="9" y1="12" x2="15" y2="12"></line></svg></span>
+      <div style="font-size:18px;font-weight:500;color:#2B2B2B;">Water Heaters</div>
+      <div style="font-size:15px;color:#6E7178;">Repair, replacement, tankless</div>
+      <a href="#" style="font-size:15px;font-weight:700;color:#2F6FE0;">Learn More<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-3px;margin-left:4px;"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></a>
+    </div>
+    <div class="rsj-card" style="border:1px solid #E3DFD5;border-radius:8px;padding:24px;display:flex;flex-direction:column;align-items:flex-start;gap:12px;transition:border-color 0.15s;">
+      <span style="display:flex;align-items:center;justify-content:center;width:40px;height:40px;border-radius:10px;background:#E3EBFB;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#2F6FE0" stroke-width="1.6" aria-hidden="true"><path d="M12 3c3 4 6 7.5 6 11a6 6 0 1 1-12 0c0-3.5 3-7 6-11z"></path></svg></span>
+      <div style="font-size:18px;font-weight:500;color:#2B2B2B;">Leaks & Repairs</div>
+      <div style="font-size:15px;color:#6E7178;">Pipes, valves, fixtures</div>
+      <a href="#" style="font-size:15px;font-weight:700;color:#2F6FE0;">Learn More<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-3px;margin-left:4px;"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></a>
+    </div>
+    <div class="rsj-card" style="border:1px solid #E3DFD5;border-radius:8px;padding:24px;display:flex;flex-direction:column;align-items:flex-start;gap:12px;transition:border-color 0.15s;">
+      <span style="display:flex;align-items:center;justify-content:center;width:40px;height:40px;border-radius:10px;background:#E3EBFB;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#2F6FE0" stroke-width="1.6" aria-hidden="true"><circle cx="12" cy="12" r="9"></circle><path d="M8 9l4 4-4 4M16 9l-4 4 4 4"></path></svg></span>
+      <div style="font-size:18px;font-weight:500;color:#2B2B2B;">Drains & Sewer</div>
+      <div style="font-size:15px;color:#6E7178;">Clogs, camera inspection, main lines</div>
+      <a href="#" style="font-size:15px;font-weight:700;color:#2F6FE0;">Learn More<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-3px;margin-left:4px;"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></a>
+    </div>
+    <div class="rsj-card" style="border:1px solid #E3DFD5;border-radius:8px;padding:24px;display:flex;flex-direction:column;align-items:flex-start;gap:12px;transition:border-color 0.15s;">
+      <span style="display:flex;align-items:center;justify-content:center;width:40px;height:40px;border-radius:10px;background:#E3EBFB;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#2F6FE0" stroke-width="1.6" aria-hidden="true"><path d="M5 12h9a3 3 0 0 1 3 3v1H8"></path><circle cx="17" cy="8" r="2"></circle><path d="M17 10v2"></path></svg></span>
+      <div style="font-size:18px;font-weight:500;color:#2B2B2B;">Toilets & Faucets</div>
+      <div style="font-size:15px;color:#6E7178;">Repair and replacement</div>
+      <a href="#" style="font-size:15px;font-weight:700;color:#2F6FE0;">Learn More<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-3px;margin-left:4px;"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></a>
+    </div>
+    <div class="rsj-card" style="border:1px solid #E3DFD5;border-radius:8px;padding:24px;display:flex;flex-direction:column;align-items:flex-start;gap:12px;transition:border-color 0.15s;">
+      <span style="display:flex;align-items:center;justify-content:center;width:40px;height:40px;border-radius:10px;background:#E3EBFB;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#2F6FE0" stroke-width="1.6" aria-hidden="true"><rect x="4" y="13" width="16" height="6" rx="2"></rect><path d="M6 13V9a2 2 0 0 1 2-2"></path></svg></span>
+      <div style="font-size:18px;font-weight:500;color:#2B2B2B;">Bath & Kitchen Remodel</div>
+      <div style="font-size:15px;color:#6E7178;">Rough-in to fixture set</div>
+      <a href="#" style="font-size:15px;font-weight:700;color:#2F6FE0;">Learn More<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-3px;margin-left:4px;"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></a>
+    </div>
+    <div class="rsj-card" style="border:1px solid #E3DFD5;border-radius:8px;padding:24px;display:flex;flex-direction:column;align-items:flex-start;gap:12px;transition:border-color 0.15s;">
+      <span style="display:flex;align-items:center;justify-content:center;width:40px;height:40px;border-radius:10px;background:#E3EBFB;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#2F6FE0" stroke-width="1.6" aria-hidden="true"><line x1="4" y1="15" x2="14" y2="15"></line><circle cx="17" cy="15" r="3"></circle><line x1="20" y1="15" x2="20" y2="9"></line></svg></span>
+      <div style="font-size:18px;font-weight:500;color:#2B2B2B;">Gas Lines</div>
+      <div style="font-size:15px;color:#6E7178;">New runs, repairs, appliance hookups</div>
+      <a href="#" style="font-size:15px;font-weight:700;color:#2F6FE0;">Learn More<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-3px;margin-left:4px;"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></a>
+    </div>
+    <div class="rsj-card" style="border:1px solid #E3DFD5;border-radius:8px;padding:24px;display:flex;flex-direction:column;align-items:flex-start;gap:12px;transition:border-color 0.15s;">
+      <span style="display:flex;align-items:center;justify-content:center;width:40px;height:40px;border-radius:10px;background:#E3EBFB;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#2F6FE0" stroke-width="1.6" aria-hidden="true"><circle cx="12" cy="9" r="6"></circle><path d="M12 15v6M9 21h6"></path></svg></span>
+      <div style="font-size:18px;font-weight:500;color:#2B2B2B;">Sump Pumps</div>
+      <div style="font-size:15px;color:#6E7178;">Install, replace, battery backup</div>
+      <a href="#" style="font-size:15px;font-weight:700;color:#2F6FE0;">Learn More<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-3px;margin-left:4px;"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></a>
+    </div>
+    <div class="rsj-card" style="border:1px solid #E3DFD5;border-radius:8px;padding:24px;display:flex;flex-direction:column;align-items:flex-start;gap:12px;transition:border-color 0.15s;">
+      <span style="display:flex;align-items:center;justify-content:center;width:40px;height:40px;border-radius:10px;background:#E3EBFB;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#2F6FE0" stroke-width="1.6" aria-hidden="true"><path d="M13 2L4 14h6l-1 8 9-12h-6z"></path></svg></span>
+      <div style="font-size:18px;font-weight:500;color:#2B2B2B;">Emergency Plumbing</div>
+      <div style="font-size:15px;color:#6E7178;">Leaks, no hot water, backups</div>
+      <a href="#" style="font-size:15px;font-weight:700;color:#2F6FE0;">Learn More<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-3px;margin-left:4px;"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></a>
+    </div>
+  </div>
+</section>
+
+<!-- WHO SHOWS UP -->
+<section id="our-team" class="rsj-two-col rsj-section-pad" style="display:grid;grid-template-columns:1fr 1fr;gap:56px;padding:80px 64px;align-items:start;background:#EFEBE1;">
+  <div style="display:flex;flex-direction:column;align-items:flex-start;gap:20px;">
+    <h2 style="margin:0;font-size:32px;font-weight:600;color:#2B2B2B;">Here's who shows up at your door</h2>
+    <div style="display:flex;flex-direction:column;gap:12px;font-size:16px;color:#2B2B2B;">
+      <div style="display:flex;align-items:center;gap:10px;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#2F6FE0" stroke-width="2" aria-hidden="true"><path d="M4 12l5 5L20 6"></path></svg>Licensed & Background-Checked</div>
+      <div style="display:flex;align-items:center;gap:10px;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#2F6FE0" stroke-width="2" aria-hidden="true"><path d="M4 12l5 5L20 6"></path></svg>Marked Truck & Company Shirt</div>
+      <div style="display:flex;align-items:center;gap:10px;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#2F6FE0" stroke-width="2" aria-hidden="true"><path d="M4 12l5 5L20 6"></path></svg>Text Before We Arrive</div>
+    </div>
+    <a href="#team" class="rsj-btn" style="margin-top:8px;background:transparent;color:#2B2B2B;border:1.5px solid #2B2B2B;border-radius:8px;padding:14px 24px;font-size:16px;font-weight:700;">Meet the Team</a>
+  </div>
+  <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='640' height='380'><rect width='640' height='380' fill='%23E3DFD5'/></svg>" alt="Whole crew standing in front of two marked company trucks" style="width:100%;height:380px;object-fit:cover;border-radius:8px;border:1px solid #D8D3C5;"/>
+</section>
+
+<!-- REVIEWS -->
+<section id="reviews" style="padding:80px 64px;" class="rsj-section-pad">
+  <h2 style="margin:0 0 8px;font-size:32px;font-weight:600;color:#2B2B2B;">What neighbors say</h2>
+  <p style="margin:0 0 32px;font-size:15px;color:#6E7178;font-weight:600;">Nextdoor Neighborhood Favorite 2023 · 24 neighbor recommendations</p>
+  <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:20px;" class="rsj-services-grid">
+    <div style="border:1px solid #E3DFD5;border-radius:8px;padding:24px;background:#FFFFFF;">
+      <p style="margin:0 0 16px;font-size:16px;line-height:1.6;color:#2B2B2B;">Ryan is wonderful. He's honest, reliable and knows his stuff.</p>
+      <div style="font-size:14px;font-weight:700;color:#6E7178;">B.L., Wildwood</div>
+    </div>
+    <div style="border:1px solid #E3DFD5;border-radius:8px;padding:24px;background:#FFFFFF;">
+      <p style="margin:0 0 16px;font-size:16px;line-height:1.6;color:#2B2B2B;">R.S. Johnson Plumbing, super.</p>
+      <div style="font-size:14px;font-weight:700;color:#6E7178;">J.R., O'Fallon</div>
+    </div>
+    <div style="border:1px solid #E3DFD5;border-radius:8px;padding:24px;background:#FFFFFF;">
+      <p style="margin:0 0 16px;font-size:16px;line-height:1.6;color:#2B2B2B;">R.S. Plumbing is terrific.</p>
+      <div style="font-size:14px;font-weight:700;color:#6E7178;">Neighbor, St. Louis</div>
+    </div>
+  </div>
+  <a href="#" style="display:inline-block;margin-top:24px;font-size:15px;font-weight:700;">Read More on Nextdoor & Google</a>
+</section>
+
+<!-- SERVICE AREA -->
+<section id="service-area" class="rsj-two-col rsj-section-pad" style="display:grid;grid-template-columns:1fr 1fr;gap:56px;padding:80px 64px;align-items:start;background:#EFEBE1;">
+  <div style="display:flex;flex-direction:column;align-items:flex-start;gap:20px;">
+    <h2 style="margin:0;font-size:32px;font-weight:600;color:#2B2B2B;">Where we work</h2>
+    <p style="margin:0;font-size:17px;line-height:1.6;color:#2B2B2B;max-width:460px;">Serving St. Charles County and West St. Louis County — O'Fallon, St. Charles, St. Peters, Wentzville, Lake St. Louis, Dardenne Prairie, Chesterfield, Wildwood, Ballwin, Kirkwood, and surrounding communities.</p>
+    <a href="#areas" class="rsj-btn" style="background:transparent;color:#2B2B2B;border:1.5px solid #2B2B2B;border-radius:8px;padding:14px 24px;font-size:16px;font-weight:700;">See All Areas</a>
+  </div>
+  <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='560' height='420'><rect width='560' height='420' fill='%23E3DFD5'/></svg>" alt="Flat map of St. Charles County and West St. Louis County centered on O'Fallon, Missouri" style="width:100%;height:380px;object-fit:cover;border-radius:8px;border:1px solid #D8D3C5;"/>
+</section>
+
+<!-- BUILDER PROOF -->
+<section aria-labelledby="builder-proof-h" style="padding:80px 64px;" class="rsj-section-pad">
+  <h2 id="builder-proof-h" style="margin:0 0 32px;font-size:32px;font-weight:600;color:#2B2B2B;">Recent builder work</h2>
+  <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-bottom:20px;" class="rsj-services-grid">
+    <figure style="margin:0;">
+      <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='440' height='300'><rect width='440' height='300' fill='%23E3DFD5'/></svg>" alt="Plumbing rough-in at a custom home under construction in Chesterfield, Missouri" style="width:100%;height:220px;object-fit:cover;border-radius:8px;border:1px solid #D8D3C5;"/>
+      <figcaption style="margin-top:10px;font-size:14px;font-weight:600;color:#6E7178;">Chesterfield Custom Home Rough-In</figcaption>
+    </figure>
+    <figure style="margin:0;">
+      <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='440' height='300'><rect width='440' height='300' fill='%23E3DFD5'/></svg>" alt="Plumbing work during a whole-house remodel in Wildwood, Missouri" style="width:100%;height:220px;object-fit:cover;border-radius:8px;border:1px solid #D8D3C5;"/>
+      <figcaption style="margin-top:10px;font-size:14px;font-weight:600;color:#6E7178;">Wildwood Whole-House Remodel</figcaption>
+    </figure>
+    <figure style="margin:0;">
+      <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='440' height='300'><rect width='440' height='300' fill='%23E3DFD5'/></svg>" alt="Finished plumbing fixture trim-out at a spec home in O'Fallon, Missouri" style="width:100%;height:220px;object-fit:cover;border-radius:8px;border:1px solid #D8D3C5;"/>
+      <figcaption style="margin-top:10px;font-size:14px;font-weight:600;color:#6E7178;">O'Fallon Spec Build Trim-Out</figcaption>
+    </figure>
+  </div>
+  <div style="border:1px solid #E3DFD5;border-radius:8px;padding:24px;background:#FFFFFF;max-width:640px;">
+    <p style="margin:0 0 16px;font-size:16px;line-height:1.6;color:#2B2B2B;">Ryan's crew shows up when they say they will and their rough-in inspections pass the first time, every time.</p>
+    <div style="font-size:14px;font-weight:700;color:#6E7178;">— [Name], [Builder company]</div>
+  </div>
+</section>
+
+<!-- CLOSING CTA -->
+<section style="background:#2B2B2B;padding:64px;text-align:center;display:flex;flex-direction:column;align-items:center;gap:20px;" class="rsj-section-pad">
+  <h2 style="margin:0;font-size:32px;font-weight:600;color:#F7F5F0;">Need a plumber today?</h2>
+  <div style="display:flex;gap:12px;flex-wrap:wrap;justify-content:center;">
+    <a href="tel:3142201827" class="rsj-btn" style="background:#2F6FE0;color:#FFFFFF;border-radius:8px;padding:14px 24px;font-size:16px;font-weight:700;">Call or Text 314-220-1827</a>
+    <a href="#book" class="rsj-btn" style="background:transparent;color:#F7F5F0;border:1.5px solid #F7F5F0;border-radius:8px;padding:14px 24px;font-size:16px;font-weight:700;">Book Online</a>
+  </div>
+  <p style="margin:0;font-size:15px;color:#C9C6BE;">Mon–Sat 7am–6pm · Emergency line 24/7 [confirm]</p>
+</section>
+
+</main>
+
+<!-- FOOTER -->
+<footer style="background:#F7F5F0;padding:64px 64px 32px;border-top:1px solid #E3DFD5;" class="rsj-section-pad">
+  <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:40px;margin-bottom:40px;" class="rsj-services-grid">
+    <div>
+      <div style="font-family:Georgia,serif;font-size:18px;font-weight:700;margin-bottom:8px;color:#2B2B2B;">R.S. Johnson Plumbing LLC</div>
+      <div style="font-size:15px;color:#6E7178;margin-bottom:12px;">Based in O'Fallon, MO</div>
+      <div style="font-size:15px;margin-bottom:4px;"><a href="tel:3142201827" style="color:#2B2B2B;">314-220-1827</a></div>
+      <div style="font-size:15px;"><a href="mailto:info@rsjohnsonplumbing.com" style="color:#2B2B2B;">info@rsjohnsonplumbing.com</a></div>
+    </div>
+    <div>
+      <div style="font-size:15px;font-weight:700;margin-bottom:12px;color:#2B2B2B;">Services</div>
+      <ul style="list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:8px;font-size:15px;color:#6E7178;">
+        <li>Water Heaters</li><li>Leaks & Repairs</li><li>Drains & Sewer</li><li>Toilets & Faucets</li><li>Bath & Kitchen Remodel</li><li>Gas Lines</li><li>Sump Pumps</li><li>Emergency Plumbing</li>
+      </ul>
+    </div>
+    <div>
+      <div style="font-size:15px;font-weight:700;margin-bottom:12px;color:#2B2B2B;">Service Area</div>
+      <ul style="list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:8px;font-size:15px;color:#6E7178;">
+        <li>O'Fallon</li><li>St. Charles</li><li>St. Peters</li><li>Wentzville</li><li>Lake St. Louis</li><li>Dardenne Prairie</li><li>Chesterfield</li><li>Wildwood</li><li>Ballwin</li><li>Kirkwood</li>
+      </ul>
+    </div>
+  </div>
+  <div style="border-top:1px solid #E3DFD5;padding-top:20px;font-size:13px;color:#6E7178;">R.S. Johnson Plumbing LLC · Missouri Master Plumber License #[number] · Licensed and insured</div>
+</footer>
+
+<!-- MOBILE STICKY BOTTOM BAR -->
+<div class="rsj-sticky-bottom" style="position:fixed;bottom:0;left:0;right:0;z-index:30;padding:10px 16px;background:#F7F5F0;border-top:1px solid #E3DFD5;gap:10px;">
+  <a href="tel:3142201827" class="rsj-btn" style="flex:1;text-align:center;background:#2F6FE0;color:#FFFFFF;border-radius:8px;padding:12px;font-size:15px;font-weight:700;">Call</a>
+  <a href="#book" class="rsj-btn" style="flex:1;text-align:center;background:transparent;color:#2B2B2B;border:1.5px solid #2B2B2B;border-radius:8px;padding:12px;font-size:15px;font-weight:700;">Book</a>
+</div>
+
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { navOpen: false, audience: 'homeowners' };
+  renderVals() {
+    const a = this.state.audience;
+    return {
+      navOpen: this.state.navOpen,
+      audience: a,
+      isHomeowners: a === 'homeowners',
+      isBuilders: a === 'builders',
+      homeTabClass: a === 'homeowners' ? 'rsj-seg-active' : '',
+      builderTabClass: a === 'builders' ? 'rsj-seg-active' : '',
+      showHomeowners: () => this.setState({ audience: 'homeowners' }),
+      showBuilders: () => this.setState({ audience: 'builders' }),
+      toggleNav: () => this.setState(s => ({ navOpen: !s.navOpen })),
+      closeNav: () => this.setState({ navOpen: false }),
+      closeNavHomeowners: () => this.setState({ navOpen: false, audience: 'homeowners' }),
+      closeNavBuilders: () => this.setState({ navOpen: false, audience: 'builders' })
+    };
+  }
+}
+</script>
+</body>
+</html>

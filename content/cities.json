@@ -1,0 +1,42 @@
+{
+  "regions": [
+    {
+      "name": "St. Charles County",
+      "cities": [
+        { "slug": "ofallon", "name": "O'Fallon", "tier": 1 },
+        { "slug": "st-charles", "name": "St. Charles", "tier": 1 },
+        { "slug": "st-peters", "name": "St. Peters", "tier": 1 },
+        { "slug": "wentzville", "name": "Wentzville", "tier": 1 },
+        { "slug": "lake-st-louis", "name": "Lake St. Louis", "tier": 1 },
+        { "slug": "dardenne-prairie", "name": "Dardenne Prairie", "tier": 1 },
+        { "slug": "cottleville", "name": "Cottleville", "tier": 2 },
+        { "slug": "weldon-spring", "name": "Weldon Spring", "tier": 2 }
+      ]
+    },
+    {
+      "name": "West St. Louis County",
+      "cities": [
+        { "slug": "chesterfield", "name": "Chesterfield", "tier": 2 },
+        { "slug": "wildwood", "name": "Wildwood", "tier": 2 },
+        { "slug": "ballwin", "name": "Ballwin", "tier": 2 },
+        { "slug": "kirkwood", "name": "Kirkwood", "tier": 2 },
+        { "slug": "manchester", "name": "Manchester", "tier": 2 },
+        { "slug": "ellisville", "name": "Ellisville", "tier": 2 },
+        { "slug": "creve-coeur", "name": "Creve Coeur", "tier": 2 },
+        { "slug": "town-and-country", "name": "Town and Country", "tier": 2 },
+        { "slug": "clayton", "name": "Clayton", "tier": 2 },
+        { "slug": "ladue", "name": "Ladue", "tier": 2 }
+      ]
+    }
+  ],
+  "summary": "Serving St. Charles County and West St. Louis County — O'Fallon, St. Charles, St. Peters, Wentzville, Lake St. Louis, Dardenne Prairie, Chesterfield, Wildwood, Ballwin, Kirkwood, and surrounding communities.",
+  "footerCities": ["ofallon", "st-charles", "st-peters", "wentzville", "lake-st-louis", "dardenne-prairie", "chesterfield", "wildwood", "ballwin", "kirkwood"],
+  "cityPages": {
+    "ofallon": { "metaDescription": "Plumber in O'Fallon, MO. Master Plumber Ryan Johnson and crew are based here and handle emergency and scheduled plumbing for homeowners and builders. Call 314-220-1827.", "localContext": "[Local context paragraph for O'Fallon]" },
+    "st-charles": { "metaDescription": "Plumber in St. Charles, MO. Emergency and scheduled plumbing for homeowners and builders from an O'Fallon-based Master Plumber and crew. Call or text 314-220-1827.", "localContext": "[Local context paragraph for St. Charles]" },
+    "st-peters": { "metaDescription": "Plumber in St. Peters, MO. Water heaters, drains, leaks, and remodel plumbing from a licensed, owner-operated crew based in O'Fallon. Call or text 314-220-1827 today.", "localContext": "[Local context paragraph for St. Peters]" },
+    "wentzville": { "metaDescription": "Plumber in Wentzville, MO. Emergency and scheduled plumbing for homeowners and new-construction builders. Master Plumber on every job. Call or text 314-220-1827.", "localContext": "[Local context paragraph for Wentzville]" },
+    "lake-st-louis": { "metaDescription": "Plumber in Lake St. Louis, MO. Repairs, water heaters, drains, and remodel plumbing from a licensed crew based minutes away in O'Fallon. Call or text 314-220-1827.", "localContext": "[Local context paragraph for Lake St. Louis]" },
+    "dardenne-prairie": { "metaDescription": "Plumber in Dardenne Prairie, MO. Emergency and scheduled plumbing from Master Plumber Ryan Johnson and crew, based next door in O'Fallon. Call or text 314-220-1827.", "localContext": "[Local context paragraph for Dardenne Prairie]" }
+  }
+}

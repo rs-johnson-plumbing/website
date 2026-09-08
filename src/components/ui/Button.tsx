@@ -1,0 +1,50 @@
+import Link from "next/link";
+import { cn } from "@/lib/cn";
+
+export type ButtonVariant = "filled" | "outlined" | "outlined-dark";
+export type ButtonSize = "md" | "sm";
+
+type Props = {
+  href: string;
+  children: React.ReactNode;
+  variant?: ButtonVariant;
+  size?: ButtonSize;
+  className?: string;
+  /** Data attribute picked up by analytics click tracking in step 7. */
+  track?: string;
+  ariaLabel?: string;
+};
+
+/**
+ * The only button style on the site: 8px radius rectangle, bold label, never
+ * wraps. One filled button per section; the rest are outlined. On charcoal
+ * sections use "outlined-dark" (white outline).
+ */
+export function Button({ href, children, variant = "filled", size = "md", className, track, ariaLabel }: Props) {
+  const base =
+    "inline-flex items-center justify-center whitespace-nowrap rounded-btn font-bold transition-opacity hover:opacity-[0.88] hover:no-underline";
+  const sizes: Record<ButtonSize, string> = {
+    md: "px-6 py-3.5 text-[16px]",
+    sm: "px-5 py-3 text-[15px]",
+  };
+  const variants: Record<ButtonVariant, string> = {
+    filled: "bg-blue text-white hover:text-white",
+    outlined: "bg-transparent text-charcoal border-[1.5px] border-charcoal hover:text-charcoal",
+    "outlined-dark": "bg-transparent text-offwhite border-[1.5px] border-offwhite hover:text-offwhite",
+  };
+  const isExternal = href.startsWith("http") || href.startsWith("tel:") || href.startsWith("mailto:");
+  const cls = cn(base, sizes[size], variants[variant], className);
+
+  if (isExternal) {
+    return (
+      <a href={href} className={cls} data-track={track} aria-label={ariaLabel}>
+        {children}
+      </a>
+    );
+  }
+  return (
+    <Link href={href} className={cls} data-track={track} aria-label={ariaLabel}>
+      {children}
+    </Link>
+  );
+}

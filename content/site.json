@@ -1,0 +1,114 @@
+{
+  "name": "R.S. Johnson Plumbing LLC",
+  "shortName": "R.S. Johnson Plumbing",
+  "siteUrl": "https://gojohnsonplumbing.com",
+  "tagline": "Plumbing for homes and job sites in St. Charles County",
+  "basedIn": "Based in O'Fallon, MO",
+  "city": "O'Fallon",
+  "state": "MO",
+  "phone": {
+    "display": "314-220-1827",
+    "tel": "tel:3142201827",
+    "note": "Call or text"
+  },
+  "email": "[email]",
+  "hours": "Mon–Sat [hours]",
+  "emergencyLine": "Emergency line [confirm]",
+  "licenseLine": "Missouri Master Plumber License #[number]",
+  "insuredLine": "Licensed and insured",
+  "owner": {
+    "name": "Ryan Johnson",
+    "title": "Owner · Master Plumber",
+    "credential": "Missouri Master Plumber"
+  },
+  "founded": "[year]",
+  "yearsInTrade": "[##]",
+  "nav": [
+    {
+      "label": "For Homeowners",
+      "href": "/plumbing"
+    },
+    {
+      "label": "For Builders",
+      "href": "/for-builders"
+    },
+    {
+      "label": "Service Area",
+      "href": "/service-area"
+    },
+    {
+      "label": "Our Team",
+      "href": "/our-team"
+    },
+    {
+      "label": "Reviews",
+      "href": "/reviews"
+    }
+  ],
+  "cta": {
+    "headerDesktop": "Call or Text 314-220-1827",
+    "headerMobile": "Call",
+    "bookOnline": "Book Online",
+    "callNow": "Call Now",
+    "requestBid": "Request a Bid",
+    "messageUs": "Message Us",
+    "stickyCall": "Call",
+    "stickyBook": "Book"
+  },
+  "links": {
+    "book": "/contact#book",
+    "message": "/contact#message",
+    "bid": "/for-builders#request-a-bid",
+    "nextdoor": "[nextdoor-url]",
+    "googleReviews": "[google-reviews-url]",
+    "tel": "tel:3142201827"
+  },
+  "proof": {
+    "nextdoorAward": "Nextdoor Neighborhood Favorite 2023",
+    "nextdoorCount": "24 neighbor recommendations",
+    "googleRating": "[rating]",
+    "googleCount": "[count] reviews"
+  },
+  "trustBar": [
+    {
+      "icon": "star",
+      "label": "Missouri Master Plumber"
+    },
+    {
+      "icon": "shield",
+      "label": "Licensed and insured"
+    },
+    {
+      "icon": "check-circle",
+      "label": "Upfront pricing"
+    },
+    {
+      "icon": "star",
+      "label": "Nextdoor Neighborhood Favorite 2023"
+    },
+    {
+      "icon": "phone",
+      "label": "You talk to the plumber"
+    }
+  ],
+  "closingCta": {
+    "heading": "Need a plumber?",
+    "primary": "Call or Text 314-220-1827",
+    "secondary": "Book Online"
+  },
+  "footer": {
+    "servicesHeading": "Services",
+    "areaHeading": "Service area",
+    "reviewsHeading": "Reviews",
+    "reviewLinks": [
+      {
+        "label": "Nextdoor",
+        "hrefKey": "nextdoor"
+      },
+      {
+        "label": "Google reviews",
+        "hrefKey": "googleReviews"
+      }
+    ]
+  }
+}
