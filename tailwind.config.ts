@@ -29,7 +29,7 @@ const config: Config = {
         darkborder: colors.darkBorder,
       },
       fontFamily: {
-        sans: ["var(--font-manrope)", "ui-sans-serif", "system-ui", "sans-serif"],
+        sans: ["var(--font-figtree)", "ui-sans-serif", "system-ui", "sans-serif"],
         serif: fonts.serif.split(",").map((f) => f.trim()),
       },
       fontSize: {

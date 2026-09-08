@@ -27,7 +27,7 @@ export const colors = {
 } as const;
 
 export const fonts = {
-  sans: "'Manrope', ui-sans-serif, system-ui, sans-serif",
+  sans: "'Figtree', ui-sans-serif, system-ui, sans-serif",
   serif: "Georgia, 'Times New Roman', serif",
 } as const;
 

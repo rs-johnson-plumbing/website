@@ -1,15 +1,15 @@
 import type { Metadata } from "next";
-import { Manrope } from "next/font/google";
+import { Figtree } from "next/font/google";
 import { site, SITE_URL } from "@/lib/content";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { StickyMobileBar } from "@/components/layout/StickyMobileBar";
 import "./globals.css";
 
-const manrope = Manrope({
+const figtree = Figtree({
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
-  variable: "--font-manrope",
+  weight: ["400", "500", "600", "700", "800"],
+  variable: "--font-figtree",
   display: "swap",
 });
 
@@ -32,7 +32,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={manrope.variable}>
+    <html lang="en" className={figtree.variable}>
       <body>
         <Header />
         <main>{children}</main>
