@@ -7,7 +7,7 @@
   "anchors": [
     {
       "id": "apart",
-      "label": "Sets Us Apart",
+      "label": "Trust Us",
       "icon": "check"
     },
     {
@@ -41,8 +41,11 @@
       "icon": "chevron-down"
     }
   ],
+  "apart": {
+    "heading": "Why Homeowners Trust Us"
+  },
   "residential": {
-    "heading": "What We Do for Homeowners",
+    "heading": "What We Do",
     "line": "",
     "seeAll": "See All Services"
   },
