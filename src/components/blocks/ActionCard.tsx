@@ -24,7 +24,7 @@ export function ActionCard({ sticky = false, trackPrefix = "card" }: { sticky?: 
       <div className="flex flex-wrap gap-x-4 gap-y-2 border-t border-hairline pt-4 text-[13px] text-slate">
         {c.trust.map((t) => (
           <span key={t} className="inline-flex items-center gap-1.5">
-            <Icon name="check" size={14} strokeWidth={2} className="text-blue" />
+            <Icon name="check" size={14} strokeWidth={2} className="text-teal" />
             {t}
           </span>
         ))}

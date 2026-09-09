@@ -13,7 +13,7 @@ import { cn } from "@/lib/cn";
  * as a callout, not a button: a soft sand plate (lighter charcoal in
  * builders mode) with the phone and message icons stacked at left, a small
  * "Call or text" label, and the number under it. It stays a tel link. The
- * blue buttons belong to the intake forms in the hero. Mobile (60px): 24px mark plus
+ * teal buttons belong to the intake forms in the hero. Mobile (60px): 24px mark plus
  * short wordmark and a hamburger that opens a stacked nav panel. No number
  * on mobile: the sticky bottom bar carries Call and Text on every page. The
  * current page link is underlined.
@@ -31,7 +31,7 @@ export function Header() {
   const isActive = (href: string) => pathname === href || (href !== "/" && pathname.startsWith(href + "/"));
 
   return (
-    <header className="sticky top-0 z-20 border-b border-hairline bg-offwhite builders:border-darkborder builders:bg-charcoal">
+    <header className="sticky top-0 z-20 border-b border-hairline bg-offwhite builders:border-darkborder builders:bg-teal">
       <div className="site-width gutter flex h-header-m items-center justify-between gap-3 lg:h-header">
         <Logo />
         <div className="flex items-center">
@@ -45,9 +45,9 @@ export function Header() {
           <a
             href={site.phone.tel}
             data-track="call-header"
-            className="ml-8 hidden shrink-0 items-center gap-2.5 rounded-btn bg-sand py-2 pl-3 pr-3.5 text-charcoal hover:no-underline builders:bg-[#383838] builders:text-offwhite lg:flex"
+            className="ml-8 hidden shrink-0 items-center gap-2.5 rounded-btn bg-sand py-2 pl-3 pr-3.5 text-charcoal hover:no-underline builders:bg-teal-dark builders:text-offwhite lg:flex"
           >
-            <span className="flex flex-col gap-0.5 text-blue builders:text-offwhite" aria-hidden="true">
+            <span className="flex flex-col gap-0.5 text-teal builders:text-offwhite" aria-hidden="true">
               <Icon name="phone" size={15} strokeWidth={1.8} />
               <Icon name="message" size={15} strokeWidth={1.8} />
             </span>
@@ -73,7 +73,7 @@ export function Header() {
         aria-label="Mobile"
         className={cn(
           open ? "flex" : "hidden",
-          "flex-col gap-4 border-t border-hairline bg-offwhite px-gutter-m pb-6 pt-4 text-[16px] font-semibold builders:border-darkborder builders:bg-charcoal lg:!hidden",
+          "flex-col gap-4 border-t border-hairline bg-offwhite px-gutter-m pb-6 pt-4 text-[16px] font-semibold builders:border-darkborder builders:bg-teal lg:!hidden",
         )}
       >
         {nav.map((item) => (

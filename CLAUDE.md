@@ -41,8 +41,10 @@ Plumber on every job.
 - **No ampersands. No exclamation points.** Write "and".
 - **Never promise "same day" or "24/7".** Ryan has not confirmed either.
 - Buttons: 8px radius, never pills. Labels never wrap, three words max. One
-  filled blue button per section; the rest outlined. On charcoal sections,
-  outlined buttons are white.
+  filled teal button per section; the rest outlined (the homepage hero, with
+  a door per audience, is the one exception). On dark sections, outlined
+  buttons are white and filled buttons are charcoal. No button ever has a
+  white ground.
 - Every phone link is `tel:3142201827`; text links use `smsLink()` from
   `src/lib/content.ts`. On phones the pair is two buttons, Call and Text,
   with no number in the label. On desktop it is one button that shows the
@@ -55,8 +57,9 @@ Plumber on every job.
   a value to fill one. `npm run check:content` lists what is still open.
 - No street address anywhere. "Based in O'Fallon, MO."
 - Business name is "R.S. Johnson Plumbing LLC" everywhere it is written out.
-- Brand: off-white `#F7F5F0`, charcoal `#2B2B2B`, brand blue `#2F6FE0` on
-  buttons, links, and active states only. Font: Figtree everywhere, including
+- Brand: off-white `#F7F5F0`, charcoal `#2B2B2B` for text, slate teal
+  `#3F6C78` on buttons, links, active states, illustration strokes, and as
+  the ground of the builders pages (`src/styles/tokens.ts` has the family). Font: Figtree everywhere, including
   the logo wordmark (the logo files carry it as outlines).
 
 ## Workflow

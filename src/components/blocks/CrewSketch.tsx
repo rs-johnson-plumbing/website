@@ -4,8 +4,8 @@
  * service illustrations. Swap for the real photo when it exists.
  */
 const C = "#2B2B2B";
-const B = "#2F6FE0";
-const T = "#E3EBFB";
+const B = "#3F6C78";
+const T = "#E3EEF0";
 const O = "#F7F5F0";
 const W = "#FFFFFF";
 const S = "#6E7178";
@@ -44,7 +44,7 @@ export function CrewSketch({ className, title }: { className?: string; title?: s
     <svg viewBox="0 0 480 300" role="img" aria-label={title ?? "Sketch of Ryan and the crew beside a marked R.S. Johnson Plumbing truck"} className={className}>
       <rect width="480" height="300" rx="8" fill={T} />
       {/* ground */}
-      <rect x="0" y="232" width="480" height="68" fill="#DCE3F0" />
+      <rect x="0" y="232" width="480" height="68" fill="#DDE6E8" />
       <path d="M0 232 H480" stroke={C} strokeWidth="3" />
       {/* clouds */}
       <g fill={W}>

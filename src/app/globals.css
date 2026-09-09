@@ -42,9 +42,9 @@
 }
 
 @layer base {
-  /* For Builders mode on the homepage: the whole page goes charcoal. */
+  /* For Builders mode: the whole page goes slate teal. */
   body[data-audience="builders"] {
-    background-color: #2b2b2b;
+    background-color: #3f6c78;
     color: #f7f5f0;
   }
   body[data-audience="builders"] :is(h1, h2, h3, h4):not([role="dialog"] *) {
@@ -60,7 +60,7 @@
     @apply mx-auto w-full max-w-site;
   }
   .text-link {
-    @apply text-blue font-bold hover:text-blue-dark hover:underline builders:text-blue-ondark builders:hover:text-blue-ondark;
+    @apply text-teal font-bold hover:text-teal-dark hover:underline builders:text-teal-ondark builders:hover:text-teal-ondark;
   }
   .nav-link {
     @apply text-charcoal font-medium whitespace-nowrap hover:underline underline-offset-[6px] decoration-[1.5px] builders:text-offwhite;

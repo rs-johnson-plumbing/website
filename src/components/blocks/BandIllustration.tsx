@@ -7,8 +7,8 @@ import { cn } from "@/lib/cn";
  * real photo by setting `ready` on PhotoPlaceholder and removing the slug.
  */
 const C = "#2B2B2B";
-const B = "#2F6FE0";
-const T = "#E3EBFB";
+const B = "#3F6C78";
+const T = "#E3EEF0";
 const O = "#F7F5F0";
 const W = "#FFFFFF";
 const H = "#E3DFD5";
@@ -61,7 +61,7 @@ const scenes: Record<string, React.ReactNode> = {
       <rect x="46" y="40" width="28" height="18" rx="3" fill={B} stroke={C} strokeWidth="3" />
       <rect x="150" y="98" width="20" height="28" rx="3" fill={B} stroke={C} strokeWidth="3" />
       <rect x="300" y="98" width="20" height="28" rx="3" fill={B} stroke={C} strokeWidth="3" />
-      {/* shutoff valve with a blue handle */}
+      {/* shutoff valve with a teal handle */}
       <rect x="226" y="96" width="34" height="32" rx="6" fill={O} stroke={C} strokeWidth="4" />
       <path d="M243 96 v-18" stroke={C} strokeWidth="5" />
       <rect x="226" y="66" width="34" height="12" rx="4" fill={B} stroke={C} strokeWidth="3" />
@@ -133,7 +133,7 @@ const scenes: Record<string, React.ReactNode> = {
       {/* sink basin cut into the counter */}
       <path d="M120 152 v30 a12 12 0 0 0 12 12 h136 a12 12 0 0 0 12 -12 v-30" fill={W} stroke={C} strokeWidth="4" />
       <path d="M200 194 v30 a8 8 0 0 0 8 8 h10" stroke={C} strokeWidth="5" />
-      {/* gooseneck faucet with a blue handle and a stream */}
+      {/* gooseneck faucet with a teal handle and a stream */}
       <path d="M232 150 v-28 a34 34 0 0 0 -68 0 v10" stroke={C} strokeWidth="14" />
       <path d="M232 150 v-28 a34 34 0 0 0 -68 0 v10" stroke={O} strokeWidth="8" />
       <rect x="220" y="136" width="24" height="18" rx="4" fill={O} stroke={C} strokeWidth="4" />
@@ -222,7 +222,7 @@ const scenes: Record<string, React.ReactNode> = {
       <circle cx="250" cy="234" r="8" fill={C} />
       <circle cx="356" cy="234" r="8" fill={C} />
       <path d="M378 138 h20 v-70" stroke={C} strokeWidth="6" />
-      {/* blue flame above the grate */}
+      {/* teal flame above the grate */}
       <path d="M303 100 c-8 -10 -8 -18 -1 -26 c0 7 5 9 5 9 c0 -7 4 -11 8 -14 c-1 8 7 11 7 19 c0 8 -6 14 -13 14 c-3 0 -5 -1 -6 -2z" fill={B} stroke={C} strokeWidth="2" />
     </>
   ),
@@ -346,7 +346,7 @@ const scenes: Record<string, React.ReactNode> = {
       {/* floor plan lines */}
       <path d="M80 100 h150 v100 h-150z" stroke={C} strokeWidth="3" opacity="0.5" />
       <path d="M80 150 h70 M150 100 v50" stroke={C} strokeWidth="3" opacity="0.5" />
-      {/* fixture symbols in blue, pipe run */}
+      {/* fixture symbols in teal, pipe run */}
       <rect x="92" y="108" width="22" height="14" rx="3" fill={B} />
       <circle cx="200" cy="120" r="8" fill="none" stroke={B} strokeWidth="4" />
       <rect x="170" y="170" width="30" height="18" rx="4" fill="none" stroke={B} strokeWidth="4" />

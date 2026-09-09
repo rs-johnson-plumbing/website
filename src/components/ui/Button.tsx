@@ -33,7 +33,7 @@ export function Button({ href, children, variant = "filled", size = "md", classN
     sm: "px-5 py-3 text-[15px]",
   };
   const variants: Record<ButtonVariant, string> = {
-    filled: "bg-blue text-white hover:text-white",
+    filled: "bg-teal text-white builders:bg-charcoal hover:text-white",
     outlined: "bg-transparent text-charcoal border-[1.5px] border-charcoal hover:text-charcoal builders:border-offwhite builders:text-offwhite builders:hover:text-offwhite builders:bg-transparent",
     "outlined-dark": "bg-transparent text-offwhite border-[1.5px] border-offwhite hover:text-offwhite",
   };

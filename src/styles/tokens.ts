@@ -10,22 +10,24 @@
 export const colors = {
   offwhite: "#F7F5F0",
   charcoal: "#2B2B2B",
-  blue: "#2F6FE0",
-  blueDark: "#1F4FB0",
-  blueTint: "#E3EBFB",
-  blueOnDark: "#A9C4F5",
-  /** Slate teal, the homepage hero buttons. */
+  /** Slate teal: buttons, links, active states, illustration strokes, and
+   * the ground of the builders pages. */
   teal: "#3F6C78",
+  tealDark: "#2A5561",
+  tealTint: "#E3EEF0",
+  tealOnDark: "#DCE9EC",
+  /** Darkest teal, the footer and dark bands in builders mode. */
+  tealInk: "#24393F",
   slate: "#6E7178",
   hairline: "#E3DFD5",
   hairlineStrong: "#D8D3C5",
   sand: "#EFEBE1",
   white: "#FFFFFF",
-  onDarkMuted: "#C9C6BE",
-  onDarkHelper: "#D9D6CE",
-  onDarkBlueTint: "#DCE6FA",
-  darkCard: "#3A3A3A",
-  darkBorder: "#5C5C5C",
+  onDarkMuted: "#CFDDE0",
+  onDarkHelper: "#DDE8EA",
+  onDarkTealTint: "#DCE9EC",
+  darkCard: "#325C67",
+  darkBorder: "#6E97A1",
 } as const;
 
 export const fonts = {

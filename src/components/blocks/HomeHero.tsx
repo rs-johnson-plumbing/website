@@ -31,8 +31,8 @@ export function HomeHero() {
 
   const s = h.single;
   const doors = [
-    { key: "homeowners", ...s.homeowners, action: <AvailabilityCheck className="self-start !bg-teal" /> },
-    { key: "builders", ...s.builders, action: <BidRequest className="self-start !bg-teal" /> },
+    { key: "homeowners", ...s.homeowners, action: <AvailabilityCheck className="self-start" /> },
+    { key: "builders", ...s.builders, action: <BidRequest className="self-start" /> },
   ];
 
   return (
@@ -47,7 +47,7 @@ export function HomeHero() {
                 <div className="flex flex-col gap-4">
                   <div className="flex flex-col gap-1">
                     <span className="inline-flex items-center gap-2 text-[20px] font-semibold tracking-[-0.01em]">
-                      <Icon name={d.icon as IconName} size={22} strokeWidth={1.8} className="text-blue" />
+                      <Icon name={d.icon as IconName} size={22} strokeWidth={1.8} className="text-teal" />
                       {d.label}
                     </span>
                     <span className="text-[14px] text-slate">{d.line}</span>
@@ -60,7 +60,7 @@ export function HomeHero() {
         </div>
       </section>
 
-      <div role="tablist" aria-label="Choose audience" className="border-b border-hairline bg-offwhite px-gutter-m py-2 builders:border-darkborder builders:bg-charcoal lg:hidden">
+      <div role="tablist" aria-label="Choose audience" className="border-b border-hairline bg-offwhite px-gutter-m py-2 builders:border-darkborder builders:bg-teal lg:hidden">
         <div className="flex gap-1 rounded-btn bg-hairline p-1 builders:bg-darkcard">
           {(["homeowners", "builders"] as Audience[]).map((a) => (
             <button
@@ -107,7 +107,7 @@ export function HomeHero() {
         </div>
 
         {/* Builders door */}
-        <div id="builders" className={cn("bg-charcoal text-offwhite", audience !== "builders" && "hidden")}>
+        <div id="builders" className={cn("bg-teal text-offwhite", audience !== "builders" && "hidden")}>
           <div className="flex flex-col items-center gap-4 px-gutter-m py-8 text-center lg:mr-auto lg:max-w-[calc(1440px*0.45)] lg:items-start lg:gap-5 lg:px-gutter lg:py-[64px] lg:text-left">
             <div className="hidden text-[14px] font-bold uppercase tracking-[0.04em] text-ondark-muted lg:block">{h.builders.eyebrow}</div>
             <h2 className="flex min-h-[71px] items-center justify-center text-[clamp(26px,8vw,32px)] font-bold leading-[1.1] tracking-[-0.01em] text-offwhite lg:block lg:min-h-[106px] lg:text-h1 lg:font-bold">{h.builders.heading}</h2>

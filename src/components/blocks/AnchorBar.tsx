@@ -101,7 +101,7 @@ export function AnchorBar({ anchors, spread = true }: { anchors: Anchor[]; /** S
   };
 
   return (
-    <nav aria-label="On this page" className="sticky top-header-m z-[15] border-y border-hairline bg-offwhite builders:border-darkborder builders:bg-charcoal lg:top-header">
+    <nav aria-label="On this page" className="sticky top-header-m z-[15] border-y border-hairline bg-offwhite builders:border-darkborder builders:bg-teal lg:top-header">
       <div className="relative">
         <button
           type="button"
@@ -125,7 +125,7 @@ export function AnchorBar({ anchors, spread = true }: { anchors: Anchor[]; /** S
                 aria-current={isActive ? "location" : undefined}
                 className={cn(
                   "-mb-px inline-flex shrink-0 items-center gap-1.5 whitespace-nowrap border-b-[3px] py-3 text-[15px] font-medium transition-colors hover:border-ondark-muted hover:text-charcoal hover:no-underline builders:hover:text-offwhite lg:py-3.5",
-                  isActive ? "border-blue font-bold text-blue hover:text-blue builders:border-offwhite builders:text-offwhite builders:hover:text-offwhite" : "border-transparent text-slate builders:text-ondark-muted",
+                  isActive ? "border-teal font-bold text-teal hover:text-teal builders:border-offwhite builders:text-offwhite builders:hover:text-offwhite" : "border-transparent text-slate builders:text-ondark-muted",
                 )}
               >
                 <Icon name={a.icon} size={16} />
