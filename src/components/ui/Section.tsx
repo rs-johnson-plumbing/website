@@ -7,7 +7,7 @@ type Props = {
   tone?: Tone;
   id?: string;
   className?: string;
-  /** Vertical padding preset. Default is 40px top and bottom on desktop (32px on phone); "band" is the same and kept for older call sites. */
+  /** Vertical padding preset. Default is 60px top and bottom on desktop (40px on phone); "band" is the same and kept for older call sites. */
   pad?: "default" | "band" | "none";
   ariaLabelledby?: string;
   ariaLabel?: string;
@@ -22,8 +22,8 @@ const tones: Record<Tone, string> = {
 };
 
 const pads = {
-  default: "py-8 lg:py-10",
-  band: "py-8 lg:py-10",
+  default: "py-10 lg:py-[60px]",
+  band: "py-10 lg:py-[60px]",
   none: "",
 };
 

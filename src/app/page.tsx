@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { home, site, builderServices, link } from "@/lib/content";
+import { type IconName, home, site, builderServices, link } from "@/lib/content";
 import { plumberJsonLd } from "@/lib/jsonld";
 import { HomeHero } from "@/components/blocks/HomeHero";
 import { AudienceProvider } from "@/components/blocks/AudienceContext";
@@ -9,6 +9,7 @@ import { TeamStrip } from "@/components/blocks/TeamStrip";
 import { ServiceGrid } from "@/components/blocks/ServiceGrid";
 import { ServiceIllustration } from "@/components/blocks/ServiceIllustration";
 import { MessageForm } from "@/components/blocks/MessageForm";
+import { IconTile } from "@/components/ui/Icon";
 import { ClosingCTA } from "@/components/blocks/ClosingCTA";
 import { JsonLd } from "@/components/blocks/JsonLd";
 import { Section } from "@/components/ui/Section";
@@ -21,6 +22,8 @@ export const metadata: Metadata = {
   alternates: { canonical: "/" },
   openGraph: { title: home.meta.title, description: home.meta.description, url: "/" },
 };
+
+type ContactDetail = { icon: IconName; label: string; value: string; href?: string };
 
 function H2({ children, id }: { children: React.ReactNode; id?: string }) {
   return (
@@ -92,14 +95,33 @@ export default function HomePage() {
           <Neighbors />
         </Section>
 
-        {/* 5. Contact us */}
+        {/* 5. Contact us: heading, one line, the three facts, and the form */}
         <Section tone="sand" id="contact" ariaLabelledby="contact-h">
-          <div className="grid grid-cols-1 gap-4 lg:grid-cols-[1fr_520px] lg:items-start lg:gap-16">
-            <div className="flex flex-col gap-2 lg:gap-5">
-              <H2 id="contact-h">{home.ready.heading}</H2>
-              {home.ready.line && <p className="text-center text-[15px] text-slate builders:text-ondark-muted lg:max-w-[480px] lg:text-left lg:text-body">{home.ready.line}</p>}
+          <div className="grid grid-cols-1 gap-6 lg:grid-cols-[1fr_520px] lg:items-start lg:gap-16">
+            <div className="flex flex-col items-center gap-5 text-center lg:items-start lg:text-left">
+              <div className="flex flex-col gap-2">
+                <H2 id="contact-h">{home.ready.heading}</H2>
+                {home.ready.line && <p className="text-[15px] text-slate builders:text-ondark-muted lg:max-w-[440px] lg:text-body">{home.ready.line}</p>}
+              </div>
+              <ul className="flex w-full max-w-[440px] flex-col gap-3 text-left">
+                {(home.ready.details as ContactDetail[]).map((d) => (
+                  <li key={d.label} className="flex items-center gap-3.5">
+                    <IconTile name={d.icon} size={44} />
+                    <div className="flex flex-col leading-tight">
+                      <span className="text-[12px] font-semibold text-slate builders:text-ondark-muted">{d.label}</span>
+                      {d.href ? (
+                        <a href={d.href} data-track="call-contact" className="text-[18px] font-bold text-charcoal hover:no-underline builders:text-offwhite">
+                          {d.value}
+                        </a>
+                      ) : (
+                        <span className="text-[17px] font-bold text-charcoal builders:text-offwhite">{d.value}</span>
+                      )}
+                    </div>
+                  </li>
+                ))}
+              </ul>
             </div>
-            <MessageForm />
+            <MessageForm heading={false} />
           </div>
         </Section>
       </AudienceProvider>
