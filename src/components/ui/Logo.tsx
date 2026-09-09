@@ -78,10 +78,12 @@ export function Lockup({ className, title, reversed = false }: { className?: str
         <rect x="8" y="90" width="16" height="48" rx="2" fill="#2F6FE0" />
       </g>
       <g fontFamily="Georgia, 'Times New Roman', serif" fontWeight="700" fill={ink} letterSpacing="1">
+        {/* textLength pins the wordmark width so Georgia's metrics on iOS,
+            Android, and desktop all land inside the box. */}
         <text x="150" y="72" fontSize="50">
           R.S.
         </text>
-        <text x="150" y="148" fontSize="60">
+        <text x="150" y="148" fontSize="58" textLength="610" lengthAdjust="spacingAndGlyphs">
           JOHNSON PLUMBING
         </text>
       </g>
