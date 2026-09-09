@@ -50,6 +50,6 @@ test("availability API captures an address, then a phone number", async ({ reque
   expect(bad.status()).toBe(400);
   const step1 = await request.post("/api/availability", { data: { address: "123 Main St, O'Fallon" } });
   expect(step1.status()).toBe(200);
-  const step2 = await request.post("/api/availability", { data: { address: "123 Main St, O'Fallon", phone: "314-555-1212" } });
+  const step2 = await request.post("/api/availability", { data: { address: "123 Main St, O'Fallon", phone: "314-555-1212", category: "Repair", issue: "No Hot Water" } });
   expect(step2.status()).toBe(200);
 });

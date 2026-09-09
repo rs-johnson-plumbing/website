@@ -1,40 +1,51 @@
 "use client";
 
 import { useEffect, useId, useRef, useState } from "react";
-import { home, site, link } from "@/lib/content";
-import { Button } from "@/components/ui/Button";
+import { home } from "@/lib/content";
 import { cn } from "@/lib/cn";
 
-type Stage = "idle" | "address" | "ask" | "phone" | "done" | "declined";
+type Stage = "idle" | "address" | "category" | "issue" | "note" | "phone" | "done";
+type Issue = { id: string; label: string };
+type Category = { id: string; label: string; issues: Issue[] };
 
 /**
- * Quick-capture flow in the homeowner hero. The primary button, Check
- * Availability, turns into an address field in place. Submitting the
- * address opens a centered dialog: "we serve your address" and "can we
- * call or text you shortly?" Yes asks for a phone number and sends it; Not
- * Now points at Schedule Service and the phone number. Copy lives in
- * home.json under availability.
+ * Quick-capture flow in the homeowner hero, four taps and a phone number:
+ *
+ *   Check Availability -> address field (in place) -> dialog:
+ *   "We service your area. What are you inquiring about?" -> category ->
+ *   issue (or Something Else with a short note) -> phone -> done.
+ *
+ * The address posts on its own first so it is captured even if they
+ * abandon; the rest posts with the phone number. Copy and the category
+ * tree live in home.json under availability.
  */
 export function AvailabilityCheck({ className }: { className?: string }) {
   const a = home.availability;
+  const categories = a.categories as Category[];
   const [stage, setStage] = useState<Stage>("idle");
   const [address, setAddress] = useState("");
+  const [category, setCategory] = useState<Category | null>(null);
+  const [issue, setIssue] = useState<Issue | null>(null);
+  const [issueLabel, setIssueLabel] = useState("");
+  const [note, setNote] = useState("");
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState(false);
   const addressRef = useRef<HTMLInputElement>(null);
+  const noteRef = useRef<HTMLTextAreaElement>(null);
   const phoneRef = useRef<HTMLInputElement>(null);
   const titleId = useId();
-  const open = stage === "ask" || stage === "phone" || stage === "done" || stage === "declined";
+  const open = stage !== "idle" && stage !== "address";
 
   useEffect(() => {
     if (stage === "address") addressRef.current?.focus();
+    if (stage === "note") noteRef.current?.focus();
     if (stage === "phone") phoneRef.current?.focus();
   }, [stage]);
 
   useEffect(() => {
     if (!open) return;
     const onKey = (e: KeyboardEvent) => {
-      if (e.key === "Escape") setStage("idle");
+      if (e.key === "Escape") reset();
     };
     document.addEventListener("keydown", onKey);
     const prev = document.body.style.overflow;
@@ -44,6 +55,15 @@ export function AvailabilityCheck({ className }: { className?: string }) {
       document.body.style.overflow = prev;
     };
   }, [open]);
+
+  function reset() {
+    setStage("idle");
+    setCategory(null);
+    setIssue(null);
+    setIssueLabel("");
+    setNote("");
+    setError(false);
+  }
 
   async function post(data: Record<string, string>) {
     const res = await fetch("/api/availability", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(data) });
@@ -56,12 +76,25 @@ export function AvailabilityCheck({ className }: { className?: string }) {
     setError(false);
     try {
       await post({ address });
-      setStage("ask");
+      setStage("category");
     } catch {
       setError(true);
     } finally {
       setBusy(false);
     }
+  }
+
+  function pickCategory(c: Category) {
+    setCategory(c);
+    setIssue(null);
+    setIssueLabel("");
+    setStage("issue");
+  }
+
+  function pickIssue(i: Issue | null) {
+    setIssue(i);
+    setIssueLabel(i ? i.label : a.other);
+    setStage(i ? "phone" : "note");
   }
 
   async function submitPhone(e: React.FormEvent<HTMLFormElement>) {
@@ -70,7 +103,7 @@ export function AvailabilityCheck({ className }: { className?: string }) {
     setBusy(true);
     setError(false);
     try {
-      await post({ address, phone });
+      await post({ address, phone, category: category?.label ?? "", issue: issueLabel, note });
       setStage("done");
     } catch {
       setError(true);
@@ -80,20 +113,13 @@ export function AvailabilityCheck({ className }: { className?: string }) {
   }
 
   const input = "h-[52px] w-full min-w-0 rounded-btn border-[1.5px] border-charcoal bg-white px-3.5 text-[16px] text-charcoal placeholder:text-slate focus:border-blue focus:outline-none";
-  const smallBtn = "inline-flex h-[52px] shrink-0 items-center justify-center whitespace-nowrap rounded-btn px-5 text-[16px] font-bold transition-opacity hover:opacity-[0.88] disabled:opacity-60";
+  const btn = "inline-flex h-[52px] shrink-0 items-center justify-center whitespace-nowrap rounded-btn px-5 text-[16px] font-bold transition-opacity hover:opacity-[0.88] disabled:opacity-60";
+  const chip = "flex min-h-[52px] items-center justify-center rounded-btn border-[1.5px] border-charcoal bg-white px-3 py-2 text-center text-[15px] font-bold leading-tight text-charcoal transition-colors hover:border-blue hover:text-blue";
+  const summary = [category?.label, issueLabel].filter(Boolean).join(" · ");
 
   return (
     <>
-      {stage === "idle" || open ? (
-        <button
-          type="button"
-          onClick={() => setStage("address")}
-          data-track="availability-open"
-          className={cn("inline-flex h-[52px] items-center justify-center whitespace-nowrap rounded-btn bg-blue px-6 text-[16px] font-bold text-white transition-opacity hover:opacity-[0.88]", className)}
-        >
-          {a.button}
-        </button>
-      ) : (
+      {stage === "address" ? (
         <form onSubmit={submitAddress} className={cn("flex w-full gap-2", className, "lg:w-full lg:max-w-[560px]")}>
           <input
             ref={addressRef}
@@ -106,76 +132,128 @@ export function AvailabilityCheck({ className }: { className?: string }) {
             autoComplete="street-address"
             className={cn(input, "border-blue")}
           />
-          <button type="submit" disabled={busy} data-track="availability-check" className={cn(smallBtn, "bg-blue text-white")}>
+          <button type="submit" disabled={busy} data-track="availability-check" className={cn(btn, "bg-blue text-white")}>
             {a.check}
           </button>
         </form>
+      ) : (
+        <button
+          type="button"
+          onClick={() => setStage("address")}
+          data-track="availability-open"
+          className={cn("inline-flex h-[52px] items-center justify-center whitespace-nowrap rounded-btn bg-blue px-6 text-[16px] font-bold text-white transition-opacity hover:opacity-[0.88]", className)}
+        >
+          {a.button}
+        </button>
       )}
       {error && stage === "address" && <p className="w-full text-left text-[14px] font-semibold text-charcoal">{a.error}</p>}
 
       {open && (
-        <div className="fixed inset-0 z-40 flex items-center justify-center bg-charcoal/60 p-4" onClick={() => setStage("idle")}>
+        <div className="fixed inset-0 z-40 flex items-center justify-center bg-charcoal/60 p-4" onClick={reset}>
           <div
             role="dialog"
             aria-modal="true"
             aria-labelledby={titleId}
             onClick={(e) => e.stopPropagation()}
-            className="w-full max-w-[440px] rounded-card border border-hairline bg-white p-6 text-left text-charcoal shadow-xl"
+            className="relative w-full max-w-[440px] rounded-card border border-hairline bg-white p-6 text-left text-charcoal shadow-xl"
           >
-            {stage === "ask" && (
+            <button type="button" onClick={reset} aria-label={a.close} className="absolute right-3 top-3 flex h-9 w-9 items-center justify-center rounded-full text-[22px] leading-none text-slate hover:bg-sand hover:text-charcoal">
+              ×
+            </button>
+
+            {stage === "category" && (
               <>
-                <h2 id={titleId} className="text-[22px] font-bold leading-tight">
+                <h2 id={titleId} className="pr-8 text-[22px] font-bold leading-tight">
                   {a.inArea}
                 </h2>
                 <p className="mt-1 text-[14px] text-slate">{address}</p>
-                <p className="mt-4 text-[17px] font-semibold">{a.inAreaLine}</p>
-                <div className="mt-4 flex flex-col gap-2.5">
-                  <button type="button" onClick={() => setStage("phone")} data-track="availability-yes" className={cn(smallBtn, "w-full bg-blue text-white")}>
-                    {a.yes}
-                  </button>
-                  <button type="button" onClick={() => setStage("declined")} data-track="availability-no" className={cn(smallBtn, "w-full border-[1.5px] border-charcoal bg-white text-charcoal")}>
-                    {a.no}
-                  </button>
+                <p className="mt-4 text-[17px] font-semibold">{a.ask}</p>
+                <div className="mt-3 flex flex-col gap-2.5">
+                  {categories.map((c) => (
+                    <button key={c.id} type="button" onClick={() => pickCategory(c)} data-track={`availability-cat-${c.id}`} className={chip}>
+                      {c.label}
+                    </button>
+                  ))}
                 </div>
               </>
             )}
-            {stage === "phone" && (
-              <form onSubmit={submitPhone}>
-                <h2 id={titleId} className="text-[22px] font-bold leading-tight">
-                  {a.phoneLabel}
+
+            {stage === "issue" && category && (
+              <>
+                <h2 id={titleId} className="pr-8 text-[22px] font-bold leading-tight">
+                  {category.label}
                 </h2>
                 <p className="mt-1 text-[14px] text-slate">{address}</p>
-                <input ref={phoneRef} name="phone" type="tel" required placeholder={a.phonePlaceholder} aria-label={a.phoneLabel} autoComplete="tel" className={cn(input, "mt-4")} />
-                <p className="mt-2 text-[12px] leading-snug text-slate">{a.consent}</p>
-                {error && <p className="mt-2 text-[14px] font-semibold">{a.error}</p>}
-                <button type="submit" disabled={busy} data-track="availability-send" className={cn(smallBtn, "mt-4 w-full bg-blue text-white")}>
-                  {a.send}
-                </button>
-              </form>
-            )}
-            {stage === "done" && (
-              <>
-                <h2 id={titleId} className="text-[22px] font-bold leading-tight">
-                  {a.done}
-                </h2>
-                <button type="button" onClick={() => setStage("idle")} className={cn(smallBtn, "mt-5 w-full border-[1.5px] border-charcoal bg-white text-charcoal")}>
-                  {a.close}
+                <div className="mt-4 grid grid-cols-2 gap-2.5">
+                  {category.issues.map((i) => (
+                    <button key={i.id} type="button" onClick={() => pickIssue(i)} data-track={`availability-issue-${category.id}-${i.id}`} className={chip}>
+                      {i.label}
+                    </button>
+                  ))}
+                  <button type="button" onClick={() => pickIssue(null)} data-track={`availability-issue-${category.id}-other`} className={cn(chip, "border-dashed")}>
+                    {a.other}
+                  </button>
+                </div>
+                <button type="button" onClick={() => setStage("category")} className="mt-4 text-[14px] font-semibold text-slate hover:text-charcoal">
+                  ← {a.back}
                 </button>
               </>
             )}
-            {stage === "declined" && (
+
+            {stage === "note" && category && (
               <>
-                <h2 id={titleId} className="text-[22px] font-bold leading-tight">
-                  {a.declined}
+                <h2 id={titleId} className="pr-8 text-[22px] font-bold leading-tight">
+                  {a.other}
                 </h2>
-                <div className="mt-5 flex flex-col gap-2.5">
-                  <Button href={link("book")} variant="filled" track="availability-book" className="h-[52px] w-full">
-                    {home.hero.homeowners.primary}
-                  </Button>
-                  <Button href={site.phone.tel} variant="outlined" track="availability-call" className="h-[52px] w-full">
-                    {home.hero.homeowners.secondary}
-                  </Button>
+                <p className="mt-1 text-[14px] text-slate">{category.label}</p>
+                <textarea ref={noteRef} value={note} onChange={(e) => setNote(e.target.value)} rows={3} maxLength={500} placeholder={a.notePlaceholder} aria-label={a.notePlaceholder} className={cn(input, "mt-4 h-auto py-3")} />
+                <div className="mt-4 flex items-center justify-between gap-3">
+                  <button type="button" onClick={() => setStage("issue")} className="text-[14px] font-semibold text-slate hover:text-charcoal">
+                    ← {a.back}
+                  </button>
+                  <button type="button" onClick={() => setStage("phone")} data-track="availability-note-next" className={cn(btn, "bg-blue text-white")}>
+                    {a.next}
+                  </button>
                 </div>
+              </>
+            )}
+
+            {stage === "phone" && (
+              <form onSubmit={submitPhone}>
+                <h2 id={titleId} className="pr-8 text-[22px] font-bold leading-tight">
+                  {a.phoneHeading}
+                </h2>
+                <p className="mt-1 text-[14px] text-slate">{a.phoneLine}</p>
+                <p className="mt-3 rounded-btn bg-blue-tint px-3 py-2 text-[13px] font-semibold">
+                  {summary}
+                  <span className="block font-normal text-slate">{address}</span>
+                </p>
+                <input ref={phoneRef} name="phone" type="tel" required placeholder={a.phonePlaceholder} aria-label={a.phoneHeading} autoComplete="tel" className={cn(input, "mt-4")} />
+                <p className="mt-2 text-[12px] leading-snug text-slate">{a.consent}</p>
+                {error && <p className="mt-2 text-[14px] font-semibold">{a.error}</p>}
+                <div className="mt-4 flex items-center justify-between gap-3">
+                  <button type="button" onClick={() => setStage(issue ? "issue" : "note")} className="text-[14px] font-semibold text-slate hover:text-charcoal">
+                    ← {a.back}
+                  </button>
+                  <button type="submit" disabled={busy} data-track="availability-send" className={cn(btn, "bg-blue text-white")}>
+                    {a.send}
+                  </button>
+                </div>
+              </form>
+            )}
+
+            {stage === "done" && (
+              <>
+                <h2 id={titleId} className="pr-8 text-[22px] font-bold leading-tight">
+                  {a.done}
+                </h2>
+                <p className="mt-2 text-[14px] text-slate">
+                  {summary}
+                  <span className="block">{address}</span>
+                </p>
+                <button type="button" onClick={reset} className={cn(btn, "mt-5 w-full border-[1.5px] border-charcoal bg-white text-charcoal")}>
+                  {a.close}
+                </button>
               </>
             )}
           </div>

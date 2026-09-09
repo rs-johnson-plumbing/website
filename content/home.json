@@ -30,16 +30,94 @@
     "addressLabel": "Service address",
     "addressPlaceholder": "Street address, city",
     "check": "Check",
-    "inArea": "Good news. We serve your address.",
-    "inAreaLine": "Can we call or text you shortly?",
-    "yes": "Yes, Reach Out",
-    "no": "Not Now",
-    "phoneLabel": "Best number to reach you",
+    "inArea": "Good news. We service your area.",
+    "ask": "What are you inquiring about?",
+    "categories": [
+      {
+        "id": "repair",
+        "label": "Repair",
+        "issues": [
+          {
+            "id": "leak",
+            "label": "Leak or Drip"
+          },
+          {
+            "id": "drain",
+            "label": "Clogged Drain or Sewer"
+          },
+          {
+            "id": "no-hot-water",
+            "label": "No Hot Water"
+          },
+          {
+            "id": "toilet",
+            "label": "Toilet Trouble"
+          },
+          {
+            "id": "burst-pipe",
+            "label": "Burst or Frozen Pipe"
+          }
+        ]
+      },
+      {
+        "id": "install",
+        "label": "Replace or Install",
+        "issues": [
+          {
+            "id": "water-heater",
+            "label": "Water Heater"
+          },
+          {
+            "id": "sump-pump",
+            "label": "Sump Pump"
+          },
+          {
+            "id": "fixture",
+            "label": "Faucet or Fixture"
+          },
+          {
+            "id": "toilet",
+            "label": "Toilet"
+          },
+          {
+            "id": "gas-line",
+            "label": "Gas Line"
+          }
+        ]
+      },
+      {
+        "id": "remodel",
+        "label": "Remodel or Project",
+        "issues": [
+          {
+            "id": "bathroom",
+            "label": "Bathroom"
+          },
+          {
+            "id": "kitchen",
+            "label": "Kitchen"
+          },
+          {
+            "id": "basement",
+            "label": "Basement Finish"
+          },
+          {
+            "id": "repipe",
+            "label": "Whole-House Repipe"
+          }
+        ]
+      }
+    ],
+    "other": "Something Else",
+    "notePlaceholder": "Tell us what's going on",
+    "next": "Next",
+    "back": "Back",
+    "phoneHeading": "What's your phone number?",
+    "phoneLine": "We'll call or text shortly.",
     "phonePlaceholder": "Phone number",
     "send": "Send",
     "consent": "By sending your number you agree to a call or text about this request. [SMS consent wording — confirm]",
     "done": "Got it. We'll call or text shortly.",
-    "declined": "No problem. Schedule online or call or text anytime.",
     "error": "Something went wrong. Call or text 314-220-1827 and we'll take it from there.",
     "close": "Close"
   },
