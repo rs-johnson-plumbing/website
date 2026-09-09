@@ -1,5 +1,5 @@
 import { home, type IconName } from "@/lib/content";
-import { IconTile } from "@/components/ui/Icon";
+import { ValueIllustration } from "./ValueIllustration";
 import { MessageForm } from "./MessageForm";
 import { cn } from "@/lib/cn";
 
@@ -7,7 +7,7 @@ type ContactDetail = { icon: IconName; label: string; value: string; href?: stri
 
 /**
  * Contact Us: heading, one line, the three facts (call or text, based in,
- * serving) with icon tiles, and the message form. Shared by the homepage and
+ * serving) with illustrations, and the message form. Shared by the homepage and
  * the audience pages; copy lives in home.json under ready.
  */
 export function ContactBlock({ id = "contact-h", headingClassName }: { id?: string; headingClassName?: string }) {
@@ -23,7 +23,7 @@ export function ContactBlock({ id = "contact-h", headingClassName }: { id?: stri
         <ul className="flex w-full max-w-[440px] flex-col gap-3 text-left">
           {(home.ready.details as ContactDetail[]).map((d) => (
             <li key={d.label} className="flex items-center gap-3.5">
-              <IconTile name={d.icon} size={44} />
+              <ValueIllustration icon={d.icon} className="h-14 w-14 shrink-0 lg:h-16 lg:w-16" />
               <div className="flex flex-col leading-tight">
                 <span className="text-[12px] font-semibold text-slate builders:text-ondark-muted">{d.label}</span>
                 {d.href ? (

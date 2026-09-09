@@ -287,12 +287,12 @@
     "heading": "Send Us a Message",
     "line": "We'll call you back. [confirm turnaround]",
     "fields": {
-      "name": "Name",
+      "firstName": "First Name",
+      "lastName": "Last Name",
+      "email": "Email",
       "phone": "Phone",
-      "city": "City",
-      "message": "What's Going On"
+      "comments": "Comments"
     },
-    "consent": "Okay to text me about this request. [SMS consent wording — confirm]",
     "button": "Send Message",
     "success": "Got it. Ryan will call you back. [confirm turnaround]",
     "error": "Something went wrong. Call or text 314-220-1827 and we'll take it from there."

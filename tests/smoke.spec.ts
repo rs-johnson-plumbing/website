@@ -41,7 +41,7 @@ test("unknown route shows the branded 404", async ({ page }) => {
 test("message API rejects an empty post and accepts a valid one", async ({ request }) => {
   const bad = await request.post("/api/message", { data: {} });
   expect(bad.status()).toBe(400);
-  const good = await request.post("/api/message", { data: { name: "Smoke", phone: "3145551212", message: "test" } });
+  const good = await request.post("/api/message", { data: { firstName: "Smoke", lastName: "Test", phone: "3145551212", comments: "test" } });
   expect(good.status()).toBe(200);
 });
 

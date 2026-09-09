@@ -14,12 +14,17 @@ export async function POST(req: Request) {
   } catch {
     return NextResponse.json({ ok: false, error: "Invalid body" }, { status: 400 });
   }
-  const name = String(body.name ?? "").trim();
+  const firstName = String(body.firstName ?? "").trim();
+  const lastName = String(body.lastName ?? "").trim();
+  const email = String(body.email ?? "").trim();
   const phone = String(body.phone ?? "").trim();
-  const message = String(body.message ?? "").trim();
-  if (!name || !phone || !message) {
+  const comments = String(body.comments ?? "").trim();
+  if (!firstName || !lastName || !phone || !comments) {
     return NextResponse.json({ ok: false, error: "Missing fields" }, { status: 400 });
   }
-  console.log("[message] new lead", { name, phone, city: body.city ?? "", message, smsConsent: Boolean(body.smsConsent) });
+  if (email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+    return NextResponse.json({ ok: false, error: "Invalid email" }, { status: 400 });
+  }
+  console.log("[message] new lead", { firstName, lastName, email, phone, comments });
   return NextResponse.json({ ok: true });
 }
