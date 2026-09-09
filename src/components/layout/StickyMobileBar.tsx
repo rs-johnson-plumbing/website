@@ -1,12 +1,13 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { usePathname } from "next/navigation";
 import { site, link } from "@/lib/content";
 import { cn } from "@/lib/cn";
 
 /**
- * Fixed bottom bar on every page below the desktop breakpoint: filled Call
- * with the number, outlined Book. In builders mode the bar goes charcoal and
+ * Fixed bottom bar on every page below the desktop breakpoint: outlined Call
+ * with the number, filled Book, matching the hero pair. In builders mode the bar goes charcoal and
  * Book becomes Request a Bid. Body padding reserves its height in
  * globals.css.
  *
@@ -19,7 +20,10 @@ export function StickyMobileBar() {
   // Start hidden so the hero never shows the bar before hydration; pages
   // without a sentinel slide it in on mount.
   const [visible, setVisible] = useState(false);
+  const pathname = usePathname();
 
+  // Re-run on every route change: the bar lives in the layout, so without
+  // this it would keep watching the hero of whichever page loaded first.
   useEffect(() => {
     const sentinel = document.querySelector<HTMLElement>("[data-sticky-sentinel]");
     if (!sentinel) {
@@ -55,7 +59,7 @@ export function StickyMobileBar() {
       ro?.disconnect();
       mo.disconnect();
     };
-  }, []);
+  }, [pathname]);
 
   return (
     <div
@@ -69,7 +73,7 @@ export function StickyMobileBar() {
         href={site.phone.tel}
         data-track="call-sticky"
         tabIndex={visible ? 0 : -1}
-        className="flex flex-[1.6] items-center justify-center whitespace-nowrap rounded-btn bg-blue py-3 text-[14px] font-bold text-white hover:opacity-[0.88]"
+        className="flex flex-[1.6] items-center justify-center whitespace-nowrap rounded-btn border-[1.5px] border-charcoal bg-transparent py-3 text-[14px] font-bold text-charcoal hover:opacity-[0.88] builders:border-offwhite builders:text-offwhite"
         aria-label={`${site.phone.note} ${site.phone.display}`}
       >
         {site.cta.stickyCall}
@@ -78,7 +82,7 @@ export function StickyMobileBar() {
         href={link("book")}
         data-track="book-sticky"
         tabIndex={visible ? 0 : -1}
-        className="flex flex-1 items-center justify-center rounded-btn border-[1.5px] border-charcoal py-3 text-[14px] font-bold text-charcoal hover:opacity-[0.88] builders:hidden"
+        className="flex flex-1 items-center justify-center rounded-btn bg-blue py-3 text-[14px] font-bold text-white hover:opacity-[0.88] builders:hidden"
       >
         {site.cta.stickyBook}
       </a>
@@ -86,7 +90,7 @@ export function StickyMobileBar() {
         href={link("bid")}
         data-track="bid-sticky"
         tabIndex={visible ? 0 : -1}
-        className="hidden flex-1 items-center justify-center whitespace-nowrap rounded-btn border-[1.5px] border-offwhite py-3 text-[14px] font-bold text-offwhite hover:opacity-[0.88] builders:flex"
+        className="hidden flex-1 items-center justify-center whitespace-nowrap rounded-btn bg-blue py-3 text-[14px] font-bold text-white hover:opacity-[0.88] builders:flex"
       >
         {site.cta.stickyBid}
       </a>
