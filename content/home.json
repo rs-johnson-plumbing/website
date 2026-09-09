@@ -25,6 +25,25 @@
       "credentials": []
     }
   },
+  "availability": {
+    "button": "Check Availability",
+    "addressLabel": "Service address",
+    "addressPlaceholder": "Street address, city",
+    "check": "Check",
+    "cancel": "Cancel",
+    "inArea": "Good news, we serve your address.",
+    "inAreaLine": "Can we call or text you shortly?",
+    "yes": "Yes, Reach Out",
+    "no": "Not Now",
+    "phoneLabel": "Best number to reach you",
+    "phonePlaceholder": "Phone number",
+    "send": "Send",
+    "consent": "By sending your number you agree to a call or text about this request. [SMS consent wording — confirm]",
+    "done": "Got it. Ryan will call or text you shortly. [confirm turnaround]",
+    "declined": "No problem. Schedule online or call or text anytime.",
+    "error": "Something went wrong. Call or text 314-220-1827 and we'll take it from there.",
+    "close": "Close"
+  },
   "setsApart": {
     "homeowners": {
       "heading": "What Sets Us Apart",
