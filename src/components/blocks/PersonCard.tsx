@@ -1,5 +1,6 @@
 import type { TeamMember } from "@/lib/content";
 import { PhotoPlaceholder } from "@/components/ui/PhotoPlaceholder";
+import { Avatar, hasAvatar } from "./Avatar";
 import { JsonLd } from "./JsonLd";
 import { site } from "@/lib/content";
 
@@ -33,13 +34,17 @@ export function PersonCard({ member, compact = false, withJsonLd = !compact }: P
   if (compact) {
     return (
       <div className="flex items-center gap-3">
-        <div
-          role="img"
-          aria-label={member.photo.alt}
-          className="flex h-14 w-14 shrink-0 items-center justify-center rounded-full border border-dashed border-hairline-strong bg-sand text-[15px] font-bold text-slate builders:border-darkborder builders:bg-charcoal builders:text-ondark-muted"
-        >
-          {initials(member.name)}
-        </div>
+        {hasAvatar(member.id) ? (
+          <Avatar id={member.id} title={member.photo.alt} className="h-16 w-16 shrink-0" />
+        ) : (
+          <div
+            role="img"
+            aria-label={member.photo.alt}
+            className="flex h-14 w-14 shrink-0 items-center justify-center rounded-full border border-dashed border-hairline-strong bg-sand text-[15px] font-bold text-slate builders:border-darkborder builders:bg-charcoal builders:text-ondark-muted"
+          >
+            {initials(member.name)}
+          </div>
+        )}
         <div>
           <div className="text-[15px] font-bold">{member.name}</div>
           <div className="text-[14px] text-slate builders:text-ondark-muted">{member.title}</div>
