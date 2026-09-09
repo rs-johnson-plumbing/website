@@ -333,14 +333,178 @@ const scenes: Record<string, React.ReactNode> = {
       <path d="M368 176 c6 6 6 14 0 20 M380 166 c12 10 12 30 0 40" stroke={B} strokeWidth="4" />
     </>
   ),
+
+  "planning-and-takeoffs": (
+    <>
+      {/* plans on a table */}
+      <rect x="0" y="0" width="400" height="300" fill={T} />
+      <rect x="0" y="230" width="400" height="70" fill={H} />
+      <path d="M0 230 h400" stroke={C} strokeWidth="4" />
+      {/* drawing sheet */}
+      <path d="M50 60 h230 l40 40 v140 h-270z" fill={W} stroke={C} strokeWidth="5" />
+      <path d="M280 60 v40 h40" fill={O} stroke={C} strokeWidth="5" />
+      {/* floor plan lines */}
+      <path d="M80 100 h150 v100 h-150z" stroke={C} strokeWidth="3" opacity="0.5" />
+      <path d="M80 150 h70 M150 100 v50" stroke={C} strokeWidth="3" opacity="0.5" />
+      {/* fixture symbols in blue, pipe run */}
+      <rect x="92" y="108" width="22" height="14" rx="3" fill={B} />
+      <circle cx="200" cy="120" r="8" fill="none" stroke={B} strokeWidth="4" />
+      <rect x="170" y="170" width="30" height="18" rx="4" fill="none" stroke={B} strokeWidth="4" />
+      <path d="M103 122 v28 h97 v-22 M185 188 v-16" stroke={B} strokeWidth="4" strokeDasharray="7 5" />
+      {/* scale ruler and pencil */}
+      <rect x="230" y="150" width="120" height="16" rx="3" fill={O} stroke={C} strokeWidth="3" transform="rotate(-20 290 158)" />
+      <path d="M244 160 l6 -2 M258 155 l6 -2 M272 150 l6 -2 M286 145 l6 -2 M300 140 l6 -2" stroke={C} strokeWidth="2" opacity="0.6" />
+      <path d="M300 200 l70 -40" stroke={C} strokeWidth="12" />
+      <path d="M300 200 l70 -40" stroke={B} strokeWidth="6" />
+      <path d="M298 204 l-12 4 l6 -12z" fill={C} />
+      {/* takeoff tally */}
+      <rect x="330" y="76" width="50" height="60" rx="6" fill={W} stroke={C} strokeWidth="3" />
+      <path d="M340 92 h30 M340 104 h30 M340 116 h20" stroke={C} strokeWidth="3" opacity="0.4" />
+      <path d="M340 128 h30" stroke={B} strokeWidth="4" />
+    </>
+  ),
+  underground: (
+    <>
+      {/* trench before the pour */}
+      <rect x="0" y="0" width="400" height="300" fill={T} />
+      <rect x="0" y="150" width="400" height="150" fill={H} />
+      <path d="M0 150 h400" stroke={C} strokeWidth="4" />
+      {/* form boards at grade */}
+      <rect x="20" y="132" width="360" height="18" fill={O} stroke={C} strokeWidth="4" />
+      {/* gravel */}
+      <g fill="none" stroke={C} strokeWidth="2" opacity="0.35">
+        <circle cx="60" cy="270" r="5" /><circle cx="110" cy="282" r="4" /><circle cx="160" cy="268" r="5" /><circle cx="230" cy="280" r="4" /><circle cx="300" cy="266" r="5" /><circle cx="350" cy="284" r="4" /><circle cx="40" cy="240" r="4" /><circle cx="370" cy="250" r="4" />
+      </g>
+      {/* main drain across, with a wye and stub-ups */}
+      <path d="M20 224 h360" stroke={C} strokeWidth="24" />
+      <path d="M20 224 h360" stroke={W} strokeWidth="16" />
+      <path d="M120 224 v-90 M220 224 v-90 M320 224 v-90" stroke={C} strokeWidth="24" />
+      <path d="M120 224 v-90 M220 224 v-90 M320 224 v-90" stroke={W} strokeWidth="16" />
+      <rect x="106" y="112" width="28" height="18" rx="3" fill={B} stroke={C} strokeWidth="3" />
+      <rect x="206" y="112" width="28" height="18" rx="3" fill={B} stroke={C} strokeWidth="3" />
+      <rect x="306" y="112" width="28" height="18" rx="3" fill={B} stroke={C} strokeWidth="3" />
+      <rect x="160" y="210" width="30" height="28" rx="4" fill={B} stroke={C} strokeWidth="3" />
+      <rect x="260" y="210" width="30" height="28" rx="4" fill={B} stroke={C} strokeWidth="3" />
+      {/* test plug and gauge */}
+      <circle cx="60" cy="90" r="18" fill={W} stroke={C} strokeWidth="4" />
+      <path d="M60 90 l8 -8" stroke={C} strokeWidth="3" />
+      <path d="M60 108 v24" stroke={C} strokeWidth="5" />
+      <path d="M46 132 h28" stroke={B} strokeWidth="6" />
+    </>
+  ),
+  "gas-runs": (
+    <>
+      {/* manifold on a wall */}
+      <rect x="0" y="0" width="400" height="300" fill={T} />
+      <rect x="0" y="250" width="400" height="50" fill={H} />
+      <path d="M0 250 h400" stroke={C} strokeWidth="4" />
+      <path d="M0 40 h400 M0 80 h400 M0 120 h400 M0 160 h400 M0 200 h400 M80 0 v40 M200 0 v40 M320 0 v40 M140 40 v40 M260 40 v40 M80 80 v40 M200 80 v40 M320 80 v40 M140 120 v40 M260 120 v40 M80 160 v40 M200 160 v40 M320 160 v40" stroke={C} strokeWidth="2" opacity="0.15" />
+      {/* supply in, manifold body */}
+      <path d="M0 150 h90" stroke={C} strokeWidth="18" />
+      <path d="M0 150 h90" stroke={O} strokeWidth="10" />
+      <rect x="90" y="120" width="60" height="60" rx="8" fill={O} stroke={C} strokeWidth="5" />
+      <circle cx="120" cy="150" r="12" fill={W} stroke={C} strokeWidth="3" />
+      <path d="M120 150 l6 -7" stroke={C} strokeWidth="3" />
+      {/* four branch lines with valves */}
+      <path d="M150 128 h230 M150 143 h230 M150 158 h230 M150 173 h230" stroke={C} strokeWidth="9" />
+      <path d="M150 128 h230 M150 143 h230 M150 158 h230 M150 173 h230" stroke={O} strokeWidth="4" />
+      <rect x="190" y="121" width="16" height="14" rx="3" fill={B} stroke={C} strokeWidth="2.5" />
+      <rect x="230" y="136" width="16" height="14" rx="3" fill={B} stroke={C} strokeWidth="2.5" />
+      <rect x="270" y="151" width="16" height="14" rx="3" fill={B} stroke={C} strokeWidth="2.5" />
+      <rect x="310" y="166" width="16" height="14" rx="3" fill={B} stroke={C} strokeWidth="2.5" />
+      {/* drops to appliances */}
+      <path d="M380 128 v122 M380 173 v77" stroke={C} strokeWidth="9" />
+      <path d="M380 128 v122" stroke={O} strokeWidth="4" />
+      {/* pressure gauge with a check */}
+      <circle cx="120" cy="70" r="26" fill={W} stroke={C} strokeWidth="4" />
+      <circle cx="120" cy="70" r="19" fill={O} stroke={C} strokeWidth="2" />
+      <path d="M120 70 l10 -10" stroke={C} strokeWidth="4" />
+      <path d="M120 96 v24" stroke={C} strokeWidth="6" />
+      <circle cx="150" cy="52" r="11" fill={B} stroke={C} strokeWidth="2.5" />
+      <path d="M144 52 l4 4 l8 -8" stroke={W} strokeWidth="3" />
+      {/* a flame at the appliance drop */}
+      <path d="M380 236 c-8 -8 -8 -16 -1 -24 c0 7 5 9 5 9 c0 -7 4 -10 8 -13 c-1 8 7 11 7 18 c0 7 -6 12 -13 12 c-2 0 -4 -1 -6 -2z" fill={B} stroke={C} strokeWidth="2" transform="translate(-38 -12)" />
+    </>
+  ),
+  "water-and-sewer-tie-in": (
+    <>
+      {/* street to house, cut open */}
+      <rect x="0" y="0" width="400" height="300" fill={T} />
+      <rect x="0" y="130" width="400" height="170" fill={H} />
+      <path d="M0 130 h400" stroke={C} strokeWidth="4" />
+      {/* street at left with a curb */}
+      <rect x="0" y="118" width="110" height="12" fill={C} opacity="0.7" />
+      <path d="M110 118 v12" stroke={C} strokeWidth="4" />
+      {/* house at right */}
+      <path d="M280 130 v-60 h100 v60" fill={O} stroke={C} strokeWidth="4" />
+      <path d="M270 72 l60 -40 l60 40" fill={W} stroke={C} strokeWidth="4" />
+      <rect x="318" y="94" width="24" height="36" rx="2" fill={B} stroke={C} strokeWidth="3" />
+      {/* water main and service line to the house */}
+      <path d="M0 190 h60" stroke={C} strokeWidth="18" />
+      <path d="M0 190 h60" stroke={W} strokeWidth="10" />
+      <path d="M60 190 h230 v-60" stroke={B} strokeWidth="9" />
+      {/* meter pit */}
+      <rect x="40" y="130" width="44" height="40" rx="4" fill={W} stroke={C} strokeWidth="4" />
+      <circle cx="62" cy="150" r="10" fill={O} stroke={C} strokeWidth="3" />
+      <path d="M62 150 l5 -5" stroke={C} strokeWidth="2.5" />
+      {/* sewer lateral sloping down to the main */}
+      <path d="M300 130 v90 l-240 26" stroke={C} strokeWidth="22" />
+      <path d="M300 130 v90 l-240 26" stroke={W} strokeWidth="14" />
+      <path d="M0 262 h70" stroke={C} strokeWidth="26" />
+      <path d="M0 262 h70" stroke={W} strokeWidth="18" />
+      {/* backflow and cleanout */}
+      <rect x="196" y="176" width="30" height="28" rx="5" fill={O} stroke={C} strokeWidth="4" />
+      <path d="M204 190 l8 -6 v12z" fill={B} />
+      <path d="M300 120 v-30" stroke={C} strokeWidth="14" />
+      <rect x="288" y="80" width="24" height="14" rx="3" fill={B} stroke={C} strokeWidth="3" />
+      {/* locate flag */}
+      <path d="M150 128 v-36" stroke={C} strokeWidth="3" />
+      <path d="M150 92 h26 l-8 9 l8 9 h-26z" fill={B} stroke={C} strokeWidth="2.5" />
+    </>
+  ),
+  "trim-and-fixture-set": (
+    <>
+      {/* finished bath: vanity, faucet, shower trim */}
+      <rect x="0" y="0" width="400" height="300" fill={T} />
+      <rect x="0" y="250" width="400" height="50" fill={H} />
+      <path d="M0 250 h400" stroke={C} strokeWidth="4" />
+      <path d="M0 40 h400 M0 80 h400 M0 120 h400 M60 40 v40 M140 40 v40 M220 40 v40 M300 40 v40 M100 80 v40 M180 80 v40 M260 80 v40 M340 80 v40" stroke={C} strokeWidth="2" opacity="0.18" />
+      {/* vanity */}
+      <rect x="40" y="150" width="200" height="16" rx="4" fill={O} stroke={C} strokeWidth="4" />
+      <rect x="54" y="166" width="172" height="84" fill={O} stroke={C} strokeWidth="4" />
+      <path d="M140 166 v84" stroke={C} strokeWidth="4" />
+      <rect x="112" y="200" width="20" height="6" rx="3" fill={C} />
+      <rect x="148" y="200" width="20" height="6" rx="3" fill={C} />
+      {/* basin and faucet */}
+      <path d="M90 152 v22 a10 10 0 0 0 10 10 h80 a10 10 0 0 0 10 -10 v-22" fill={W} stroke={C} strokeWidth="4" />
+      <path d="M150 150 v-26 a20 20 0 0 0 -40 0 v8" stroke={C} strokeWidth="12" />
+      <path d="M150 150 v-26 a20 20 0 0 0 -40 0 v8" stroke={O} strokeWidth="6" />
+      <path d="M156 132 h18" stroke={B} strokeWidth="6" />
+      {/* mirror */}
+      <rect x="80" y="40" width="120" height="80" rx="6" fill={W} stroke={C} strokeWidth="4" />
+      {/* shower trim on the right */}
+      <path d="M320 40 v30 h20" stroke={C} strokeWidth="12" />
+      <path d="M320 40 v30 h20" stroke={O} strokeWidth="6" />
+      <path d="M340 60 h24 l6 14 h-36z" fill={O} stroke={C} strokeWidth="4" />
+      <path d="M346 82 v10 M356 82 v14 M366 82 v10" stroke={B} strokeWidth="4" />
+      <circle cx="330" cy="160" r="22" fill={W} stroke={C} strokeWidth="4" />
+      <circle cx="330" cy="160" r="8" fill={B} />
+      <path d="M330 160 l0 -14" stroke={C} strokeWidth="4" />
+      {/* punch list on the counter */}
+      <rect x="252" y="120" width="40" height="30" rx="4" fill={W} stroke={C} strokeWidth="3" />
+      <path d="M260 130 l4 4 l8 -8 M260 142 h24" stroke={B} strokeWidth="3" />
+    </>
+  ),
 };
 
+const aliases: Record<string, string> = { "rough-in": "bath-and-kitchen-remodel" };
+
 export function hasBandIllustration(slug: string) {
-  return slug in scenes;
+  return (aliases[slug] ?? slug) in scenes;
 }
 
 export function BandIllustration({ slug, title, className }: { slug: string; title: string; className?: string }) {
-  const inner = scenes[slug];
+  const inner = scenes[aliases[slug] ?? slug];
   if (!inner) return null;
   return (
     <svg viewBox="0 0 400 300" fill="none" strokeLinecap="round" strokeLinejoin="round" role="img" aria-label={title} className={cn("block h-auto w-full overflow-hidden rounded-card border border-hairline-strong", className)}>

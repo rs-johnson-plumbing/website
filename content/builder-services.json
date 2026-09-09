@@ -12,7 +12,11 @@
         "Water heater and gas load sizing",
         "Value-engineering suggestions before you commit",
         "A bid you can hand to your client"
-      ]
+      ],
+      "photo": {
+        "alt": "Plans on a table with a takeoff in progress",
+        "caption": "Plans and Takeoffs"
+      }
     }
   },
   {
@@ -28,7 +32,11 @@
         "Water service sleeve and stub-ups",
         "Pressure test and inspection before the pour",
         "Coordination with excavation and concrete"
-      ]
+      ],
+      "photo": {
+        "alt": "Underground drain and vent pipes set before the slab pour",
+        "caption": "Underground"
+      }
     }
   },
   {
@@ -44,7 +52,11 @@
         "DWV and venting to code",
         "Tub, shower, and valve set",
         "Rough inspection with the county"
-      ]
+      ],
+      "photo": {
+        "alt": "Plumbing rough-in through an open stud wall",
+        "caption": "Rough-In"
+      }
     }
   },
   {
@@ -60,7 +72,11 @@
         "Load sizing and manifold layout",
         "Pressure test and inspection",
         "Appliance hookups at trim"
-      ]
+      ],
+      "photo": {
+        "alt": "Gas manifold and branch lines on a wall",
+        "caption": "Gas Runs"
+      }
     }
   },
   {
@@ -76,7 +92,11 @@
         "Sewer lateral to the main or septic",
         "Backflow and pressure-reducing valves",
         "Municipal inspections and locates"
-      ]
+      ],
+      "photo": {
+        "alt": "Water service and sewer lateral from the street to the house",
+        "caption": "Water Service and Sewer"
+      }
     }
   },
   {
@@ -92,7 +112,11 @@
         "Water heater and softener install",
         "Appliance hookups",
         "Final inspection and punch list"
-      ]
+      ],
+      "photo": {
+        "alt": "Fixtures set and trimmed out in a finished bath",
+        "caption": "Trim and Fixture Set"
+      }
     }
   }
 ]

@@ -20,7 +20,7 @@ const MAX_PLANS_BYTES = 4 * 1024 * 1024;
  *   done. Posts once, as multipart, to /api/bid. Copy lives in home.json
  *   under bid.
  */
-export function BidRequest({ className, variant = "filled" }: { className?: string; /** "outlined-dark" for a white outline next to another filled button on a charcoal strip. */ variant?: "filled" | "outlined-dark" }) {
+export function BidRequest({ className, variant = "filled" }: { className?: string; /** "outlined" is a charcoal outline on white, "outlined-dark" a white outline on charcoal, for when it sits beside a filled button. */ variant?: "filled" | "outlined" | "outlined-dark" }) {
   const b = home.bid;
   const types = b.types as ProjectType[];
   const [stage, setStage] = useState<Stage>("idle");
@@ -103,7 +103,9 @@ export function BidRequest({ className, variant = "filled" }: { className?: stri
         data-track="bid-open"
         className={cn(
           "inline-flex h-[52px] items-center justify-center gap-2 whitespace-nowrap rounded-btn px-6 text-[16px] font-bold transition-opacity hover:opacity-[0.88]",
-          variant === "filled" ? "bg-blue text-white" : "border-[1.5px] border-offwhite bg-transparent text-offwhite",
+          variant === "filled" && "bg-blue text-white",
+          variant === "outlined" && "border-[1.5px] border-charcoal bg-white text-charcoal",
+          variant === "outlined-dark" && "border-[1.5px] border-offwhite bg-transparent text-offwhite",
           className,
         )}
       >

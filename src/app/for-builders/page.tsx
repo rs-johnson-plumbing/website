@@ -11,7 +11,7 @@ import { TeamStrip } from "@/components/blocks/TeamStrip";
 import { Neighbors } from "@/components/blocks/Neighbors";
 import { FAQ } from "@/components/blocks/FAQ";
 import { ContactBlock } from "@/components/blocks/ContactBlock";
-import { ClosingCTA } from "@/components/blocks/ClosingCTA";
+import { IntakeBanner } from "@/components/blocks/IntakeBanner";
 import { Section, SectionHeading } from "@/components/ui/Section";
 import { cn } from "@/lib/cn";
 import { pageH2 } from "@/styles/headings";
@@ -31,7 +31,7 @@ const H = pageH2;
  * data-audience on the body so the header, anchor bar, sections, sticky bar,
  * and closing strip all flip. In order: why builders trust us, what we do
  * for builders (the six stages), meet the team, what other contractors are
- * saying, FAQ, contact us, then Need a Bid with the bid intake modal.
+ * saying, FAQ, contact us, then the bid request banner.
  */
 export default function ForBuildersPage() {
   return (
@@ -51,7 +51,7 @@ export default function ForBuildersPage() {
       {/* 2. What we do for builders: the six stages, then the bid button */}
       <Section id="services" tone="sand" pad="band" ariaLabelledby="b-services-h" className="scroll-mt-[140px]">
         <SectionHeading id="b-services-h" title={builders.services.heading} line={builders.services.line} titleClassName={H} />
-        <BuilderServiceGrid />
+        <BuilderServiceGrid hrefFor={(slug) => `/services/builders#${slug}`} />
         <div className="mt-8 flex justify-center lg:mt-10">
           <BidRequest className="w-full lg:w-auto" />
         </div>
@@ -80,7 +80,7 @@ export default function ForBuildersPage() {
         <ContactBlock headingClassName={H} />
       </Section>
 
-      <ClosingCTA id="request-a-bid" heading={builders.closing.heading} action={<BidRequest className="w-full lg:w-auto" />} />
+      <IntakeBanner audience="builders" id="request-a-bid" />
     </AudienceProvider>
   );
 }

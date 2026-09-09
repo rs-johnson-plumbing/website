@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { services, serviceBySlug, servicesHub, site, link, SITE_URL } from "@/lib/content";
+import { services, serviceBySlug, servicesHub, site, SITE_URL } from "@/lib/content";
 import { JsonLd } from "@/components/blocks/JsonLd";
-import { ClosingCTA } from "@/components/blocks/ClosingCTA";
+import { IntakeBanner } from "@/components/blocks/IntakeBanner";
 import { TextLink } from "@/components/ui/TextLink";
 import { Icon, IconTile } from "@/components/ui/Icon";
 
@@ -94,7 +94,7 @@ export default async function ServicePage({ params }: { params: Promise<Params> 
         </div>
       </section>
 
-      <ClosingCTA secondary={{ label: site.closingCta.secondary, href: link("book") }} />
+      <IntakeBanner audience="homeowners" />
     </>
   );
 }

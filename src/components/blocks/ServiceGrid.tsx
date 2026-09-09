@@ -11,12 +11,12 @@ type Card = { key: string; illustration: string; name: string; short: string; hr
  * section on the page; elsewhere it points at the hub. `builderSlugs` adds
  * builder stages after the homeowner services (the homepage shows both).
  */
-export function ServiceGrid({ hrefFor, slugs, builderSlugs }: { hrefFor: (slug: string) => string; slugs?: string[]; builderSlugs?: string[] }) {
+export function ServiceGrid({ hrefFor, slugs, builderSlugs, builderHrefFor = hrefFor }: { hrefFor: (slug: string) => string; slugs?: string[]; builderSlugs?: string[]; builderHrefFor?: (slug: string) => string }) {
   const list = slugs ? slugs.map((slug) => services.find((s) => s.slug === slug)).filter((s): s is NonNullable<typeof s> => Boolean(s)) : services;
   const cards: Card[] = list.map((s) => ({ key: s.slug, illustration: s.slug, name: s.name, short: s.hubShort, href: hrefFor(s.slug) }));
   for (const slug of builderSlugs ?? []) {
     const b = builderServices.find((s) => s.slug === slug);
-    if (b) cards.push({ key: b.slug, illustration: b.illustration, name: b.name, short: b.short, href: hrefFor(b.slug) });
+    if (b) cards.push({ key: b.slug, illustration: b.illustration, name: b.name, short: b.short, href: builderHrefFor(b.slug) });
   }
   return (
     <div className="grid grid-cols-2 gap-3 lg:grid-cols-4 lg:gap-5">
