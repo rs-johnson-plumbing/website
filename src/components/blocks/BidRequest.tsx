@@ -20,7 +20,7 @@ const MAX_PLANS_BYTES = 4 * 1024 * 1024;
  *   done. Posts once, as multipart, to /api/bid. Copy lives in home.json
  *   under bid.
  */
-export function BidRequest({ className }: { className?: string }) {
+export function BidRequest({ className, variant = "filled" }: { className?: string; /** "outlined-dark" for a white outline next to another filled button on a charcoal strip. */ variant?: "filled" | "outlined-dark" }) {
   const b = home.bid;
   const types = b.types as ProjectType[];
   const [stage, setStage] = useState<Stage>("idle");
@@ -101,7 +101,11 @@ export function BidRequest({ className }: { className?: string }) {
         type="button"
         onClick={() => setStage("contractor")}
         data-track="bid-open"
-        className={cn("inline-flex h-[52px] items-center justify-center gap-2 whitespace-nowrap rounded-btn bg-blue px-6 text-[16px] font-bold text-white transition-opacity hover:opacity-[0.88]", className)}
+        className={cn(
+          "inline-flex h-[52px] items-center justify-center gap-2 whitespace-nowrap rounded-btn px-6 text-[16px] font-bold transition-opacity hover:opacity-[0.88]",
+          variant === "filled" ? "bg-blue text-white" : "border-[1.5px] border-offwhite bg-transparent text-offwhite",
+          className,
+        )}
       >
         {b.button}
         <Icon name="arrow-right" size={20} strokeWidth={1.8} className="shrink-0" />

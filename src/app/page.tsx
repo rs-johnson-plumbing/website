@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { home, site, link } from "@/lib/content";
+import { home, link } from "@/lib/content";
 import { plumberJsonLd } from "@/lib/jsonld";
 import { HomeHero } from "@/components/blocks/HomeHero";
 import { AudienceProvider } from "@/components/blocks/AudienceContext";
@@ -10,6 +10,8 @@ import { ServiceGrid } from "@/components/blocks/ServiceGrid";
 import { ContactBlock } from "@/components/blocks/ContactBlock";
 import { BuilderServiceGrid } from "@/components/blocks/BuilderServiceGrid";
 import { ClosingCTA } from "@/components/blocks/ClosingCTA";
+import { AvailabilityCheck } from "@/components/blocks/AvailabilityCheck";
+import { BidRequest } from "@/components/blocks/BidRequest";
 import { JsonLd } from "@/components/blocks/JsonLd";
 import { Section } from "@/components/ui/Section";
 import { Button } from "@/components/ui/Button";
@@ -45,7 +47,7 @@ export default function HomePage() {
           <SetsApart />
         </Section>
 
-        {/* 2. What we do: four popular homeowner services, or the six builder stages */}
+        {/* 2. What we do: the eight homeowner services plus four builder stages, or the six builder stages in builders mode */}
         <Section ariaLabelledby="popular-h">
           <div className="flex flex-col gap-4 lg:gap-6">
             <div className="flex flex-col gap-3 lg:flex-row lg:items-baseline lg:justify-between">
@@ -61,7 +63,7 @@ export default function HomePage() {
               </div>
             </div>
             <div className="builders:hidden">
-              <ServiceGrid hrefFor={(slug) => `/services#${slug}`} slugs={popularHome.slugs} />
+              <ServiceGrid hrefFor={(slug) => `/services#${slug}`} slugs={popularHome.slugs} builderSlugs={popularHome.builderSlugs} />
             </div>
             <div className="hidden builders:block">
               <BuilderServiceGrid slugs={popularBuilders.slugs} />
@@ -91,7 +93,17 @@ export default function HomePage() {
         </Section>
       </AudienceProvider>
 
-      <ClosingCTA secondary={{ label: site.closingCta.secondary, href: link("book") }} builders={{ heading: home.closingBuilders.heading, secondary: { label: home.closingBuilders.secondary, href: link("bid") } }} />
+      {/* Closing strip: both intake buttons, no phone pair (the header and sticky bar carry the number) */}
+      <ClosingCTA
+        callText={false}
+        action={
+          <>
+            <AvailabilityCheck className="w-full lg:w-auto" />
+            <BidRequest variant="outlined-dark" className="w-full lg:w-auto" />
+          </>
+        }
+        builders={{ heading: home.closingBuilders.heading, secondary: { label: home.closingBuilders.secondary, href: link("bid") } }}
+      />
     </>
   );
 }

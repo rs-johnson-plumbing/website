@@ -1,26 +1,34 @@
 import Link from "next/link";
-import { services } from "@/lib/content";
+import { services, builderServices } from "@/lib/content";
 import { ServiceIllustration } from "./ServiceIllustration";
 import { cn } from "@/lib/cn";
 
+type Card = { key: string; illustration: string; name: string; short: string; href: string };
+
 /**
- * The eight illustrated service cards, two across on phone and four on
- * desktop. The whole card is the link. On the services hub each card jumps
- * to its section on the page; elsewhere it points at the hub.
+ * The illustrated service cards, two across on phone and four on desktop.
+ * The whole card is the link. On the services hub each card jumps to its
+ * section on the page; elsewhere it points at the hub. `builderSlugs` adds
+ * builder stages after the homeowner services (the homepage shows both).
  */
-export function ServiceGrid({ hrefFor, slugs }: { hrefFor: (slug: string) => string; slugs?: string[] }) {
+export function ServiceGrid({ hrefFor, slugs, builderSlugs }: { hrefFor: (slug: string) => string; slugs?: string[]; builderSlugs?: string[] }) {
   const list = slugs ? slugs.map((slug) => services.find((s) => s.slug === slug)).filter((s): s is NonNullable<typeof s> => Boolean(s)) : services;
+  const cards: Card[] = list.map((s) => ({ key: s.slug, illustration: s.slug, name: s.name, short: s.hubShort, href: hrefFor(s.slug) }));
+  for (const slug of builderSlugs ?? []) {
+    const b = builderServices.find((s) => s.slug === slug);
+    if (b) cards.push({ key: b.slug, illustration: b.illustration, name: b.name, short: b.short, href: hrefFor(b.slug) });
+  }
   return (
     <div className="grid grid-cols-2 gap-3 lg:grid-cols-4 lg:gap-5">
-      {list.map((s) => (
+      {cards.map((c) => (
         <Link
-          key={s.slug}
-          href={hrefFor(s.slug)}
+          key={c.key}
+          href={c.href}
           className="flex flex-col items-center gap-2 rounded-card border border-hairline bg-white p-4 text-center text-charcoal transition-colors hover:border-blue hover:no-underline lg:p-6"
         >
-          <ServiceIllustration slug={s.slug} className="h-[104px] w-[104px] lg:h-[132px] lg:w-[132px]" />
-          <span className="text-[17px] font-bold leading-tight lg:text-[19px]">{s.name}</span>
-          <span className="text-[14px] leading-snug text-slate lg:text-[15px]">{s.hubShort}</span>
+          <ServiceIllustration slug={c.illustration} className="h-[104px] w-[104px] lg:h-[132px] lg:w-[132px]" />
+          <span className="text-[17px] font-bold leading-tight lg:text-[19px]">{c.name}</span>
+          <span className="text-[14px] leading-snug text-slate lg:text-[15px]">{c.short}</span>
         </Link>
       ))}
     </div>
