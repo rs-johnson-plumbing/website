@@ -14,6 +14,7 @@ import projectsJson from "../../content/projects.json";
 import homeJson from "../../content/home.json";
 import homeownersJson from "../../content/homeowners.json";
 import servicesHubJson from "../../content/services-hub.json";
+import builderServicesJson from "../../content/builder-services.json";
 
 export type IconName =
   | "star"
@@ -126,6 +127,8 @@ export const faqs = faqsJson;
 export const home = homeJson;
 export const homeowners = homeownersJson;
 export const servicesHub = servicesHubJson;
+export type BuilderService = { slug: string; name: string; short: string; illustration: string };
+export const builderServices = builderServicesJson as BuilderService[];
 export const projects = projectsJson as unknown as ProjectsContent;
 
 export const SITE_URL = site.siteUrl;

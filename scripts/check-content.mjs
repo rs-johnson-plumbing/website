@@ -105,9 +105,17 @@ if (reviews?.items) {
 }
 
 const home = data["home.json"];
-if (home?.popularServices?.slugs && Array.isArray(services)) {
+const builderServices = data["builder-services.json"];
+if (home?.popularServices?.homeowners?.slugs && Array.isArray(services)) {
   const slugs = new Set(services.map((s) => s.slug));
-  for (const slug of home.popularServices.slugs) if (!slugs.has(slug)) errors.push(`home.json: popularServices references unknown service "${slug}"`);
+  for (const slug of home.popularServices.homeowners.slugs) if (!slugs.has(slug)) errors.push(`home.json: popularServices.homeowners references unknown service "${slug}"`);
+}
+if (home?.popularServices?.builders?.slugs && Array.isArray(builderServices)) {
+  const slugs = new Set(builderServices.map((s) => s.slug));
+  for (const slug of home.popularServices.builders.slugs) if (!slugs.has(slug)) errors.push(`home.json: popularServices.builders references unknown builder service "${slug}"`);
+}
+if (Array.isArray(builderServices)) {
+  builderServices.forEach((s) => require(s, ["slug", "name", "short", "illustration"], `builder service "${s.slug}"`, "builder-services.json"));
 }
 if (home?.neighbors && reviews?.items) {
   const ids = new Set(reviews.items.map((r) => r.id));

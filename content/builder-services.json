@@ -1,0 +1,38 @@
+[
+  {
+    "slug": "planning-and-takeoffs",
+    "name": "Plans and Takeoffs",
+    "short": "Fixture counts, layouts, and a number from your drawings",
+    "illustration": "planning-and-takeoffs"
+  },
+  {
+    "slug": "underground",
+    "name": "Underground",
+    "short": "Drain, waste, and vent under the slab, inspected before the pour",
+    "illustration": "underground"
+  },
+  {
+    "slug": "rough-in",
+    "name": "Rough-In",
+    "short": "Supply and DWV through the framing, ready for inspection and drywall",
+    "illustration": "rough-in"
+  },
+  {
+    "slug": "gas-runs",
+    "name": "Gas Runs",
+    "short": "Piping to ranges, fireplaces, water heaters, and generators, pressure tested",
+    "illustration": "gas-lines"
+  },
+  {
+    "slug": "water-and-sewer-tie-in",
+    "name": "Water Service and Sewer",
+    "short": "Meter to house, sewer lateral, and backflow, tied in and inspected",
+    "illustration": "water-and-sewer-tie-in"
+  },
+  {
+    "slug": "trim-and-fixture-set",
+    "name": "Trim and Fixture Set",
+    "short": "Fixtures, water heater, and appliance hookups, then the final",
+    "illustration": "trim-and-fixture-set"
+  }
+]

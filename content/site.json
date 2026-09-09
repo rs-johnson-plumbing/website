@@ -57,7 +57,8 @@
     "requestBid": "Request a Bid",
     "messageUs": "Message Us",
     "stickyCall": "Call or Text 314-220-1827",
-    "stickyBook": "Book"
+    "stickyBook": "Book",
+    "stickyBid": "Request a Bid"
   },
   "links": {
     "book": "/contact#book",
