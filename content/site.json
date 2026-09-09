@@ -9,7 +9,8 @@
   "phone": {
     "display": "314-220-1827",
     "tel": "tel:3142201827",
-    "note": "Call or text"
+    "note": "Call or text",
+    "smsBody": "Hi, I need a plumber at "
   },
   "email": "[email]",
   "hours": "Mon–Sat [hours]",
@@ -56,9 +57,13 @@
     "callNow": "Call Now",
     "requestBid": "Request a Bid",
     "messageUs": "Message Us",
-    "stickyCall": "Call or Text 314-220-1827",
+    "stickyCall": "Call",
     "stickyBook": "Schedule",
-    "stickyBid": "Request Bid"
+    "stickyBid": "Request Bid",
+    "call": "Call",
+    "text": "Text",
+    "callOrText": "Call or Text 314-220-1827",
+    "stickyText": "Text"
   },
   "links": {
     "book": "/contact#book",
