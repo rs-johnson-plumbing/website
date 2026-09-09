@@ -27,7 +27,7 @@
   },
   "setsApart": {
     "homeowners": {
-      "heading": "Here's What Sets Us Apart",
+      "heading": "Why Homeowners Trust R.S. Johnson Plumbing",
       "items": [
         {
           "icon": "phone",
@@ -67,37 +67,9 @@
       ]
     }
   },
-  "neighbors": {
-    "homeowners": {
-      "heading": "What Our Neighbors Say",
-      "proofLine": "",
-      "lead": {
-        "quote": "Honest. Reliable. Knows his stuff.",
-        "attribution": "B.L., Wildwood, on Nextdoor"
-      },
-      "reviewIds": [
-        "neighbor-stl",
-        "kg-ofallon"
-      ],
-      "link": "See All Reviews"
-    },
-    "builders": {
-      "heading": "What Other Contractors Say",
-      "proofLine": "[##] builder partners · References on request",
-      "lead": {
-        "quote": "[Contractor quote placeholder]",
-        "attribution": "[Name], [Builder company], [City]"
-      },
-      "reviewIds": [
-        "builder-2",
-        "builder-3"
-      ],
-      "link": "See All Reviews"
-    }
-  },
   "popularServices": {
     "homeowners": {
-      "heading": "Our Most Popular Services",
+      "heading": "What We Do for Homeowners",
       "line": "",
       "slugs": [
         "water-heaters",
@@ -108,7 +80,7 @@
       "seeAll": "See All Services"
     },
     "builders": {
-      "heading": "Our Most Popular Services",
+      "heading": "What We Do for Builders",
       "line": "The stages builders call us for, from plans to final inspection.",
       "slugs": [
         "planning-and-takeoffs",
@@ -121,18 +93,40 @@
       "button": "Request a Bid"
     }
   },
-  "why": {
-    "heading": "Why R.S. Johnson Plumbing",
-    "paragraph": "Ryan Johnson is a Missouri Master Plumber with [##] years in the trade. He answers the phone, bids every job, and the four plumbers on our team page are the crew that shows up at your house. Most of our week is new construction for builders who don't tolerate no-shows. Homeowners get the same crew and the same standard.",
-    "button": "Meet the Team",
-    "photo": {
-      "src": "/photos/site-crew-truck.jpg",
-      "alt": "Ryan and the crew in company shirts in front of a marked R.S. Johnson Plumbing truck",
-      "caption": "Ryan and the crew with the truck"
+  "team": {
+    "heading": "Meet the Team",
+    "link": "Meet the Whole Crew"
+  },
+  "neighbors": {
+    "homeowners": {
+      "heading": "What Your Neighbors Are Saying",
+      "proofLine": "",
+      "lead": {
+        "quote": "Honest. Reliable. Knows his stuff.",
+        "attribution": "B.L., Wildwood, on Nextdoor"
+      },
+      "reviewIds": [
+        "neighbor-stl",
+        "kg-ofallon"
+      ],
+      "link": "See All Reviews"
+    },
+    "builders": {
+      "heading": "What Other Contractors Are Saying",
+      "proofLine": "[##] builder partners · References on request",
+      "lead": {
+        "quote": "[Contractor quote placeholder]",
+        "attribution": "[Name], [Builder company], [City]"
+      },
+      "reviewIds": [
+        "builder-2",
+        "builder-3"
+      ],
+      "link": "See All Reviews"
     }
   },
   "ready": {
-    "heading": "Ready When You Are",
+    "heading": "Contact Us",
     "line": "Call or text for anything urgent. Schedule online for repairs, water heaters, and remodel work. Or send a message and Ryan will call you back."
   },
   "form": {
