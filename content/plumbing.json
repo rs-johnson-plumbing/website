@@ -3,45 +3,124 @@
     "title": "Plumbing Services St. Charles County | R.S. Johnson Plumbing",
     "description": "Master Plumber Ryan Johnson and crew handle water heaters, drains and sewer, leaks, toilets, remodels, gas lines, and sump pumps across St. Charles County. Call or book online."
   },
-  "hero": {
-    "heading": "Plumbing services in St. Charles County",
-    "intro": "Licensed, insured, and based in O'Fallon. Master Plumber Ryan Johnson and the crew on our team page handle emergency and scheduled plumbing across St. Charles and West St. Louis County — water heaters, drains and sewer, leaks, toilets and faucets, remodels, gas lines, and sump pumps.",
-    "trustLine": "Nextdoor Neighborhood Favorite 2023 · Licensed and insured in Missouri"
-  },
   "actionCard": {
-    "emergency": { "label": "Emergency service", "helper": "Leak, no hot water, backed-up drain", "button": "Call Now" },
-    "scheduled": { "label": "Scheduled service", "helper": "Repairs, water heaters, remodels", "button": "Book Online" },
+    "emergency": {
+      "label": "Emergency service",
+      "helper": "Leak, no hot water, backed-up drain",
+      "button": "Call Now"
+    },
+    "scheduled": {
+      "label": "Scheduled service",
+      "helper": "Repairs, water heaters, remodels",
+      "button": "Book Online"
+    },
     "messageLine": "Or message us and we'll call you back",
-    "trust": ["Missouri master plumber", "Licensed and insured", "Upfront pricing"]
+    "trust": [
+      "Missouri master plumber",
+      "Licensed and insured",
+      "Upfront pricing"
+    ]
   },
   "anchors": [
-    { "id": "services", "label": "Services", "icon": "check-circle" },
-    { "id": "signs", "label": "Signs", "icon": "bolt" },
-    { "id": "water-heaters", "label": "Water heaters", "icon": "water-heater" },
-    { "id": "drains-and-sewer", "label": "Drains and sewer", "icon": "drain" },
-    { "id": "leaks-and-repairs", "label": "Leaks", "icon": "drop" },
-    { "id": "toilets-and-faucets", "label": "Toilets and faucets", "icon": "faucet" },
-    { "id": "bath-and-kitchen-remodel", "label": "Remodels", "icon": "tub" },
-    { "id": "gas-lines", "label": "Gas lines", "icon": "gas" },
-    { "id": "sump-pumps", "label": "Sump pumps", "icon": "pump" },
-    { "id": "emergency-plumbing", "label": "Emergency", "icon": "bolt" },
-    { "id": "why-us", "label": "Why us", "icon": "star" },
-    { "id": "faq", "label": "FAQ", "icon": "chevron-down" }
+    {
+      "id": "services",
+      "label": "Services",
+      "icon": "check-circle"
+    },
+    {
+      "id": "signs",
+      "label": "Signs",
+      "icon": "bolt"
+    },
+    {
+      "id": "water-heaters",
+      "label": "Water heaters",
+      "icon": "water-heater"
+    },
+    {
+      "id": "drains-and-sewer",
+      "label": "Drains and sewer",
+      "icon": "drain"
+    },
+    {
+      "id": "leaks-and-repairs",
+      "label": "Leaks",
+      "icon": "drop"
+    },
+    {
+      "id": "toilets-and-faucets",
+      "label": "Toilets and faucets",
+      "icon": "faucet"
+    },
+    {
+      "id": "bath-and-kitchen-remodel",
+      "label": "Remodels",
+      "icon": "tub"
+    },
+    {
+      "id": "gas-lines",
+      "label": "Gas lines",
+      "icon": "gas"
+    },
+    {
+      "id": "sump-pumps",
+      "label": "Sump pumps",
+      "icon": "pump"
+    },
+    {
+      "id": "emergency-plumbing",
+      "label": "Emergency",
+      "icon": "bolt"
+    },
+    {
+      "id": "why-us",
+      "label": "Why us",
+      "icon": "star"
+    },
+    {
+      "id": "faq",
+      "label": "FAQ",
+      "icon": "chevron-down"
+    }
   ],
   "services": {
-    "heading": "What we do for homeowners",
+    "heading": "WHAT WE DO",
     "line": "Every service below has its own page with details on what we fix, what to expect, and what it typically involves."
   },
   "signs": {
     "heading": "Signs you need a plumber",
     "line": "Most expensive plumbing repairs start as something small that went unaddressed for a season. If you're seeing any of these in your home, it's worth a call before it becomes a bigger job.",
     "items": [
-      { "icon": "drain", "title": "A drain that keeps clogging", "text": "One clog is normal. The same drain clogging every few weeks usually means buildup deeper in the line, a partial obstruction, or a problem in the main sewer line. Plunging and store-bought drain cleaners treat the symptom and can damage older pipes." },
-      { "icon": "drop", "title": "Water where it shouldn't be", "text": "Stains on a ceiling, a soft spot in drywall, a musty smell in a closet, or a water bill that jumped without explanation. Hidden leaks do the most damage because they go unnoticed the longest." },
-      { "icon": "faucet", "title": "Low or uneven water pressure", "text": "A single fixture with weak flow is usually the fixture. Low pressure through the whole house points to a supply-side issue — a failing pressure-reducing valve, a leak, or mineral buildup in older lines." },
-      { "icon": "bolt", "title": "Sewer smell or gurgling drains", "text": "A sewer odor in the house, or a toilet that gurgles when the washer drains, means air and wastewater are going somewhere they shouldn't. This is a main-line warning sign and should be looked at quickly." },
-      { "icon": "water-heater", "title": "Water heater acting up", "text": "Lukewarm water, hot water that runs out fast, rumbling or popping from the tank, rust-colored water, or moisture around the base. Most tank water heaters last [10–12] years; many homes built in St. Charles County in the [late 1990s and 2000s] are on their second or third unit, and a lot of those are due." },
-      { "icon": "pump", "title": "A sump pump you haven't thought about", "text": "If you haven't heard your sump pump run in a while, or you don't know how old it is, it's worth testing before the next heavy rain. Sump pumps in this area work hard, and a failed pump shows up as a flooded basement." }
+      {
+        "icon": "drain",
+        "title": "A drain that keeps clogging",
+        "text": "One clog is normal. The same drain clogging every few weeks usually means buildup deeper in the line, a partial obstruction, or a problem in the main sewer line. Plunging and store-bought drain cleaners treat the symptom and can damage older pipes."
+      },
+      {
+        "icon": "drop",
+        "title": "Water where it shouldn't be",
+        "text": "Stains on a ceiling, a soft spot in drywall, a musty smell in a closet, or a water bill that jumped without explanation. Hidden leaks do the most damage because they go unnoticed the longest."
+      },
+      {
+        "icon": "faucet",
+        "title": "Low or uneven water pressure",
+        "text": "A single fixture with weak flow is usually the fixture. Low pressure through the whole house points to a supply-side issue — a failing pressure-reducing valve, a leak, or mineral buildup in older lines."
+      },
+      {
+        "icon": "bolt",
+        "title": "Sewer smell or gurgling drains",
+        "text": "A sewer odor in the house, or a toilet that gurgles when the washer drains, means air and wastewater are going somewhere they shouldn't. This is a main-line warning sign and should be looked at quickly."
+      },
+      {
+        "icon": "water-heater",
+        "title": "Water heater acting up",
+        "text": "Lukewarm water, hot water that runs out fast, rumbling or popping from the tank, rust-colored water, or moisture around the base. Most tank water heaters last [10–12] years; many homes built in St. Charles County in the [late 1990s and 2000s] are on their second or third unit, and a lot of those are due."
+      },
+      {
+        "icon": "pump",
+        "title": "A sump pump you haven't thought about",
+        "text": "If you haven't heard your sump pump run in a while, or you don't know how old it is, it's worth testing before the next heavy rain. Sump pumps in this area work hard, and a failed pump shows up as a flooded basement."
+      }
     ]
   },
   "whatWeDoLabel": "What we do:",
@@ -65,24 +144,53 @@
     "heading": "Where we work",
     "intro": "We're based in O'Fallon and serve St. Charles County and West St. Louis County. Most of our homeowner calls come from:",
     "rangeLine": "Not sure if you're in range? Text us your address at",
-    "map": { "src": "/photos/site-map-ofallon.jpg", "alt": "Flat map of St. Charles County and West St. Louis County centered on O'Fallon, Missouri", "caption": "Map centered on O'Fallon" }
+    "map": {
+      "src": "/photos/site-map-ofallon.jpg",
+      "alt": "Flat map of St. Charles County and West St. Louis County centered on O'Fallon, Missouri",
+      "caption": "Map centered on O'Fallon"
+    }
   },
   "whyUs": {
     "heading": "Why homeowners call us",
     "items": [
-      { "title": "You talk to the plumber", "text": "Ryan answers the phone and bids every job. There's no call center and no dispatcher between you and the person doing the work." },
-      { "title": "A Master Plumber on every job", "text": "Ryan holds a Missouri Master Plumber license [license # and link to the state or county lookup]. The crew is licensed, insured, and background-checked, and you can see who they are on our team page." },
-      { "title": "Price before we start", "text": "You get the price before work begins. If we open something up and find more, we stop and talk before we go further." },
-      { "title": "The same crew builders trust", "text": "Most of our work is new construction and remodels for builders in St. Charles County — schedules that don't tolerate no-shows. Homeowners get the same crew and the same standard." },
-      { "title": "Neighbors recommend us", "text": "R.S. Johnson was a Nextdoor Neighborhood Favorite in 2023 and has [24] neighbor recommendations. [Google rating and count when available.]" }
+      {
+        "title": "You talk to the plumber",
+        "text": "Ryan answers the phone and bids every job. There's no call center and no dispatcher between you and the person doing the work."
+      },
+      {
+        "title": "A Master Plumber on every job",
+        "text": "Ryan holds a Missouri Master Plumber license [license # and link to the state or county lookup]. The crew is licensed, insured, and background-checked, and you can see who they are on our team page."
+      },
+      {
+        "title": "Price before we start",
+        "text": "You get the price before work begins. If we open something up and find more, we stop and talk before we go further."
+      },
+      {
+        "title": "The same crew builders trust",
+        "text": "Most of our work is new construction and remodels for builders in St. Charles County — schedules that don't tolerate no-shows. Homeowners get the same crew and the same standard."
+      },
+      {
+        "title": "Neighbors recommend us",
+        "text": "R.S. Johnson was a Nextdoor Neighborhood Favorite in 2023 and has [24] neighbor recommendations. [Google rating and count when available.]"
+      }
     ],
     "links": [
-      { "label": "Meet the team", "href": "/our-team" },
-      { "label": "Read reviews", "href": "/reviews" }
+      {
+        "label": "Meet the team",
+        "href": "/our-team"
+      },
+      {
+        "label": "Read reviews",
+        "href": "/reviews"
+      }
     ]
   },
-  "faq": { "heading": "Common questions" },
-  "closing": { "heading": "Need a plumber in St. Charles County?" },
+  "faq": {
+    "heading": "Common questions"
+  },
+  "closing": {
+    "heading": "Need a plumber in St. Charles County?"
+  },
   "servicePage": {
     "titleSuffix": "in St. Charles County",
     "problemsHeading": "Common problems we see",
@@ -91,5 +199,6 @@
     "crewLine": "Two of the plumbers most likely on this kind of call. Meet the whole crew on our team page.",
     "reviewsHeading": "What neighbors say",
     "backToHub": "All homeowner services"
-  }
+  },
+  "seoHeading": "Plumbing services in St. Charles County"
 }
