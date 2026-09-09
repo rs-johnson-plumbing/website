@@ -7,7 +7,7 @@ import site from "../content/site.json";
  * phone link, and throws no console errors. Runs against the production
  * build at phone size. Add new routes to the list as pages ship.
  */
-const routes = ["/", "/for-homeowners", "/for-builders", "/services", ...services.map((s) => `/services/${s.slug}`)];
+const routes = ["/", "/for-homeowners", "/for-builders", "/services", "/services/builders", ...services.map((s) => `/services/${s.slug}`)];
 
 for (const route of routes) {
   test(`${route} renders cleanly`, async ({ page }) => {

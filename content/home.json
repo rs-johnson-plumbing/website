@@ -303,10 +303,6 @@
     "success": "Got it. Ryan will call you back. [confirm turnaround]",
     "error": "Something went wrong. Call or text 314-220-1827 and we'll take it from there."
   },
-  "closingBuilders": {
-    "heading": "Need a Bid?",
-    "secondary": "Request a Bid"
-  },
   "bid": {
     "button": "Submit Bid Request",
     "contractorHeading": "Who is the bid for?",
@@ -347,5 +343,10 @@
       "phone": "Phone Number"
     },
     "noPlans": "None attached"
+  },
+  "banner": {
+    "service": "Submit Service Request",
+    "bid": "Submit Bid Request",
+    "or": "or"
   }
 }

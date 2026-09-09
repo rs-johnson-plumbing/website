@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { homeowners, faqs, reviews, site, link, type IconName } from "@/lib/content";
+import { homeowners, faqs, reviews, type IconName } from "@/lib/content";
 import { plumberJsonLd } from "@/lib/jsonld";
 import { JsonLd } from "@/components/blocks/JsonLd";
 import { AnchorBar, type Anchor } from "@/components/blocks/AnchorBar";
@@ -9,7 +9,7 @@ import { ReviewCard } from "@/components/blocks/ReviewCard";
 import { SetsApart } from "@/components/blocks/SetsApart";
 import { TeamStrip } from "@/components/blocks/TeamStrip";
 import { FAQ } from "@/components/blocks/FAQ";
-import { ClosingCTA } from "@/components/blocks/ClosingCTA";
+import { IntakeBanner } from "@/components/blocks/IntakeBanner";
 import { Section, SectionHeading } from "@/components/ui/Section";
 import { Button } from "@/components/ui/Button";
 import { TextLink } from "@/components/ui/TextLink";
@@ -128,7 +128,7 @@ export default function ForHomeownersPage() {
         <FAQ items={faqs.homeowners.items} />
       </Section>
 
-      <ClosingCTA heading={homeowners.closing.heading} secondary={{ label: site.closingCta.secondary, href: link("book") }} />
+      <IntakeBanner audience="homeowners" />
     </>
   );
 }

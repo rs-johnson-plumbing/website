@@ -8,7 +8,7 @@ export { PersonCard } from "./blocks/PersonCard";
 export { ReviewCard, ReviewSummaryTile } from "./blocks/ReviewCard";
 export { ProjectCard } from "./blocks/ProjectCard";
 export { FAQ } from "./blocks/FAQ";
-export { ClosingCTA } from "./blocks/ClosingCTA";
+export { IntakeBanner } from "./blocks/IntakeBanner";
 export { JsonLd } from "./blocks/JsonLd";
 export { BookingWidget } from "./blocks/BookingWidget";
 export { Button } from "./ui/Button";

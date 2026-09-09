@@ -9,9 +9,7 @@ import { TeamStrip } from "@/components/blocks/TeamStrip";
 import { ServiceGrid } from "@/components/blocks/ServiceGrid";
 import { ContactBlock } from "@/components/blocks/ContactBlock";
 import { BuilderServiceGrid } from "@/components/blocks/BuilderServiceGrid";
-import { ClosingCTA } from "@/components/blocks/ClosingCTA";
-import { AvailabilityCheck } from "@/components/blocks/AvailabilityCheck";
-import { BidRequest } from "@/components/blocks/BidRequest";
+import { IntakeBanner } from "@/components/blocks/IntakeBanner";
 import { JsonLd } from "@/components/blocks/JsonLd";
 import { Section } from "@/components/ui/Section";
 import { Button } from "@/components/ui/Button";
@@ -63,7 +61,7 @@ export default function HomePage() {
               </div>
             </div>
             <div className="builders:hidden">
-              <ServiceGrid hrefFor={(slug) => `/services#${slug}`} slugs={popularHome.slugs} builderSlugs={popularHome.builderSlugs} />
+              <ServiceGrid hrefFor={(slug) => `/services#${slug}`} slugs={popularHome.slugs} builderSlugs={popularHome.builderSlugs} builderHrefFor={(slug) => `/services/builders#${slug}`} />
             </div>
             <div className="hidden builders:block">
               <BuilderServiceGrid slugs={popularBuilders.slugs} />
@@ -93,17 +91,8 @@ export default function HomePage() {
         </Section>
       </AudienceProvider>
 
-      {/* Closing strip: both intake buttons, no phone pair (the header and sticky bar carry the number) */}
-      <ClosingCTA
-        callText={false}
-        action={
-          <>
-            <AvailabilityCheck className="w-full lg:w-auto" />
-            <BidRequest variant="outlined-dark" className="w-full lg:w-auto" />
-          </>
-        }
-        builders={{ heading: home.closingBuilders.heading, secondary: { label: home.closingBuilders.secondary, href: link("bid") } }}
-      />
+      {/* Bottom banner: this page serves both doors, so both intake buttons */}
+      <IntakeBanner audience="both" />
     </>
   );
 }

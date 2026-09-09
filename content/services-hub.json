@@ -6,18 +6,6 @@
   "seoHeading": "Plumbing Services in St. Charles County",
   "heading": "What We Do",
   "line": "",
-  "anchors": [
-    {
-      "id": "homeowner-services",
-      "label": "For Homeowners",
-      "icon": "map"
-    },
-    {
-      "id": "builder-services",
-      "label": "For Builders",
-      "icon": "building"
-    }
-  ],
   "whatWeDoLabel": "What We Do:",
   "actionCard": {
     "emergency": {
@@ -46,9 +34,6 @@
     "reviewsHeading": "What Neighbors Say",
     "backToHub": "All Services"
   },
-  "closing": {
-    "heading": "Ready to Talk?"
-  },
   "homeowners": {
     "heading": "Homeowner Services",
     "line": ""
@@ -57,5 +42,22 @@
     "heading": "Builder Services",
     "line": "",
     "button": "Submit Bid Request"
-  }
+  },
+  "tabs": [
+    {
+      "href": "/services",
+      "label": "For Homeowners",
+      "icon": "map"
+    },
+    {
+      "href": "/services/builders",
+      "label": "For Builders",
+      "icon": "building"
+    }
+  ],
+  "buildersMeta": {
+    "title": "Builder Plumbing Services in St. Charles County | R.S. Johnson Plumbing",
+    "description": "Plans and takeoffs, underground, rough-in, gas runs, water and sewer tie-in, and trim for builders in St. Charles County from Master Plumber Ryan Johnson's crew."
+  },
+  "buildersSeoHeading": "Plumbing Services for Builders in St. Charles County"
 }
