@@ -1,13 +1,14 @@
 "use client";
 
 import { useCallback, useEffect, useId, useRef, useState } from "react";
-import { home } from "@/lib/content";
+import { home, type IconName } from "@/lib/content";
 import { cn } from "@/lib/cn";
 import { Icon } from "@/components/ui/Icon";
-import { BackLink, IntakeDialog, Row, intakeBtn as btn, intakeChip as chip, intakeInput as input } from "./IntakeDialog";
+import { BackLink, Chip, IntakeDialog, Row, intakeBtn as btn, intakeHeading as h2, intakeInput as input } from "./IntakeDialog";
+import { ReadyIllustration } from "./ReadyIllustration";
 
 type Stage = "idle" | "contractor" | "type" | "plans" | "phone" | "done";
-type ProjectType = { id: string; label: string };
+type ProjectType = { id: string; label: string; icon: IconName };
 
 const MAX_PLANS_BYTES = 4 * 1024 * 1024;
 
@@ -109,7 +110,7 @@ export function BidRequest({ className }: { className?: string }) {
       <IntakeDialog open={open} onClose={reset} titleId={titleId} closeLabel={b.close} showClose={stage !== "done"}>
         {stage === "contractor" && (
           <form onSubmit={submitContractor}>
-            <h2 id={titleId} className="pr-8 text-[22px] font-bold leading-tight">
+            <h2 id={titleId} className={h2}>
               {b.contractorHeading}
             </h2>
             <input
@@ -127,6 +128,7 @@ export function BidRequest({ className }: { className?: string }) {
             <div className="mt-4 flex justify-end">
               <button type="submit" data-track="bid-contractor-next" className={cn(btn, "bg-blue text-white")}>
                 {b.next}
+                <Icon name="arrow-right" size={18} strokeWidth={1.8} />
               </button>
             </div>
           </form>
@@ -134,15 +136,12 @@ export function BidRequest({ className }: { className?: string }) {
 
         {stage === "type" && (
           <>
-            <h2 id={titleId} className="pr-8 text-[22px] font-bold leading-tight">
+            <h2 id={titleId} className={h2}>
               {b.typeHeading}
             </h2>
-            <p className="mt-1 text-[14px] text-slate">{contractor}</p>
             <div className="mt-4 flex flex-col gap-2.5">
               {types.map((t) => (
-                <button key={t.id} type="button" onClick={() => pickType(t)} data-track={`bid-type-${t.id}`} className={chip}>
-                  {t.label}
-                </button>
+                <Chip key={t.id} icon={t.icon} label={t.label} onClick={() => pickType(t)} track={`bid-type-${t.id}`} />
               ))}
             </div>
             <div className="mt-4">
@@ -153,19 +152,22 @@ export function BidRequest({ className }: { className?: string }) {
 
         {stage === "plans" && (
           <>
-            <h2 id={titleId} className="pr-8 text-[22px] font-bold leading-tight">
+            <h2 id={titleId} className={h2}>
               {b.plansHeading}
             </h2>
-            <p className="mt-1 text-[14px] text-slate">{b.plansLine}</p>
-            <label className={cn(chip, "mt-4 cursor-pointer border-dashed")}>
+            <label className="mt-4 flex min-h-[54px] w-full cursor-pointer items-center gap-3 rounded-btn border border-dashed border-hairline-strong bg-white px-3 py-2 text-left text-[15px] font-bold leading-tight text-charcoal transition-colors hover:border-blue hover:bg-blue-tint">
               <input type="file" accept=".pdf,image/*" onChange={pickPlans} className="sr-only" data-track="bid-plans-pick" />
-              {plans ? plans.name : b.plansButton}
+              <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-tile bg-blue-tint text-blue">
+                <Icon name="upload" size={20} />
+              </span>
+              <span>{plans ? plans.name : b.plansButton}</span>
             </label>
             {plansError && <p className="mt-2 text-[14px] font-semibold">{b.plansTooBig}</p>}
             <div className="mt-4 flex items-center justify-between gap-3">
               <BackLink onClick={() => setStage("type")} label={b.back} />
               <button type="button" onClick={() => setStage("phone")} data-track="bid-plans-next" className={cn(btn, "bg-blue text-white")}>
                 {plans ? b.next : b.plansSkip}
+                <Icon name="arrow-right" size={18} strokeWidth={1.8} />
               </button>
             </div>
           </>
@@ -173,22 +175,26 @@ export function BidRequest({ className }: { className?: string }) {
 
         {stage === "phone" && (
           <form onSubmit={submitPhone}>
-            <h2 id={titleId} className="pr-8 text-[22px] font-bold leading-tight">
+            <h2 id={titleId} className={h2}>
               {b.phoneHeading}
             </h2>
-            <p className="mt-1 text-[14px] text-slate">{b.phoneLine}</p>
-            <dl className="mt-3 divide-y divide-hairline rounded-btn bg-blue-tint px-3.5">
+            <dl className="mt-3 divide-y divide-hairline rounded-btn border border-blue/20 bg-blue-tint px-3.5">
               <Row label={b.labels.contractor}>{contractor}</Row>
               <Row label={b.labels.type}>{type?.label}</Row>
               <Row label={b.labels.plans}>{plans ? plans.name : b.noPlans}</Row>
             </dl>
-            <input ref={phoneRef} name="phone" type="tel" required placeholder={b.phonePlaceholder} aria-label={b.phoneHeading} autoComplete="tel" className={cn(input, "mt-4")} />
-            <p className="mt-2 text-[12px] leading-snug text-slate">{b.consent}</p>
+            <div className="relative mt-4">
+              <span className="pointer-events-none absolute left-3.5 top-1/2 flex h-7 w-7 -translate-y-1/2 items-center justify-center rounded-full bg-blue-tint text-blue">
+                <Icon name="phone" size={15} />
+              </span>
+              <input ref={phoneRef} name="phone" type="tel" required placeholder={b.phonePlaceholder} aria-label={b.phoneHeading} autoComplete="tel" className={cn(input, "pl-14")} />
+            </div>
             {error && <p className="mt-2 text-[14px] font-semibold">{b.error}</p>}
             <div className="mt-4 flex items-center justify-between gap-3">
               <BackLink onClick={() => setStage("plans")} label={b.back} />
               <button type="submit" disabled={busy} data-track="bid-send" className={cn(btn, "bg-blue text-white")}>
                 {b.send}
+                <Icon name="arrow-right" size={18} strokeWidth={1.8} />
               </button>
             </div>
           </form>
@@ -196,7 +202,8 @@ export function BidRequest({ className }: { className?: string }) {
 
         {stage === "done" && (
           <>
-            <h2 id={titleId} className="text-[24px] font-bold leading-tight">
+            <ReadyIllustration className="mx-auto -mt-1 h-auto w-[220px] lg:w-[240px]" />
+            <h2 id={titleId} className={cn(h2, "mt-2 pr-0 text-center text-[20px] lg:text-[24px]")}>
               {b.done}
             </h2>
             <dl className="mt-4 divide-y divide-hairline rounded-btn border border-hairline bg-offwhite px-4">
@@ -205,7 +212,7 @@ export function BidRequest({ className }: { className?: string }) {
               <Row label={b.labels.plans}>{plans ? plans.name : b.noPlans}</Row>
               <Row label={b.labels.phone}>{phone}</Row>
             </dl>
-            <button type="button" onClick={reset} className={cn(btn, "mt-5 w-full border-[1.5px] border-charcoal bg-white text-charcoal")}>
+            <button type="button" onClick={reset} className={cn(btn, "mt-5 h-[52px] w-full border-[1.5px] border-charcoal bg-white text-charcoal")}>
               {b.close}
             </button>
           </>

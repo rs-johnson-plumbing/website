@@ -1,16 +1,39 @@
 "use client";
 
 import { useEffect } from "react";
+import type { IconName } from "@/lib/content";
+import { Icon } from "@/components/ui/Icon";
 import { cn } from "@/lib/cn";
 
 /**
- * Shared shell for the quick-capture flows (Submit Service Request, Submit Bid
- * Request): centered white dialog, Escape and backdrop close, body scroll
- * lock. The flows own their stages and copy; this owns the frame.
+ * Shared shell and parts for the quick-capture flows (Submit Service
+ * Request, Submit Bid Request): centered white dialog, Escape and backdrop
+ * close, body scroll lock, plus the heading style, the icon chip, the
+ * summary row, and the back link. The flows own their stages and copy.
  */
-export const intakeInput = "h-[52px] w-full min-w-0 rounded-btn border-[1.5px] border-charcoal bg-white px-3.5 text-[16px] text-charcoal placeholder:text-slate focus:border-blue focus:outline-none";
-export const intakeBtn = "inline-flex h-[52px] shrink-0 items-center justify-center whitespace-nowrap rounded-btn px-5 text-[16px] font-bold transition-opacity hover:opacity-[0.88] disabled:opacity-60";
-export const intakeChip = "flex min-h-[52px] items-center justify-center rounded-btn border-[1.5px] border-charcoal bg-white px-3 py-2 text-center text-[15px] font-bold leading-tight text-charcoal transition-colors hover:border-blue hover:text-blue";
+export const intakeHeading = "pr-7 text-[18px] font-bold leading-tight tracking-[-0.01em] text-charcoal lg:text-[21px]";
+export const intakeInput = "h-[52px] w-full min-w-0 rounded-btn border-[1.5px] border-hairline-strong bg-white px-3.5 text-[16px] text-charcoal placeholder:text-slate focus:border-blue focus:outline-none";
+export const intakeBtn = "inline-flex h-[48px] shrink-0 items-center justify-center gap-2 whitespace-nowrap rounded-btn px-5 text-[16px] font-bold transition-opacity hover:opacity-[0.88] disabled:opacity-60";
+
+/** An option button: icon in a tinted tile, label to its right. */
+export function Chip({ icon, label, onClick, track, dashed = false }: { icon: IconName; label: string; onClick: () => void; track: string; dashed?: boolean }) {
+  return (
+    <button
+      type="button"
+      onClick={onClick}
+      data-track={track}
+      className={cn(
+        "flex min-h-[54px] w-full items-center gap-3 rounded-btn border border-hairline-strong bg-white px-3 py-2 text-left text-[15px] font-bold leading-tight text-charcoal shadow-[0_1px_2px_rgba(43,43,43,0.08)] transition-colors hover:border-blue hover:bg-blue-tint",
+        dashed && "border-dashed shadow-none",
+      )}
+    >
+      <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-tile bg-blue-tint text-blue">
+        <Icon name={icon} size={20} />
+      </span>
+      <span>{label}</span>
+    </button>
+  );
+}
 
 export function Row({ label, children }: { label: string; children: React.ReactNode }) {
   return (
@@ -56,16 +79,16 @@ export function IntakeDialog({ open, onClose, titleId, closeLabel, showClose = t
 
   if (!open) return null;
   return (
-    <div className="fixed inset-0 z-40 flex items-center justify-center bg-charcoal/60 p-4" onClick={onClose}>
+    <div className="fixed inset-0 z-40 flex items-center justify-center bg-charcoal/60 p-3 lg:p-4" onClick={onClose}>
       <div
         role="dialog"
         aria-modal="true"
         aria-labelledby={titleId}
         onClick={(e) => e.stopPropagation()}
-        className="relative w-full max-w-[480px] rounded-card border border-hairline bg-white p-6 text-left text-charcoal shadow-xl lg:p-7"
+        className="relative w-full max-w-[540px] rounded-card border border-hairline bg-white p-5 text-left text-charcoal shadow-xl lg:p-7"
       >
         {showClose && (
-          <button type="button" onClick={onClose} aria-label={closeLabel} className={cn("absolute right-3 top-3 flex h-9 w-9 items-center justify-center rounded-full text-[22px] leading-none text-slate hover:bg-sand hover:text-charcoal")}>
+          <button type="button" onClick={onClose} aria-label={closeLabel} className="absolute right-2.5 top-2.5 flex h-9 w-9 items-center justify-center rounded-full text-[22px] leading-none text-slate hover:bg-sand hover:text-charcoal">
             ×
           </button>
         )}

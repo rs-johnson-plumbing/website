@@ -16,8 +16,8 @@ type Props = {
 };
 
 /** Charcoal strip at the bottom of every page: heading, the Call and Text
- * pair (one numbered button on desktop), filled Schedule (or Request a Bid
- * in builders mode). Hours line
+ * pair on phone (desktop has the header callout instead), filled Schedule
+ * (or Request a Bid in builders mode). Hours line
  * is held back until Ryan confirms hours and the emergency policy. */
 export function ClosingCTA({ heading = site.closingCta.heading, id, action, secondary, builders }: Props) {
   const second = secondary ?? { label: site.closingCta.secondary, href: link("book") };
@@ -27,7 +27,7 @@ export function ClosingCTA({ heading = site.closingCta.heading, id, action, seco
         <h2 className={cn("text-h2-m text-offwhite lg:text-h2", builders && "builders:hidden")}>{heading}</h2>
         {builders && <h2 className="hidden text-h2-m text-offwhite builders:block lg:text-h2">{builders.heading}</h2>}
         <div className="flex w-full max-w-[440px] flex-col gap-3 lg:w-auto lg:max-w-none lg:flex-row lg:flex-wrap lg:justify-center">
-          <CallText variant="outlined-dark" track="closing" />
+          <CallText variant="outlined-dark" track="closing" desktop={false} />
           {action ?? (
             <Button href={second.href} variant="filled" track="book-closing" icon="arrow-right" className={cn("h-[52px] w-full lg:w-auto", builders && "builders:hidden")}>
               {second.label}

@@ -51,7 +51,7 @@ export function Header() {
               <Icon name="phone" size={15} strokeWidth={1.8} />
               <Icon name="message" size={15} strokeWidth={1.8} />
             </span>
-            <span className="flex flex-col leading-none">
+            <span className="flex flex-col items-end text-right leading-none">
               <span className="text-[12px] font-semibold text-slate builders:text-ondark-muted">{site.cta.headerCallout}</span>
               <span className="mt-0.5 whitespace-nowrap text-[19px] font-extrabold tracking-[-0.01em]">{site.phone.display}</span>
             </span>

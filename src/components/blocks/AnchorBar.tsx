@@ -12,7 +12,7 @@ export type Anchor = { id: string; label: string; icon: IconName };
  * phones with chevrons on either end that page the strip; spreads edge to
  * edge on desktop. Underlines the section currently in view.
  */
-export function AnchorBar({ anchors }: { anchors: Anchor[] }) {
+export function AnchorBar({ anchors, spread = true }: { anchors: Anchor[]; /** Spread items edge to edge on desktop. Off for a short list, which then sits together at the left. */ spread?: boolean }) {
   const [active, setActive] = useState<string>(anchors[0]?.id ?? "");
   const [canLeft, setCanLeft] = useState(false);
   const [canRight, setCanRight] = useState(false);
@@ -114,7 +114,7 @@ export function AnchorBar({ anchors }: { anchors: Anchor[] }) {
         >
           <Icon name="chevron-down" size={18} strokeWidth={2} className="rotate-90" />
         </button>
-        <div ref={strip} className="site-width gutter flex gap-4 overflow-x-auto scroll-px-9 [scrollbar-width:none] lg:justify-between lg:gap-3 [&::-webkit-scrollbar]:hidden">
+        <div ref={strip} className={cn("site-width gutter flex gap-4 overflow-x-auto scroll-px-9 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden", spread ? "lg:justify-between lg:gap-3" : "lg:justify-start lg:gap-10")}>
           {anchors.map((a) => {
             const isActive = a.id === active;
             return (
@@ -125,7 +125,7 @@ export function AnchorBar({ anchors }: { anchors: Anchor[] }) {
                 aria-current={isActive ? "location" : undefined}
                 className={cn(
                   "-mb-px inline-flex shrink-0 items-center gap-1.5 whitespace-nowrap border-b-[3px] py-3 text-[15px] font-medium transition-colors hover:border-ondark-muted hover:text-charcoal hover:no-underline builders:hover:text-offwhite lg:py-3.5",
-                  isActive ? "border-blue font-bold text-blue hover:text-blue builders:hover:text-blue" : "border-transparent text-slate builders:text-ondark-muted",
+                  isActive ? "border-blue font-bold text-blue hover:text-blue builders:border-offwhite builders:text-offwhite builders:hover:text-offwhite" : "border-transparent text-slate builders:text-ondark-muted",
                 )}
               >
                 <Icon name={a.icon} size={16} />

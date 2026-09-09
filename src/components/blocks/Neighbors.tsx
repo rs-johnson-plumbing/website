@@ -26,9 +26,9 @@ export function Neighbors({ headingClassName }: { headingClassName?: string } = 
         </div>
       )}
       <div className="grid grid-cols-1 gap-3 lg:grid-cols-3 lg:gap-5">
-        <figure className="m-0 rounded-card border border-hairline border-l-4 border-l-blue bg-white builders:border-darkborder builders:border-l-blue builders:bg-darkcard p-5">
+        <figure className="m-0 rounded-card border border-hairline border-l-4 border-l-blue bg-white p-5 text-charcoal">
           <blockquote className="m-0 text-[20px] font-bold leading-[1.3] tracking-[-0.01em]">“{block.lead.quote}”</blockquote>
-          <figcaption className="mt-1.5 text-[13px] text-slate builders:text-ondark-muted">{block.lead.attribution}</figcaption>
+          <figcaption className="mt-1.5 text-[13px] text-slate">{block.lead.attribution}</figcaption>
         </figure>
         {more.map((r) => (
           <ReviewCard key={r.id} review={r} />

@@ -22,11 +22,11 @@ export function SetsApart({ heading, headingClassName }: { heading?: string; hea
       </h2>
       <div className="grid grid-cols-1 gap-3 lg:grid-cols-3 lg:gap-5">
         {block.items.map((item) => (
-          <div key={item.title} className="flex items-center gap-4 rounded-card border border-hairline bg-white builders:border-darkborder builders:bg-darkcard p-4 lg:p-5">
+          <div key={item.title} className="flex items-start gap-4 rounded-card border border-hairline bg-white p-4 text-charcoal lg:p-5">
             <ValueIllustration icon={item.icon} className="h-16 w-16 shrink-0 lg:h-[72px] lg:w-[72px]" />
             <div>
-              <div className="text-[17px] font-bold">{item.title}</div>
-              <div className="text-[14px] leading-snug text-slate builders:text-ondark-muted">{item.line}</div>
+              <div className="text-[17px] font-bold text-charcoal">{item.title}</div>
+              <div className="text-[14px] leading-snug text-slate">{item.line}</div>
             </div>
           </div>
         ))}
