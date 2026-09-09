@@ -11,60 +11,89 @@
     "homeowners": {
       "eyebrow": "Homeowners",
       "heading": "Family Owned and Professionally Operated",
-      "line": "Master Plumber Ryan Johnson and crew. Emergency and scheduled service, based in O'Fallon.",
+      "line": "",
       "primary": "Book Service",
-      "secondary": "Call 314-220-1827",
-      "credentials": [
-        "Missouri Master Plumber",
-        "Licensed and insured",
-        "Upfront pricing"
-      ]
+      "secondary": "Call or Text 314-220-1827",
+      "credentials": []
     },
     "builders": {
       "eyebrow": "Builders and general contractors",
-      "heading": "New construction and renovation",
+      "heading": "New Construction and Renovation",
       "line": "Rough-in through trim. Custom homes, spec builds, whole-house remodels.",
       "primary": "Request a Bid",
-      "secondary": "Call 314-220-1827",
-      "credentials": [
-        "[##] homes plumbed",
-        "[##] builder partners",
-        "Trade partner since 2022"
-      ]
+      "secondary": "Call or Text 314-220-1827",
+      "credentials": []
     }
   },
   "setsApart": {
-    "heading": "Here's what sets us apart",
-    "items": [
-      {
-        "icon": "phone",
-        "title": "You talk to the plumber",
-        "line": "Ryan answers the phone. No call center, no dispatcher."
-      },
-      {
-        "icon": "tag",
-        "title": "Price before we start",
-        "line": "You get the number before work begins. No surprises on the invoice."
-      },
-      {
-        "icon": "clock",
-        "title": "We show up when we say",
-        "line": "A text with a name and ETA before we arrive."
-      }
-    ]
+    "homeowners": {
+      "heading": "Here's what sets us apart",
+      "items": [
+        {
+          "icon": "phone",
+          "title": "You talk to the plumber",
+          "line": "Ryan answers the phone. No call center, no dispatcher."
+        },
+        {
+          "icon": "tag",
+          "title": "Price before we start",
+          "line": "You get the number before work begins. No surprises on the invoice."
+        },
+        {
+          "icon": "clock",
+          "title": "We show up when we say",
+          "line": "A text with a name and ETA before we arrive."
+        }
+      ]
+    },
+    "builders": {
+      "heading": "Why trust us",
+      "items": [
+        {
+          "icon": "clock",
+          "title": "Dependable",
+          "line": "Same crew on your job start to finish. Daily check-in with your super, and we meet the inspector."
+        },
+        {
+          "icon": "tag",
+          "title": "Competitive",
+          "line": "Straight numbers from your plans. A bid back within [# business days]."
+        },
+        {
+          "icon": "check-circle",
+          "title": "Finish on budget",
+          "line": "The number we bid is the number we finish at. Changes get priced before they happen, not after."
+        }
+      ]
+    }
   },
   "neighbors": {
-    "heading": "What our neighbors say",
-    "proofLine": "Nextdoor Neighborhood Favorite 2023 · 24 recommendations",
-    "lead": {
-      "quote": "Honest. Reliable. Knows his stuff.",
-      "attribution": "B.L., Wildwood, on Nextdoor"
+    "homeowners": {
+      "heading": "What our neighbors say",
+      "proofLine": "",
+      "lead": {
+        "quote": "Honest. Reliable. Knows his stuff.",
+        "attribution": "B.L., Wildwood, on Nextdoor"
+      },
+      "reviewIds": [
+        "neighbor-stl",
+        "kg-ofallon"
+      ],
+      "link": "See all reviews"
     },
-    "reviewIds": [
-      "neighbor-stl",
-      "kg-ofallon"
-    ],
-    "link": "See all reviews"
+    "builders": {
+      "heading": "What other contractors say",
+      "proofLine": "[##] builder partners · References on request",
+      "lead": {
+        "quote": "[Contractor quote placeholder]",
+        "attribution": "[Name], [Builder company], [City]"
+      },
+      "reviewIds": [
+        "builder-2",
+        "builder-3"
+      ],
+      "link": "See all reviews"
+    }
   },
   "popularServices": {
     "heading": "Our most popular services",
@@ -77,7 +106,7 @@
     "seeAll": "See All Services"
   },
   "why": {
-    "heading": "Why R.S. Johnson",
+    "heading": "Why R.S. Johnson Plumbing",
     "paragraph": "Ryan Johnson is a Missouri Master Plumber with [##] years in the trade. He answers the phone, bids every job, and the four plumbers on our team page are the crew that shows up at your house. Most of our week is new construction for builders who don't tolerate no-shows. Homeowners get the same crew and the same standard.",
     "button": "Meet the Team",
     "photo": {
@@ -92,7 +121,7 @@
   },
   "form": {
     "heading": "Send us a message",
-    "line": "We'll call you back the same day. [confirm]",
+    "line": "We'll call you back. [confirm turnaround]",
     "fields": {
       "name": "Name",
       "phone": "Phone",

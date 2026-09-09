@@ -18,6 +18,15 @@ npm run lint
 npm run typecheck
 ```
 
+## Before you push
+
+```bash
+npm run lint && npm run typecheck && npm run build && npm run test:smoke
+```
+
+`npm run build` runs the content checker first. See `CLAUDE.md` for the house
+rules, `CONTRIBUTING.md` for what to edit, and `HOW-TO-EDIT.md` for prompts.
+
 ## Where things live
 
 - `content/*.json` — every piece of copy: services, cities, team, reviews, FAQs, projects, site-wide strings. Edit these to change the site.

@@ -1,4 +1,5 @@
 import type { Config } from "tailwindcss";
+import plugin from "tailwindcss/plugin";
 import { colors, fonts, layout } from "./src/styles/tokens";
 
 const config: Config = {
@@ -63,7 +64,11 @@ const config: Config = {
       },
     },
   },
-  plugins: [],
+  plugins: [
+    // `builders:` applies when the homepage is in For Builders mode
+    // (AudienceProvider sets data-audience on <body>).
+    plugin(({ addVariant }) => addVariant("builders", 'body[data-audience="builders"] &')),
+  ],
 };
 
 export default config;

@@ -26,12 +26,12 @@ export function MessageForm({ className }: { className?: string }) {
     }
   }
 
-  const input = "h-12 w-full rounded-btn border border-hairline bg-white px-3.5 text-[15px] text-charcoal placeholder:text-slate focus:border-blue focus:outline-none";
+  const input = "h-12 w-full rounded-btn border border-hairline bg-white px-3.5 text-[15px] text-charcoal placeholder:text-slate builders:text-ondark-muted focus:border-blue focus:outline-none";
 
   return (
-    <form id="message" onSubmit={onSubmit} className={cn("flex flex-col gap-3 rounded-card border border-hairline bg-white p-5", className)}>
+    <form id="message" onSubmit={onSubmit} className={cn("flex flex-col gap-3 rounded-card border border-hairline bg-white builders:border-darkborder builders:bg-darkcard p-5", className)}>
       <div className="text-[20px] font-bold">{f.heading}</div>
-      <p className="text-[14px] text-slate">{f.line}</p>
+      <p className="text-[14px] text-slate builders:text-ondark-muted">{f.line}</p>
       {status === "sent" ? (
         <p className="rounded-btn bg-blue-tint px-4 py-3 text-[15px] font-semibold">{f.success}</p>
       ) : (
@@ -42,7 +42,7 @@ export function MessageForm({ className }: { className?: string }) {
             <input name="city" placeholder={f.fields.city} aria-label={f.fields.city} className={input} autoComplete="address-level2" />
             <textarea name="message" required placeholder={f.fields.message} aria-label={f.fields.message} rows={4} className={cn(input, "h-auto py-3 lg:row-span-2")} />
           </div>
-          <label className="flex items-start gap-2 text-[12px] leading-snug text-slate">
+          <label className="flex items-start gap-2 text-[12px] leading-snug text-slate builders:text-ondark-muted">
             <input type="checkbox" name="smsConsent" className="mt-0.5 h-4 w-4 shrink-0 rounded border-slate" />
             {f.consent}
           </label>

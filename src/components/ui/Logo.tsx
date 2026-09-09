@@ -64,7 +64,9 @@ export function Badge({ className, title }: { className?: string; title?: string
  * /public/logo/rsj-lockup.svg. Scales by height; width follows.
  */
 export function Lockup({ className, title, reversed = false }: { className?: string; title?: string; reversed?: boolean }) {
-  const ink = reversed ? "#F7F5F0" : "#2B2B2B";
+  // Ink follows the parent's text color so the header can flip it in
+  // For Builders mode; `reversed` forces off-white regardless.
+  const ink = reversed ? "#F7F5F0" : "currentColor";
   return (
     <svg viewBox="0 0 760 200" aria-hidden={title ? undefined : true} role={title ? "img" : undefined} className={className}>
       {title && <title>{title}</title>}
@@ -98,7 +100,7 @@ export function Logo({ size = "header", className }: Props) {
   const isHeader = size === "header";
   const dims = isHeader ? "h-10 w-[152px] lg:h-[52px] lg:w-[198px]" : "h-11 w-[167px]";
   return (
-    <Link href="/" aria-label={`${site.name} home`} className={cn("flex items-center text-charcoal hover:no-underline", className)}>
+    <Link href="/" aria-label={`${site.name} home`} className={cn("flex items-center text-charcoal builders:text-offwhite hover:no-underline", className)}>
       <Lockup className={cn("shrink-0", dims)} title={site.name} />
     </Link>
   );

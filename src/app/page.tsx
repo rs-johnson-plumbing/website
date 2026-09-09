@@ -1,18 +1,19 @@
 import type { Metadata } from "next";
-import { home, site, services, reviews, link, type IconName } from "@/lib/content";
+import { home, site, services, link } from "@/lib/content";
 import { plumberJsonLd } from "@/lib/jsonld";
 import { HomeHero } from "@/components/blocks/HomeHero";
+import { AudienceProvider } from "@/components/blocks/AudienceContext";
+import { SetsApart } from "@/components/blocks/SetsApart";
+import { Neighbors } from "@/components/blocks/Neighbors";
 import { TrustBar } from "@/components/blocks/TrustBar";
 import { ServiceIllustration } from "@/components/blocks/ServiceIllustration";
-import { ReviewCard } from "@/components/blocks/ReviewCard";
 import { MessageForm } from "@/components/blocks/MessageForm";
 import { ClosingCTA } from "@/components/blocks/ClosingCTA";
 import { JsonLd } from "@/components/blocks/JsonLd";
 import { Section } from "@/components/ui/Section";
 import { Button } from "@/components/ui/Button";
 import { TextLink } from "@/components/ui/TextLink";
-import { Icon } from "@/components/ui/Icon";
-import { PhotoPlaceholder } from "@/components/ui/PhotoPlaceholder";
+import { CrewSketch } from "@/components/blocks/CrewSketch";
 
 export const metadata: Metadata = {
   title: { absolute: home.meta.title },
@@ -30,60 +31,27 @@ function H2({ children, id }: { children: React.ReactNode; id?: string }) {
 }
 
 export default function HomePage() {
-  const apart = home.setsApart.items as { icon: IconName; title: string; line: string }[];
   const popular = home.popularServices.slugs.map((slug) => services.find((s) => s.slug === slug)).filter((s): s is NonNullable<typeof s> => Boolean(s));
-  const moreReviews = home.neighbors.reviewIds.map((id) => reviews.items.find((r) => r.id === id)).filter((r): r is NonNullable<typeof r> => Boolean(r));
 
   return (
     <>
       <JsonLd data={plumberJsonLd()} />
+      <AudienceProvider>
       <HomeHero />
       <div className="hidden lg:block">
         <TrustBar />
       </div>
 
-      {/* What sets us apart */}
+      {/* What sets us apart (follows the homeowner/builder toggle) */}
       <Section ariaLabelledby="apart-h" className="!pt-6 lg:!pt-16">
-        <div className="flex flex-col gap-4 lg:gap-6">
-          <H2 id="apart-h">{home.setsApart.heading}</H2>
-          <div className="grid grid-cols-1 gap-3 lg:grid-cols-3 lg:gap-5">
-            {apart.map((item) => (
-              <div key={item.title} className="flex items-center gap-4 rounded-card border border-hairline bg-white p-4 lg:p-5">
-                <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-tile bg-blue-tint text-blue">
-                  <Icon name={item.icon} size={24} />
-                </span>
-                <div>
-                  <div className="text-[17px] font-bold">{item.title}</div>
-                  <div className="text-[14px] leading-snug text-slate">{item.line}</div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
+        <SetsApart />
       </Section>
 
-      {/* What our neighbors say */}
+      {/* What our neighbors / other contractors say (follows the toggle) */}
       <Section tone="sand" id="reviews" ariaLabelledby="neighbors-h">
-        <div className="flex flex-col gap-3 lg:gap-5">
-          <H2 id="neighbors-h">{home.neighbors.heading}</H2>
-          <div className="flex items-center justify-center gap-2 text-[13px] font-semibold text-slate lg:justify-start">
-            <Icon name="star" size={14} filled className="text-blue" />
-            {home.neighbors.proofLine}
-          </div>
-          <div className="grid grid-cols-1 gap-3 lg:grid-cols-3 lg:gap-5">
-            <figure className="m-0 rounded-card border border-hairline border-l-4 border-l-blue bg-white p-5">
-              <blockquote className="m-0 text-[20px] font-bold leading-[1.3] tracking-[-0.01em]">“{home.neighbors.lead.quote}”</blockquote>
-              <figcaption className="mt-1.5 text-[13px] text-slate">{home.neighbors.lead.attribution}</figcaption>
-            </figure>
-            {moreReviews.map((r) => (
-              <ReviewCard key={r.id} review={r} />
-            ))}
-          </div>
-          <div className="text-center lg:text-left">
-            <TextLink href="/reviews">{home.neighbors.link}</TextLink>
-          </div>
-        </div>
+        <Neighbors />
       </Section>
+      </AudienceProvider>
 
       {/* Our most popular services */}
       <Section ariaLabelledby="popular-h">
@@ -96,7 +64,7 @@ export default function HomePage() {
           </div>
           <div className="grid grid-cols-1 gap-3 lg:grid-cols-4 lg:gap-5">
             {popular.map((s) => (
-              <div key={s.slug} className="flex flex-col items-center rounded-card border border-hairline bg-white p-4 text-center lg:p-5">
+              <div key={s.slug} className="flex flex-col items-center rounded-card border border-hairline bg-white p-4 text-center text-charcoal lg:p-5">
                 <ServiceIllustration slug={s.slug} className="h-[150px] w-[150px] lg:h-[140px] lg:w-[140px]" />
                 <div className="mt-2 text-[20px] font-bold">{s.name}</div>
                 <div className="mt-1 text-[14px] text-slate">{s.short}</div>
@@ -115,7 +83,7 @@ export default function HomePage() {
       {/* Why R.S. Johnson */}
       <Section tone="sand" ariaLabelledby="why-h">
         <div className="grid grid-cols-1 gap-4 lg:grid-cols-2 lg:items-center lg:gap-14">
-          <PhotoPlaceholder photo={home.why.photo} aspect="16/10" className="lg:order-last" />
+          <CrewSketch title={home.why.photo.alt} className="w-full rounded-card border border-hairline-strong builders:border-darkborder lg:order-last" />
           <div className="flex flex-col items-start gap-3 lg:gap-5">
             <H2 id="why-h">{home.why.heading}</H2>
             <p className="text-[16px] leading-[1.6] lg:text-body">{home.why.paragraph}</p>

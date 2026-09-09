@@ -3,7 +3,6 @@ import Link from "next/link";
 import { plumbing, services, faqs, cities, site, link, type IconName } from "@/lib/content";
 import { plumberJsonLd } from "@/lib/jsonld";
 import { JsonLd } from "@/components/blocks/JsonLd";
-import { ActionCard } from "@/components/blocks/ActionCard";
 import { AnchorBar, type Anchor } from "@/components/blocks/AnchorBar";
 import { ServiceCard } from "@/components/blocks/ServiceCard";
 import { ServiceBand } from "@/components/blocks/ServiceBand";
@@ -31,20 +30,9 @@ export default function PlumbingHubPage() {
     <>
       <JsonLd data={plumberJsonLd()} />
 
-      {/* Compact hero */}
-      <section className="bg-offwhite">
-        <div className="site-width gutter grid grid-cols-1 items-start gap-8 pb-10 pt-10 lg:grid-cols-[1fr_380px] lg:gap-16 lg:pb-12 lg:pt-14">
-          <div className="flex flex-col items-start gap-5">
-            <h1 className="text-h1-m lg:text-[40px] lg:leading-[1.1]">{plumbing.hero.heading}</h1>
-            <p className="text-[16px] leading-[1.7] lg:text-body">{plumbing.hero.intro}</p>
-            <div className="flex items-center gap-2 text-[14px] text-slate">
-              <Icon name="star" size={16} filled className="text-blue" />
-              <span>{plumbing.hero.trustLine}</span>
-            </div>
-          </div>
-          <ActionCard trackPrefix="hub-hero" />
-        </div>
-      </section>
+      {/* The page opens on the anchor bar. The H1 stays for search engines and
+          screen readers; the first visible heading is "What we do". */}
+      <h1 className="sr-only">{plumbing.seoHeading}</h1>
 
       <AnchorBar anchors={plumbing.anchors as Anchor[]} />
 
