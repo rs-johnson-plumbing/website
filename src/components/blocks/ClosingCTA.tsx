@@ -10,7 +10,8 @@ type Props = {
   builders?: { heading: string; secondary: { label: string; href: string } };
 };
 
-/** Charcoal strip at the bottom of every page: heading, call, book. Hours line
+/** Charcoal strip at the bottom of every page: heading, outlined Call or
+ * Text, filled Schedule (or Request a Bid in builders mode). Hours line
  * is held back until Ryan confirms hours and the emergency policy. */
 export function ClosingCTA({ heading = site.closingCta.heading, secondary, builders }: Props) {
   const second = secondary ?? { label: site.closingCta.secondary, href: link("book") };
@@ -20,14 +21,14 @@ export function ClosingCTA({ heading = site.closingCta.heading, secondary, build
         <h2 className={cn("text-h2-m text-offwhite lg:text-h2", builders && "builders:hidden")}>{heading}</h2>
         {builders && <h2 className="hidden text-h2-m text-offwhite builders:block lg:text-h2">{builders.heading}</h2>}
         <div className="flex flex-wrap justify-center gap-3">
-          <Button href={site.phone.tel} variant="filled" track="call-closing">
+          <Button href={site.phone.tel} variant="outlined-dark" track="call-closing">
             {site.closingCta.primary}
           </Button>
-          <Button href={second.href} variant="outlined-dark" track="book-closing" className={builders ? "builders:hidden" : undefined}>
+          <Button href={second.href} variant="filled" track="book-closing" className={builders ? "builders:hidden" : undefined}>
             {second.label}
           </Button>
           {builders && (
-            <Button href={builders.secondary.href} variant="outlined-dark" track="bid-closing" className="hidden builders:inline-flex">
+            <Button href={builders.secondary.href} variant="filled" track="bid-closing" className="hidden builders:inline-flex">
               {builders.secondary.label}
             </Button>
           )}
