@@ -14,6 +14,9 @@ const figtree = Figtree({
 });
 
 export const metadata: Metadata = {
+  // Stops iOS Safari from underlining addresses and numbers it guesses at;
+  // every phone number on the site is an explicit tel: link already.
+  formatDetection: { telephone: false, address: false, email: false },
   metadataBase: new URL(SITE_URL),
   title: {
     default: `Plumber in O'Fallon, MO | ${site.shortName}, Master Plumber`,

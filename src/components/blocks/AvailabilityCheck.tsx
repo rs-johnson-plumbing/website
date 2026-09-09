@@ -19,6 +19,15 @@ type Category = { id: string; label: string; issues: Issue[] };
  * abandon; the rest posts with the phone number. Copy and the category
  * tree live in home.json under availability.
  */
+function Row({ label, children }: { label: string; children: React.ReactNode }) {
+  return (
+    <div className="py-2.5">
+      <dt className="text-[11px] font-bold uppercase tracking-[0.06em] text-slate">{label}</dt>
+      <dd className="mt-0.5 text-[15px] font-semibold leading-snug text-charcoal">{children}</dd>
+    </div>
+  );
+}
+
 export function AvailabilityCheck({ className }: { className?: string }) {
   const a = home.availability;
   const categories = a.categories as Category[];
@@ -27,6 +36,7 @@ export function AvailabilityCheck({ className }: { className?: string }) {
   const [category, setCategory] = useState<Category | null>(null);
   const [issueLabel, setIssueLabel] = useState("");
   const [note, setNote] = useState("");
+  const [phone, setPhone] = useState("");
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState(false);
   const addressRef = useRef<HTMLInputElement>(null);
@@ -60,6 +70,7 @@ export function AvailabilityCheck({ className }: { className?: string }) {
     setCategory(null);
     setIssueLabel("");
     setNote("");
+    setPhone("");
     setError(false);
   }
 
@@ -95,11 +106,12 @@ export function AvailabilityCheck({ className }: { className?: string }) {
 
   async function submitPhone(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    const phone = String(new FormData(e.currentTarget).get("phone") ?? "");
+    const entered = String(new FormData(e.currentTarget).get("phone") ?? "");
     setBusy(true);
     setError(false);
     try {
-      await post({ address, phone, category: category?.label ?? "", issue: issueLabel, note });
+      await post({ address, phone: entered, category: category?.label ?? "", issue: issueLabel, note });
+      setPhone(entered);
       setStage("done");
     } catch {
       setError(true);
@@ -151,11 +163,13 @@ export function AvailabilityCheck({ className }: { className?: string }) {
             aria-modal="true"
             aria-labelledby={titleId}
             onClick={(e) => e.stopPropagation()}
-            className="relative w-full max-w-[440px] rounded-card border border-hairline bg-white p-6 text-left text-charcoal shadow-xl"
+            className="relative w-full max-w-[480px] rounded-card border border-hairline bg-white p-6 text-left text-charcoal shadow-xl lg:p-7"
           >
+            {stage !== "done" && (
             <button type="button" onClick={reset} aria-label={a.close} className="absolute right-3 top-3 flex h-9 w-9 items-center justify-center rounded-full text-[22px] leading-none text-slate hover:bg-sand hover:text-charcoal">
               ×
             </button>
+            )}
 
             {stage === "category" && (
               <>
@@ -220,10 +234,11 @@ export function AvailabilityCheck({ className }: { className?: string }) {
                   {a.phoneHeading}
                 </h2>
                 <p className="mt-1 text-[14px] text-slate">{a.phoneLine}</p>
-                <p className="mt-3 rounded-btn bg-blue-tint px-3 py-2 text-[13px] font-semibold">
-                  {summary}
-                  <span className="block font-normal text-slate">{address}</span>
-                </p>
+                <dl className="mt-3 divide-y divide-hairline rounded-btn bg-blue-tint px-3.5">
+                  <Row label={a.labels.address}>{address}</Row>
+                  <Row label={a.labels.reason}>{summary}</Row>
+                  {note && <Row label={a.labels.details}>{note}</Row>}
+                </dl>
                 <input ref={phoneRef} name="phone" type="tel" required placeholder={a.phonePlaceholder} aria-label={a.phoneHeading} autoComplete="tel" className={cn(input, "mt-4")} />
                 <p className="mt-2 text-[12px] leading-snug text-slate">{a.consent}</p>
                 {error && <p className="mt-2 text-[14px] font-semibold">{a.error}</p>}
@@ -240,13 +255,15 @@ export function AvailabilityCheck({ className }: { className?: string }) {
 
             {stage === "done" && (
               <>
-                <h2 id={titleId} className="pr-8 text-[22px] font-bold leading-tight">
+                <h2 id={titleId} className="text-[24px] font-bold leading-tight">
                   {a.done}
                 </h2>
-                <p className="mt-2 text-[14px] text-slate">
-                  {summary}
-                  <span className="block">{address}</span>
-                </p>
+                <dl className="mt-4 divide-y divide-hairline rounded-btn border border-hairline bg-offwhite px-4">
+                  <Row label={a.labels.address}>{address}</Row>
+                  <Row label={a.labels.reason}>{summary}</Row>
+                  {note && <Row label={a.labels.details}>{note}</Row>}
+                  <Row label={a.labels.phone}>{phone}</Row>
+                </dl>
                 <button type="button" onClick={reset} className={cn(btn, "mt-5 w-full border-[1.5px] border-charcoal bg-white text-charcoal")}>
                   {a.close}
                 </button>
