@@ -5,6 +5,7 @@
   },
   "hero": {
     "single": {
+      "eyebrow": "Serving St. Charles and St. Louis Counties",
       "heading": "Family Owned and Professionally Operated",
       "homeowners": {
         "label": "For Homeowners",
@@ -18,12 +19,7 @@
       },
       "serving": "Over 25 Years Combined Experience. Proudly Serving St. Charles and St. Louis Counties.",
       "talk": "Need to talk to a plumber now?",
-      "or": "or",
-      "card": {
-        "eyebrow": "Based in O'Fallon",
-        "lead": "Proudly Serving",
-        "area": "St. Charles and St. Louis Counties"
-      }
+      "or": "or"
     }
   },
   "availability": {

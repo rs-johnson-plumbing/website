@@ -18,9 +18,9 @@ import type { IconName } from "@/lib/content";
  * Two filled buttons in one section is deliberate here: the hero's job is
  * to give each audience its door.
  *
- * Phone: no audience toggle and no builders row. The statement centered, the
- * map card, a full-width Submit Service Request, the talk line, then the
- * Call and Text pair. Builders on a phone get their door from the closing
+ * Phone: no audience toggle, no builders row, no map. A one-line serving
+ * eyebrow with a pin, the statement centered, a full-width Submit Service
+ * Request, the talk line, then the Call and Text pair. Builders on a phone get their door from the closing
  * banner and the For Builders page. Desktop has no Call and Text pair; the
  * header callout carries the number, since a desktop cannot dial.
  */
@@ -58,20 +58,15 @@ export function HomeHero() {
         </div>
       </section>
 
-      {/* Phone: statement, the map card, Submit Service Request, the talk line, then Call and Text. */}
+      {/* Phone: serving eyebrow, statement, Submit Service Request, the talk line, then Call and Text. */}
       <section data-sticky-sentinel className="bg-offwhite text-charcoal lg:hidden">
-        <div className="flex flex-col gap-4 px-gutter-m pb-8 pt-7">
+        <div className="flex flex-col gap-3 px-gutter-m pb-8 pt-6">
+          <p className="inline-flex items-center justify-center gap-1.5 text-[14px] font-bold text-teal">
+            <Icon name="map" size={17} strokeWidth={1.8} />
+            {s.eyebrow}
+          </p>
           <p className="text-center text-[32px] font-bold leading-[1.1] tracking-[-0.01em]">{s.heading}</p>
-          {/* Where we are and where we go: the metro map in a card, with the words on top. */}
-          <div className="relative mt-1 overflow-hidden rounded-card border border-hairline bg-white">
-            <MetroMap frame="phone" className="pointer-events-none absolute inset-0 h-full w-full opacity-[0.55]" />
-            <div className="relative flex flex-col items-center gap-1 px-4 py-7 text-center [text-shadow:0_0_10px_#fff,0_0_18px_#fff]">
-              <span className="text-[14px] font-bold text-teal">{s.card.eyebrow}</span>
-              <span className="text-[15px] font-semibold text-slate">{s.card.lead}</span>
-              <span className="whitespace-nowrap text-[17px] font-bold text-charcoal">{s.card.area}</span>
-            </div>
-          </div>
-          <AvailabilityCheck className="mt-1 w-full" />
+          <AvailabilityCheck className="mt-2 w-full" />
           <p className="-mb-1 mt-1 text-center text-[15px] font-semibold text-charcoal">{s.talk}</p>
           <CallText track="hero" desktop={false} or={s.or} />
         </div>
