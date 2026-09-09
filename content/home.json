@@ -35,30 +35,36 @@
           {
             "id": "leak",
             "label": "Leak or Drip",
-            "icon": "drop"
+            "icon": "drop",
+            "illustration": "leaks-and-repairs"
           },
           {
             "id": "drain",
             "label": "Clogged Drain or Sewer",
-            "icon": "drain"
+            "icon": "drain",
+            "illustration": "drains-and-sewer"
           },
           {
             "id": "no-hot-water",
             "label": "No Hot Water",
-            "icon": "water-heater"
+            "icon": "water-heater",
+            "illustration": "water-heaters"
           },
           {
             "id": "toilet",
             "label": "Toilet Trouble",
-            "icon": "toilet"
+            "icon": "toilet",
+            "illustration": "toilets-and-faucets"
           },
           {
             "id": "burst-pipe",
             "label": "Burst or Frozen Pipe",
-            "icon": "bolt"
+            "icon": "bolt",
+            "illustration": "emergency-plumbing"
           }
         ],
-        "icon": "wrench"
+        "icon": "wrench",
+        "illustration": "leaks-and-repairs"
       },
       {
         "id": "install",
@@ -67,30 +73,36 @@
           {
             "id": "water-heater",
             "label": "Water Heater",
-            "icon": "water-heater"
+            "icon": "water-heater",
+            "illustration": "water-heaters"
           },
           {
             "id": "sump-pump",
             "label": "Sump Pump",
-            "icon": "pump"
+            "icon": "pump",
+            "illustration": "sump-pumps"
           },
           {
             "id": "fixture",
             "label": "Faucet or Fixture",
-            "icon": "faucet"
+            "icon": "faucet",
+            "illustration": "faucet"
           },
           {
             "id": "toilet",
             "label": "Toilet",
-            "icon": "toilet"
+            "icon": "toilet",
+            "illustration": "toilet"
           },
           {
             "id": "gas-line",
             "label": "Gas Line",
-            "icon": "gas"
+            "icon": "gas",
+            "illustration": "gas-lines"
           }
         ],
-        "icon": "plus-circle"
+        "icon": "plus-circle",
+        "illustration": "replace-or-install"
       },
       {
         "id": "remodel",
@@ -99,25 +111,30 @@
           {
             "id": "bathroom",
             "label": "Bathroom",
-            "icon": "tub"
+            "icon": "tub",
+            "illustration": "bath-and-kitchen-remodel"
           },
           {
             "id": "kitchen",
             "label": "Kitchen",
-            "icon": "faucet"
+            "icon": "faucet",
+            "illustration": "kitchen-sink"
           },
           {
             "id": "basement",
             "label": "Basement Finish",
-            "icon": "building"
+            "icon": "building",
+            "illustration": "basement"
           },
           {
             "id": "repipe",
             "label": "Whole-House Repipe",
-            "icon": "wrench"
+            "icon": "wrench",
+            "illustration": "repipe"
           }
         ],
-        "icon": "tub"
+        "icon": "tub",
+        "illustration": "bath-and-kitchen-remodel"
       }
     ],
     "other": "Something Else",
@@ -140,7 +157,8 @@
       "reason": "Reason",
       "details": "Note",
       "phone": "Phone Number"
-    }
+    },
+    "otherIllustration": "question"
   },
   "setsApart": {
     "homeowners": {
@@ -307,12 +325,14 @@
       {
         "id": "new-construction",
         "label": "New Construction",
-        "icon": "building"
+        "icon": "building",
+        "illustration": "rough-in"
       },
       {
         "id": "renovation",
         "label": "Renovation",
-        "icon": "wrench"
+        "icon": "wrench",
+        "illustration": "bath-and-kitchen-remodel"
       }
     ],
     "plansHeading": "Have plans to share?",

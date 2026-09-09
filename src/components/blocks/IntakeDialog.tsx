@@ -3,6 +3,7 @@
 import { useEffect } from "react";
 import type { IconName } from "@/lib/content";
 import { Icon } from "@/components/ui/Icon";
+import { ServiceIllustration, hasServiceIllustration } from "./ServiceIllustration";
 import { cn } from "@/lib/cn";
 
 /**
@@ -16,7 +17,7 @@ export const intakeInput = "h-[52px] w-full min-w-0 rounded-btn border-[1.5px] b
 export const intakeBtn = "inline-flex h-[48px] shrink-0 items-center justify-center gap-2 whitespace-nowrap rounded-btn px-5 text-[16px] font-bold transition-opacity hover:opacity-[0.88] disabled:opacity-60";
 
 /** An option button: icon in a tinted tile, label to its right. */
-export function Chip({ icon, label, onClick, track, dashed = false }: { icon: IconName; label: string; onClick: () => void; track: string; dashed?: boolean }) {
+export function Chip({ icon, illustration, label, onClick, track, dashed = false }: { icon: IconName; /** A ServiceIllustration key; drawn instead of the icon tile when given. */ illustration?: string; label: string; onClick: () => void; track: string; dashed?: boolean }) {
   return (
     <button
       type="button"
@@ -27,9 +28,13 @@ export function Chip({ icon, label, onClick, track, dashed = false }: { icon: Ic
         dashed && "border-dashed shadow-none",
       )}
     >
-      <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-tile bg-teal-tint text-teal">
-        <Icon name={icon} size={20} />
-      </span>
+      {illustration && hasServiceIllustration(illustration) ? (
+        <ServiceIllustration slug={illustration} className="h-11 w-11 shrink-0" />
+      ) : (
+        <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-tile bg-teal-tint text-teal">
+          <Icon name={icon} size={20} />
+        </span>
+      )}
       <span>{label}</span>
     </button>
   );
