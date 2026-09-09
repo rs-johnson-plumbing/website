@@ -4,7 +4,7 @@ import { useEffect } from "react";
 import { cn } from "@/lib/cn";
 
 /**
- * Shared shell for the quick-capture flows (Check Availability, Submit Bid
+ * Shared shell for the quick-capture flows (Submit Service Request, Submit Bid
  * Request): centered white dialog, Escape and backdrop close, body scroll
  * lock. The flows own their stages and copy; this owns the frame.
  */

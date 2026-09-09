@@ -26,8 +26,7 @@
     }
   },
   "availability": {
-    "button": "Check Availability",
-    "buttonDesktop": "Submit Service Request",
+    "button": "Submit Service Request",
     "addressLabel": "Service address",
     "addressPlaceholder": "Street address, city",
     "check": "Check",
