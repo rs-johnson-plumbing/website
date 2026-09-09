@@ -41,7 +41,7 @@ export default function PlumbingHubPage() {
         <SectionHeading id="hub-services-h" title={plumbing.services.heading} line={plumbing.services.line} />
         <div className="grid grid-cols-2 gap-4 lg:grid-cols-4 lg:gap-5">
           {services.map((s) => (
-            <ServiceCard key={s.slug} service={s} href={`#${s.slug}`} description={s.hubShort} learnMoreLabel="Jump to section" />
+            <ServiceCard key={s.slug} service={s} href={`#${s.slug}`} description={s.hubShort} learnMoreLabel="Jump to Section" />
           ))}
         </div>
       </Section>

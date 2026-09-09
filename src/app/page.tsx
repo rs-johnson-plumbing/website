@@ -59,7 +59,7 @@ export default function HomePage() {
           <div className="flex flex-col gap-3 lg:flex-row lg:items-baseline lg:justify-between">
             <H2 id="popular-h">{home.popularServices.heading}</H2>
             <div className="hidden lg:block">
-              <TextLink href="/plumbing">See all services</TextLink>
+              <TextLink href="/plumbing">See All Services</TextLink>
             </div>
           </div>
           <div className="grid grid-cols-1 gap-3 lg:grid-cols-4 lg:gap-5">

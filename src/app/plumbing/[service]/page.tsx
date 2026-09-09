@@ -104,7 +104,7 @@ export default async function ServicePage({ params }: { params: Promise<Params> 
 
       {/* Who'll show up */}
       <Section tone="sand" ariaLabelledby="crew-h" pad="band">
-        <SectionHeading id="crew-h" title={sp.crewHeading} line={sp.crewLine} action={<TextLink href="/our-team">Meet the whole crew</TextLink>} />
+        <SectionHeading id="crew-h" title={sp.crewHeading} line={sp.crewLine} action={<TextLink href="/our-team">Meet the Whole Crew</TextLink>} />
         <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:max-w-[720px]">
           {crew.map((m) => (
             <PersonCard key={m.id} member={m} compact />

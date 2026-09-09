@@ -1,5 +1,5 @@
 {
-  "heading": "Here's who shows up at your door — and your job site",
+  "heading": "Here's Who Shows Up at Your Door — and Your Job Site",
   "line": "Every plumber on our crew is licensed, insured, background-checked, and drives a marked R.S. Johnson truck.",
   "groupPhoto": { "src": "/photos/crew-group.jpg", "alt": "Whole crew standing in front of two marked company trucks", "caption": "Whole crew in front of two trucks" },
   "members": [
@@ -52,19 +52,19 @@
     }
   ],
   "whoShowsUp": {
-    "heading": "Here's who shows up at your door",
+    "heading": "Here's Who Shows Up at Your Door",
     "items": ["Licensed and background-checked", "Marked truck and company shirt", "Text before we arrive"],
     "line": "No call center, no rotating subcontractors — the crew on this page is the crew at your door.",
     "button": "Meet the Team"
   },
   "howWeWork": {
-    "homeowners": { "heading": "For homeowners", "items": ["Text before arrival", "Company shirt and ID", "We clean up"] },
-    "builders": { "heading": "For builders", "items": ["Same crew on your job start to finish", "Daily check-in with your super", "We schedule and meet inspections"] }
+    "homeowners": { "heading": "For Homeowners", "items": ["Text before arrival", "Company shirt and ID", "We clean up"] },
+    "builders": { "heading": "For Builders", "items": ["Same crew on your job start to finish", "Daily check-in with your super", "We schedule and meet inspections"] }
   },
   "promises": [
-    { "icon": "clock", "title": "We show up when we say", "line": "You get a text with a name and ETA before we arrive" },
-    { "icon": "tag", "title": "Price before we start", "line": "Upfront pricing, no surprises on the invoice" },
-    { "icon": "sparkle", "title": "Cleaner than we found it", "line": "Shoe covers, drop cloths, and we haul out what we bring in" },
-    { "icon": "phone", "title": "You talk to the plumber", "line": "Owner-operated — Ryan answers the phone, not a call center" }
+    { "icon": "clock", "title": "We Show Up When We Say", "line": "You get a text with a name and ETA before we arrive" },
+    { "icon": "tag", "title": "Price Before We Start", "line": "Upfront pricing, no surprises on the invoice" },
+    { "icon": "sparkle", "title": "Cleaner Than We Found It", "line": "Shoe covers, drop cloths, and we haul out what we bring in" },
+    { "icon": "phone", "title": "You Talk to the Plumber", "line": "Owner-operated — Ryan answers the phone, not a call center" }
   ]
 }

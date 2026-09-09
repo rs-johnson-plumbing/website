@@ -17,7 +17,7 @@
       "credentials": []
     },
     "builders": {
-      "eyebrow": "Builders and general contractors",
+      "eyebrow": "Builders and General Contractors",
       "heading": "On Schedule. On Budget. Quality Craftsmanship.",
       "line": "New construction and renovation plumbing, rough-in through trim.",
       "primary": "Request a Bid",
@@ -27,27 +27,27 @@
   },
   "setsApart": {
     "homeowners": {
-      "heading": "Here's what sets us apart",
+      "heading": "Here's What Sets Us Apart",
       "items": [
         {
           "icon": "phone",
-          "title": "You talk to the plumber",
+          "title": "You Talk to the Plumber",
           "line": "Ryan answers the phone. No call center, no dispatcher."
         },
         {
           "icon": "tag",
-          "title": "Price before we start",
+          "title": "Price Before We Start",
           "line": "You get the number before work begins. No surprises on the invoice."
         },
         {
           "icon": "clock",
-          "title": "We show up when we say",
+          "title": "We Show Up When We Say",
           "line": "A text with a name and ETA before we arrive."
         }
       ]
     },
     "builders": {
-      "heading": "Why trust us",
+      "heading": "Why Trust Us",
       "items": [
         {
           "icon": "clock",
@@ -61,7 +61,7 @@
         },
         {
           "icon": "check-circle",
-          "title": "Finish on budget",
+          "title": "Finish On Budget",
           "line": "The number we bid is the number we finish at. Changes get priced before they happen, not after."
         }
       ]
@@ -69,7 +69,7 @@
   },
   "neighbors": {
     "homeowners": {
-      "heading": "What our neighbors say",
+      "heading": "What Our Neighbors Say",
       "proofLine": "",
       "lead": {
         "quote": "Honest. Reliable. Knows his stuff.",
@@ -79,10 +79,10 @@
         "neighbor-stl",
         "kg-ofallon"
       ],
-      "link": "See all reviews"
+      "link": "See All Reviews"
     },
     "builders": {
-      "heading": "What other contractors say",
+      "heading": "What Other Contractors Say",
       "proofLine": "[##] builder partners · References on request",
       "lead": {
         "quote": "[Contractor quote placeholder]",
@@ -92,11 +92,11 @@
         "builder-2",
         "builder-3"
       ],
-      "link": "See all reviews"
+      "link": "See All Reviews"
     }
   },
   "popularServices": {
-    "heading": "Our most popular services",
+    "heading": "Our Most Popular Services",
     "slugs": [
       "water-heaters",
       "leaks-and-repairs",
@@ -116,17 +116,17 @@
     }
   },
   "ready": {
-    "heading": "Ready when you are",
+    "heading": "Ready When You Are",
     "line": "Call or text for anything urgent. Book online for repairs, water heaters, and remodel work. Or send a message and Ryan will call you back."
   },
   "form": {
-    "heading": "Send us a message",
+    "heading": "Send Us a Message",
     "line": "We'll call you back. [confirm turnaround]",
     "fields": {
       "name": "Name",
       "phone": "Phone",
       "city": "City",
-      "message": "What's going on"
+      "message": "What's Going On"
     },
     "consent": "Okay to text me about this request. [SMS consent wording — confirm]",
     "button": "Send Message",

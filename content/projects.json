@@ -1,5 +1,5 @@
 {
-  "heading": "Recent builder work",
+  "heading": "Recent Builder Work",
   "items": [
     { "id": "chesterfield-01", "city": "Chesterfield", "type": "Custom home", "scope": "Full rough-in through trim, 4.5 baths, tankless water heater [placeholder]", "photo": { "src": "/photos/project-chesterfield-01.jpg", "alt": "Plumbing rough-in at a custom home under construction in Chesterfield, Missouri", "caption": "Chesterfield custom home rough-in" }, "featured": true },
     { "id": "town-and-country-01", "city": "Town and Country", "type": "Whole-house remodel", "scope": "Master bath and kitchen re-plumb, new fixtures throughout [placeholder]", "photo": { "src": "/photos/project-town-and-country-01.jpg", "alt": "Plumbing work during a whole-house remodel in Town and Country, Missouri", "caption": "Town and Country whole-house remodel" }, "featured": true },
