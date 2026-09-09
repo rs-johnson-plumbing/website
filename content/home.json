@@ -8,14 +8,21 @@
     "call": "Call 314-220-1827"
   },
   "hero": {
-    "toggle": { "homeowners": "For Homeowners", "builders": "For Builders" },
+    "toggle": {
+      "homeowners": "For Homeowners",
+      "builders": "For Builders"
+    },
     "homeowners": {
       "eyebrow": "Homeowners",
-      "heading": "Family owned and professionally operated plumbing service",
+      "heading": "Family Owned and Professionally Operated",
       "line": "Master Plumber Ryan Johnson and crew. Emergency and scheduled service, based in O'Fallon.",
       "primary": "Book Service",
       "secondary": "Call 314-220-1827",
-      "credentials": ["Missouri Master Plumber", "Licensed and insured", "Upfront pricing"]
+      "credentials": [
+        "Missouri Master Plumber",
+        "Licensed and insured",
+        "Upfront pricing"
+      ]
     },
     "builders": {
       "eyebrow": "Builders and general contractors",
@@ -23,34 +30,65 @@
       "line": "Rough-in through trim. Custom homes, spec builds, whole-house remodels.",
       "primary": "Request a Bid",
       "secondary": "Call 314-220-1827",
-      "credentials": ["[##] homes plumbed", "[##] builder partners", "Trade partner since 2022"]
+      "credentials": [
+        "[##] homes plumbed",
+        "[##] builder partners",
+        "Trade partner since 2022"
+      ]
     }
   },
   "setsApart": {
     "heading": "Here's what sets us apart",
     "items": [
-      { "icon": "phone", "title": "You talk to the plumber", "line": "Ryan answers the phone. No call center, no dispatcher." },
-      { "icon": "tag", "title": "Price before we start", "line": "You get the number before work begins. No surprises on the invoice." },
-      { "icon": "clock", "title": "We show up when we say", "line": "A text with a name and ETA before we arrive." }
+      {
+        "icon": "phone",
+        "title": "You talk to the plumber",
+        "line": "Ryan answers the phone. No call center, no dispatcher."
+      },
+      {
+        "icon": "tag",
+        "title": "Price before we start",
+        "line": "You get the number before work begins. No surprises on the invoice."
+      },
+      {
+        "icon": "clock",
+        "title": "We show up when we say",
+        "line": "A text with a name and ETA before we arrive."
+      }
     ]
   },
   "neighbors": {
     "heading": "What our neighbors say",
     "proofLine": "Nextdoor Neighborhood Favorite 2023 · 24 recommendations",
-    "lead": { "quote": "Honest. Reliable. Knows his stuff.", "attribution": "B.L., Wildwood, on Nextdoor" },
-    "reviewIds": ["neighbor-stl", "kg-ofallon"],
+    "lead": {
+      "quote": "Honest. Reliable. Knows his stuff.",
+      "attribution": "B.L., Wildwood, on Nextdoor"
+    },
+    "reviewIds": [
+      "neighbor-stl",
+      "kg-ofallon"
+    ],
     "link": "See all reviews"
   },
   "popularServices": {
     "heading": "Our most popular services",
-    "slugs": ["water-heaters", "leaks-and-repairs", "drains-and-sewer", "toilets-and-faucets"],
+    "slugs": [
+      "water-heaters",
+      "leaks-and-repairs",
+      "drains-and-sewer",
+      "toilets-and-faucets"
+    ],
     "seeAll": "See All Services"
   },
   "why": {
     "heading": "Why R.S. Johnson",
     "paragraph": "Ryan Johnson is a Missouri Master Plumber with [##] years in the trade. He answers the phone, bids every job, and the four plumbers on our team page are the crew that shows up at your house. Most of our week is new construction for builders who don't tolerate no-shows. Homeowners get the same crew and the same standard.",
     "button": "Meet the Team",
-    "photo": { "src": "/photos/site-crew-truck.jpg", "alt": "Ryan and the crew in company shirts in front of a marked R.S. Johnson Plumbing truck", "caption": "Ryan and the crew with the truck" }
+    "photo": {
+      "src": "/photos/site-crew-truck.jpg",
+      "alt": "Ryan and the crew in company shirts in front of a marked R.S. Johnson Plumbing truck",
+      "caption": "Ryan and the crew with the truck"
+    }
   },
   "ready": {
     "heading": "Ready when you are",
