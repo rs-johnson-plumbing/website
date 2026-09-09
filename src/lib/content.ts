@@ -47,7 +47,9 @@ export type IconName =
   | "wrench"
   | "plus-circle"
   | "toilet"
-  | "upload";
+  | "upload"
+  | "house"
+  | "hammer";
 
 export type NavItem = { label: string; href: string };
 

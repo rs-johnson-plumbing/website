@@ -8,6 +8,19 @@
       "homeowners": "For Homeowners",
       "builders": "For Builders"
     },
+    "single": {
+      "heading": "Family Owned and Professionally Operated",
+      "homeowners": {
+        "label": "For Homeowners",
+        "line": "Need a plumber at the house?",
+        "icon": "house"
+      },
+      "builders": {
+        "label": "For Builders",
+        "line": "Have plans to bid?",
+        "icon": "hammer"
+      }
+    },
     "homeowners": {
       "eyebrow": "Homeowners",
       "heading": "Family Owned and Professionally Operated",
