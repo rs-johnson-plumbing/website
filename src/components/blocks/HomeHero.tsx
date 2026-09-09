@@ -66,7 +66,7 @@ export function HomeHero() {
           <div className="relative mt-1 overflow-hidden rounded-card border border-hairline bg-white">
             <MetroMap frame="phone" className="pointer-events-none absolute inset-0 h-full w-full opacity-[0.55]" />
             <div className="relative flex flex-col items-center gap-1 px-4 py-7 text-center [text-shadow:0_0_10px_#fff,0_0_18px_#fff]">
-              <span className="text-[12px] font-bold uppercase tracking-[0.06em] text-teal">{s.card.eyebrow}</span>
+              <span className="text-[14px] font-bold text-teal">{s.card.eyebrow}</span>
               <span className="text-[15px] font-semibold text-slate">{s.card.lead}</span>
               <span className="whitespace-nowrap text-[17px] font-bold text-charcoal">{s.card.area}</span>
             </div>
