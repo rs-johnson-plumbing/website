@@ -96,14 +96,30 @@
     }
   },
   "popularServices": {
-    "heading": "Our Most Popular Services",
-    "slugs": [
-      "water-heaters",
-      "leaks-and-repairs",
-      "drains-and-sewer",
-      "toilets-and-faucets"
-    ],
-    "seeAll": "See All Services"
+    "homeowners": {
+      "heading": "Our Most Popular Services",
+      "line": "",
+      "slugs": [
+        "water-heaters",
+        "leaks-and-repairs",
+        "drains-and-sewer",
+        "toilets-and-faucets"
+      ],
+      "seeAll": "See All Services"
+    },
+    "builders": {
+      "heading": "Our Most Popular Services",
+      "line": "The stages builders call us for, from plans to final inspection.",
+      "slugs": [
+        "planning-and-takeoffs",
+        "underground",
+        "rough-in",
+        "gas-runs",
+        "water-and-sewer-tie-in",
+        "trim-and-fixture-set"
+      ],
+      "button": "Request a Bid"
+    }
   },
   "why": {
     "heading": "Why R.S. Johnson Plumbing",
@@ -132,5 +148,9 @@
     "button": "Send Message",
     "success": "Got it. Ryan will call you back. [confirm turnaround]",
     "error": "Something went wrong. Call or text 314-220-1827 and we'll take it from there."
+  },
+  "closingBuilders": {
+    "heading": "Need a Bid?",
+    "secondary": "Request a Bid"
   }
 }

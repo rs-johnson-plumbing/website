@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { home, site, services, link } from "@/lib/content";
+import { home, site, services, builderServices, link } from "@/lib/content";
 import { plumberJsonLd } from "@/lib/jsonld";
 import { HomeHero } from "@/components/blocks/HomeHero";
 import { AudienceProvider } from "@/components/blocks/AudienceContext";
@@ -31,7 +31,10 @@ function H2({ children, id }: { children: React.ReactNode; id?: string }) {
 }
 
 export default function HomePage() {
-  const popular = home.popularServices.slugs.map((slug) => services.find((s) => s.slug === slug)).filter((s): s is NonNullable<typeof s> => Boolean(s));
+  const popularHome = home.popularServices.homeowners;
+  const popularBuilders = home.popularServices.builders;
+  const popular = popularHome.slugs.map((slug) => services.find((s) => s.slug === slug)).filter((s): s is NonNullable<typeof s> => Boolean(s));
+  const popularBuild = popularBuilders.slugs.map((slug) => builderServices.find((s) => s.slug === slug)).filter((s): s is NonNullable<typeof s> => Boolean(s));
 
   return (
     <>
@@ -53,16 +56,22 @@ export default function HomePage() {
       </Section>
       </AudienceProvider>
 
-      {/* Our most popular services */}
+      {/* Our most popular services (follows the toggle via body[data-audience]) */}
       <Section ariaLabelledby="popular-h">
         <div className="flex flex-col gap-4 lg:gap-6">
           <div className="flex flex-col gap-3 lg:flex-row lg:items-baseline lg:justify-between">
-            <H2 id="popular-h">{home.popularServices.heading}</H2>
-            <div className="hidden lg:block">
+            <div>
+              <H2 id="popular-h">
+                <span className="builders:hidden">{popularHome.heading}</span>
+                <span className="hidden builders:inline">{popularBuilders.heading}</span>
+              </H2>
+              {popularBuilders.line && <p className="mt-1 hidden text-[15px] text-ondark-muted builders:block">{popularBuilders.line}</p>}
+            </div>
+            <div className="hidden lg:block builders:hidden">
               <TextLink href="/services">See All Services</TextLink>
             </div>
           </div>
-          <div className="grid grid-cols-1 gap-3 lg:grid-cols-4 lg:gap-5">
+          <div className="grid grid-cols-1 gap-3 builders:hidden lg:grid-cols-4 lg:gap-5">
             {popular.map((s) => (
               <div key={s.slug} className="flex flex-col items-center rounded-card border border-hairline bg-white p-4 text-center text-charcoal lg:p-5">
                 <ServiceIllustration slug={s.slug} className="h-[150px] w-[150px] lg:h-[140px] lg:w-[140px]" />
@@ -74,8 +83,20 @@ export default function HomePage() {
               </div>
             ))}
           </div>
-          <Button href="/services" variant="outlined" className="w-full lg:hidden">
-            {home.popularServices.seeAll}
+          <div className="hidden grid-cols-2 gap-3 builders:grid lg:grid-cols-3 lg:gap-5">
+            {popularBuild.map((s) => (
+              <div key={s.slug} className="flex flex-col items-center rounded-card border border-hairline bg-white p-3 text-center text-charcoal lg:p-5">
+                <ServiceIllustration slug={s.illustration} className="h-[110px] w-[110px] lg:h-[140px] lg:w-[140px]" />
+                <div className="mt-2 text-[17px] font-bold leading-tight lg:text-[20px]">{s.name}</div>
+                <div className="mt-1 text-[13px] leading-snug text-slate lg:text-[14px]">{s.short}</div>
+              </div>
+            ))}
+          </div>
+          <Button href="/services" variant="outlined" className="w-full builders:hidden lg:hidden">
+            {popularHome.seeAll}
+          </Button>
+          <Button href={link("bid")} variant="filled" className="hidden w-full builders:inline-flex lg:w-auto lg:self-center">
+            {popularBuilders.button}
           </Button>
         </div>
       </Section>
@@ -115,7 +136,7 @@ export default function HomePage() {
         </div>
       </Section>
 
-      <ClosingCTA secondary={{ label: site.closingCta.secondary, href: link("book") }} />
+      <ClosingCTA secondary={{ label: site.closingCta.secondary, href: link("book") }} builders={{ heading: home.closingBuilders.heading, secondary: { label: home.closingBuilders.secondary, href: link("bid") } }} />
     </>
   );
 }

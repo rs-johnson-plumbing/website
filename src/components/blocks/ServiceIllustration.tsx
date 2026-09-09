@@ -117,6 +117,80 @@ const art: Record<string, React.ReactNode> = {
       <path d="M120 26 v12 M120 44 v1" stroke={W} strokeWidth="5" />
     </>
   ),
+  "planning-and-takeoffs": (
+    <>
+      <path d="M40 28 h64 l20 20 v84 h-84z" fill={W} stroke={C} strokeWidth="4" />
+      <path d="M104 28 v20 h20" fill={O} stroke={C} strokeWidth="4" />
+      <path d="M54 66 h26 l14 -12 h20" stroke={B} strokeWidth="5" />
+      <path d="M60 84 v28 h34" stroke={B} strokeWidth="5" />
+      <circle cx="80" cy="66" r="4" fill={W} stroke={C} strokeWidth="3" />
+      <circle cx="60" cy="84" r="4" fill={W} stroke={C} strokeWidth="3" />
+      <circle cx="94" cy="112" r="4" fill={W} stroke={C} strokeWidth="3" />
+      <path d="M54 96 h10 M54 104 h6" stroke={H} strokeWidth="3" />
+      <g transform="rotate(-45 118 116)">
+        <rect x="104" y="108" width="34" height="14" rx="3" fill={B} stroke={C} strokeWidth="3" />
+        <path d="M138 108 l10 7 l-10 7z" fill={O} stroke={C} strokeWidth="3" />
+        <path d="M104 108 v14" stroke={C} strokeWidth="3" />
+      </g>
+    </>
+  ),
+  underground: (
+    <>
+      <rect x="18" y="94" width="124" height="34" rx="6" fill={H} />
+      <path d="M18 94 h124" stroke={C} strokeWidth="4" />
+      <path d="M30 108 h6 M48 116 h6 M100 118 h6 M118 108 h6" stroke={C} strokeWidth="3" opacity="0.5" />
+      <rect x="30" y="102" width="100" height="14" rx="4" fill={O} stroke={C} strokeWidth="4" />
+      <rect x="48" y="60" width="14" height="46" rx="3" fill={B} stroke={C} strokeWidth="3" />
+      <rect x="73" y="48" width="14" height="58" rx="3" fill={B} stroke={C} strokeWidth="3" />
+      <rect x="98" y="66" width="14" height="40" rx="3" fill={B} stroke={C} strokeWidth="3" />
+      <rect x="44" y="54" width="22" height="8" rx="2" fill={W} stroke={C} strokeWidth="3" />
+      <rect x="69" y="42" width="22" height="8" rx="2" fill={W} stroke={C} strokeWidth="3" />
+      <rect x="94" y="60" width="22" height="8" rx="2" fill={W} stroke={C} strokeWidth="3" />
+      <path d="M24 86 h112" stroke={C} strokeWidth="3" strokeDasharray="6 6" opacity="0.5" />
+    </>
+  ),
+  "rough-in": (
+    <>
+      <rect x="28" y="24" width="104" height="10" rx="2" fill={O} stroke={C} strokeWidth="3" />
+      <rect x="28" y="126" width="104" height="10" rx="2" fill={O} stroke={C} strokeWidth="3" />
+      <rect x="38" y="34" width="12" height="92" fill={O} stroke={C} strokeWidth="3" />
+      <rect x="74" y="34" width="12" height="92" fill={O} stroke={C} strokeWidth="3" />
+      <rect x="110" y="34" width="12" height="92" fill={O} stroke={C} strokeWidth="3" />
+      <rect x="92" y="34" width="16" height="92" rx="3" fill={W} stroke={C} strokeWidth="4" />
+      <path d="M92 76 h-14 a6 6 0 0 0 -6 6 v10" fill="none" stroke={C} strokeWidth="4" />
+      <rect x="30" y="58" width="100" height="10" rx="3" fill={B} stroke={C} strokeWidth="3" />
+      <rect x="30" y="104" width="60" height="8" rx="3" fill={B} stroke={C} strokeWidth="3" />
+      <circle cx="60" cy="63" r="6" fill={W} stroke={C} strokeWidth="3" />
+    </>
+  ),
+  "trim-and-fixture-set": (
+    <>
+      <rect x="26" y="100" width="108" height="12" rx="3" fill={O} stroke={C} strokeWidth="4" />
+      <path d="M52 112 h56 v10 a12 12 0 0 1 -12 12 h-32 a12 12 0 0 1 -12 -12z" fill={W} stroke={C} strokeWidth="4" />
+      <path d="M80 100 v-30 a14 14 0 0 1 14 -14 h4 a8 8 0 0 1 8 8 v6" fill="none" stroke={C} strokeWidth="6" />
+      <path d="M80 100 v-30 a14 14 0 0 1 14 -14 h4 a8 8 0 0 1 8 8 v6" fill="none" stroke={W} strokeWidth="2" />
+      <rect x="99" y="70" width="14" height="8" rx="2" fill={B} stroke={C} strokeWidth="3" />
+      <rect x="60" y="86" width="12" height="14" rx="3" fill={B} stroke={C} strokeWidth="3" />
+      <rect x="88" y="86" width="12" height="14" rx="3" fill={B} stroke={C} strokeWidth="3" />
+      <path d="M106 82 v12" stroke={B} strokeWidth="4" />
+      <path d="M40 46 l3 8 l8 3 l-8 3 l-3 8 l-3 -8 l-8 -3 l8 -3z" fill={B} stroke={C} strokeWidth="2.5" />
+      <path d="M120 36 l2 5 l5 2 l-5 2 l-2 5 l-2 -5 l-5 -2 l5 -2z" fill={B} stroke={C} strokeWidth="2" />
+    </>
+  ),
+  "water-and-sewer-tie-in": (
+    <>
+      <rect x="30" y="22" width="20" height="116" rx="4" fill={O} stroke={C} strokeWidth="4" />
+      <path d="M30 40 h20 M30 120 h20" stroke={C} strokeWidth="3" opacity="0.5" />
+      <rect x="50" y="74" width="52" height="14" rx="3" fill={B} stroke={C} strokeWidth="4" />
+      <rect x="46" y="68" width="10" height="26" rx="2" fill={O} stroke={C} strokeWidth="3" />
+      <circle cx="116" cy="81" r="18" fill={W} stroke={C} strokeWidth="4" />
+      <circle cx="116" cy="81" r="9" fill={O} stroke={C} strokeWidth="3" />
+      <path d="M116 81 l5 -6" stroke={C} strokeWidth="3" />
+      <path d="M78 74 v-10 M70 64 h16" stroke={C} strokeWidth="4" />
+      <path d="M106 30 l14 -12 l14 12 v14 h-28z" fill={W} stroke={C} strokeWidth="3" />
+      <path d="M116 44 v-8" stroke={B} strokeWidth="3" />
+    </>
+  ),
 };
 
 export function ServiceIllustration({ slug, className }: { slug: string; className?: string }) {
