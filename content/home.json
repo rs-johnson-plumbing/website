@@ -30,8 +30,7 @@
     "addressLabel": "Service address",
     "addressPlaceholder": "Street address, city",
     "check": "Check",
-    "cancel": "Cancel",
-    "inArea": "Good news, we serve your address.",
+    "inArea": "Good news. We serve your address.",
     "inAreaLine": "Can we call or text you shortly?",
     "yes": "Yes, Reach Out",
     "no": "Not Now",
@@ -39,7 +38,7 @@
     "phonePlaceholder": "Phone number",
     "send": "Send",
     "consent": "By sending your number you agree to a call or text about this request. [SMS consent wording — confirm]",
-    "done": "Got it. Ryan will call or text you shortly. [confirm turnaround]",
+    "done": "Got it. We'll call or text shortly.",
     "declined": "No problem. Schedule online or call or text anytime.",
     "error": "Something went wrong. Call or text 314-220-1827 and we'll take it from there.",
     "close": "Close"
@@ -145,7 +144,7 @@
   },
   "ready": {
     "heading": "Contact Us",
-    "line": "Call or text for anything urgent. Schedule online for repairs, water heaters, and remodel work. Or send a message and Ryan will call you back."
+    "line": ""
   },
   "form": {
     "heading": "Send Us a Message",

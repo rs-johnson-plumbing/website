@@ -8,11 +8,12 @@ import { cn } from "@/lib/cn";
 type Stage = "idle" | "address" | "ask" | "phone" | "done" | "declined";
 
 /**
- * Quick-capture flow in the homeowner hero. A third button, Check
- * Availability, flips into an address field. Submitting the address opens
- * a small dialog: "we serve your address" and "can we call or text you
- * shortly?" Yes asks for a phone number and sends it; Not Now points at
- * Schedule Service and the phone number. Copy lives in home.json.
+ * Quick-capture flow in the homeowner hero. The primary button, Check
+ * Availability, turns into an address field in place. Submitting the
+ * address opens a centered dialog: "we serve your address" and "can we
+ * call or text you shortly?" Yes asks for a phone number and sends it; Not
+ * Now points at Schedule Service and the phone number. Copy lives in
+ * home.json under availability.
  */
 export function AvailabilityCheck({ className }: { className?: string }) {
   const a = home.availability;
@@ -88,12 +89,12 @@ export function AvailabilityCheck({ className }: { className?: string }) {
           type="button"
           onClick={() => setStage("address")}
           data-track="availability-open"
-          className={cn("inline-flex h-[52px] items-center justify-center whitespace-nowrap rounded-btn border-[1.5px] border-charcoal bg-white px-6 text-[16px] font-bold text-charcoal transition-opacity hover:opacity-[0.88]", className)}
+          className={cn("inline-flex h-[52px] items-center justify-center whitespace-nowrap rounded-btn bg-blue px-6 text-[16px] font-bold text-white transition-opacity hover:opacity-[0.88]", className)}
         >
           {a.button}
         </button>
       ) : (
-        <form onSubmit={submitAddress} className="flex w-full gap-2 lg:max-w-[560px]">
+        <form onSubmit={submitAddress} className={cn("flex w-full gap-2", className, "lg:w-full lg:max-w-[560px]")}>
           <input
             ref={addressRef}
             value={address}
@@ -103,20 +104,17 @@ export function AvailabilityCheck({ className }: { className?: string }) {
             placeholder={a.addressPlaceholder}
             aria-label={a.addressLabel}
             autoComplete="street-address"
-            className={input}
+            className={cn(input, "border-blue")}
           />
           <button type="submit" disabled={busy} data-track="availability-check" className={cn(smallBtn, "bg-blue text-white")}>
             {a.check}
-          </button>
-          <button type="button" onClick={() => setStage("idle")} aria-label={a.cancel} className={cn(smallBtn, "border-[1.5px] border-hairline-strong bg-white px-4 text-charcoal")}>
-            ×
           </button>
         </form>
       )}
       {error && stage === "address" && <p className="w-full text-left text-[14px] font-semibold text-charcoal">{a.error}</p>}
 
       {open && (
-        <div className="fixed inset-0 z-40 flex items-end justify-center bg-charcoal/60 p-4 lg:items-center" onClick={() => setStage("idle")}>
+        <div className="fixed inset-0 z-40 flex items-center justify-center bg-charcoal/60 p-4" onClick={() => setStage("idle")}>
           <div
             role="dialog"
             aria-modal="true"
