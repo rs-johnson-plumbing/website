@@ -52,7 +52,7 @@
   "cta": {
     "headerDesktop": "Call or Text 314-220-1827",
     "headerMobile": "Call",
-    "bookOnline": "Book Online",
+    "bookOnline": "Schedule Service",
     "callNow": "Call Now",
     "requestBid": "Request a Bid",
     "messageUs": "Message Us",
@@ -99,7 +99,7 @@
   "closingCta": {
     "heading": "Need a Plumber?",
     "primary": "Call or Text 314-220-1827",
-    "secondary": "Book Online"
+    "secondary": "Schedule"
   },
   "footer": {
     "servicesHeading": "Services",

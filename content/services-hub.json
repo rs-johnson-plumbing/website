@@ -58,7 +58,7 @@
     "scheduled": {
       "label": "Scheduled Service",
       "helper": "Repairs, water heaters, remodels",
-      "button": "Book Online"
+      "button": "Schedule"
     },
     "messageLine": "Or message us and we'll call you back",
     "trust": [
