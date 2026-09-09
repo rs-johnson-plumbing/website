@@ -15,6 +15,7 @@ const config: Config = {
           tint: colors.blueTint,
           ondark: colors.blueOnDark,
         },
+        teal: colors.teal,
         slate: colors.slate,
         hairline: {
           DEFAULT: colors.hairline,

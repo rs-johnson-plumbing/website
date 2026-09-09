@@ -106,6 +106,19 @@ const paths: Record<IconName, React.ReactNode> = {
       <path d="M9 7h2M13 7h2M9 11h2M13 11h2M9 15h2M13 15h2M10 21v-3h4v3" />
     </>
   ),
+  house: (
+    <>
+      <path d="M4 11l8-7 8 7v9H4z" />
+      <path d="M10 20v-6h4v6" />
+    </>
+  ),
+  hammer: (
+    <>
+      <path d="M3 20l8.5-8.5" />
+      <path d="M9.5 9.5l5-5 2 2-1.5 1.5 3 3 3-3-2-2" />
+      <path d="M14.5 4.5l1-1 5 5-1 1" />
+    </>
+  ),
   check: <path d="M4 12l5 5L20 6" />,
   "arrow-right": <path d="M5 12h14M13 6l6 6-6 6" />,
   menu: <path d="M3 6h18M3 12h18M3 18h18" />,
