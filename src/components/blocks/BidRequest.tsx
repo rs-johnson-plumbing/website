@@ -20,7 +20,7 @@ const MAX_PLANS_BYTES = 4 * 1024 * 1024;
  *   done. Posts once, as multipart, to /api/bid. Copy lives in home.json
  *   under bid.
  */
-export function BidRequest({ className, variant = "filled" }: { className?: string; /** "outlined" is a charcoal outline on white, "outlined-dark" a white outline on charcoal, for when it sits beside a filled button. */ variant?: "filled" | "outlined" | "outlined-dark" }) {
+export function BidRequest({ className, variant = "filled" }: { className?: string; /** "outlined" is a charcoal outline, "outlined-dark" a white outline on a dark ground, for when it sits beside a filled button. "link" is teal text with the arrow, for a one-line row. */ variant?: "filled" | "outlined" | "outlined-dark" | "link" }) {
   const b = home.bid;
   const types = b.types as ProjectType[];
   const [stage, setStage] = useState<Stage>("idle");
@@ -102,9 +102,10 @@ export function BidRequest({ className, variant = "filled" }: { className?: stri
         onClick={() => setStage("contractor")}
         data-track="bid-open"
         className={cn(
-          "inline-flex h-[52px] items-center justify-center gap-2 whitespace-nowrap rounded-btn px-6 text-[16px] font-bold transition-opacity hover:opacity-[0.88]",
+          "inline-flex items-center justify-center gap-2 whitespace-nowrap font-bold transition-opacity hover:opacity-[0.88]",
+          variant === "link" ? "text-[15px] text-teal" : "h-[52px] rounded-btn px-6 text-[16px]",
           variant === "filled" && "bg-teal text-white builders:bg-charcoal",
-          variant === "outlined" && "border-[1.5px] border-charcoal bg-white text-charcoal",
+          variant === "outlined" && "border-[1.5px] border-charcoal bg-transparent text-charcoal",
           variant === "outlined-dark" && "border-[1.5px] border-offwhite bg-transparent text-offwhite",
           className,
         )}
