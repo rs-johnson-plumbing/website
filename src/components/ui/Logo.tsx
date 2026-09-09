@@ -59,32 +59,30 @@ export function Badge({ className, title }: { className?: string; title?: string
 }
 
 /**
- * Full lockup: the two-tone mark as the J of JOHNSON, "R.S." above,
- * "PLUMBING" beside, "LLC" tucked under on the right. Same drawing as
- * /public/logo/rsj-lockup.svg. Scales by height; width follows.
+ * Full lockup: the two-tone mark on the left, "R.S." above and "JOHNSON
+ * PLUMBING" beside it in Georgia. No LLC in the lockup; the legal name
+ * appears in the footer text. Same drawing as /public/logo/rsj-lockup.svg.
+ * Scales by height; width follows (4:1).
  */
 export function Lockup({ className, title, reversed = false }: { className?: string; title?: string; reversed?: boolean }) {
   // Ink follows the parent's text color so the header can flip it in
   // For Builders mode; `reversed` forces off-white regardless.
   const ink = reversed ? "#F7F5F0" : "currentColor";
   return (
-    <svg viewBox="0 0 760 200" aria-hidden={title ? undefined : true} role={title ? "img" : undefined} className={className}>
+    <svg viewBox="0 0 800 200" aria-hidden={title ? undefined : true} role={title ? "img" : undefined} className={className}>
       {title && <title>{title}</title>}
-      <g transform="translate(0 6) scale(0.78)" fill="none">
+      <g transform="translate(0 18) scale(0.78)" fill="none">
         <path d="M140 22 V150 A35 35 0 0 1 70 150 V138 A24 24 0 0 0 46 114 H18" stroke={ink} strokeWidth="34" strokeLinejoin="round" />
         <rect x="112" y="6" width="56" height="18" rx="2" fill="#2F6FE0" />
         <rect x="116" y="112" width="48" height="14" rx="2" fill="#2F6FE0" />
         <rect x="8" y="90" width="16" height="48" rx="2" fill="#2F6FE0" />
       </g>
       <g fontFamily="Georgia, 'Times New Roman', serif" fontWeight="700" fill={ink} letterSpacing="1">
-        <text x="150" y="58" fontSize="44">
+        <text x="150" y="72" fontSize="50">
           R.S.
         </text>
-        <text x="150" y="122" fontSize="58">
-          OHNSON PLUMBING
-        </text>
-        <text x="748" y="176" fontSize="40" textAnchor="end">
-          LLC
+        <text x="150" y="148" fontSize="60">
+          JOHNSON PLUMBING
         </text>
       </g>
     </svg>
@@ -98,7 +96,7 @@ export function Lockup({ className, title, reversed = false }: { className?: str
  */
 export function Logo({ size = "header", className }: Props) {
   const isHeader = size === "header";
-  const dims = isHeader ? "h-10 w-[152px] lg:h-[52px] lg:w-[198px]" : "h-11 w-[167px]";
+  const dims = isHeader ? "h-10 w-[160px] lg:h-[52px] lg:w-[208px]" : "h-11 w-[176px]";
   return (
     <Link href="/" aria-label={`${site.name} home`} className={cn("flex items-center text-charcoal builders:text-offwhite hover:no-underline", className)}>
       <Lockup className={cn("shrink-0", dims)} title={site.name} />
