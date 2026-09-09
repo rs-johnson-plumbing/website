@@ -10,13 +10,14 @@ import { cn } from "@/lib/cn";
  * drop that button where the number is already on screen (the homepage
  * hero, under the header callout).
  */
-export function CallText({ variant = "outlined", track, className, buttonClassName, desktop = true }: { variant?: ButtonVariant; track: string; className?: string; buttonClassName?: string; /** Render the desktop "Call or Text" button. Off where the header callout already shows the number. */ desktop?: boolean }) {
+export function CallText({ variant = "outlined", track, className, buttonClassName, desktop = true, or }: { variant?: ButtonVariant; track: string; className?: string; buttonClassName?: string; /** Render the desktop "Call or Text" button. Off where the header callout already shows the number. */ desktop?: boolean; /** A word between the two phone buttons, e.g. "or". */ or?: string }) {
   return (
     <>
-      <div className={cn("flex w-full gap-2.5 lg:hidden", className)}>
+      <div className={cn("flex w-full items-center gap-2.5", or && "gap-3", "lg:hidden", className)}>
         <Button href={site.phone.tel} variant={variant} track={`call-${track}`} icon="phone" className={cn("h-[52px] flex-1", buttonClassName)}>
           {site.cta.call}
         </Button>
+        {or && <span className="text-[14px] font-semibold text-slate">{or}</span>}
         <Button href={smsLink()} variant={variant} track={`text-${track}`} icon="message" className={cn("h-[52px] flex-1", buttonClassName)}>
           {site.cta.text}
         </Button>
