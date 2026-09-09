@@ -66,7 +66,7 @@ export function HomeHero() {
       {/* Phone: serving eyebrow, statement, then the two stacked boxes. */}
       <section data-sticky-sentinel className="bg-offwhite text-charcoal lg:hidden">
         <div className="flex flex-col gap-3 px-gutter-m pb-8 pt-6">
-          <p className="inline-flex items-center justify-center gap-1.5 text-[14px] font-bold text-teal">
+          <p className="mb-2 inline-flex items-center justify-center gap-1.5 text-[14px] font-bold text-teal">
             <Icon name="map" size={17} strokeWidth={1.8} />
             {s.eyebrow}
           </p>
