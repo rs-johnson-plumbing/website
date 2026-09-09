@@ -95,7 +95,7 @@ export default function ForHomeownersPage() {
 
       {/* What your neighbors are saying */}
       <Section id="reviews" tone="sand" pad="band" ariaLabelledby="ho-reviews-h" className="scroll-mt-[140px]">
-        <SectionHeading id="ho-reviews-h" title={homeowners.neighbors.heading} titleClassName={H} action={<TextLink href="/reviews">{homeowners.neighbors.link}</TextLink>} />
+        <SectionHeading id="ho-reviews-h" title={homeowners.neighbors.heading} titleClassName={H} />
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-3 lg:gap-5">
           {neighborReviews.map((r) => (
             <ReviewCard key={r.id} review={r} />
