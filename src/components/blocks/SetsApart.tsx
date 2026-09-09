@@ -20,13 +20,13 @@ export function SetsApart() {
       </h2>
       <div className="grid grid-cols-1 gap-3 lg:grid-cols-3 lg:gap-5">
         {block.items.map((item) => (
-          <div key={item.title} className="flex items-center gap-4 rounded-card border border-hairline bg-white p-4 lg:p-5">
+          <div key={item.title} className="flex items-center gap-4 rounded-card border border-hairline bg-white builders:border-darkborder builders:bg-darkcard p-4 lg:p-5">
             <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-tile bg-blue-tint text-blue">
               <Icon name={item.icon} size={24} />
             </span>
             <div>
               <div className="text-[17px] font-bold">{item.title}</div>
-              <div className="text-[14px] leading-snug text-slate">{item.line}</div>
+              <div className="text-[14px] leading-snug text-slate builders:text-ondark-muted">{item.line}</div>
             </div>
           </div>
         ))}

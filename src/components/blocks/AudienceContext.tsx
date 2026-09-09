@@ -1,6 +1,6 @@
 "use client";
 
-import { createContext, useContext, useState } from "react";
+import { createContext, useContext, useEffect, useState } from "react";
 
 export type Audience = "homeowners" | "builders";
 
@@ -16,6 +16,12 @@ const AudienceContext = createContext<{ audience: Audience; setAudience: (a: Aud
  */
 export function AudienceProvider({ children }: { children: React.ReactNode }) {
   const [audience, setAudience] = useState<Audience>("homeowners");
+  useEffect(() => {
+    document.body.dataset.audience = audience;
+    return () => {
+      delete document.body.dataset.audience;
+    };
+  }, [audience]);
   return <AudienceContext.Provider value={{ audience, setAudience }}>{children}</AudienceContext.Provider>;
 }
 

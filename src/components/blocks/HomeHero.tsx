@@ -21,8 +21,8 @@ export function HomeHero() {
 
   return (
     <>
-      <div role="tablist" aria-label="Choose audience" className="border-b border-hairline bg-offwhite px-gutter-m py-2 lg:hidden">
-        <div className="flex gap-1 rounded-btn bg-hairline p-1">
+      <div role="tablist" aria-label="Choose audience" className="border-b border-hairline bg-offwhite px-gutter-m py-2 builders:border-darkborder builders:bg-charcoal lg:hidden">
+        <div className="flex gap-1 rounded-btn bg-hairline p-1 builders:bg-darkcard">
           {(["homeowners", "builders"] as Audience[]).map((a) => (
             <button
               key={a}
@@ -32,7 +32,7 @@ export function HomeHero() {
               onClick={() => setAudience(a)}
               className={cn(
                 "flex-1 whitespace-nowrap rounded-[6px] px-3 py-2.5 text-[15px] font-bold transition-colors",
-                audience === a ? "bg-white text-charcoal shadow-[0_1px_2px_rgba(0,0,0,0.08)]" : "text-slate",
+                audience === a ? "bg-white text-charcoal shadow-[0_1px_2px_rgba(0,0,0,0.08)]" : "text-slate builders:text-ondark-muted",
               )}
             >
               {h.toggle[a]}

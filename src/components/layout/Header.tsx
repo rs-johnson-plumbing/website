@@ -28,7 +28,7 @@ export function Header() {
   const isActive = (href: string) => pathname === href || (href !== "/" && pathname.startsWith(href + "/"));
 
   return (
-    <header className="sticky top-0 z-20 border-b border-hairline bg-offwhite">
+    <header className="sticky top-0 z-20 border-b border-hairline bg-offwhite builders:border-darkborder builders:bg-charcoal">
       <div className="site-width gutter flex h-header-m items-center justify-between gap-3 lg:h-header">
         <Logo />
         <div className="flex items-center">
@@ -44,7 +44,7 @@ export function Header() {
           </Button>
           <button
             type="button"
-            className="-mr-2 flex h-10 w-10 items-center justify-center text-charcoal lg:hidden"
+            className="-mr-2 flex h-10 w-10 items-center justify-center text-charcoal builders:text-offwhite lg:hidden"
             aria-label={open ? "Close menu" : "Open menu"}
             aria-expanded={open}
             aria-controls="mobile-nav"
@@ -63,7 +63,7 @@ export function Header() {
         )}
       >
         {nav.map((item) => (
-          <Link key={item.href} href={item.href} className={cn("text-charcoal", isActive(item.href) && "underline underline-offset-4")} onClick={() => setOpen(false)}>
+          <Link key={item.href} href={item.href} className={cn("text-charcoal builders:text-offwhite", isActive(item.href) && "underline underline-offset-4")} onClick={() => setOpen(false)}>
             {item.label}
           </Link>
         ))}

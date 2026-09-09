@@ -11,7 +11,7 @@ type Props = {
 export function ClosingCTA({ heading = site.closingCta.heading, secondary }: Props) {
   const second = secondary ?? { label: site.closingCta.secondary, href: link("book") };
   return (
-    <section className="bg-charcoal text-offwhite">
+    <section className="bg-charcoal text-offwhite builders:bg-[#1f1f1f]">
       <div className="site-width gutter flex flex-col items-center gap-5 py-14 text-center lg:py-16">
         <h2 className="text-h2-m text-offwhite lg:text-h2">{heading}</h2>
         <div className="flex flex-wrap justify-center gap-3">

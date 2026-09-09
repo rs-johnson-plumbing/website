@@ -20,15 +20,15 @@ export function Neighbors() {
         {block.heading}
       </h2>
       {block.proofLine && (
-        <div className="flex items-center justify-center gap-2 text-[13px] font-semibold text-slate lg:justify-start">
+        <div className="flex items-center justify-center gap-2 text-[13px] font-semibold text-slate builders:text-ondark-muted lg:justify-start">
           <Icon name="star" size={14} filled className="text-blue" />
           {block.proofLine}
         </div>
       )}
       <div className="grid grid-cols-1 gap-3 lg:grid-cols-3 lg:gap-5">
-        <figure className="m-0 rounded-card border border-hairline border-l-4 border-l-blue bg-white p-5">
+        <figure className="m-0 rounded-card border border-hairline border-l-4 border-l-blue bg-white builders:border-darkborder builders:border-l-blue builders:bg-darkcard p-5">
           <blockquote className="m-0 text-[20px] font-bold leading-[1.3] tracking-[-0.01em]">“{block.lead.quote}”</blockquote>
-          <figcaption className="mt-1.5 text-[13px] text-slate">{block.lead.attribution}</figcaption>
+          <figcaption className="mt-1.5 text-[13px] text-slate builders:text-ondark-muted">{block.lead.attribution}</figcaption>
         </figure>
         {more.map((r) => (
           <ReviewCard key={r.id} review={r} />
