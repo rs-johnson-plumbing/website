@@ -36,10 +36,6 @@ export function HomeHero() {
         {/* The metro map sits behind everything, faded out under the headline. */}
         <MetroMap className="pointer-events-none absolute inset-0 h-full w-full opacity-[0.32]" />
         <div className="site-width gutter relative pb-[64px] pt-[64px]">
-          {/* Serving line, right-aligned to the same gutter as the header callout. */}
-          {s.serving && (
-            <p className="absolute right-gutter top-[64px] max-w-[260px] text-right text-[14px] font-semibold leading-snug text-slate">{s.serving}</p>
-          )}
           <h1 className="max-w-[760px] text-[52px] font-bold leading-[1.08] tracking-[-0.01em]">{s.heading}</h1>
           <div className="mt-9 flex items-stretch gap-10">
             {doors.map((d, i) => (
