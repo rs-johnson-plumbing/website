@@ -7,7 +7,8 @@ type Props = {
   secondary?: { label: string; href: string };
 };
 
-/** Charcoal strip at the bottom of every page: heading, call, book, hours line. */
+/** Charcoal strip at the bottom of every page: heading, call, book. Hours line
+ * is held back until Ryan confirms hours and the emergency policy. */
 export function ClosingCTA({ heading = site.closingCta.heading, secondary }: Props) {
   const second = secondary ?? { label: site.closingCta.secondary, href: link("book") };
   return (
@@ -22,9 +23,6 @@ export function ClosingCTA({ heading = site.closingCta.heading, secondary }: Pro
             {second.label}
           </Button>
         </div>
-        <p className="text-[15px] text-ondark-muted">
-          {site.hours} · {site.emergencyLine}
-        </p>
       </div>
     </section>
   );

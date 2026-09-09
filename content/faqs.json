@@ -1,6 +1,6 @@
 {
   "home": {
-    "heading": "Common Questions",
+    "heading": "FAQ",
     "line": "Straight answers before you call.",
     "items": [
       {
@@ -26,7 +26,7 @@
     ]
   },
   "service": {
-    "heading": "Common Questions",
+    "heading": "FAQ",
     "items": [
       {
         "q": "How soon can you get here?",
@@ -43,7 +43,7 @@
     ]
   },
   "plumbing": {
-    "heading": "Common Questions",
+    "heading": "FAQ",
     "items": [
       {
         "q": "What areas do you serve?",
