@@ -42,12 +42,8 @@
 }
 
 @layer base {
-  /* For Builders mode: the whole page goes slate teal. */
-  body[data-audience="builders"] {
-    background-color: #3f6c78;
-    color: #f7f5f0;
-  }
-  body[data-audience="builders"] :is(h1, h2, h3, h4):not([role="dialog"] *) {
+  /* Dark bands on the builders pages: deep teal ground, off-white type. */
+  .band-dark :is(h1, h2, h3, h4):not([role="dialog"] *) {
     color: #f7f5f0;
   }
 }
@@ -60,10 +56,16 @@
     @apply mx-auto w-full max-w-site;
   }
   .text-link {
-    @apply text-teal font-bold hover:text-teal-dark hover:underline builders:text-teal-ondark builders:hover:text-teal-ondark;
+    @apply text-teal font-bold hover:text-teal-dark hover:underline;
+  }
+  /* Inside a dark band the link is the pale teal. Written out because @apply
+     does not carry the builders variant onto a component class. */
+  .band-dark .text-link,
+  .band-dark .text-link:hover {
+    color: #dce9ec;
   }
   .nav-link {
-    @apply text-charcoal font-medium whitespace-nowrap hover:underline underline-offset-[6px] decoration-[1.5px] builders:text-offwhite;
+    @apply text-charcoal font-medium whitespace-nowrap hover:underline underline-offset-[6px] decoration-[1.5px];
   }
   .nav-link-active {
     @apply underline underline-offset-[6px] decoration-[1.5px];

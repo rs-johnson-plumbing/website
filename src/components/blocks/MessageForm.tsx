@@ -27,14 +27,14 @@ export function MessageForm({ className, heading = true }: { className?: string;
     }
   }
 
-  const input = "h-12 w-full rounded-btn border border-hairline bg-white px-3.5 text-[15px] text-charcoal placeholder:text-slate builders:text-ondark-muted focus:border-teal focus:outline-none";
+  const input = "h-12 w-full rounded-btn border border-hairline bg-white px-3.5 text-[15px] text-charcoal placeholder:text-slate focus:border-teal focus:outline-none";
 
   return (
-    <form id="message" onSubmit={onSubmit} className={cn("flex flex-col gap-3 rounded-card border border-hairline bg-white builders:border-darkborder builders:bg-darkcard p-5", className)}>
+    <form id="message" onSubmit={onSubmit} className={cn("flex flex-col gap-3 rounded-card border border-hairline bg-white p-5", className)}>
       {heading && (
         <>
           <div className="text-[20px] font-bold">{f.heading}</div>
-          <p className="text-[14px] text-slate builders:text-ondark-muted">{f.line}</p>
+          <p className="text-[14px] text-slate">{f.line}</p>
         </>
       )}
       {status === "sent" ? (

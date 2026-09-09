@@ -26,17 +26,19 @@ export const metadata: Metadata = {
 const H = pageH2;
 
 /**
- * For Builders: the contractor door, the whole page in the dark builders
- * mode. The audience provider mounts locked on builders, which sets
- * data-audience on the body so the header, anchor bar, sections, sticky bar,
- * and closing strip all flip. In order: why builders trust us, what we do
- * for builders (the six stages), meet the team, what other contractors are
- * saying, FAQ, contact us, then the bid request banner.
+ * For Builders: the contractor door. The page, header, and odd bands stay
+ * cream; the even bands (services, reviews, contact) are deep teal with
+ * white cards and charcoal filled buttons, which is what tells this page
+ * apart from For Homeowners. The audience provider mounts locked on
+ * builders so the trust cards, reviews, and sticky bar read the builder
+ * set. In order: why builders trust us, what we do for builders (the six
+ * stages), meet the team, what other contractors are saying, FAQ, contact
+ * us, then the bid request banner.
  */
 export default function ForBuildersPage() {
   return (
     <AudienceProvider initial="builders" locked>
-      {/* Paint the dark mode before hydration so the page never flashes light. */}
+      {/* Set the page audience before hydration so the sticky bar shows Request Bid from the first paint. */}
       <script dangerouslySetInnerHTML={{ __html: 'document.body.dataset.audience="builders";' }} />
       <JsonLd data={plumberJsonLd()} />
       <h1 className="sr-only">{builders.seoHeading}</h1>
@@ -49,7 +51,7 @@ export default function ForBuildersPage() {
       </Section>
 
       {/* 2. What we do for builders: the six stages, then the bid button */}
-      <Section id="services" tone="sand" pad="band" ariaLabelledby="b-services-h" className="scroll-mt-[140px]">
+      <Section id="services" tone="sand" pad="band" ariaLabelledby="b-services-h" className="band-dark scroll-mt-[140px]">
         <SectionHeading id="b-services-h" title={builders.services.heading} line={builders.services.line} titleClassName={H} />
         <BuilderServiceGrid hrefFor={(slug) => `/services/builders#${slug}`} />
         <div className="mt-8 flex justify-center lg:mt-10">
@@ -63,7 +65,7 @@ export default function ForBuildersPage() {
       </Section>
 
       {/* 4. What other contractors are saying */}
-      <Section id="reviews" tone="sand" pad="band" ariaLabelledby="neighbors-h" className="scroll-mt-[140px]">
+      <Section id="reviews" tone="sand" pad="band" ariaLabelledby="neighbors-h" className="band-dark scroll-mt-[140px]">
         <Neighbors headingClassName={H} />
       </Section>
 
@@ -76,7 +78,7 @@ export default function ForBuildersPage() {
       </Section>
 
       {/* 6. Contact us */}
-      <Section id="contact" tone="sand" pad="band" ariaLabelledby="contact-h" className="scroll-mt-[140px]">
+      <Section id="contact" tone="sand" pad="band" ariaLabelledby="contact-h" className="band-dark scroll-mt-[140px]">
         <ContactBlock headingClassName={H} />
       </Section>
 

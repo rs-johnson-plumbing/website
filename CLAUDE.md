@@ -58,8 +58,11 @@ Plumber on every job.
 - No street address anywhere. "Based in O'Fallon, MO."
 - Business name is "R.S. Johnson Plumbing LLC" everywhere it is written out.
 - Brand: off-white `#F7F5F0`, charcoal `#2B2B2B` for text, slate teal
-  `#3F6C78` on buttons, links, active states, illustration strokes, and as
-  the ground of the builders pages (`src/styles/tokens.ts` has the family).
+  `#3F6C78` on buttons, links, active states, and illustration strokes
+  (`src/styles/tokens.ts` has the family). The builders pages keep the
+  cream page and header; every other band is deep teal (`.band-dark`,
+  which switches on the `builders:` variant) with white cards and charcoal
+  filled buttons.
   Copper `#A85A2E` appears only on the logo flanges. Font: Figtree everywhere, including
   the logo wordmark (the logo files carry it as outlines).
 
