@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
 import { site, link, smsLink } from "@/lib/content";
 import { cn } from "@/lib/cn";
+import { Icon } from "@/components/ui/Icon";
 
 /**
  * Fixed bottom bar on every page below the desktop breakpoint: outlined Call
@@ -76,19 +77,21 @@ export function StickyMobileBar() {
         href={site.phone.tel}
         data-track="call-sticky"
         tabIndex={visible ? 0 : -1}
-        className="flex flex-1 items-center justify-center whitespace-nowrap rounded-btn border-[1.5px] border-charcoal bg-transparent py-3 text-[14px] font-bold text-charcoal hover:opacity-[0.88] builders:border-offwhite builders:text-offwhite"
+        className="flex flex-1 items-center justify-center gap-1.5 whitespace-nowrap rounded-btn border-[1.5px] border-charcoal bg-transparent py-3 text-[14px] font-bold text-charcoal hover:opacity-[0.88] builders:border-offwhite builders:text-offwhite"
         aria-label={`${site.cta.call} ${site.phone.display}`}
       >
         {site.cta.stickyCall}
+        <Icon name="phone" size={16} strokeWidth={1.8} className="shrink-0" />
       </a>
       <a
         href={smsLink()}
         data-track="text-sticky"
         tabIndex={visible ? 0 : -1}
-        className="flex flex-1 items-center justify-center whitespace-nowrap rounded-btn border-[1.5px] border-charcoal bg-transparent py-3 text-[14px] font-bold text-charcoal hover:opacity-[0.88] builders:border-offwhite builders:text-offwhite"
+        className="flex flex-1 items-center justify-center gap-1.5 whitespace-nowrap rounded-btn border-[1.5px] border-charcoal bg-transparent py-3 text-[14px] font-bold text-charcoal hover:opacity-[0.88] builders:border-offwhite builders:text-offwhite"
         aria-label={`${site.cta.text} ${site.phone.display}`}
       >
         {site.cta.stickyText}
+        <Icon name="message" size={16} strokeWidth={1.8} className="shrink-0" />
       </a>
       <a
         href={link("book")}

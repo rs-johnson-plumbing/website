@@ -3,6 +3,7 @@
 import { useCallback, useEffect, useId, useRef, useState } from "react";
 import { home } from "@/lib/content";
 import { cn } from "@/lib/cn";
+import { Icon } from "@/components/ui/Icon";
 import { BackLink, IntakeDialog, Row, intakeBtn as btn, intakeChip as chip, intakeInput as input } from "./IntakeDialog";
 
 type Stage = "idle" | "address" | "category" | "issue" | "note" | "phone" | "done";
@@ -125,9 +126,10 @@ export function AvailabilityCheck({ className }: { className?: string }) {
           type="button"
           onClick={() => setStage("address")}
           data-track="availability-open"
-          className={cn("inline-flex h-[52px] items-center justify-center whitespace-nowrap rounded-btn bg-blue px-6 text-[16px] font-bold text-white transition-opacity hover:opacity-[0.88]", className)}
+          className={cn("inline-flex h-[52px] items-center justify-center gap-2 whitespace-nowrap rounded-btn bg-blue px-6 text-[16px] font-bold text-white transition-opacity hover:opacity-[0.88]", className)}
         >
           {a.button}
+          <Icon name="arrow-right" size={20} strokeWidth={1.8} className="shrink-0" />
         </button>
       )}
       {error && stage === "address" && <p className="w-full text-left text-[14px] font-semibold text-charcoal">{a.error}</p>}
