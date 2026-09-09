@@ -97,7 +97,7 @@ export default function HomePage() {
           <div className="grid grid-cols-1 gap-4 lg:grid-cols-[1fr_520px] lg:items-start lg:gap-16">
             <div className="flex flex-col gap-2 lg:gap-5">
               <H2 id="contact-h">{home.ready.heading}</H2>
-              <p className="text-center text-[15px] text-slate builders:text-ondark-muted lg:max-w-[480px] lg:text-left lg:text-body">{home.ready.line}</p>
+              {home.ready.line && <p className="text-center text-[15px] text-slate builders:text-ondark-muted lg:max-w-[480px] lg:text-left lg:text-body">{home.ready.line}</p>}
             </div>
             <MessageForm />
           </div>
