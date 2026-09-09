@@ -47,31 +47,38 @@
     "items": [
       {
         "q": "What areas do you serve?",
-        "a": "St. Charles County and West St. Louis County — including O'Fallon, St. Charles, St. Peters, Wentzville, Lake St. Louis, Dardenne Prairie, Cottleville, Weldon Spring, Chesterfield, Wildwood, Ballwin, Kirkwood, Manchester, Ellisville, Creve Coeur, Town and Country, Clayton, and Ladue. If you're nearby and not listed, text us your address."
+        "a": "St. Charles County and West St. Louis County — including O'Fallon, St. Charles, St. Peters, Wentzville, Lake St. Louis, Dardenne Prairie, Cottleville, Weldon Spring, Chesterfield, Wildwood, Ballwin, Kirkwood, Manchester, Ellisville, Creve Coeur, Town and Country, Clayton, and Ladue. If you're nearby and not listed, text us your address.",
+        "icon": "map"
       },
       {
         "q": "Do you handle emergencies?",
-        "a": "Yes. Call 314-220-1827 for burst pipes, active leaks, sewer backups, and no hot water. [Hours / after-hours policy — CONFIRM.]"
+        "a": "Yes. Call 314-220-1827 for burst pipes, active leaks, sewer backups, and no hot water. [Hours / after-hours policy — CONFIRM.]",
+        "icon": "bolt"
       },
       {
         "q": "Are you licensed and insured?",
-        "a": "Yes. Ryan Johnson is a Missouri Master Plumber [license #], and R.S. Johnson Plumbing LLC is fully insured. We pull permits and meet inspections on work that requires them."
+        "a": "Yes. Ryan Johnson is a Missouri Master Plumber [license #], and R.S. Johnson Plumbing LLC is fully insured. We pull permits and meet inspections on work that requires them.",
+        "icon": "shield"
       },
       {
         "q": "How does pricing work?",
-        "a": "We quote the price before starting. For repairs, that's usually after a short diagnosis on site. For water heaters, remodels, and larger jobs, we can often quote from photos and a phone call."
+        "a": "We quote the price before starting. For repairs, that's usually after a short diagnosis on site. For water heaters, remodels, and larger jobs, we can often quote from photos and a phone call.",
+        "icon": "tag"
       },
       {
         "q": "Do you work with builders and contractors?",
-        "a": "Yes — new construction and renovation plumbing is most of our business. See our builders page for capabilities and how to request a bid."
+        "a": "Yes — new construction and renovation plumbing is most of our business. See our builders page for capabilities and how to request a bid.",
+        "icon": "building"
       },
       {
         "q": "Should I repair or replace my water heater?",
-        "a": "If it's under about [8] years old and the tank isn't leaking, repair is usually worth it. If the tank itself is leaking or the unit is past [10–12] years, replacement is the better investment. We'll tell you which before we quote."
+        "a": "If it's under about [8] years old and the tank isn't leaking, repair is usually worth it. If the tank itself is leaking or the unit is past [10–12] years, replacement is the better investment. We'll tell you which before we quote.",
+        "icon": "water-heater"
       },
       {
         "q": "Can I book online?",
-        "a": "Yes, for scheduled service — repairs, water heaters, remodel work. For emergencies, call so we can help you shut off water while we're on the way."
+        "a": "Yes, for scheduled service — repairs, water heaters, remodel work. For emergencies, call so we can help you shut off water while we're on the way.",
+        "icon": "calendar"
       }
     ]
   }

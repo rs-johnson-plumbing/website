@@ -97,7 +97,7 @@ export type Review = {
   placeholder?: boolean;
 };
 
-export type FaqItem = { q: string; a: string };
+export type FaqItem = { q: string; a: string; icon?: IconName };
 
 export type Project = {
   id: string;
@@ -124,7 +124,7 @@ export type ProjectsContent = Omit<typeof projectsJson, "items"> & { items: Proj
 
 export const team = teamJson as unknown as TeamContent;
 export const reviews = reviewsJson as unknown as ReviewsContent;
-export const faqs = faqsJson;
+export const faqs = faqsJson as Record<keyof typeof faqsJson, { heading: string; items: FaqItem[] }>;
 export const home = homeJson;
 export const homeowners = homeownersJson;
 export const servicesHub = servicesHubJson;

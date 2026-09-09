@@ -20,13 +20,14 @@
       "eyebrow": "Builders and General Contractors",
       "heading": "On Time. On Budget. Done Right.",
       "line": "",
-      "primary": "Request a Bid",
+      "primary": "Submit Bid Request",
       "secondary": "Call or Text 314-220-1827",
       "credentials": []
     }
   },
   "availability": {
     "button": "Check Availability",
+    "buttonDesktop": "Submit Service Request",
     "addressLabel": "Service address",
     "addressPlaceholder": "Street address, city",
     "check": "Check",
@@ -248,5 +249,44 @@
   "closingBuilders": {
     "heading": "Need a Bid?",
     "secondary": "Request a Bid"
+  },
+  "bid": {
+    "button": "Submit Bid Request",
+    "contractorHeading": "Who is the bid for?",
+    "contractorLabel": "Contractor or company name",
+    "contractorPlaceholder": "Company or contractor name",
+    "typeHeading": "What kind of project?",
+    "types": [
+      {
+        "id": "new-construction",
+        "label": "New Construction"
+      },
+      {
+        "id": "renovation",
+        "label": "Renovation"
+      }
+    ],
+    "plansHeading": "Have plans to share?",
+    "plansLine": "Attach a PDF or image of the plans. Optional, up to 4 MB.",
+    "plansButton": "Choose File",
+    "plansSkip": "Skip",
+    "plansTooBig": "That file is over 4 MB. Send it by text or email after we call.",
+    "phoneHeading": "What's your phone number?",
+    "phoneLine": "We'll call or text about the bid.",
+    "phonePlaceholder": "Phone number",
+    "send": "Send Bid Request",
+    "consent": "By sending your number you agree to a call or text about this request. [SMS consent wording — confirm]",
+    "done": "Got it. We'll call or text about your bid.",
+    "error": "Something went wrong. Call or text 314-220-1827 and we'll take it from there.",
+    "next": "Next",
+    "back": "Back",
+    "close": "Close",
+    "labels": {
+      "contractor": "Contractor",
+      "type": "Project Type",
+      "plans": "Plans",
+      "phone": "Phone Number"
+    },
+    "noPlans": "None attached"
   }
 }
