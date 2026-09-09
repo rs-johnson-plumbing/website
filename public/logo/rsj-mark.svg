@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 240" width="200" height="240" fill="none" role="img" aria-label="R.S. Johnson Plumbing mark">
   <path d="M140 22 V150 A35 35 0 0 1 70 150 V138 A24 24 0 0 0 46 114 H18" stroke="#2B2B2B" stroke-width="34" stroke-linejoin="round"/>
-  <rect x="112" y="6" width="56" height="18" rx="2" fill="#3F6C78"/>
-  <rect x="116" y="112" width="48" height="14" rx="2" fill="#3F6C78"/>
-  <rect x="8" y="90" width="16" height="48" rx="2" fill="#3F6C78"/>
+  <rect x="112" y="6" width="56" height="18" rx="2" fill="#A85A2E"/>
+  <rect x="116" y="112" width="48" height="14" rx="2" fill="#A85A2E"/>
+  <rect x="8" y="90" width="16" height="48" rx="2" fill="#A85A2E"/>
 </svg>
