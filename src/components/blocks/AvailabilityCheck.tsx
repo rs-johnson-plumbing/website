@@ -13,7 +13,7 @@ type Category = { id: string; label: string; issues: Issue[] };
  *
  *   Check Availability -> address field (in place) -> dialog:
  *   "We service your area. What are you inquiring about?" -> category ->
- *   issue (or Something Else with a short note) -> phone -> done.
+ *   issue (or Something Else) -> optional note -> phone -> done.
  *
  * The address posts on its own first so it is captured even if they
  * abandon; the rest posts with the phone number. Copy and the category
@@ -25,7 +25,6 @@ export function AvailabilityCheck({ className }: { className?: string }) {
   const [stage, setStage] = useState<Stage>("idle");
   const [address, setAddress] = useState("");
   const [category, setCategory] = useState<Category | null>(null);
-  const [issue, setIssue] = useState<Issue | null>(null);
   const [issueLabel, setIssueLabel] = useState("");
   const [note, setNote] = useState("");
   const [busy, setBusy] = useState(false);
@@ -59,7 +58,6 @@ export function AvailabilityCheck({ className }: { className?: string }) {
   function reset() {
     setStage("idle");
     setCategory(null);
-    setIssue(null);
     setIssueLabel("");
     setNote("");
     setError(false);
@@ -86,15 +84,13 @@ export function AvailabilityCheck({ className }: { className?: string }) {
 
   function pickCategory(c: Category) {
     setCategory(c);
-    setIssue(null);
     setIssueLabel("");
     setStage("issue");
   }
 
   function pickIssue(i: Issue | null) {
-    setIssue(i);
     setIssueLabel(i ? i.label : a.other);
-    setStage(i ? "phone" : "note");
+    setStage("note");
   }
 
   async function submitPhone(e: React.FormEvent<HTMLFormElement>) {
@@ -203,9 +199,9 @@ export function AvailabilityCheck({ className }: { className?: string }) {
             {stage === "note" && category && (
               <>
                 <h2 id={titleId} className="pr-8 text-[22px] font-bold leading-tight">
-                  {a.other}
+                  {issueLabel}
                 </h2>
-                <p className="mt-1 text-[14px] text-slate">{category.label}</p>
+                <p className="mt-1 text-[14px] text-slate">{a.noteLine}</p>
                 <textarea ref={noteRef} value={note} onChange={(e) => setNote(e.target.value)} rows={3} maxLength={500} placeholder={a.notePlaceholder} aria-label={a.notePlaceholder} className={cn(input, "mt-4 h-auto py-3")} />
                 <div className="mt-4 flex items-center justify-between gap-3">
                   <button type="button" onClick={() => setStage("issue")} className="text-[14px] font-semibold text-slate hover:text-charcoal">
@@ -232,7 +228,7 @@ export function AvailabilityCheck({ className }: { className?: string }) {
                 <p className="mt-2 text-[12px] leading-snug text-slate">{a.consent}</p>
                 {error && <p className="mt-2 text-[14px] font-semibold">{a.error}</p>}
                 <div className="mt-4 flex items-center justify-between gap-3">
-                  <button type="button" onClick={() => setStage(issue ? "issue" : "note")} className="text-[14px] font-semibold text-slate hover:text-charcoal">
+                  <button type="button" onClick={() => setStage("note")} className="text-[14px] font-semibold text-slate hover:text-charcoal">
                     ← {a.back}
                   </button>
                   <button type="submit" disabled={busy} data-track="availability-send" className={cn(btn, "bg-blue text-white")}>

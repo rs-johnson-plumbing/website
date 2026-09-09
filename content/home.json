@@ -109,7 +109,8 @@
       }
     ],
     "other": "Something Else",
-    "notePlaceholder": "Tell us what's going on",
+    "noteLine": "Tell us a little about it. Optional.",
+    "notePlaceholder": "What's going on?",
     "next": "Next",
     "back": "Back",
     "phoneHeading": "What's your phone number?",
