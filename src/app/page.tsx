@@ -134,7 +134,7 @@ export default function HomePage() {
               {home.ready.heading}
             </h2>
             <p className="hidden max-w-[480px] text-body lg:block">{home.ready.line}</p>
-            <div className="flex flex-col gap-2.5 lg:flex-row lg:gap-3">
+            <div className="hidden lg:flex lg:flex-row lg:gap-3">
               <Button href={link("book")} variant="filled" track="book-ready" className="h-[52px] w-full lg:w-auto">
                 {home.hero.homeowners.primary}
               </Button>

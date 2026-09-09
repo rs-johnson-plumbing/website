@@ -43,7 +43,7 @@ export function HomeHero() {
         </div>
       </div>
 
-      <section className="grid grid-cols-1 lg:grid-cols-[55%_45%] lg:items-start">
+      <section data-sticky-sentinel className="grid grid-cols-1 lg:grid-cols-[55%_45%] lg:items-start">
         {/* Homeowners door */}
         <div className={cn("bg-offwhite text-charcoal", audience !== "homeowners" && "hidden lg:block")}>
           <div className="flex flex-col items-center gap-4 px-gutter-m py-8 text-center lg:ml-auto lg:max-w-[calc(1440px*0.55)] lg:items-start lg:gap-5 lg:px-gutter lg:py-[64px] lg:text-left">
