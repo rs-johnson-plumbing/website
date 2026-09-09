@@ -4,6 +4,7 @@ import { home, site, link } from "@/lib/content";
 import { Button } from "@/components/ui/Button";
 import { cn } from "@/lib/cn";
 import { useAudience, type Audience } from "./AudienceContext";
+import { AvailabilityCheck } from "./AvailabilityCheck";
 
 /**
  * Two-door homepage hero.
@@ -48,13 +49,14 @@ export function HomeHero() {
             <div className="hidden text-[14px] font-bold uppercase tracking-[0.04em] text-slate lg:block">{h.homeowners.eyebrow}</div>
             <h1 className="flex min-h-[71px] items-center justify-center text-[clamp(26px,8vw,32px)] font-bold leading-[1.1] tracking-[-0.01em] lg:block lg:min-h-[106px] lg:text-h1 lg:font-bold">{h.homeowners.heading}</h1>
             {h.homeowners.line && <p className="max-w-[520px] text-[16px] leading-[1.5] lg:min-h-[58px] lg:text-body">{h.homeowners.line}</p>}
-            <div className="flex w-full flex-col gap-2.5 lg:w-auto lg:flex-row lg:gap-3 lg:pt-2">
+            <div className="flex w-full flex-col gap-2.5 lg:w-full lg:max-w-[640px] lg:flex-row lg:flex-wrap lg:gap-3 lg:pt-2">
               <Button href={link("book")} variant="filled" track="book-hero" className="h-[52px] w-full lg:w-auto">
                 {h.homeowners.primary}
               </Button>
               <Button href={site.phone.tel} variant="outlined" track="call-hero" className="h-[52px] w-full bg-white lg:w-auto">
                 {h.homeowners.secondary}
               </Button>
+              <AvailabilityCheck className="w-full lg:w-auto" />
             </div>
             {h.homeowners.credentials.length > 0 && (
             <div className="flex flex-wrap justify-center gap-x-3 gap-y-1 text-[13px] font-semibold text-slate lg:hidden">

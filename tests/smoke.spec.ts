@@ -44,3 +44,12 @@ test("message API rejects an empty post and accepts a valid one", async ({ reque
   const good = await request.post("/api/message", { data: { name: "Smoke", phone: "3145551212", message: "test" } });
   expect(good.status()).toBe(200);
 });
+
+test("availability API captures an address, then a phone number", async ({ request }) => {
+  const bad = await request.post("/api/availability", { data: { address: "x" } });
+  expect(bad.status()).toBe(400);
+  const step1 = await request.post("/api/availability", { data: { address: "123 Main St, O'Fallon" } });
+  expect(step1.status()).toBe(200);
+  const step2 = await request.post("/api/availability", { data: { address: "123 Main St, O'Fallon", phone: "314-555-1212" } });
+  expect(step2.status()).toBe(200);
+});
