@@ -7,8 +7,9 @@ import { cn } from "@/lib/cn";
 type Status = "idle" | "sending" | "sent" | "error";
 
 /**
- * Short homeowner message form. Posts to /api/message, which is a stub until
- * the Housecall Pro webhook and Resend notification are wired (step 7).
+ * Short message form: first and last name, email, phone, comments, in four
+ * rows. Posts to /api/message, which is a stub until the Housecall Pro
+ * webhook and Resend notification are wired (step 7).
  */
 export function MessageForm({ className, heading = true }: { className?: string; /** Show the card's own heading and line. Off when the section heading already says it. */ heading?: boolean }) {
   const f = home.form;
@@ -41,15 +42,12 @@ export function MessageForm({ className, heading = true }: { className?: string;
       ) : (
         <>
           <div className="grid grid-cols-1 gap-2.5 lg:grid-cols-2">
-            <input name="name" required placeholder={f.fields.name} aria-label={f.fields.name} className={input} autoComplete="name" />
+            <input name="firstName" required placeholder={f.fields.firstName} aria-label={f.fields.firstName} className={input} autoComplete="given-name" />
+            <input name="lastName" required placeholder={f.fields.lastName} aria-label={f.fields.lastName} className={input} autoComplete="family-name" />
+            <input name="email" type="email" placeholder={f.fields.email} aria-label={f.fields.email} className={input} autoComplete="email" />
             <input name="phone" required type="tel" placeholder={f.fields.phone} aria-label={f.fields.phone} className={input} autoComplete="tel" />
-            <input name="city" placeholder={f.fields.city} aria-label={f.fields.city} className={input} autoComplete="address-level2" />
-            <textarea name="message" required placeholder={f.fields.message} aria-label={f.fields.message} rows={4} className={cn(input, "h-auto py-3 lg:row-span-2")} />
+            <textarea name="comments" required placeholder={f.fields.comments} aria-label={f.fields.comments} rows={4} className={cn(input, "h-auto py-3 lg:col-span-2")} />
           </div>
-          <label className="flex items-start gap-2 text-[12px] leading-snug text-slate builders:text-ondark-muted">
-            <input type="checkbox" name="smsConsent" className="mt-0.5 h-4 w-4 shrink-0 rounded border-slate" />
-            {f.consent}
-          </label>
           {status === "error" && <p className="text-[14px] font-semibold text-charcoal">{f.error}</p>}
           <button
             type="submit"

@@ -14,7 +14,7 @@ export function IntakeBanner({ audience, id }: { audience: "homeowners" | "build
       <div className="site-width gutter flex flex-col items-center gap-3 lg:flex-row lg:justify-center lg:gap-4">
         {audience !== "builders" && <AvailabilityCheck className="w-full lg:w-auto" />}
         {audience === "both" && <span className="text-[14px] font-semibold text-slate">{home.banner.or}</span>}
-        {audience !== "homeowners" && <BidRequest variant={audience === "both" ? "outlined" : "filled"} className="w-full lg:w-auto" />}
+        {audience !== "homeowners" && <BidRequest className="w-full lg:w-auto" />}
       </div>
     </section>
   );
