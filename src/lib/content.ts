@@ -13,6 +13,7 @@ import faqsJson from "../../content/faqs.json";
 import projectsJson from "../../content/projects.json";
 import homeJson from "../../content/home.json";
 import homeownersJson from "../../content/homeowners.json";
+import buildersJson from "../../content/builders.json";
 import servicesHubJson from "../../content/services-hub.json";
 import builderServicesJson from "../../content/builder-services.json";
 
@@ -129,6 +130,7 @@ export const reviews = reviewsJson as unknown as ReviewsContent;
 export const faqs = faqsJson as Record<keyof typeof faqsJson, { heading: string; items: FaqItem[] }>;
 export const home = homeJson;
 export const homeowners = homeownersJson;
+export const builders = buildersJson;
 export const servicesHub = servicesHubJson;
 export type BuilderService = { slug: string; name: string; short: string; illustration: string };
 export const builderServices = builderServicesJson as BuilderService[];

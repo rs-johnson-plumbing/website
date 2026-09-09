@@ -10,11 +10,11 @@ type Item = { icon: IconName; title: string; line: string };
  * "Here's what sets us apart" for homeowners, "Why trust us" for builders.
  * Follows the homepage toggle.
  */
-/** `heading` overrides the homeowner heading, e.g. on the For Homeowners page. */
+/** `heading` overrides the block heading, e.g. on the For Homeowners and For Builders pages. */
 export function SetsApart({ heading, headingClassName }: { heading?: string; headingClassName?: string } = {}) {
   const { audience } = useAudience();
   const block = home.setsApart[audience] as { heading: string; items: Item[] };
-  const title = audience === "homeowners" && heading ? heading : block.heading;
+  const title = heading ?? block.heading;
   return (
     <div className="flex flex-col gap-8 lg:gap-10">
       <h2 id="apart-h" className={headingClassName ?? "text-center text-h2-m tracking-[-0.01em] lg:text-left lg:text-h2"}>

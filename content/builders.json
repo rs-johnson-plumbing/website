@@ -1,0 +1,55 @@
+{
+  "meta": {
+    "title": "Plumbing for Builders in St. Charles County | R.S. Johnson Plumbing",
+    "description": "New construction and renovation plumbing for builders and general contractors in St. Charles County. Plans and takeoffs, underground, rough-in, gas, and trim from one crew."
+  },
+  "seoHeading": "Plumbing for Builders and General Contractors in St. Charles County",
+  "anchors": [
+    {
+      "id": "apart",
+      "label": "Trust Us",
+      "icon": "check"
+    },
+    {
+      "id": "services",
+      "label": "Services",
+      "icon": "check-circle"
+    },
+    {
+      "id": "team",
+      "label": "Team",
+      "icon": "shield"
+    },
+    {
+      "id": "reviews",
+      "label": "Reviews",
+      "icon": "sparkle"
+    },
+    {
+      "id": "faq",
+      "label": "FAQ",
+      "icon": "help"
+    },
+    {
+      "id": "contact",
+      "label": "Contact",
+      "icon": "phone"
+    }
+  ],
+  "apart": {
+    "heading": "Why Builders Trust Us"
+  },
+  "services": {
+    "heading": "What We Do for Builders",
+    "line": "The stages builders call us for, from plans to final inspection."
+  },
+  "team": {
+    "heading": "Meet the Team"
+  },
+  "faq": {
+    "heading": "FAQ"
+  },
+  "closing": {
+    "heading": "Need a Bid?"
+  }
+}
