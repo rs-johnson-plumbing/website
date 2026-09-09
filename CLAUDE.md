@@ -56,8 +56,8 @@ Plumber on every job.
 - No street address anywhere. "Based in O'Fallon, MO."
 - Business name is "R.S. Johnson Plumbing LLC" everywhere it is written out.
 - Brand: off-white `#F7F5F0`, charcoal `#2B2B2B`, brand blue `#2F6FE0` on
-  buttons, links, and active states only. Font: Figtree; Georgia only in the
-  logo wordmark.
+  buttons, links, and active states only. Font: Figtree everywhere, including
+  the logo wordmark (the logo files carry it as outlines).
 
 ## Workflow
 
