@@ -77,7 +77,7 @@ export function StickyMobileBar() {
         href={site.phone.tel}
         data-track="call-sticky"
         tabIndex={visible ? 0 : -1}
-        className="flex flex-1 items-center justify-center gap-1.5 whitespace-nowrap rounded-btn border-[1.5px] border-charcoal bg-transparent py-3 text-[14px] font-bold text-charcoal hover:opacity-[0.88]"
+        className="flex flex-1 items-center justify-center gap-1.5 whitespace-nowrap rounded-btn border-[1.5px] border-teal bg-transparent py-3 text-[14px] font-bold text-teal hover:opacity-[0.88]"
         aria-label={`${site.cta.call} ${site.phone.display}`}
       >
         {site.cta.stickyCall}
@@ -87,7 +87,7 @@ export function StickyMobileBar() {
         href={smsLink()}
         data-track="text-sticky"
         tabIndex={visible ? 0 : -1}
-        className="flex flex-1 items-center justify-center gap-1.5 whitespace-nowrap rounded-btn border-[1.5px] border-charcoal bg-transparent py-3 text-[14px] font-bold text-charcoal hover:opacity-[0.88]"
+        className="flex flex-1 items-center justify-center gap-1.5 whitespace-nowrap rounded-btn border-[1.5px] border-teal bg-transparent py-3 text-[14px] font-bold text-teal hover:opacity-[0.88]"
         aria-label={`${site.cta.text} ${site.phone.display}`}
       >
         {site.cta.stickyText}
