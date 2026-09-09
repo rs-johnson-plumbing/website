@@ -22,9 +22,10 @@ const H = pageH2;
  * One plumber, laid out like a service band: the scene on one side (the
  * avatar large until a photo exists), and on the other the illustration
  * of what they mostly do beside their name, the title, the role line, the
- * bio, and Ryan's badges. Sides and ground alternate down the page.
+ * bio, and Ryan's badges. The scene side alternates down the page; every
+ * band stays cream, like the services hub.
  */
-function MemberBand({ member, sceneLeft, sand }: { member: TeamMember; sceneLeft: boolean; /** Every other band sits on sand so the five read as separate people. */ sand: boolean }) {
+function MemberBand({ member, sceneLeft }: { member: TeamMember; sceneLeft: boolean }) {
   const personLd = {
     "@context": "https://schema.org",
     "@type": "Person",
@@ -33,7 +34,7 @@ function MemberBand({ member, sceneLeft, sand }: { member: TeamMember; sceneLeft
     worksFor: { "@type": "Organization", name: site.name },
   };
   return (
-    <section id={member.id} className={cn("scroll-mt-[140px] text-charcoal", sand ? "bg-sand" : "bg-offwhite")}>
+    <section id={member.id} className="scroll-mt-[140px] bg-offwhite text-charcoal">
       <JsonLd data={personLd} />
       <div className="site-width gutter grid grid-cols-1 items-start gap-6 py-10 lg:grid-cols-2 lg:gap-16 lg:py-[60px]">
         <MemberScene id={member.id} title={member.photo.alt} className={cn("order-first", sceneLeft ? "lg:order-first" : "lg:order-last")} />
@@ -83,7 +84,7 @@ export default function OurTeamPage() {
 
       {/* One band per plumber, scene side alternating */}
       {members.map((m, i) => (
-        <MemberBand key={m.id} member={m} sceneLeft={i % 2 === 0} sand={i % 2 === 1} />
+        <MemberBand key={m.id} member={m} sceneLeft={i % 2 === 0} />
       ))}
 
       {/* How we work, one list per audience */}
