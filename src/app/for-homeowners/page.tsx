@@ -15,6 +15,7 @@ import { Button } from "@/components/ui/Button";
 import { TextLink } from "@/components/ui/TextLink";
 import { IconTile } from "@/components/ui/Icon";
 import { cn } from "@/lib/cn";
+import { pageH2 } from "@/styles/headings";
 
 export const metadata: Metadata = {
   title: { absolute: homeowners.meta.title },
@@ -31,8 +32,7 @@ type Sign = { icon: IconName; title: string; text: string; service: string; link
  * neighbors are saying, signs you need a plumber, FAQ. Service detail lives
  * on /services.
  */
-// One heading style for every section on this page: 28px on phone, 34px on desktop, semibold like the h2 token, left-aligned.
-const H = "text-left text-[28px] font-semibold leading-[1.2] tracking-[-0.01em] lg:text-[34px]";
+const H = pageH2;
 
 export default function ForHomeownersPage() {
   const signs = homeowners.signs.items as Sign[];

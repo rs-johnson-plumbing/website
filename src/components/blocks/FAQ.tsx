@@ -29,16 +29,16 @@ export function FAQ({ items, openIndex = 0, withJsonLd = true }: Props) {
     })),
   };
   return (
-    <div className="divide-y divide-hairline border-y border-hairline">
+    <div className="divide-y divide-hairline border-y border-hairline builders:divide-darkborder builders:border-darkborder">
       {withJsonLd && <JsonLd data={faqLd} />}
       {items.map((item, i) => (
         <details key={item.q} open={i === openIndex} className="group">
           <summary className="flex cursor-pointer list-none items-center gap-4 py-4 text-[17px] font-semibold marker:content-none [&::-webkit-details-marker]:hidden">
             {item.icon && <ValueIllustration icon={item.icon} className="h-14 w-14 shrink-0" />}
             <span className="flex-1">{item.q}</span>
-            <Icon name="chevron-down" size={18} strokeWidth={2} className="shrink-0 text-slate transition-transform group-open:rotate-180" />
+            <Icon name="chevron-down" size={18} strokeWidth={2} className="shrink-0 text-slate transition-transform group-open:rotate-180 builders:text-ondark-muted" />
           </summary>
-          <p className={cn("pb-5 text-[16px] leading-relaxed text-slate", item.icon && "pl-[72px]")}>{item.a}</p>
+          <p className={cn("pb-5 text-[16px] leading-relaxed text-slate builders:text-ondark-muted", item.icon && "pl-[72px]")}>{item.a}</p>
         </details>
       ))}
     </div>

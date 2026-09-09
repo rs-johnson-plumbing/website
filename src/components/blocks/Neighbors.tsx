@@ -10,13 +10,13 @@ import { useAudience } from "./AudienceContext";
  * "What our neighbors say" for homeowners, "What other contractors say"
  * for builders. Follows the homepage toggle. Lead quote, then two cards.
  */
-export function Neighbors() {
+export function Neighbors({ headingClassName }: { headingClassName?: string } = {}) {
   const { audience } = useAudience();
   const block = home.neighbors[audience];
   const more = block.reviewIds.map((id) => reviews.items.find((r) => r.id === id)).filter((r): r is NonNullable<typeof r> => Boolean(r));
   return (
     <div className="flex flex-col gap-3 lg:gap-5">
-      <h2 id="neighbors-h" className="text-center text-h2-m tracking-[-0.01em] lg:text-left lg:text-h2">
+      <h2 id="neighbors-h" className={headingClassName ?? "text-center text-h2-m tracking-[-0.01em] lg:text-left lg:text-h2"}>
         {block.heading}
       </h2>
       {block.proofLine && (

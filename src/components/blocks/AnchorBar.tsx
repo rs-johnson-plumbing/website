@@ -101,14 +101,14 @@ export function AnchorBar({ anchors }: { anchors: Anchor[] }) {
   };
 
   return (
-    <nav aria-label="On this page" className="sticky top-header-m z-[15] border-y border-hairline bg-offwhite lg:top-header">
+    <nav aria-label="On this page" className="sticky top-header-m z-[15] border-y border-hairline bg-offwhite builders:border-darkborder builders:bg-charcoal lg:top-header">
       <div className="relative">
         <button
           type="button"
           aria-label="Scroll left"
           onClick={() => page(-1)}
           className={cn(
-            "absolute inset-y-0 left-0 z-10 flex w-9 items-center justify-center bg-gradient-to-r from-offwhite via-offwhite to-transparent text-charcoal transition-opacity lg:hidden",
+            "absolute inset-y-0 left-0 z-10 flex w-9 items-center justify-center bg-gradient-to-r from-offwhite via-offwhite to-transparent text-charcoal transition-opacity builders:from-charcoal builders:via-charcoal builders:text-offwhite lg:hidden",
             canLeft ? "opacity-100" : "pointer-events-none opacity-0",
           )}
         >
@@ -124,8 +124,8 @@ export function AnchorBar({ anchors }: { anchors: Anchor[] }) {
                 data-anchor={a.id}
                 aria-current={isActive ? "location" : undefined}
                 className={cn(
-                  "-mb-px inline-flex shrink-0 items-center gap-1.5 whitespace-nowrap border-b-[3px] py-3 text-[15px] font-medium transition-colors hover:border-ondark-muted hover:text-charcoal hover:no-underline lg:py-3.5",
-                  isActive ? "border-blue font-bold text-blue hover:text-blue" : "border-transparent text-slate",
+                  "-mb-px inline-flex shrink-0 items-center gap-1.5 whitespace-nowrap border-b-[3px] py-3 text-[15px] font-medium transition-colors hover:border-ondark-muted hover:text-charcoal hover:no-underline builders:hover:text-offwhite lg:py-3.5",
+                  isActive ? "border-blue font-bold text-blue hover:text-blue builders:hover:text-blue" : "border-transparent text-slate builders:text-ondark-muted",
                 )}
               >
                 <Icon name={a.icon} size={16} />
@@ -139,7 +139,7 @@ export function AnchorBar({ anchors }: { anchors: Anchor[] }) {
           aria-label="Scroll right"
           onClick={() => page(1)}
           className={cn(
-            "absolute inset-y-0 right-0 z-10 flex w-9 items-center justify-center bg-gradient-to-l from-offwhite via-offwhite to-transparent text-charcoal transition-opacity lg:hidden",
+            "absolute inset-y-0 right-0 z-10 flex w-9 items-center justify-center bg-gradient-to-l from-offwhite via-offwhite to-transparent text-charcoal transition-opacity builders:from-charcoal builders:via-charcoal builders:text-offwhite lg:hidden",
             canRight ? "opacity-100" : "pointer-events-none opacity-0",
           )}
         >

@@ -70,6 +70,19 @@ const art: Partial<Record<IconName, React.ReactNode>> = {
       <path d="M124 62 c6 -4 6 -10 0 -14 M132 70 c8 -6 8 -16 0 -22" stroke={B} strokeWidth="4" />
     </>
   ),
+  gas: (
+    <>
+      {/* gas valve with a flame */}
+      <path d="M30 104 h100" stroke={C} strokeWidth="18" />
+      <path d="M30 104 h100" stroke={O} strokeWidth="10" />
+      <rect x="38" y="92" width="14" height="24" rx="3" fill={B} stroke={C} strokeWidth="3" />
+      <rect x="108" y="92" width="14" height="24" rx="3" fill={B} stroke={C} strokeWidth="3" />
+      <rect x="66" y="88" width="28" height="32" rx="6" fill={O} stroke={C} strokeWidth="4" />
+      <path d="M80 88 v-14" stroke={C} strokeWidth="5" />
+      <rect x="66" y="62" width="28" height="12" rx="4" fill={B} stroke={C} strokeWidth="3" />
+      <path d="M80 54 c-12 -12 -12 -24 -2 -34 c0 10 7 12 7 12 c0 -9 5 -14 11 -18 c-2 10 9 14 9 24 c0 10 -8 18 -17 18 c-3 0 -6 -1 -8 -2z" fill={B} stroke={C} strokeWidth="3" />
+    </>
+  ),
   calendar: (
     <>
       <rect x="36" y="40" width="88" height="84" rx="10" fill={W} stroke={C} strokeWidth="4" />
