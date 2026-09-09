@@ -18,10 +18,11 @@ import type { IconName } from "@/lib/content";
  * Two filled buttons in one section is deliberate here: the hero's job is
  * to give each audience its door.
  *
- * Phone: no audience toggle. The statement centered, a full-width Submit
- * Service Request, the Call and Text pair, then one bordered row that gives
- * builders their door as a text link. Desktop has no Call and Text pair;
- * the header callout carries the number, since a desktop cannot dial.
+ * Phone: no audience toggle and no builders row. The statement centered, a
+ * full-width Submit Service Request, the talk line, the Call and Text pair,
+ * then the map card. Builders on a phone get their door from the closing
+ * banner and the For Builders page. Desktop has no Call and Text pair; the
+ * header callout carries the number, since a desktop cannot dial.
  */
 export function HomeHero() {
   const s = home.hero.single;
@@ -64,15 +65,8 @@ export function HomeHero() {
           <AvailabilityCheck className="mt-2 w-full" />
           <p className="-mb-1 mt-1 text-center text-[15px] font-semibold text-charcoal">{s.talk}</p>
           <CallText track="hero" desktop={false} or={s.or} />
-          <div className="mt-2 flex items-center justify-between gap-4 rounded-btn border border-hairline px-4 py-3">
-            <span className="inline-flex items-center gap-2 text-[16px] font-semibold tracking-[-0.01em]">
-              <Icon name={s.builders.icon as IconName} size={18} strokeWidth={1.8} className="text-teal" />
-              {s.builders.label}
-            </span>
-            <BidRequest variant="link" />
-          </div>
           {/* Where we are and where we go: the metro map in a card, with the words on top. */}
-          <div className="relative mt-1 overflow-hidden rounded-card border border-hairline bg-white">
+          <div className="relative mt-2 overflow-hidden rounded-card border border-hairline bg-white">
             <MetroMap frame="phone" className="pointer-events-none absolute inset-0 h-full w-full opacity-[0.3]" />
             <div className="relative flex flex-col items-center gap-1 px-4 py-5 text-center">
               <span className="text-[12px] font-bold uppercase tracking-[0.06em] text-teal">{s.card.eyebrow}</span>
