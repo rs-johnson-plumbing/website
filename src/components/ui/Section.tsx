@@ -42,11 +42,11 @@ export function Section({ children, tone = "offwhite", id, className, pad = "def
 }
 
 /** Section heading row: H2 left, optional link right, optional muted line under. */
-export function SectionHeading({ id, title, action, line, dark = false }: { id?: string; title: string; action?: React.ReactNode; line?: string; dark?: boolean }) {
+export function SectionHeading({ id, title, action, line, dark = false, titleClassName }: { id?: string; title: string; action?: React.ReactNode; line?: string; dark?: boolean; titleClassName?: string }) {
   return (
     <div className="mb-8">
       <div className="flex flex-wrap items-baseline justify-between gap-5">
-        <h2 id={id} className={cn("text-h2-m lg:text-h2", dark && "text-offwhite")}>
+        <h2 id={id} className={cn(titleClassName ?? "text-h2-m lg:text-h2", dark && "text-offwhite")}>
           {title}
         </h2>
         {action}

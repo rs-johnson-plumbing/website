@@ -103,6 +103,13 @@ const paths: Record<IconName, React.ReactNode> = {
     </>
   ),
   "chevron-down": <path d="M6 9l6 6 6-6" />,
+  help: (
+    <>
+      <circle cx="12" cy="12" r="9" />
+      <path d="M9.5 9.5a2.5 2.5 0 1 1 3.5 2.3c-.7.4-1 .9-1 1.7" />
+      <circle cx="12" cy="17" r="0.6" fill="currentColor" />
+    </>
+  ),
 };
 
 export function Icon({ name, size = 18, className, strokeWidth = stroke.icon, filled = false }: Props) {

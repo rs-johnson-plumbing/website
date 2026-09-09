@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { services } from "@/lib/content";
 import { ServiceIllustration } from "./ServiceIllustration";
+import { cn } from "@/lib/cn";
 
 /**
  * The eight illustrated service cards, two across on phone and four on
@@ -27,10 +28,10 @@ export function ServiceGrid({ hrefFor, slugs }: { hrefFor: (slug: string) => str
 }
 
 /** Hero-style centered heading used at the top of the hub and audience pages. */
-export function PageHeading({ id, title, line }: { id: string; title: string; line?: string }) {
+export function PageHeading({ id, title, line, align = "center", className }: { id: string; title: string; line?: string; align?: "center" | "left"; className?: string }) {
   return (
-    <div className="mb-8 flex flex-col items-center gap-3 text-center lg:mb-12">
-      <h2 id={id} className="text-[clamp(26px,8vw,32px)] font-bold leading-[1.1] tracking-[-0.01em] lg:text-h1 lg:font-bold">
+    <div className={cn("mb-8 flex flex-col gap-3 lg:mb-12", align === "center" ? "items-center text-center" : "items-start text-left")}>
+      <h2 id={id} className={className ?? "text-[clamp(26px,8vw,32px)] font-bold leading-[1.1] tracking-[-0.01em] lg:text-h1 lg:font-bold"}>
         {title}
       </h2>
       {line && <p className="max-w-[560px] text-[16px] leading-[1.5] text-slate lg:text-body">{line}</p>}
