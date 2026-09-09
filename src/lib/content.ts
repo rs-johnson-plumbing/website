@@ -87,6 +87,8 @@ export type TeamMember = {
   role: string;
   bio: string;
   badges?: string[];
+  /** Service illustration slug for what this plumber mostly does; sits beside the name on the team page. */
+  illustration?: string;
   photo: Photo;
   featured?: boolean;
   placeholder: boolean;

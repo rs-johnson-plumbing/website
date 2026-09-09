@@ -105,21 +105,36 @@ export function hasAvatar(id: string) {
   return id in looks;
 }
 
-export function Avatar({ id, title, className }: { id: string; title?: string; className?: string }) {
+/**
+ * The avatar as a bare group in a 160 by 160 box, for placing inside a
+ * larger scene (the team page bands). `clipId` keeps the clip path unique
+ * when the same face appears twice on a page.
+ */
+export function AvatarArt({ id, clipId }: { id: string; clipId?: string }) {
   const look = looks[id];
   if (!look) return null;
+  const clip = clipId ?? `avatar-clip-${id}`;
   return (
-    <svg viewBox="0 0 160 160" fill="none" strokeLinecap="round" strokeLinejoin="round" role={title ? "img" : undefined} aria-label={title} aria-hidden={title ? undefined : true} className={className}>
+    <g fill="none" strokeLinecap="round" strokeLinejoin="round">
       <defs>
-        <clipPath id={`avatar-clip-${id}`}>
+        <clipPath id={clip}>
           <circle cx="80" cy="80" r="78" />
         </clipPath>
       </defs>
       <circle cx="80" cy="80" r="78" fill={T} />
-      <g clipPath={`url(#avatar-clip-${id})`}>
+      <g clipPath={`url(#${clip})`}>
         <Person look={look} />
       </g>
       <circle cx="80" cy="80" r="76.5" fill="none" stroke={C} strokeWidth="3" />
+    </g>
+  );
+}
+
+export function Avatar({ id, title, className }: { id: string; title?: string; className?: string }) {
+  if (!hasAvatar(id)) return null;
+  return (
+    <svg viewBox="0 0 160 160" fill="none" strokeLinecap="round" strokeLinejoin="round" role={title ? "img" : undefined} aria-label={title} aria-hidden={title ? undefined : true} className={className}>
+      <AvatarArt id={id} />
     </svg>
   );
 }
