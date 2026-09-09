@@ -1,10 +1,10 @@
 "use client";
 
-import { home, link } from "@/lib/content";
-import { Button } from "@/components/ui/Button";
+import { home } from "@/lib/content";
 import { cn } from "@/lib/cn";
 import { useAudience, type Audience } from "./AudienceContext";
 import { AvailabilityCheck } from "./AvailabilityCheck";
+import { BidRequest } from "./BidRequest";
 import { CallText } from "@/components/ui/CallText";
 
 /**
@@ -14,8 +14,10 @@ import { CallText } from "@/components/ui/CallText";
  * (45%, charcoal), side by side with a shared top baseline.
  *
  * Mobile: a segmented For Homeowners / For Builders control under the header
- * flips between the two doors. Each door is centered: headline, one line,
- * two stacked buttons with the phone number visible, and a credentials line.
+ * flips between the two doors. Each door is centered: headline, a filled
+ * intake button (Check Availability or Submit Bid Request), the Call and
+ * Text pair, and a credentials line. Desktop reads Submit Service Request
+ * and shows the number in the outlined button, since a desktop cannot dial.
  */
 export function HomeHero() {
   const { audience, setAudience } = useAudience();
@@ -75,12 +77,8 @@ export function HomeHero() {
             <h2 className="flex min-h-[71px] items-center justify-center text-[clamp(26px,8vw,32px)] font-bold leading-[1.1] tracking-[-0.01em] text-offwhite lg:block lg:min-h-[106px] lg:text-h1 lg:font-bold">{h.builders.heading}</h2>
             {h.builders.line && <p className="max-w-[520px] text-[16px] leading-[1.5] text-ondark-muted lg:min-h-[58px] lg:text-body">{h.builders.line}</p>}
             <div className="flex w-full flex-col gap-2.5 lg:w-auto lg:flex-row lg:gap-3 lg:pt-2">
-              <Button href={link("bid")} variant="filled" track="bid-hero" className="h-[52px] w-full lg:hidden">
-                {h.builders.primary}
-              </Button>
-              <Button href={link("bid")} variant="outlined-dark" track="bid-hero" className="hidden h-[52px] lg:inline-flex">
-                {h.builders.primary}
-              </Button>
+              {/* Submit Bid Request is the primary; it opens the bid intake dialog. */}
+              <BidRequest className="w-full lg:w-auto" />
               <div className="w-full lg:hidden">
                 <CallText variant="outlined-dark" track="hero-builders" />
               </div>

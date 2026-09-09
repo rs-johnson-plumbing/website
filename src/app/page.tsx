@@ -42,12 +42,12 @@ export default function HomePage() {
         <HomeHero />
 
         {/* 1. Why homeowners trust us / Why trust us (follows the toggle) */}
-        <Section ariaLabelledby="apart-h" className="!pt-6 lg:!pt-16">
+        <Section tone="sand" ariaLabelledby="apart-h">
           <SetsApart />
         </Section>
 
         {/* 2. What we do: four popular homeowner services, or the six builder stages */}
-        <Section tone="sand" ariaLabelledby="popular-h">
+        <Section ariaLabelledby="popular-h">
           <div className="flex flex-col gap-4 lg:gap-6">
             <div className="flex flex-col gap-3 lg:flex-row lg:items-baseline lg:justify-between">
               <div>
@@ -83,17 +83,17 @@ export default function HomePage() {
         </Section>
 
         {/* 3. Meet the team */}
-        <Section ariaLabelledby="team-h">
+        <Section tone="sand" ariaLabelledby="team-h">
           <TeamStrip id="team-h" heading={home.team.heading} />
         </Section>
 
         {/* 4. What your neighbors / other contractors are saying (follows the toggle) */}
-        <Section tone="sand" id="reviews" ariaLabelledby="neighbors-h">
+        <Section id="reviews" ariaLabelledby="neighbors-h">
           <Neighbors />
         </Section>
 
         {/* 5. Contact us */}
-        <Section id="contact" ariaLabelledby="contact-h">
+        <Section tone="sand" id="contact" ariaLabelledby="contact-h">
           <div className="grid grid-cols-1 gap-4 lg:grid-cols-[1fr_520px] lg:items-start lg:gap-16">
             <div className="flex flex-col gap-2 lg:gap-5">
               <H2 id="contact-h">{home.ready.heading}</H2>

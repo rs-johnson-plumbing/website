@@ -1,0 +1,214 @@
+"use client";
+
+import { useCallback, useEffect, useId, useRef, useState } from "react";
+import { home } from "@/lib/content";
+import { cn } from "@/lib/cn";
+import { BackLink, IntakeDialog, Row, intakeBtn as btn, intakeChip as chip, intakeInput as input } from "./IntakeDialog";
+
+type Stage = "idle" | "contractor" | "type" | "plans" | "phone" | "done";
+type ProjectType = { id: string; label: string };
+
+const MAX_PLANS_BYTES = 4 * 1024 * 1024;
+
+/**
+ * Quick-capture bid request in the builders hero:
+ *
+ *   Submit Bid Request -> dialog: contractor name -> project type
+ *   (New Construction / Renovation) -> plans upload (optional) -> phone ->
+ *   done. Posts once, as multipart, to /api/bid. Copy lives in home.json
+ *   under bid.
+ */
+export function BidRequest({ className }: { className?: string }) {
+  const b = home.bid;
+  const types = b.types as ProjectType[];
+  const [stage, setStage] = useState<Stage>("idle");
+  const [contractor, setContractor] = useState("");
+  const [type, setType] = useState<ProjectType | null>(null);
+  const [plans, setPlans] = useState<File | null>(null);
+  const [plansError, setPlansError] = useState(false);
+  const [phone, setPhone] = useState("");
+  const [busy, setBusy] = useState(false);
+  const [error, setError] = useState(false);
+  const contractorRef = useRef<HTMLInputElement>(null);
+  const phoneRef = useRef<HTMLInputElement>(null);
+  const titleId = useId();
+  const open = stage !== "idle";
+
+  useEffect(() => {
+    if (stage === "contractor") contractorRef.current?.focus();
+    if (stage === "phone") phoneRef.current?.focus();
+  }, [stage]);
+
+  const reset = useCallback(() => {
+    setStage("idle");
+    setContractor("");
+    setType(null);
+    setPlans(null);
+    setPlansError(false);
+    setPhone("");
+    setError(false);
+  }, []);
+
+  function submitContractor(e: React.FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+    setStage("type");
+  }
+
+  function pickType(t: ProjectType) {
+    setType(t);
+    setStage("plans");
+  }
+
+  function pickPlans(e: React.ChangeEvent<HTMLInputElement>) {
+    const f = e.target.files?.[0] ?? null;
+    if (f && f.size > MAX_PLANS_BYTES) {
+      setPlans(null);
+      setPlansError(true);
+      e.target.value = "";
+      return;
+    }
+    setPlansError(false);
+    setPlans(f);
+  }
+
+  async function submitPhone(e: React.FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+    const entered = String(new FormData(e.currentTarget).get("phone") ?? "");
+    setBusy(true);
+    setError(false);
+    try {
+      const fd = new FormData();
+      fd.set("contractor", contractor);
+      fd.set("projectType", type?.label ?? "");
+      fd.set("phone", entered);
+      if (plans) fd.set("plans", plans, plans.name);
+      const res = await fetch("/api/bid", { method: "POST", body: fd });
+      if (!res.ok) throw new Error("bad response");
+      setPhone(entered);
+      setStage("done");
+    } catch {
+      setError(true);
+    } finally {
+      setBusy(false);
+    }
+  }
+
+  return (
+    <>
+      <button
+        type="button"
+        onClick={() => setStage("contractor")}
+        data-track="bid-open"
+        className={cn("inline-flex h-[52px] items-center justify-center whitespace-nowrap rounded-btn bg-blue px-6 text-[16px] font-bold text-white transition-opacity hover:opacity-[0.88]", className)}
+      >
+        {b.button}
+      </button>
+
+      <IntakeDialog open={open} onClose={reset} titleId={titleId} closeLabel={b.close} showClose={stage !== "done"}>
+        {stage === "contractor" && (
+          <form onSubmit={submitContractor}>
+            <h2 id={titleId} className="pr-8 text-[22px] font-bold leading-tight">
+              {b.contractorHeading}
+            </h2>
+            <input
+              ref={contractorRef}
+              value={contractor}
+              onChange={(e) => setContractor(e.target.value)}
+              required
+              minLength={2}
+              maxLength={80}
+              placeholder={b.contractorPlaceholder}
+              aria-label={b.contractorLabel}
+              autoComplete="organization"
+              className={cn(input, "mt-4")}
+            />
+            <div className="mt-4 flex justify-end">
+              <button type="submit" data-track="bid-contractor-next" className={cn(btn, "bg-blue text-white")}>
+                {b.next}
+              </button>
+            </div>
+          </form>
+        )}
+
+        {stage === "type" && (
+          <>
+            <h2 id={titleId} className="pr-8 text-[22px] font-bold leading-tight">
+              {b.typeHeading}
+            </h2>
+            <p className="mt-1 text-[14px] text-slate">{contractor}</p>
+            <div className="mt-4 flex flex-col gap-2.5">
+              {types.map((t) => (
+                <button key={t.id} type="button" onClick={() => pickType(t)} data-track={`bid-type-${t.id}`} className={chip}>
+                  {t.label}
+                </button>
+              ))}
+            </div>
+            <div className="mt-4">
+              <BackLink onClick={() => setStage("contractor")} label={b.back} />
+            </div>
+          </>
+        )}
+
+        {stage === "plans" && (
+          <>
+            <h2 id={titleId} className="pr-8 text-[22px] font-bold leading-tight">
+              {b.plansHeading}
+            </h2>
+            <p className="mt-1 text-[14px] text-slate">{b.plansLine}</p>
+            <label className={cn(chip, "mt-4 cursor-pointer border-dashed")}>
+              <input type="file" accept=".pdf,image/*" onChange={pickPlans} className="sr-only" data-track="bid-plans-pick" />
+              {plans ? plans.name : b.plansButton}
+            </label>
+            {plansError && <p className="mt-2 text-[14px] font-semibold">{b.plansTooBig}</p>}
+            <div className="mt-4 flex items-center justify-between gap-3">
+              <BackLink onClick={() => setStage("type")} label={b.back} />
+              <button type="button" onClick={() => setStage("phone")} data-track="bid-plans-next" className={cn(btn, "bg-blue text-white")}>
+                {plans ? b.next : b.plansSkip}
+              </button>
+            </div>
+          </>
+        )}
+
+        {stage === "phone" && (
+          <form onSubmit={submitPhone}>
+            <h2 id={titleId} className="pr-8 text-[22px] font-bold leading-tight">
+              {b.phoneHeading}
+            </h2>
+            <p className="mt-1 text-[14px] text-slate">{b.phoneLine}</p>
+            <dl className="mt-3 divide-y divide-hairline rounded-btn bg-blue-tint px-3.5">
+              <Row label={b.labels.contractor}>{contractor}</Row>
+              <Row label={b.labels.type}>{type?.label}</Row>
+              <Row label={b.labels.plans}>{plans ? plans.name : b.noPlans}</Row>
+            </dl>
+            <input ref={phoneRef} name="phone" type="tel" required placeholder={b.phonePlaceholder} aria-label={b.phoneHeading} autoComplete="tel" className={cn(input, "mt-4")} />
+            <p className="mt-2 text-[12px] leading-snug text-slate">{b.consent}</p>
+            {error && <p className="mt-2 text-[14px] font-semibold">{b.error}</p>}
+            <div className="mt-4 flex items-center justify-between gap-3">
+              <BackLink onClick={() => setStage("plans")} label={b.back} />
+              <button type="submit" disabled={busy} data-track="bid-send" className={cn(btn, "bg-blue text-white")}>
+                {b.send}
+              </button>
+            </div>
+          </form>
+        )}
+
+        {stage === "done" && (
+          <>
+            <h2 id={titleId} className="text-[24px] font-bold leading-tight">
+              {b.done}
+            </h2>
+            <dl className="mt-4 divide-y divide-hairline rounded-btn border border-hairline bg-offwhite px-4">
+              <Row label={b.labels.contractor}>{contractor}</Row>
+              <Row label={b.labels.type}>{type?.label}</Row>
+              <Row label={b.labels.plans}>{plans ? plans.name : b.noPlans}</Row>
+              <Row label={b.labels.phone}>{phone}</Row>
+            </dl>
+            <button type="button" onClick={reset} className={cn(btn, "mt-5 w-full border-[1.5px] border-charcoal bg-white text-charcoal")}>
+              {b.close}
+            </button>
+          </>
+        )}
+      </IntakeDialog>
+    </>
+  );
+}

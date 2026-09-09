@@ -53,3 +53,17 @@ test("availability API captures an address, then a phone number", async ({ reque
   const step2 = await request.post("/api/availability", { data: { address: "123 Main St, O'Fallon", phone: "314-555-1212", category: "Repair", issue: "No Hot Water" } });
   expect(step2.status()).toBe(200);
 });
+
+test("bid API rejects a missing contractor and accepts a full request with plans", async ({ request }) => {
+  const bad = await request.post("/api/bid", { multipart: { contractor: "", phone: "3145551212" } });
+  expect(bad.status()).toBe(400);
+  const good = await request.post("/api/bid", {
+    multipart: {
+      contractor: "Smoke Builders",
+      projectType: "New Construction",
+      phone: "314-555-1212",
+      plans: { name: "plans.pdf", mimeType: "application/pdf", buffer: Buffer.from("%PDF-1.4 smoke") },
+    },
+  });
+  expect(good.status()).toBe(200);
+});

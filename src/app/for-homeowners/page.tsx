@@ -125,9 +125,7 @@ export default function ForHomeownersPage() {
         <h2 id="ho-faq-h" className={cn("mb-6 lg:mb-8", H)}>
           {homeowners.faq.heading}
         </h2>
-        <div className="max-w-[820px]">
-          <FAQ items={faqs.homeowners.items} />
-        </div>
+        <FAQ items={faqs.homeowners.items} />
       </Section>
 
       <ClosingCTA heading={homeowners.closing.heading} secondary={{ label: site.closingCta.secondary, href: link("book") }} />
