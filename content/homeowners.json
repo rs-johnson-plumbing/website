@@ -6,6 +6,11 @@
   "seoHeading": "Plumbing for Homeowners in St. Charles County",
   "anchors": [
     {
+      "id": "apart",
+      "label": "Sets Us Apart",
+      "icon": "check"
+    },
+    {
       "id": "services",
       "label": "Services",
       "icon": "check-circle"

@@ -6,6 +6,7 @@ import { JsonLd } from "@/components/blocks/JsonLd";
 import { AnchorBar, type Anchor } from "@/components/blocks/AnchorBar";
 import { ServiceGrid, PageHeading } from "@/components/blocks/ServiceGrid";
 import { ReviewCard } from "@/components/blocks/ReviewCard";
+import { SetsApart } from "@/components/blocks/SetsApart";
 import { PersonCard } from "@/components/blocks/PersonCard";
 import { FAQ } from "@/components/blocks/FAQ";
 import { ClosingCTA } from "@/components/blocks/ClosingCTA";
@@ -24,7 +25,7 @@ export const metadata: Metadata = {
 type Sign = { icon: IconName; title: string; text: string; service: string; link: string };
 
 /**
- * For Homeowners: the homeowner door. In order: what we do for homeowners
+ * For Homeowners: the homeowner door. In order: what sets us apart, what we do for homeowners
  * (cards point at the hub), why homeowners call us, meet the team, what
  * neighbors are saying, signs you need a plumber, FAQ. Service detail lives
  * on /services.
@@ -39,6 +40,11 @@ export default function ForHomeownersPage() {
       <h1 className="sr-only">{homeowners.seoHeading}</h1>
 
       <AnchorBar anchors={homeowners.anchors as Anchor[]} />
+
+      {/* Here's what sets us apart (homeowner set; no toggle on this page) */}
+      <Section id="apart" ariaLabelledby="apart-h" className="scroll-mt-[140px]">
+        <SetsApart />
+      </Section>
 
       {/* What we do for homeowners */}
       <Section id="services" ariaLabelledby="ho-services-h" className="scroll-mt-[140px]">
