@@ -60,7 +60,7 @@ export function Badge({ className, title }: { className?: string; title?: string
 
 /**
  * Full lockup: the two-tone mark on the left, "R.S." above and "JOHNSON
- * PLUMBING" beside it in Georgia. No LLC in the lockup; the legal name
+ * PLUMBING" beside it in Figtree ExtraBold, the site's own face. No LLC in the lockup; the legal name
  * appears in the footer text. Same drawing as /public/logo/rsj-lockup.svg.
  * Scales by height; width follows (4:1).
  */
@@ -77,13 +77,13 @@ export function Lockup({ className, title, reversed = false }: { className?: str
         <rect x="116" y="112" width="48" height="14" rx="2" fill="#2F6FE0" />
         <rect x="8" y="90" width="16" height="48" rx="2" fill="#2F6FE0" />
       </g>
-      <g fontFamily="Georgia, 'Times New Roman', serif" fontWeight="700" fill={ink} letterSpacing="1">
-        {/* textLength pins the wordmark width so Georgia's metrics on iOS,
-            Android, and desktop all land inside the box. */}
+      <g fontFamily="var(--font-figtree), Figtree, system-ui, sans-serif" fontWeight="800" fill={ink} letterSpacing="1">
+        {/* textLength pins the wordmark width so a fallback font can never
+            overflow the box before Figtree loads. */}
         <text x="150" y="72" fontSize="50">
           R.S.
         </text>
-        <text x="150" y="148" fontSize="58" textLength="610" lengthAdjust="spacingAndGlyphs">
+        <text x="150" y="148" fontSize="58" textLength="620" lengthAdjust="spacingAndGlyphs">
           JOHNSON PLUMBING
         </text>
       </g>

@@ -2,7 +2,8 @@
 
 The R.S. Johnson Plumbing logo: the P-trap "J" from the original business
 card, redrawn as vector. Charcoal pipe (#2B2B2B), brand-blue flanges
-(#2F6FE0). Wordmark in Georgia Bold.
+(#2F6FE0). Wordmark in Figtree ExtraBold, converted to outlines in the SVG so no
+font needs to be installed.
 
 | File | Use |
 |---|---|
@@ -13,5 +14,5 @@ card, redrawn as vector. Charcoal pipe (#2B2B2B), brand-blue flanges
 
 The PNGs with no color suffix have transparent backgrounds.
 
-Note for print vendors: the SVG wordmark and badge text use Georgia as a
-live font. Ask the vendor to outline the text, or send the PNG.
+The badge SVG still uses Georgia as a live font; ask a print vendor to
+outline it, or send the PNG.
