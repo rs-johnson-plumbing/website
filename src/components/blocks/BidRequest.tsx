@@ -20,10 +20,13 @@ const MAX_PLANS_BYTES = 4 * 1024 * 1024;
  *   done. Posts once, as multipart, to /api/bid. Copy lives in home.json
  *   under bid.
  */
-export function BidRequest({ className, variant = "filled" }: { className?: string; /** "outlined" is a charcoal outline, "outlined-dark" a white outline on a dark ground, for when it sits beside a filled button. "link" is teal text with the arrow, for a one-line row. */ variant?: "filled" | "outlined" | "outlined-dark" | "link" }) {
+export function BidRequest({ className, variant = "filled", openSignal = 0, hideTrigger = false }: { /** Bump to open the flow from another control (the sticky bar chooser). */ openSignal?: number; /** Render the dialog only, no button of its own. */ hideTrigger?: boolean; className?: string; /** "outlined" is a charcoal outline, "outlined-dark" a white outline on a dark ground, for when it sits beside a filled button. "link" is teal text with the arrow, for a one-line row. */ variant?: "filled" | "outlined" | "outlined-dark" | "link" }) {
   const b = home.bid;
   const types = b.types as ProjectType[];
   const [stage, setStage] = useState<Stage>("idle");
+  useEffect(() => {
+    if (openSignal > 0) setStage("contractor");
+  }, [openSignal]);
   const [contractor, setContractor] = useState("");
   const [type, setType] = useState<ProjectType | null>(null);
   const [plans, setPlans] = useState<File | null>(null);
@@ -97,6 +100,7 @@ export function BidRequest({ className, variant = "filled" }: { className?: stri
 
   return (
     <>
+      {!hideTrigger && (
       <button
         type="button"
         onClick={() => setStage("contractor")}
@@ -113,6 +117,7 @@ export function BidRequest({ className, variant = "filled" }: { className?: stri
         {b.button}
         <Icon name="arrow-right" size={20} strokeWidth={1.8} className="shrink-0" />
       </button>
+      )}
 
       <IntakeDialog open={open} onClose={reset} titleId={titleId} closeLabel={b.close} showClose={stage !== "done"}>
         {stage === "contractor" && (
