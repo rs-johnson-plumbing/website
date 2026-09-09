@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { site, plumbing, link } from "@/lib/content";
+import { site, servicesHub, link } from "@/lib/content";
 import { ActionBlockPair } from "./ActionBlock";
 import { Icon } from "@/components/ui/Icon";
 
@@ -9,7 +9,7 @@ import { Icon } from "@/components/ui/Icon";
  * hub hero, sticky on service pages, and on city pages.
  */
 export function ActionCard({ sticky = false, trackPrefix = "card" }: { sticky?: boolean; trackPrefix?: string }) {
-  const c = plumbing.actionCard;
+  const c = servicesHub.actionCard;
   return (
     <aside aria-label="Get service" className={`flex flex-col gap-4 rounded-card border border-hairline bg-white p-5 lg:p-6 ${sticky ? "lg:sticky lg:top-[calc(80px+24px)]" : ""}`}>
       <ActionBlockPair

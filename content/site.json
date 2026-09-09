@@ -26,11 +26,15 @@
   "nav": [
     {
       "label": "For Homeowners",
-      "href": "/plumbing"
+      "href": "/for-homeowners"
     },
     {
       "label": "For Builders",
       "href": "/for-builders"
+    },
+    {
+      "label": "Services",
+      "href": "/services"
     },
     {
       "label": "Service Area",

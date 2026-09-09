@@ -1,71 +1,14 @@
 {
   "meta": {
-    "title": "Plumbing Services St. Charles County | R.S. Johnson Plumbing",
-    "description": "Master Plumber Ryan Johnson and crew handle water heaters, drains and sewer, leaks, toilets, remodels, gas lines, and sump pumps across St. Charles County. Call or book online."
+    "title": "Home Plumbing in O'Fallon and St. Charles County | R.S. Johnson Plumbing",
+    "description": "Water heaters, drains, leaks, remodels, gas lines, and sump pumps for homes across O'Fallon and St. Charles County from Master Plumber Ryan Johnson and crew."
   },
-  "actionCard": {
-    "emergency": {
-      "label": "Emergency Service",
-      "helper": "Leak, no hot water, backed-up drain",
-      "button": "Call Now"
-    },
-    "scheduled": {
-      "label": "Scheduled Service",
-      "helper": "Repairs, water heaters, remodels",
-      "button": "Book Online"
-    },
-    "messageLine": "Or message us and we'll call you back",
-    "trust": [
-      "Missouri Master Plumber",
-      "Licensed and Insured",
-      "Upfront Pricing"
-    ]
-  },
+  "seoHeading": "Plumbing for Homeowners in St. Charles County",
   "anchors": [
     {
       "id": "services",
       "label": "Services",
       "icon": "check-circle"
-    },
-    {
-      "id": "water-heaters",
-      "label": "Water Heaters",
-      "icon": "water-heater"
-    },
-    {
-      "id": "drains-and-sewer",
-      "label": "Drains and Sewer",
-      "icon": "drain"
-    },
-    {
-      "id": "leaks-and-repairs",
-      "label": "Leaks",
-      "icon": "drop"
-    },
-    {
-      "id": "toilets-and-faucets",
-      "label": "Toilets and Faucets",
-      "icon": "faucet"
-    },
-    {
-      "id": "bath-and-kitchen-remodel",
-      "label": "Remodels",
-      "icon": "tub"
-    },
-    {
-      "id": "gas-lines",
-      "label": "Gas Lines",
-      "icon": "gas"
-    },
-    {
-      "id": "sump-pumps",
-      "label": "Sump Pumps",
-      "icon": "pump"
-    },
-    {
-      "id": "emergency-plumbing",
-      "label": "Emergency",
-      "icon": "bolt"
     },
     {
       "id": "signs",
@@ -81,15 +24,21 @@
       "id": "faq",
       "label": "FAQ",
       "icon": "chevron-down"
+    },
+    {
+      "id": "reviews",
+      "label": "Reviews",
+      "icon": "sparkle"
     }
   ],
-  "services": {
-    "heading": "What We Do",
-    "line": ""
+  "residential": {
+    "heading": "Residential Services",
+    "line": "Everything we do for homes, from a dripping faucet to a full remodel.",
+    "seeAll": "See All Services"
   },
   "signs": {
     "heading": "Signs You Need a Plumber",
-    "line": "Every one of these points back to a service above. If you're seeing any of them in your home, it's worth a call before it becomes a bigger job.",
+    "line": "Every one of these points to a service we handle. If you're seeing any of them in your home, it's worth a call before it becomes a bigger job.",
     "items": [
       {
         "icon": "drain",
@@ -135,17 +84,6 @@
       }
     ]
   },
-  "whatWeDoLabel": "What We Do:",
-  "serviceArea": {
-    "heading": "Where We Work",
-    "intro": "We're based in O'Fallon and serve St. Charles County and West St. Louis County. Most of our homeowner calls come from:",
-    "rangeLine": "Not sure if you're in range? Text us your address at",
-    "map": {
-      "src": "/photos/site-map-ofallon.jpg",
-      "alt": "Map of St. Charles County and West St. Louis County with our main service cities marked, centered on O'Fallon, Missouri",
-      "caption": "Placeholder map. A real area map with city tags is coming."
-    }
-  },
   "whyUs": {
     "heading": "Why Homeowners Call Us",
     "items": [
@@ -184,17 +122,16 @@
   "faq": {
     "heading": "FAQ"
   },
+  "neighbors": {
+    "heading": "What Your Neighbors Are Saying",
+    "reviewIds": [
+      "bl-wildwood",
+      "jr-ofallon",
+      "neighbor-stl"
+    ],
+    "link": "See All Reviews"
+  },
   "closing": {
     "heading": "Need a Plumber in St. Charles County?"
-  },
-  "servicePage": {
-    "titleSuffix": "in St. Charles County",
-    "problemsHeading": "Common Problems We See",
-    "expectHeading": "What to Expect",
-    "crewHeading": "Who'll Show Up",
-    "crewLine": "Two of the plumbers most likely on this kind of call. Meet the whole crew on our team page.",
-    "reviewsHeading": "What Neighbors Say",
-    "backToHub": "All Homeowner Services"
-  },
-  "seoHeading": "Plumbing Services in St. Charles County"
+  }
 }

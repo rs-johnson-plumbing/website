@@ -59,7 +59,7 @@ export default function HomePage() {
           <div className="flex flex-col gap-3 lg:flex-row lg:items-baseline lg:justify-between">
             <H2 id="popular-h">{home.popularServices.heading}</H2>
             <div className="hidden lg:block">
-              <TextLink href="/plumbing">See All Services</TextLink>
+              <TextLink href="/services">See All Services</TextLink>
             </div>
           </div>
           <div className="grid grid-cols-1 gap-3 lg:grid-cols-4 lg:gap-5">
@@ -68,13 +68,13 @@ export default function HomePage() {
                 <ServiceIllustration slug={s.slug} className="h-[150px] w-[150px] lg:h-[140px] lg:w-[140px]" />
                 <div className="mt-2 text-[20px] font-bold">{s.name}</div>
                 <div className="mt-1 text-[14px] text-slate">{s.short}</div>
-                <Button href={`/plumbing/${s.slug}`} variant="filled" size="sm" className="mt-4 w-full">
+                <Button href={`/services/${s.slug}`} variant="filled" size="sm" className="mt-4 w-full">
                   {s.name}
                 </Button>
               </div>
             ))}
           </div>
-          <Button href="/plumbing" variant="outlined" className="w-full lg:hidden">
+          <Button href="/services" variant="outlined" className="w-full lg:hidden">
             {home.popularServices.seeAll}
           </Button>
         </div>

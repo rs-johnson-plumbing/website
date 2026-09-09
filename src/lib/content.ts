@@ -12,7 +12,8 @@ import reviewsJson from "../../content/reviews.json";
 import faqsJson from "../../content/faqs.json";
 import projectsJson from "../../content/projects.json";
 import homeJson from "../../content/home.json";
-import plumbingJson from "../../content/plumbing.json";
+import homeownersJson from "../../content/homeowners.json";
+import servicesHubJson from "../../content/services-hub.json";
 
 export type IconName =
   | "star"
@@ -123,7 +124,8 @@ export const team = teamJson as unknown as TeamContent;
 export const reviews = reviewsJson as unknown as ReviewsContent;
 export const faqs = faqsJson;
 export const home = homeJson;
-export const plumbing = plumbingJson;
+export const homeowners = homeownersJson;
+export const servicesHub = servicesHubJson;
 export const projects = projectsJson as unknown as ProjectsContent;
 
 export const SITE_URL = site.siteUrl;
