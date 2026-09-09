@@ -363,16 +363,21 @@
   },
   "banner": {
     "service": "Submit Service Request",
-    "bid": "Submit Bid Request",
-    "or": "or"
+    "bid": "Submit Bid Request"
   },
   "chooser": {
     "button": "Submit Request",
-    "heading": "What can we help with?",
+    "heading": "Are you a homeowner or a builder?",
+    "homeowner": "Homeowner",
+    "homeownerIllustration": "repipe",
+    "builder": "Builder",
+    "builderIllustration": "rough-in",
+    "next": "What would you like to do?",
     "service": "Submit Service Request",
     "serviceIllustration": "leaks-and-repairs",
     "bid": "Submit Bid Request",
-    "bidIllustration": "rough-in",
+    "bidIllustration": "planning-and-takeoffs",
+    "back": "Back",
     "close": "Close"
   }
 }
