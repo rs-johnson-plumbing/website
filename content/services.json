@@ -156,42 +156,42 @@
     }
   },
   {
-    "slug": "bath-and-kitchen-remodel",
-    "name": "Bath and Kitchen Remodel",
-    "icon": "tub",
-    "short": "Rough-in to fixture set",
-    "hubShort": "Rough-in through fixture set",
-    "metaDescription": "Bath and kitchen remodel plumbing in St. Charles County, rough-in through fixture set. Master Plumber on every job. Call or text 314-220-1827 to talk it through.",
-    "intro": "Most of our week is remodel and new-construction work for builders, and homeowners get the same crew. If you're moving a sink, adding a shower, converting a tub, or gutting a kitchen, we handle the rough-in, coordinate with your contractor or tile setter, and come back for the fixture set and walkthrough.",
+    "slug": "water-softeners",
+    "name": "Water Softeners",
+    "icon": "filter",
+    "short": "Softeners, filtration, hard water",
+    "hubShort": "Softener installation, replacement, and whole-house filtration",
+    "metaDescription": "Water softener installation, replacement, and whole-house filtration in St. Charles County from a Master Plumber crew. Hard water fixed. Call or text 314-220-1827.",
+    "intro": "Water in St. Charles County runs hard, and it shows up as spotted glasses, scale on fixtures, and water heaters that die early. We size and install softeners, replace units that stopped regenerating, and add whole-house or under-sink filtration where it makes sense. [confirm Ryan offers softeners and filtration]",
     "problems": [
-      "Moving a sink, tub, or toilet",
-      "Adding a bathroom",
-      "Converting a tub to a shower",
-      "New kitchen layout",
-      "Island sink or pot filler",
-      "Updating old supply lines during a remodel"
+      "Spots on glasses and dishes",
+      "White scale on faucets and showerheads",
+      "Softener not using salt",
+      "Dry skin and dull laundry",
+      "Water heater scaling up early",
+      "Taste or odor in the water"
     ],
-    "whatToExpect": "[What to expect paragraph — remodel plumbing]",
+    "whatToExpect": "[What to expect paragraph — water softeners]",
     "crew": [
-      "chris",
+      "mike",
       "ryan"
     ],
     "hub": {
-      "heading": "Bathroom and Kitchen Remodel Plumbing",
-      "anchor": "Remodels",
-      "paragraph": "Most of our week is remodel and new-construction work for builders, and homeowners get the same crew. If you're moving a sink, adding a shower, converting a tub, or gutting a kitchen, we handle the rough-in, coordinate with your contractor or tile setter, and come back for the fixture set and walkthrough.",
+      "heading": "Water Softeners and Filtration",
+      "anchor": "Softeners",
+      "paragraph": "Water in St. Charles County runs hard, and it shows up as spotted glasses, scale on fixtures, and water heaters that die early. We size and install softeners, replace units that stopped regenerating, and add whole-house or under-sink filtration where it makes sense. [confirm Ryan offers softeners and filtration]",
       "whatWeDo": [
-        "Relocating supply and drain lines",
-        "Shower pan and valve rough-in",
-        "New fixture installation and trim-out",
-        "Working directly with your contractor's schedule"
+        "Softener sizing, installation, and replacement",
+        "Bypass and drain setup that passes inspection",
+        "Whole-house sediment and carbon filtration",
+        "Under-sink drinking water filtration"
       ],
       "photo": {
-        "src": "/photos/site-remodel-rough-in.jpg",
-        "alt": "Bathroom remodel plumbing rough-in",
-        "caption": "Bathroom remodel rough-in"
+        "src": "/photos/site-water-softener.jpg",
+        "alt": "Water softener and filtration install in a basement",
+        "caption": "Softener and filtration install"
       },
-      "link": "Bath and Kitchen Remodel"
+      "link": "Water Softeners and Filtration"
     }
   },
   {
@@ -273,11 +273,11 @@
   },
   {
     "slug": "emergency-plumbing",
-    "name": "Emergency Plumbing",
+    "name": "Emergency Services",
     "icon": "bolt",
-    "short": "Leaks, no hot water, backups",
+    "short": "Burst pipes, leaks, backups",
     "hubShort": "Burst pipes, active leaks, sewer backups, no hot water",
-    "metaDescription": "Emergency plumbing in St. Charles County. Burst pipes, active leaks, sewer backups, and no hot water handled by a licensed crew. Call or text 314-220-1827 now.",
+    "metaDescription": "Emergency plumbing services in St. Charles County. Burst pipes, active leaks, sewer backups, and no hot water, handled by a licensed crew. Call 314-220-1827.",
     "intro": "Burst pipe, water pouring through a ceiling, sewer backing up, no hot water in January. Call 314-220-1827 — for emergencies, call rather than book online so we can talk you through shutting off water while we're on the way.",
     "problems": [
       "Burst pipe",
@@ -293,11 +293,21 @@
       "ryan"
     ],
     "hub": {
-      "heading": "Emergency Plumbing",
+      "heading": "Emergency Services",
       "anchor": "Emergency",
       "paragraph": "Burst pipe, water pouring through a ceiling, sewer backing up, no hot water in January. Call 314-220-1827 — for emergencies, call rather than book online so we can talk you through shutting off water while we're on the way.",
-      "whatWeDo": [],
-      "link": "Emergency Plumbing"
+      "whatWeDo": [
+        "Burst and frozen pipe repair",
+        "Active leaks and shutoff help over the phone",
+        "Sewer backups and main line clearing",
+        "Water heater failures and no hot water"
+      ],
+      "link": "Emergency Services",
+      "photo": {
+        "src": "/photos/site-emergency-burst-pipe.jpg",
+        "alt": "Emergency call for a burst pipe, shutoff and repair",
+        "caption": "Burst pipe, shutoff, and repair"
+      }
     }
   }
 ]
