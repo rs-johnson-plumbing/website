@@ -105,7 +105,7 @@ export function BidRequest({ className, variant = "filled" }: { className?: stri
           "inline-flex items-center justify-center gap-2 whitespace-nowrap font-bold transition-opacity hover:opacity-[0.88]",
           variant === "link" ? "text-[15px] text-teal" : "h-[52px] rounded-btn px-6 text-[16px]",
           variant === "filled" && "bg-teal text-white builders:bg-charcoal",
-          variant === "outlined" && "border-[1.5px] border-charcoal bg-transparent text-charcoal",
+          variant === "outlined" && "border-[1.5px] border-teal bg-transparent text-teal",
           variant === "outlined-dark" && "border-[1.5px] border-offwhite bg-transparent text-offwhite",
           className,
         )}

@@ -130,12 +130,12 @@ export function MetroMap({ className, variant = "ink", area = false }: { classNa
             </>
           )}
           {/* Rivers: water */}
-          <g className="text-teal" stroke="currentColor" opacity={mono ? 0.16 : blueprint ? 0.2 : 0.12}>
+          <g className="text-teal" stroke="currentColor" opacity={mono ? 0.18 : blueprint ? 0.22 : 0.15}>
             <path d={smooth(mississippi)} strokeWidth={mono ? 22 : 12} strokeDasharray={blueprint ? "2 10" : undefined} />
             <path d={smooth(missouri)} strokeWidth={mono ? 18 : 10} strokeDasharray={blueprint ? "2 10" : undefined} />
           </g>
           {/* Roads. On the pipes treatments each road is a pipe: a dark wall with a lighter bore down the middle. */}
-          <g className={roadColor} stroke="currentColor" opacity={mono ? 0.28 : blueprint ? 0.3 : 0.18}>
+          <g className={roadColor} stroke="currentColor" opacity={mono ? 0.3 : blueprint ? 0.32 : 0.22}>
             {interstates.map((pts, i) => (
               <path key={`i${i}`} d={smooth(pts)} strokeWidth={interW} />
             ))}
@@ -180,16 +180,16 @@ export function MetroMap({ className, variant = "ink", area = false }: { classNa
           )}
           {/* Shields, on the ink version only */}
           {variant === "ink" && (
-            <g className="text-charcoal" stroke="none" opacity="0.34">
+            <g className="text-charcoal" stroke="none" opacity="0.4">
               {shields.map((s, i) => (
                 <Shield key={i} {...s} />
               ))}
             </g>
           )}
           {/* The two names */}
-          <g className={mono || blueprint ? "text-teal-dark" : "text-charcoal"} fill="currentColor" stroke="none" opacity={mono || blueprint ? 0.8 : 0.72} fontFamily="var(--font-figtree), system-ui, sans-serif" fontWeight="800">
+          <g className={mono || blueprint ? "text-teal-dark" : "text-charcoal"} fill="currentColor" stroke="none" opacity={mono || blueprint ? 0.92 : 0.9} fontFamily="var(--font-figtree), system-ui, sans-serif" fontWeight="800">
             {labels.map((l) => (
-              <text key={l.name} x={l.x} y={l.y} fontSize={variant === "roads" || blueprint ? 32 : 30} textAnchor="middle" letterSpacing={variant === "roads" || blueprint ? 1 : 0}>
+              <text key={l.name} x={l.x} y={l.y} fontSize={variant === "roads" || blueprint ? 36 : 34} textAnchor="middle" letterSpacing={variant === "roads" || blueprint ? 1 : 0}>
                 {variant === "roads" || blueprint ? l.name.toUpperCase() : l.name}
               </text>
             ))}

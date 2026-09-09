@@ -42,9 +42,9 @@ Plumber on every job.
 - **Never promise "same day" or "24/7".** Ryan has not confirmed either.
 - Buttons: 8px radius, never pills. Labels never wrap, three words max. One
   filled teal button per section; the rest outlined (the homepage hero, with
-  a door per audience, is the one exception). On dark sections, outlined
-  buttons are white and filled buttons are charcoal. No button ever has a
-  white ground.
+  a door per audience, is the one exception). Outlined buttons are teal
+  (outline, label, and icon). On dark sections, outlined buttons are white
+  and filled buttons are charcoal. No button ever has a white ground.
 - Every phone link is `tel:3142201827`; text links use `smsLink()` from
   `src/lib/content.ts`. On phones the pair is two buttons, Call and Text,
   with no number in the label. On desktop it is one button that shows the
