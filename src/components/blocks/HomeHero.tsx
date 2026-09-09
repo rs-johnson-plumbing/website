@@ -6,6 +6,7 @@ import { BidRequest } from "./BidRequest";
 import { CallText } from "@/components/ui/CallText";
 import { Icon } from "@/components/ui/Icon";
 import { MetroMap } from "./MetroMap";
+import { RequestChooser } from "./RequestChooser";
 import type { IconName } from "@/lib/content";
 
 /**
@@ -19,8 +20,9 @@ import type { IconName } from "@/lib/content";
  * to give each audience its door.
  *
  * Phone: no audience toggle, no builders row, no map. A one-line serving
- * eyebrow with a pin, the statement centered, a full-width Submit Service
- * Request, the talk line, then the Call and Text pair. Builders on a phone get their door from the closing
+ * eyebrow with a pin, the statement centered, one full-width Submit Request
+ * that asks homeowner or builder and hands off to that flow, the talk line,
+ * then the Call and Text pair. Builders on a phone get their door from the closing
  * banner and the For Builders page. Desktop has no Call and Text pair; the
  * header callout carries the number, since a desktop cannot dial.
  */
@@ -58,7 +60,7 @@ export function HomeHero() {
         </div>
       </section>
 
-      {/* Phone: serving eyebrow, statement, Submit Service Request, the talk line, then Call and Text. */}
+      {/* Phone: serving eyebrow, statement, Submit Request, the talk line, then Call and Text. */}
       <section data-sticky-sentinel className="bg-offwhite text-charcoal lg:hidden">
         <div className="flex flex-col gap-3 px-gutter-m pb-8 pt-6">
           <p className="inline-flex items-center justify-center gap-1.5 text-[14px] font-bold text-teal">
@@ -66,7 +68,7 @@ export function HomeHero() {
             {s.eyebrow}
           </p>
           <p className="text-center text-[32px] font-bold leading-[1.1] tracking-[-0.01em]">{s.heading}</p>
-          <AvailabilityCheck className="mt-2 w-full" />
+          <RequestChooser size="full" className="mt-2 w-full" />
           <p className="-mb-1 mt-1 text-center text-[15px] font-semibold text-charcoal">{s.talk}</p>
           <CallText track="hero" desktop={false} or={s.or} />
         </div>
