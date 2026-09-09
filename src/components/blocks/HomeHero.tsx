@@ -62,13 +62,23 @@ export function HomeHero() {
         <div className="flex flex-col gap-4 px-gutter-m pb-8 pt-7">
           <p className="text-center text-[32px] font-bold leading-[1.1] tracking-[-0.01em]">{s.heading}</p>
           <AvailabilityCheck className="mt-2 w-full" />
-          <CallText track="hero" desktop={false} />
+          <p className="-mb-1 mt-1 text-center text-[15px] font-semibold text-charcoal">{s.talk}</p>
+          <CallText track="hero" desktop={false} or={s.or} />
           <div className="mt-2 flex items-center justify-between gap-4 rounded-btn border border-hairline px-4 py-3">
             <span className="inline-flex items-center gap-2 text-[16px] font-semibold tracking-[-0.01em]">
               <Icon name={s.builders.icon as IconName} size={18} strokeWidth={1.8} className="text-teal" />
               {s.builders.label}
             </span>
             <BidRequest variant="link" />
+          </div>
+          {/* Where we are and where we go: the metro map in a card, with the words on top. */}
+          <div className="relative mt-1 overflow-hidden rounded-card border border-hairline bg-white">
+            <MetroMap frame="phone" className="pointer-events-none absolute inset-0 h-full w-full opacity-[0.3]" />
+            <div className="relative flex flex-col items-center gap-1 px-4 py-5 text-center">
+              <span className="text-[12px] font-bold uppercase tracking-[0.06em] text-teal">{s.card.eyebrow}</span>
+              <span className="text-[15px] font-semibold text-slate">{s.card.lead}</span>
+              <span className="whitespace-nowrap text-[17px] font-bold text-charcoal">{s.card.area}</span>
+            </div>
           </div>
         </div>
       </section>

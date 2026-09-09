@@ -35,7 +35,7 @@ export function Header() {
       <div className="site-width gutter flex h-header-m items-center justify-between gap-3 lg:h-header">
         <Logo />
         <div className="flex items-center">
-          <nav aria-label="Primary" className="hidden items-center gap-7 text-[16px] lg:flex xl:gap-8">
+          <nav aria-label="Primary" className="hidden items-center gap-5 text-[15px] lg:flex xl:gap-8 xl:text-[16px]">
             {nav.map((item) => (
               <Link key={item.href} href={item.href} className={cn("nav-link", isActive(item.href) && "nav-link-active")} aria-current={isActive(item.href) ? "page" : undefined}>
                 {item.label}
@@ -45,7 +45,7 @@ export function Header() {
           <a
             href={site.phone.tel}
             data-track="call-header"
-            className="ml-8 hidden shrink-0 items-center gap-2.5 rounded-btn bg-sand py-2 pl-3 pr-3.5 text-charcoal hover:no-underline builders:bg-teal-dark builders:text-offwhite lg:flex"
+            className="ml-5 hidden shrink-0 items-center gap-2.5 rounded-btn bg-sand py-2 pl-3 pr-3.5 xl:ml-8 text-charcoal hover:no-underline builders:bg-teal-dark builders:text-offwhite lg:flex"
           >
             <span className="flex flex-col gap-0.5 text-teal builders:text-offwhite" aria-hidden="true">
               <Icon name="phone" size={15} strokeWidth={1.8} />

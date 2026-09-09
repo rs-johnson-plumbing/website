@@ -16,7 +16,14 @@
         "line": "Have plans to bid?",
         "icon": "hammer"
       },
-      "serving": "Over 25 Years Combined Experience. Proudly Serving St. Charles and St. Louis Counties."
+      "serving": "Over 25 Years Combined Experience. Proudly Serving St. Charles and St. Louis Counties.",
+      "talk": "Need to talk to a plumber now? Call or text.",
+      "or": "or",
+      "card": {
+        "eyebrow": "Based in O'Fallon",
+        "lead": "Proudly Serving",
+        "area": "St. Charles and St. Louis Counties"
+      }
     }
   },
   "availability": {

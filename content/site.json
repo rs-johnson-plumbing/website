@@ -26,6 +26,10 @@
   "yearsInTrade": "[##]",
   "nav": [
     {
+      "label": "Home",
+      "href": "/"
+    },
+    {
       "label": "For Homeowners",
       "href": "/for-homeowners"
     },
