@@ -28,9 +28,9 @@
       "icon": "faucet"
     },
     {
-      "id": "bath-and-kitchen-remodel",
-      "label": "Remodels",
-      "icon": "tub"
+      "id": "water-softeners",
+      "label": "Softeners",
+      "icon": "filter"
     },
     {
       "id": "gas-lines",

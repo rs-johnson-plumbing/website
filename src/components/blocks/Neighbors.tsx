@@ -16,7 +16,7 @@ export function Neighbors() {
   const more = block.reviewIds.map((id) => reviews.items.find((r) => r.id === id)).filter((r): r is NonNullable<typeof r> => Boolean(r));
   return (
     <div className="flex flex-col gap-3 lg:gap-5">
-      <h2 id="neighbors-h" className="text-center text-[24px] font-bold tracking-[-0.01em] lg:text-left lg:text-h2 lg:font-bold">
+      <h2 id="neighbors-h" className="text-center text-h2-m tracking-[-0.01em] lg:text-left lg:text-h2">
         {block.heading}
       </h2>
       {block.proofLine && (

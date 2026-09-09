@@ -81,6 +81,21 @@ const art: Record<string, React.ReactNode> = {
       <circle cx="130" cy="46" r="5" fill={B} stroke={C} strokeWidth="3" />
     </>
   ),
+  "water-softeners": (
+    <>
+      {/* resin tank with a control head, brine tank beside it */}
+      <rect x="40" y="46" width="44" height="86" rx="12" fill={O} stroke={C} strokeWidth="4" />
+      <rect x="34" y="30" width="56" height="22" rx="7" fill={B} stroke={C} strokeWidth="4" />
+      <circle cx="62" cy="41" r="4" fill={W} />
+      <rect x="94" y="70" width="40" height="62" rx="8" fill={W} stroke={C} strokeWidth="4" />
+      <rect x="90" y="62" width="48" height="12" rx="4" fill={O} stroke={C} strokeWidth="4" />
+      <path d="M100 118 h28" stroke={B} strokeWidth="4" opacity="0.5" />
+      <path d="M84 40 h30 v22" stroke={C} strokeWidth="4" />
+      {/* soft water drop */}
+      <path d="M62 78 c6 8 10 14 10 20 a10 10 0 0 1 -20 0 c0 -6 4 -12 10 -20z" fill={B} stroke={C} strokeWidth="3" />
+      <path d="M52 112 h20" stroke={C} strokeWidth="3" opacity="0.4" />
+    </>
+  ),
   "gas-lines": (
     <>
       <rect x="22" y="94" width="116" height="20" rx="4" fill={O} stroke={C} strokeWidth="4" />

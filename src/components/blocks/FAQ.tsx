@@ -1,5 +1,6 @@
 import type { FaqItem } from "@/lib/content";
-import { Icon, IconTile } from "@/components/ui/Icon";
+import { Icon } from "@/components/ui/Icon";
+import { ValueIllustration } from "./ValueIllustration";
 import { JsonLd } from "./JsonLd";
 import { cn } from "@/lib/cn";
 
@@ -13,8 +14,8 @@ type Props = {
 
 /**
  * Accordion list built on native details/summary so it works without JS and
- * stays static. Items with an icon get a tile in front of the question and
- * the answer indents under it. Wherever this renders, FAQPage JSON-LD renders
+ * stays static. Items with an icon get a small illustration in front of the
+ * question and the answer indents under it. Wherever this renders, FAQPage JSON-LD renders
  * with it.
  */
 export function FAQ({ items, openIndex = 0, withJsonLd = true }: Props) {
@@ -33,11 +34,11 @@ export function FAQ({ items, openIndex = 0, withJsonLd = true }: Props) {
       {items.map((item, i) => (
         <details key={item.q} open={i === openIndex} className="group">
           <summary className="flex cursor-pointer list-none items-center gap-4 py-4 text-[17px] font-semibold marker:content-none [&::-webkit-details-marker]:hidden">
-            {item.icon && <IconTile name={item.icon} size={40} />}
+            {item.icon && <ValueIllustration icon={item.icon} className="h-14 w-14 shrink-0" />}
             <span className="flex-1">{item.q}</span>
             <Icon name="chevron-down" size={18} strokeWidth={2} className="shrink-0 text-slate transition-transform group-open:rotate-180" />
           </summary>
-          <p className={cn("pb-5 text-[16px] leading-relaxed text-slate", item.icon && "pl-14")}>{item.a}</p>
+          <p className={cn("pb-5 text-[16px] leading-relaxed text-slate", item.icon && "pl-[72px]")}>{item.a}</p>
         </details>
       ))}
     </div>

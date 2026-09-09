@@ -34,6 +34,7 @@ const paths: Record<IconName, React.ReactNode> = {
     </>
   ),
   drop: <path d="M12 3c3 4 6 7.5 6 11a6 6 0 1 1-12 0c0-3.5 3-7 6-11z" />,
+  filter: <path d="M4 5h16l-6 8v6l-4 2v-8z" />,
   drain: (
     <>
       <circle cx="12" cy="12" r="9" />

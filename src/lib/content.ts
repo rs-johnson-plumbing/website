@@ -41,7 +41,8 @@ export type IconName =
   | "map"
   | "chevron-down"
   | "help"
-  | "message";
+  | "message"
+  | "filter";
 
 export type NavItem = { label: string; href: string };
 

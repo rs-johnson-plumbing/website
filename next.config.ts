@@ -9,6 +9,9 @@ const nextConfig: NextConfig = {
     return [
       { source: "/plumbing", destination: "/for-homeowners", permanent: true },
       { source: "/plumbing/:slug", destination: "/services/:slug", permanent: true },
+      // Remodel plumbing moved under the builders side; the old service page is gone.
+      { source: "/services/bath-and-kitchen-remodel", destination: "/services", permanent: true },
+      { source: "/plumbing/bath-and-kitchen-remodel", destination: "/services", permanent: true },
     ];
   },
   images: {

@@ -27,7 +27,7 @@ type ContactDetail = { icon: IconName; label: string; value: string; href?: stri
 
 function H2({ children, id }: { children: React.ReactNode; id?: string }) {
   return (
-    <h2 id={id} className="text-center text-[24px] font-bold tracking-[-0.01em] lg:text-left lg:text-h2 lg:font-bold">
+    <h2 id={id} className="text-center text-h2-m tracking-[-0.01em] lg:text-left lg:text-h2">
       {children}
     </h2>
   );
