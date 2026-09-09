@@ -26,33 +26,50 @@
       "line": "Rough-in through trim. Custom homes, spec builds, whole-house remodels.",
       "primary": "Request a Bid",
       "secondary": "Call or Text 314-220-1827",
-      "credentials": [
-        "Dependable",
-        "Competitive",
-        "Finish on budget"
-      ],
-      "credentialsLabel": "Why trust us"
+      "credentials": []
     }
   },
   "setsApart": {
-    "heading": "Here's what sets us apart",
-    "items": [
-      {
-        "icon": "phone",
-        "title": "You talk to the plumber",
-        "line": "Ryan answers the phone. No call center, no dispatcher."
-      },
-      {
-        "icon": "tag",
-        "title": "Price before we start",
-        "line": "You get the number before work begins. No surprises on the invoice."
-      },
-      {
-        "icon": "clock",
-        "title": "We show up when we say",
-        "line": "A text with a name and ETA before we arrive."
-      }
-    ]
+    "homeowners": {
+      "heading": "Here's what sets us apart",
+      "items": [
+        {
+          "icon": "phone",
+          "title": "You talk to the plumber",
+          "line": "Ryan answers the phone. No call center, no dispatcher."
+        },
+        {
+          "icon": "tag",
+          "title": "Price before we start",
+          "line": "You get the number before work begins. No surprises on the invoice."
+        },
+        {
+          "icon": "clock",
+          "title": "We show up when we say",
+          "line": "A text with a name and ETA before we arrive."
+        }
+      ]
+    },
+    "builders": {
+      "heading": "Why trust us",
+      "items": [
+        {
+          "icon": "clock",
+          "title": "Dependable",
+          "line": "Same crew on your job start to finish. Daily check-in with your super, and we meet the inspector."
+        },
+        {
+          "icon": "tag",
+          "title": "Competitive",
+          "line": "Straight numbers from your plans. A bid back within [# business days]."
+        },
+        {
+          "icon": "check-circle",
+          "title": "Finish on budget",
+          "line": "The number we bid is the number we finish at. Changes get priced before they happen, not after."
+        }
+      ]
+    }
   },
   "neighbors": {
     "heading": "What our neighbors say",

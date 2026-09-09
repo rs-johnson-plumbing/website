@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
-import { home, site, services, reviews, link, type IconName } from "@/lib/content";
+import { home, site, services, reviews, link } from "@/lib/content";
 import { plumberJsonLd } from "@/lib/jsonld";
 import { HomeHero } from "@/components/blocks/HomeHero";
+import { AudienceProvider } from "@/components/blocks/AudienceContext";
+import { SetsApart } from "@/components/blocks/SetsApart";
 import { TrustBar } from "@/components/blocks/TrustBar";
 import { ServiceIllustration } from "@/components/blocks/ServiceIllustration";
 import { ReviewCard } from "@/components/blocks/ReviewCard";
@@ -30,37 +32,23 @@ function H2({ children, id }: { children: React.ReactNode; id?: string }) {
 }
 
 export default function HomePage() {
-  const apart = home.setsApart.items as { icon: IconName; title: string; line: string }[];
   const popular = home.popularServices.slugs.map((slug) => services.find((s) => s.slug === slug)).filter((s): s is NonNullable<typeof s> => Boolean(s));
   const moreReviews = home.neighbors.reviewIds.map((id) => reviews.items.find((r) => r.id === id)).filter((r): r is NonNullable<typeof r> => Boolean(r));
 
   return (
     <>
       <JsonLd data={plumberJsonLd()} />
+      <AudienceProvider>
       <HomeHero />
       <div className="hidden lg:block">
         <TrustBar />
       </div>
 
-      {/* What sets us apart */}
+      {/* What sets us apart (follows the homeowner/builder toggle) */}
       <Section ariaLabelledby="apart-h" className="!pt-6 lg:!pt-16">
-        <div className="flex flex-col gap-4 lg:gap-6">
-          <H2 id="apart-h">{home.setsApart.heading}</H2>
-          <div className="grid grid-cols-1 gap-3 lg:grid-cols-3 lg:gap-5">
-            {apart.map((item) => (
-              <div key={item.title} className="flex items-center gap-4 rounded-card border border-hairline bg-white p-4 lg:p-5">
-                <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-tile bg-blue-tint text-blue">
-                  <Icon name={item.icon} size={24} />
-                </span>
-                <div>
-                  <div className="text-[17px] font-bold">{item.title}</div>
-                  <div className="text-[14px] leading-snug text-slate">{item.line}</div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
+        <SetsApart />
       </Section>
+      </AudienceProvider>
 
       {/* What our neighbors say */}
       <Section tone="sand" id="reviews" ariaLabelledby="neighbors-h">

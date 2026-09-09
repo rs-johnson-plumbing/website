@@ -1,11 +1,9 @@
 "use client";
 
-import { useState } from "react";
 import { home, site, link } from "@/lib/content";
 import { Button } from "@/components/ui/Button";
 import { cn } from "@/lib/cn";
-
-type Audience = "homeowners" | "builders";
+import { useAudience, type Audience } from "./AudienceContext";
 
 /**
  * Two-door homepage hero.
@@ -18,7 +16,7 @@ type Audience = "homeowners" | "builders";
  * two stacked buttons with the phone number visible, and a credentials line.
  */
 export function HomeHero() {
-  const [audience, setAudience] = useState<Audience>("homeowners");
+  const { audience, setAudience } = useAudience();
   const h = home.hero;
 
   return (
@@ -88,8 +86,7 @@ export function HomeHero() {
             </div>
             {h.builders.credentials.length > 0 && (
             <div className="flex flex-wrap items-baseline justify-center gap-x-3 gap-y-1 text-[13px] font-semibold text-ondark-muted lg:justify-start">
-              {h.builders.credentialsLabel && <span className="text-[12px] font-bold uppercase tracking-[0.06em] text-offwhite">{h.builders.credentialsLabel}</span>}
-              {h.builders.credentials.map((c, i) => (
+              {(h.builders.credentials as string[]).map((c, i) => (
                 <span key={c} className="inline-flex gap-3">
                   {i > 0 && <span aria-hidden="true">·</span>}
                   {c}
