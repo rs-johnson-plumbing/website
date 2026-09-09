@@ -23,12 +23,27 @@ export function StickyMobileBar() {
       setVisible(true);
       return;
     }
-    const observer = new IntersectionObserver(
-      ([entry]) => setVisible(!entry.isIntersecting),
-      { threshold: 0 },
-    );
-    observer.observe(sentinel);
-    return () => observer.disconnect();
+    // Scroll-based rather than IntersectionObserver: identical behavior in
+    // every mobile browser, no first-callback quirks. Show the bar once the
+    // hero's bottom edge has scrolled above the viewport.
+    let ticking = false;
+    const update = () => {
+      ticking = false;
+      setVisible(sentinel.getBoundingClientRect().bottom <= 0);
+    };
+    const onScroll = () => {
+      if (!ticking) {
+        ticking = true;
+        requestAnimationFrame(update);
+      }
+    };
+    update();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("resize", onScroll);
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+      window.removeEventListener("resize", onScroll);
+    };
   }, []);
 
   return (
@@ -43,7 +58,7 @@ export function StickyMobileBar() {
         href={site.phone.tel}
         data-track="call-sticky"
         tabIndex={visible ? 0 : -1}
-        className="flex flex-[1.3] items-center justify-center whitespace-nowrap rounded-btn bg-blue py-3 text-[15px] font-bold text-white hover:opacity-[0.88]"
+        className="flex flex-[1.6] items-center justify-center whitespace-nowrap rounded-btn bg-blue py-3 text-[14px] font-bold text-white hover:opacity-[0.88]"
         aria-label={`${site.phone.note} ${site.phone.display}`}
       >
         {site.cta.stickyCall}
@@ -52,7 +67,7 @@ export function StickyMobileBar() {
         href={link("book")}
         data-track="book-sticky"
         tabIndex={visible ? 0 : -1}
-        className="flex flex-1 items-center justify-center rounded-btn border-[1.5px] border-charcoal py-3 text-[15px] font-bold text-charcoal hover:opacity-[0.88]"
+        className="flex flex-1 items-center justify-center rounded-btn border-[1.5px] border-charcoal py-3 text-[14px] font-bold text-charcoal hover:opacity-[0.88]"
       >
         {site.cta.stickyBook}
       </a>
