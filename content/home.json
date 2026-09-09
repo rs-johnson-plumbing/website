@@ -92,7 +92,7 @@
   },
   "form": {
     "heading": "Send us a message",
-    "line": "We'll call you back the same day. [confirm]",
+    "line": "We'll call you back. [confirm turnaround]",
     "fields": {
       "name": "Name",
       "phone": "Phone",

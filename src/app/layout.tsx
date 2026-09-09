@@ -25,9 +25,9 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_US",
   },
-  // TEMPORARY: keep search engines off the shell while pages are placeholders.
-  // Remove this block at launch, when app/robots.ts and sitemap.ts go in.
-  robots: { index: false, follow: false },
+  // Search indexing is off until NEXT_PUBLIC_SITE_INDEXABLE=true is set in
+  // Vercel. Flip it at launch; nothing else changes.
+  robots: process.env.NEXT_PUBLIC_SITE_INDEXABLE === "true" ? { index: true, follow: true } : { index: false, follow: false },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
