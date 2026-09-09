@@ -85,14 +85,14 @@ const labels: { name: string; x: number; y: number }[] = [
 function Shield({ n, x, y }: { n: string; x: number; y: number }) {
   const wide = n.length > 2;
   return (
-    <g transform={`translate(${x} ${y})`} fontFamily="var(--font-figtree), system-ui, sans-serif" fontWeight="800" fontSize="11" textAnchor="middle">
-      <path d={wide ? "M-16 -9 h32 c0 9 -5 15 -16 19 c-11 -4 -16 -10 -16 -19z" : "M-13 -9 h26 c0 9 -4 15 -13 19 c-9 -4 -13 -10 -13 -19z"} fill="currentColor" />
-      <text y="4.5" fill="var(--map-ground)">{n}</text>
+    <g transform={`translate(${x} ${y})`} fontFamily="var(--font-figtree), system-ui, sans-serif" fontWeight="800" fontSize="13" textAnchor="middle">
+      <path d={wide ? "M-19 -11 h38 c0 11 -6 18 -19 23 c-13 -5 -19 -12 -19 -23z" : "M-15 -11 h30 c0 11 -5 18 -15 23 c-10 -5 -15 -12 -15 -23z"} fill="currentColor" />
+      <text y="5.5" fill="var(--map-ground)">{n}</text>
     </g>
   );
 }
 
-export function MetroMap({ className, variant = "ink", area = false }: { className?: string; variant?: MetroMapVariant; /** Tint the service area and pin O'Fallon. */ area?: boolean }) {
+export function MetroMap({ className, variant = "ink", frame = "wide", pin = true }: { className?: string; variant?: MetroMapVariant; /** "wide" fades out under the desktop headline; "phone" crops to the drawing with no fade and sits at the bottom of a tall narrow hero. */ frame?: "wide" | "phone"; /** Copper pin on O'Fallon, the headquarters. */ pin?: boolean }) {
   const mono = variant === "teal";
   const pipes = variant === "pipes" || variant === "valve";
   const blueprint = variant === "blueprint";
@@ -100,7 +100,13 @@ export function MetroMap({ className, variant = "ink", area = false }: { classNa
   const interW = variant === "roads" ? 6 : pipes ? 9 : 4.5;
   const routeW = pipes ? 5 : 2.5;
   return (
-    <svg viewBox="0 0 1800 500" preserveAspectRatio="xMaxYMid slice" aria-hidden="true" className={className} style={{ ["--map-ground" as string]: "#F7F5F0" }}>
+    <svg
+      viewBox={frame === "wide" ? "0 0 1800 500" : "880 0 900 500"}
+      preserveAspectRatio={frame === "wide" ? "xMaxYMid slice" : "xMidYMax meet"}
+      aria-hidden="true"
+      className={className}
+      style={{ ["--map-ground" as string]: "#F7F5F0" }}
+    >
       <defs>
         <linearGradient id="metro-fade" x1="0" y1="0" x2="1" y2="0">
           <stop offset="0" stopColor="#fff" stopOpacity="0" />
@@ -115,13 +121,12 @@ export function MetroMap({ className, variant = "ink", area = false }: { classNa
           <path d="M40 0H0V40" fill="none" stroke="#3F6C78" strokeWidth="0.8" />
         </pattern>
       </defs>
-      <g mask="url(#metro-mask)">
+      <g mask={frame === "wide" ? "url(#metro-mask)" : undefined}>
         {blueprint && <rect width="1800" height="500" fill="url(#metro-grid)" opacity="0.35" />}
         <g transform="translate(920 -70) scale(0.8)" fill="none" strokeLinecap="round" strokeLinejoin="round">
-          {/* Service area: a soft wash over St. Charles County and West St. Louis County, and a pin on O'Fallon */}
-          {area && (
+          {/* Headquarters: a copper pin on O'Fallon. No area outline, the whole metro is served. */}
+          {pin && (
             <>
-              <path d="M300 240 C360 200 470 210 560 230 C640 250 700 300 720 360 C700 420 640 470 560 480 C470 490 380 470 320 420 C280 380 270 300 300 240z" fill="#3F6C78" opacity="0.07" />
               <g transform="translate(475 300)">
                 <path d="M0 0 c-14 -18 -18 -26 -18 -36 a18 18 0 0 1 36 0 c0 10 -4 18 -18 36z" fill="#A85A2E" stroke="#F7F5F0" strokeWidth="3" opacity="0.9" />
                 <circle cx="0" cy="-36" r="7" fill="#F7F5F0" />
@@ -180,7 +185,7 @@ export function MetroMap({ className, variant = "ink", area = false }: { classNa
           )}
           {/* Shields, on the ink version only */}
           {variant === "ink" && (
-            <g className="text-charcoal" stroke="none" opacity="0.4">
+            <g className="text-charcoal" stroke="none" opacity="0.62">
               {shields.map((s, i) => (
                 <Shield key={i} {...s} />
               ))}
