@@ -51,7 +51,7 @@ export function SectionHeading({ id, title, action, line, dark = false }: { id?:
         </h2>
         {action}
       </div>
-      {line && <p className={cn("mt-2 text-[16px]", dark ? "text-ondark-muted" : "text-slate")}>{line}</p>}
+      {line && <p className={cn("mt-2 text-[16px]", dark ? "text-ondark-muted" : "text-slate builders:text-ondark-muted")}>{line}</p>}
     </div>
   );
 }

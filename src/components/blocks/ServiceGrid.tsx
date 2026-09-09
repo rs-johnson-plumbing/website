@@ -7,10 +7,11 @@ import { ServiceIllustration } from "./ServiceIllustration";
  * desktop. The whole card is the link. On the services hub each card jumps
  * to its section on the page; elsewhere it points at the hub.
  */
-export function ServiceGrid({ hrefFor }: { hrefFor: (slug: string) => string }) {
+export function ServiceGrid({ hrefFor, slugs }: { hrefFor: (slug: string) => string; slugs?: string[] }) {
+  const list = slugs ? slugs.map((slug) => services.find((s) => s.slug === slug)).filter((s): s is NonNullable<typeof s> => Boolean(s)) : services;
   return (
     <div className="grid grid-cols-2 gap-3 lg:grid-cols-4 lg:gap-5">
-      {services.map((s) => (
+      {list.map((s) => (
         <Link
           key={s.slug}
           href={hrefFor(s.slug)}

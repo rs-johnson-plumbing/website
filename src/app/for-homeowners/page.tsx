@@ -1,13 +1,13 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { homeowners, faqs, reviews, team, site, link, type IconName } from "@/lib/content";
+import { homeowners, faqs, reviews, site, link, type IconName } from "@/lib/content";
 import { plumberJsonLd } from "@/lib/jsonld";
 import { JsonLd } from "@/components/blocks/JsonLd";
 import { AnchorBar, type Anchor } from "@/components/blocks/AnchorBar";
 import { ServiceGrid, PageHeading } from "@/components/blocks/ServiceGrid";
 import { ReviewCard } from "@/components/blocks/ReviewCard";
 import { SetsApart } from "@/components/blocks/SetsApart";
-import { PersonCard } from "@/components/blocks/PersonCard";
+import { TeamStrip } from "@/components/blocks/TeamStrip";
 import { FAQ } from "@/components/blocks/FAQ";
 import { ClosingCTA } from "@/components/blocks/ClosingCTA";
 import { Section, SectionHeading } from "@/components/ui/Section";
@@ -86,12 +86,7 @@ export default function ForHomeownersPage() {
 
       {/* Meet the team */}
       <Section id="team" ariaLabelledby="ho-team-h" className="scroll-mt-[140px]">
-        <SectionHeading id="ho-team-h" title={homeowners.team.heading} line={team.whoShowsUp.line} action={<TextLink href="/our-team">{homeowners.team.link}</TextLink>} />
-        <div className="grid grid-cols-1 gap-3 rounded-card border border-hairline bg-white p-5 sm:grid-cols-2 lg:grid-cols-5 lg:gap-6 lg:p-6">
-          {team.members.map((m) => (
-            <PersonCard key={m.id} member={m} compact />
-          ))}
-        </div>
+        <TeamStrip id="ho-team-h" heading={homeowners.team.heading} link={homeowners.team.link} />
       </Section>
 
       {/* What your neighbors are saying */}
