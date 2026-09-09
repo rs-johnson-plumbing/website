@@ -117,7 +117,7 @@ export function MetroMap({ className, variant = "ink" }: { className?: string; v
       </defs>
       <g mask="url(#metro-mask)">
         {blueprint && <rect width="1800" height="500" fill="url(#metro-grid)" opacity="0.35" />}
-        <g transform="translate(990 -70) scale(0.8)" fill="none" strokeLinecap="round" strokeLinejoin="round">
+        <g transform="translate(920 -70) scale(0.8)" fill="none" strokeLinecap="round" strokeLinejoin="round">
           {/* Rivers: water */}
           <g className="text-teal" stroke="currentColor" opacity={mono ? 0.4 : blueprint ? 0.5 : 0.3}>
             <path d={smooth(mississippi)} strokeWidth={mono ? 22 : 12} strokeDasharray={blueprint ? "2 10" : undefined} />
@@ -176,9 +176,9 @@ export function MetroMap({ className, variant = "ink" }: { className?: string; v
             </g>
           )}
           {/* The two names */}
-          <g className={mono || blueprint ? "text-teal-dark" : "text-charcoal"} fill="currentColor" stroke="none" opacity={mono || blueprint ? 0.8 : 0.55} fontFamily="var(--font-figtree), system-ui, sans-serif" fontWeight="700">
+          <g className={mono || blueprint ? "text-teal-dark" : "text-charcoal"} fill="currentColor" stroke="none" opacity={mono || blueprint ? 0.9 : 0.85} fontFamily="var(--font-figtree), system-ui, sans-serif" fontWeight="700">
             {labels.map((l) => (
-              <text key={l.name} x={l.x} y={l.y} fontSize={variant === "roads" || blueprint ? 26 : 22} textAnchor="middle" letterSpacing={variant === "roads" || blueprint ? 1 : 0}>
+              <text key={l.name} x={l.x} y={l.y} fontSize={variant === "roads" || blueprint ? 30 : 28} textAnchor="middle" letterSpacing={variant === "roads" || blueprint ? 1 : 0}>
                 {variant === "roads" || blueprint ? l.name.toUpperCase() : l.name}
               </text>
             ))}
