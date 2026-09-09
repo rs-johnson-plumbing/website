@@ -16,8 +16,8 @@ export function SetsApart({ heading, headingClassName }: { heading?: string; hea
   const block = home.setsApart[audience] as { heading: string; items: Item[] };
   const title = audience === "homeowners" && heading ? heading : block.heading;
   return (
-    <div className="flex flex-col gap-4 lg:gap-6">
-      <h2 id="apart-h" className={headingClassName ?? "text-center text-[24px] font-bold tracking-[-0.01em] lg:text-left lg:text-h2 lg:font-bold"}>
+    <div className="flex flex-col gap-8 lg:gap-10">
+      <h2 id="apart-h" className={headingClassName ?? "text-center text-h2-m tracking-[-0.01em] lg:text-left lg:text-h2"}>
         {title}
       </h2>
       <div className="grid grid-cols-1 gap-3 lg:grid-cols-3 lg:gap-5">

@@ -30,7 +30,7 @@ export function ServiceGrid({ hrefFor, slugs }: { hrefFor: (slug: string) => str
 /** Hero-style centered heading used at the top of the hub and audience pages. */
 export function PageHeading({ id, title, line, align = "center", className }: { id: string; title: string; line?: string; align?: "center" | "left"; className?: string }) {
   return (
-    <div className={cn("mb-8 flex flex-col gap-3 lg:mb-12", align === "center" ? "items-center text-center" : "items-start text-left")}>
+    <div className={cn("mb-8 flex flex-col gap-3 lg:mb-10", align === "center" ? "items-center text-center" : "items-start text-left")}>
       <h2 id={id} className={className ?? "text-[clamp(26px,8vw,32px)] font-bold leading-[1.1] tracking-[-0.01em] lg:text-h1 lg:font-bold"}>
         {title}
       </h2>
