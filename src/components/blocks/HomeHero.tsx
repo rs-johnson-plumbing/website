@@ -86,6 +86,7 @@ export function HomeHero() {
                 {h.builders.secondary}
               </Button>
             </div>
+            {h.builders.credentials.length > 0 && (
             <div className="flex flex-wrap justify-center gap-x-3 gap-y-1 text-[13px] font-semibold text-ondark-muted lg:justify-start">
               {h.builders.credentials.map((c, i) => (
                 <span key={c} className="inline-flex gap-3">
@@ -94,6 +95,7 @@ export function HomeHero() {
                 </span>
               ))}
             </div>
+            )}
           </div>
         </div>
       </section>
