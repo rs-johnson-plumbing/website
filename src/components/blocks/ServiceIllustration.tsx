@@ -1,12 +1,12 @@
 /**
  * Cartoon service illustrations, one per service slug. Rounded shapes, one
- * charcoal outline weight, brand blue for water, flame, and fittings,
- * off-white fills, all on the same light-blue disc. Pure SVG so they scale
+ * charcoal outline weight, brand teal for water, flame, and fittings,
+ * off-white fills, all on the same light-teal disc. Pure SVG so they scale
  * from a 64px tile to a truck door.
  */
 const C = "#2B2B2B";
-const B = "#2F6FE0";
-const T = "#E3EBFB";
+const B = "#3F6C78";
+const T = "#E3EEF0";
 const O = "#F7F5F0";
 const W = "#FFFFFF";
 const H = "#E3DFD5";

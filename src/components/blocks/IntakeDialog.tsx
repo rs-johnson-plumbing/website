@@ -12,7 +12,7 @@ import { cn } from "@/lib/cn";
  * summary row, and the back link. The flows own their stages and copy.
  */
 export const intakeHeading = "pr-7 text-[18px] font-bold leading-tight tracking-[-0.01em] text-charcoal lg:text-[21px]";
-export const intakeInput = "h-[52px] w-full min-w-0 rounded-btn border-[1.5px] border-hairline-strong bg-white px-3.5 text-[16px] text-charcoal placeholder:text-slate focus:border-blue focus:outline-none";
+export const intakeInput = "h-[52px] w-full min-w-0 rounded-btn border-[1.5px] border-hairline-strong bg-white px-3.5 text-[16px] text-charcoal placeholder:text-slate focus:border-teal focus:outline-none";
 export const intakeBtn = "inline-flex h-[48px] shrink-0 items-center justify-center gap-2 whitespace-nowrap rounded-btn px-5 text-[16px] font-bold transition-opacity hover:opacity-[0.88] disabled:opacity-60";
 
 /** An option button: icon in a tinted tile, label to its right. */
@@ -23,11 +23,11 @@ export function Chip({ icon, label, onClick, track, dashed = false }: { icon: Ic
       onClick={onClick}
       data-track={track}
       className={cn(
-        "flex min-h-[54px] w-full items-center gap-3 rounded-btn border border-hairline-strong bg-white px-3 py-2 text-left text-[15px] font-bold leading-tight text-charcoal shadow-[0_1px_2px_rgba(43,43,43,0.08)] transition-colors hover:border-blue hover:bg-blue-tint",
+        "flex min-h-[54px] w-full items-center gap-3 rounded-btn border border-hairline-strong bg-white px-3 py-2 text-left text-[15px] font-bold leading-tight text-charcoal shadow-[0_1px_2px_rgba(43,43,43,0.08)] transition-colors hover:border-teal hover:bg-teal-tint",
         dashed && "border-dashed shadow-none",
       )}
     >
-      <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-tile bg-blue-tint text-blue">
+      <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-tile bg-teal-tint text-teal">
         <Icon name={icon} size={20} />
       </span>
       <span>{label}</span>

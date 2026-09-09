@@ -9,13 +9,13 @@ const config: Config = {
       colors: {
         offwhite: colors.offwhite,
         charcoal: colors.charcoal,
-        blue: {
-          DEFAULT: colors.blue,
-          dark: colors.blueDark,
-          tint: colors.blueTint,
-          ondark: colors.blueOnDark,
+        teal: {
+          DEFAULT: colors.teal,
+          dark: colors.tealDark,
+          tint: colors.tealTint,
+          ondark: colors.tealOnDark,
+          ink: colors.tealInk,
         },
-        teal: colors.teal,
         slate: colors.slate,
         hairline: {
           DEFAULT: colors.hairline,
@@ -25,7 +25,7 @@ const config: Config = {
         ondark: {
           muted: colors.onDarkMuted,
           helper: colors.onDarkHelper,
-          bluetint: colors.onDarkBlueTint,
+          tealtint: colors.onDarkTealTint,
         },
         darkcard: colors.darkCard,
         darkborder: colors.darkBorder,

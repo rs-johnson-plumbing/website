@@ -108,7 +108,7 @@ export function AvailabilityCheck({ className }: { className?: string }) {
         type="button"
         onClick={() => setStage("address")}
         data-track="availability-open"
-        className={cn("inline-flex h-[52px] items-center justify-center gap-2 whitespace-nowrap rounded-btn bg-blue px-6 text-[16px] font-bold text-white transition-opacity hover:opacity-[0.88]", className)}
+        className={cn("inline-flex h-[52px] items-center justify-center gap-2 whitespace-nowrap rounded-btn bg-teal px-6 text-[16px] font-bold text-white builders:bg-charcoal transition-opacity hover:opacity-[0.88]", className)}
       >
         {a.button}
         <Icon name="arrow-right" size={20} strokeWidth={1.8} className="shrink-0" />
@@ -133,7 +133,7 @@ export function AvailabilityCheck({ className }: { className?: string }) {
             />
             {error && <p className="mt-2 text-[14px] font-semibold">{a.error}</p>}
             <div className="mt-4 flex justify-end">
-              <button type="submit" disabled={busy} data-track="availability-check" className={cn(btn, "bg-blue text-white")}>
+              <button type="submit" disabled={busy} data-track="availability-check" className={cn(btn, "bg-teal text-white builders:bg-charcoal")}>
                 {a.check}
                 <Icon name="arrow-right" size={18} strokeWidth={1.8} />
               </button>
@@ -181,7 +181,7 @@ export function AvailabilityCheck({ className }: { className?: string }) {
             <textarea ref={noteRef} value={note} onChange={(e) => setNote(e.target.value)} rows={3} maxLength={500} placeholder={a.notePlaceholder} aria-label={a.noteHeading} className={cn(input, "mt-4 h-auto py-3")} />
             <div className="mt-4 flex items-center justify-between gap-3">
               <BackLink onClick={() => setStage("issue")} label={a.back} />
-              <button type="button" onClick={() => setStage("phone")} data-track="availability-note-next" className={cn(btn, "bg-blue text-white")}>
+              <button type="button" onClick={() => setStage("phone")} data-track="availability-note-next" className={cn(btn, "bg-teal text-white builders:bg-charcoal")}>
                 {a.next}
                 <Icon name="arrow-right" size={18} strokeWidth={1.8} />
               </button>
@@ -195,13 +195,13 @@ export function AvailabilityCheck({ className }: { className?: string }) {
               {a.phoneHeading}
             </h2>
             <p className="mt-1 text-[14px] text-slate">{a.phoneLine}</p>
-            <dl className="mt-3 divide-y divide-hairline rounded-btn border border-blue/20 bg-blue-tint px-3.5">
+            <dl className="mt-3 divide-y divide-hairline rounded-btn border border-teal/20 bg-teal-tint px-3.5">
               <Row label={a.labels.address}>{address}</Row>
               <Row label={a.labels.reason}>{summary}</Row>
               {note && <Row label={a.labels.details}>{note}</Row>}
             </dl>
             <div className="relative mt-4">
-              <span className="pointer-events-none absolute left-3.5 top-1/2 flex h-7 w-7 -translate-y-1/2 items-center justify-center rounded-full bg-blue-tint text-blue">
+              <span className="pointer-events-none absolute left-3.5 top-1/2 flex h-7 w-7 -translate-y-1/2 items-center justify-center rounded-full bg-teal-tint text-teal">
                 <Icon name="phone" size={15} />
               </span>
               <input ref={phoneRef} name="phone" type="tel" required placeholder={a.phonePlaceholder} aria-label={a.phoneHeading} autoComplete="tel" className={cn(input, "pl-14")} />
@@ -209,7 +209,7 @@ export function AvailabilityCheck({ className }: { className?: string }) {
             {error && <p className="mt-2 text-[14px] font-semibold">{a.error}</p>}
             <div className="mt-4 flex items-center justify-between gap-3">
               <BackLink onClick={() => setStage("note")} label={a.back} />
-              <button type="submit" disabled={busy} data-track="availability-send" className={cn(btn, "bg-blue text-white")}>
+              <button type="submit" disabled={busy} data-track="availability-send" className={cn(btn, "bg-teal text-white builders:bg-charcoal")}>
                 {a.send}
                 <Icon name="arrow-right" size={18} strokeWidth={1.8} />
               </button>

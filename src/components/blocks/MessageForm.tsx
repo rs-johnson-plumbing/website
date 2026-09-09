@@ -26,7 +26,7 @@ export function MessageForm({ className, heading = true }: { className?: string;
     }
   }
 
-  const input = "h-12 w-full rounded-btn border border-hairline bg-white px-3.5 text-[15px] text-charcoal placeholder:text-slate builders:text-ondark-muted focus:border-blue focus:outline-none";
+  const input = "h-12 w-full rounded-btn border border-hairline bg-white px-3.5 text-[15px] text-charcoal placeholder:text-slate builders:text-ondark-muted focus:border-teal focus:outline-none";
 
   return (
     <form id="message" onSubmit={onSubmit} className={cn("flex flex-col gap-3 rounded-card border border-hairline bg-white builders:border-darkborder builders:bg-darkcard p-5", className)}>
@@ -37,7 +37,7 @@ export function MessageForm({ className, heading = true }: { className?: string;
         </>
       )}
       {status === "sent" ? (
-        <p className="rounded-btn bg-blue-tint px-4 py-3 text-[15px] font-semibold">{f.success}</p>
+        <p className="rounded-btn bg-teal-tint px-4 py-3 text-[15px] font-semibold">{f.success}</p>
       ) : (
         <>
           <div className="grid grid-cols-1 gap-2.5 lg:grid-cols-2">
@@ -55,7 +55,7 @@ export function MessageForm({ className, heading = true }: { className?: string;
             type="submit"
             disabled={status === "sending"}
             data-track="message-submit"
-            className="flex h-[52px] items-center justify-center rounded-btn bg-blue text-[16px] font-bold text-white transition-opacity hover:opacity-[0.88] disabled:opacity-60"
+            className="flex h-[52px] items-center justify-center rounded-btn bg-teal text-[16px] font-bold text-white transition-opacity hover:opacity-[0.88] disabled:opacity-60"
           >
             {f.button}
           </button>
