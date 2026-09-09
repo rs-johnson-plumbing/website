@@ -11,34 +11,87 @@
       "icon": "check-circle"
     },
     {
-      "id": "signs",
-      "label": "Signs",
-      "icon": "bolt"
-    },
-    {
       "id": "why-us",
       "label": "Why Us",
       "icon": "star"
     },
     {
-      "id": "faq",
-      "label": "FAQ",
-      "icon": "chevron-down"
+      "id": "team",
+      "label": "Team",
+      "icon": "shield"
     },
     {
       "id": "reviews",
       "label": "Reviews",
       "icon": "sparkle"
+    },
+    {
+      "id": "signs",
+      "label": "Signs",
+      "icon": "bolt"
+    },
+    {
+      "id": "faq",
+      "label": "FAQ",
+      "icon": "chevron-down"
     }
   ],
   "residential": {
-    "heading": "Residential Services",
-    "line": "Everything we do for homes, from a dripping faucet to a full remodel.",
+    "heading": "What We Do for Homeowners",
+    "line": "",
     "seeAll": "See All Services"
+  },
+  "whyUs": {
+    "heading": "Why Homeowners Call Us",
+    "items": [
+      {
+        "title": "You Talk to the Plumber",
+        "text": "Ryan answers the phone and bids every job. There's no call center and no dispatcher between you and the person doing the work."
+      },
+      {
+        "title": "A Master Plumber on Every Job",
+        "text": "Ryan holds a Missouri Master Plumber license [license # and link to the state or county lookup]. The crew is licensed, insured, and background-checked, and you can see who they are on our team page."
+      },
+      {
+        "title": "Price Before We Start",
+        "text": "You get the price before work begins. If we open something up and find more, we stop and talk before we go further."
+      },
+      {
+        "title": "The Same Crew Builders Trust",
+        "text": "Most of our work is new construction and remodels for builders in St. Charles County — schedules that don't tolerate no-shows. Homeowners get the same crew and the same standard."
+      },
+      {
+        "title": "Neighbors Recommend Us",
+        "text": "R.S. Johnson was a Nextdoor Neighborhood Favorite in 2023 and has [24] neighbor recommendations. [Google rating and count when available.]"
+      }
+    ],
+    "links": [
+      {
+        "label": "Meet the Team",
+        "href": "/our-team"
+      },
+      {
+        "label": "Read Reviews",
+        "href": "/reviews"
+      }
+    ]
+  },
+  "team": {
+    "heading": "Meet the Team",
+    "link": "Meet the Whole Crew"
+  },
+  "neighbors": {
+    "heading": "What Your Neighbors Are Saying",
+    "reviewIds": [
+      "bl-wildwood",
+      "jr-ofallon",
+      "neighbor-stl"
+    ],
+    "link": "See All Reviews"
   },
   "signs": {
     "heading": "Signs You Need a Plumber",
-    "line": "Every one of these points to a service we handle. If you're seeing any of them in your home, it's worth a call before it becomes a bigger job.",
+    "line": "",
     "items": [
       {
         "icon": "drain",
@@ -84,52 +137,8 @@
       }
     ]
   },
-  "whyUs": {
-    "heading": "Why Homeowners Call Us",
-    "items": [
-      {
-        "title": "You Talk to the Plumber",
-        "text": "Ryan answers the phone and bids every job. There's no call center and no dispatcher between you and the person doing the work."
-      },
-      {
-        "title": "A Master Plumber on Every Job",
-        "text": "Ryan holds a Missouri Master Plumber license [license # and link to the state or county lookup]. The crew is licensed, insured, and background-checked, and you can see who they are on our team page."
-      },
-      {
-        "title": "Price Before We Start",
-        "text": "You get the price before work begins. If we open something up and find more, we stop and talk before we go further."
-      },
-      {
-        "title": "The Same Crew Builders Trust",
-        "text": "Most of our work is new construction and remodels for builders in St. Charles County — schedules that don't tolerate no-shows. Homeowners get the same crew and the same standard."
-      },
-      {
-        "title": "Neighbors Recommend Us",
-        "text": "R.S. Johnson was a Nextdoor Neighborhood Favorite in 2023 and has [24] neighbor recommendations. [Google rating and count when available.]"
-      }
-    ],
-    "links": [
-      {
-        "label": "Meet the Team",
-        "href": "/our-team"
-      },
-      {
-        "label": "Read Reviews",
-        "href": "/reviews"
-      }
-    ]
-  },
   "faq": {
     "heading": "FAQ"
-  },
-  "neighbors": {
-    "heading": "What Your Neighbors Are Saying",
-    "reviewIds": [
-      "bl-wildwood",
-      "jr-ofallon",
-      "neighbor-stl"
-    ],
-    "link": "See All Reviews"
   },
   "closing": {
     "heading": "Ready to Talk?"

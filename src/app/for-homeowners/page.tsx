@@ -1,11 +1,12 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { homeowners, faqs, reviews, site, link, type IconName } from "@/lib/content";
+import { homeowners, faqs, reviews, team, site, link, type IconName } from "@/lib/content";
 import { plumberJsonLd } from "@/lib/jsonld";
 import { JsonLd } from "@/components/blocks/JsonLd";
 import { AnchorBar, type Anchor } from "@/components/blocks/AnchorBar";
 import { ServiceGrid, PageHeading } from "@/components/blocks/ServiceGrid";
 import { ReviewCard } from "@/components/blocks/ReviewCard";
+import { PersonCard } from "@/components/blocks/PersonCard";
 import { FAQ } from "@/components/blocks/FAQ";
 import { ClosingCTA } from "@/components/blocks/ClosingCTA";
 import { Section, SectionHeading } from "@/components/ui/Section";
@@ -23,9 +24,10 @@ export const metadata: Metadata = {
 type Sign = { icon: IconName; title: string; text: string; service: string; link: string };
 
 /**
- * For Homeowners: the homeowner door. A recap of services (cards point at
- * the hub), the signs you need a plumber, why us, the homeowner FAQ, and
- * what neighbors are saying. Service detail lives on /services.
+ * For Homeowners: the homeowner door. In order: what we do for homeowners
+ * (cards point at the hub), why homeowners call us, meet the team, what
+ * neighbors are saying, signs you need a plumber, FAQ. Service detail lives
+ * on /services.
  */
 export default function ForHomeownersPage() {
   const signs = homeowners.signs.items as Sign[];
@@ -38,7 +40,7 @@ export default function ForHomeownersPage() {
 
       <AnchorBar anchors={homeowners.anchors as Anchor[]} />
 
-      {/* Residential services recap */}
+      {/* What we do for homeowners */}
       <Section id="services" ariaLabelledby="ho-services-h" className="scroll-mt-[140px]">
         <PageHeading id="ho-services-h" title={homeowners.residential.heading} line={homeowners.residential.line} />
         <ServiceGrid hrefFor={(slug) => `/services#${slug}`} />
@@ -46,23 +48,6 @@ export default function ForHomeownersPage() {
           <Button href="/services" variant="outlined" className="w-full lg:w-auto">
             {homeowners.residential.seeAll}
           </Button>
-        </div>
-      </Section>
-
-      {/* Signs: each card points to the service it belongs to */}
-      <Section id="signs" tone="sand" ariaLabelledby="signs-h" className="scroll-mt-[140px]">
-        <SectionHeading id="signs-h" title={homeowners.signs.heading} line={homeowners.signs.line} />
-        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 lg:gap-5">
-          {signs.map((item) => (
-            <div key={item.title} className="flex flex-col items-start gap-3 rounded-card border border-hairline bg-white p-5 lg:p-6">
-              <IconTile name={item.icon} size={40} />
-              <h3 className="text-[19px] font-bold leading-tight lg:text-[20px]">{item.title}</h3>
-              <p className="text-[15px] leading-[1.65] text-charcoal lg:text-[16px]">{item.text}</p>
-              <div className="mt-auto pt-1">
-                <TextLink href={`/services#${item.service}`}>{item.link}</TextLink>
-              </div>
-            </div>
-          ))}
         </div>
       </Section>
 
@@ -93,13 +78,13 @@ export default function ForHomeownersPage() {
         </div>
       </Section>
 
-      {/* Homeowner FAQ */}
-      <Section id="faq" ariaLabelledby="ho-faq-h" className="scroll-mt-[140px]">
-        <div className="grid grid-cols-1 items-start gap-8 lg:grid-cols-[1fr_2fr] lg:gap-16">
-          <h2 id="ho-faq-h" className="text-h2-m lg:text-h2">
-            {homeowners.faq.heading}
-          </h2>
-          <FAQ items={faqs.homeowners.items} />
+      {/* Meet the team */}
+      <Section id="team" ariaLabelledby="ho-team-h" className="scroll-mt-[140px]">
+        <SectionHeading id="ho-team-h" title={homeowners.team.heading} line={team.whoShowsUp.line} action={<TextLink href="/our-team">{homeowners.team.link}</TextLink>} />
+        <div className="grid grid-cols-1 gap-3 rounded-card border border-hairline bg-white p-5 sm:grid-cols-2 lg:grid-cols-5 lg:gap-6 lg:p-6">
+          {team.members.map((m) => (
+            <PersonCard key={m.id} member={m} compact />
+          ))}
         </div>
       </Section>
 
@@ -110,6 +95,33 @@ export default function ForHomeownersPage() {
           {neighborReviews.map((r) => (
             <ReviewCard key={r.id} review={r} />
           ))}
+        </div>
+      </Section>
+
+      {/* Signs: each card points to the service it belongs to */}
+      <Section id="signs" tone="white" ariaLabelledby="signs-h" className="scroll-mt-[140px] border-y border-hairline">
+        <SectionHeading id="signs-h" title={homeowners.signs.heading} line={homeowners.signs.line} />
+        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 lg:gap-5">
+          {signs.map((item) => (
+            <div key={item.title} className="flex flex-col items-start gap-3 rounded-card border border-hairline bg-white p-5 lg:p-6">
+              <IconTile name={item.icon} size={40} />
+              <h3 className="text-[19px] font-bold leading-tight lg:text-[20px]">{item.title}</h3>
+              <p className="text-[15px] leading-[1.65] text-charcoal lg:text-[16px]">{item.text}</p>
+              <div className="mt-auto pt-1">
+                <TextLink href={`/services#${item.service}`}>{item.link}</TextLink>
+              </div>
+            </div>
+          ))}
+        </div>
+      </Section>
+
+      {/* Homeowner FAQ */}
+      <Section id="faq" ariaLabelledby="ho-faq-h" className="scroll-mt-[140px]">
+        <div className="grid grid-cols-1 items-start gap-8 lg:grid-cols-[1fr_2fr] lg:gap-16">
+          <h2 id="ho-faq-h" className="text-h2-m lg:text-h2">
+            {homeowners.faq.heading}
+          </h2>
+          <FAQ items={faqs.homeowners.items} />
         </div>
       </Section>
 
