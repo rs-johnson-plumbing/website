@@ -27,9 +27,10 @@
   },
   "availability": {
     "button": "Submit Service Request",
+    "addressHeading": "Where do you need a plumber?",
     "addressLabel": "Service address",
     "addressPlaceholder": "Street address, city",
-    "check": "Check",
+    "check": "Next",
     "inArea": "Good news. We service your area.",
     "ask": "What are you inquiring about?",
     "categories": [
@@ -39,25 +40,31 @@
         "issues": [
           {
             "id": "leak",
-            "label": "Leak or Drip"
+            "label": "Leak or Drip",
+            "icon": "drop"
           },
           {
             "id": "drain",
-            "label": "Clogged Drain or Sewer"
+            "label": "Clogged Drain or Sewer",
+            "icon": "drain"
           },
           {
             "id": "no-hot-water",
-            "label": "No Hot Water"
+            "label": "No Hot Water",
+            "icon": "water-heater"
           },
           {
             "id": "toilet",
-            "label": "Toilet Trouble"
+            "label": "Toilet Trouble",
+            "icon": "toilet"
           },
           {
             "id": "burst-pipe",
-            "label": "Burst or Frozen Pipe"
+            "label": "Burst or Frozen Pipe",
+            "icon": "bolt"
           }
-        ]
+        ],
+        "icon": "wrench"
       },
       {
         "id": "install",
@@ -65,25 +72,31 @@
         "issues": [
           {
             "id": "water-heater",
-            "label": "Water Heater"
+            "label": "Water Heater",
+            "icon": "water-heater"
           },
           {
             "id": "sump-pump",
-            "label": "Sump Pump"
+            "label": "Sump Pump",
+            "icon": "pump"
           },
           {
             "id": "fixture",
-            "label": "Faucet or Fixture"
+            "label": "Faucet or Fixture",
+            "icon": "faucet"
           },
           {
             "id": "toilet",
-            "label": "Toilet"
+            "label": "Toilet",
+            "icon": "toilet"
           },
           {
             "id": "gas-line",
-            "label": "Gas Line"
+            "label": "Gas Line",
+            "icon": "gas"
           }
-        ]
+        ],
+        "icon": "plus-circle"
       },
       {
         "id": "remodel",
@@ -91,25 +104,32 @@
         "issues": [
           {
             "id": "bathroom",
-            "label": "Bathroom"
+            "label": "Bathroom",
+            "icon": "tub"
           },
           {
             "id": "kitchen",
-            "label": "Kitchen"
+            "label": "Kitchen",
+            "icon": "faucet"
           },
           {
             "id": "basement",
-            "label": "Basement Finish"
+            "label": "Basement Finish",
+            "icon": "building"
           },
           {
             "id": "repipe",
-            "label": "Whole-House Repipe"
+            "label": "Whole-House Repipe",
+            "icon": "wrench"
           }
-        ]
+        ],
+        "icon": "tub"
       }
     ],
     "other": "Something Else",
-    "noteLine": "Tell us a little about it. Optional.",
+    "otherIcon": "help",
+    "noteHeading": "Tell Us More",
+    "noteLine": "(Optional)",
     "notePlaceholder": "What's going on?",
     "next": "Next",
     "back": "Back",
@@ -124,7 +144,7 @@
     "labels": {
       "address": "Address",
       "reason": "Reason",
-      "details": "Details",
+      "details": "Note",
       "phone": "Phone Number"
     }
   },
@@ -184,7 +204,7 @@
     },
     "builders": {
       "heading": "What We Do for Builders",
-      "line": "The stages builders call us for, from plans to final inspection.",
+      "line": "",
       "slugs": [
         "planning-and-takeoffs",
         "underground",
@@ -215,7 +235,7 @@
     },
     "builders": {
       "heading": "What Other Contractors Are Saying",
-      "proofLine": "[##] builder partners · References on request",
+      "proofLine": "",
       "lead": {
         "quote": "[Contractor quote placeholder]",
         "attribution": "[Name], [Builder company], [City]"
@@ -276,11 +296,13 @@
     "types": [
       {
         "id": "new-construction",
-        "label": "New Construction"
+        "label": "New Construction",
+        "icon": "building"
       },
       {
         "id": "renovation",
-        "label": "Renovation"
+        "label": "Renovation",
+        "icon": "wrench"
       }
     ],
     "plansHeading": "Have plans to share?",

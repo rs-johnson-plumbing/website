@@ -69,3 +69,26 @@
     @apply underline underline-offset-[6px] decoration-[1.5px];
   }
 }
+
+/* Small motions for the intake "done" illustration. Off when the reader
+   asked for reduced motion. */
+@keyframes rsj-rock {
+  0%, 100% { transform: rotate(-8deg); }
+  50% { transform: rotate(10deg); }
+}
+@keyframes rsj-bob {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-5px); }
+}
+@keyframes rsj-pop {
+  0% { transform: scale(0.6); opacity: 0; }
+  60% { transform: scale(1.08); opacity: 1; }
+  100% { transform: scale(1); opacity: 1; }
+}
+.anim-rock { animation: rsj-rock 1.6s ease-in-out infinite; transform-box: fill-box; transform-origin: 20% 80%; }
+.anim-bob { animation: rsj-bob 2.2s ease-in-out infinite; }
+.anim-bob-late { animation: rsj-bob 2.2s ease-in-out 0.7s infinite; }
+.anim-pop { animation: rsj-pop 0.5s ease-out both; transform-box: fill-box; transform-origin: center; }
+@media (prefers-reduced-motion: reduce) {
+  .anim-rock, .anim-bob, .anim-bob-late, .anim-pop { animation: none; }
+}

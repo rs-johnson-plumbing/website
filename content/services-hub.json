@@ -55,7 +55,7 @@
   },
   "builders": {
     "heading": "Builder Services",
-    "line": "The stages builders call us for, from plans to final inspection.",
+    "line": "",
     "button": "Submit Bid Request"
   }
 }

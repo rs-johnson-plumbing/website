@@ -43,7 +43,11 @@ export type IconName =
   | "chevron-down"
   | "help"
   | "message"
-  | "filter";
+  | "filter"
+  | "wrench"
+  | "plus-circle"
+  | "toilet"
+  | "upload";
 
 export type NavItem = { label: string; href: string };
 

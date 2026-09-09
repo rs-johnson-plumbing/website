@@ -35,6 +35,25 @@ const paths: Record<IconName, React.ReactNode> = {
   ),
   drop: <path d="M12 3c3 4 6 7.5 6 11a6 6 0 1 1-12 0c0-3.5 3-7 6-11z" />,
   filter: <path d="M4 5h16l-6 8v6l-4 2v-8z" />,
+  wrench: <path d="M14.5 4.5a4 4 0 0 0-4.6 5.4L4 15.8 6.2 18l5.9-5.9a4 4 0 0 0 5.4-4.6l-2.3 2.3-2-2z" />,
+  "plus-circle": (
+    <>
+      <circle cx="12" cy="12" r="9" />
+      <path d="M12 8v8M8 12h8" />
+    </>
+  ),
+  upload: (
+    <>
+      <path d="M12 16V4M7 9l5-5 5 5" />
+      <path d="M4 15v3a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-3" />
+    </>
+  ),
+  toilet: (
+    <>
+      <rect x="6" y="3" width="9" height="7" rx="1.5" />
+      <path d="M5 10h14v2a6 6 0 0 1-6 6h-2a6 6 0 0 1-6-6zM9 18l-1 3h8l-1-3" />
+    </>
+  ),
   drain: (
     <>
       <circle cx="12" cy="12" r="9" />
