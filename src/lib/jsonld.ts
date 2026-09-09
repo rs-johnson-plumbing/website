@@ -1,7 +1,7 @@
 import { site, allCities, SITE_URL } from "./content";
 
 /**
- * Plumber (LocalBusiness) structured data. Rendered on /, /plumbing, and
+ * Plumber (LocalBusiness) structured data. Rendered on /, /services, /for-homeowners, and
  * /contact. No street address by design: the business is service-area based.
  */
 export function plumberJsonLd() {

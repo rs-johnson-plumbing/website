@@ -1,4 +1,4 @@
-import { plumbing, type Service } from "@/lib/content";
+import { servicesHub, type Service } from "@/lib/content";
 import { IconTile } from "@/components/ui/Icon";
 import { TextLink } from "@/components/ui/TextLink";
 import { PhotoPlaceholder } from "@/components/ui/PhotoPlaceholder";
@@ -25,7 +25,7 @@ export function ServiceBand({ service, photoLeft }: { service: Service; photoLef
           <p className="text-[16px] leading-[1.7] lg:text-body">{h.paragraph}</p>
           {h.whatWeDo.length > 0 && (
             <>
-              <div className="text-[16px] font-bold">{plumbing.whatWeDoLabel}</div>
+              <div className="text-[16px] font-bold">{servicesHub.whatWeDoLabel}</div>
               <ul className="flex list-disc flex-col gap-1.5 pl-5 text-[16px] leading-[1.7] lg:text-body">
                 {h.whatWeDo.map((w) => (
                   <li key={w}>{w}</li>
@@ -38,7 +38,7 @@ export function ServiceBand({ service, photoLeft }: { service: Service; photoLef
               <strong>{h.callout.lead}</strong> {h.callout.text}
             </div>
           )}
-          <TextLink href={`/plumbing/${service.slug}`}>{h.link}</TextLink>
+          <TextLink href={`/services/${service.slug}`}>{h.link}</TextLink>
         </div>
       </div>
     </section>

@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { services, serviceBySlug, memberById, reviews, faqs, plumbing, site, link, SITE_URL } from "@/lib/content";
+import { services, serviceBySlug, memberById, reviews, faqs, servicesHub, site, link, SITE_URL } from "@/lib/content";
 import { JsonLd } from "@/components/blocks/JsonLd";
 import { ActionCard } from "@/components/blocks/ActionCard";
 import { PersonCard } from "@/components/blocks/PersonCard";
@@ -21,12 +21,12 @@ export async function generateMetadata({ params }: { params: Promise<Params> }):
   const { service: slug } = await params;
   const s = serviceBySlug(slug);
   if (!s) return {};
-  const title = `${s.name} ${plumbing.servicePage.titleSuffix} | ${site.shortName}`;
+  const title = `${s.name} ${servicesHub.servicePage.titleSuffix} | ${site.shortName}`;
   return {
     title: { absolute: title },
     description: s.metaDescription,
-    alternates: { canonical: `/plumbing/${s.slug}` },
-    openGraph: { title, description: s.metaDescription, url: `/plumbing/${s.slug}` },
+    alternates: { canonical: `/services/${s.slug}` },
+    openGraph: { title, description: s.metaDescription, url: `/services/${s.slug}` },
   };
 }
 
@@ -37,7 +37,7 @@ export default async function ServicePage({ params }: { params: Promise<Params> 
 
   const crew = s.crew.map((id) => memberById(id)).filter((m): m is NonNullable<typeof m> => Boolean(m));
   const featuredReviews = reviews.items.filter((r) => r.audience === "homeowner" && r.featured).slice(0, 3);
-  const sp = plumbing.servicePage;
+  const sp = servicesHub.servicePage;
 
   const serviceLd = {
     "@context": "https://schema.org",
@@ -45,7 +45,7 @@ export default async function ServicePage({ params }: { params: Promise<Params> 
     name: s.name,
     serviceType: s.name,
     description: s.metaDescription,
-    url: `${SITE_URL}/plumbing/${s.slug}`,
+    url: `${SITE_URL}/services/${s.slug}`,
     provider: { "@id": `${SITE_URL}/#business` },
     areaServed: { "@type": "AdministrativeArea", name: "St. Charles County, MO" },
   };
@@ -57,7 +57,7 @@ export default async function ServicePage({ params }: { params: Promise<Params> 
       <section className="bg-offwhite">
         <div className="site-width gutter grid grid-cols-1 items-start gap-8 pb-14 pt-10 lg:grid-cols-[1fr_380px] lg:gap-16 lg:pb-20 lg:pt-14">
           <div className="flex flex-col items-start gap-5">
-            <TextLink href="/plumbing" arrow={false} className="text-[14px]">
+            <TextLink href="/services" arrow={false} className="text-[14px]">
               ← {sp.backToHub}
             </TextLink>
             <div className="flex items-center gap-3">
@@ -80,7 +80,7 @@ export default async function ServicePage({ params }: { params: Promise<Params> 
 
             {s.hub.whatWeDo.length > 0 && (
               <>
-                <h2 className="mt-2 text-[20px] font-semibold lg:text-h3">{plumbing.whatWeDoLabel.replace(":", "")}</h2>
+                <h2 className="mt-2 text-[20px] font-semibold lg:text-h3">{servicesHub.whatWeDoLabel.replace(":", "")}</h2>
                 <ul className="flex list-disc flex-col gap-1.5 pl-5 text-[16px] leading-[1.7] lg:text-body">
                   {s.hub.whatWeDo.map((w) => (
                     <li key={w}>{w}</li>

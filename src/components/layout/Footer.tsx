@@ -39,7 +39,7 @@ export function Footer() {
             <ul className="flex flex-col gap-2 text-[15px] text-slate builders:text-ondark-muted">
               {services.map((s) => (
                 <li key={s.slug}>
-                  <Link href={`/plumbing/${s.slug}`} className="hover:text-charcoal hover:underline builders:hover:text-offwhite">
+                  <Link href={`/services/${s.slug}`} className="hover:text-charcoal hover:underline builders:hover:text-offwhite">
                     {s.name}
                   </Link>
                 </li>

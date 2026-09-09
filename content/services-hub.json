@@ -1,0 +1,82 @@
+{
+  "meta": {
+    "title": "Plumbing Services St. Charles County | R.S. Johnson Plumbing",
+    "description": "Master Plumber Ryan Johnson and crew handle water heaters, drains and sewer, leaks, toilets, remodels, gas lines, and sump pumps across St. Charles County. Call or book online."
+  },
+  "seoHeading": "Plumbing Services in St. Charles County",
+  "heading": "What We Do",
+  "line": "",
+  "anchors": [
+    {
+      "id": "water-heaters",
+      "label": "Water Heaters",
+      "icon": "water-heater"
+    },
+    {
+      "id": "drains-and-sewer",
+      "label": "Drains and Sewer",
+      "icon": "drain"
+    },
+    {
+      "id": "leaks-and-repairs",
+      "label": "Leaks",
+      "icon": "drop"
+    },
+    {
+      "id": "toilets-and-faucets",
+      "label": "Toilets and Faucets",
+      "icon": "faucet"
+    },
+    {
+      "id": "bath-and-kitchen-remodel",
+      "label": "Remodels",
+      "icon": "tub"
+    },
+    {
+      "id": "gas-lines",
+      "label": "Gas Lines",
+      "icon": "gas"
+    },
+    {
+      "id": "sump-pumps",
+      "label": "Sump Pumps",
+      "icon": "pump"
+    },
+    {
+      "id": "emergency-plumbing",
+      "label": "Emergency",
+      "icon": "bolt"
+    }
+  ],
+  "whatWeDoLabel": "What We Do:",
+  "actionCard": {
+    "emergency": {
+      "label": "Emergency Service",
+      "helper": "Leak, no hot water, backed-up drain",
+      "button": "Call Now"
+    },
+    "scheduled": {
+      "label": "Scheduled Service",
+      "helper": "Repairs, water heaters, remodels",
+      "button": "Book Online"
+    },
+    "messageLine": "Or message us and we'll call you back",
+    "trust": [
+      "Missouri Master Plumber",
+      "Licensed and Insured",
+      "Upfront Pricing"
+    ]
+  },
+  "servicePage": {
+    "titleSuffix": "in St. Charles County",
+    "problemsHeading": "Common Problems We See",
+    "expectHeading": "What to Expect",
+    "crewHeading": "Who'll Show Up",
+    "crewLine": "Two of the plumbers most likely on this kind of call. Meet the whole crew on our team page.",
+    "reviewsHeading": "What Neighbors Say",
+    "backToHub": "All Services"
+  },
+  "closing": {
+    "heading": "Need a Plumber in St. Charles County?"
+  }
+}

@@ -17,7 +17,8 @@ Plumber on every job.
 ## Where things live
 
 - `content/*.json` — every word on the site. Services, cities, team, reviews,
-  FAQs, projects, homepage, hub, site-wide strings. **Copy changes go here and
+  FAQs, projects, homepage, For Homeowners page, services hub, site-wide
+  strings. **Copy changes go here and
   only here.**
 - `src/components/` — shared components. They render content; they never
   contain copy.
@@ -79,7 +80,7 @@ Plumber on every job.
   Plumber"; services "[Service] in St. Charles County | R.S. Johnson
   Plumbing"; cities "Plumber in [City], MO | R.S. Johnson Plumbing".
 - Descriptions 150–160 characters, from the content files.
-- JSON-LD: `Plumber` on `/`, `/plumbing`, `/contact`; `Service` per service
+- JSON-LD: `Plumber` on `/`, `/services`, `/for-homeowners`, `/contact`; `Service` per service
   page; `FAQPage` wherever an FAQ renders; `Person` on team cards.
 - Canonical URLs on `https://gojohnsonplumbing.com`, from `siteUrl` in
   `content/site.json`.
