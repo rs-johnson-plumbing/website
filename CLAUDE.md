@@ -57,12 +57,18 @@ Plumber on every job.
 
 ## Workflow
 
-1. One task, one branch, one PR. Keep PRs small and merge the same day.
-2. Before pushing: `npm run lint`, `npm run typecheck`, `npm run build`
-   (which runs the content check), `npm run test:smoke`.
-3. Vercel posts a preview URL on the PR. Check it at phone width first; this
-   site is phone-first.
-4. Merge to `main` deploys production. Branch protection requires a PR.
+1. Small tweaks (copy edits, a class change, a content-file update) go
+   straight to `main` in one commit. New pages, new components, and anything
+   touching more than a few files go on a branch with a PR so Vercel posts a
+   preview first. Either way, one task per commit or PR.
+2. Before every push, to `main` or a branch: `npm run lint`,
+   `npm run typecheck`, `npm run build` (which runs the content check),
+   `npm run test:smoke`. A direct push to `main` skips the PR safety net, so
+   the local checks are the gate.
+3. On a PR, Vercel posts a preview URL. Check it at phone width first; this
+   site is phone-first. On a direct push, check production a minute later.
+4. Every push to `main` deploys production. Never force-push or delete
+   `main`; the ruleset blocks both.
 5. `NEXT_PUBLIC_SITE_INDEXABLE` gates search indexing. Unset or anything but
    `true` means every page carries `noindex`. Flip it to `true` in Vercel at
    launch.

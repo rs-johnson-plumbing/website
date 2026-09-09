@@ -1,8 +1,9 @@
 # How to edit the site with Claude Code
 
 Open Claude Code in this repository, paste one of these, and follow along.
-Each one creates a branch and a pull request. Check the preview link Vercel
-posts on the PR, then merge.
+Small edits like these go straight to the live site after the checks pass.
+If Claude opens a pull request instead, check the preview link Vercel posts
+on it, then say "merge it".
 
 ## 1. Swap a crew photo
 

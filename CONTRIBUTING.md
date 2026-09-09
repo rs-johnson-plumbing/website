@@ -18,7 +18,11 @@ Claude Code. These rules keep it safe to edit.
 
 ## How a change gets to the live site
 
-1. Work on a branch, never on `main`. Claude Code does this for you.
+Small copy tweaks go straight to `main` and are live about a minute
+later. Claude Code runs the checks first. Bigger changes (a new page, a new
+section) go through a pull request:
+
+1. Work on a branch. Claude Code does this for you.
 2. Open a pull request. Vercel builds a preview link and posts it on the PR.
 3. Check the preview on your phone.
 4. Merge. The live site updates in about two minutes.
