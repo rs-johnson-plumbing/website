@@ -13,7 +13,7 @@ import { JsonLd } from "@/components/blocks/JsonLd";
 import { Section } from "@/components/ui/Section";
 import { Button } from "@/components/ui/Button";
 import { TextLink } from "@/components/ui/TextLink";
-import { PhotoPlaceholder } from "@/components/ui/PhotoPlaceholder";
+import { CrewSketch } from "@/components/blocks/CrewSketch";
 
 export const metadata: Metadata = {
   title: { absolute: home.meta.title },
@@ -83,7 +83,7 @@ export default function HomePage() {
       {/* Why R.S. Johnson */}
       <Section tone="sand" ariaLabelledby="why-h">
         <div className="grid grid-cols-1 gap-4 lg:grid-cols-2 lg:items-center lg:gap-14">
-          <PhotoPlaceholder photo={home.why.photo} aspect="16/10" className="lg:order-last" />
+          <CrewSketch title={home.why.photo.alt} className="w-full rounded-card border border-hairline-strong lg:order-last" />
           <div className="flex flex-col items-start gap-3 lg:gap-5">
             <H2 id="why-h">{home.why.heading}</H2>
             <p className="text-[16px] leading-[1.6] lg:text-body">{home.why.paragraph}</p>
