@@ -74,7 +74,7 @@ export function HomeHero() {
           <div className="flex flex-col items-center gap-4 px-gutter-m py-8 text-center lg:mr-auto lg:max-w-[calc(1440px*0.45)] lg:items-start lg:gap-5 lg:px-gutter lg:py-[64px] lg:text-left">
             <div className="hidden text-[14px] font-bold uppercase tracking-[0.04em] text-ondark-muted lg:block">{h.builders.eyebrow}</div>
             <h2 className="text-[32px] font-bold leading-[1.1] tracking-[-0.01em] text-offwhite lg:min-h-[106px] lg:text-h1 lg:font-bold">{h.builders.heading}</h2>
-            <p className="max-w-[520px] text-[16px] leading-[1.5] text-ondark-muted lg:min-h-[58px] lg:text-body">{h.builders.line}</p>
+            {h.builders.line && <p className="max-w-[520px] text-[16px] leading-[1.5] text-ondark-muted lg:min-h-[58px] lg:text-body">{h.builders.line}</p>}
             <div className="flex w-full flex-col gap-2.5 lg:w-auto lg:flex-row lg:gap-3 lg:pt-2">
               <Button href={link("bid")} variant="filled" track="bid-hero" className="h-[52px] w-full lg:hidden">
                 {h.builders.primary}
