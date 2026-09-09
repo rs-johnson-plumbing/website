@@ -15,7 +15,7 @@ export function ServiceBand({ service, photoLeft }: { service: Service; photoLef
   const photo = h.photo && <PhotoPlaceholder photo={h.photo} aspect="4/3" className={cn("order-first", photoLeft ? "lg:order-first" : "lg:order-last")} />;
   return (
     <section id={service.slug} className="scroll-mt-[140px] bg-offwhite">
-      <div className="site-width gutter grid grid-cols-1 items-start gap-6 py-14 lg:grid-cols-2 lg:gap-16 lg:py-[72px]">
+      <div className={cn("site-width gutter grid grid-cols-1 items-start gap-6 py-14 lg:gap-16 lg:py-[72px]", h.photo ? "lg:grid-cols-2" : "lg:max-w-[760px] lg:mr-auto")}>
         {photo}
         <div className="flex flex-col items-start gap-4">
           <div className="flex items-center gap-3">

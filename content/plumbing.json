@@ -28,11 +28,6 @@
       "icon": "check-circle"
     },
     {
-      "id": "signs",
-      "label": "Signs",
-      "icon": "bolt"
-    },
-    {
       "id": "water-heaters",
       "label": "Water Heaters",
       "icon": "water-heater"
@@ -73,6 +68,11 @@
       "icon": "bolt"
     },
     {
+      "id": "signs",
+      "label": "Signs",
+      "icon": "bolt"
+    },
+    {
       "id": "why-us",
       "label": "Why Us",
       "icon": "star"
@@ -84,70 +84,66 @@
     }
   ],
   "services": {
-    "heading": "WHAT WE DO",
-    "line": "Every service below has its own page with details on what we fix, what to expect, and what it typically involves."
+    "heading": "What We Do",
+    "line": ""
   },
   "signs": {
     "heading": "Signs You Need a Plumber",
-    "line": "Most expensive plumbing repairs start as something small that went unaddressed for a season. If you're seeing any of these in your home, it's worth a call before it becomes a bigger job.",
+    "line": "Every one of these points back to a service above. If you're seeing any of them in your home, it's worth a call before it becomes a bigger job.",
     "items": [
       {
         "icon": "drain",
         "title": "A Drain That Keeps Clogging",
-        "text": "One clog is normal. The same drain clogging every few weeks usually means buildup deeper in the line, a partial obstruction, or a problem in the main sewer line. Plunging and store-bought drain cleaners treat the symptom and can damage older pipes."
+        "text": "One clog is normal. The same drain clogging every few weeks usually means buildup deeper in the line, a partial obstruction, or a problem in the main sewer line. Plunging and store-bought drain cleaners treat the symptom and can damage older pipes.",
+        "service": "drains-and-sewer",
+        "link": "See Drains and Sewer"
       },
       {
         "icon": "drop",
         "title": "Water Where It Shouldn't Be",
-        "text": "Stains on a ceiling, a soft spot in drywall, a musty smell in a closet, or a water bill that jumped without explanation. Hidden leaks do the most damage because they go unnoticed the longest."
+        "text": "Stains on a ceiling, a soft spot in drywall, a musty smell in a closet, or a water bill that jumped without explanation. Hidden leaks do the most damage because they go unnoticed the longest.",
+        "service": "leaks-and-repairs",
+        "link": "See Leaks and Repairs"
       },
       {
         "icon": "faucet",
         "title": "Low or Uneven Water Pressure",
-        "text": "A single fixture with weak flow is usually the fixture. Low pressure through the whole house points to a supply-side issue — a failing pressure-reducing valve, a leak, or mineral buildup in older lines."
+        "text": "A single fixture with weak flow is usually the fixture. Low pressure through the whole house points to a supply-side issue — a failing pressure-reducing valve, a leak, or mineral buildup in older lines.",
+        "service": "leaks-and-repairs",
+        "link": "See Leaks and Repairs"
       },
       {
         "icon": "bolt",
         "title": "Sewer Smell or Gurgling Drains",
-        "text": "A sewer odor in the house, or a toilet that gurgles when the washer drains, means air and wastewater are going somewhere they shouldn't. This is a main-line warning sign and should be looked at quickly."
+        "text": "A sewer odor in the house, or a toilet that gurgles when the washer drains, means air and wastewater are going somewhere they shouldn't. This is a main-line warning sign and should be looked at quickly.",
+        "service": "drains-and-sewer",
+        "link": "See Drains and Sewer"
       },
       {
         "icon": "water-heater",
         "title": "Water Heater Acting Up",
-        "text": "Lukewarm water, hot water that runs out fast, rumbling or popping from the tank, rust-colored water, or moisture around the base. Most tank water heaters last [10–12] years; many homes built in St. Charles County in the [late 1990s and 2000s] are on their second or third unit, and a lot of those are due."
+        "text": "Lukewarm water, hot water that runs out fast, rumbling or popping from the tank, rust-colored water, or moisture around the base. Most tank water heaters last [10–12] years; many homes built in St. Charles County in the [late 1990s and 2000s] are on their second or third unit, and a lot of those are due.",
+        "service": "water-heaters",
+        "link": "See Water Heaters"
       },
       {
         "icon": "pump",
         "title": "A Sump Pump You Haven't Thought About",
-        "text": "If you haven't heard your sump pump run in a while, or you don't know how old it is, it's worth testing before the next heavy rain. Sump pumps in this area work hard, and a failed pump shows up as a flooded basement."
+        "text": "If you haven't heard your sump pump run in a while, or you don't know how old it is, it's worth testing before the next heavy rain. Sump pumps in this area work hard, and a failed pump shows up as a flooded basement.",
+        "service": "sump-pumps",
+        "link": "See Sump Pumps"
       }
     ]
   },
   "whatWeDoLabel": "What We Do:",
-  "emergency": {
-    "responseLead": "Emergency Response:",
-    "response": "[Mon–Sat 7am–6pm / after-hours line — CONFIRM WITH RYAN BEFORE PUBLISHING]",
-    "button": "Call 314-220-1827",
-    "whileYouWait": "While You Wait:",
-    "tips": [
-      "Find your main water shutoff — usually in the basement near where the water line enters, or at the meter",
-      "Turn off the water heater if the tank is leaking",
-      "Don't run water or flush if the problem is a sewer backup"
-    ]
-  },
-  "builders": {
-    "heading": "Builders and Contractors",
-    "text": "If you're a general contractor or builder, our new-construction and renovation work is on its own page: capabilities by phase, recent projects, and how to request a bid.",
-    "button": "For Builders"
-  },
   "serviceArea": {
     "heading": "Where We Work",
     "intro": "We're based in O'Fallon and serve St. Charles County and West St. Louis County. Most of our homeowner calls come from:",
     "rangeLine": "Not sure if you're in range? Text us your address at",
     "map": {
       "src": "/photos/site-map-ofallon.jpg",
-      "alt": "Flat map of St. Charles County and West St. Louis County centered on O'Fallon, Missouri",
-      "caption": "Map centered on O'Fallon"
+      "alt": "Map of St. Charles County and West St. Louis County with our main service cities marked, centered on O'Fallon, Missouri",
+      "caption": "Placeholder map. A real area map with city tags is coming."
     }
   },
   "whyUs": {
@@ -176,17 +172,17 @@
     ],
     "links": [
       {
-        "label": "Meet the team",
+        "label": "Meet the Team",
         "href": "/our-team"
       },
       {
-        "label": "Read reviews",
+        "label": "Read Reviews",
         "href": "/reviews"
       }
     ]
   },
   "faq": {
-    "heading": "Common Questions"
+    "heading": "FAQ"
   },
   "closing": {
     "heading": "Need a Plumber in St. Charles County?"

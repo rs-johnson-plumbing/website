@@ -4,15 +4,14 @@ import { plumbing, services, faqs, cities, site, link, type IconName } from "@/l
 import { plumberJsonLd } from "@/lib/jsonld";
 import { JsonLd } from "@/components/blocks/JsonLd";
 import { AnchorBar, type Anchor } from "@/components/blocks/AnchorBar";
-import { ServiceCard } from "@/components/blocks/ServiceCard";
 import { ServiceBand } from "@/components/blocks/ServiceBand";
+import { ServiceIllustration } from "@/components/blocks/ServiceIllustration";
+import { AreaMapSketch } from "@/components/blocks/AreaMapSketch";
 import { FAQ } from "@/components/blocks/FAQ";
 import { ClosingCTA } from "@/components/blocks/ClosingCTA";
-import { Section, SectionHeading } from "@/components/ui/Section";
-import { Button } from "@/components/ui/Button";
+import { Section } from "@/components/ui/Section";
 import { TextLink } from "@/components/ui/TextLink";
-import { Icon, IconTile } from "@/components/ui/Icon";
-import { PhotoPlaceholder } from "@/components/ui/PhotoPlaceholder";
+import { IconTile } from "@/components/ui/Icon";
 
 export const metadata: Metadata = {
   title: { absolute: plumbing.meta.title },
@@ -21,100 +20,76 @@ export const metadata: Metadata = {
   openGraph: { title: plumbing.meta.title, description: plumbing.meta.description, url: "/plumbing" },
 };
 
+type Sign = { icon: IconName; title: string; text: string; service: string; link: string };
+
 export default function PlumbingHubPage() {
-  const bands = services.filter((s) => s.slug !== "emergency-plumbing");
-  const emergency = services.find((s) => s.slug === "emergency-plumbing")!;
-  const signs = plumbing.signs.items as { icon: IconName; title: string; text: string }[];
+  const signs = plumbing.signs.items as Sign[];
 
   return (
     <>
       <JsonLd data={plumberJsonLd()} />
 
       {/* The page opens on the anchor bar. The H1 stays for search engines and
-          screen readers; the first visible heading is "What we do". */}
+          screen readers; the first visible heading is "What We Do". */}
       <h1 className="sr-only">{plumbing.seoHeading}</h1>
 
       <AnchorBar anchors={plumbing.anchors as Anchor[]} />
 
-      {/* Services grid */}
+      {/* What We Do: hero-style heading and the eight service cards. Each card
+          jumps to its section below; the card itself is the link. */}
       <Section id="services" ariaLabelledby="hub-services-h" className="scroll-mt-[140px]">
-        <SectionHeading id="hub-services-h" title={plumbing.services.heading} line={plumbing.services.line} />
-        <div className="grid grid-cols-2 gap-4 lg:grid-cols-4 lg:gap-5">
+        <div className="mb-8 flex flex-col items-center gap-3 text-center lg:mb-12">
+          <h2 id="hub-services-h" className="text-[clamp(26px,8vw,32px)] font-bold leading-[1.1] tracking-[-0.01em] lg:text-h1 lg:font-bold">
+            {plumbing.services.heading}
+          </h2>
+          {plumbing.services.line && <p className="max-w-[560px] text-[16px] leading-[1.5] text-slate lg:text-body">{plumbing.services.line}</p>}
+        </div>
+        <div className="grid grid-cols-2 gap-3 lg:grid-cols-4 lg:gap-5">
           {services.map((s) => (
-            <ServiceCard key={s.slug} service={s} href={`#${s.slug}`} description={s.hubShort} learnMoreLabel="Jump to Section" />
+            <Link
+              key={s.slug}
+              href={`#${s.slug}`}
+              className="flex flex-col items-center gap-2 rounded-card border border-hairline bg-white p-4 text-center text-charcoal transition-colors hover:border-blue hover:no-underline lg:p-6"
+            >
+              <ServiceIllustration slug={s.slug} className="h-[104px] w-[104px] lg:h-[132px] lg:w-[132px]" />
+              <span className="text-[17px] font-bold leading-tight lg:text-[19px]">{s.name}</span>
+              <span className="text-[14px] leading-snug text-slate lg:text-[15px]">{s.hubShort}</span>
+            </Link>
           ))}
         </div>
       </Section>
 
-      {/* Signs */}
-      <Section id="signs" tone="white" ariaLabelledby="signs-h" className="scroll-mt-[140px] border-y border-hairline">
-        <SectionHeading id="signs-h" title={plumbing.signs.heading} line={plumbing.signs.line} />
-        <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3 lg:gap-x-10 lg:gap-y-8">
-          {signs.map((item) => (
-            <div key={item.title} className="flex flex-col items-start gap-3">
-              <IconTile name={item.icon} size={40} />
-              <h3 className="text-[20px] font-semibold lg:text-h3">{item.title}</h3>
-              <p className="text-[16px] leading-[1.7] text-charcoal">{item.text}</p>
-            </div>
-          ))}
-        </div>
-      </Section>
-
-      {/* Seven service bands, alternating */}
-      {bands.map((s, i) => (
+      {/* One band per service, alternating photo side. Emergency has no
+          photo yet and renders as a single text column. */}
+      {services.map((s, i) => (
         <ServiceBand key={s.slug} service={s} photoLeft={i % 2 === 0} />
       ))}
 
-      {/* Emergency */}
-      <Section id={emergency.slug} tone="charcoal" ariaLabelledby="emergency-h" className="scroll-mt-[140px]">
-        <div className="grid grid-cols-1 gap-10 lg:grid-cols-2 lg:gap-16">
-          <div className="flex flex-col items-start gap-4">
-            <h2 id="emergency-h" className="text-h2-m text-offwhite lg:text-h2">
-              {emergency.hub.heading}
-            </h2>
-            <p className="text-[16px] leading-[1.7] text-ondark-muted lg:text-body">{emergency.hub.paragraph}</p>
-            <p className="text-[15px] text-ondark-muted">
-              <strong className="text-offwhite">{plumbing.emergency.responseLead}</strong> {plumbing.emergency.response}
-            </p>
-            <Button href={site.phone.tel} variant="filled" track="call-emergency-hub" className="mt-1">
-              {plumbing.emergency.button}
-            </Button>
-          </div>
-          <div>
-            <div className="mb-4 text-[16px] font-bold text-offwhite">{plumbing.emergency.whileYouWait}</div>
-            <div className="grid grid-cols-1 gap-3 sm:grid-cols-3">
-              {plumbing.emergency.tips.map((t) => (
-                <div key={t} className="rounded-card border border-darkborder bg-darkcard p-4 text-[15px] leading-relaxed text-ondark-helper">
-                  {t}
-                </div>
-              ))}
-            </div>
-            <div className="mt-5">
-              <Link href={`/plumbing/${emergency.slug}`} className="inline-flex items-center gap-1 text-[15px] font-bold text-blue-ondark hover:underline">
-                {emergency.hub.link}
-                <Icon name="arrow-right" size={16} strokeWidth={2} />
-              </Link>
-            </div>
-          </div>
+      {/* Signs: each card points back to the service it belongs to */}
+      <Section id="signs" tone="sand" ariaLabelledby="signs-h" className="scroll-mt-[140px]">
+        <div className="mb-8">
+          <h2 id="signs-h" className="text-h2-m lg:text-h2">
+            {plumbing.signs.heading}
+          </h2>
+          {plumbing.signs.line && <p className="mt-2 max-w-[720px] text-[16px] text-slate">{plumbing.signs.line}</p>}
         </div>
-      </Section>
-
-      {/* Builders */}
-      <Section id="builders" pad="band" className="border-b border-hairline">
-        <div className="flex flex-col items-start gap-5 lg:flex-row lg:items-center lg:justify-between lg:gap-10">
-          <div className="max-w-[720px]">
-            <h2 className="text-h2-m lg:text-h2">{plumbing.builders.heading}</h2>
-            <p className="mt-2 text-[16px] leading-[1.7] lg:text-body">{plumbing.builders.text}</p>
-          </div>
-          <Button href="/for-builders" variant="outlined" className="shrink-0">
-            {plumbing.builders.button}
-          </Button>
+        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 lg:gap-5">
+          {signs.map((item) => (
+            <div key={item.title} className="flex flex-col items-start gap-3 rounded-card border border-hairline bg-white p-5 lg:p-6">
+              <IconTile name={item.icon} size={40} />
+              <h3 className="text-[19px] font-bold leading-tight lg:text-[20px]">{item.title}</h3>
+              <p className="text-[15px] leading-[1.65] text-charcoal lg:text-[16px]">{item.text}</p>
+              <div className="mt-auto pt-1">
+                <TextLink href={`#${item.service}`}>{item.link}</TextLink>
+              </div>
+            </div>
+          ))}
         </div>
       </Section>
 
       {/* Where we work */}
-      <Section id="service-area" tone="sand" ariaLabelledby="hub-area-h">
-        <div className="grid grid-cols-1 items-start gap-10 lg:grid-cols-2 lg:gap-16">
+      <Section id="service-area" tone="white" ariaLabelledby="hub-area-h" className="border-y border-hairline">
+        <div className="grid grid-cols-1 items-start gap-8 lg:grid-cols-2 lg:gap-16">
           <div className="flex flex-col items-start gap-5">
             <h2 id="hub-area-h" className="text-h2-m lg:text-h2">
               {plumbing.serviceArea.heading}
@@ -147,32 +122,42 @@ export default function PlumbingHubPage() {
               .
             </p>
           </div>
-          <PhotoPlaceholder photo={plumbing.serviceArea.map} aspect="4/3" />
+          <div>
+            <AreaMapSketch title={plumbing.serviceArea.map.alt} />
+            <p className="mt-2 text-[13px] text-slate">{plumbing.serviceArea.map.caption}</p>
+          </div>
         </div>
       </Section>
 
-      {/* Why us */}
-      <Section id="why-us" ariaLabelledby="why-h" className="scroll-mt-[140px]">
-        <SectionHeading id="why-h" title={plumbing.whyUs.heading} />
-        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-5">
-          {plumbing.whyUs.items.map((item) => (
-            <div key={item.title} className="flex flex-col gap-2 rounded-card border border-hairline bg-white p-5">
-              <h3 className="text-[17px] font-bold">{item.title}</h3>
-              <p className="text-[15px] leading-relaxed text-slate">{item.text}</p>
-            </div>
+      {/* Why us: the one dark band on the page, numbered */}
+      <Section id="why-us" tone="charcoal" ariaLabelledby="why-h" className="scroll-mt-[140px]">
+        <h2 id="why-h" className="mb-8 text-h2-m text-offwhite lg:mb-10 lg:text-h2">
+          {plumbing.whyUs.heading}
+        </h2>
+        <ol className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3 lg:gap-x-12 lg:gap-y-10">
+          {plumbing.whyUs.items.map((item, i) => (
+            <li key={item.title} className="flex gap-4">
+              <span aria-hidden="true" className="w-9 shrink-0 text-[32px] font-bold leading-none text-blue-ondark lg:text-[36px]">
+                {i + 1}
+              </span>
+              <div className="flex flex-col gap-1.5">
+                <h3 className="text-[18px] font-bold leading-tight text-offwhite lg:text-[20px]">{item.title}</h3>
+                <p className="text-[15px] leading-[1.65] text-ondark-muted lg:text-[16px]">{item.text}</p>
+              </div>
+            </li>
           ))}
-        </div>
-        <div className="mt-6 flex flex-wrap gap-6">
+        </ol>
+        <div className="mt-8 flex flex-wrap gap-6 lg:mt-10">
           {plumbing.whyUs.links.map((l) => (
-            <TextLink key={l.href} href={l.href}>
+            <Link key={l.href} href={l.href} className="text-[16px] font-bold text-blue-ondark hover:underline">
               {l.label}
-            </TextLink>
+            </Link>
           ))}
         </div>
       </Section>
 
       {/* FAQ */}
-      <Section id="faq" tone="white" ariaLabelledby="hub-faq-h" className="scroll-mt-[140px] border-t border-hairline">
+      <Section id="faq" ariaLabelledby="hub-faq-h" className="scroll-mt-[140px]">
         <div className="grid grid-cols-1 items-start gap-8 lg:grid-cols-[1fr_2fr] lg:gap-16">
           <h2 id="hub-faq-h" className="text-h2-m lg:text-h2">
             {plumbing.faq.heading}
