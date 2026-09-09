@@ -12,14 +12,14 @@ type Category = { id: string; label: string; issues: Issue[] };
 /**
  * Quick-capture flow in the homeowner hero, four taps and a phone number:
  *
- *   Check Availability -> address field (in place) -> dialog:
+ *   Submit Service Request -> address field (in place) -> dialog:
  *   "We service your area. What are you inquiring about?" -> category ->
  *   issue (or Something Else) -> optional note -> phone -> done.
  *
  * The address posts on its own first so it is captured even if they
  * abandon; the rest posts with the phone number. Copy and the category
- * tree live in home.json under availability. On desktop the opening button
- * reads "Submit Service Request"; on phone, "Check Availability".
+ * tree live in home.json under availability. The opening button reads
+ * "Submit Service Request" on every width.
  */
 export function AvailabilityCheck({ className }: { className?: string }) {
   const a = home.availability;
@@ -127,8 +127,7 @@ export function AvailabilityCheck({ className }: { className?: string }) {
           data-track="availability-open"
           className={cn("inline-flex h-[52px] items-center justify-center whitespace-nowrap rounded-btn bg-blue px-6 text-[16px] font-bold text-white transition-opacity hover:opacity-[0.88]", className)}
         >
-          <span className="lg:hidden">{a.button}</span>
-          <span className="hidden lg:inline">{a.buttonDesktop}</span>
+          {a.button}
         </button>
       )}
       {error && stage === "address" && <p className="w-full text-left text-[14px] font-semibold text-charcoal">{a.error}</p>}

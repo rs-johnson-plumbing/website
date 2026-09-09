@@ -15,7 +15,7 @@ import { CallText } from "@/components/ui/CallText";
  *
  * Mobile: a segmented For Homeowners / For Builders control under the header
  * flips between the two doors. Each door is centered: headline, a filled
- * intake button (Check Availability or Submit Bid Request), the Call and
+ * intake button (Submit Service Request or Submit Bid Request), the Call and
  * Text pair, and a credentials line. Desktop reads Submit Service Request
  * alone; the header callout carries the number, since a desktop cannot dial.
  */
@@ -53,7 +53,7 @@ export function HomeHero() {
             <h1 className="flex min-h-[71px] items-center justify-center text-[clamp(26px,8vw,32px)] font-bold leading-[1.1] tracking-[-0.01em] lg:block lg:min-h-[106px] lg:text-h1 lg:font-bold">{h.homeowners.heading}</h1>
             {h.homeowners.line && <p className="max-w-[520px] text-[16px] leading-[1.5] lg:min-h-[58px] lg:text-body">{h.homeowners.line}</p>}
             <div className="flex w-full flex-col gap-2.5 lg:w-full lg:max-w-[640px] lg:flex-row lg:flex-wrap lg:gap-3 lg:pt-2">
-              {/* Check Availability is the primary; it turns into the address field in place. */}
+              {/* Submit Service Request is the primary; it turns into the address field in place. */}
               <AvailabilityCheck className="w-full lg:w-auto" />
               {/* Phone: Call and Text pair. Desktop: none, the header callout carries the number. */}
               <CallText track="hero" buttonClassName="bg-white" desktop={false} />
