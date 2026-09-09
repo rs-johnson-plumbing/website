@@ -66,9 +66,13 @@ const config: Config = {
     },
   },
   plugins: [
-    // `builders:` applies when the homepage is in For Builders mode
-    // (AudienceProvider sets data-audience on <body>).
-    plugin(({ addVariant }) => addVariant("builders", 'body[data-audience="builders"] &')),
+    // `builders:` applies inside a dark band (an element carrying .band-dark, or anything within one).
+    // `bpage:` applies anywhere on a page whose audience is builders (AudienceProvider sets
+    // data-audience on <body>); the sticky bar's button swap uses it.
+    plugin(({ addVariant }) => {
+      addVariant("builders", ":is(.band-dark&, .band-dark &)");
+      addVariant("bpage", 'body[data-audience="builders"] &');
+    }),
   ],
 };
 
