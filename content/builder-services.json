@@ -3,36 +3,96 @@
     "slug": "planning-and-takeoffs",
     "name": "Plans and Takeoffs",
     "short": "Fixture counts, layouts, and a number from your drawings",
-    "illustration": "planning-and-takeoffs"
+    "illustration": "planning-and-takeoffs",
+    "hub": {
+      "heading": "Plans and Takeoffs",
+      "paragraph": "Send plans and a fixture schedule and we do the takeoff: fixture counts, pipe runs, water heater and gas sizing, and a number you can put in your budget. [Bid back within # business days.]",
+      "whatWeDo": [
+        "Fixture counts and material takeoff from your drawings",
+        "Water heater and gas load sizing",
+        "Value-engineering suggestions before you commit",
+        "A bid you can hand to your client"
+      ]
+    }
   },
   {
     "slug": "underground",
     "name": "Underground",
     "short": "Drain, waste, and vent under the slab, inspected before the pour",
-    "illustration": "underground"
+    "illustration": "underground",
+    "hub": {
+      "heading": "Underground",
+      "paragraph": "Drain, waste, and vent under the slab, set to the plans and inspected before the pour. We coordinate with the excavator and the concrete crew so the pour never waits on us.",
+      "whatWeDo": [
+        "DWV layout under the slab",
+        "Water service sleeve and stub-ups",
+        "Pressure test and inspection before the pour",
+        "Coordination with excavation and concrete"
+      ]
+    }
   },
   {
     "slug": "rough-in",
     "name": "Rough-In",
     "short": "Supply and DWV through the framing, ready for inspection and drywall",
-    "illustration": "rough-in"
+    "illustration": "rough-in",
+    "hub": {
+      "heading": "Rough-In",
+      "paragraph": "Supply and DWV through the framing, ready for inspection and drywall. Tub and shower valves set, boxes for the ice maker and washer, and everything labeled for trim.",
+      "whatWeDo": [
+        "PEX or copper supply",
+        "DWV and venting to code",
+        "Tub, shower, and valve set",
+        "Rough inspection with the county"
+      ]
+    }
   },
   {
     "slug": "gas-runs",
     "name": "Gas Runs",
     "short": "Piping to ranges, fireplaces, water heaters, and generators, pressure tested",
-    "illustration": "gas-lines"
+    "illustration": "gas-lines",
+    "hub": {
+      "heading": "Gas Runs",
+      "paragraph": "Gas piping to ranges, fireplaces, water heaters, generators, and outdoor kitchens, sized for the load and pressure tested for inspection.",
+      "whatWeDo": [
+        "Black iron and CSST runs",
+        "Load sizing and manifold layout",
+        "Pressure test and inspection",
+        "Appliance hookups at trim"
+      ]
+    }
   },
   {
     "slug": "water-and-sewer-tie-in",
     "name": "Water Service and Sewer",
     "short": "Meter to house, sewer lateral, and backflow, tied in and inspected",
-    "illustration": "water-and-sewer-tie-in"
+    "illustration": "water-and-sewer-tie-in",
+    "hub": {
+      "heading": "Water Service and Sewer",
+      "paragraph": "Meter to house and house to main. Water service, sewer lateral, and backflow, tied in and inspected with the municipality.",
+      "whatWeDo": [
+        "Water service from the meter",
+        "Sewer lateral to the main or septic",
+        "Backflow and pressure-reducing valves",
+        "Municipal inspections and locates"
+      ]
+    }
   },
   {
     "slug": "trim-and-fixture-set",
     "name": "Trim and Fixture Set",
     "short": "Fixtures, water heater, and appliance hookups, then the final",
-    "illustration": "trim-and-fixture-set"
+    "illustration": "trim-and-fixture-set",
+    "hub": {
+      "heading": "Trim and Fixture Set",
+      "paragraph": "Fixtures, water heater, and appliance hookups, then the final inspection and a walkthrough with your super.",
+      "whatWeDo": [
+        "Fixture and faucet set",
+        "Water heater and softener install",
+        "Appliance hookups",
+        "Final inspection and punch list"
+      ]
+    }
   }
 ]

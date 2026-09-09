@@ -28,13 +28,13 @@ export function ServiceGrid({ hrefFor, slugs }: { hrefFor: (slug: string) => str
 }
 
 /** Hero-style centered heading used at the top of the hub and audience pages. */
-export function PageHeading({ id, title, line, align = "center", className }: { id: string; title: string; line?: string; align?: "center" | "left"; className?: string }) {
+export function PageHeading({ id, title, line, align = "center", className, dark = false }: { id: string; title: string; line?: string; align?: "center" | "left"; className?: string; /** On a charcoal section. */ dark?: boolean }) {
   return (
     <div className={cn("mb-8 flex flex-col gap-3 lg:mb-10", align === "center" ? "items-center text-center" : "items-start text-left")}>
-      <h2 id={id} className={className ?? "text-[clamp(26px,8vw,32px)] font-bold leading-[1.1] tracking-[-0.01em] lg:text-h1 lg:font-bold"}>
+      <h2 id={id} className={cn(className ?? "text-[clamp(26px,8vw,32px)] font-bold leading-[1.1] tracking-[-0.01em] lg:text-h1 lg:font-bold", dark && "text-offwhite")}>
         {title}
       </h2>
-      {line && <p className="max-w-[560px] text-[16px] leading-[1.5] text-slate lg:text-body">{line}</p>}
+      {line && <p className={cn("max-w-[560px] text-[16px] leading-[1.5] lg:text-body", dark ? "text-ondark-muted" : "text-slate")}>{line}</p>}
     </div>
   );
 }

@@ -1,51 +1,21 @@
 {
   "meta": {
     "title": "Plumbing Services St. Charles County | R.S. Johnson Plumbing",
-    "description": "Master Plumber Ryan Johnson and crew handle water heaters, drains and sewer, leaks, toilets, remodels, gas lines, and sump pumps across St. Charles County. Call or book online."
+    "description": "Home plumbing from water heaters to sump pumps, plus rough-in through trim for builders, from Master Plumber Ryan Johnson's crew in St. Charles County, MO."
   },
   "seoHeading": "Plumbing Services in St. Charles County",
   "heading": "What We Do",
   "line": "",
   "anchors": [
     {
-      "id": "water-heaters",
-      "label": "Water Heaters",
-      "icon": "water-heater"
+      "id": "homeowner-services",
+      "label": "For Homeowners",
+      "icon": "map"
     },
     {
-      "id": "drains-and-sewer",
-      "label": "Drains and Sewer",
-      "icon": "drain"
-    },
-    {
-      "id": "leaks-and-repairs",
-      "label": "Leaks",
-      "icon": "drop"
-    },
-    {
-      "id": "toilets-and-faucets",
-      "label": "Toilets and Faucets",
-      "icon": "faucet"
-    },
-    {
-      "id": "water-softeners",
-      "label": "Softeners",
-      "icon": "filter"
-    },
-    {
-      "id": "gas-lines",
-      "label": "Gas Lines",
-      "icon": "gas"
-    },
-    {
-      "id": "sump-pumps",
-      "label": "Sump Pumps",
-      "icon": "pump"
-    },
-    {
-      "id": "emergency-plumbing",
-      "label": "Emergency",
-      "icon": "bolt"
+      "id": "builder-services",
+      "label": "For Builders",
+      "icon": "building"
     }
   ],
   "whatWeDoLabel": "What We Do:",
@@ -78,5 +48,14 @@
   },
   "closing": {
     "heading": "Ready to Talk?"
+  },
+  "homeowners": {
+    "heading": "Homeowner Services",
+    "line": "Repairs, replacements, and installs for your home. Tap a card to jump to it."
+  },
+  "builders": {
+    "heading": "Builder Services",
+    "line": "The stages builders call us for, from plans to final inspection.",
+    "button": "Submit Bid Request"
   }
 }

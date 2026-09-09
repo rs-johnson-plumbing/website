@@ -5,6 +5,9 @@ import { JsonLd } from "@/components/blocks/JsonLd";
 import { AnchorBar, type Anchor } from "@/components/blocks/AnchorBar";
 import { ServiceBand } from "@/components/blocks/ServiceBand";
 import { ServiceGrid, PageHeading } from "@/components/blocks/ServiceGrid";
+import { BuilderServiceGrid } from "@/components/blocks/BuilderServiceGrid";
+import { BuilderStageList } from "@/components/blocks/BuilderStageList";
+import { BidRequest } from "@/components/blocks/BidRequest";
 import { ClosingCTA } from "@/components/blocks/ClosingCTA";
 import { Section } from "@/components/ui/Section";
 
@@ -16,10 +19,11 @@ export const metadata: Metadata = {
 };
 
 /**
- * Services hub: "What We Do". Shared by homeowners and builders. Opens on
- * the anchor bar, then the eight illustrated cards, then one band per
- * service. Audience-specific material (signs, why us, FAQ, reviews) lives on
- * /for-homeowners and /for-builders.
+ * Services hub: "What We Do", in two groups. Homeowner Services: the eight
+ * illustrated cards, then one band per service. Builder Services, on the
+ * dark builders ground: the six stage cards, the stage detail rows, and the
+ * bid button. Audience-specific material (signs, why us, FAQ, reviews)
+ * lives on /for-homeowners and /for-builders.
  */
 export default function ServicesPage() {
   return (
@@ -29,14 +33,27 @@ export default function ServicesPage() {
 
       <AnchorBar anchors={servicesHub.anchors as Anchor[]} />
 
-      <Section id="services" ariaLabelledby="hub-services-h" className="scroll-mt-[140px]">
-        <PageHeading id="hub-services-h" title={servicesHub.heading} line={servicesHub.line} />
+      {/* Homeowner services: cards, then the bands */}
+      <Section id="homeowner-services" ariaLabelledby="hub-home-h" className="scroll-mt-[140px]">
+        <PageHeading id="hub-home-h" title={servicesHub.homeowners.heading} line={servicesHub.homeowners.line} />
         <ServiceGrid hrefFor={(slug) => `#${slug}`} />
       </Section>
 
       {services.map((s, i) => (
         <ServiceBand key={s.slug} service={s} photoLeft={i % 2 === 0} />
       ))}
+
+      {/* Builder services: the dark group, cards then stage detail */}
+      <Section id="builder-services" tone="charcoal" ariaLabelledby="hub-build-h" className="scroll-mt-[140px]">
+        <PageHeading id="hub-build-h" title={servicesHub.builders.heading} line={servicesHub.builders.line} dark />
+        <BuilderServiceGrid hrefFor={(slug) => `#${slug}`} />
+        <div className="mt-8 lg:mt-12">
+          <BuilderStageList />
+        </div>
+        <div className="mt-8 flex justify-center lg:mt-10">
+          <BidRequest className="w-full lg:w-auto" />
+        </div>
+      </Section>
 
       <ClosingCTA heading={servicesHub.closing.heading} secondary={{ label: site.closingCta.secondary, href: link("book") }} />
     </>
