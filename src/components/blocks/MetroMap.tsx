@@ -92,7 +92,7 @@ function Shield({ n, x, y }: { n: string; x: number; y: number }) {
   );
 }
 
-export function MetroMap({ className, variant = "ink" }: { className?: string; variant?: MetroMapVariant }) {
+export function MetroMap({ className, variant = "ink", area = false }: { className?: string; variant?: MetroMapVariant; /** Tint the service area and pin O'Fallon. */ area?: boolean }) {
   const mono = variant === "teal";
   const pipes = variant === "pipes" || variant === "valve";
   const blueprint = variant === "blueprint";
@@ -118,13 +118,24 @@ export function MetroMap({ className, variant = "ink" }: { className?: string; v
       <g mask="url(#metro-mask)">
         {blueprint && <rect width="1800" height="500" fill="url(#metro-grid)" opacity="0.35" />}
         <g transform="translate(920 -70) scale(0.8)" fill="none" strokeLinecap="round" strokeLinejoin="round">
+          {/* Service area: a soft wash over St. Charles County and West St. Louis County, and a pin on O'Fallon */}
+          {area && (
+            <>
+              <path d="M300 240 C360 200 470 210 560 230 C640 250 700 300 720 360 C700 420 640 470 560 480 C470 490 380 470 320 420 C280 380 270 300 300 240z" fill="#3F6C78" opacity="0.07" />
+              <g transform="translate(475 300)">
+                <path d="M0 0 c-14 -18 -18 -26 -18 -36 a18 18 0 0 1 36 0 c0 10 -4 18 -18 36z" fill="#A85A2E" stroke="#F7F5F0" strokeWidth="3" opacity="0.9" />
+                <circle cx="0" cy="-36" r="7" fill="#F7F5F0" />
+              </g>
+              <text x="475" y="292" dy="-56" fontSize="16" fontWeight="800" textAnchor="middle" fill="#A85A2E" fontFamily="var(--font-figtree), system-ui, sans-serif">O&apos;Fallon</text>
+            </>
+          )}
           {/* Rivers: water */}
-          <g className="text-teal" stroke="currentColor" opacity={mono ? 0.4 : blueprint ? 0.5 : 0.3}>
+          <g className="text-teal" stroke="currentColor" opacity={mono ? 0.16 : blueprint ? 0.2 : 0.12}>
             <path d={smooth(mississippi)} strokeWidth={mono ? 22 : 12} strokeDasharray={blueprint ? "2 10" : undefined} />
             <path d={smooth(missouri)} strokeWidth={mono ? 18 : 10} strokeDasharray={blueprint ? "2 10" : undefined} />
           </g>
           {/* Roads. On the pipes treatments each road is a pipe: a dark wall with a lighter bore down the middle. */}
-          <g className={roadColor} stroke="currentColor" opacity={mono ? 0.7 : blueprint ? 0.75 : 0.45}>
+          <g className={roadColor} stroke="currentColor" opacity={mono ? 0.28 : blueprint ? 0.3 : 0.18}>
             {interstates.map((pts, i) => (
               <path key={`i${i}`} d={smooth(pts)} strokeWidth={interW} />
             ))}
@@ -144,7 +155,7 @@ export function MetroMap({ className, variant = "ink" }: { className?: string; v
           )}
           {/* Fittings at the interchanges: copper flanges like the logo's */}
           {pipes && (
-            <g opacity="0.75">
+            <g opacity="0.3">
               {joints.map(([x, y], i) => (
                 <rect key={i} x={x - 8} y={y - 8} width="16" height="16" rx="3" fill="#A85A2E" />
               ))}
@@ -152,7 +163,7 @@ export function MetroMap({ className, variant = "ink" }: { className?: string; v
           )}
           {/* Blueprint: junction circles */}
           {blueprint && (
-            <g className="text-teal" fill="var(--map-ground)" stroke="currentColor" strokeWidth="2" opacity="0.75">
+            <g className="text-teal" fill="var(--map-ground)" stroke="currentColor" strokeWidth="2" opacity="0.3">
               {joints.map(([x, y], i) => (
                 <circle key={i} cx={x} cy={y} r="6" />
               ))}
@@ -169,16 +180,16 @@ export function MetroMap({ className, variant = "ink" }: { className?: string; v
           )}
           {/* Shields, on the ink version only */}
           {variant === "ink" && (
-            <g className="text-charcoal" stroke="none" opacity="0.55">
+            <g className="text-charcoal" stroke="none" opacity="0.34">
               {shields.map((s, i) => (
                 <Shield key={i} {...s} />
               ))}
             </g>
           )}
           {/* The two names */}
-          <g className={mono || blueprint ? "text-teal-dark" : "text-charcoal"} fill="currentColor" stroke="none" opacity={mono || blueprint ? 0.9 : 0.85} fontFamily="var(--font-figtree), system-ui, sans-serif" fontWeight="700">
+          <g className={mono || blueprint ? "text-teal-dark" : "text-charcoal"} fill="currentColor" stroke="none" opacity={mono || blueprint ? 0.8 : 0.72} fontFamily="var(--font-figtree), system-ui, sans-serif" fontWeight="800">
             {labels.map((l) => (
-              <text key={l.name} x={l.x} y={l.y} fontSize={variant === "roads" || blueprint ? 30 : 28} textAnchor="middle" letterSpacing={variant === "roads" || blueprint ? 1 : 0}>
+              <text key={l.name} x={l.x} y={l.y} fontSize={variant === "roads" || blueprint ? 32 : 30} textAnchor="middle" letterSpacing={variant === "roads" || blueprint ? 1 : 0}>
                 {variant === "roads" || blueprint ? l.name.toUpperCase() : l.name}
               </text>
             ))}
