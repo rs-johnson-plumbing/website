@@ -86,7 +86,7 @@ export default function ForHomeownersPage() {
 
       {/* Meet the team */}
       <Section id="team" ariaLabelledby="ho-team-h" className="scroll-mt-[140px]">
-        <TeamStrip id="ho-team-h" heading={homeowners.team.heading} link={homeowners.team.link} />
+        <TeamStrip id="ho-team-h" heading={homeowners.team.heading} />
       </Section>
 
       {/* What your neighbors are saying */}

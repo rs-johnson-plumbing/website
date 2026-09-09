@@ -84,7 +84,7 @@ export default function HomePage() {
 
         {/* 3. Meet the team */}
         <Section ariaLabelledby="team-h">
-          <TeamStrip id="team-h" heading={home.team.heading} link={home.team.link} />
+          <TeamStrip id="team-h" heading={home.team.heading} />
         </Section>
 
         {/* 4. What your neighbors / other contractors are saying (follows the toggle) */}
