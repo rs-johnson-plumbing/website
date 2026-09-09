@@ -2,7 +2,6 @@
 
 import { home, reviews } from "@/lib/content";
 import { ReviewCard } from "./ReviewCard";
-import { TextLink } from "@/components/ui/TextLink";
 import { Icon } from "@/components/ui/Icon";
 import { useAudience } from "./AudienceContext";
 
@@ -34,9 +33,7 @@ export function Neighbors({ headingClassName }: { headingClassName?: string } = 
           <ReviewCard key={r.id} review={r} />
         ))}
       </div>
-      <div className="text-center lg:text-left">
-        <TextLink href="/reviews">{block.link}</TextLink>
-      </div>
+      {/* The See All Reviews link returns when the reviews page ships. */}
     </div>
   );
 }
