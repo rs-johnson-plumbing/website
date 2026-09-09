@@ -109,9 +109,11 @@ if (home?.popularServices?.slugs && Array.isArray(services)) {
   const slugs = new Set(services.map((s) => s.slug));
   for (const slug of home.popularServices.slugs) if (!slugs.has(slug)) errors.push(`home.json: popularServices references unknown service "${slug}"`);
 }
-if (home?.neighbors?.reviewIds && reviews?.items) {
+if (home?.neighbors && reviews?.items) {
   const ids = new Set(reviews.items.map((r) => r.id));
-  for (const id of home.neighbors.reviewIds) if (!ids.has(id)) errors.push(`home.json: neighbors references unknown review "${id}"`);
+  for (const [aud, block] of Object.entries(home.neighbors)) {
+    for (const id of block?.reviewIds ?? []) if (!ids.has(id)) errors.push(`home.json: neighbors.${aud} references unknown review "${id}"`);
+  }
 }
 
 if (brackets.length) {

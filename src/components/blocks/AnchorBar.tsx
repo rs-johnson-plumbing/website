@@ -49,13 +49,56 @@ export function AnchorBar({ anchors }: { anchors: Anchor[] }) {
     };
   }, []);
 
-  // Keep the active item in view on phones.
+  // Keep the active item in view on phones, but never while the reader is
+  // dragging the strip themselves, and never by scrolling the page.
+  const touching = useRef(false);
   useEffect(() => {
-    const el = strip.current?.querySelector<HTMLElement>(`[data-anchor="${active}"]`);
-    el?.scrollIntoView({ block: "nearest", inline: "center", behavior: "smooth" });
+    const el = strip.current;
+    if (!el) return;
+    const start = () => (touching.current = true);
+    let release: ReturnType<typeof setTimeout>;
+    const end = () => {
+      clearTimeout(release);
+      release = setTimeout(() => (touching.current = false), 600);
+    };
+    el.addEventListener("touchstart", start, { passive: true });
+    el.addEventListener("pointerdown", start);
+    el.addEventListener("touchend", end, { passive: true });
+    el.addEventListener("pointerup", end);
+    return () => {
+      el.removeEventListener("touchstart", start);
+      el.removeEventListener("pointerdown", start);
+      el.removeEventListener("touchend", end);
+      el.removeEventListener("pointerup", end);
+      clearTimeout(release);
+    };
+  }, []);
+
+  useEffect(() => {
+    const el = strip.current;
+    const item = el?.querySelector<HTMLElement>(`[data-anchor="${active}"]`);
+    if (!el || !item || touching.current) return;
+    if (el.scrollWidth <= el.clientWidth) return;
+    const left = item.offsetLeft - (el.clientWidth - item.offsetWidth) / 2;
+    el.scrollTo({ left: Math.max(0, left), behavior: "smooth" });
   }, [active]);
 
-  const page = (dir: 1 | -1) => strip.current?.scrollBy({ left: dir * strip.current.clientWidth * 0.7, behavior: "smooth" });
+  // Page the strip by whole items: scroll so the first partly hidden item
+  // on that side becomes fully visible at the edge.
+  const page = (dir: 1 | -1) => {
+    const el = strip.current;
+    if (!el) return;
+    const items = Array.from(el.querySelectorAll<HTMLElement>("[data-anchor]"));
+    const viewL = el.scrollLeft;
+    const viewR = viewL + el.clientWidth;
+    if (dir === 1) {
+      const next = items.find((i) => i.offsetLeft + i.offsetWidth > viewR + 2);
+      if (next) el.scrollTo({ left: next.offsetLeft - 36, behavior: "smooth" });
+    } else {
+      const prev = [...items].reverse().find((i) => i.offsetLeft < viewL - 2);
+      if (prev) el.scrollTo({ left: Math.max(0, prev.offsetLeft + prev.offsetWidth - el.clientWidth + 36), behavior: "smooth" });
+    }
+  };
 
   return (
     <nav aria-label="On this page" className="sticky top-header-m z-[15] border-y border-hairline bg-offwhite lg:top-header">
@@ -71,7 +114,7 @@ export function AnchorBar({ anchors }: { anchors: Anchor[] }) {
         >
           <Icon name="chevron-down" size={18} strokeWidth={2} className="rotate-90" />
         </button>
-        <div ref={strip} className="site-width gutter flex gap-4 overflow-x-auto [scrollbar-width:none] lg:justify-between lg:gap-3 [&::-webkit-scrollbar]:hidden">
+        <div ref={strip} className="site-width gutter flex gap-4 overflow-x-auto scroll-px-9 [scrollbar-width:none] lg:justify-between lg:gap-3 [&::-webkit-scrollbar]:hidden">
           {anchors.map((a) => {
             const isActive = a.id === active;
             return (

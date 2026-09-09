@@ -72,17 +72,32 @@
     }
   },
   "neighbors": {
-    "heading": "What our neighbors say",
-    "proofLine": "Nextdoor Neighborhood Favorite 2023 · 24 recommendations",
-    "lead": {
-      "quote": "Honest. Reliable. Knows his stuff.",
-      "attribution": "B.L., Wildwood, on Nextdoor"
+    "homeowners": {
+      "heading": "What our neighbors say",
+      "proofLine": "Nextdoor Neighborhood Favorite 2023 · 24 recommendations",
+      "lead": {
+        "quote": "Honest. Reliable. Knows his stuff.",
+        "attribution": "B.L., Wildwood, on Nextdoor"
+      },
+      "reviewIds": [
+        "neighbor-stl",
+        "kg-ofallon"
+      ],
+      "link": "See all reviews"
     },
-    "reviewIds": [
-      "neighbor-stl",
-      "kg-ofallon"
-    ],
-    "link": "See all reviews"
+    "builders": {
+      "heading": "What other contractors say",
+      "proofLine": "[##] builder partners · References on request",
+      "lead": {
+        "quote": "[Contractor quote placeholder]",
+        "attribution": "[Name], [Builder company], [City]"
+      },
+      "reviewIds": [
+        "builder-2",
+        "builder-3"
+      ],
+      "link": "See all reviews"
+    }
   },
   "popularServices": {
     "heading": "Our most popular services",
