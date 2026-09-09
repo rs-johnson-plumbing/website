@@ -1,15 +1,16 @@
 import { NextResponse } from "next/server";
 
 /**
- * Check Availability intake, two steps from the homepage hero.
+ * Check Availability intake, two posts from the homepage hero.
  *
- * Step 1: { address } — we capture the address and answer "in area". Every
- * address is in area for now; the point is to capture it fast.
- * Step 2: { address, phone } — the visitor asked for a call or text.
+ * Step 1: { address } — capture the service address and answer "in area".
+ * Every address is in area for now; the point is to capture it fast.
+ * Step 2: { address, category, issue, note?, phone } — what they need and
+ * where to reach them.
  *
  * TODO(step 7): on step 2, text Ryan (Twilio or the Housecall Pro lead
- * webhook) with the address and number, and add bot protection. For now:
- * validate, log, return success.
+ * webhook) with address, category, issue, note, and phone. Add bot
+ * protection. For now: validate, log, return success.
  */
 export async function POST(req: Request) {
   let body: Record<string, unknown>;
@@ -30,6 +31,13 @@ export async function POST(req: Request) {
   if (phone.length < 10) {
     return NextResponse.json({ ok: false, error: "Phone required" }, { status: 400 });
   }
-  console.log("[availability] callback requested", { address, phone });
+  const lead = {
+    address,
+    phone,
+    category: String(body.category ?? "").slice(0, 40),
+    issue: String(body.issue ?? "").slice(0, 40),
+    note: String(body.note ?? "").slice(0, 500),
+  };
+  console.log("[availability] callback requested", lead);
   return NextResponse.json({ ok: true });
 }
