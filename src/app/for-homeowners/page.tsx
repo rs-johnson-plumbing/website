@@ -14,6 +14,7 @@ import { Section, SectionHeading } from "@/components/ui/Section";
 import { Button } from "@/components/ui/Button";
 import { TextLink } from "@/components/ui/TextLink";
 import { IconTile } from "@/components/ui/Icon";
+import { cn } from "@/lib/cn";
 
 export const metadata: Metadata = {
   title: { absolute: homeowners.meta.title },
@@ -30,6 +31,9 @@ type Sign = { icon: IconName; title: string; text: string; service: string; link
  * neighbors are saying, signs you need a plumber, FAQ. Service detail lives
  * on /services.
  */
+// One heading style for every section on this page: 28px on phone, 34px on desktop, left-aligned.
+const H = "text-left text-[28px] font-bold leading-[1.15] tracking-[-0.01em] lg:text-[34px] lg:font-bold";
+
 export default function ForHomeownersPage() {
   const signs = homeowners.signs.items as Sign[];
   const neighborReviews = homeowners.neighbors.reviewIds.map((id) => reviews.items.find((r) => r.id === id)).filter((r): r is NonNullable<typeof r> => Boolean(r));
@@ -42,13 +46,13 @@ export default function ForHomeownersPage() {
       <AnchorBar anchors={homeowners.anchors as Anchor[]} />
 
       {/* Here's what sets us apart (homeowner set; no toggle on this page) */}
-      <Section id="apart" ariaLabelledby="apart-h" className="scroll-mt-[140px]">
-        <SetsApart heading={homeowners.apart.heading} />
+      <Section id="apart" pad="band" ariaLabelledby="apart-h" className="scroll-mt-[140px]">
+        <SetsApart heading={homeowners.apart.heading} headingClassName={H} />
       </Section>
 
       {/* What we do for homeowners */}
-      <Section id="services" ariaLabelledby="ho-services-h" className="scroll-mt-[140px]">
-        <PageHeading id="ho-services-h" title={homeowners.residential.heading} line={homeowners.residential.line} />
+      <Section id="services" pad="band" ariaLabelledby="ho-services-h" className="scroll-mt-[140px]">
+        <PageHeading id="ho-services-h" title={homeowners.residential.heading} line={homeowners.residential.line} align="left" className={H} />
         <ServiceGrid hrefFor={(slug) => `/services#${slug}`} />
         <div className="mt-6 flex justify-center lg:mt-8">
           <Button href="/services" variant="outlined" className="w-full lg:w-auto">
@@ -58,8 +62,8 @@ export default function ForHomeownersPage() {
       </Section>
 
       {/* Why us: the one dark band on the page, numbered */}
-      <Section id="why-us" tone="charcoal" ariaLabelledby="why-h" className="scroll-mt-[140px]">
-        <h2 id="why-h" className="mb-8 text-h2-m text-offwhite lg:mb-10 lg:text-h2">
+      <Section id="why-us" tone="charcoal" pad="band" ariaLabelledby="why-h" className="scroll-mt-[140px]">
+        <h2 id="why-h" className={cn("mb-8 text-offwhite lg:mb-10", H)}>
           {homeowners.whyUs.heading}
         </h2>
         <ol className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3 lg:gap-x-12 lg:gap-y-10">
@@ -85,13 +89,13 @@ export default function ForHomeownersPage() {
       </Section>
 
       {/* Meet the team */}
-      <Section id="team" ariaLabelledby="ho-team-h" className="scroll-mt-[140px]">
-        <TeamStrip id="ho-team-h" heading={homeowners.team.heading} />
+      <Section id="team" pad="band" ariaLabelledby="ho-team-h" className="scroll-mt-[140px]">
+        <TeamStrip id="ho-team-h" heading={homeowners.team.heading} titleClassName={H} />
       </Section>
 
       {/* What your neighbors are saying */}
-      <Section id="reviews" tone="sand" ariaLabelledby="ho-reviews-h" className="scroll-mt-[140px]">
-        <SectionHeading id="ho-reviews-h" title={homeowners.neighbors.heading} action={<TextLink href="/reviews">{homeowners.neighbors.link}</TextLink>} />
+      <Section id="reviews" tone="sand" pad="band" ariaLabelledby="ho-reviews-h" className="scroll-mt-[140px]">
+        <SectionHeading id="ho-reviews-h" title={homeowners.neighbors.heading} titleClassName={H} action={<TextLink href="/reviews">{homeowners.neighbors.link}</TextLink>} />
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-3 lg:gap-5">
           {neighborReviews.map((r) => (
             <ReviewCard key={r.id} review={r} />
@@ -100,8 +104,8 @@ export default function ForHomeownersPage() {
       </Section>
 
       {/* Signs: each card points to the service it belongs to */}
-      <Section id="signs" tone="white" ariaLabelledby="signs-h" className="scroll-mt-[140px] border-y border-hairline">
-        <SectionHeading id="signs-h" title={homeowners.signs.heading} line={homeowners.signs.line} />
+      <Section id="signs" tone="white" pad="band" ariaLabelledby="signs-h" className="scroll-mt-[140px] border-y border-hairline">
+        <SectionHeading id="signs-h" title={homeowners.signs.heading} line={homeowners.signs.line} titleClassName={H} />
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 lg:gap-5">
           {signs.map((item) => (
             <div key={item.title} className="flex flex-col items-start gap-3 rounded-card border border-hairline bg-white p-5 lg:p-6">
@@ -116,12 +120,12 @@ export default function ForHomeownersPage() {
         </div>
       </Section>
 
-      {/* Homeowner FAQ */}
-      <Section id="faq" ariaLabelledby="ho-faq-h" className="scroll-mt-[140px]">
-        <div className="grid grid-cols-1 items-start gap-8 lg:grid-cols-[1fr_2fr] lg:gap-16">
-          <h2 id="ho-faq-h" className="text-h2-m lg:text-h2">
-            {homeowners.faq.heading}
-          </h2>
+      {/* Homeowner FAQ: heading, then the list under it, left-aligned */}
+      <Section id="faq" pad="band" ariaLabelledby="ho-faq-h" className="scroll-mt-[140px]">
+        <h2 id="ho-faq-h" className={cn("mb-6 lg:mb-8", H)}>
+          {homeowners.faq.heading}
+        </h2>
+        <div className="max-w-[820px]">
           <FAQ items={faqs.homeowners.items} />
         </div>
       </Section>
