@@ -103,6 +103,12 @@ const paths: Record<IconName, React.ReactNode> = {
     </>
   ),
   "chevron-down": <path d="M6 9l6 6 6-6" />,
+  message: (
+    <>
+      <path d="M4 5h16v11H9l-5 4z" />
+      <path d="M8 9h8M8 12.5h5" />
+    </>
+  ),
   help: (
     <>
       <circle cx="12" cy="12" r="9" />

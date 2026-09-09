@@ -40,7 +40,8 @@ export type IconName =
   | "calendar"
   | "map"
   | "chevron-down"
-  | "help";
+  | "help"
+  | "message";
 
 export type NavItem = { label: string; href: string };
 

@@ -17,7 +17,7 @@ import { CallText } from "@/components/ui/CallText";
  * flips between the two doors. Each door is centered: headline, a filled
  * intake button (Check Availability or Submit Bid Request), the Call and
  * Text pair, and a credentials line. Desktop reads Submit Service Request
- * and shows the number in the outlined button, since a desktop cannot dial.
+ * alone; the header callout carries the number, since a desktop cannot dial.
  */
 export function HomeHero() {
   const { audience, setAudience } = useAudience();
@@ -55,7 +55,8 @@ export function HomeHero() {
             <div className="flex w-full flex-col gap-2.5 lg:w-full lg:max-w-[640px] lg:flex-row lg:flex-wrap lg:gap-3 lg:pt-2">
               {/* Check Availability is the primary; it turns into the address field in place. */}
               <AvailabilityCheck className="w-full lg:w-auto" />
-              <CallText track="hero" buttonClassName="bg-white" />
+              {/* Phone: Call and Text pair. Desktop: none, the header callout carries the number. */}
+              <CallText track="hero" buttonClassName="bg-white" desktop={false} />
             </div>
             {h.homeowners.credentials.length > 0 && (
             <div className="flex flex-wrap justify-center gap-x-3 gap-y-1 text-[13px] font-semibold text-slate lg:hidden">

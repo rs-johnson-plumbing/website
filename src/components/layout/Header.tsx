@@ -5,15 +5,17 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { site, type NavItem } from "@/lib/content";
 import { Logo } from "@/components/ui/Logo";
-import { Button } from "@/components/ui/Button";
 import { Icon } from "@/components/ui/Icon";
 import { cn } from "@/lib/cn";
 
 /**
- * Sticky header. Desktop (80px): logo left, five nav links, filled phone
- * button. Mobile (60px): 24px mark plus short wordmark and a hamburger that
- * opens a stacked nav panel. No Call button on mobile: the sticky bottom bar
- * carries it on every page. The current page link is underlined.
+ * Sticky header. Desktop (80px): logo left, nav links, then the phone number
+ * as a callout, not a button: phone and message icons, a small "Call or
+ * Text" eyebrow, the number under it. It stays a tel link. The blue buttons
+ * belong to the intake forms in the hero. Mobile (60px): 24px mark plus
+ * short wordmark and a hamburger that opens a stacked nav panel. No number
+ * on mobile: the sticky bottom bar carries Call and Text on every page. The
+ * current page link is underlined.
  */
 export function Header() {
   const [open, setOpen] = useState(false);
@@ -39,9 +41,16 @@ export function Header() {
               </Link>
             ))}
           </nav>
-          <Button href={site.phone.tel} variant="filled" size="sm" track="call-header" className="ml-10 hidden lg:inline-flex">
-            {site.cta.headerDesktop}
-          </Button>
+          <a href={site.phone.tel} data-track="call-header" className="ml-8 hidden shrink-0 items-center gap-3 text-charcoal hover:no-underline builders:text-offwhite lg:flex">
+            <span className="flex gap-1.5" aria-hidden="true">
+              <Icon name="phone" size={20} strokeWidth={1.8} />
+              <Icon name="message" size={20} strokeWidth={1.8} />
+            </span>
+            <span className="flex flex-col leading-none">
+              <span className="text-[11px] font-bold uppercase tracking-[0.08em] text-slate builders:text-ondark-muted">{site.cta.headerCallout}</span>
+              <span className="mt-1 whitespace-nowrap text-[20px] font-extrabold tracking-[-0.01em]">{site.phone.display}</span>
+            </span>
+          </a>
           <button
             type="button"
             className="-mr-2 flex h-10 w-10 items-center justify-center text-charcoal builders:text-offwhite lg:hidden"

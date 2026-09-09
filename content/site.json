@@ -63,7 +63,8 @@
     "call": "Call",
     "text": "Text",
     "callOrText": "Call or Text 314-220-1827",
-    "stickyText": "Text"
+    "stickyText": "Text",
+    "headerCallout": "Call or Text"
   },
   "links": {
     "book": "/contact#book",
