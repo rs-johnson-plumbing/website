@@ -87,7 +87,8 @@ export function HomeHero() {
               </Button>
             </div>
             {h.builders.credentials.length > 0 && (
-            <div className="flex flex-wrap justify-center gap-x-3 gap-y-1 text-[13px] font-semibold text-ondark-muted lg:justify-start">
+            <div className="flex flex-wrap items-baseline justify-center gap-x-3 gap-y-1 text-[13px] font-semibold text-ondark-muted lg:justify-start">
+              {h.builders.credentialsLabel && <span className="text-[12px] font-bold uppercase tracking-[0.06em] text-offwhite">{h.builders.credentialsLabel}</span>}
               {h.builders.credentials.map((c, i) => (
                 <span key={c} className="inline-flex gap-3">
                   {i > 0 && <span aria-hidden="true">·</span>}
