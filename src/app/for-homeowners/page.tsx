@@ -43,7 +43,7 @@ export default function ForHomeownersPage() {
 
       {/* Here's what sets us apart (homeowner set; no toggle on this page) */}
       <Section id="apart" ariaLabelledby="apart-h" className="scroll-mt-[140px]">
-        <SetsApart />
+        <SetsApart heading={homeowners.apart.heading} />
       </Section>
 
       {/* What we do for homeowners */}

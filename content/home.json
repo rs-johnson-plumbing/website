@@ -27,7 +27,7 @@
   },
   "setsApart": {
     "homeowners": {
-      "heading": "Why Homeowners Trust R.S. Johnson Plumbing",
+      "heading": "What Sets Us Apart",
       "items": [
         {
           "icon": "phone",
@@ -69,7 +69,7 @@
   },
   "popularServices": {
     "homeowners": {
-      "heading": "What We Do for Homeowners",
+      "heading": "What We Do",
       "line": "",
       "slugs": [
         "water-heaters",
