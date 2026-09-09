@@ -3,60 +3,109 @@
     "title": "Plumber in O'Fallon, MO | R.S. Johnson Plumbing, Master Plumber",
     "description": "Master Plumber Ryan Johnson and crew handle emergency and scheduled plumbing for homes and job sites across St. Charles County. Based in O'Fallon. Call or text 314-220-1827."
   },
+  "utilityBar": {
+    "book": "Book Service",
+    "call": "Call 314-220-1827"
+  },
   "hero": {
+    "toggle": {
+      "homeowners": "For Homeowners",
+      "builders": "For Builders"
+    },
     "homeowners": {
       "eyebrow": "Homeowners",
-      "heading": "Emergency or scheduled plumbing services",
-      "line": "Licensed crew serving St. Charles and St. Louis County.",
-      "button": "Book Service",
-      "cards": [
-        { "label": "Emergency service", "helper": "Leak, no hot water, backed-up drain", "link": "Call now", "hrefKey": "tel", "track": "call-hero" },
-        { "label": "Scheduled service", "helper": "Repairs, water heaters, remodels", "link": "Book online", "hrefKey": "book", "track": "book-hero" }
-      ],
-      "trustLine": "Nextdoor Neighborhood Favorite 2023 · Licensed and insured"
+      "heading": "Family Owned and Professionally Operated",
+      "line": "Master Plumber Ryan Johnson and crew. Emergency and scheduled service, based in O'Fallon.",
+      "primary": "Book Service",
+      "secondary": "Call 314-220-1827",
+      "credentials": [
+        "Missouri Master Plumber",
+        "Licensed and insured",
+        "Upfront pricing"
+      ]
     },
     "builders": {
       "eyebrow": "Builders and general contractors",
       "heading": "New construction and renovation",
       "line": "Rough-in through trim. Custom homes, spec builds, whole-house remodels.",
-      "button": "Request a Bid",
-      "cards": [
-        { "label": "Talk it through", "helper": "Schedule questions or plan review", "link": "Talk to Ryan", "hrefKey": "tel", "track": "call-hero-builders" },
-        { "label": "Get a number", "helper": "Upload plans and we'll bid it", "link": "Request a bid", "hrefKey": "bid", "track": "bid-hero" }
-      ],
-      "trustLine": "[##] homes plumbed · [##] builder partners · Trade partner since 2022"
+      "primary": "Request a Bid",
+      "secondary": "Call 314-220-1827",
+      "credentials": [
+        "[##] homes plumbed",
+        "[##] builder partners",
+        "Trade partner since 2022"
+      ]
+    }
+  },
+  "setsApart": {
+    "heading": "Here's what sets us apart",
+    "items": [
+      {
+        "icon": "phone",
+        "title": "You talk to the plumber",
+        "line": "Ryan answers the phone. No call center, no dispatcher."
+      },
+      {
+        "icon": "tag",
+        "title": "Price before we start",
+        "line": "You get the number before work begins. No surprises on the invoice."
+      },
+      {
+        "icon": "clock",
+        "title": "We show up when we say",
+        "line": "A text with a name and ETA before we arrive."
+      }
+    ]
+  },
+  "neighbors": {
+    "heading": "What our neighbors say",
+    "proofLine": "Nextdoor Neighborhood Favorite 2023 · 24 recommendations",
+    "lead": {
+      "quote": "Honest. Reliable. Knows his stuff.",
+      "attribution": "B.L., Wildwood, on Nextdoor"
     },
-    "toggle": { "homeowners": "For Homeowners", "builders": "For Builders" }
-  },
-  "services": {
-    "heading": "What we fix and install",
-    "line": "Repairs and installs for homes across St. Charles and St. Louis County.",
-    "link": "See all services"
-  },
-  "whoShowsUp": {
-    "heading": "Here's who shows up at your door",
-    "items": ["Licensed and background-checked", "Marked truck and company shirt", "Text before we arrive"],
-    "line": "No call center, no rotating subcontractors — the crew on this page is the crew at your door.",
-    "button": "Meet the Team"
-  },
-  "builderWork": {
-    "heading": "Recent builder work",
-    "link": "For builders"
-  },
-  "promises": {
-    "heading": "Our promises"
-  },
-  "reviews": {
-    "heading": "What neighbors say",
+    "reviewIds": [
+      "neighbor-stl",
+      "kg-ofallon"
+    ],
     "link": "See all reviews"
   },
-  "serviceArea": {
-    "heading": "Where we work",
-    "button": "See All Areas",
-    "map": { "src": "/photos/site-map-ofallon.jpg", "alt": "Flat map of St. Charles County and West St. Louis County centered on O'Fallon, Missouri", "caption": "Map centered on O'Fallon" }
+  "popularServices": {
+    "heading": "Our most popular services",
+    "slugs": [
+      "water-heaters",
+      "leaks-and-repairs",
+      "drains-and-sewer",
+      "toilets-and-faucets"
+    ],
+    "seeAll": "See All Services"
   },
-  "faq": {
-    "heading": "Common questions",
-    "line": "Straight answers before you call."
+  "why": {
+    "heading": "Why R.S. Johnson",
+    "paragraph": "Ryan Johnson is a Missouri Master Plumber with [##] years in the trade. He answers the phone, bids every job, and the four plumbers on our team page are the crew that shows up at your house. Most of our week is new construction for builders who don't tolerate no-shows. Homeowners get the same crew and the same standard.",
+    "button": "Meet the Team",
+    "photo": {
+      "src": "/photos/site-crew-truck.jpg",
+      "alt": "Ryan and the crew in company shirts in front of a marked R.S. Johnson Plumbing truck",
+      "caption": "Ryan and the crew with the truck"
+    }
+  },
+  "ready": {
+    "heading": "Ready when you are",
+    "line": "Call or text for anything urgent. Book online for repairs, water heaters, and remodel work. Or send a message and Ryan will call you back."
+  },
+  "form": {
+    "heading": "Send us a message",
+    "line": "We'll call you back the same day. [confirm]",
+    "fields": {
+      "name": "Name",
+      "phone": "Phone",
+      "city": "City",
+      "message": "What's going on"
+    },
+    "consent": "Okay to text me about this request. [SMS consent wording — confirm]",
+    "button": "Send Message",
+    "success": "Got it. Ryan will call you back. [confirm turnaround]",
+    "error": "Something went wrong. Call or text 314-220-1827 and we'll take it from there."
   }
 }

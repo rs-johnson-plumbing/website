@@ -1,15 +1,14 @@
 import type { Metadata } from "next";
-import { home, site, services, team, reviews, projects, faqs, cities, link, type IconName } from "@/lib/content";
+import { home, site, services, reviews, link, type IconName } from "@/lib/content";
 import { plumberJsonLd } from "@/lib/jsonld";
 import { HomeHero } from "@/components/blocks/HomeHero";
 import { TrustBar } from "@/components/blocks/TrustBar";
-import { ServiceCard } from "@/components/blocks/ServiceCard";
-import { ProjectCard } from "@/components/blocks/ProjectCard";
-import { ReviewCard, ReviewSummaryTile } from "@/components/blocks/ReviewCard";
-import { FAQ } from "@/components/blocks/FAQ";
+import { ServiceIllustration } from "@/components/blocks/ServiceIllustration";
+import { ReviewCard } from "@/components/blocks/ReviewCard";
+import { MessageForm } from "@/components/blocks/MessageForm";
 import { ClosingCTA } from "@/components/blocks/ClosingCTA";
 import { JsonLd } from "@/components/blocks/JsonLd";
-import { Section, SectionHeading } from "@/components/ui/Section";
+import { Section } from "@/components/ui/Section";
 import { Button } from "@/components/ui/Button";
 import { TextLink } from "@/components/ui/TextLink";
 import { Icon } from "@/components/ui/Icon";
@@ -22,122 +21,129 @@ export const metadata: Metadata = {
   openGraph: { title: home.meta.title, description: home.meta.description, url: "/" },
 };
 
+function H2({ children, id }: { children: React.ReactNode; id?: string }) {
+  return (
+    <h2 id={id} className="text-center text-[24px] font-bold tracking-[-0.01em] lg:text-left lg:text-h2 lg:font-bold">
+      {children}
+    </h2>
+  );
+}
+
 export default function HomePage() {
-  const featuredProjects = projects.items.filter((p) => p.featured).slice(0, 3);
-  const featuredReviews = reviews.items.filter((r) => r.featured && r.audience === "homeowner").slice(0, 3);
-  const promises = team.promises as { icon: IconName; title: string; line: string }[];
+  const apart = home.setsApart.items as { icon: IconName; title: string; line: string }[];
+  const popular = home.popularServices.slugs.map((slug) => services.find((s) => s.slug === slug)).filter((s): s is NonNullable<typeof s> => Boolean(s));
+  const moreReviews = home.neighbors.reviewIds.map((id) => reviews.items.find((r) => r.id === id)).filter((r): r is NonNullable<typeof r> => Boolean(r));
 
   return (
     <>
       <JsonLd data={plumberJsonLd()} />
       <HomeHero />
-      <TrustBar />
+      <div className="hidden lg:block">
+        <TrustBar />
+      </div>
 
-      {/* Services */}
-      <Section ariaLabelledby="services-h">
-        <SectionHeading id="services-h" title={home.services.heading} line={home.services.line} action={<TextLink href="/plumbing">{home.services.link}</TextLink>} />
-        <div className="grid grid-cols-2 gap-4 lg:grid-cols-4 lg:gap-5">
-          {services.map((s) => (
-            <ServiceCard key={s.slug} service={s} />
-          ))}
-        </div>
-      </Section>
-
-      {/* Who shows up */}
-      <Section tone="sand" id="who-shows-up" ariaLabelledby="who-h">
-        <div className="grid grid-cols-1 items-start gap-10 lg:grid-cols-2 lg:gap-14">
-          <div className="flex flex-col items-start gap-5">
-            <h2 id="who-h" className="text-h2-m lg:text-h2">
-              {home.whoShowsUp.heading}
-            </h2>
-            <ul className="flex flex-col gap-3 text-[16px]">
-              {home.whoShowsUp.items.map((item) => (
-                <li key={item} className="flex items-center gap-2.5">
-                  <Icon name="check" size={18} strokeWidth={2} className="shrink-0 text-blue" />
-                  {item}
-                </li>
-              ))}
-            </ul>
-            <p className="max-w-[520px] text-[16px] lg:text-[17px]">{home.whoShowsUp.line}</p>
-            <Button href="/our-team" variant="outlined" className="mt-1">
-              {home.whoShowsUp.button}
-            </Button>
+      {/* What sets us apart */}
+      <Section ariaLabelledby="apart-h" className="!pt-6 lg:!pt-16">
+        <div className="flex flex-col gap-4 lg:gap-6">
+          <H2 id="apart-h">{home.setsApart.heading}</H2>
+          <div className="grid grid-cols-1 gap-3 lg:grid-cols-3 lg:gap-5">
+            {apart.map((item) => (
+              <div key={item.title} className="flex items-center gap-4 rounded-card border border-hairline bg-white p-4 lg:p-5">
+                <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-tile bg-blue-tint text-blue">
+                  <Icon name={item.icon} size={24} />
+                </span>
+                <div>
+                  <div className="text-[17px] font-bold">{item.title}</div>
+                  <div className="text-[14px] leading-snug text-slate">{item.line}</div>
+                </div>
+              </div>
+            ))}
           </div>
-          <PhotoPlaceholder photo={team.groupPhoto} aspect="16/10" />
         </div>
       </Section>
 
-      {/* Recent builder work */}
-      <Section ariaLabelledby="builder-work-h">
-        <SectionHeading id="builder-work-h" title={home.builderWork.heading} action={<TextLink href="/for-builders">{home.builderWork.link}</TextLink>} />
-        <div className="mb-5 grid grid-cols-1 gap-4 sm:grid-cols-3 lg:gap-5">
-          {featuredProjects.map((p) => (
-            <ProjectCard key={p.id} project={p} />
-          ))}
+      {/* What our neighbors say */}
+      <Section tone="sand" id="reviews" ariaLabelledby="neighbors-h">
+        <div className="flex flex-col gap-3 lg:gap-5">
+          <H2 id="neighbors-h">{home.neighbors.heading}</H2>
+          <div className="flex items-center justify-center gap-2 text-[13px] font-semibold text-slate lg:justify-start">
+            <Icon name="star" size={14} filled className="text-blue" />
+            {home.neighbors.proofLine}
+          </div>
+          <div className="grid grid-cols-1 gap-3 lg:grid-cols-3 lg:gap-5">
+            <figure className="m-0 rounded-card border border-hairline border-l-4 border-l-blue bg-white p-5">
+              <blockquote className="m-0 text-[20px] font-bold leading-[1.3] tracking-[-0.01em]">“{home.neighbors.lead.quote}”</blockquote>
+              <figcaption className="mt-1.5 text-[13px] text-slate">{home.neighbors.lead.attribution}</figcaption>
+            </figure>
+            {moreReviews.map((r) => (
+              <ReviewCard key={r.id} review={r} />
+            ))}
+          </div>
+          <div className="text-center lg:text-left">
+            <TextLink href="/reviews">{home.neighbors.link}</TextLink>
+          </div>
         </div>
-        <figure className="m-0 max-w-[640px] rounded-card border border-hairline bg-white p-6">
-          <blockquote className="m-0 mb-4 text-[16px] leading-relaxed">{projects.contractorQuote.quote}</blockquote>
-          <figcaption className="text-[14px] font-bold text-slate">
-            — {projects.contractorQuote.author}, {projects.contractorQuote.company}, {projects.contractorQuote.city}
-          </figcaption>
-        </figure>
       </Section>
 
-      {/* Promises */}
-      <Section tone="sand" ariaLabelledby="promises-h">
-        <SectionHeading id="promises-h" title={home.promises.heading} />
-        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4 lg:gap-5">
-          {promises.map((p) => (
-            <div key={p.title} className="flex flex-col items-start gap-3 rounded-card border border-hairline bg-white p-6">
-              <Icon name={p.icon} size={24} className="text-blue" />
-              <div className="text-[17px] font-bold">{p.title}</div>
-              <p className="text-[15px] leading-relaxed text-slate">{p.line}</p>
+      {/* Our most popular services */}
+      <Section ariaLabelledby="popular-h">
+        <div className="flex flex-col gap-4 lg:gap-6">
+          <div className="flex flex-col gap-3 lg:flex-row lg:items-baseline lg:justify-between">
+            <H2 id="popular-h">{home.popularServices.heading}</H2>
+            <div className="hidden lg:block">
+              <TextLink href="/plumbing">See all services</TextLink>
             </div>
-          ))}
+          </div>
+          <div className="grid grid-cols-1 gap-3 lg:grid-cols-4 lg:gap-5">
+            {popular.map((s) => (
+              <div key={s.slug} className="flex flex-col items-center rounded-card border border-hairline bg-white p-4 text-center lg:p-5">
+                <ServiceIllustration slug={s.slug} className="h-[150px] w-[150px] lg:h-[140px] lg:w-[140px]" />
+                <div className="mt-2 text-[20px] font-bold">{s.name}</div>
+                <div className="mt-1 text-[14px] text-slate">{s.short}</div>
+                <Button href={`/plumbing/${s.slug}`} variant="filled" size="sm" className="mt-4 w-full">
+                  {s.name}
+                </Button>
+              </div>
+            ))}
+          </div>
+          <Button href="/plumbing" variant="outlined" className="w-full lg:hidden">
+            {home.popularServices.seeAll}
+          </Button>
         </div>
       </Section>
 
-      {/* Reviews */}
-      <Section id="reviews" ariaLabelledby="reviews-h">
-        <SectionHeading id="reviews-h" title={home.reviews.heading} action={<TextLink href="/reviews">{home.reviews.link}</TextLink>} />
-        <div className="mb-5 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:max-w-[640px]">
-          {reviews.summary.map((s) => (
-            <ReviewSummaryTile key={s.source} {...s} />
-          ))}
-        </div>
-        <div className="grid grid-cols-1 gap-4 sm:grid-cols-3 lg:gap-5">
-          {featuredReviews.map((r) => (
-            <ReviewCard key={r.id} review={r} />
-          ))}
-        </div>
-      </Section>
-
-      {/* Where we work */}
-      <Section tone="sand" id="service-area" ariaLabelledby="area-h">
-        <div className="grid grid-cols-1 items-start gap-10 lg:grid-cols-2 lg:gap-14">
-          <div className="flex flex-col items-start gap-5">
-            <h2 id="area-h" className="text-h2-m lg:text-h2">
-              {home.serviceArea.heading}
-            </h2>
-            <p className="max-w-[460px] text-[16px] lg:text-[17px]">{cities.summary}</p>
-            <Button href="/service-area" variant="outlined">
-              {home.serviceArea.button}
+      {/* Why R.S. Johnson */}
+      <Section tone="sand" ariaLabelledby="why-h">
+        <div className="grid grid-cols-1 gap-4 lg:grid-cols-2 lg:items-center lg:gap-14">
+          <PhotoPlaceholder photo={home.why.photo} aspect="16/10" className="lg:order-last" />
+          <div className="flex flex-col items-start gap-3 lg:gap-5">
+            <H2 id="why-h">{home.why.heading}</H2>
+            <p className="text-[16px] leading-[1.6] lg:text-body">{home.why.paragraph}</p>
+            <Button href="/our-team" variant="outlined">
+              {home.why.button}
             </Button>
           </div>
-          <PhotoPlaceholder photo={home.serviceArea.map} aspect="4/3" />
         </div>
       </Section>
 
-      {/* FAQ */}
-      <Section ariaLabelledby="faq-h">
-        <div className="grid grid-cols-1 items-start gap-8 lg:grid-cols-[1fr_2fr] lg:gap-14">
-          <div>
-            <h2 id="faq-h" className="text-h2-m lg:text-h2">
-              {home.faq.heading}
+      {/* Ready when you are: buttons and form */}
+      <Section ariaLabelledby="ready-h">
+        <div className="grid grid-cols-1 gap-4 lg:grid-cols-[1fr_520px] lg:items-start lg:gap-16">
+          <div className="flex flex-col gap-2.5 lg:gap-5">
+            <h2 id="ready-h" className="hidden text-h2 font-bold lg:block">
+              {home.ready.heading}
             </h2>
-            <p className="mt-2 text-[16px] text-slate">{home.faq.line}</p>
+            <p className="hidden max-w-[480px] text-body lg:block">{home.ready.line}</p>
+            <div className="flex flex-col gap-2.5 lg:flex-row lg:gap-3">
+              <Button href={link("book")} variant="filled" track="book-ready" className="h-[52px] w-full lg:w-auto">
+                {home.hero.homeowners.primary}
+              </Button>
+              <Button href={site.phone.tel} variant="outlined" track="call-ready" className="h-[52px] w-full bg-white lg:w-auto">
+                {home.hero.homeowners.secondary}
+              </Button>
+            </div>
           </div>
-          <FAQ items={faqs.home.items} />
+          <MessageForm />
         </div>
       </Section>
 
