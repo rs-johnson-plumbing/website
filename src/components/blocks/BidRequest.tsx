@@ -3,6 +3,7 @@
 import { useCallback, useEffect, useId, useRef, useState } from "react";
 import { home } from "@/lib/content";
 import { cn } from "@/lib/cn";
+import { Icon } from "@/components/ui/Icon";
 import { BackLink, IntakeDialog, Row, intakeBtn as btn, intakeChip as chip, intakeInput as input } from "./IntakeDialog";
 
 type Stage = "idle" | "contractor" | "type" | "plans" | "phone" | "done";
@@ -99,9 +100,10 @@ export function BidRequest({ className }: { className?: string }) {
         type="button"
         onClick={() => setStage("contractor")}
         data-track="bid-open"
-        className={cn("inline-flex h-[52px] items-center justify-center whitespace-nowrap rounded-btn bg-blue px-6 text-[16px] font-bold text-white transition-opacity hover:opacity-[0.88]", className)}
+        className={cn("inline-flex h-[52px] items-center justify-center gap-2 whitespace-nowrap rounded-btn bg-blue px-6 text-[16px] font-bold text-white transition-opacity hover:opacity-[0.88]", className)}
       >
         {b.button}
+        <Icon name="arrow-right" size={20} strokeWidth={1.8} className="shrink-0" />
       </button>
 
       <IntakeDialog open={open} onClose={reset} titleId={titleId} closeLabel={b.close} showClose={stage !== "done"}>

@@ -14,10 +14,10 @@ export function CallText({ variant = "outlined", track, className, buttonClassNa
   return (
     <>
       <div className={cn("flex w-full gap-2.5 lg:hidden", className)}>
-        <Button href={site.phone.tel} variant={variant} track={`call-${track}`} className={cn("h-[52px] flex-1", buttonClassName)}>
+        <Button href={site.phone.tel} variant={variant} track={`call-${track}`} icon="phone" className={cn("h-[52px] flex-1", buttonClassName)}>
           {site.cta.call}
         </Button>
-        <Button href={smsLink()} variant={variant} track={`text-${track}`} className={cn("h-[52px] flex-1", buttonClassName)}>
+        <Button href={smsLink()} variant={variant} track={`text-${track}`} icon="message" className={cn("h-[52px] flex-1", buttonClassName)}>
           {site.cta.text}
         </Button>
       </div>

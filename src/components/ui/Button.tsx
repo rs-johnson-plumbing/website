@@ -1,5 +1,7 @@
 import Link from "next/link";
 import { cn } from "@/lib/cn";
+import { Icon } from "./Icon";
+import type { IconName } from "@/lib/content";
 
 export type ButtonVariant = "filled" | "outlined" | "outlined-dark";
 export type ButtonSize = "md" | "sm";
@@ -13,16 +15,19 @@ type Props = {
   /** Data attribute picked up by analytics click tracking in step 7. */
   track?: string;
   ariaLabel?: string;
+  /** Outline icon after the label (the site convention: label first, icon trailing). */
+  icon?: IconName;
 };
 
 /**
  * The only button style on the site: 8px radius rectangle, bold label, never
  * wraps. One filled button per section; the rest are outlined. On charcoal
- * sections use "outlined-dark" (white outline).
+ * sections use "outlined-dark" (white outline). An optional outline icon
+ * trails the label: arrow on the forms, phone on Call, message on Text.
  */
-export function Button({ href, children, variant = "filled", size = "md", className, track, ariaLabel }: Props) {
+export function Button({ href, children, variant = "filled", size = "md", className, track, ariaLabel, icon }: Props) {
   const base =
-    "inline-flex items-center justify-center whitespace-nowrap rounded-btn font-bold transition-opacity hover:opacity-[0.88] hover:no-underline";
+    "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-btn font-bold transition-opacity hover:opacity-[0.88] hover:no-underline";
   const sizes: Record<ButtonSize, string> = {
     md: "px-6 py-3.5 text-[16px]",
     sm: "px-5 py-3 text-[15px]",
@@ -35,16 +40,23 @@ export function Button({ href, children, variant = "filled", size = "md", classN
   const isExternal = href.startsWith("http") || href.startsWith("tel:") || href.startsWith("mailto:");
   const cls = cn(base, sizes[size], variants[variant], className);
 
+  const inner = (
+    <>
+      {children}
+      {icon && <Icon name={icon} size={size === "sm" ? 18 : 20} strokeWidth={1.8} className="shrink-0" />}
+    </>
+  );
+
   if (isExternal) {
     return (
       <a href={href} className={cls} data-track={track} aria-label={ariaLabel}>
-        {children}
+        {inner}
       </a>
     );
   }
   return (
     <Link href={href} className={cls} data-track={track} aria-label={ariaLabel}>
-      {children}
+      {inner}
     </Link>
   );
 }

@@ -24,11 +24,11 @@ export function ClosingCTA({ heading = site.closingCta.heading, secondary, build
         {builders && <h2 className="hidden text-h2-m text-offwhite builders:block lg:text-h2">{builders.heading}</h2>}
         <div className="flex w-full max-w-[440px] flex-col gap-3 lg:w-auto lg:max-w-none lg:flex-row lg:flex-wrap lg:justify-center">
           <CallText variant="outlined-dark" track="closing" />
-          <Button href={second.href} variant="filled" track="book-closing" className={cn("h-[52px] w-full lg:w-auto", builders && "builders:hidden")}>
+          <Button href={second.href} variant="filled" track="book-closing" icon="arrow-right" className={cn("h-[52px] w-full lg:w-auto", builders && "builders:hidden")}>
             {second.label}
           </Button>
           {builders && (
-            <Button href={builders.secondary.href} variant="filled" track="bid-closing" className="hidden h-[52px] w-full builders:inline-flex lg:w-auto">
+            <Button href={builders.secondary.href} variant="filled" track="bid-closing" icon="arrow-right" className="hidden h-[52px] w-full builders:inline-flex lg:w-auto">
               {builders.secondary.label}
             </Button>
           )}
