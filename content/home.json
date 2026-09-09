@@ -11,14 +11,10 @@
     "homeowners": {
       "eyebrow": "Homeowners",
       "heading": "Family Owned and Professionally Operated",
-      "line": "Master Plumber Ryan Johnson and crew. Emergency and scheduled service, based in O'Fallon.",
+      "line": "",
       "primary": "Book Service",
       "secondary": "Call or Text 314-220-1827",
-      "credentials": [
-        "Missouri Master Plumber",
-        "Licensed and insured",
-        "Upfront pricing"
-      ]
+      "credentials": []
     },
     "builders": {
       "eyebrow": "Builders and general contractors",
@@ -74,7 +70,7 @@
   "neighbors": {
     "homeowners": {
       "heading": "What our neighbors say",
-      "proofLine": "Nextdoor Neighborhood Favorite 2023 · 24 recommendations",
+      "proofLine": "",
       "lead": {
         "quote": "Honest. Reliable. Knows his stuff.",
         "attribution": "B.L., Wildwood, on Nextdoor"

@@ -19,10 +19,12 @@ export function Neighbors() {
       <h2 id="neighbors-h" className="text-center text-[24px] font-bold tracking-[-0.01em] lg:text-left lg:text-h2 lg:font-bold">
         {block.heading}
       </h2>
-      <div className="flex items-center justify-center gap-2 text-[13px] font-semibold text-slate lg:justify-start">
-        <Icon name="star" size={14} filled className="text-blue" />
-        {block.proofLine}
-      </div>
+      {block.proofLine && (
+        <div className="flex items-center justify-center gap-2 text-[13px] font-semibold text-slate lg:justify-start">
+          <Icon name="star" size={14} filled className="text-blue" />
+          {block.proofLine}
+        </div>
+      )}
       <div className="grid grid-cols-1 gap-3 lg:grid-cols-3 lg:gap-5">
         <figure className="m-0 rounded-card border border-hairline border-l-4 border-l-blue bg-white p-5">
           <blockquote className="m-0 text-[20px] font-bold leading-[1.3] tracking-[-0.01em]">“{block.lead.quote}”</blockquote>

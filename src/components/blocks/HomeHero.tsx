@@ -47,7 +47,7 @@ export function HomeHero() {
           <div className="flex flex-col items-center gap-4 px-gutter-m py-8 text-center lg:ml-auto lg:max-w-[calc(1440px*0.55)] lg:items-start lg:gap-5 lg:px-gutter lg:py-[64px] lg:text-left">
             <div className="hidden text-[14px] font-bold uppercase tracking-[0.04em] text-slate lg:block">{h.homeowners.eyebrow}</div>
             <h1 className="text-[32px] font-bold leading-[1.1] tracking-[-0.01em] lg:min-h-[106px] lg:text-h1 lg:font-bold">{h.homeowners.heading}</h1>
-            <p className="max-w-[520px] text-[16px] leading-[1.5] lg:min-h-[58px] lg:text-body">{h.homeowners.line}</p>
+            {h.homeowners.line && <p className="max-w-[520px] text-[16px] leading-[1.5] lg:min-h-[58px] lg:text-body">{h.homeowners.line}</p>}
             <div className="flex w-full flex-col gap-2.5 lg:w-auto lg:flex-row lg:gap-3 lg:pt-2">
               <Button href={link("book")} variant="filled" track="book-hero" className="h-[52px] w-full lg:w-auto">
                 {h.homeowners.primary}
@@ -56,14 +56,16 @@ export function HomeHero() {
                 {h.homeowners.secondary}
               </Button>
             </div>
+            {h.homeowners.credentials.length > 0 && (
             <div className="flex flex-wrap justify-center gap-x-3 gap-y-1 text-[13px] font-semibold text-slate lg:hidden">
-              {h.homeowners.credentials.map((c, i) => (
+              {(h.homeowners.credentials as string[]).map((c, i) => (
                 <span key={c} className="inline-flex gap-3">
                   {i > 0 && <span aria-hidden="true">·</span>}
                   {c}
                 </span>
               ))}
             </div>
+            )}
           </div>
         </div>
 
