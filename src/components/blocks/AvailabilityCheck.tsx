@@ -21,7 +21,7 @@ type Category = { id: string; label: string; icon: IconName; illustration?: stri
  * abandon; the rest posts with the phone number. Copy and the category
  * tree live in home.json under availability.
  */
-export function AvailabilityCheck({ className }: { className?: string }) {
+export function AvailabilityCheck({ className, openSignal = 0, hideTrigger = false }: { className?: string; /** Bump to open the flow from another control (the sticky bar chooser). */ openSignal?: number; /** Render the dialog only, no button of its own. */ hideTrigger?: boolean }) {
   const a = home.availability;
   const categories = a.categories as Category[];
   const [stage, setStage] = useState<Stage>("idle");
@@ -37,6 +37,10 @@ export function AvailabilityCheck({ className }: { className?: string }) {
   const phoneRef = useRef<HTMLInputElement>(null);
   const titleId = useId();
   const open = stage !== "idle";
+
+  useEffect(() => {
+    if (openSignal > 0) setStage("address");
+  }, [openSignal]);
 
   useEffect(() => {
     if (stage === "address") addressRef.current?.focus();
@@ -104,6 +108,7 @@ export function AvailabilityCheck({ className }: { className?: string }) {
 
   return (
     <>
+      {!hideTrigger && (
       <button
         type="button"
         onClick={() => setStage("address")}
@@ -113,6 +118,7 @@ export function AvailabilityCheck({ className }: { className?: string }) {
         {a.button}
         <Icon name="arrow-right" size={20} strokeWidth={1.8} className="shrink-0" />
       </button>
+      )}
 
       <IntakeDialog open={open} onClose={reset} titleId={titleId} closeLabel={a.close} showClose={stage !== "done"}>
         {stage === "address" && (

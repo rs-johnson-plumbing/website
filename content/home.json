@@ -369,5 +369,14 @@
     "service": "Submit Service Request",
     "bid": "Submit Bid Request",
     "or": "or"
+  },
+  "chooser": {
+    "button": "Submit Request",
+    "heading": "What can we help with?",
+    "service": "Submit Service Request",
+    "serviceIllustration": "leaks-and-repairs",
+    "bid": "Submit Bid Request",
+    "bidIllustration": "rough-in",
+    "close": "Close"
   }
 }

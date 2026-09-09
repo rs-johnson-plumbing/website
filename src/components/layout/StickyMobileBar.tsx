@@ -2,7 +2,8 @@
 
 import { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
-import { site, link, smsLink } from "@/lib/content";
+import { site, smsLink } from "@/lib/content";
+import { RequestChooser } from "@/components/blocks/RequestChooser";
 import { cn } from "@/lib/cn";
 import { Icon } from "@/components/ui/Icon";
 
@@ -93,22 +94,7 @@ export function StickyMobileBar() {
         {site.cta.stickyText}
         <Icon name="message" size={16} strokeWidth={1.8} className="shrink-0" />
       </a>
-      <a
-        href={link("book")}
-        data-track="book-sticky"
-        tabIndex={visible ? 0 : -1}
-        className="flex flex-[1.3] items-center justify-center rounded-btn bg-teal py-3 text-[14px] font-bold text-white hover:opacity-[0.88] bpage:hidden"
-      >
-        {site.cta.stickyBook}
-      </a>
-      <a
-        href={link("bid")}
-        data-track="bid-sticky"
-        tabIndex={visible ? 0 : -1}
-        className="hidden flex-[1.3] items-center justify-center whitespace-nowrap rounded-btn bg-teal py-3 text-[14px] font-bold text-white hover:opacity-[0.88] bpage:flex"
-      >
-        {site.cta.stickyBid}
-      </a>
+      <RequestChooser className="flex-[1.3] whitespace-nowrap" />
     </div>
   );
 }
