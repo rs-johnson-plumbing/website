@@ -59,7 +59,7 @@ export function Header() {
         aria-label="Mobile"
         className={cn(
           open ? "flex" : "hidden",
-          "flex-col gap-4 border-t border-hairline bg-offwhite px-gutter-m pb-6 pt-4 text-[16px] font-semibold lg:!hidden",
+          "flex-col gap-4 border-t border-hairline bg-offwhite px-gutter-m pb-6 pt-4 text-[16px] font-semibold builders:border-darkborder builders:bg-charcoal lg:!hidden",
         )}
       >
         {nav.map((item) => (
