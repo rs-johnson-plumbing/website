@@ -1,5 +1,6 @@
 import { site, link } from "@/lib/content";
 import { Button } from "@/components/ui/Button";
+import { CallText } from "@/components/ui/CallText";
 import { cn } from "@/lib/cn";
 
 type Props = {
@@ -10,8 +11,9 @@ type Props = {
   builders?: { heading: string; secondary: { label: string; href: string } };
 };
 
-/** Charcoal strip at the bottom of every page: heading, outlined Call or
- * Text, filled Schedule (or Request a Bid in builders mode). Hours line
+/** Charcoal strip at the bottom of every page: heading, the Call and Text
+ * pair (one numbered button on desktop), filled Schedule (or Request a Bid
+ * in builders mode). Hours line
  * is held back until Ryan confirms hours and the emergency policy. */
 export function ClosingCTA({ heading = site.closingCta.heading, secondary, builders }: Props) {
   const second = secondary ?? { label: site.closingCta.secondary, href: link("book") };
@@ -20,15 +22,13 @@ export function ClosingCTA({ heading = site.closingCta.heading, secondary, build
       <div className="site-width gutter flex flex-col items-center gap-5 py-14 text-center lg:py-16">
         <h2 className={cn("text-h2-m text-offwhite lg:text-h2", builders && "builders:hidden")}>{heading}</h2>
         {builders && <h2 className="hidden text-h2-m text-offwhite builders:block lg:text-h2">{builders.heading}</h2>}
-        <div className="flex flex-wrap justify-center gap-3">
-          <Button href={site.phone.tel} variant="outlined-dark" track="call-closing">
-            {site.closingCta.primary}
-          </Button>
-          <Button href={second.href} variant="filled" track="book-closing" className={builders ? "builders:hidden" : undefined}>
+        <div className="flex w-full max-w-[440px] flex-col gap-3 lg:w-auto lg:max-w-none lg:flex-row lg:flex-wrap lg:justify-center">
+          <CallText variant="outlined-dark" track="closing" />
+          <Button href={second.href} variant="filled" track="book-closing" className={cn("h-[52px] w-full lg:w-auto", builders && "builders:hidden")}>
             {second.label}
           </Button>
           {builders && (
-            <Button href={builders.secondary.href} variant="filled" track="bid-closing" className="hidden builders:inline-flex">
+            <Button href={builders.secondary.href} variant="filled" track="bid-closing" className="hidden h-[52px] w-full builders:inline-flex lg:w-auto">
               {builders.secondary.label}
             </Button>
           )}

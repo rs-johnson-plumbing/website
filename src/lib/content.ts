@@ -133,6 +133,14 @@ export const projects = projectsJson as unknown as ProjectsContent;
 
 export const SITE_URL = site.siteUrl;
 
+/**
+ * sms: link that opens Messages with the number and a starter line. The
+ * "?&body=" form is the one both iOS and Android honor.
+ */
+export function smsLink(): string {
+  return `sms:${site.phone.tel.replace("tel:", "")}?&body=${encodeURIComponent(site.phone.smsBody)}`;
+}
+
 export function allCities(): City[] {
   return cities.regions.flatMap((r) => r.cities);
 }

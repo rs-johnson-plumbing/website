@@ -43,7 +43,10 @@ Plumber on every job.
 - Buttons: 8px radius, never pills. Labels never wrap, three words max. One
   filled blue button per section; the rest outlined. On charcoal sections,
   outlined buttons are white.
-- Every phone link is `tel:3142201827`. The number is always live text.
+- Every phone link is `tel:3142201827`; text links use `smsLink()` from
+  `src/lib/content.ts`. On phones the pair is two buttons, Call and Text,
+  with no number in the label. On desktop it is one button that shows the
+  number. The footer always shows the number as live text.
 - One H1 per page. Credentials appear once per page.
 - Columns share a top baseline. Shared gutter: 64px desktop, 20px mobile.
 - **Bracketed facts stay bracketed** until Ryan confirms them: `[hours]`,

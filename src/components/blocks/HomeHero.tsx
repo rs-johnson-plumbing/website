@@ -1,10 +1,11 @@
 "use client";
 
-import { home, site, link } from "@/lib/content";
+import { home, link } from "@/lib/content";
 import { Button } from "@/components/ui/Button";
 import { cn } from "@/lib/cn";
 import { useAudience, type Audience } from "./AudienceContext";
 import { AvailabilityCheck } from "./AvailabilityCheck";
+import { CallText } from "@/components/ui/CallText";
 
 /**
  * Two-door homepage hero.
@@ -52,9 +53,7 @@ export function HomeHero() {
             <div className="flex w-full flex-col gap-2.5 lg:w-full lg:max-w-[640px] lg:flex-row lg:flex-wrap lg:gap-3 lg:pt-2">
               {/* Check Availability is the primary; it turns into the address field in place. */}
               <AvailabilityCheck className="w-full lg:w-auto" />
-              <Button href={site.phone.tel} variant="outlined" track="call-hero" className="h-[52px] w-full bg-white lg:w-auto">
-                {h.homeowners.secondary}
-              </Button>
+              <CallText track="hero" buttonClassName="bg-white" />
             </div>
             {h.homeowners.credentials.length > 0 && (
             <div className="flex flex-wrap justify-center gap-x-3 gap-y-1 text-[13px] font-semibold text-slate lg:hidden">
@@ -82,9 +81,9 @@ export function HomeHero() {
               <Button href={link("bid")} variant="outlined-dark" track="bid-hero" className="hidden h-[52px] lg:inline-flex">
                 {h.builders.primary}
               </Button>
-              <Button href={site.phone.tel} variant="outlined-dark" track="call-hero-builders" className="h-[52px] w-full lg:hidden">
-                {h.builders.secondary}
-              </Button>
+              <div className="w-full lg:hidden">
+                <CallText variant="outlined-dark" track="hero-builders" />
+              </div>
             </div>
             {h.builders.credentials.length > 0 && (
             <div className="flex flex-wrap items-baseline justify-center gap-x-3 gap-y-1 text-[13px] font-semibold text-ondark-muted lg:justify-start">
