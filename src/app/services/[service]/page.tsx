@@ -1,13 +1,8 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { services, serviceBySlug, memberById, reviews, faqs, servicesHub, site, link, SITE_URL } from "@/lib/content";
+import { services, serviceBySlug, servicesHub, site, link, SITE_URL } from "@/lib/content";
 import { JsonLd } from "@/components/blocks/JsonLd";
-import { ActionCard } from "@/components/blocks/ActionCard";
-import { PersonCard } from "@/components/blocks/PersonCard";
-import { ReviewCard } from "@/components/blocks/ReviewCard";
-import { FAQ } from "@/components/blocks/FAQ";
 import { ClosingCTA } from "@/components/blocks/ClosingCTA";
-import { Section, SectionHeading } from "@/components/ui/Section";
 import { TextLink } from "@/components/ui/TextLink";
 import { Icon, IconTile } from "@/components/ui/Icon";
 
@@ -35,8 +30,6 @@ export default async function ServicePage({ params }: { params: Promise<Params> 
   const s = serviceBySlug(slug);
   if (!s) notFound();
 
-  const crew = s.crew.map((id) => memberById(id)).filter((m): m is NonNullable<typeof m> => Boolean(m));
-  const featuredReviews = reviews.items.filter((r) => r.audience === "homeowner" && r.featured).slice(0, 3);
   const sp = servicesHub.servicePage;
 
   const serviceLd = {
@@ -54,8 +47,10 @@ export default async function ServicePage({ params }: { params: Promise<Params> 
     <>
       <JsonLd data={serviceLd} />
 
+      {/* Crew, FAQ, reviews, and the action card are held back from this
+          template for now; the closing strip carries the calls to action. */}
       <section className="bg-offwhite">
-        <div className="site-width gutter grid grid-cols-1 items-start gap-8 pb-14 pt-10 lg:grid-cols-[1fr_380px] lg:gap-16 lg:pb-20 lg:pt-14">
+        <div className="site-width gutter grid grid-cols-1 items-start gap-8 pb-14 pt-10 lg:max-w-[820px] lg:pb-20 lg:pt-14">
           <div className="flex flex-col items-start gap-5">
             <TextLink href="/services" arrow={false} className="text-[14px]">
               ← {sp.backToHub}
@@ -95,42 +90,9 @@ export default async function ServicePage({ params }: { params: Promise<Params> 
               </div>
             )}
 
-            <h2 className="mt-2 text-[20px] font-semibold lg:text-h3">{sp.expectHeading}</h2>
-            <p className="text-[16px] leading-[1.7] lg:text-body">{s.whatToExpect}</p>
           </div>
-          <ActionCard sticky trackPrefix={`service-${s.slug}`} />
         </div>
       </section>
-
-      {/* Who'll show up */}
-      <Section tone="sand" ariaLabelledby="crew-h" pad="band">
-        <SectionHeading id="crew-h" title={sp.crewHeading} line={sp.crewLine} action={<TextLink href="/our-team">Meet the Whole Crew</TextLink>} />
-        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:max-w-[720px]">
-          {crew.map((m) => (
-            <PersonCard key={m.id} member={m} compact />
-          ))}
-        </div>
-      </Section>
-
-      {/* FAQ */}
-      <Section ariaLabelledby="svc-faq-h">
-        <div className="grid grid-cols-1 items-start gap-8 lg:grid-cols-[1fr_2fr] lg:gap-16">
-          <h2 id="svc-faq-h" className="text-h2-m lg:text-h2">
-            {faqs.service.heading}
-          </h2>
-          <FAQ items={faqs.service.items} />
-        </div>
-      </Section>
-
-      {/* Reviews */}
-      <Section tone="sand" ariaLabelledby="svc-reviews-h">
-        <SectionHeading id="svc-reviews-h" title={sp.reviewsHeading} action={<TextLink href="/reviews">{reviews.seeAll}</TextLink>} />
-        <div className="grid grid-cols-1 gap-4 sm:grid-cols-3 lg:gap-5">
-          {featuredReviews.map((r) => (
-            <ReviewCard key={r.id} review={r} />
-          ))}
-        </div>
-      </Section>
 
       <ClosingCTA secondary={{ label: site.closingCta.secondary, href: link("book") }} />
     </>
