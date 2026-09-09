@@ -13,15 +13,17 @@ import type { IconName } from "@/lib/content";
  * Homepage hero.
  *
  * Desktop: one banner. The statement, then two doors side by side under it,
- * each an icon subhead with a one-line helper over its own button: filled
- * Submit Service Request for homeowners, outlined Submit Bid Request for
- * builders, with a hairline between them.
+ * each an icon subhead with a one-line helper over its own filled teal
+ * button, Submit Service Request and Submit Bid Request, with a hairline
+ * between.
+ * Two filled buttons in one section is deliberate here: the hero's job is
+ * to give each audience its door.
  *
  * Mobile: a segmented For Homeowners / For Builders control under the header
  * flips between the two doors. Each door is centered: headline, a filled
  * intake button (Submit Service Request or Submit Bid Request), the Call and
- * Text pair, and a credentials line. Desktop reads Submit Service Request
- * alone; the header callout carries the number, since a desktop cannot dial.
+ * Text pair, and a credentials line. Desktop has no Call and Text pair; the
+ * header callout carries the number, since a desktop cannot dial.
  */
 export function HomeHero() {
   const { audience, setAudience } = useAudience();
@@ -29,8 +31,8 @@ export function HomeHero() {
 
   const s = h.single;
   const doors = [
-    { key: "homeowners", ...s.homeowners, action: <AvailabilityCheck className="self-start" /> },
-    { key: "builders", ...s.builders, action: <BidRequest variant="outlined" className="self-start" /> },
+    { key: "homeowners", ...s.homeowners, action: <AvailabilityCheck className="self-start !bg-teal" /> },
+    { key: "builders", ...s.builders, action: <BidRequest className="self-start !bg-teal" /> },
   ];
 
   return (

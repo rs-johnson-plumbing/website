@@ -14,6 +14,8 @@ export const colors = {
   blueDark: "#1F4FB0",
   blueTint: "#E3EBFB",
   blueOnDark: "#A9C4F5",
+  /** Slate teal, the homepage hero buttons. */
+  teal: "#3F6C78",
   slate: "#6E7178",
   hairline: "#E3DFD5",
   hairlineStrong: "#D8D3C5",
