@@ -120,7 +120,13 @@
     "consent": "By sending your number you agree to a call or text about this request. [SMS consent wording — confirm]",
     "done": "Got it. We'll call or text shortly.",
     "error": "Something went wrong. Call or text 314-220-1827 and we'll take it from there.",
-    "close": "Close"
+    "close": "Close",
+    "labels": {
+      "address": "Address",
+      "reason": "Reason",
+      "details": "Details",
+      "phone": "Phone Number"
+    }
   },
   "setsApart": {
     "homeowners": {
