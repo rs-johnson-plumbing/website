@@ -229,7 +229,7 @@
   },
   "ready": {
     "heading": "Contact Us",
-    "line": "Send a message and we'll call you back. [confirm turnaround]",
+    "line": "",
     "details": [
       {
         "icon": "phone",

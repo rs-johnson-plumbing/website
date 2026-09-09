@@ -66,9 +66,9 @@
         "icon": "tag"
       },
       {
-        "q": "Do you work with builders and contractors?",
-        "a": "Yes — new construction and renovation plumbing is most of our business. See our builders page for capabilities and how to request a bid.",
-        "icon": "building"
+        "q": "Will I know who's coming?",
+        "a": "Yes. You get a text with the plumber's name and an ETA before we arrive, and the crew on our team page is the crew at your door.",
+        "icon": "phone"
       },
       {
         "q": "Should I repair or replace my water heater?",

@@ -132,7 +132,7 @@ export const home = homeJson;
 export const homeowners = homeownersJson;
 export const builders = buildersJson;
 export const servicesHub = servicesHubJson;
-export type BuilderService = { slug: string; name: string; short: string; illustration: string };
+export type BuilderService = { slug: string; name: string; short: string; illustration: string; hub: { heading: string; paragraph: string; whatWeDo: string[] } };
 export const builderServices = builderServicesJson as BuilderService[];
 export const projects = projectsJson as unknown as ProjectsContent;
 
