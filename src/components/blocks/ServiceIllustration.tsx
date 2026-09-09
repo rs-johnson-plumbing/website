@@ -206,7 +206,82 @@ const art: Record<string, React.ReactNode> = {
       <path d="M116 44 v-8" stroke={B} strokeWidth="3" />
     </>
   ),
+  /* Chip scenes for the intake dialogs, where no service scene fits. */
+  "replace-or-install": (
+    <>
+      <rect x="44" y="44" width="56" height="84" rx="12" fill={O} stroke={C} strokeWidth="4" />
+      <rect x="44" y="44" width="56" height="18" rx="9" fill={B} stroke={C} strokeWidth="4" />
+      <circle cx="72" cy="92" r="9" fill={W} stroke={C} strokeWidth="3" />
+      <path d="M60 22 v14 M84 22 v14" stroke={C} strokeWidth="5" />
+      <circle cx="118" cy="52" r="20" fill={B} stroke={C} strokeWidth="4" />
+      <path d="M118 40 v24 M106 52 h24" stroke={W} strokeWidth="5" />
+    </>
+  ),
+  faucet: (
+    <>
+      <rect x="52" y="112" width="56" height="12" rx="4" fill={O} stroke={C} strokeWidth="4" />
+      <rect x="70" y="72" width="20" height="42" rx="5" fill={O} stroke={C} strokeWidth="4" />
+      <path d="M80 72 v-14 c0 -14 10 -22 26 -22 h6 v18 h-6 c-6 0 -8 2 -8 6 v8" stroke={C} strokeWidth="4" fill={O} />
+      <rect x="56" y="46" width="30" height="10" rx="5" fill={B} stroke={C} strokeWidth="3" />
+      <path d="M108 74 c0 -6 4 -8 5 -11 c1 3 5 5 5 11 a5 5 0 0 1 -10 0z" fill={B} stroke={C} strokeWidth="3" />
+      <path d="M100 96 c4 6 12 8 18 4" stroke={B} strokeWidth="4" />
+      <path d="M40 60 c6 -2 6 -10 0 -12 M32 70 c10 -4 10 -20 0 -24" stroke={B} strokeWidth="3" opacity="0.6" />
+    </>
+  ),
+  toilet: (
+    <>
+      <rect x="86" y="34" width="34" height="46" rx="6" fill={O} stroke={C} strokeWidth="4" />
+      <rect x="92" y="28" width="22" height="8" rx="3" fill={B} stroke={C} strokeWidth="3" />
+      <path d="M40 80 h64 v18 c0 16 -12 26 -28 26 h-8 c-16 0 -28 -10 -28 -26z" fill={W} stroke={C} strokeWidth="4" />
+      <rect x="34" y="72" width="76" height="12" rx="6" fill={O} stroke={C} strokeWidth="4" />
+      <path d="M66 124 v8 h20 v-8" stroke={C} strokeWidth="4" fill={O} />
+      <path d="M54 98 c6 -4 12 4 18 0 c6 -4 12 4 18 0" stroke={B} strokeWidth="3" />
+    </>
+  ),
+  "kitchen-sink": (
+    <>
+      <rect x="28" y="84" width="104" height="44" rx="8" fill={O} stroke={C} strokeWidth="4" />
+      <path d="M40 84 v24 c0 6 4 10 10 10 h60 c6 0 10 -4 10 -10 v-24" fill={W} stroke={C} strokeWidth="3" />
+      <rect x="22" y="78" width="116" height="10" rx="5" fill={B} stroke={C} strokeWidth="3" />
+      <path d="M80 78 v-22 c0 -12 8 -18 20 -18 h6" stroke={C} strokeWidth="4" fill="none" />
+      <rect x="102" y="32" width="14" height="12" rx="3" fill={B} stroke={C} strokeWidth="3" />
+      <path d="M108 50 c0 -5 3 -7 4 -9 c1 2 4 4 4 9 a4 4 0 0 1 -8 0z" fill={B} stroke={C} strokeWidth="3" />
+      <rect x="40" y="26" width="30" height="30" rx="4" fill={W} stroke={C} strokeWidth="3" />
+      <path d="M55 26 v30 M40 41 h30" stroke={C} strokeWidth="2" />
+    </>
+  ),
+  basement: (
+    <>
+      <path d="M28 120 h104 v-64 h-104z" fill={O} stroke={C} strokeWidth="4" />
+      <path d="M28 56 l52 -30 l52 30" fill={W} stroke={C} strokeWidth="4" />
+      <path d="M40 120 v-12 h12 v-12 h12 v-12 h12 v-12" stroke={C} strokeWidth="4" fill="none" />
+      <path d="M92 76 h28 v30" stroke={B} strokeWidth="6" />
+      <rect x="114" y="100" width="12" height="20" rx="3" fill={B} stroke={C} strokeWidth="3" />
+      <path d="M96 100 c0 -5 3 -7 4 -9 c1 2 4 4 4 9 a4 4 0 0 1 -8 0z" fill={B} stroke={C} strokeWidth="3" />
+    </>
+  ),
+  repipe: (
+    <>
+      <path d="M32 74 l48 -40 l48 40" fill={W} stroke={C} strokeWidth="4" />
+      <path d="M44 66 v64 h72 v-64" fill={O} stroke={C} strokeWidth="4" />
+      <path d="M56 130 v-40 h20 v-16 h28 v56" stroke={B} strokeWidth="6" fill="none" />
+      <rect x="70" y="86" width="12" height="10" rx="2" fill={B} stroke={C} strokeWidth="3" />
+      <rect x="98" y="70" width="12" height="10" rx="2" fill={B} stroke={C} strokeWidth="3" />
+      <path d="M104 106 c0 -5 3 -7 4 -9 c1 2 4 4 4 9 a4 4 0 0 1 -8 0z" fill={B} stroke={C} strokeWidth="3" />
+    </>
+  ),
+  question: (
+    <>
+      <path d="M36 44 h88 a10 10 0 0 1 10 10 v46 a10 10 0 0 1 -10 10 h-46 l-22 18 v-18 h-20 a10 10 0 0 1 -10 -10 v-46 a10 10 0 0 1 10 -10z" fill={W} stroke={C} strokeWidth="4" />
+      <path d="M68 68 c0 -10 8 -16 16 -14 c8 2 12 10 8 18 c-4 6 -10 6 -10 14" stroke={B} strokeWidth="6" fill="none" />
+      <circle cx="82" cy="98" r="4" fill={B} />
+    </>
+  ),
 };
+
+export function hasServiceIllustration(slug: string): boolean {
+  return slug in art;
+}
 
 export function ServiceIllustration({ slug, className }: { slug: string; className?: string }) {
   const inner = art[slug];

@@ -8,8 +8,8 @@ import { BackLink, Chip, IntakeDialog, Row, intakeBtn as btn, intakeHeading as h
 import { ReadyIllustration } from "./ReadyIllustration";
 
 type Stage = "idle" | "address" | "category" | "issue" | "note" | "phone" | "done";
-type Issue = { id: string; label: string; icon: IconName };
-type Category = { id: string; label: string; icon: IconName; issues: Issue[] };
+type Issue = { id: string; label: string; icon: IconName; illustration?: string };
+type Category = { id: string; label: string; icon: IconName; illustration?: string; issues: Issue[] };
 
 /**
  * Quick-capture flow in the homeowner hero, one modal from the first tap:
@@ -149,7 +149,7 @@ export function AvailabilityCheck({ className }: { className?: string }) {
             <p className="mt-3 text-[15px] font-semibold text-slate">{a.ask}</p>
             <div className="mt-3 flex flex-col gap-2.5">
               {categories.map((c) => (
-                <Chip key={c.id} icon={c.icon} label={c.label} onClick={() => pickCategory(c)} track={`availability-cat-${c.id}`} />
+                <Chip key={c.id} icon={c.icon} illustration={c.illustration} label={c.label} onClick={() => pickCategory(c)} track={`availability-cat-${c.id}`} />
               ))}
             </div>
           </>
@@ -162,9 +162,9 @@ export function AvailabilityCheck({ className }: { className?: string }) {
             </h2>
             <div className="mt-4 grid grid-cols-1 gap-2.5 lg:grid-cols-2">
               {category.issues.map((i) => (
-                <Chip key={i.id} icon={i.icon} label={i.label} onClick={() => pickIssue(i)} track={`availability-issue-${category.id}-${i.id}`} />
+                <Chip key={i.id} icon={i.icon} illustration={i.illustration} label={i.label} onClick={() => pickIssue(i)} track={`availability-issue-${category.id}-${i.id}`} />
               ))}
-              <Chip icon={a.otherIcon as IconName} label={a.other} onClick={() => pickIssue(null)} track={`availability-issue-${category.id}-other`} dashed />
+              <Chip icon={a.otherIcon as IconName} illustration={a.otherIllustration} label={a.other} onClick={() => pickIssue(null)} track={`availability-issue-${category.id}-other`} dashed />
             </div>
             <div className="mt-4">
               <BackLink onClick={() => setStage("category")} label={a.back} />

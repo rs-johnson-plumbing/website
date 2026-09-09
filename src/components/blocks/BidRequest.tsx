@@ -8,7 +8,7 @@ import { BackLink, Chip, IntakeDialog, Row, intakeBtn as btn, intakeHeading as h
 import { ReadyIllustration } from "./ReadyIllustration";
 
 type Stage = "idle" | "contractor" | "type" | "plans" | "phone" | "done";
-type ProjectType = { id: string; label: string; icon: IconName };
+type ProjectType = { id: string; label: string; icon: IconName; illustration?: string };
 
 const MAX_PLANS_BYTES = 4 * 1024 * 1024;
 
@@ -148,7 +148,7 @@ export function BidRequest({ className, variant = "filled" }: { className?: stri
             </h2>
             <div className="mt-4 flex flex-col gap-2.5">
               {types.map((t) => (
-                <Chip key={t.id} icon={t.icon} label={t.label} onClick={() => pickType(t)} track={`bid-type-${t.id}`} />
+                <Chip key={t.id} icon={t.icon} illustration={t.illustration} label={t.label} onClick={() => pickType(t)} track={`bid-type-${t.id}`} />
               ))}
             </div>
             <div className="mt-4">
