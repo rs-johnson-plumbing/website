@@ -18,7 +18,7 @@ type Props = {
 };
 
 export function ServiceCard({ service, learnMoreLabel = "Learn More", href: hrefProp, description }: Props) {
-  const href = hrefProp ?? `/services/${service.slug}`;
+  const href = hrefProp ?? `/services#${service.slug}`;
   return (
     <div className="flex flex-col items-start gap-3 rounded-card border border-hairline bg-transparent p-6 transition-colors hover:border-blue">
       <IconTile name={service.icon} />

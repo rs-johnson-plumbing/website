@@ -33,7 +33,7 @@ export default function NotFound() {
           <ul className="flex flex-wrap gap-x-5 gap-y-2 text-[15px] text-slate">
             {services.map((s) => (
               <li key={s.slug}>
-                <Link href={`/services/${s.slug}`} className="hover:text-charcoal hover:underline">
+                <Link href={`/services#${s.slug}`} className="hover:text-charcoal hover:underline">
                   {s.name}
                 </Link>
               </li>
