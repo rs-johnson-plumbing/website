@@ -4,7 +4,7 @@ import { site, services } from "@/lib/content";
 import { Section } from "@/components/ui/Section";
 import { Button } from "@/components/ui/Button";
 
-export const metadata: Metadata = { title: "Page not found" };
+export const metadata: Metadata = { title: "Page Not Found" };
 
 export default function NotFound() {
   const nf = site.notFound;

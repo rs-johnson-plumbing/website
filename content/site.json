@@ -76,11 +76,11 @@
     },
     {
       "icon": "shield",
-      "label": "Licensed and insured"
+      "label": "Licensed and Insured"
     },
     {
       "icon": "check-circle",
-      "label": "Upfront pricing"
+      "label": "Upfront Pricing"
     },
     {
       "icon": "star",
@@ -88,17 +88,17 @@
     },
     {
       "icon": "phone",
-      "label": "You talk to the plumber"
+      "label": "You Talk to the Plumber"
     }
   ],
   "closingCta": {
-    "heading": "Need a plumber?",
+    "heading": "Need a Plumber?",
     "primary": "Call or Text 314-220-1827",
     "secondary": "Book Online"
   },
   "footer": {
     "servicesHeading": "Services",
-    "areaHeading": "Service area",
+    "areaHeading": "Service Area",
     "reviewsHeading": "Reviews",
     "reviewLinks": [
       {
@@ -106,13 +106,13 @@
         "hrefKey": "nextdoor"
       },
       {
-        "label": "Google reviews",
+        "label": "Google Reviews",
         "hrefKey": "googleReviews"
       }
     ]
   },
   "notFound": {
-    "heading": "That page isn't here",
+    "heading": "That Page Isn't Here",
     "line": "The link may be old, or the page hasn't been built yet. Try one of these instead.",
     "button": "Back to Home"
   }

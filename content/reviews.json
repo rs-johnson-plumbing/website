@@ -1,6 +1,6 @@
 {
-  "heading": "What neighbors say",
-  "pageHeading": "What neighbors and builders say",
+  "heading": "What Neighbors Say",
+  "pageHeading": "What Neighbors and Builders Say",
   "summary": [
     { "source": "Nextdoor", "line1": "Neighborhood Favorite 2023", "line2": "24 recommendations" },
     { "source": "Google", "line1": "[rating]", "line2": "[count] reviews" }
@@ -16,9 +16,9 @@
     { "id": "builder-3", "quote": "[Contractor quote placeholder]", "author": "[Name]", "company": "[Builder company]", "city": "[City]", "source": "Builder", "audience": "builder", "date": "[date]", "featured": false, "placeholder": true }
   ],
   "leaveReview": {
-    "heading": "Leave a review",
+    "heading": "Leave a Review",
     "google": "Review on Google",
     "nextdoor": "Recommend on Nextdoor"
   },
-  "seeAll": "See all reviews"
+  "seeAll": "See All Reviews"
 }

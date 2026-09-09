@@ -31,8 +31,12 @@ Plumber on every job.
 
 ## House rules (hard constraints)
 
-- Sentence case for headings, eyebrows, labels, trust items. **Title Case only
-  on button labels** ("Book Service", "Call Now", "Request a Bid").
+- **Title Case for every label**: headings, eyebrows, section labels, anchor
+  labels, card titles, service names, trust items, button labels ("Water
+  Heaters", "Here's What Sets Us Apart", "Send Us a Message"). Keep a, an,
+  the, and, or, of, to, in, at, for, by, with lowercase unless first or last.
+  Body copy, helper lines, and list bullets stay sentence case. The hub's
+  "WHAT WE DO" heading is all caps on purpose.
 - **No ampersands. No exclamation points.** Write "and".
 - **Never promise "same day" or "24/7".** Ryan has not confirmed either.
 - Buttons: 8px radius, never pills. Labels never wrap, three words max. One
