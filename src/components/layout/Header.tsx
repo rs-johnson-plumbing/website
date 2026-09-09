@@ -10,9 +10,10 @@ import { cn } from "@/lib/cn";
 
 /**
  * Sticky header. Desktop (80px): logo left, nav links, then the phone number
- * as a callout, not a button: phone and message icons, a small "Call or
- * Text" eyebrow, the number under it. It stays a tel link. The blue buttons
- * belong to the intake forms in the hero. Mobile (60px): 24px mark plus
+ * as a callout, not a button: a soft sand plate (lighter charcoal in
+ * builders mode) with the phone and message icons stacked at left, a small
+ * "Call or text" label, and the number under it. It stays a tel link. The
+ * blue buttons belong to the intake forms in the hero. Mobile (60px): 24px mark plus
  * short wordmark and a hamburger that opens a stacked nav panel. No number
  * on mobile: the sticky bottom bar carries Call and Text on every page. The
  * current page link is underlined.
@@ -41,14 +42,18 @@ export function Header() {
               </Link>
             ))}
           </nav>
-          <a href={site.phone.tel} data-track="call-header" className="ml-8 hidden shrink-0 items-center gap-3 text-charcoal hover:no-underline builders:text-offwhite lg:flex">
-            <span className="flex gap-1.5" aria-hidden="true">
-              <Icon name="phone" size={20} strokeWidth={1.8} />
-              <Icon name="message" size={20} strokeWidth={1.8} />
+          <a
+            href={site.phone.tel}
+            data-track="call-header"
+            className="ml-8 hidden shrink-0 items-center gap-2.5 rounded-btn bg-sand py-2 pl-3 pr-3.5 text-charcoal hover:no-underline builders:bg-[#383838] builders:text-offwhite lg:flex"
+          >
+            <span className="flex flex-col gap-0.5 text-blue builders:text-offwhite" aria-hidden="true">
+              <Icon name="phone" size={15} strokeWidth={1.8} />
+              <Icon name="message" size={15} strokeWidth={1.8} />
             </span>
             <span className="flex flex-col leading-none">
-              <span className="text-[11px] font-bold uppercase tracking-[0.08em] text-slate builders:text-ondark-muted">{site.cta.headerCallout}</span>
-              <span className="mt-1 whitespace-nowrap text-[20px] font-extrabold tracking-[-0.01em]">{site.phone.display}</span>
+              <span className="text-[12px] font-semibold text-slate builders:text-ondark-muted">{site.cta.headerCallout}</span>
+              <span className="mt-0.5 whitespace-nowrap text-[19px] font-extrabold tracking-[-0.01em]">{site.phone.display}</span>
             </span>
           </a>
           <button

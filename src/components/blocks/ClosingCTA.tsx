@@ -19,7 +19,7 @@ export function ClosingCTA({ heading = site.closingCta.heading, secondary, build
   const second = secondary ?? { label: site.closingCta.secondary, href: link("book") };
   return (
     <section className="bg-charcoal text-offwhite builders:bg-[#1f1f1f]">
-      <div className="site-width gutter flex flex-col items-center gap-5 py-8 text-center lg:py-10">
+      <div className="site-width gutter flex flex-col items-center gap-5 py-10 text-center lg:py-[60px]">
         <h2 className={cn("text-h2-m text-offwhite lg:text-h2", builders && "builders:hidden")}>{heading}</h2>
         {builders && <h2 className="hidden text-h2-m text-offwhite builders:block lg:text-h2">{builders.heading}</h2>}
         <div className="flex w-full max-w-[440px] flex-col gap-3 lg:w-auto lg:max-w-none lg:flex-row lg:flex-wrap lg:justify-center">

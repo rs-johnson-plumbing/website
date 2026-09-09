@@ -20,7 +20,7 @@ export function ServiceBand({ service, photoLeft }: { service: Service; photoLef
     : null;
   return (
     <section id={service.slug} className="scroll-mt-[140px] bg-offwhite">
-      <div className={cn("site-width gutter grid grid-cols-1 items-start gap-6 py-8 lg:gap-16 lg:py-10", h.photo ? "lg:grid-cols-2" : "lg:max-w-[760px] lg:mr-auto")}>
+      <div className={cn("site-width gutter grid grid-cols-1 items-start gap-6 py-10 lg:gap-16 lg:py-[60px]", h.photo ? "lg:grid-cols-2" : "lg:max-w-[760px] lg:mr-auto")}>
         {photo}
         <div className="flex flex-col items-start gap-4">
           <div className="flex items-center gap-3 lg:gap-4">

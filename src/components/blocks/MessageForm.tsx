@@ -10,7 +10,7 @@ type Status = "idle" | "sending" | "sent" | "error";
  * Short homeowner message form. Posts to /api/message, which is a stub until
  * the Housecall Pro webhook and Resend notification are wired (step 7).
  */
-export function MessageForm({ className }: { className?: string }) {
+export function MessageForm({ className, heading = true }: { className?: string; /** Show the card's own heading and line. Off when the section heading already says it. */ heading?: boolean }) {
   const f = home.form;
   const [status, setStatus] = useState<Status>("idle");
 
@@ -30,8 +30,12 @@ export function MessageForm({ className }: { className?: string }) {
 
   return (
     <form id="message" onSubmit={onSubmit} className={cn("flex flex-col gap-3 rounded-card border border-hairline bg-white builders:border-darkborder builders:bg-darkcard p-5", className)}>
-      <div className="text-[20px] font-bold">{f.heading}</div>
-      <p className="text-[14px] text-slate builders:text-ondark-muted">{f.line}</p>
+      {heading && (
+        <>
+          <div className="text-[20px] font-bold">{f.heading}</div>
+          <p className="text-[14px] text-slate builders:text-ondark-muted">{f.line}</p>
+        </>
+      )}
       {status === "sent" ? (
         <p className="rounded-btn bg-blue-tint px-4 py-3 text-[15px] font-semibold">{f.success}</p>
       ) : (

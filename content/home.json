@@ -229,7 +229,25 @@
   },
   "ready": {
     "heading": "Contact Us",
-    "line": ""
+    "line": "Send a message and we'll call you back. [confirm turnaround]",
+    "details": [
+      {
+        "icon": "phone",
+        "label": "Call or text",
+        "value": "314-220-1827",
+        "href": "tel:3142201827"
+      },
+      {
+        "icon": "building",
+        "label": "Based in",
+        "value": "O'Fallon, MO"
+      },
+      {
+        "icon": "map",
+        "label": "Serving",
+        "value": "St. Charles County and West St. Louis County"
+      }
+    ]
   },
   "form": {
     "heading": "Send Us a Message",

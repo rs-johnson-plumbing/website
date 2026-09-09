@@ -50,7 +50,7 @@ export default async function ServicePage({ params }: { params: Promise<Params> 
       {/* Crew, FAQ, reviews, and the action card are held back from this
           template for now; the closing strip carries the calls to action. */}
       <section className="bg-offwhite">
-        <div className="site-width gutter grid grid-cols-1 items-start gap-8 py-8 lg:max-w-[820px] lg:py-10">
+        <div className="site-width gutter grid grid-cols-1 items-start gap-8 py-10 lg:max-w-[820px] lg:py-[60px]">
           <div className="flex flex-col items-start gap-5">
             <TextLink href="/services" arrow={false} className="text-[14px]">
               ← {sp.backToHub}
