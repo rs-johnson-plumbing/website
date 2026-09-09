@@ -166,6 +166,16 @@
           "icon": "clock",
           "title": "We Show Up When We Say",
           "line": "A text with a name and ETA before we arrive."
+        },
+        {
+          "icon": "shield",
+          "title": "Dependable",
+          "line": "The same crew from the first visit to the last. No handoffs, no strangers at the door."
+        },
+        {
+          "icon": "check-circle",
+          "title": "Competitive",
+          "line": "Straight numbers, no padding. A fair price for work done right the first time."
         }
       ]
     },
@@ -198,9 +208,19 @@
         "water-heaters",
         "leaks-and-repairs",
         "drains-and-sewer",
-        "toilets-and-faucets"
+        "toilets-and-faucets",
+        "water-softeners",
+        "gas-lines",
+        "sump-pumps",
+        "emergency-plumbing"
       ],
-      "seeAll": "See All Services"
+      "seeAll": "See All Services",
+      "builderSlugs": [
+        "planning-and-takeoffs",
+        "underground",
+        "rough-in",
+        "trim-and-fixture-set"
+      ]
     },
     "builders": {
       "heading": "What We Do for Builders",

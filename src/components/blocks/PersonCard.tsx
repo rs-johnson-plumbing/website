@@ -40,14 +40,14 @@ export function PersonCard({ member, compact = false, withJsonLd = !compact }: P
           <div
             role="img"
             aria-label={member.photo.alt}
-            className="flex h-14 w-14 shrink-0 items-center justify-center rounded-full border border-dashed border-hairline-strong bg-sand text-[15px] font-bold text-slate builders:border-darkborder builders:bg-charcoal builders:text-ondark-muted"
+            className="flex h-14 w-14 shrink-0 items-center justify-center rounded-full border border-dashed border-hairline-strong bg-sand text-[15px] font-bold text-slate"
           >
             {initials(member.name)}
           </div>
         )}
         <div>
-          <div className="text-[15px] font-bold">{member.name}</div>
-          <div className="text-[14px] text-slate builders:text-ondark-muted">{member.title}</div>
+          <div className="text-[15px] font-bold text-charcoal">{member.name}</div>
+          <div className="text-[14px] text-slate">{member.title}</div>
         </div>
       </div>
     );

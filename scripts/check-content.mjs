@@ -110,6 +110,10 @@ if (home?.popularServices?.homeowners?.slugs && Array.isArray(services)) {
   const slugs = new Set(services.map((s) => s.slug));
   for (const slug of home.popularServices.homeowners.slugs) if (!slugs.has(slug)) errors.push(`home.json: popularServices.homeowners references unknown service "${slug}"`);
 }
+if (home?.popularServices?.homeowners?.builderSlugs && Array.isArray(builderServices)) {
+  const slugs = new Set(builderServices.map((s) => s.slug));
+  for (const slug of home.popularServices.homeowners.builderSlugs) if (!slugs.has(slug)) errors.push(`home.json: popularServices.homeowners.builderSlugs references unknown builder service "${slug}"`);
+}
 if (home?.popularServices?.builders?.slugs && Array.isArray(builderServices)) {
   const slugs = new Set(builderServices.map((s) => s.slug));
   for (const slug of home.popularServices.builders.slugs) if (!slugs.has(slug)) errors.push(`home.json: popularServices.builders references unknown builder service "${slug}"`);
