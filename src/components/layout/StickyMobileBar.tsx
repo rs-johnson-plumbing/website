@@ -54,7 +54,7 @@ export function StickyMobileBar() {
     <div
       aria-hidden={!visible}
       className={cn(
-        "fixed inset-x-0 bottom-0 z-30 flex gap-2.5 border-t border-hairline bg-offwhite px-4 py-2.5 pb-[max(10px,env(safe-area-inset-bottom))] transition-transform duration-300 builders:border-darkborder builders:bg-charcoal lg:hidden",
+        "fixed inset-x-0 bottom-0 z-30 flex gap-2.5 border-t border-hairline bg-offwhite px-4 py-2.5 pb-[max(10px,env(safe-area-inset-bottom))] transition-transform duration-300 lg:hidden",
         visible ? "translate-y-0" : "translate-y-full",
       )}
     >
@@ -71,7 +71,7 @@ export function StickyMobileBar() {
         href={link("book")}
         data-track="book-sticky"
         tabIndex={visible ? 0 : -1}
-        className="flex flex-1 items-center justify-center rounded-btn border-[1.5px] border-charcoal py-3 text-[14px] font-bold text-charcoal hover:opacity-[0.88] builders:border-offwhite builders:text-offwhite"
+        className="flex flex-1 items-center justify-center rounded-btn border-[1.5px] border-charcoal py-3 text-[14px] font-bold text-charcoal hover:opacity-[0.88]"
       >
         {site.cta.stickyBook}
       </a>

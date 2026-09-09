@@ -64,10 +64,10 @@ export default function HomePage() {
           </div>
           <div className="grid grid-cols-1 gap-3 lg:grid-cols-4 lg:gap-5">
             {popular.map((s) => (
-              <div key={s.slug} className="flex flex-col items-center rounded-card border border-hairline bg-white builders:border-darkborder builders:bg-darkcard p-4 text-center lg:p-5">
+              <div key={s.slug} className="flex flex-col items-center rounded-card border border-hairline bg-white p-4 text-center text-charcoal lg:p-5">
                 <ServiceIllustration slug={s.slug} className="h-[150px] w-[150px] lg:h-[140px] lg:w-[140px]" />
                 <div className="mt-2 text-[20px] font-bold">{s.name}</div>
-                <div className="mt-1 text-[14px] text-slate builders:text-ondark-muted">{s.short}</div>
+                <div className="mt-1 text-[14px] text-slate">{s.short}</div>
                 <Button href={`/plumbing/${s.slug}`} variant="filled" size="sm" className="mt-4 w-full">
                   {s.name}
                 </Button>
