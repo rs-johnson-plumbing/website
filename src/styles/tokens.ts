@@ -16,6 +16,8 @@ export const colors = {
   tealDark: "#2A5561",
   tealTint: "#E3EEF0",
   tealOnDark: "#DCE9EC",
+  /** Copper, the flanges in the logo mark only. */
+  copper: "#A85A2E",
   /** Darkest teal, the footer and dark bands in builders mode. */
   tealInk: "#24393F",
   slate: "#6E7178",

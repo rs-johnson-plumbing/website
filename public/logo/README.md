@@ -1,7 +1,7 @@
 # Logo files
 
 The R.S. Johnson Plumbing logo: the P-trap "J" from the original business
-card, redrawn as vector. Charcoal pipe (#2B2B2B), slate teal flanges
+card, redrawn as vector. Charcoal pipe (#2B2B2B), copper flanges (#A85A2E)
 (#2F6FE0). Wordmark in Figtree ExtraBold, converted to outlines in the SVG so no
 font needs to be installed.
 

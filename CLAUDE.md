@@ -59,7 +59,8 @@ Plumber on every job.
 - Business name is "R.S. Johnson Plumbing LLC" everywhere it is written out.
 - Brand: off-white `#F7F5F0`, charcoal `#2B2B2B` for text, slate teal
   `#3F6C78` on buttons, links, active states, illustration strokes, and as
-  the ground of the builders pages (`src/styles/tokens.ts` has the family). Font: Figtree everywhere, including
+  the ground of the builders pages (`src/styles/tokens.ts` has the family).
+  Copper `#A85A2E` appears only on the logo flanges. Font: Figtree everywhere, including
   the logo wordmark (the logo files carry it as outlines).
 
 ## Workflow
