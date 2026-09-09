@@ -1,5 +1,6 @@
 import { test, expect } from "@playwright/test";
 import services from "../content/services.json";
+import site from "../content/site.json";
 
 /**
  * Smoke test: every route renders, has exactly one H1, carries the business
@@ -34,7 +35,7 @@ for (const route of routes) {
 test("unknown route shows the branded 404", async ({ page }) => {
   const res = await page.goto("/this-page-does-not-exist");
   expect(res?.status()).toBe(404);
-  await expect(page.locator("h1")).toContainText("isn't here");
+  await expect(page.locator("h1")).toHaveText(site.notFound.heading);
 });
 
 test("message API rejects an empty post and accepts a valid one", async ({ request }) => {
