@@ -49,18 +49,9 @@ export function Footer() {
           <div>
             <div className="mb-3 text-[15px] font-bold">{site.footer.areaHeading}</div>
             <ul className="flex flex-col gap-2 text-[15px] text-slate builders:text-ondark-muted">
+              {/* Plain text until the service area and city pages ship. */}
               {footerCities().map((c) => (
-                <li key={c.slug}>
-                  {c.tier === 1 ? (
-                    <Link href={`/service-area/${c.slug}`} className="hover:text-charcoal hover:underline builders:hover:text-offwhite">
-                      {c.name}
-                    </Link>
-                  ) : (
-                    <Link href="/service-area" className="hover:text-charcoal hover:underline builders:hover:text-offwhite">
-                      {c.name}
-                    </Link>
-                  )}
-                </li>
+                <li key={c.slug}>{c.name}</li>
               ))}
             </ul>
           </div>
