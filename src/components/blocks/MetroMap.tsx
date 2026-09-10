@@ -14,7 +14,8 @@ import { useEffect, useRef } from "react";
  * With `animate`, the water gets turned on: a small plumber pops in beside a
  * shutoff valve at O'Fallon, gives it two turns with a wrench, and water
  * runs out along the roads from the valve, reaching each town in the order
- * the roads would. Town names pop as the water arrives. It plays once per
+ * the roads would. On the pipes treatment, which the hero uses, the roads
+ * are pipes with fittings at the interchanges and the water fills the bore. Town names pop as the water arrives. It plays once per
  * session, about four seconds, and everything else on the page stays still.
  * Under prefers-reduced-motion, or on a repeat view, the map simply shows
  * the water on. The server renders the map as it is today (no water), so
@@ -111,11 +112,11 @@ const LEAD = 1.2;
 const SESSION_KEY = "rsj-water-on";
 
 /** One water path per road: which end is nearer O'Fallon, and when and how long it fills. */
-const waterPaths = [...interstates.map((pts) => ({ pts, w: 4.5 })), ...routes.map((pts) => ({ pts, w: 3 }))].map(({ pts, w }) => {
+const waterPaths = [...interstates.map((pts) => ({ pts, major: true })), ...routes.map((pts) => ({ pts, major: false }))].map(({ pts, major }) => {
   const dA = dist(pts[0], home);
   const dB = dist(pts[pts.length - 1], home);
   const reverse = dB < dA;
-  return { d: smooth(pts), w, reverse, delay: Math.min(dA, dB) / SPEED, dur: polylen(pts) / SPEED };
+  return { d: smooth(pts), major, reverse, delay: Math.min(dA, dB) / SPEED, dur: polylen(pts) / SPEED };
 });
 
 const labels: { name: string; x: number; y: number }[] = [
@@ -247,6 +248,14 @@ export function MetroMap({ className, variant = "ink", frame = "wide", pin = tru
               ))}
             </g>
           )}
+          {/* Water on: one blue path per road, hidden by its dash until the effect reveals it from the end nearer O'Fallon. pathLength=1 keeps the offsets unit-free. On the pipes treatment the water fills the bore, under the fittings. */}
+          {animate && (
+            <g stroke="#2868A8" opacity={pipes ? 0.9 : 0.6}>
+              {waterPaths.map((wp, i) => (
+                <path key={i} d={wp.d} strokeWidth={wp.major ? (pipes ? interW - 5 : 4.5) : pipes ? routeW - 3 : 3} pathLength={1} strokeDasharray="1 1" style={{ strokeDashoffset: wp.reverse ? -1 : 1 }} data-water data-reverse={wp.reverse ? "1" : "0"} data-delay={wp.delay.toFixed(2)} data-dur={wp.dur.toFixed(2)} />
+              ))}
+            </g>
+          )}
           {/* Fittings at the interchanges: blue flanges like the logo's */}
           {pipes && (
             <g opacity="0.3">
@@ -277,14 +286,6 @@ export function MetroMap({ className, variant = "ink", frame = "wide", pin = tru
             <g className="text-charcoal" stroke="none" opacity="0.62">
               {shields.map((s, i) => (
                 <Shield key={i} {...s} />
-              ))}
-            </g>
-          )}
-          {/* Water on: one blue path per road, hidden by its dash until the effect reveals it from the end nearer O'Fallon. pathLength=1 keeps the offsets unit-free. */}
-          {animate && (
-            <g stroke="#2868A8" opacity="0.6">
-              {waterPaths.map((wp, i) => (
-                <path key={i} d={wp.d} strokeWidth={wp.w} pathLength={1} strokeDasharray="1 1" style={{ strokeDashoffset: wp.reverse ? -1 : 1 }} data-water data-reverse={wp.reverse ? "1" : "0"} data-delay={wp.delay.toFixed(2)} data-dur={wp.dur.toFixed(2)} />
               ))}
             </g>
           )}
