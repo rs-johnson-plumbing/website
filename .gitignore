@@ -50,3 +50,5 @@ yarn-error.log*
 /opts.mjs
 /cmpm.mjs
 /mobcheck.mjs
+/cropboard.mjs
+/m.mjs
