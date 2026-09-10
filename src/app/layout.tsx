@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import { Figtree } from "next/font/google";
 import { site, SITE_URL } from "@/lib/content";
 import { shareImage } from "@/lib/seo";
-import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
-import { StickyMobileBar } from "@/components/layout/StickyMobileBar";
+import { ConceptProvider } from "@/components/concepts/ConceptProvider";
+import { ConceptHeader, ConceptMobileBar } from "@/components/concepts/ConceptChrome";
 import "./globals.css";
 
 const figtree = Figtree({
@@ -40,10 +40,12 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en" className={figtree.variable}>
       <body>
-        <Header />
-        <main>{children}</main>
-        <Footer />
-        <StickyMobileBar />
+        <ConceptProvider>
+          <ConceptHeader />
+          <main>{children}</main>
+          <Footer />
+          <ConceptMobileBar />
+        </ConceptProvider>
       </body>
     </html>
   );

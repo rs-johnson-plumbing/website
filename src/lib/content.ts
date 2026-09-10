@@ -16,6 +16,7 @@ import homeownersJson from "../../content/homeowners.json";
 import buildersJson from "../../content/builders.json";
 import servicesHubJson from "../../content/services-hub.json";
 import builderServicesJson from "../../content/builder-services.json";
+import conceptTwoJson from "../../content/concept-two.json";
 
 export type IconName =
   | "star"
@@ -145,6 +146,7 @@ export const team = teamJson as unknown as TeamContent;
 export const reviews = reviewsJson as unknown as ReviewsContent;
 export const faqs = faqsJson as Record<keyof typeof faqsJson, { heading: string; items: FaqItem[] }>;
 export const home = homeJson;
+export const conceptTwo = conceptTwoJson;
 export const homeowners = homeownersJson;
 export const builders = buildersJson;
 export const servicesHub = servicesHubJson;
