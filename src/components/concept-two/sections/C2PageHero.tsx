@@ -31,7 +31,12 @@ export function C2PageHero({
             {headingLines.map((line, index) => (
               <span key={line}>
                 {line}
-                {index < headingLines.length - 1 && <br />}
+                {index < headingLines.length - 1 && (
+                  <>
+                    {" "}
+                    <br className="c2-wide-break" />
+                  </>
+                )}
               </span>
             ))}
           </h1>

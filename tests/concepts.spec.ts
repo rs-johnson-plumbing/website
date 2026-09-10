@@ -2,10 +2,10 @@ import { test, expect } from "@playwright/test";
 import copy from "../content/concept-two.json";
 import home from "../content/home.json";
 
-// The hero heading is rendered as deliberate lines, so textContent has no
-// space where the line break is.
-const heading = copy.home.hero.headingLines.join("");
-const buildersHeading = copy.builders.hero.headingLines.join("");
+// The hero heading renders as deliberate lines past the phone, with a real
+// space at the break so it still reads as a sentence.
+const heading = copy.home.hero.headingLines.join(" ");
+const buildersHeading = copy.builders.hero.headingLines.join(" ");
 const conceptOneHeading = home.hero.single.heading;
 
 test("concept selection survives reloads, respects direct links, and follows history", async ({ page }) => {
