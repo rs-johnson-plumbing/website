@@ -24,7 +24,10 @@ export function C2Photo({ slot, className, priority = false, sizes = "100vw" }: 
   }
   return (
     <>
-      <Image src={photo.src} alt={photo.alt} fill sizes={sizes} priority={priority} className={className} />
+      {/* Served as-is. These are small stand-ins, and the optimizer's WASM
+          fallback (no sharp outside Vercel) is slow enough on a CI runner to
+          time the hero out. Revisit when real photography lands. */}
+      <Image src={photo.src} alt={photo.alt} fill sizes={sizes} priority={priority} unoptimized className={className} />
       {photo.illustrative && <span className="c2-photo-note">{conceptTwo.ui.illustrativePhoto}</span>}
     </>
   );

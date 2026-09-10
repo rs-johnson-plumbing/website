@@ -47,7 +47,8 @@ export function C2Hero() {
           </div>
         </div>
         <div className="c2-hero-media">
-          <C2Photo slot="homeHero" priority sizes="(min-width: 1024px) 56vw, 100vw" />
+          {/* hidden below 1024px, so it must not be eager: phones would pay for a photograph they never see */}
+          <C2Photo slot="homeHero" sizes="(min-width: 1024px) 52vw, 100vw" />
         </div>
       </div>
     </section>

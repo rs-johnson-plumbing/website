@@ -39,3 +39,8 @@ yarn-error.log*
 /url.mjs
 /cmp.mjs
 /cmp2.mjs
+/towebp.mjs
+/imgcheck.mjs
+/sample.mjs
+/measure.mjs
+/sections.mjs

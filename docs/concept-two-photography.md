@@ -17,13 +17,18 @@ lands.
    description here. Alt text is read aloud to people using screen readers, so
    describe what is in the frame.
 
-JPG or WebP, sRGB, quality 80. Nothing needs to be wider than 2400px.
+JPG or WebP, sRGB, quality 80. Nothing needs to be wider than 2400px. Any
+extension works as long as `"src"` matches the file you added; the three
+stand-ins currently in the repo are `.webp`.
+
+Concept 2 serves these files as they are, with no image optimizer in front of
+them (`unoptimized` in `C2Photo`), so keep them under about 300 KB each.
 
 ## The shots
 
 ### 1. Homepage hero — `homeHero` (stand-in in place)
 **File:** `public/images/concept-two/hero-plumber-van.jpg`
-**Shape:** portrait-ish, about 3:4, at least 1600 x 2000.
+**Shape:** landscape, at least 2400 x 1400.
 
 A plumber in R.S. Johnson gear (navy hoodie or tee, cap) standing in front of a
 marked company van, in the driveway or at the curb of a nice suburban house.
@@ -31,9 +36,14 @@ Shot from chest height, subject roughly life-size, arms crossed or relaxed, a
 real smile. The van's logo should be readable behind them. Bright overcast or
 open shade — no harsh midday shadows on the face.
 
-The site crops this to the top of the frame and fades its left edge into the
-cream background, so **leave headroom above the cap and empty space to the left
-of the subject**. Nothing important in the left third.
+This is the one shot where the framing matters more than the subject. The
+photograph runs behind the headline and its left edge dissolves into the page,
+so **the left 40% of the frame has to be house, driveway and planting — no
+subject, nothing that matters**. The plumber stands right of centre, cap to
+waist, with the van filling the right edge. Leave headroom above the cap.
+
+The stand-in is a tight crop crop of the plumber alone, which is why the fade
+currently reads as a soft grey edge instead of a house.
 
 If this is Ryan, say so and we will name him in the alt text. If it is a crew
 member, we will keep the alt text generic — we never present a stand-in as Ryan.
@@ -48,7 +58,7 @@ Shot from the ground, wide, showing the scale of the structure. An R.S. Johnson
 truck or a crew member in the frame is a bonus, not a requirement.
 
 The left third sits under a navy panel on desktop, so keep the subject right of
-center.
+centre and leave that side expendable.
 
 ### 3. Remodel feature — `bathRemodel` (stand-in in place)
 **File:** `public/images/concept-two/bath-remodel.jpg`
