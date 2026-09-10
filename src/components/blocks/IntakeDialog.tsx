@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect } from "react";
+import { createPortal } from "react-dom";
 import type { IconName } from "@/lib/content";
 import { Icon } from "@/components/ui/Icon";
 import { ServiceIllustration, hasServiceIllustration } from "./ServiceIllustration";
@@ -82,8 +83,10 @@ export function IntakeDialog({ open, onClose, titleId, closeLabel, showClose = t
     };
   }, [open, onClose]);
 
-  if (!open) return null;
-  return (
+  if (!open || typeof document === "undefined") return null;
+  // Portal to the body: a fixed overlay inside the sticky bar would be
+  // positioned by the bar's transform, not the screen.
+  return createPortal(
     <div className="fixed inset-0 z-40 flex items-center justify-center bg-charcoal/60 p-3 lg:p-4" onClick={onClose}>
       <div
         role="dialog"
@@ -99,6 +102,7 @@ export function IntakeDialog({ open, onClose, titleId, closeLabel, showClose = t
         )}
         {children}
       </div>
-    </div>
+    </div>,
+    document.body,
   );
 }
