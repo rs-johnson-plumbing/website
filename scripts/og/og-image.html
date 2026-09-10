@@ -6,16 +6,16 @@
   /* Figtree (SIL Open Font License), latin subset, inlined by make-og-image.mjs. */
   @font-face { font-family: "Figtree"; font-style: normal; font-weight: 500 800; src: url(data:font/woff2;base64,{{font}}) format("woff2"); }
   html, body { margin: 0; width: 1200px; height: 630px; overflow: hidden; }
-  body { background: #F7F5F0; color: #2B2B2B; font-family: Figtree, ui-sans-serif, system-ui, sans-serif; }
+  body { background: {{offwhite}}; color: {{charcoal}}; font-family: Figtree, ui-sans-serif, system-ui, sans-serif; }
   .frame { position: relative; box-sizing: border-box; width: 1200px; height: 630px; padding: 72px 80px; display: flex; flex-direction: column; justify-content: space-between; }
-  .rule { position: absolute; left: 0; right: 0; top: 0; height: 14px; background: #3F6C78; }
+  .rule { position: absolute; left: 0; right: 0; top: 0; height: 14px; background: {{blue}}; }
   .lockup { display: flex; align-items: center; gap: 40px; }
   .mark { width: 150px; height: 180px; flex: none; }
   .name { font-weight: 800; font-size: 60px; line-height: 1.05; letter-spacing: 0.04em; }
   .name span { display: block; font-size: 34px; letter-spacing: 0.12em; margin-bottom: 8px; }
-  .tagline { font-weight: 500; font-size: 40px; line-height: 1.3; color: #2B2B2B; max-width: 1040px; }
-  .foot { display: flex; align-items: baseline; justify-content: space-between; gap: 32px; border-top: 2px solid #D8D3C5; padding-top: 28px; font-size: 26px; font-weight: 600; color: #6E7178; }
-  .phone { color: #3F6C78; font-weight: 800; font-size: 34px; letter-spacing: 0.01em; }
+  .tagline { font-weight: 500; font-size: 40px; line-height: 1.3; color: {{charcoal}}; max-width: 1040px; }
+  .foot { display: flex; align-items: baseline; justify-content: space-between; gap: 32px; border-top: 2px solid {{hairline}}; padding-top: 28px; font-size: 26px; font-weight: 600; color: {{slate}}; }
+  .phone { color: {{blue}}; font-weight: 800; font-size: 34px; letter-spacing: 0.01em; }
 </style>
 </head>
 <body>
@@ -23,10 +23,10 @@
     <div class="rule"></div>
     <div class="lockup">
       <svg class="mark" viewBox="0 0 200 240" fill="none" aria-hidden="true">
-        <path d="M140 22 V150 A35 35 0 0 1 70 150 V138 A24 24 0 0 0 46 114 H18" stroke="#2B2B2B" stroke-width="34" stroke-linejoin="round" />
-        <rect x="112" y="6" width="56" height="18" rx="2" fill="#A85A2E" />
-        <rect x="116" y="112" width="48" height="14" rx="2" fill="#A85A2E" />
-        <rect x="8" y="90" width="16" height="48" rx="2" fill="#A85A2E" />
+        <path d="M140 22 V150 A35 35 0 0 1 70 150 V138 A24 24 0 0 0 46 114 H18" stroke="{{charcoal}}" stroke-width="34" stroke-linejoin="round" />
+        <rect x="112" y="6" width="56" height="18" rx="2" fill="{{blue}}" />
+        <rect x="116" y="112" width="48" height="14" rx="2" fill="{{blue}}" />
+        <rect x="8" y="90" width="16" height="48" rx="2" fill="{{blue}}" />
       </svg>
       <div class="name"><span>{{credential}}</span>{{name}}</div>
     </div>
