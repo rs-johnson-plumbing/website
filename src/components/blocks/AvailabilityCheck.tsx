@@ -113,7 +113,7 @@ export function AvailabilityCheck({ className, openSignal = 0, hideTrigger = fal
         type="button"
         onClick={() => setStage("address")}
         data-track="availability-open"
-        className={cn("inline-flex h-[52px] items-center justify-center gap-2 whitespace-nowrap rounded-btn bg-blue px-6 text-[16px] font-bold text-white builders:bg-charcoal transition-opacity hover:opacity-[0.88]", className)}
+        className={cn("inline-flex h-[52px] items-center justify-center gap-2 whitespace-nowrap rounded-btn bg-blue px-6 text-[16px] font-bold text-white builders:shadow-cream-inset transition-opacity hover:opacity-[0.88]", className)}
       >
         {a.button}
         <Icon name="arrow-right" size={20} strokeWidth={1.8} className="shrink-0" />
@@ -139,7 +139,7 @@ export function AvailabilityCheck({ className, openSignal = 0, hideTrigger = fal
             />
             {error && <p className="mt-2 text-[14px] font-semibold">{a.error}</p>}
             <div className="mt-4 flex justify-end">
-              <button type="submit" disabled={busy} data-track="availability-check" className={cn(btn, "bg-blue text-white builders:bg-charcoal")}>
+              <button type="submit" disabled={busy} data-track="availability-check" className={cn(btn, "bg-blue text-white builders:shadow-cream-inset")}>
                 {a.check}
                 <Icon name="arrow-right" size={18} strokeWidth={1.8} />
               </button>
@@ -187,7 +187,7 @@ export function AvailabilityCheck({ className, openSignal = 0, hideTrigger = fal
             <textarea ref={noteRef} value={note} onChange={(e) => setNote(e.target.value)} rows={3} maxLength={500} placeholder={a.notePlaceholder} aria-label={a.noteHeading} className={cn(input, "mt-4 h-auto py-3")} />
             <div className="mt-4 flex items-center justify-between gap-3">
               <BackLink onClick={() => setStage("issue")} label={a.back} />
-              <button type="button" onClick={() => setStage("phone")} data-track="availability-note-next" className={cn(btn, "bg-blue text-white builders:bg-charcoal")}>
+              <button type="button" onClick={() => setStage("phone")} data-track="availability-note-next" className={cn(btn, "bg-blue text-white builders:shadow-cream-inset")}>
                 {a.next}
                 <Icon name="arrow-right" size={18} strokeWidth={1.8} />
               </button>
@@ -215,7 +215,7 @@ export function AvailabilityCheck({ className, openSignal = 0, hideTrigger = fal
             {error && <p className="mt-2 text-[14px] font-semibold">{a.error}</p>}
             <div className="mt-4 flex items-center justify-between gap-3">
               <BackLink onClick={() => setStage("note")} label={a.back} />
-              <button type="submit" disabled={busy} data-track="availability-send" className={cn(btn, "bg-blue text-white builders:bg-charcoal")}>
+              <button type="submit" disabled={busy} data-track="availability-send" className={cn(btn, "bg-blue text-white builders:shadow-cream-inset")}>
                 {a.send}
                 <Icon name="arrow-right" size={18} strokeWidth={1.8} />
               </button>

@@ -44,7 +44,8 @@ Plumber on every job.
   filled blue button per section; the rest outlined (the homepage hero, with
   a door per audience, is the one exception). Outlined buttons are blue
   (outline, label, and icon). On dark sections, outlined buttons are white
-  and filled buttons are charcoal. No button ever has a white ground.
+  and filled buttons stay brand blue with a thin cream inset edge
+  (`builders:shadow-cream-inset`). No button ever has a white ground.
 - Every phone link is `tel:3142201827`; text links use `smsLink()` from
   `src/lib/content.ts`. On phones the pair is two buttons, Call and Text,
   with no number in the label. On desktop it is one button that shows the
@@ -62,8 +63,8 @@ Plumber on every job.
   states, illustration strokes, and the logo flanges
   (`src/styles/tokens.ts` has the family). The builders pages keep the
   cream page and header; every other band is navy `#0D2A4D` (`.band-dark`,
-  which switches on the `builders:` variant) with white cards and charcoal
-  filled buttons. Font: Figtree everywhere, including
+  which switches on the `builders:` variant) with white cards and blue filled
+  buttons edged in cream. Font: Figtree everywhere, including
   the logo wordmark (the logo files carry it as outlines).
 
 ## Workflow

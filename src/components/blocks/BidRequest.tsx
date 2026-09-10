@@ -108,7 +108,7 @@ export function BidRequest({ className, variant = "filled", openSignal = 0, hide
         className={cn(
           "inline-flex items-center justify-center gap-2 whitespace-nowrap font-bold transition-opacity hover:opacity-[0.88]",
           variant === "link" ? "text-[15px] text-blue" : "h-[52px] rounded-btn px-6 text-[16px]",
-          variant === "filled" && "bg-blue text-white builders:bg-charcoal",
+          variant === "filled" && "bg-blue text-white builders:shadow-cream-inset",
           variant === "outlined" && "border-[1.5px] border-blue bg-transparent text-blue",
           variant === "outlined-dark" && "border-[1.5px] border-offwhite bg-transparent text-offwhite",
           className,
@@ -138,7 +138,7 @@ export function BidRequest({ className, variant = "filled", openSignal = 0, hide
               className={cn(input, "mt-4")}
             />
             <div className="mt-4 flex justify-end">
-              <button type="submit" data-track="bid-contractor-next" className={cn(btn, "bg-blue text-white builders:bg-charcoal")}>
+              <button type="submit" data-track="bid-contractor-next" className={cn(btn, "bg-blue text-white builders:shadow-cream-inset")}>
                 {b.next}
                 <Icon name="arrow-right" size={18} strokeWidth={1.8} />
               </button>
@@ -177,7 +177,7 @@ export function BidRequest({ className, variant = "filled", openSignal = 0, hide
             {plansError && <p className="mt-2 text-[14px] font-semibold">{b.plansTooBig}</p>}
             <div className="mt-4 flex items-center justify-between gap-3">
               <BackLink onClick={() => setStage("type")} label={b.back} />
-              <button type="button" onClick={() => setStage("phone")} data-track="bid-plans-next" className={cn(btn, "bg-blue text-white builders:bg-charcoal")}>
+              <button type="button" onClick={() => setStage("phone")} data-track="bid-plans-next" className={cn(btn, "bg-blue text-white builders:shadow-cream-inset")}>
                 {plans ? b.next : b.plansSkip}
                 <Icon name="arrow-right" size={18} strokeWidth={1.8} />
               </button>
@@ -204,7 +204,7 @@ export function BidRequest({ className, variant = "filled", openSignal = 0, hide
             {error && <p className="mt-2 text-[14px] font-semibold">{b.error}</p>}
             <div className="mt-4 flex items-center justify-between gap-3">
               <BackLink onClick={() => setStage("plans")} label={b.back} />
-              <button type="submit" disabled={busy} data-track="bid-send" className={cn(btn, "bg-blue text-white builders:bg-charcoal")}>
+              <button type="submit" disabled={busy} data-track="bid-send" className={cn(btn, "bg-blue text-white builders:shadow-cream-inset")}>
                 {b.send}
                 <Icon name="arrow-right" size={18} strokeWidth={1.8} />
               </button>

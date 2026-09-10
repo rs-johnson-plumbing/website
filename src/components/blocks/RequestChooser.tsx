@@ -29,7 +29,7 @@ export function RequestChooser({ className, size = "bar" }: { className?: string
         onClick={() => setOpen(true)}
         data-track="request-open"
         className={cn(
-          "flex items-center justify-center gap-2 whitespace-nowrap rounded-btn bg-blue font-bold text-white hover:opacity-[0.88] builders:bg-charcoal",
+          "flex items-center justify-center gap-2 whitespace-nowrap rounded-btn bg-blue font-bold text-white hover:opacity-[0.88] builders:shadow-cream-inset",
           size === "bar" ? "py-3 text-[14px]" : "h-[52px] px-6 text-[16px]",
           className,
         )}
