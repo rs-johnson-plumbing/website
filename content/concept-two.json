@@ -160,7 +160,8 @@
           "label": "Other Plumbing",
           "href": "/services"
         }
-      ]
+      ],
+      "hint": "Tap a service to get started."
     },
     "builderBand": {
       "eyebrow": "Builders & Contractors",

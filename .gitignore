@@ -48,3 +48,5 @@ yarn-error.log*
 /crop.mjs
 /towebp2.mjs
 /opts.mjs
+/cmpm.mjs
+/mobcheck.mjs

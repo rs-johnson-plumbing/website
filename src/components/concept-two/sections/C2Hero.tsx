@@ -19,7 +19,12 @@ export function C2Hero() {
             {hero.headingLines.map((line, index) => (
               <span key={line}>
                 {line}
-                {index < hero.headingLines.length - 1 && <br />}
+                {index < hero.headingLines.length - 1 && (
+                  <>
+                    {" "}
+                    <br className="c2-wide-break" />
+                  </>
+                )}
               </span>
             ))}
           </h1>
