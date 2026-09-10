@@ -21,7 +21,8 @@ export function ServiceGrid({ hrefFor, slugs, builderSlugs, builderHrefFor = hre
     if (b) cards.push({ key: b.slug, illustration: b.illustration, name: b.name, short: b.short, href: builderHrefFor(b.slug) });
   }
   return (
-    <div className={cn("grid gap-3 lg:grid-cols-4 lg:gap-5", phoneList ? "grid-cols-1" : "grid-cols-2")}>
+    // Pick a desktop column count the tiles fill: eight go four across, six go three across.
+    <div className={cn("grid gap-3 lg:gap-5", cards.length % 4 === 0 ? "lg:grid-cols-4" : "lg:grid-cols-3", phoneList ? "grid-cols-1" : "grid-cols-2")}>
       {cards.map((c) => (
         <Link
           key={c.key}
