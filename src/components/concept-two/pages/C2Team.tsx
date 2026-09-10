@@ -25,7 +25,7 @@ export function C2Team() {
             <C2Button href={site.phone.tel} icon="phone" trailingIcon={null} data-track="call-hero">
               {copy.ui.callNumber}
             </C2Button>
-            <C2Button href="/for-homeowners" variant="outline">
+            <C2Button href="/services" variant="outline">
               {copy.homeowners.services.seeAll}
             </C2Button>
           </>

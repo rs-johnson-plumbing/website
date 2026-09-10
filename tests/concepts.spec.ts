@@ -54,6 +54,8 @@ test("the request dialog opens, traps escape, and the mobile menu returns focus"
   await page.goto("/?concept=2");
   await page.locator(".c2-bar").getByRole("button", { name: copy.ui.request }).click();
   await expect(page.getByRole("dialog")).toBeVisible();
+  // Focus has to land inside the modal, not stay behind it.
+  await expect(page.getByRole("dialog").locator("input").first()).toBeFocused();
   await page.keyboard.press("Escape");
   await expect(page.getByRole("dialog")).toHaveCount(0);
   const menuButton = page.getByRole("button", { name: copy.ui.openMenu });
@@ -104,4 +106,19 @@ test("Concept 2 fits every width and loads the desktop hero photograph", async (
       await expect(image).toBeHidden();
     }
   }
+});
+
+test("the action bar sends builders to the bid form, not the homeowner intake", async ({ page }) => {
+  await page.goto("/for-builders?concept=2");
+  await expect(page.locator(".c2-bar").getByRole("link", { name: copy.ui.request })).toHaveAttribute(
+    "href",
+    "/for-builders#request-a-bid",
+  );
+  await page.goto("/services/builders?concept=2");
+  await expect(page.locator(".c2-bar").getByRole("link", { name: copy.ui.request })).toHaveAttribute(
+    "href",
+    "/for-builders#request-a-bid",
+  );
+  await page.goto("/for-homeowners?concept=2");
+  await expect(page.locator(".c2-bar").getByRole("button", { name: copy.ui.request })).toBeVisible();
 });

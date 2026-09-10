@@ -34,7 +34,10 @@ function RequestDialog({ onClose }: { onClose: () => void }) {
 
   useEffect(() => setMounted(true), []);
 
+  // The first render returns null while the portal mounts, so wait for that
+  // before moving focus; otherwise focus stays behind the modal.
   useEffect(() => {
+    if (!mounted) return;
     firstField.current?.focus();
     const previousOverflow = document.body.style.overflow;
     document.body.style.overflow = "hidden";
@@ -58,7 +61,7 @@ function RequestDialog({ onClose }: { onClose: () => void }) {
       document.removeEventListener("keydown", onKey);
       document.body.style.overflow = previousOverflow;
     };
-  }, [onClose]);
+  }, [mounted, onClose]);
 
   async function submit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
