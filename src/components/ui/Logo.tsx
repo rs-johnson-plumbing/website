@@ -15,9 +15,9 @@ export function Mark({ className, title, reversed = false }: { className?: strin
     <svg viewBox="0 0 200 240" fill="none" aria-hidden={title ? undefined : true} role={title ? "img" : undefined} className={className}>
       {title && <title>{title}</title>}
       <path d="M140 22 V150 A35 35 0 0 1 70 150 V138 A24 24 0 0 0 46 114 H18" stroke={pipe} strokeWidth="34" strokeLinejoin="round" />
-      <rect x="112" y="6" width="56" height="18" rx="2" fill="#246FF2" />
-      <rect x="116" y="112" width="48" height="14" rx="2" fill="#246FF2" />
-      <rect x="8" y="90" width="16" height="48" rx="2" fill="#246FF2" />
+      <rect x="112" y="6" width="56" height="18" rx="2" fill="#2868A8" />
+      <rect x="116" y="112" width="48" height="14" rx="2" fill="#2868A8" />
+      <rect x="8" y="90" width="16" height="48" rx="2" fill="#2868A8" />
     </svg>
   );
 }
@@ -43,16 +43,16 @@ export function Badge({ className, title }: { className?: string; title?: string
           R.S. JOHNSON PLUMBING
         </textPath>
       </text>
-      <text fontFamily="Georgia, 'Times New Roman', serif" fontWeight="700" fontSize="18" letterSpacing="3" fill="#C7D9FA">
+      <text fontFamily="Georgia, 'Times New Roman', serif" fontWeight="700" fontSize="18" letterSpacing="3" fill="#C2D6EE">
         <textPath href="#rsj-arc-bot" startOffset="50%" textAnchor="middle">
           O&apos;FALLON, MO
         </textPath>
       </text>
       <g transform="translate(88 78) scale(0.72)" fill="none">
         <path d="M140 22 V150 A35 35 0 0 1 70 150 V138 A24 24 0 0 0 46 114 H18" stroke="#F7F5F0" strokeWidth="34" strokeLinejoin="round" />
-        <rect x="112" y="6" width="56" height="18" rx="2" fill="#246FF2" />
-        <rect x="116" y="112" width="48" height="14" rx="2" fill="#246FF2" />
-        <rect x="8" y="90" width="16" height="48" rx="2" fill="#246FF2" />
+        <rect x="112" y="6" width="56" height="18" rx="2" fill="#2868A8" />
+        <rect x="116" y="112" width="48" height="14" rx="2" fill="#2868A8" />
+        <rect x="8" y="90" width="16" height="48" rx="2" fill="#2868A8" />
       </g>
     </svg>
   );
@@ -73,9 +73,9 @@ export function Lockup({ className, title, reversed = false }: { className?: str
       {title && <title>{title}</title>}
       <g transform="translate(0 18) scale(0.78)" fill="none">
         <path d="M140 22 V150 A35 35 0 0 1 70 150 V138 A24 24 0 0 0 46 114 H18" stroke={ink} strokeWidth="34" strokeLinejoin="round" />
-        <rect x="112" y="6" width="56" height="18" rx="2" fill="#246FF2" />
-        <rect x="116" y="112" width="48" height="14" rx="2" fill="#246FF2" />
-        <rect x="8" y="90" width="16" height="48" rx="2" fill="#246FF2" />
+        <rect x="112" y="6" width="56" height="18" rx="2" fill="#2868A8" />
+        <rect x="116" y="112" width="48" height="14" rx="2" fill="#2868A8" />
+        <rect x="8" y="90" width="16" height="48" rx="2" fill="#2868A8" />
       </g>
       <g fontFamily="var(--font-figtree), Figtree, system-ui, sans-serif" fontWeight="800" fill={ink} letterSpacing="1">
         {/* textLength pins the wordmark width so a fallback font can never
