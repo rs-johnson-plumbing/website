@@ -357,7 +357,15 @@
   },
   "banner": {
     "service": "Request a Visit",
-    "bid": "Request a Bid"
+    "bid": "Request a Bid",
+    "homeowners": {
+      "heading": "Water on the Floor?",
+      "line": "Call or text 314-220-1827 and you'll get Ryan. Not urgent? Tell us what's going on and he'll call you back."
+    },
+    "builders": {
+      "heading": "Have Plans to Bid?",
+      "line": "Send them over and Ryan will have a number back within [# business days]. Or call or text 314-220-1827 and talk it through first."
+    }
   },
   "chooser": {
     "button": "Request a Visit",
