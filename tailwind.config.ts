@@ -9,12 +9,12 @@ const config: Config = {
       colors: {
         offwhite: colors.offwhite,
         charcoal: colors.charcoal,
-        teal: {
-          DEFAULT: colors.teal,
-          dark: colors.tealDark,
-          tint: colors.tealTint,
-          ondark: colors.tealOnDark,
-          ink: colors.tealInk,
+        blue: {
+          DEFAULT: colors.blue,
+          dark: colors.blueDark,
+          tint: colors.blueTint,
+          ondark: colors.blueOnDark,
+          ink: colors.blueInk,
         },
         slate: colors.slate,
         hairline: {
@@ -25,7 +25,7 @@ const config: Config = {
         ondark: {
           muted: colors.onDarkMuted,
           helper: colors.onDarkHelper,
-          tealtint: colors.onDarkTealTint,
+          bluetint: colors.onDarkBlueTint,
         },
         darkcard: colors.darkCard,
         darkborder: colors.darkBorder,

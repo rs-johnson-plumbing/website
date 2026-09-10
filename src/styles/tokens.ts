@@ -5,31 +5,32 @@
  * these in tailwind.config.ts; components import them when a value is needed
  * outside a class name (SVG strokes, JSON-LD, etc.).
  *
- * Brand hex values are eyeballed from the business card and unconfirmed.
+ * Brand blues are sampled from the UngerBuild sign-in screen Daren supplied
+ * (eagle #246FF2, navy 900 #0D2A4D).
  */
 export const colors = {
   offwhite: "#F7F5F0",
   charcoal: "#2B2B2B",
-  /** Slate teal: buttons, links, active states, illustration strokes, and
-   * the ground of the builders pages. */
-  teal: "#3F6C78",
-  tealDark: "#2A5561",
-  tealTint: "#E3EEF0",
-  tealOnDark: "#DCE9EC",
-  /** Copper, the flanges in the logo mark only. */
+  /** Brand blue, from the UngerBuild eagle: buttons, links, active states,
+   * illustration strokes, and the logo flanges. */
+  blue: "#246FF2",
+  blueDark: "#0D2A4D",
+  blueTint: "#E3ECFD",
+  blueOnDark: "#C7D9FA",
+  /** Copper. Not in use since the palette went back to blue; kept for reference. */
   copper: "#A85A2E",
-  /** Darkest teal, the footer and dark bands in builders mode. */
-  tealInk: "#24393F",
+  /** Navy 900 family: blueDark is the builders bands, blueInk the deepest band. */
+  blueInk: "#081C36",
   slate: "#6E7178",
   hairline: "#E3DFD5",
   hairlineStrong: "#D8D3C5",
   sand: "#EFEBE1",
   white: "#FFFFFF",
-  onDarkMuted: "#CFDDE0",
-  onDarkHelper: "#DDE8EA",
-  onDarkTealTint: "#DCE9EC",
-  darkCard: "#325C67",
-  darkBorder: "#6E97A1",
+  onDarkMuted: "#C9D3E3",
+  onDarkHelper: "#D6DFEE",
+  onDarkBlueTint: "#C7D9FA",
+  darkCard: "#16385F",
+  darkBorder: "#4F6E99",
 } as const;
 
 export const fonts = {

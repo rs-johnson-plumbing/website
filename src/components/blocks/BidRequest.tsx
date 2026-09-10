@@ -20,7 +20,7 @@ const MAX_PLANS_BYTES = 4 * 1024 * 1024;
  *   done. Posts once, as multipart, to /api/bid. Copy lives in home.json
  *   under bid.
  */
-export function BidRequest({ className, variant = "filled", openSignal = 0, hideTrigger = false }: { /** Bump to open the flow from another control (the sticky bar chooser). */ openSignal?: number; /** Render the dialog only, no button of its own. */ hideTrigger?: boolean; className?: string; /** "outlined" is a charcoal outline, "outlined-dark" a white outline on a dark ground, for when it sits beside a filled button. "link" is teal text with the arrow, for a one-line row. */ variant?: "filled" | "outlined" | "outlined-dark" | "link" }) {
+export function BidRequest({ className, variant = "filled", openSignal = 0, hideTrigger = false }: { /** Bump to open the flow from another control (the sticky bar chooser). */ openSignal?: number; /** Render the dialog only, no button of its own. */ hideTrigger?: boolean; className?: string; /** "outlined" is a charcoal outline, "outlined-dark" a white outline on a dark ground, for when it sits beside a filled button. "link" is blue text with the arrow, for a one-line row. */ variant?: "filled" | "outlined" | "outlined-dark" | "link" }) {
   const b = home.bid;
   const types = b.types as ProjectType[];
   const [stage, setStage] = useState<Stage>("idle");
@@ -107,9 +107,9 @@ export function BidRequest({ className, variant = "filled", openSignal = 0, hide
         data-track="bid-open"
         className={cn(
           "inline-flex items-center justify-center gap-2 whitespace-nowrap font-bold transition-opacity hover:opacity-[0.88]",
-          variant === "link" ? "text-[15px] text-teal" : "h-[52px] rounded-btn px-6 text-[16px]",
-          variant === "filled" && "bg-teal text-white builders:bg-charcoal",
-          variant === "outlined" && "border-[1.5px] border-teal bg-transparent text-teal",
+          variant === "link" ? "text-[15px] text-blue" : "h-[52px] rounded-btn px-6 text-[16px]",
+          variant === "filled" && "bg-blue text-white builders:bg-charcoal",
+          variant === "outlined" && "border-[1.5px] border-blue bg-transparent text-blue",
           variant === "outlined-dark" && "border-[1.5px] border-offwhite bg-transparent text-offwhite",
           className,
         )}
@@ -138,7 +138,7 @@ export function BidRequest({ className, variant = "filled", openSignal = 0, hide
               className={cn(input, "mt-4")}
             />
             <div className="mt-4 flex justify-end">
-              <button type="submit" data-track="bid-contractor-next" className={cn(btn, "bg-teal text-white builders:bg-charcoal")}>
+              <button type="submit" data-track="bid-contractor-next" className={cn(btn, "bg-blue text-white builders:bg-charcoal")}>
                 {b.next}
                 <Icon name="arrow-right" size={18} strokeWidth={1.8} />
               </button>
@@ -167,9 +167,9 @@ export function BidRequest({ className, variant = "filled", openSignal = 0, hide
             <h2 id={titleId} className={h2}>
               {b.plansHeading}
             </h2>
-            <label className="mt-4 flex min-h-[54px] w-full cursor-pointer items-center gap-3 rounded-btn border border-dashed border-hairline-strong bg-white px-3 py-2 text-left text-[15px] font-bold leading-tight text-charcoal transition-colors hover:border-teal hover:bg-teal-tint">
+            <label className="mt-4 flex min-h-[54px] w-full cursor-pointer items-center gap-3 rounded-btn border border-dashed border-hairline-strong bg-white px-3 py-2 text-left text-[15px] font-bold leading-tight text-charcoal transition-colors hover:border-blue hover:bg-blue-tint">
               <input type="file" accept=".pdf,image/*" onChange={pickPlans} className="sr-only" data-track="bid-plans-pick" />
-              <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-tile bg-teal-tint text-teal">
+              <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-tile bg-blue-tint text-blue">
                 <Icon name="upload" size={20} />
               </span>
               <span>{plans ? plans.name : b.plansButton}</span>
@@ -177,7 +177,7 @@ export function BidRequest({ className, variant = "filled", openSignal = 0, hide
             {plansError && <p className="mt-2 text-[14px] font-semibold">{b.plansTooBig}</p>}
             <div className="mt-4 flex items-center justify-between gap-3">
               <BackLink onClick={() => setStage("type")} label={b.back} />
-              <button type="button" onClick={() => setStage("phone")} data-track="bid-plans-next" className={cn(btn, "bg-teal text-white builders:bg-charcoal")}>
+              <button type="button" onClick={() => setStage("phone")} data-track="bid-plans-next" className={cn(btn, "bg-blue text-white builders:bg-charcoal")}>
                 {plans ? b.next : b.plansSkip}
                 <Icon name="arrow-right" size={18} strokeWidth={1.8} />
               </button>
@@ -190,13 +190,13 @@ export function BidRequest({ className, variant = "filled", openSignal = 0, hide
             <h2 id={titleId} className={h2}>
               {b.phoneHeading}
             </h2>
-            <dl className="mt-3 divide-y divide-hairline rounded-btn border border-teal/20 bg-teal-tint px-3.5">
+            <dl className="mt-3 divide-y divide-hairline rounded-btn border border-blue/20 bg-blue-tint px-3.5">
               <Row label={b.labels.contractor}>{contractor}</Row>
               <Row label={b.labels.type}>{type?.label}</Row>
               <Row label={b.labels.plans}>{plans ? plans.name : b.noPlans}</Row>
             </dl>
             <div className="relative mt-4">
-              <span className="pointer-events-none absolute left-3.5 top-1/2 flex h-7 w-7 -translate-y-1/2 items-center justify-center rounded-full bg-teal-tint text-teal">
+              <span className="pointer-events-none absolute left-3.5 top-1/2 flex h-7 w-7 -translate-y-1/2 items-center justify-center rounded-full bg-blue-tint text-blue">
                 <Icon name="phone" size={15} />
               </span>
               <input ref={phoneRef} name="phone" type="tel" required placeholder={b.phonePlaceholder} aria-label={b.phoneHeading} autoComplete="tel" className={cn(input, "pl-14")} />
@@ -204,7 +204,7 @@ export function BidRequest({ className, variant = "filled", openSignal = 0, hide
             {error && <p className="mt-2 text-[14px] font-semibold">{b.error}</p>}
             <div className="mt-4 flex items-center justify-between gap-3">
               <BackLink onClick={() => setStage("plans")} label={b.back} />
-              <button type="submit" disabled={busy} data-track="bid-send" className={cn(btn, "bg-teal text-white builders:bg-charcoal")}>
+              <button type="submit" disabled={busy} data-track="bid-send" className={cn(btn, "bg-blue text-white builders:bg-charcoal")}>
                 {b.send}
                 <Icon name="arrow-right" size={18} strokeWidth={1.8} />
               </button>

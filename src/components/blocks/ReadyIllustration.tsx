@@ -5,8 +5,8 @@
  * and stops under prefers-reduced-motion.
  */
 const C = "#2B2B2B";
-const B = "#3F6C78";
-const T = "#E3EEF0";
+const B = "#246FF2";
+const T = "#E3ECFD";
 const O = "#F7F5F0";
 const W = "#FFFFFF";
 const S = "#E9B98E";

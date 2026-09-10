@@ -19,7 +19,7 @@ export const metadata: Metadata = {
 
 /**
  * Builder services: the tabs, the six stage cards on cream, then one band
- * per stage with a big scene, every other band deep teal, then the bid
+ * per stage with a big scene, every other band deep blue, then the bid
  * request banner.
  */
 export default function BuilderServicesPage() {

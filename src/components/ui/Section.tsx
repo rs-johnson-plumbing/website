@@ -15,10 +15,10 @@ type Props = {
 };
 
 const tones: Record<Tone, string> = {
-  offwhite: "bg-offwhite text-charcoal builders:bg-teal-dark builders:text-offwhite",
-  sand: "bg-sand text-charcoal builders:bg-teal-dark builders:text-offwhite",
-  charcoal: "bg-charcoal text-offwhite builders:bg-teal-ink",
-  white: "bg-white text-charcoal builders:bg-teal-dark builders:text-offwhite",
+  offwhite: "bg-offwhite text-charcoal builders:bg-blue-dark builders:text-offwhite",
+  sand: "bg-sand text-charcoal builders:bg-blue-dark builders:text-offwhite",
+  charcoal: "bg-charcoal text-offwhite builders:bg-blue-ink",
+  white: "bg-white text-charcoal builders:bg-blue-dark builders:text-offwhite",
 };
 
 const pads = {

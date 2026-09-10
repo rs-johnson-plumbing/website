@@ -33,8 +33,8 @@ export function Button({ href, children, variant = "filled", size = "md", classN
     sm: "px-5 py-3 text-[15px]",
   };
   const variants: Record<ButtonVariant, string> = {
-    filled: "bg-teal text-white builders:bg-charcoal hover:text-white",
-    outlined: "bg-transparent text-teal border-[1.5px] border-teal hover:text-teal-dark hover:border-teal-dark builders:border-offwhite builders:text-offwhite builders:hover:text-offwhite builders:hover:border-offwhite builders:bg-transparent",
+    filled: "bg-blue text-white builders:bg-charcoal hover:text-white",
+    outlined: "bg-transparent text-blue border-[1.5px] border-blue hover:text-blue-dark hover:border-blue-dark builders:border-offwhite builders:text-offwhite builders:hover:text-offwhite builders:hover:border-offwhite builders:bg-transparent",
     "outlined-dark": "bg-transparent text-offwhite border-[1.5px] border-offwhite hover:text-offwhite",
   };
   const isExternal = href.startsWith("http") || href.startsWith("tel:") || href.startsWith("mailto:");

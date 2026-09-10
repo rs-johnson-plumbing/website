@@ -24,7 +24,7 @@ export function ServiceGrid({ hrefFor, slugs, builderSlugs, builderHrefFor = hre
         <Link
           key={c.key}
           href={c.href}
-          className="flex flex-col items-center gap-2 rounded-card border border-hairline bg-white p-4 text-center text-charcoal transition-colors hover:border-teal hover:no-underline lg:p-6"
+          className="flex flex-col items-center gap-2 rounded-card border border-hairline bg-white p-4 text-center text-charcoal transition-colors hover:border-blue hover:no-underline lg:p-6"
         >
           <ServiceIllustration slug={c.illustration} className="h-[104px] w-[104px] lg:h-[132px] lg:w-[132px]" />
           <span className="text-[17px] font-bold leading-tight lg:text-[19px]">{c.name}</span>

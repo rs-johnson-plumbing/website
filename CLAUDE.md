@@ -41,8 +41,8 @@ Plumber on every job.
 - **No ampersands. No exclamation points.** Write "and".
 - **Never promise "same day" or "24/7".** Ryan has not confirmed either.
 - Buttons: 8px radius, never pills. Labels never wrap, three words max. One
-  filled teal button per section; the rest outlined (the homepage hero, with
-  a door per audience, is the one exception). Outlined buttons are teal
+  filled blue button per section; the rest outlined (the homepage hero, with
+  a door per audience, is the one exception). Outlined buttons are blue
   (outline, label, and icon). On dark sections, outlined buttons are white
   and filled buttons are charcoal. No button ever has a white ground.
 - Every phone link is `tel:3142201827`; text links use `smsLink()` from
@@ -57,13 +57,13 @@ Plumber on every job.
   a value to fill one. `npm run check:content` lists what is still open.
 - No street address anywhere. "Based in O'Fallon, MO."
 - Business name is "R.S. Johnson Plumbing LLC" everywhere it is written out.
-- Brand: off-white `#F7F5F0`, charcoal `#2B2B2B` for text, slate teal
-  `#3F6C78` on buttons, links, active states, and illustration strokes
+- Brand: off-white `#F7F5F0`, charcoal `#2B2B2B` for text, brand blue
+  `#246FF2` (sampled from the UngerBuild eagle) on buttons, links, active
+  states, illustration strokes, and the logo flanges
   (`src/styles/tokens.ts` has the family). The builders pages keep the
-  cream page and header; every other band is deep teal (`.band-dark`,
+  cream page and header; every other band is navy `#0D2A4D` (`.band-dark`,
   which switches on the `builders:` variant) with white cards and charcoal
-  filled buttons.
-  Copper `#A85A2E` appears only on the logo flanges. Font: Figtree everywhere, including
+  filled buttons. Font: Figtree everywhere, including
   the logo wordmark (the logo files carry it as outlines).
 
 ## Workflow

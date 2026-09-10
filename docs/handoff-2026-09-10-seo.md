@@ -55,9 +55,9 @@ Routes:
 
 | Route | What it is | H1 |
 | --- | --- | --- |
-| `/` | Homepage. Desktop: single banner, metro-map illustration behind it, two teal doors (Submit Service Request, Submit Bid Request). Phone: serving eyebrow with a pin, headline, two stacked boxes (Submit Request; Call or Text). Then sets-us-apart, popular services, team strip, reviews, contact, intake banner. A homeowner/builder toggle drives several blocks. | Visible headline "Family Owned and Professionally Operated" |
+| `/` | Homepage. Desktop: single banner, metro-map illustration behind it, two blue doors (Submit Service Request, Submit Bid Request). Phone: serving eyebrow with a pin, headline, two stacked boxes (Submit Request; Call or Text). Then sets-us-apart, popular services, team strip, reviews, contact, intake banner. A homeowner/builder toggle drives several blocks. | Visible headline "Family Owned and Professionally Operated" |
 | `/for-homeowners` | Anchor bar, sets-us-apart, homeowner service cards, why-us, team strip, three neighbor quotes, signs you need a plumber, FAQ, service request banner. | Screen-reader-only H1 from `homeowners.seoHeading` |
-| `/for-builders` | Same shape for contractors on cream with deep-teal bands: why builders trust us, six builder stages, **Our Recent Projects** (rolling row of five sample projects, tap opens a photo viewer), team strip, What Contractors Say, FAQ, contact, bid banner. | Screen-reader-only H1 from `builders.seoHeading` |
+| `/for-builders` | Same shape for contractors on cream with navy bands: why builders trust us, six builder stages, **Our Recent Projects** (rolling row of five sample projects, tap opens a photo viewer), team strip, What Contractors Say, FAQ, contact, bid banner. | Screen-reader-only H1 from `builders.seoHeading` |
 | `/services` | Homeowner services hub: eight service bands (water heaters, leaks, drains and sewer, toilets and faucets, water softeners, gas lines, sump pumps, emergency). Plumber JSON-LD. | Visible |
 | `/services/builders` | Builder stages hub: six bands (plans and takeoffs, underground, rough-in, gas runs, water service and sewer, trim and fixture set). Plumber JSON-LD. | Visible |
 | `/services/[service]` | One page per homeowner service (8). Title "[Service] in St. Charles County | R.S. Johnson Plumbing". Service JSON-LD. | Visible |
@@ -215,5 +215,5 @@ footer split into homeowner and builder services, Service Area and Reviews
 taken off the live site, the Our Team page, the phone hero as two stacked
 boxes, the serving eyebrow, the one-button Submit Request chooser, the
 metro map behind the desktop hero, the slate-teal palette replacing blue,
-copper logo flanges, the builders pages on cream with deep-teal bands, and
+copper logo flanges, the builders pages on cream with navy bands, and
 the single-banner desktop hero. `git log origin/main` has the rest.

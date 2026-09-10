@@ -3,11 +3,11 @@ import { cn } from "@/lib/cn";
 
 /**
  * The team page's photo slot: a 4:3 scene in the same style as the service
- * bands, the plumber's cartoon avatar large on the light-teal wall over the
+ * bands, the plumber's cartoon avatar large on the light-blue wall over the
  * sand floor. Swap for the real photo when one exists.
  */
 const C = "#2B2B2B";
-const T = "#E3EEF0";
+const T = "#E3ECFD";
 const H = "#E3DFD5";
 const W = "#FFFFFF";
 

@@ -1,13 +1,13 @@
 /**
  * Cartoon avatars for the crew cards, in the same style as the service
- * illustrations: charcoal outlines, flat fills, light-teal disc. Ryan's is
- * drawn from his photo (shaved head, short beard, big grin, teal crewneck).
+ * illustrations: charcoal outlines, flat fills, light-blue disc. Ryan's is
+ * drawn from his photo (shaved head, short beard, big grin, blue crewneck).
  * The other four are placeholders until the real crew is confirmed; keep
  * them generic. Keyed by team member id.
  */
 const C = "#2B2B2B";
-const B = "#3F6C78";
-const T = "#E3EEF0";
+const B = "#246FF2";
+const T = "#E3ECFD";
 const W = "#FFFFFF";
 
 type Look = {

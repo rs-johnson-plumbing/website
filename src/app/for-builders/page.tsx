@@ -28,7 +28,7 @@ const H = pageH2;
 
 /**
  * For Builders: the contractor door. The page, header, and odd bands stay
- * cream; the even bands (services, reviews, contact) are deep teal with
+ * cream; the even bands (services, reviews, contact) are deep blue with
  * white cards and charcoal filled buttons, which is what tells this page
  * apart from For Homeowners. The audience provider mounts locked on
  * builders so the trust cards, reviews, and sticky bar read the builder
@@ -60,7 +60,7 @@ export default function ForBuildersPage() {
         </div>
       </Section>
 
-      {/* 3. Recent builder work: the project marquee on sand, so it reads as its own band between the teal services and the cream team */}
+      {/* 3. Recent builder work: the project marquee on sand, so it reads as its own band between the blue services and the cream team */}
       <Section id="projects" tone="sand" pad="band" ariaLabelledby="projects-h" className="scroll-mt-[140px]">
         <ProjectMarquee headingClassName={H} />
       </Section>
