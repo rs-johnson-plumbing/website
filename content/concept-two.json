@@ -1,0 +1,45 @@
+{
+  "navigation": [
+    { "label": "Homeowners", "href": "/for-homeowners" },
+    { "label": "Builders", "href": "/for-builders" },
+    { "label": "Why Johnson", "href": "/for-homeowners#apart" },
+    { "label": "Reviews", "href": "/for-homeowners#reviews" }
+  ],
+  "ui": {
+    "primaryNavigation": "Primary",
+    "mobileNavigation": "Mobile",
+    "openMenu": "Open Menu",
+    "closeMenu": "Close Menu",
+    "skipToContent": "Skip to Content",
+    "requestService": "Request Service",
+    "switcherLabel": "Homepage Design",
+    "conceptOne": "Concept 1",
+    "conceptTwo": "Concept 2"
+  },
+  "hero": {
+    "eyebrow": "Your Local O'Fallon Plumber",
+    "headingFirst": "Plumbing",
+    "headingSecond": "Done Right.",
+    "line": "From Service Calls to New Construction.",
+    "homeownerAction": "I Need a Plumber",
+    "builderAction": "I'm a Builder",
+    "serviceArea": "Serving St. Charles County and West St. Louis County.",
+    "image": {
+      "src": "/images/concept-two/kitchen-illustrative.webp",
+      "alt": "Illustrative kitchen with a stainless steel faucet, white sink, and warm oak cabinetry. AI-generated design image, not a Johnson project.",
+      "caption": "AI-generated design image"
+    }
+  },
+  "services": {
+    "heading": "How Can We Help?",
+    "allLabel": "All Services",
+    "items": [
+      { "id": "heater", "label": "Water Heaters", "href": "/services/water-heaters" },
+      { "id": "leaks", "label": "Leaks and Repairs", "href": "/services/leaks-and-repairs" },
+      { "id": "drains", "label": "Drains and Sewer", "href": "/services/drains-and-sewer" },
+      { "id": "fixtures", "label": "Toilets and Faucets", "href": "/services/toilets-and-faucets" },
+      { "id": "remodels", "label": "Remodels", "href": "/for-builders#services" },
+      { "id": "other", "label": "Other Plumbing", "href": "/services" }
+    ]
+  }
+}

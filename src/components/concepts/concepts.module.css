@@ -1,0 +1,33 @@
+.switcher {
+  position: fixed;
+  left: 18px;
+  bottom: calc(18px + env(safe-area-inset-bottom, 0px));
+  z-index: 35;
+  display: flex;
+  padding: 4px;
+  gap: 2px;
+  border: 1px solid rgba(43, 43, 43, .16);
+  border-radius: 8px;
+  background: rgba(247, 245, 240, .82);
+  backdrop-filter: blur(12px);
+  box-shadow: 0 3px 16px rgba(43, 43, 43, .08);
+}
+.switcher button {
+  min-height: 40px;
+  padding: 0 11px;
+  border-radius: 5px;
+  color: #2b2b2b;
+  font-size: 12px;
+  font-weight: 600;
+}
+.switcher button[aria-pressed="true"] { background: rgba(40, 104, 168, .12); color: #2868a8; }
+.switcher button:focus-visible { outline: 2px solid #2868a8; outline-offset: 2px; }
+@media (min-width: 1140px) {
+  .switcher { bottom: 18px; }
+  .switcher button { min-height: 32px; }
+}
+@media (max-width: 1139px) {
+  :global(body:has(div[aria-hidden="false"] > a[data-track="call-sticky"])) .switcher {
+    bottom: calc(92px + env(safe-area-inset-bottom, 0px));
+  }
+}

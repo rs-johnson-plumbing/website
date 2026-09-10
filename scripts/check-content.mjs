@@ -11,8 +11,9 @@
  */
 import { readFileSync, readdirSync } from "node:fs";
 import { join } from "node:path";
+import { fileURLToPath } from "node:url";
 
-const dir = new URL("../content/", import.meta.url).pathname;
+const dir = fileURLToPath(new URL("../content/", import.meta.url));
 const errors = [];
 const brackets = [];
 
