@@ -105,11 +105,11 @@ export default function OurTeamPage() {
         <h2 id="work-h" className={cn("mb-8 lg:mb-10", H)}>
           {p.howWeWorkHeading}
         </h2>
-        <div className="grid grid-cols-1 gap-4 lg:grid-cols-2 lg:gap-5">
+        <div className="grid grid-cols-1 gap-8 lg:grid-cols-2 lg:gap-16">
           {(["homeowners", "builders"] as const).map((k) => {
             const block = team.howWeWork[k];
             return (
-              <div key={k} className="rounded-card border border-hairline bg-white p-5 lg:p-6">
+              <div key={k}>
                 <h3 className="inline-flex items-center gap-2 text-[19px] font-bold lg:text-[20px]">
                   <Icon name={k === "homeowners" ? "house" : "hammer"} size={20} strokeWidth={1.8} className="text-blue" />
                   {block.heading}

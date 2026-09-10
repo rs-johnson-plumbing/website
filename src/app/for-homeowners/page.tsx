@@ -13,7 +13,6 @@ import { IntakeBanner } from "@/components/blocks/IntakeBanner";
 import { Section, SectionHeading } from "@/components/ui/Section";
 import { Button } from "@/components/ui/Button";
 import { TextLink } from "@/components/ui/TextLink";
-import { IconTile } from "@/components/ui/Icon";
 import { cn } from "@/lib/cn";
 import { pageH2 } from "@/styles/headings";
 
@@ -103,13 +102,12 @@ export default function ForHomeownersPage() {
         </div>
       </Section>
 
-      {/* Signs: each card points to the service it belongs to */}
-      <Section id="signs" tone="white" pad="band" ariaLabelledby="signs-h" className="scroll-mt-[140px] border-y border-hairline">
+      {/* Signs: headed paragraphs with a rule above each, no boxes; each points to the service it belongs to */}
+      <Section id="signs" pad="band" ariaLabelledby="signs-h" className="scroll-mt-[140px]">
         <SectionHeading id="signs-h" title={homeowners.signs.heading} line={homeowners.signs.line} titleClassName={H} />
-        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 lg:gap-5">
+        <div className="grid grid-cols-1 gap-x-10 sm:grid-cols-2 lg:grid-cols-3">
           {signs.map((item) => (
-            <div key={item.title} className="flex flex-col items-start gap-3 rounded-card border border-hairline bg-white p-5 lg:p-6">
-              <IconTile name={item.icon} size={40} />
+            <div key={item.title} className="flex flex-col items-start gap-3 border-t border-hairline py-6 lg:py-7">
               <h3 className="text-[19px] font-bold leading-tight lg:text-[20px]">{item.title}</h3>
               <p className="text-[15px] leading-[1.65] text-charcoal lg:text-[16px]">{item.text}</p>
               <div className="mt-auto pt-1">
