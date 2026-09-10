@@ -5,7 +5,7 @@ import { C2Icon, type C2IconName } from "../ui/C2Icon";
 export function C2Apart() {
   const apart = copy.home.apart;
   return (
-    <section className="c2-section c2-section--paper" aria-labelledby="c2-apart-heading">
+    <section className="c2-section c2-section--apart c2-section--paper" aria-labelledby="c2-apart-heading">
       <div className="c2-wrap">
         <h2 id="c2-apart-heading" className="c2-h2 c2-center">
           {apart.heading}

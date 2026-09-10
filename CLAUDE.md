@@ -86,8 +86,15 @@ one. Only one design mounts at a time, so IDs and H1s are never duplicated.
   names the images; the screenshots live with the design files), which uses
   **ampersands in short labels** — "Leaks & Repairs", "Builders &
   Contractors". `scripts/check-content.mjs` allows them in
-  `content/concept-two.json` and nowhere else. Every other house rule above
-  still holds in both designs.
+  `content/concept-two.json` and nowhere else.
+- Concept 2's grounds are sampled from that authority and are lighter than
+  the brand tones: page `#FBF9F7`, band `#F7F4EF`, remodel panel `#F7F6F2`,
+  closing band `#0A447D` (a deep blue, not the brand blue). Brand blue
+  `#2868A8` still carries every button, link, and active state, and the
+  builders navy is unchanged. The authority is a ~1120px-wide design: compare
+  against it at that width, not at 1440, or every measurement reads ~1.3x
+  too large.
+- Every other house rule above still holds in both designs.
 
 ## Workflow
 

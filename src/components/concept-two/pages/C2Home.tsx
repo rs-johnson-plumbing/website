@@ -40,7 +40,6 @@ export function C2Home() {
         slot="bathRemodel"
         eyebrow={copy.home.remodel.eyebrow}
         heading={copy.home.remodel.heading}
-        line={copy.home.remodel.line}
         ctaLabel={copy.home.remodel.cta.label}
         ctaHref={copy.home.remodel.cta.href}
       />
