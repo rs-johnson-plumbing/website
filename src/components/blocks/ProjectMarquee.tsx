@@ -166,7 +166,6 @@ function ProjectViewer({ project, onClose }: { project: Project; onClose: () => 
         <div className="flex min-h-0 flex-col gap-1.5 overflow-y-auto px-4 py-4 lg:px-5 lg:py-5">
           <div className="text-[14px] text-slate">{project.city} · {project.type}</div>
           <h3 id="project-title" className="text-[22px] font-bold leading-tight tracking-[-0.01em] lg:text-[24px]">{project.name}</h3>
-          <div className="text-[14px] font-semibold text-slate">{project.address}</div>
           <p className="mt-1 text-[15px] leading-relaxed text-charcoal lg:text-[16px]">{project.description}</p>
         </div>
       </div>

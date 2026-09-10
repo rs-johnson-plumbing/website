@@ -6,7 +6,6 @@
     {
       "id": "magnolia-house",
       "name": "The Magnolia House",
-      "address": "14 Magnolia Ct, Chesterfield",
       "city": "Chesterfield",
       "type": "Custom Home",
       "description": "A two-story custom build with four and a half baths, a basement bar, and a tankless water heater. We ran underground before the slab, roughed in after framing, and set every fixture at trim.",
@@ -32,7 +31,6 @@
     {
       "id": "westminster-2023",
       "name": "2023 Westminster",
-      "address": "2023 Westminster Dr, Town and Country",
       "city": "Town and Country",
       "type": "Whole-House Remodel",
       "description": "A full re-plumb during a whole-house remodel, with the kitchen moved to the back of the house and two new baths. New supply throughout, new drains where the layout changed, and fixtures set on the builder's schedule.",
@@ -54,7 +52,6 @@
     {
       "id": "hawthorne-build",
       "name": "The Hawthorne Build",
-      "address": "318 Hawthorne Ln, O'Fallon",
       "city": "O'Fallon",
       "type": "Spec Build",
       "description": "A three-bath two-story spec home, underground through trim. We priced it off the plans, met every inspection, and had trim done a day ahead of the builder's walkthrough.",
@@ -76,7 +73,6 @@
     {
       "id": "prairie-ridge-118",
       "name": "118 Prairie Ridge",
-      "address": "118 Prairie Ridge Way, Wentzville",
       "city": "Wentzville",
       "type": "New Construction",
       "description": "New construction on a walkout lot with a sewer tie-in at the street and a sump system in the lower level. Underground and rough-in on a tight framing schedule.",
@@ -98,7 +94,6 @@
     {
       "id": "clearwater-residence",
       "name": "The Clearwater Residence",
-      "address": "7 Clearwater Ct, Wildwood",
       "city": "Wildwood",
       "type": "Basement Finish",
       "description": "A finished basement with a full bath and wet bar. New drain lines cut into the slab, a sump and ejector pit, and a gas line for the fireplace.",
