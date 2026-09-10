@@ -31,3 +31,16 @@ yarn-error.log*
 # playwright
 /test-results/
 /playwright-report/
+
+# local preview helpers
+/shot.mjs
+/preview.sh
+/err.mjs
+/url.mjs
+/cmp.mjs
+/cmp2.mjs
+/towebp.mjs
+/imgcheck.mjs
+/sample.mjs
+/measure.mjs
+/sections.mjs

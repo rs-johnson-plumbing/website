@@ -8,6 +8,8 @@ import { ServiceBand } from "@/components/blocks/ServiceBand";
 import { ServiceGrid, PageHeading } from "@/components/blocks/ServiceGrid";
 import { IntakeBanner } from "@/components/blocks/IntakeBanner";
 import { Section } from "@/components/ui/Section";
+import { ConceptPage } from "@/components/concepts/ConceptPage";
+import { C2Services } from "@/components/concept-two/pages/C2Services";
 
 export const metadata: Metadata = pageMetadata({ ...servicesHub.meta, path: "/services" });
 
@@ -17,7 +19,7 @@ export const metadata: Metadata = pageMetadata({ ...servicesHub.meta, path: "/se
  * banner. Audience-specific material (signs, why us, FAQ, reviews) lives on
  * /for-homeowners.
  */
-export default function ServicesPage() {
+function ConceptOneServices() {
   return (
     <>
       <JsonLd data={plumberJsonLd()} />
@@ -37,4 +39,8 @@ export default function ServicesPage() {
       <IntakeBanner audience="homeowners" />
     </>
   );
+}
+
+export default function ServicesPage() {
+  return <ConceptPage one={<ConceptOneServices />} two={<C2Services />} />;
 }

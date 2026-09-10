@@ -29,7 +29,9 @@ function load(name) {
 function walk(value, path, name) {
   if (typeof value === "string") {
     const where = `${name} › ${path}`;
-    if (value.includes("&") && !value.includes("&amp;")) errors.push(`${where}: ampersand in "${value.slice(0, 60)}"`);
+    // Concept 2 follows its own visual authority, which uses ampersands in
+    // short labels ("Leaks & Repairs"). Everywhere else the rule holds.
+    if (name !== "concept-two.json" && value.includes("&") && !value.includes("&amp;")) errors.push(`${where}: ampersand in "${value.slice(0, 60)}"`);
     // Quoted reviews are the neighbor's words; the punctuation rule is for our copy.
     const isQuote = name === "reviews.json" && /\.quote$/.test(path);
     if (value.includes("!") && !isQuote) errors.push(`${where}: exclamation point in "${value.slice(0, 60)}"`);

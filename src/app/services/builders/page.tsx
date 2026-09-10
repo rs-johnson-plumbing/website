@@ -10,6 +10,8 @@ import { BuilderServiceGrid } from "@/components/blocks/BuilderServiceGrid";
 import { PageHeading } from "@/components/blocks/ServiceGrid";
 import { IntakeBanner } from "@/components/blocks/IntakeBanner";
 import { Section } from "@/components/ui/Section";
+import { ConceptPage } from "@/components/concepts/ConceptPage";
+import { C2BuilderServices } from "@/components/concept-two/pages/C2BuilderServices";
 
 export const metadata: Metadata = pageMetadata({ ...servicesHub.buildersMeta, path: "/services/builders" });
 
@@ -18,7 +20,7 @@ export const metadata: Metadata = pageMetadata({ ...servicesHub.buildersMeta, pa
  * per stage with a big scene, every other band deep blue, then the bid
  * request banner.
  */
-export default function BuilderServicesPage() {
+function ConceptOneBuilderServices() {
   return (
     <AudienceProvider initial="builders" locked>
       <script dangerouslySetInnerHTML={{ __html: 'document.body.dataset.audience="builders";' }} />
@@ -39,4 +41,8 @@ export default function BuilderServicesPage() {
       <IntakeBanner audience="builders" />
     </AudienceProvider>
   );
+}
+
+export default function BuilderServicesPage() {
+  return <ConceptPage one={<ConceptOneBuilderServices />} two={<C2BuilderServices />} />;
 }

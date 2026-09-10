@@ -67,6 +67,35 @@ Plumber on every job.
   buttons edged in cream. Font: Figtree everywhere, including
   the logo wordmark (the logo files carry it as outlines).
 
+## Two concepts
+
+The site ships two complete designs behind one set of routes. Concept 1 is the
+original site and the default: it is the static HTML every route renders, so it
+is what search engines and a reader without JavaScript get. Concept 2 is the
+Modern Plumbing design, selected in the switcher at the lower left and
+remembered in `localStorage`; `?concept=1` and `?concept=2` link straight to
+one. Only one design mounts at a time, so IDs and H1s are never duplicated.
+
+- Concept 2 lives entirely in `src/components/concept-two/` and
+  `src/styles/concept-two.css`, under a `.c2` root with `c2-` prefixed class
+  names. It brings its own header, footer, phone bar, and request dialog.
+- **Never restyle Concept 1 to suit Concept 2, or the reverse.** A route wires
+  the two together with `ConceptPage`; each design's body is its own component.
+- Concept 2's copy lives in `content/concept-two.json`, and only there.
+- Concept 2 follows its visual authority (`docs/concept-two-photography.md`
+  names the images; the screenshots live with the design files), which uses
+  **ampersands in short labels** — "Leaks & Repairs", "Builders &
+  Contractors". `scripts/check-content.mjs` allows them in
+  `content/concept-two.json` and nowhere else.
+- Concept 2's grounds are sampled from that authority and are lighter than
+  the brand tones: page `#FBF9F7`, band `#F7F4EF`, remodel panel `#F7F6F2`,
+  closing band `#0A447D` (a deep blue, not the brand blue). Brand blue
+  `#2868A8` still carries every button, link, and active state, and the
+  builders navy is unchanged. The authority is a ~1120px-wide design: compare
+  against it at that width, not at 1440, or every measurement reads ~1.3x
+  too large.
+- Every other house rule above still holds in both designs.
+
 ## Workflow
 
 1. Small tweaks (copy edits, a class change, a content-file update) go

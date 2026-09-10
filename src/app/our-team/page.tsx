@@ -9,6 +9,8 @@ import { Section } from "@/components/ui/Section";
 import { Icon } from "@/components/ui/Icon";
 import { cn } from "@/lib/cn";
 import { pageH2 } from "@/styles/headings";
+import { ConceptPage } from "@/components/concepts/ConceptPage";
+import { C2Team } from "@/components/concept-two/pages/C2Team";
 
 export const metadata: Metadata = pageMetadata({ ...team.page.meta, path: "/our-team" });
 
@@ -67,7 +69,7 @@ function MemberBand({ member, sceneLeft }: { member: TeamMember; sceneLeft: bool
  * do not render until their placeholder flag clears), a short note about
  * the crew, the two How We Work lists, then the Request Service banner.
  */
-export default function OurTeamPage() {
+function ConceptOneTeam() {
   const ryan = team.members.find((m) => m.featured) ?? team.members[0];
   const members = [ryan, ...team.members.filter((m) => m.id !== ryan.id && !m.placeholder)];
   const hidden = team.members.some((m) => m.placeholder);
@@ -127,4 +129,8 @@ export default function OurTeamPage() {
       <IntakeBanner audience="both" />
     </>
   );
+}
+
+export default function OurTeamPage() {
+  return <ConceptPage one={<ConceptOneTeam />} two={<C2Team />} />;
 }

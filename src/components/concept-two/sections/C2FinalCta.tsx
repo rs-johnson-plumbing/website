@@ -1,0 +1,37 @@
+"use client";
+
+import { conceptTwo as copy, site, smsLink } from "@/lib/content";
+import { C2Button } from "../ui/C2Button";
+import { useRequestService } from "../ui/C2Request";
+
+/** The closing band: call, text, or request, on brand blue. */
+export function C2FinalCta() {
+  const cta = copy.home.finalCta;
+  const requestService = useRequestService();
+  return (
+    <section className="c2-final" aria-labelledby="c2-final-heading">
+      <svg className="c2-final-mark" viewBox="0 0 200 240" fill="none" aria-hidden="true">
+        <path d="M140 22 V150 A35 35 0 0 1 70 150 V138 A24 24 0 0 0 46 114 H18" stroke="#fff" strokeWidth="34" strokeLinejoin="round" />
+      </svg>
+      <div className="c2-wrap c2-final-inner">
+        <div>
+          <p className="c2-eyebrow">{cta.eyebrow}</p>
+          <h2 id="c2-final-heading">{cta.heading}</h2>
+        </div>
+        <div className="c2-final-actions">
+          <C2Button href={site.phone.tel} variant="on-dark" icon="phone" trailingIcon={null} data-track="call-final">
+            {copy.ui.call}
+            <small>{site.phone.display}</small>
+          </C2Button>
+          <C2Button href={smsLink()} variant="on-dark" icon="message" trailingIcon={null} data-track="text-final">
+            {copy.ui.text}
+          </C2Button>
+          <C2Button onClick={requestService} variant="on-dark" icon="calendar" trailingIcon={null}>
+            {copy.ui.requestShort}
+            <span className="c2-only-lg">&nbsp;Service</span>
+          </C2Button>
+        </div>
+      </div>
+    </section>
+  );
+}
