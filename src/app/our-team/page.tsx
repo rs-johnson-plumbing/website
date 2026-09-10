@@ -65,7 +65,7 @@ function MemberBand({ member, sceneLeft }: { member: TeamMember; sceneLeft: bool
  * Our Team: the faces page. Meet the Team, then one band per real plumber
  * (Ryan today; the four placeholder members stay in the content file but
  * do not render until their placeholder flag clears), a short note about
- * the crew, the two How We Work lists, then the Request a Visit banner.
+ * the crew, the two How We Work lists, then the Request Service banner.
  */
 export default function OurTeamPage() {
   const ryan = team.members.find((m) => m.featured) ?? team.members[0];

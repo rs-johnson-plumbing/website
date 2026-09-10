@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
 
 /**
- * Request a Visit intake, two posts from the homepage hero.
+ * Request Service intake, two posts from the homepage hero.
  *
  * Step 1: { address } — capture the service address and answer "in area".
  * Every address is in area for now; the point is to capture it fast.

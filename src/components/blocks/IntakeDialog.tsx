@@ -8,7 +8,7 @@ import { ServiceIllustration, hasServiceIllustration } from "./ServiceIllustrati
 import { cn } from "@/lib/cn";
 
 /**
- * Shared shell and parts for the quick-capture flows (Request a Visit,
+ * Shared shell and parts for the quick-capture flows (Request Service,
  * Request a Bid): centered white dialog, Escape and backdrop
  * close, body scroll lock, plus the heading style, the icon chip, and the
  * back link. The flows own their stages and copy.

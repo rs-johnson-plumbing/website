@@ -24,7 +24,7 @@
     }
   },
   "availability": {
-    "button": "Request a Visit",
+    "button": "Request Service",
     "addressHeading": "Where's the house?",
     "addressLabel": "Service address",
     "addressPlaceholder": "Street address and city",
@@ -348,7 +348,7 @@
     "noPlans": "no plans attached"
   },
   "banner": {
-    "service": "Request a Visit",
+    "service": "Request Service",
     "bid": "Request a Bid",
     "homeowners": {
       "heading": "Water on the Floor?",
@@ -360,7 +360,7 @@
     }
   },
   "chooser": {
-    "button": "Request a Visit",
+    "button": "Request Service",
     "barButton": "Request",
     "heading": "Is this for your home or a job site?",
     "homeowner": "My Home",

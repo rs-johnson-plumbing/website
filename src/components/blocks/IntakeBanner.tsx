@@ -7,8 +7,8 @@ import { CallText } from "@/components/ui/CallText";
 /**
  * The closing band at the bottom of every page: a heading, one line that
  * says what to do if it is urgent and what to do if it is not, the phone
- * pair, and one request button. Request a Visit on homeowner pages,
- * Request a Bid on builder pages, and one Request a Visit that asks home
+ * pair, and one request button. Request Service on homeowner pages,
+ * Request a Bid on builder pages, and one Request Service that asks home
  * or job site first on pages that serve everyone (homepage, team). Sand,
  * so the page ends on the same warm ground it started on; the builders
  * pages keep it cream-side too, since it is not a dark band.
