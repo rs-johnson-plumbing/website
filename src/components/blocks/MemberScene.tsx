@@ -1,15 +1,16 @@
 import { AvatarArt, hasAvatar } from "./Avatar";
 import { cn } from "@/lib/cn";
+import { colors } from "@/styles/tokens";
 
 /**
  * The team page's photo slot: a 4:3 scene in the same style as the service
- * bands, the plumber's cartoon avatar large on the light-blue wall over the
+ * bands, the plumber's cartoon avatar large on the sand wall over the
  * sand floor. Swap for the real photo when one exists.
  */
-const C = "#2B2B2B";
-const T = "#E4ECF6";
-const H = "#E3DFD5";
-const W = "#FFFFFF";
+const C = colors.charcoal;
+const T = colors.sand;
+const H = colors.hairline;
+const W = colors.white;
 
 export function MemberScene({ id, title, className }: { id: string; title: string; className?: string }) {
   if (!hasAvatar(id)) return null;

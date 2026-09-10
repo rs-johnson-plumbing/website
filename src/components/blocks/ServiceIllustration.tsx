@@ -1,22 +1,27 @@
+import { colors } from "@/styles/tokens";
+
 /**
  * Cartoon service illustrations, one per service slug. Rounded shapes, one
- * charcoal outline weight, brand blue for water, flame, and fittings,
- * off-white fills, all on the same light-blue disc. Pure SVG so they scale
- * from a 64px tile to a truck door.
+ * charcoal outline weight, two inks: brand blue for water, flame, pipe runs,
+ * and the one active part; slate for metal (fittings, caps, handles, rims).
+ * Off-white fills, all on the same sand disc so they sit on the warm page
+ * rather than a software tint. Pure SVG so they scale from a 64px tile to a
+ * truck door.
  */
-const C = "#2B2B2B";
-const B = "#2868A8";
-const T = "#E4ECF6";
-const O = "#F7F5F0";
-const W = "#FFFFFF";
-const H = "#E3DFD5";
+const C = colors.charcoal;
+const B = colors.blue;
+const T = colors.sand;
+const M = colors.slate;
+const O = colors.offwhite;
+const W = colors.white;
+const H = colors.hairline;
 
 const art: Record<string, React.ReactNode> = {
   "water-heaters": (
     <>
       <path d="M62 22 v14 M98 22 v14" stroke={C} strokeWidth="5" />
       <rect x="46" y="36" width="68" height="92" rx="14" fill={O} stroke={C} strokeWidth="4" />
-      <rect x="46" y="36" width="68" height="20" rx="10" fill={B} stroke={C} strokeWidth="4" />
+      <rect x="46" y="36" width="68" height="20" rx="10" fill={M} stroke={C} strokeWidth="4" />
       <circle cx="80" cy="86" r="11" fill={W} stroke={C} strokeWidth="4" />
       <path d="M80 86 l6 -6" stroke={C} strokeWidth="3" />
       <path d="M70 128 c0 -8 4 -10 6 -14 c2 6 8 8 8 14 c0 6 -4 9 -7 9 c-3 0 -7 -3 -7 -9z" fill={B} stroke={C} strokeWidth="3" />
@@ -27,8 +32,8 @@ const art: Record<string, React.ReactNode> = {
   "leaks-and-repairs": (
     <>
       <rect x="22" y="58" width="116" height="26" rx="4" fill={O} stroke={C} strokeWidth="4" />
-      <rect x="16" y="52" width="14" height="38" rx="3" fill={B} stroke={C} strokeWidth="4" />
-      <rect x="130" y="52" width="14" height="38" rx="3" fill={B} stroke={C} strokeWidth="4" />
+      <rect x="16" y="52" width="14" height="38" rx="3" fill={M} stroke={C} strokeWidth="4" />
+      <rect x="130" y="52" width="14" height="38" rx="3" fill={M} stroke={C} strokeWidth="4" />
       <path d="M74 58 l6 9 l-6 8 l6 9" stroke={C} strokeWidth="3" />
       <path d="M80 98 c0 -6 4 -8 5 -11 c1 3 5 5 5 11 a5 5 0 0 1 -10 0z" fill={B} stroke={C} strokeWidth="3" />
       <path d="M66 118 c0 -6 4 -8 5 -11 c1 3 5 5 5 11 a5 5 0 0 1 -10 0z" fill={B} stroke={C} strokeWidth="3" />
@@ -56,8 +61,8 @@ const art: Record<string, React.ReactNode> = {
       <rect x="52" y="112" width="56" height="12" rx="4" fill={O} stroke={C} strokeWidth="4" />
       <rect x="70" y="74" width="20" height="40" rx="5" fill={O} stroke={C} strokeWidth="4" />
       <path d="M80 74 v-16 c0 -14 10 -22 26 -22 h4 v18 h-4 c-6 0 -8 2 -8 6 v6" stroke={C} strokeWidth="4" fill={O} />
-      <rect x="60" y="54" width="20" height="12" rx="3" fill={B} stroke={C} strokeWidth="3" />
-      <rect x="56" y="46" width="28" height="10" rx="5" fill={B} stroke={C} strokeWidth="3" />
+      <rect x="60" y="54" width="20" height="12" rx="3" fill={M} stroke={C} strokeWidth="3" />
+      <rect x="56" y="46" width="28" height="10" rx="5" fill={M} stroke={C} strokeWidth="3" />
       <path d="M104 68 c0 -6 4 -8 5 -11 c1 3 5 5 5 11 a5 5 0 0 1 -10 0z" fill={B} stroke={C} strokeWidth="3" />
       <path d="M100 92 c2 6 8 8 12 6" stroke={B} strokeWidth="4" />
     </>
@@ -74,18 +79,18 @@ const art: Record<string, React.ReactNode> = {
         <rect x="88" y="48" width="24" height="24" />
       </g>
       <path d="M30 84 h100 v18 c0 14 -10 24 -24 24 h-52 c-14 0 -24 -10 -24 -24z" fill={O} stroke={C} strokeWidth="4" />
-      <rect x="24" y="78" width="112" height="10" rx="5" fill={B} stroke={C} strokeWidth="3" />
+      <rect x="24" y="78" width="112" height="10" rx="5" fill={M} stroke={C} strokeWidth="3" />
       <path d="M40 96 c8 -6 16 6 24 0 c8 -6 16 6 24 0 c8 -6 16 6 24 0" stroke={B} strokeWidth="4" />
       <path d="M44 126 v10 M116 126 v10" stroke={C} strokeWidth="5" />
       <path d="M118 78 v-20 c0 -8 6 -12 12 -12" stroke={C} strokeWidth="4" />
-      <circle cx="130" cy="46" r="5" fill={B} stroke={C} strokeWidth="3" />
+      <circle cx="130" cy="46" r="5" fill={M} stroke={C} strokeWidth="3" />
     </>
   ),
   "water-softeners": (
     <>
       {/* resin tank with a control head, brine tank beside it */}
       <rect x="40" y="46" width="44" height="86" rx="12" fill={O} stroke={C} strokeWidth="4" />
-      <rect x="34" y="30" width="56" height="22" rx="7" fill={B} stroke={C} strokeWidth="4" />
+      <rect x="34" y="30" width="56" height="22" rx="7" fill={M} stroke={C} strokeWidth="4" />
       <circle cx="62" cy="41" r="4" fill={W} />
       <rect x="94" y="70" width="40" height="62" rx="8" fill={W} stroke={C} strokeWidth="4" />
       <rect x="90" y="62" width="48" height="12" rx="4" fill={O} stroke={C} strokeWidth="4" />
@@ -99,8 +104,8 @@ const art: Record<string, React.ReactNode> = {
   "gas-lines": (
     <>
       <rect x="22" y="94" width="116" height="20" rx="4" fill={O} stroke={C} strokeWidth="4" />
-      <rect x="16" y="88" width="12" height="32" rx="3" fill={B} stroke={C} strokeWidth="3" />
-      <rect x="132" y="88" width="12" height="32" rx="3" fill={B} stroke={C} strokeWidth="3" />
+      <rect x="16" y="88" width="12" height="32" rx="3" fill={M} stroke={C} strokeWidth="3" />
+      <rect x="132" y="88" width="12" height="32" rx="3" fill={M} stroke={C} strokeWidth="3" />
       <circle cx="80" cy="104" r="13" fill={W} stroke={C} strokeWidth="4" />
       <path d="M80 91 v-14 M68 77 h24" stroke={C} strokeWidth="5" />
       <path d="M80 68 c-12 -10 -14 -24 -4 -34 c0 8 6 10 6 10 c0 -8 6 -14 12 -18 c-2 10 8 14 8 26 c0 10 -8 18 -18 18 c-2 0 -3 0 -4 -2z" fill={B} stroke={C} strokeWidth="3" />
@@ -114,7 +119,7 @@ const art: Record<string, React.ReactNode> = {
       <path d="M44 96 c8 -6 16 6 24 0 c8 -6 16 6 24 0 c8 -6 16 6 24 0" stroke={B} strokeWidth="4" />
       <rect x="66" y="74" width="28" height="40" rx="6" fill={C} />
       <rect x="72" y="80" width="16" height="8" rx="2" fill={T} />
-      <circle cx="108" cy="84" r="8" fill={B} stroke={C} strokeWidth="3" />
+      <circle cx="108" cy="84" r="8" fill={M} stroke={C} strokeWidth="3" />
       <path d="M104 90 l-8 8" stroke={C} strokeWidth="3" />
       <path d="M80 74 v-30 h40" stroke={C} strokeWidth="6" />
       <path d="M80 74 v-30 h40" stroke={O} strokeWidth="2" />
@@ -125,8 +130,8 @@ const art: Record<string, React.ReactNode> = {
     <>
       <path d="M30 110 h50 v-40 h30" stroke={C} strokeWidth="22" />
       <path d="M30 110 h50 v-40 h30" stroke={O} strokeWidth="12" />
-      <rect x="104" y="58" width="12" height="24" rx="3" fill={B} stroke={C} strokeWidth="3" />
-      <rect x="24" y="98" width="12" height="24" rx="3" fill={B} stroke={C} strokeWidth="3" />
+      <rect x="104" y="58" width="12" height="24" rx="3" fill={M} stroke={C} strokeWidth="3" />
+      <rect x="24" y="98" width="12" height="24" rx="3" fill={M} stroke={C} strokeWidth="3" />
       <path d="M92 78 l6 -10 M100 84 l10 -6 M86 66 l-2 -12" stroke={B} strokeWidth="5" />
       <circle cx="120" cy="36" r="18" fill={B} stroke={C} strokeWidth="3" />
       <path d="M120 26 v12 M120 44 v1" stroke={W} strokeWidth="5" />
@@ -143,7 +148,7 @@ const art: Record<string, React.ReactNode> = {
       <circle cx="94" cy="112" r="4" fill={W} stroke={C} strokeWidth="3" />
       <path d="M54 96 h10 M54 104 h6" stroke={H} strokeWidth="3" />
       <g transform="rotate(-45 118 116)">
-        <rect x="104" y="108" width="34" height="14" rx="3" fill={B} stroke={C} strokeWidth="3" />
+        <rect x="104" y="108" width="34" height="14" rx="3" fill={M} stroke={C} strokeWidth="3" />
         <path d="M138 108 l10 7 l-10 7z" fill={O} stroke={C} strokeWidth="3" />
         <path d="M104 108 v14" stroke={C} strokeWidth="3" />
       </g>
@@ -184,9 +189,9 @@ const art: Record<string, React.ReactNode> = {
       <path d="M52 112 h56 v10 a12 12 0 0 1 -12 12 h-32 a12 12 0 0 1 -12 -12z" fill={W} stroke={C} strokeWidth="4" />
       <path d="M80 100 v-30 a14 14 0 0 1 14 -14 h4 a8 8 0 0 1 8 8 v6" fill="none" stroke={C} strokeWidth="6" />
       <path d="M80 100 v-30 a14 14 0 0 1 14 -14 h4 a8 8 0 0 1 8 8 v6" fill="none" stroke={W} strokeWidth="2" />
-      <rect x="99" y="70" width="14" height="8" rx="2" fill={B} stroke={C} strokeWidth="3" />
-      <rect x="60" y="86" width="12" height="14" rx="3" fill={B} stroke={C} strokeWidth="3" />
-      <rect x="88" y="86" width="12" height="14" rx="3" fill={B} stroke={C} strokeWidth="3" />
+      <rect x="99" y="70" width="14" height="8" rx="2" fill={M} stroke={C} strokeWidth="3" />
+      <rect x="60" y="86" width="12" height="14" rx="3" fill={M} stroke={C} strokeWidth="3" />
+      <rect x="88" y="86" width="12" height="14" rx="3" fill={M} stroke={C} strokeWidth="3" />
       <path d="M106 82 v12" stroke={B} strokeWidth="4" />
       <path d="M40 46 l3 8 l8 3 l-8 3 l-3 8 l-3 -8 l-8 -3 l8 -3z" fill={B} stroke={C} strokeWidth="2.5" />
       <path d="M120 36 l2 5 l5 2 l-5 2 l-2 5 l-2 -5 l-5 -2 l5 -2z" fill={B} stroke={C} strokeWidth="2" />
@@ -210,7 +215,7 @@ const art: Record<string, React.ReactNode> = {
   "replace-or-install": (
     <>
       <rect x="44" y="44" width="56" height="84" rx="12" fill={O} stroke={C} strokeWidth="4" />
-      <rect x="44" y="44" width="56" height="18" rx="9" fill={B} stroke={C} strokeWidth="4" />
+      <rect x="44" y="44" width="56" height="18" rx="9" fill={M} stroke={C} strokeWidth="4" />
       <circle cx="72" cy="92" r="9" fill={W} stroke={C} strokeWidth="3" />
       <path d="M60 22 v14 M84 22 v14" stroke={C} strokeWidth="5" />
       <circle cx="118" cy="52" r="20" fill={B} stroke={C} strokeWidth="4" />
@@ -222,7 +227,7 @@ const art: Record<string, React.ReactNode> = {
       <rect x="52" y="112" width="56" height="12" rx="4" fill={O} stroke={C} strokeWidth="4" />
       <rect x="70" y="72" width="20" height="42" rx="5" fill={O} stroke={C} strokeWidth="4" />
       <path d="M80 72 v-14 c0 -14 10 -22 26 -22 h6 v18 h-6 c-6 0 -8 2 -8 6 v8" stroke={C} strokeWidth="4" fill={O} />
-      <rect x="56" y="46" width="30" height="10" rx="5" fill={B} stroke={C} strokeWidth="3" />
+      <rect x="56" y="46" width="30" height="10" rx="5" fill={M} stroke={C} strokeWidth="3" />
       <path d="M108 74 c0 -6 4 -8 5 -11 c1 3 5 5 5 11 a5 5 0 0 1 -10 0z" fill={B} stroke={C} strokeWidth="3" />
       <path d="M100 96 c4 6 12 8 18 4" stroke={B} strokeWidth="4" />
       <path d="M40 60 c6 -2 6 -10 0 -12 M32 70 c10 -4 10 -20 0 -24" stroke={B} strokeWidth="3" opacity="0.6" />
@@ -231,7 +236,7 @@ const art: Record<string, React.ReactNode> = {
   toilet: (
     <>
       <rect x="86" y="34" width="34" height="46" rx="6" fill={O} stroke={C} strokeWidth="4" />
-      <rect x="92" y="28" width="22" height="8" rx="3" fill={B} stroke={C} strokeWidth="3" />
+      <rect x="92" y="28" width="22" height="8" rx="3" fill={M} stroke={C} strokeWidth="3" />
       <path d="M40 80 h64 v18 c0 16 -12 26 -28 26 h-8 c-16 0 -28 -10 -28 -26z" fill={W} stroke={C} strokeWidth="4" />
       <rect x="34" y="72" width="76" height="12" rx="6" fill={O} stroke={C} strokeWidth="4" />
       <path d="M66 124 v8 h20 v-8" stroke={C} strokeWidth="4" fill={O} />
@@ -242,9 +247,9 @@ const art: Record<string, React.ReactNode> = {
     <>
       <rect x="28" y="84" width="104" height="44" rx="8" fill={O} stroke={C} strokeWidth="4" />
       <path d="M40 84 v24 c0 6 4 10 10 10 h60 c6 0 10 -4 10 -10 v-24" fill={W} stroke={C} strokeWidth="3" />
-      <rect x="22" y="78" width="116" height="10" rx="5" fill={B} stroke={C} strokeWidth="3" />
+      <rect x="22" y="78" width="116" height="10" rx="5" fill={M} stroke={C} strokeWidth="3" />
       <path d="M80 78 v-22 c0 -12 8 -18 20 -18 h6" stroke={C} strokeWidth="4" fill="none" />
-      <rect x="102" y="32" width="14" height="12" rx="3" fill={B} stroke={C} strokeWidth="3" />
+      <rect x="102" y="32" width="14" height="12" rx="3" fill={M} stroke={C} strokeWidth="3" />
       <path d="M108 50 c0 -5 3 -7 4 -9 c1 2 4 4 4 9 a4 4 0 0 1 -8 0z" fill={B} stroke={C} strokeWidth="3" />
       <rect x="40" y="26" width="30" height="30" rx="4" fill={W} stroke={C} strokeWidth="3" />
       <path d="M55 26 v30 M40 41 h30" stroke={C} strokeWidth="2" />
@@ -256,7 +261,7 @@ const art: Record<string, React.ReactNode> = {
       <path d="M28 56 l52 -30 l52 30" fill={W} stroke={C} strokeWidth="4" />
       <path d="M40 120 v-12 h12 v-12 h12 v-12 h12 v-12" stroke={C} strokeWidth="4" fill="none" />
       <path d="M92 76 h28 v30" stroke={B} strokeWidth="6" />
-      <rect x="114" y="100" width="12" height="20" rx="3" fill={B} stroke={C} strokeWidth="3" />
+      <rect x="114" y="100" width="12" height="20" rx="3" fill={M} stroke={C} strokeWidth="3" />
       <path d="M96 100 c0 -5 3 -7 4 -9 c1 2 4 4 4 9 a4 4 0 0 1 -8 0z" fill={B} stroke={C} strokeWidth="3" />
     </>
   ),
@@ -265,8 +270,8 @@ const art: Record<string, React.ReactNode> = {
       <path d="M32 74 l48 -40 l48 40" fill={W} stroke={C} strokeWidth="4" />
       <path d="M44 66 v64 h72 v-64" fill={O} stroke={C} strokeWidth="4" />
       <path d="M56 130 v-40 h20 v-16 h28 v56" stroke={B} strokeWidth="6" fill="none" />
-      <rect x="70" y="86" width="12" height="10" rx="2" fill={B} stroke={C} strokeWidth="3" />
-      <rect x="98" y="70" width="12" height="10" rx="2" fill={B} stroke={C} strokeWidth="3" />
+      <rect x="70" y="86" width="12" height="10" rx="2" fill={M} stroke={C} strokeWidth="3" />
+      <rect x="98" y="70" width="12" height="10" rx="2" fill={M} stroke={C} strokeWidth="3" />
       <path d="M104 106 c0 -5 3 -7 4 -9 c1 2 4 4 4 9 a4 4 0 0 1 -8 0z" fill={B} stroke={C} strokeWidth="3" />
     </>
   ),

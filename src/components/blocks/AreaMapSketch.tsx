@@ -8,7 +8,7 @@ import { cn } from "@/lib/cn";
  */
 const C = "#2B2B2B";
 const B = "#2868A8";
-const T = "#E4ECF6";
+const T = "#EFEBE1";
 const W = "#FFFFFF";
 const S = "#6E7178";
 const RIVER = "#C5D6F6";

@@ -41,7 +41,7 @@
   "builders": {
     "heading": "Builder Services",
     "line": "",
-    "button": "Submit Bid Request"
+    "button": "Request a Bid"
   },
   "tabs": [
     {

@@ -38,7 +38,7 @@ export function MessageForm({ className, heading = true }: { className?: string;
         </>
       )}
       {status === "sent" ? (
-        <p className="rounded-btn bg-blue-tint px-4 py-3 text-[15px] font-semibold">{f.success}</p>
+        <p className="rounded-btn bg-sand px-4 py-3 text-[15px] font-semibold">{f.success}</p>
       ) : (
         <>
           <div className="grid grid-cols-1 gap-2.5 lg:grid-cols-2">

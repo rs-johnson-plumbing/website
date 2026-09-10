@@ -1,6 +1,13 @@
 {
   "heading": "Meet the Team",
   "line": "Every plumber on our crew is licensed, insured, background-checked, and drives a marked R.S. Johnson truck.",
+  "strip": {
+    "line": "Ryan answers the phone, bids the job, and brings the same four licensed plumbers every time. No call center, no strangers at the door."
+  },
+  "crew": {
+    "heading": "The Crew",
+    "line": "Four licensed plumbers, background-checked, in marked R.S. Johnson trucks. Their names and photos are on the way; until then, the plumber who shows up will text you a name and an ETA first."
+  },
   "groupPhoto": {
     "src": "/photos/crew-group.jpg",
     "alt": "Whole crew standing in front of two marked company trucks",

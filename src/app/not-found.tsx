@@ -11,7 +11,7 @@ export default function NotFound() {
   return (
     <Section pad="default">
       <div className="max-w-2xl">
-        <div className="text-[14px] font-bold uppercase tracking-[0.04em] text-slate">404</div>
+        <div className="text-[14px] text-slate">Error 404</div>
         <h1 className="mt-2 text-h1-m lg:text-h1">{nf.heading}</h1>
         <p className="mt-4 text-[16px] leading-[1.7] lg:text-body">{nf.line}</p>
         <div className="mt-6">

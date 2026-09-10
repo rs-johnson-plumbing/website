@@ -8,10 +8,10 @@ import { ServiceIllustration, hasServiceIllustration } from "./ServiceIllustrati
 import { cn } from "@/lib/cn";
 
 /**
- * Shared shell and parts for the quick-capture flows (Submit Service
- * Request, Submit Bid Request): centered white dialog, Escape and backdrop
- * close, body scroll lock, plus the heading style, the icon chip, the
- * summary row, and the back link. The flows own their stages and copy.
+ * Shared shell and parts for the quick-capture flows (Request a Visit,
+ * Request a Bid): centered white dialog, Escape and backdrop
+ * close, body scroll lock, plus the heading style, the icon chip, and the
+ * back link. The flows own their stages and copy.
  */
 export const intakeHeading = "pr-7 text-[18px] font-bold leading-tight tracking-[-0.01em] text-charcoal lg:text-[21px]";
 export const intakeInput = "h-[52px] w-full min-w-0 rounded-btn border-[1.5px] border-hairline-strong bg-white px-3.5 text-[16px] text-charcoal placeholder:text-slate focus:border-blue focus:outline-none";
@@ -32,21 +32,12 @@ export function Chip({ icon, illustration, label, onClick, track, dashed = false
       {illustration && hasServiceIllustration(illustration) ? (
         <ServiceIllustration slug={illustration} className="h-11 w-11 shrink-0" />
       ) : (
-        <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-tile bg-blue-tint text-blue">
+        <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-tile bg-sand text-charcoal">
           <Icon name={icon} size={20} />
         </span>
       )}
       <span>{label}</span>
     </button>
-  );
-}
-
-export function Row({ label, children }: { label: string; children: React.ReactNode }) {
-  return (
-    <div className="py-2.5">
-      <dt className="text-[11px] font-bold uppercase tracking-[0.06em] text-slate">{label}</dt>
-      <dd className="mt-0.5 text-[15px] font-semibold leading-snug text-charcoal">{children}</dd>
-    </div>
   );
 }
 
