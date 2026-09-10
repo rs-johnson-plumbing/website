@@ -9,8 +9,8 @@ import { IconTile } from "@/components/ui/Icon";
  * name so content stays unchanged; falls back to the icon tile.
  */
 const C = "#2B2B2B";
-const B = "#246FF2";
-const T = "#E3ECFD";
+const B = "#2868A8";
+const T = "#E4ECF6";
 const O = "#F7F5F0";
 const W = "#FFFFFF";
 

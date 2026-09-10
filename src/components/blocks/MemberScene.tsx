@@ -7,7 +7,7 @@ import { cn } from "@/lib/cn";
  * sand floor. Swap for the real photo when one exists.
  */
 const C = "#2B2B2B";
-const T = "#E3ECFD";
+const T = "#E4ECF6";
 const H = "#E3DFD5";
 const W = "#FFFFFF";
 

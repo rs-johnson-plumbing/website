@@ -6,17 +6,17 @@
  * outside a class name (SVG strokes, JSON-LD, etc.).
  *
  * Brand blues are sampled from the UngerBuild sign-in screen Daren supplied
- * (eagle #246FF2, navy 900 #0D2A4D).
+ * (eagle #2868A8, navy 900 #0D2A4D).
  */
 export const colors = {
   offwhite: "#F7F5F0",
   charcoal: "#2B2B2B",
-  /** Brand blue, from the UngerBuild eagle: buttons, links, active states,
-   * illustration strokes, and the logo flanges. */
-  blue: "#246FF2",
+  /** Brand blue, the St. Louis Blues alternate-jersey blue: buttons, links,
+   * active states, illustration strokes, and the logo flanges. */
+  blue: "#2868A8",
   blueDark: "#0D2A4D",
-  blueTint: "#E3ECFD",
-  blueOnDark: "#C7D9FA",
+  blueTint: "#E4ECF6",
+  blueOnDark: "#C2D6EE",
   /** Copper. Not in use since the palette went back to blue; kept for reference. */
   copper: "#A85A2E",
   /** Navy 900 family: blueDark is the builders bands, blueInk the deepest band. */
@@ -28,7 +28,7 @@ export const colors = {
   white: "#FFFFFF",
   onDarkMuted: "#C9D3E3",
   onDarkHelper: "#D6DFEE",
-  onDarkBlueTint: "#C7D9FA",
+  onDarkBlueTint: "#C2D6EE",
   darkCard: "#16385F",
   darkBorder: "#4F6E99",
 } as const;

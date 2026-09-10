@@ -118,7 +118,7 @@ export function MetroMap({ className, variant = "ink", frame = "wide", pin = tru
           <rect width="1800" height="500" fill="url(#metro-fade)" />
         </mask>
         <pattern id="metro-grid" width="40" height="40" patternUnits="userSpaceOnUse">
-          <path d="M40 0H0V40" fill="none" stroke="#246FF2" strokeWidth="0.8" />
+          <path d="M40 0H0V40" fill="none" stroke="#2868A8" strokeWidth="0.8" />
         </pattern>
       </defs>
       <g mask={frame === "wide" ? "url(#metro-mask)" : undefined}>
@@ -128,10 +128,10 @@ export function MetroMap({ className, variant = "ink", frame = "wide", pin = tru
           {pin && (
             <>
               <g transform="translate(475 300)">
-                <path d="M0 0 c-14 -18 -18 -26 -18 -36 a18 18 0 0 1 36 0 c0 10 -4 18 -18 36z" fill="#246FF2" stroke="#F7F5F0" strokeWidth="3" opacity="0.9" />
+                <path d="M0 0 c-14 -18 -18 -26 -18 -36 a18 18 0 0 1 36 0 c0 10 -4 18 -18 36z" fill="#2868A8" stroke="#F7F5F0" strokeWidth="3" opacity="0.9" />
                 <circle cx="0" cy="-36" r="7" fill="#F7F5F0" />
               </g>
-              <text x="475" y="292" dy="-56" fontSize="16" fontWeight="800" textAnchor="middle" fill="#246FF2" fontFamily="var(--font-figtree), system-ui, sans-serif">O&apos;Fallon</text>
+              <text x="475" y="292" dy="-56" fontSize="16" fontWeight="800" textAnchor="middle" fill="#2868A8" fontFamily="var(--font-figtree), system-ui, sans-serif">O&apos;Fallon</text>
             </>
           )}
           {/* Rivers: water */}
@@ -162,7 +162,7 @@ export function MetroMap({ className, variant = "ink", frame = "wide", pin = tru
           {pipes && (
             <g opacity="0.3">
               {joints.map(([x, y], i) => (
-                <rect key={i} x={x - 8} y={y - 8} width="16" height="16" rx="3" fill="#246FF2" />
+                <rect key={i} x={x - 8} y={y - 8} width="16" height="16" rx="3" fill="#2868A8" />
               ))}
             </g>
           )}
@@ -177,10 +177,10 @@ export function MetroMap({ className, variant = "ink", frame = "wide", pin = tru
           {/* Home base: a shutoff valve at O'Fallon on the valve treatment */}
           {variant === "valve" && (
             <g transform={`translate(${home[0]} ${home[1]})`} opacity="0.9">
-              <circle r="22" fill="var(--map-ground)" stroke="#246FF2" strokeWidth="4" />
-              <circle r="13" fill="none" stroke="#246FF2" strokeWidth="4" />
-              <path d="M0 -13V13M-13 0H13" stroke="#246FF2" strokeWidth="4" />
-              <circle r="4" fill="#246FF2" />
+              <circle r="22" fill="var(--map-ground)" stroke="#2868A8" strokeWidth="4" />
+              <circle r="13" fill="none" stroke="#2868A8" strokeWidth="4" />
+              <path d="M0 -13V13M-13 0H13" stroke="#2868A8" strokeWidth="4" />
+              <circle r="4" fill="#2868A8" />
             </g>
           )}
           {/* Shields, on the ink version only */}

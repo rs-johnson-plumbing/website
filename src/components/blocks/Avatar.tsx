@@ -6,8 +6,8 @@
  * them generic. Keyed by team member id.
  */
 const C = "#2B2B2B";
-const B = "#246FF2";
-const T = "#E3ECFD";
+const B = "#2868A8";
+const T = "#E4ECF6";
 const W = "#FFFFFF";
 
 type Look = {
