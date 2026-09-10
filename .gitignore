@@ -35,3 +35,5 @@ yarn-error.log*
 # local preview helpers
 /shot.mjs
 /preview.sh
+/err.mjs
+/url.mjs

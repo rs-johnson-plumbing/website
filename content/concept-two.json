@@ -81,6 +81,11 @@
       "src": null,
       "alt": "The R.S. Johnson Plumbing crew in front of two marked trucks.",
       "note": "Whole crew, trucks behind, waist up"
+    },
+    "ownerPortrait": {
+      "src": null,
+      "alt": "Ryan Johnson, owner and Master Plumber.",
+      "note": "Ryan, head and shoulders, company gear, outdoors"
     }
   },
   "home": {
@@ -220,9 +225,13 @@
   },
   "homeowners": {
     "hero": {
-      "eyebrow": "For Your Home",
+      "eyebrow": "Trusted in St. Louis",
+      "headingLines": [
+        "For Your Home.",
+        "A Plumber You Can Count On."
+      ],
       "heading": "For Your Home. A Plumber You Can Count On.",
-      "lead": "Repairs, water heaters, drains, fixtures, remodel plumbing and more.",
+      "lead": "Repairs, water heaters, drains, fixtures, remodel plumbing and more, across St. Charles and West St. Louis Counties.",
       "primary": {
         "label": "Request Service"
       },
@@ -250,6 +259,7 @@
     ],
     "services": {
       "heading": "Common Services",
+      "line": "Tap a service to see what we do and what it usually takes.",
       "seeAll": "See All Services"
     },
     "remodel": {
@@ -291,19 +301,19 @@
   "builders": {
     "hero": {
       "eyebrow": "Builders & Contractors",
+      "headingLines": [
+        "Let's Build",
+        "Together."
+      ],
       "heading": "Let's Build Together.",
-      "lead": "Reliable plumbing crews for new construction and renovations.",
+      "lead": "Reliable plumbing crews for new construction and renovations, from the first takeoff to the final walk.",
       "primary": {
         "label": "Request a Bid",
         "href": "#request-a-bid"
       },
       "secondary": {
         "label": "Call 314-220-1827"
-      },
-      "headingLines": [
-        "Let's Build",
-        "Together."
-      ]
+      }
     },
     "benefits": [
       {
@@ -371,13 +381,18 @@
       "done": "Got it. Ryan will call you back.",
       "error": "That didn't send. Call or text us instead.",
       "orCall": "Or call 314-220-1827"
-    }
+    },
+    "faqHeading": "Builder Questions"
   },
   "services": {
     "hero": {
       "eyebrow": "Services",
       "heading": "Our Plumbing Services",
-      "lead": "Expert help for every part of your home, and every phase of a build."
+      "lead": "Expert help for every part of your home, and every phase of a build. Start with what is going on.",
+      "headingLines": [
+        "Our Plumbing",
+        "Services"
+      ]
     },
     "homeownersHeading": "For Your Home",
     "buildersHeading": "For Builders",
@@ -385,23 +400,41 @@
     "buildersCta": "See Builder Services",
     "helpNow": {
       "heading": "Need Help Now?",
-      "line": "Call 314-220-1827",
+      "line": "Burst pipe, no hot water, or a drain that will not clear.",
       "cta": "Request Service"
     },
     "detail": {
       "problemsHeading": "Common Problems We See",
       "expectHeading": "What to Expect",
+      "introHeading": "What We Do",
       "back": "All Services",
-      "otherHeading": "Other Services"
+      "otherHeading": "Other Services",
+      "faqHeading": "Common Questions"
+    },
+    "otherHeading": "Other Services",
+    "buildersSplit": {
+      "eyebrow": "Builders & Contractors",
+      "heading": "Plans and Takeoffs Through Trim.",
+      "line": "Underground, rough-in, gas, water service and trim, run by one crew on your schedule.",
+      "cta": "See Builder Services"
     }
   },
   "team": {
     "hero": {
       "eyebrow": "About Us",
       "heading": "You Talk to the Plumber.",
-      "lead": "Owner-operated out of O'Fallon, with the same licensed crew on every job."
+      "lead": "Owner-operated out of O'Fallon, with the same licensed crew on every job.",
+      "headingLines": [
+        "You Talk to",
+        "the Plumber."
+      ]
     },
-    "crewHeading": "The Crew"
+    "crewHeading": "The Crew",
+    "crew": {
+      "heading": "The Crew",
+      "line": "Four licensed plumbers, background-checked, in marked R.S. Johnson trucks."
+    },
+    "ownerHeading": "Owner and Master Plumber"
   },
   "footer": {
     "servingLine": "Serving St. Charles and West St. Louis Counties",
@@ -440,5 +473,13 @@
     "close": "Close",
     "doneHeading": "Got It.",
     "doneLine": "Ryan will call you back. If it can't wait, call us now."
+  },
+  "serviceLabels": {
+    "leaks-and-repairs": "Leaks & Repairs",
+    "drains-and-sewer": "Drains & Sewer",
+    "toilets-and-faucets": "Toilets & Faucets",
+    "water-and-sewer-tie-in": "Water Service & Sewer",
+    "planning-and-takeoffs": "Plans & Takeoffs",
+    "trim-and-fixture-set": "Trim & Fixture Set"
   }
 }

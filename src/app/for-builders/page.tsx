@@ -18,6 +18,8 @@ import { Section, SectionHeading } from "@/components/ui/Section";
 import { PageTitle } from "@/components/ui/PageTitle";
 import { cn } from "@/lib/cn";
 import { pageH2 } from "@/styles/headings";
+import { ConceptPage } from "@/components/concepts/ConceptPage";
+import { C2Builders } from "@/components/concept-two/pages/C2Builders";
 
 export const metadata: Metadata = pageMetadata({ ...builders.meta, path: "/for-builders" });
 
@@ -33,7 +35,7 @@ const H = pageH2;
  * stages), recent builder work, meet the team, what other contractors are
  * saying, FAQ, contact us, then the bid request banner.
  */
-export default function ForBuildersPage() {
+function ConceptOneBuilders() {
   return (
     <AudienceProvider initial="builders" locked>
       {/* Set the page audience before hydration so the sticky bar shows Request Bid from the first paint. */}
@@ -88,4 +90,8 @@ export default function ForBuildersPage() {
       <IntakeBanner audience="builders" id="request-a-bid" />
     </AudienceProvider>
   );
+}
+
+export default function ForBuildersPage() {
+  return <ConceptPage one={<ConceptOneBuilders />} two={<C2Builders />} />;
 }

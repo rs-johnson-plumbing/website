@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { services, serviceBySlug, servicesHub, site, SITE_URL } from "@/lib/content";
+import { services, serviceBySlug, servicesHub, site, SITE_URL, type Service } from "@/lib/content";
+import { ConceptPage } from "@/components/concepts/ConceptPage";
+import { C2ServiceDetail } from "@/components/concept-two/pages/C2ServiceDetail";
 import { pageMetadata } from "@/lib/seo";
 import { JsonLd } from "@/components/blocks/JsonLd";
 import { IntakeBanner } from "@/components/blocks/IntakeBanner";
@@ -21,28 +23,11 @@ export async function generateMetadata({ params }: { params: Promise<Params> }):
   return pageMetadata({ title, description: s.metaDescription, path: `/services/${s.slug}` });
 }
 
-export default async function ServicePage({ params }: { params: Promise<Params> }) {
-  const { service: slug } = await params;
-  const s = serviceBySlug(slug);
-  if (!s) notFound();
-
+function ConceptOneServiceDetail({ service: s }: { service: Service }) {
   const sp = servicesHub.servicePage;
-
-  const serviceLd = {
-    "@context": "https://schema.org",
-    "@type": "Service",
-    name: s.name,
-    serviceType: s.name,
-    description: s.metaDescription,
-    url: `${SITE_URL}/services/${s.slug}`,
-    provider: { "@id": `${SITE_URL}/#business` },
-    areaServed: { "@type": "AdministrativeArea", name: "St. Charles County, MO" },
-  };
 
   return (
     <>
-      <JsonLd data={serviceLd} />
-
       {/* Crew, FAQ, reviews, and the action card are held back from this
           template for now; the closing strip carries the calls to action. */}
       <section className="bg-offwhite">
@@ -91,6 +76,30 @@ export default async function ServicePage({ params }: { params: Promise<Params> 
       </section>
 
       <IntakeBanner audience="homeowners" />
+    </>
+  );
+}
+
+export default async function ServicePage({ params }: { params: Promise<Params> }) {
+  const { service: slug } = await params;
+  const service = serviceBySlug(slug);
+  if (!service) notFound();
+
+  const serviceLd = {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    name: service.name,
+    serviceType: service.name,
+    description: service.metaDescription,
+    url: `${SITE_URL}/services/${service.slug}`,
+    provider: { "@id": `${SITE_URL}/#business` },
+    areaServed: { "@type": "AdministrativeArea", name: "St. Charles County, MO" },
+  };
+
+  return (
+    <>
+      <JsonLd data={serviceLd} />
+      <ConceptPage one={<ConceptOneServiceDetail service={service} />} two={<C2ServiceDetail service={service} />} />
     </>
   );
 }

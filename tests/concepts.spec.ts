@@ -2,7 +2,10 @@ import { test, expect } from "@playwright/test";
 import copy from "../content/concept-two.json";
 import home from "../content/home.json";
 
-const heading = copy.home.hero.heading;
+// The hero heading is rendered as deliberate lines, so textContent has no
+// space where the line break is.
+const heading = copy.home.hero.headingLines.join("");
+const buildersHeading = copy.builders.hero.headingLines.join("");
 const conceptOneHeading = home.hero.single.heading;
 
 test("concept selection survives reloads, respects direct links, and follows history", async ({ page }) => {
@@ -43,7 +46,7 @@ test("the selected design carries across routes", async ({ page }) => {
   await page.getByRole("button", { name: copy.ui.openMenu }).click();
   await page.getByRole("navigation", { name: copy.ui.mobileNavigation, exact: true }).getByRole("link", { name: "Builders" }).click();
   await expect(page).toHaveURL(/\/for-builders$/);
-  await expect(page.locator("h1")).toHaveText(copy.builders.hero.heading);
+  await expect(page.locator("h1")).toHaveText(buildersHeading);
   await expect(page.getByRole("group", { name: copy.ui.switcherLabel })).toBeVisible();
 });
 
@@ -78,7 +81,12 @@ test("every homepage service link resolves and any target anchor exists", async 
     const [path, hash] = item.href.split("#");
     const response = await request.get(path);
     expect(response.status()).toBe(200);
-    if (hash) expect(await response.text()).toContain(`id="${hash}"`);
+  }
+  // Anchors that only exist in Concept 2 have to be checked in Concept 2.
+  for (const item of copy.home.services.items.filter((service) => service.href.includes("#"))) {
+    const [path, hash] = item.href.split("#");
+    await page.goto(`${path}?concept=2`);
+    await expect(page.locator(`#${hash}`)).toHaveCount(1);
   }
 });
 

@@ -17,6 +17,8 @@ import { Button } from "@/components/ui/Button";
 import { TextLink } from "@/components/ui/TextLink";
 import { cn } from "@/lib/cn";
 import { pageH2 } from "@/styles/headings";
+import { ConceptPage } from "@/components/concepts/ConceptPage";
+import { C2Homeowners } from "@/components/concept-two/pages/C2Homeowners";
 
 export const metadata: Metadata = pageMetadata({ ...homeowners.meta, path: "/for-homeowners" });
 
@@ -30,7 +32,7 @@ type Sign = { icon: IconName; title: string; text: string; service: string; link
  */
 const H = pageH2;
 
-export default function ForHomeownersPage() {
+function ConceptOneHomeowners() {
   const signs = homeowners.signs.items as Sign[];
   const neighborReviews = homeowners.neighbors.reviewIds.map((id) => reviews.items.find((r) => r.id === id)).filter((r): r is NonNullable<typeof r> => Boolean(r));
 
@@ -126,4 +128,8 @@ export default function ForHomeownersPage() {
       <IntakeBanner audience="homeowners" />
     </>
   );
+}
+
+export default function ForHomeownersPage() {
+  return <ConceptPage one={<ConceptOneHomeowners />} two={<C2Homeowners />} />;
 }
