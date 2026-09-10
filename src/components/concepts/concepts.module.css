@@ -31,3 +31,10 @@
     bottom: calc(92px + env(safe-area-inset-bottom, 0px));
   }
 }
+
+/* Concept 2's action bar is always on screen below 1024px; sit above it. */
+@media (max-width: 1023px) {
+  :global(html[data-concept="2"]) .switcher {
+    bottom: calc(84px + env(safe-area-inset-bottom, 0px));
+  }
+}

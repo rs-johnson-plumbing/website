@@ -2,10 +2,10 @@ import type { Metadata } from "next";
 import { Figtree } from "next/font/google";
 import { site, SITE_URL } from "@/lib/content";
 import { shareImage } from "@/lib/seo";
-import { Footer } from "@/components/layout/Footer";
 import { ConceptProvider } from "@/components/concepts/ConceptProvider";
-import { ConceptHeader, ConceptMobileBar } from "@/components/concepts/ConceptChrome";
+import { ConceptShell } from "@/components/concepts/ConceptChrome";
 import "./globals.css";
+import "@/styles/concept-two.css";
 
 const figtree = Figtree({
   subsets: ["latin"],
@@ -41,10 +41,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="en" className={figtree.variable}>
       <body>
         <ConceptProvider>
-          <ConceptHeader />
-          <main>{children}</main>
-          <Footer />
-          <ConceptMobileBar />
+          <ConceptShell>{children}</ConceptShell>
         </ConceptProvider>
       </body>
     </html>
