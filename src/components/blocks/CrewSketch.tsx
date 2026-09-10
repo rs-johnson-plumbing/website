@@ -5,7 +5,7 @@
  */
 const C = "#2B2B2B";
 const B = "#246FF2";
-const T = "#E3ECFD";
+const T = "#EFEBE1";
 const O = "#F7F5F0";
 const W = "#FFFFFF";
 const S = "#6E7178";

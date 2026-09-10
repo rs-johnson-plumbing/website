@@ -51,7 +51,7 @@ function MemberBand({ member, sceneLeft }: { member: TeamMember; sceneLeft: bool
           {member.badges && (
             <ul className="flex flex-wrap gap-2">
               {member.badges.map((b) => (
-                <li key={b} className="inline-flex items-center gap-1.5 rounded-btn bg-blue-tint px-3 py-1.5 text-[13px] font-bold text-blue-dark">
+                <li key={b} className="inline-flex items-center gap-1.5 rounded-btn bg-sand px-3 py-1.5 text-[13px] font-bold text-charcoal">
                   <Icon name="check-circle" size={14} strokeWidth={2} />
                   {b}
                 </li>
@@ -111,13 +111,13 @@ export default function OurTeamPage() {
             return (
               <div key={k}>
                 <h3 className="inline-flex items-center gap-2 text-[19px] font-bold lg:text-[20px]">
-                  <Icon name={k === "homeowners" ? "house" : "hammer"} size={20} strokeWidth={1.8} className="text-blue" />
+                  <Icon name={k === "homeowners" ? "house" : "hammer"} size={20} strokeWidth={1.8} className="text-charcoal" />
                   {block.heading}
                 </h3>
                 <ul className="mt-4 flex flex-col gap-3">
                   {block.items.map((item) => (
                     <li key={item} className="flex items-start gap-2.5 text-[16px] leading-snug">
-                      <Icon name="check" size={18} strokeWidth={2.2} className="mt-0.5 shrink-0 text-blue" />
+                      <Icon name="check" size={18} strokeWidth={2.2} className="mt-0.5 shrink-0 text-charcoal" />
                       {item}
                     </li>
                   ))}

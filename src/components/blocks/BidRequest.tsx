@@ -171,7 +171,7 @@ export function BidRequest({ className, variant = "filled", openSignal = 0, hide
             </h2>
             <label className="mt-4 flex min-h-[54px] w-full cursor-pointer items-center gap-3 rounded-btn border border-dashed border-hairline-strong bg-white px-3 py-2 text-left text-[15px] font-bold leading-tight text-charcoal transition-colors hover:border-blue hover:bg-blue-tint">
               <input type="file" accept=".pdf,image/*" onChange={pickPlans} className="sr-only" data-track="bid-plans-pick" />
-              <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-tile bg-blue-tint text-blue">
+              <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-tile bg-sand text-charcoal">
                 <Icon name="upload" size={20} />
               </span>
               <span>{plans ? plans.name : b.plansButton}</span>
@@ -194,7 +194,7 @@ export function BidRequest({ className, variant = "filled", openSignal = 0, hide
             </h2>
             <p className="mt-3 text-[16px] font-semibold leading-snug text-charcoal">{summary}</p>
             <div className="relative mt-4">
-              <span className="pointer-events-none absolute left-3.5 top-1/2 flex h-7 w-7 -translate-y-1/2 items-center justify-center rounded-full bg-blue-tint text-blue">
+              <span className="pointer-events-none absolute left-3.5 top-1/2 flex h-7 w-7 -translate-y-1/2 items-center justify-center rounded-full bg-sand text-charcoal">
                 <Icon name="phone" size={15} />
               </span>
               <input ref={phoneRef} name="phone" type="tel" required placeholder={b.phonePlaceholder} aria-label={b.phoneHeading} autoComplete="tel" className={cn(input, "pl-14")} />

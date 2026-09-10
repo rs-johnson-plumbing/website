@@ -203,7 +203,7 @@ export function AvailabilityCheck({ className, openSignal = 0, hideTrigger = fal
             <p className="mt-3 text-[16px] font-semibold leading-snug text-charcoal">{summary}</p>
             {note && <p className="mt-1 text-[15px] leading-snug text-slate">“{note}”</p>}
             <div className="relative mt-4">
-              <span className="pointer-events-none absolute left-3.5 top-1/2 flex h-7 w-7 -translate-y-1/2 items-center justify-center rounded-full bg-blue-tint text-blue">
+              <span className="pointer-events-none absolute left-3.5 top-1/2 flex h-7 w-7 -translate-y-1/2 items-center justify-center rounded-full bg-sand text-charcoal">
                 <Icon name="phone" size={15} />
               </span>
               <input ref={phoneRef} name="phone" type="tel" required placeholder={a.phonePlaceholder} aria-label={a.phoneHeading} autoComplete="tel" className={cn(input, "pl-14")} />

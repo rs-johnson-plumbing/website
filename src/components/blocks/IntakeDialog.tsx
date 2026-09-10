@@ -32,7 +32,7 @@ export function Chip({ icon, illustration, label, onClick, track, dashed = false
       {illustration && hasServiceIllustration(illustration) ? (
         <ServiceIllustration slug={illustration} className="h-11 w-11 shrink-0" />
       ) : (
-        <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-tile bg-blue-tint text-blue">
+        <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-tile bg-sand text-charcoal">
           <Icon name={icon} size={20} />
         </span>
       )}

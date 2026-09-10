@@ -67,7 +67,7 @@ export default async function ServicePage({ params }: { params: Promise<Params> 
             <ul className="flex flex-col gap-2 text-[16px] leading-[1.7] lg:text-body">
               {s.problems.map((p) => (
                 <li key={p} className="flex items-start gap-2.5">
-                  <Icon name="check" size={18} strokeWidth={2} className="mt-1.5 shrink-0 text-blue" />
+                  <Icon name="check" size={18} strokeWidth={2} className="mt-1.5 shrink-0 text-charcoal" />
                   {p}
                 </li>
               ))}

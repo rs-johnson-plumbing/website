@@ -50,7 +50,7 @@ export function HomeHero() {
                 <div className="flex flex-col gap-4">
                   <div className="flex flex-col gap-1">
                     <span className="inline-flex items-center gap-2 text-[20px] font-semibold tracking-[-0.01em]">
-                      <Icon name={d.icon as IconName} size={22} strokeWidth={1.8} className="text-blue" />
+                      <Icon name={d.icon as IconName} size={22} strokeWidth={1.8} className="text-charcoal" />
                       {d.label}
                     </span>
                     <span className="text-[14px] text-slate">{d.line}</span>
@@ -66,7 +66,7 @@ export function HomeHero() {
       {/* Phone: serving eyebrow, statement, then the two stacked boxes. */}
       <section data-sticky-sentinel className="bg-offwhite text-charcoal lg:hidden">
         <div className="flex flex-col gap-3 px-gutter-m pb-8 pt-6">
-          <p className="mb-2 inline-flex items-center justify-center gap-1.5 text-[14px] font-bold text-blue">
+          <p className="mb-2 inline-flex items-center justify-center gap-1.5 text-[14px] font-bold text-slate">
             <Icon name="map" size={17} strokeWidth={1.8} />
             {s.eyebrow}
           </p>

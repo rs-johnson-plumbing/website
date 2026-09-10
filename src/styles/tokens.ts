@@ -12,15 +12,22 @@ export const colors = {
   offwhite: "#F7F5F0",
   charcoal: "#2B2B2B",
   /** Brand blue, from the UngerBuild eagle: buttons, links, active states,
-   * illustration strokes, and the logo flanges. */
+   * the logo flanges, and inside the illustrations only water, flame, pipe
+   * runs, and the one active part. Blue means "tap here" on the page. */
   blue: "#246FF2",
+  /** Navy: the builders bands, and the crew's shirts in the avatars. */
   blueDark: "#0D2A4D",
+  /** Pale blue, for hover states on tappable chips. Illustrations and icon
+   * tiles sit on sand instead, so the drawings read as warm, not as a
+   * software tint. */
   blueTint: "#E3ECFD",
   blueOnDark: "#C7D9FA",
   /** Copper. Not in use since the palette went back to blue; kept for reference. */
   copper: "#A85A2E",
   /** Navy 900 family: blueDark is the builders bands, blueInk the deepest band. */
   blueInk: "#081C36",
+  /** Muted text, and the second ink in the illustrations: metal fittings,
+   * caps, handles, and rims. */
   slate: "#6E7178",
   hairline: "#E3DFD5",
   hairlineStrong: "#D8D3C5",

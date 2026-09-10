@@ -1,14 +1,17 @@
+import { colors } from "@/styles/tokens";
+
 /**
  * Cartoon avatars for the crew cards, in the same style as the service
- * illustrations: charcoal outlines, flat fills, light-blue disc. Ryan's is
- * drawn from his photo (shaved head, short beard, big grin, blue crewneck).
+ * illustrations: charcoal outlines, flat fills, sand disc, navy crewneck so
+ * the shirt reads as a uniform rather than a brand swatch. Ryan's is drawn
+ * from his photo (shaved head, short beard, big grin).
  * The other four are placeholders until the real crew is confirmed; keep
  * them generic. Keyed by team member id.
  */
-const C = "#2B2B2B";
-const B = "#246FF2";
-const T = "#E3ECFD";
-const W = "#FFFFFF";
+const C = colors.charcoal;
+const T = colors.sand;
+const N = colors.blueDark;
+const W = colors.white;
 
 type Look = {
   skin: string;
@@ -41,8 +44,8 @@ function Hair({ look }: { look: Look }) {
     case "cap":
       return (
         <>
-          <path d="M52 48 c0 -16 12 -26 28 -26 c16 0 28 10 28 26z" fill={B} stroke={C} strokeWidth="3" />
-          <path d="M46 48 h68 a4 4 0 0 1 0 8 h-68 a4 4 0 0 1 0 -8z" fill={B} stroke={C} strokeWidth="3" />
+          <path d="M52 48 c0 -16 12 -26 28 -26 c16 0 28 10 28 26z" fill={N} stroke={C} strokeWidth="3" />
+          <path d="M46 48 h68 a4 4 0 0 1 0 8 h-68 a4 4 0 0 1 0 -8z" fill={N} stroke={C} strokeWidth="3" />
           <path d="M77 36 v-5 M80 31 h4" stroke={W} strokeWidth="3" />
         </>
       );
@@ -71,7 +74,7 @@ function Person({ look }: { look: Look }) {
   return (
     <>
       {/* shirt */}
-      <path d="M18 160 v-18 c0 -16 10 -26 26 -30 l36 -10 l36 10 c16 4 26 14 26 30 v18z" fill={B} stroke={C} strokeWidth="3.5" />
+      <path d="M18 160 v-18 c0 -16 10 -26 26 -30 l36 -10 l36 10 c16 4 26 14 26 30 v18z" fill={N} stroke={C} strokeWidth="3.5" />
       <path d="M62 104 c4 10 32 10 36 0" fill={look.skin} stroke={C} strokeWidth="3" />
       {/* neck */}
       <path d="M68 86 h24 v20 c-4 6 -20 6 -24 0z" fill={look.skin} stroke={C} strokeWidth="3" />
