@@ -8,10 +8,10 @@ import { cn } from "@/lib/cn";
 import { Icon } from "@/components/ui/Icon";
 
 /**
- * Fixed bottom bar on every page below the desktop breakpoint: outlined Call
- * and Text, filled Schedule, matching the hero. In builders mode the bar goes charcoal and
- * Book becomes Request a Bid. Body padding reserves its height in
- * globals.css.
+ * Fixed bottom bar on every page below the desktop breakpoint: filled Call,
+ * then outlined Text and Request at equal widths. Call is the filled one
+ * because the site's first job is a homeowner with water on the floor.
+ * Body padding reserves its height in globals.css.
  *
  * On a page with a `data-sticky-sentinel` element (the homepage hero), the
  * bar stays hidden while that element is on screen and slides in once it
@@ -78,7 +78,7 @@ export function StickyMobileBar() {
         href={site.phone.tel}
         data-track="call-sticky"
         tabIndex={visible ? 0 : -1}
-        className="flex flex-1 items-center justify-center gap-1.5 whitespace-nowrap rounded-btn border-[1.5px] border-blue bg-transparent py-3 text-[14px] font-bold text-blue hover:opacity-[0.88]"
+        className="flex flex-1 items-center justify-center gap-1.5 whitespace-nowrap rounded-btn border-[1.5px] border-blue bg-blue py-3 text-[14px] font-bold text-white hover:opacity-[0.88]"
         aria-label={`${site.cta.call} ${site.phone.display}`}
       >
         {site.cta.stickyCall}
@@ -94,7 +94,7 @@ export function StickyMobileBar() {
         {site.cta.stickyText}
         <Icon name="message" size={16} strokeWidth={1.8} className="shrink-0" />
       </a>
-      <RequestChooser className="flex-[1.3] whitespace-nowrap" />
+      <RequestChooser className="flex-1 whitespace-nowrap" />
     </div>
   );
 }
