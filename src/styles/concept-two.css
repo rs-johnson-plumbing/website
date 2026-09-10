@@ -21,7 +21,7 @@
   --c2-rule: #e8e4dc;
   --c2-on-dark: #c9d3e3;
   --c2-gutter: 20px;
-  --c2-bar: 78px;
+  --c2-bar: 62px;
   color: var(--c2-ink);
   background: var(--c2-paper);
 }
@@ -154,40 +154,39 @@
 .c2-hero-copy { position: relative; z-index: 3; padding-block: 24px 26px; }
 .c2-hero-eyebrow { margin-bottom: 14px; }
 .c2-hero h1 {
-  font-size: clamp(33px, 9vw, 40px);
-  line-height: 1.04;
+  font-size: clamp(38px, 11.4vw, 48px);
+  line-height: 1.02;
   letter-spacing: -0.035em;
   font-weight: 800;
 }
-/* the forced break is a desktop composition; on a phone the headline wraps */
-.c2-wide-break { display: none; }
+.c2-wide-break { display: inline; }
 .c2-hero-sub {
   margin-top: 10px;
-  font-size: clamp(21px, 6.1vw, 26px);
+  font-size: clamp(24px, 6.9vw, 29px);
   line-height: 1.12;
   letter-spacing: -0.02em;
   font-weight: 400;
   color: var(--c2-slate);
 }
-.c2-hero-lead { margin-top: 12px; max-width: 30em; font-size: 14.5px; line-height: 1.5; color: var(--c2-slate); }
+/* the board's mobile panel runs headline, sub-headline, then the doors */
+.c2-hero-lead { display: none; }
 .c2-hero-actions { display: flex; flex-direction: column; gap: 10px; margin-top: 20px; }
 .c2-hero-trust { display: flex; gap: 8px; margin-top: 20px; }
 .c2-hero-trust > div { display: flex; align-items: center; gap: 8px; flex: 0 1 auto; min-width: 0; }
 .c2-hero-trust > div + div { border-left: 1px solid var(--c2-rule); padding-left: 8px; }
 .c2-hero-trust svg { flex-shrink: 0; color: var(--c2-navy); }
 .c2-hero-trust span { font-size: 11.5px; line-height: 1.25; font-weight: 500; color: var(--c2-ink); white-space: nowrap; }
+/* The board's mobile panel shows the photograph as a soft backdrop behind the
+   top of the headline. Our frame is a portrait of the crew member, so every
+   window on to it lands on him or on the blank side of the van rather than on
+   the house the design shows; it stays off the phone until there is a
+   landscape frame. See docs/concept-two-photography.md. */
 .c2-hero-media { display: none; }
 
-/* the authority sets the two doors side by side on a phone */
-@media (min-width: 380px) {
-  .c2-hero-actions { flex-direction: row; }
-  .c2-hero-actions > * { flex: 1; min-width: 0; min-height: 48px; padding-inline: 12px; gap: 7px; font-size: 13.5px; }
-  .c2-hero-trust span { font-size: 12px; }
-}
-
 @media (min-width: 520px) {
-  .c2-hero-actions > * { min-height: 52px; padding-inline: 18px; gap: 10px; font-size: 15px; }
-  .c2-hero-trust span { font-size: 14px; }
+  .c2-hero-actions { flex-direction: row; }
+  .c2-hero-actions > * { flex: 1; }
+  .c2-hero-trust span { font-size: 13px; }
 }
 
 @media (min-width: 1024px) {
@@ -196,7 +195,6 @@
      visual weight, and cap it so the band never gets tall. */
   .c2-hero-inner { min-height: clamp(500px, 42vw, 620px); display: flex; align-items: center; }
   .c2-hero-copy { width: 56%; padding-block: 30px 34px; }
-  .c2-wide-break { display: inline; }
   .c2-hero h1 { font-size: clamp(62px, 6.4vw, 78px); letter-spacing: -0.04em; }
   .c2-hero-sub { margin-top: 14px; font-size: clamp(32px, 2.8vw, 40px); font-weight: 400; letter-spacing: -0.02em; line-height: 1.14; max-width: 12em; }
   .c2-hero-lead { display: none; }
@@ -417,12 +415,23 @@
   z-index: 40;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 8px;
-  padding: 10px 12px calc(10px + env(safe-area-inset-bottom, 0px));
-  background: var(--c2-paper);
-  border-top: 1px solid var(--c2-rule);
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+  background: var(--c2-blue);
 }
-.c2-bar .c2-btn { min-height: 50px; padding-inline: 6px; font-size: 14px; gap: 8px; }
+.c2-bar .c2-btn {
+  flex-direction: column;
+  gap: 5px;
+  min-height: 62px;
+  padding-inline: 4px;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  color: var(--c2-white);
+  font-size: 13.5px;
+}
+.c2-bar .c2-btn + .c2-btn { box-shadow: inset 1px 0 0 rgba(255, 255, 255, 0.28); }
+.c2-bar .c2-btn:hover { background: rgba(255, 255, 255, 0.12); }
+.c2-bar .c2-btn:focus-visible { outline-color: var(--c2-white); outline-offset: -4px; }
 
 @media (min-width: 1024px) { .c2-bar { display: none; } }
 
@@ -542,13 +551,11 @@ html[data-concept="2"] body { padding-bottom: 0; }
 }
 
 /* ---------- homepage service block ---------- */
-.c2-services-hint { margin-top: 6px; font-size: 14px; color: var(--c2-slate); }
 .c2-service-block { margin-top: 18px; margin-bottom: 16px; }
 .c2-btn--quiet { border-color: transparent; }
 .c2-btn--quiet:hover { border-color: var(--c2-blue); }
 
 @media (min-width: 1024px) {
-  .c2-services-hint { display: none; }
   .c2-service-block { margin-top: 14px; margin-bottom: 6px; }
 }
 

@@ -21,7 +21,6 @@ export function C2Home() {
           <h2 id="c2-services-heading" className="c2-h2 c2-center">
             {services.heading}
           </h2>
-          <p className="c2-center c2-services-hint">{services.hint}</p>
           <div className="c2-service-block">
             <C2ServiceGrid items={services.items} />
           </div>
