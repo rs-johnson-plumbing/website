@@ -1,6 +1,7 @@
 "use client";
 
 import { useCallback, useEffect, useRef, useState } from "react";
+import { MarqueeRail } from "./MarqueeRail";
 import { projects, type Project, type ProjectPhoto } from "@/lib/content";
 import { BandIllustration } from "./BandIllustration";
 import { Icon } from "@/components/ui/Icon";
@@ -8,7 +9,7 @@ import { cn } from "@/lib/cn";
 
 /**
  * Recent Builder Work on the For Builders page: one row of project cards
- * rolling left to right, paused under a cursor or a finger. Tapping a card
+ * rolling left to right that a finger can swipe along (MarqueeRail). Tapping a card
  * opens the project viewer: the page darkens behind a modal with a
  * swipeable strip of the project's photos, a caption under each photo, and
  * the project name, city, type, and description. Until real photos exist
@@ -17,7 +18,6 @@ import { cn } from "@/lib/cn";
 export function ProjectMarquee({ headingClassName }: { headingClassName?: string }) {
   const items = projects.items as Project[];
   const [open, setOpen] = useState<Project | null>(null);
-  const [paused, setPaused] = useState(false);
 
   return (
     <div className="flex flex-col gap-5 lg:gap-6">
@@ -25,21 +25,13 @@ export function ProjectMarquee({ headingClassName }: { headingClassName?: string
         {projects.heading}
       </h2>
       <div className="-mx-gutter-m lg:-mx-gutter">
-        <div
-          className="marquee overflow-hidden py-1"
-          data-paused={paused}
-          onTouchStart={() => setPaused(true)}
-          onTouchEnd={() => setPaused(false)}
-          style={{ maskImage: "linear-gradient(to right, transparent, black 6%, black 94%, transparent)", WebkitMaskImage: "linear-gradient(to right, transparent, black 6%, black 94%, transparent)" }}
-        >
-          <div className="marquee-track marquee-reverse flex w-max gap-3 pl-3 lg:gap-4 lg:pl-4">
-            {[false, true].map((clone) =>
-              items.map((p) => (
-                <ProjectTile key={`${p.id}${clone ? "-clone" : ""}`} project={p} clone={clone} onOpen={() => setOpen(p)} />
-              )),
-            )}
-          </div>
-        </div>
+        <MarqueeRail seconds={60} reverse>
+          {[false, true].map((clone) =>
+            items.map((p) => (
+              <ProjectTile key={`${p.id}${clone ? "-clone" : ""}`} project={p} clone={clone} onOpen={() => setOpen(p)} />
+            )),
+          )}
+        </MarqueeRail>
       </div>
       {open && <ProjectViewer project={open} onClose={() => setOpen(null)} />}
     </div>
