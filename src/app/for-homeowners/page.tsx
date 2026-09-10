@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { homeowners, faqs, reviews, type IconName } from "@/lib/content";
 import { plumberJsonLd } from "@/lib/jsonld";
+import { pageMetadata } from "@/lib/seo";
 import { JsonLd } from "@/components/blocks/JsonLd";
 import { AnchorBar, type Anchor } from "@/components/blocks/AnchorBar";
 import { ServiceGrid, PageHeading } from "@/components/blocks/ServiceGrid";
@@ -11,18 +12,14 @@ import { TeamStrip } from "@/components/blocks/TeamStrip";
 import { FAQ } from "@/components/blocks/FAQ";
 import { IntakeBanner } from "@/components/blocks/IntakeBanner";
 import { Section, SectionHeading } from "@/components/ui/Section";
+import { PageTitle } from "@/components/ui/PageTitle";
 import { Button } from "@/components/ui/Button";
 import { TextLink } from "@/components/ui/TextLink";
 import { IconTile } from "@/components/ui/Icon";
 import { cn } from "@/lib/cn";
 import { pageH2 } from "@/styles/headings";
 
-export const metadata: Metadata = {
-  title: { absolute: homeowners.meta.title },
-  description: homeowners.meta.description,
-  alternates: { canonical: "/for-homeowners" },
-  openGraph: { title: homeowners.meta.title, description: homeowners.meta.description, url: "/for-homeowners" },
-};
+export const metadata: Metadata = pageMetadata({ ...homeowners.meta, path: "/for-homeowners" });
 
 type Sign = { icon: IconName; title: string; text: string; service: string; link: string };
 
@@ -41,7 +38,7 @@ export default function ForHomeownersPage() {
   return (
     <>
       <JsonLd data={plumberJsonLd()} />
-      <h1 className="sr-only">{homeowners.seoHeading}</h1>
+      <PageTitle title={homeowners.seoHeading} />
 
       <AnchorBar anchors={homeowners.anchors as Anchor[]} />
 

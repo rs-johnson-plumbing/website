@@ -35,6 +35,7 @@ rules, `CONTRIBUTING.md` for what to edit, and `HOW-TO-EDIT.md` for prompts.
 - `src/app/` — routes.
 - `src/styles/tokens.ts` — colors, type, spacing. Tailwind reads from here.
 - `docs/` — the brief, page copy, and the build plan.
+- `scripts/og/` — the share image (Open Graph) generator. `npm run og:image` re-renders `public/share-image.png` from `content/site.json`.
 - `design-reference/` — the approved Claude Design export. Reference only; not part of the app.
 
 Anything in square brackets in the content files, like `[hours]`, is an
