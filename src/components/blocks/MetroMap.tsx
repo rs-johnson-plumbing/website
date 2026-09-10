@@ -11,12 +11,13 @@ import { useEffect, useRef } from "react";
  * behind the headline, not as a map to study. The drawing is weighted to the
  * right and a mask fades it out under the headline. Not to scale.
  *
- * With `animate`, the water gets turned on: a small plumber pops in beside a
- * shutoff valve at O'Fallon, gives it two turns with a wrench, and water
- * runs out along the roads from the valve, reaching each town in the order
- * the roads would. On the pipes treatment, which the hero uses, the roads
- * are pipes with fittings at the interchanges and the water fills the bore. Town names pop as the water arrives. It plays once per
- * session, about four seconds, and everything else on the page stays still.
+ * With `animate`, the water gets turned on: the shutoff valve at O'Fallon
+ * opens, a drop rises, and water runs out along the roads from the valve,
+ * reaching each town in the order the roads would. On the pipes treatment,
+ * which the hero uses, the roads are pipes with fittings at the
+ * interchanges and the water fills the bore. Town names pop as the water
+ * arrives. No character: the valve turns on its own. It plays once per
+ * session, about three seconds, and everything else on the page stays still.
  * Under prefers-reduced-motion, or on a repeat view, the map simply shows
  * the water on. The server renders the map as it is today (no water), so
  * the first paint is the still map and the animation adds to it.
@@ -106,9 +107,9 @@ const dist = (a: P, b: P) => Math.hypot(a[0] - b[0], a[1] - b[1]);
 /** Polyline length, close enough to the smoothed curve for timing. */
 const polylen = (pts: P[]) => pts.reduce((sum, p, i) => (i ? sum + dist(pts[i - 1], p) : 0), 0);
 
-/** Map units per second the water travels, and the seconds before it starts (the plumber's turn). */
+/** Map units per second the water travels, and the seconds before it starts (the valve's turn). */
 const SPEED = 300;
-const LEAD = 1.2;
+const LEAD = 0.7;
 const SESSION_KEY = "rsj-water-on";
 
 /** One water path per road: which end is nearer O'Fallon, and when and how long it fills. */
@@ -145,8 +146,6 @@ export function MetroMap({ className, variant = "ink", frame = "wide", pin = tru
     const townEls = q<SVGGElement>("[data-town]");
     const handle = root.querySelector<SVGGElement>("[data-handle]");
     const drop = root.querySelector<SVGPathElement>("[data-drop]");
-    const plumber = root.querySelector<SVGGElement>("[data-plumber]");
-    const arm = root.querySelector<SVGGElement>("[data-arm]");
     const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     let played = false;
     try {
@@ -163,12 +162,7 @@ export function MetroMap({ className, variant = "ink", frame = "wide", pin = tru
 
     const ms = (sec: number) => sec * 1000;
     const anims: Animation[] = [];
-    if (plumber && arm) {
-      anims.push(plumber.animate([{ opacity: 0, transform: "scale(0.6)" }, { opacity: 1, transform: "scale(1.06)", offset: 0.7 }, { opacity: 1, transform: "scale(1)" }], { delay: ms(0.3), duration: ms(0.35), fill: "forwards", easing: "ease-out" }));
-      anims.push(arm.animate([{ transform: "rotate(0deg)" }, { transform: "rotate(28deg)" }, { transform: "rotate(-10deg)" }, { transform: "rotate(28deg)" }, { transform: "rotate(0deg)" }], { delay: ms(0.6), duration: ms(0.6), fill: "forwards", easing: "ease-in-out" }));
-      anims.push(plumber.animate([{ opacity: 1 }, { opacity: 0 }], { delay: ms(3.6), duration: ms(0.4), fill: "forwards" }));
-    }
-    if (handle) anims.push(handle.animate([{ transform: "rotate(0deg)" }, { transform: "rotate(90deg)" }], { delay: ms(0.75), duration: ms(0.5), fill: "forwards", easing: "cubic-bezier(.3,.9,.4,1)" }));
+    if (handle) anims.push(handle.animate([{ transform: "rotate(0deg)" }, { transform: "rotate(90deg)" }], { delay: ms(0.2), duration: ms(0.5), fill: "forwards", easing: "cubic-bezier(.3,.9,.4,1)" }));
     if (drop) anims.push(drop.animate([{ opacity: 0, transform: "translateY(10px) scale(0.6)" }, { opacity: 1, transform: "translateY(-6px) scale(1)", offset: 0.5 }, { opacity: 0, transform: "translateY(-22px) scale(0.9)" }], { delay: ms(LEAD - 0.25), duration: ms(0.7), fill: "forwards" }));
     water.forEach((p) => {
       const reverse = p.dataset.reverse === "1";
@@ -304,7 +298,7 @@ export function MetroMap({ className, variant = "ink", frame = "wide", pin = tru
               ))}
             </g>
           )}
-          {/* The shutoff valve at O'Fallon, a lever handle that turns a quarter turn, and the drop that rises when it opens */}
+          {/* The shutoff valve at O'Fallon, a lever handle that turns a quarter turn on its own, and the drop that rises when it opens */}
           {animate && (
             <>
               <g transform={`translate(${home[0]} ${home[1]})`}>
@@ -321,29 +315,6 @@ export function MetroMap({ className, variant = "ink", frame = "wide", pin = tru
               </text>
               <g transform={`translate(${home[0] + 26} ${home[1] - 56})`}>
                 <path data-drop d="M0 0 c6 8 10 14 10 20 a10 10 0 0 1 -20 0 c0 -6 4 -12 10 -20z" fill="#2868A8" stroke="#2B2B2B" strokeWidth="2" style={{ opacity: 0, transformBox: "fill-box", transformOrigin: "center" }} />
-              </g>
-              {/* The plumber who turns it on, in the done-screen style: navy shirt and cap, slate wrench. About a third of the hero's height, standing to the right of the valve and mirrored so the wrench reaches across to it, clear of the headline. Hidden until the effect pops him in, and gone again once the water is running. */}
-              <g transform={`translate(${home[0] + 292} ${home[1] - 124}) scale(-2 2)`}>
-                <g data-plumber style={{ opacity: 0, transformBox: "fill-box", transformOrigin: "50% 100%" }}>
-                  <ellipse cx="60" cy="118" rx="44" ry="8" fill="#2B2B2B" opacity="0.12" />
-                  <path d="M34 116 v-30 a26 26 0 0 1 52 0 v30z" fill="#0D2A4D" stroke="#2B2B2B" strokeWidth="3" />
-                  <rect x="52" y="76" width="16" height="10" rx="3" fill="#E9B98E" stroke="#2B2B2B" strokeWidth="2" />
-                  <circle cx="60" cy="54" r="20" fill="#E9B98E" stroke="#2B2B2B" strokeWidth="3" />
-                  <path d="M40 50 a20 20 0 0 1 40 0" fill="#0D2A4D" stroke="#2B2B2B" strokeWidth="3" />
-                  <path d="M38 50 h48" stroke="#2B2B2B" strokeWidth="3" />
-                  <rect x="72" y="46" width="18" height="7" rx="3" fill="#0D2A4D" stroke="#2B2B2B" strokeWidth="2.5" />
-                  <circle cx="54" cy="58" r="2" fill="#2B2B2B" />
-                  <circle cx="66" cy="58" r="2" fill="#2B2B2B" />
-                  <path d="M55 66 q5 4 10 0" stroke="#2B2B2B" strokeWidth="2" />
-                  <g data-arm style={{ transformBox: "fill-box", transformOrigin: "10% 20%" }}>
-                    <path d="M82 94 l24 -26" stroke="#E9B98E" strokeWidth="9" />
-                    <path d="M106 68 l14 -14" stroke="#2B2B2B" strokeWidth="9" />
-                    <path d="M106 68 l14 -14" stroke="var(--map-ground)" strokeWidth="4" />
-                    <path d="M120 54 l-6 -8 l8 -8 l8 4 l-2 10z" fill="#6E7178" stroke="#2B2B2B" strokeWidth="3" />
-                  </g>
-                  <path d="M38 94 l-14 12" stroke="#E9B98E" strokeWidth="9" />
-                  <circle cx="23" cy="107" r="6" fill="#E9B98E" stroke="#2B2B2B" strokeWidth="2.5" />
-                </g>
               </g>
             </>
           )}
