@@ -44,6 +44,10 @@ const config: Config = {
         "body-m": ["16px", { lineHeight: "1.6" }],
         small: ["14px", { lineHeight: "1.5" }],
       },
+      boxShadow: {
+        // The thin cream edge that keeps a blue filled button legible on a navy band.
+        "cream-inset": "inset 0 0 0 1.5px rgba(247, 245, 240, 0.7)",
+      },
       borderRadius: {
         btn: "8px",
         card: "8px",

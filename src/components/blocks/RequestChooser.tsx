@@ -31,7 +31,7 @@ export function RequestChooser({ className, size = "bar" }: { className?: string
         data-track="request-open"
         className={cn(
           "flex items-center justify-center gap-2 whitespace-nowrap rounded-btn font-bold hover:opacity-[0.88]",
-          size === "bar" ? "border-[1.5px] border-blue bg-transparent py-3 text-[14px] text-blue" : "h-[52px] bg-blue px-6 text-[16px] text-white builders:bg-charcoal",
+          size === "bar" ? "border-[1.5px] border-blue bg-transparent py-3 text-[14px] text-blue" : "h-[52px] bg-blue px-6 text-[16px] text-white builders:shadow-cream-inset",
           className,
         )}
       >
