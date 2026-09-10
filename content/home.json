@@ -24,13 +24,13 @@
     }
   },
   "availability": {
-    "button": "Submit Service Request",
-    "addressHeading": "Where do you need a plumber?",
+    "button": "Request a Visit",
+    "addressHeading": "Where's the house?",
     "addressLabel": "Service address",
-    "addressPlaceholder": "Street address, city",
+    "addressPlaceholder": "Street address and city",
     "check": "Next",
-    "inArea": "Good news. We service your area.",
-    "ask": "What are you inquiring about?",
+    "inArea": "Got it.",
+    "ask": "What's going on?",
     "categories": [
       {
         "id": "repair",
@@ -143,25 +143,21 @@
     ],
     "other": "Something Else",
     "otherIcon": "help",
-    "noteHeading": "Tell Us More",
+    "noteHeading": "Anything else we should know?",
     "noteLine": "(Optional)",
-    "notePlaceholder": "What's going on?",
+    "notePlaceholder": "Where it is, since when, what you've tried",
     "next": "Next",
     "back": "Back",
-    "phoneHeading": "What's your phone number?",
-    "phoneLine": "We'll call or text shortly.",
+    "phoneHeading": "Best number to reach you?",
+    "phoneLine": "Ryan will call or text you.",
+    "summary": "{category}: {issue} at {address}.",
+    "summaryPhone": "Ryan will call or text {phone}.",
     "phonePlaceholder": "Phone number",
-    "send": "Send",
+    "send": "Send to Ryan",
     "consent": "By sending your number you agree to a call or text about this request. [SMS consent wording — confirm]",
-    "done": "Got it. We'll call or text shortly.",
+    "done": "Thanks. Ryan will call or text you shortly.",
     "error": "Something went wrong. Call or text 314-220-1827 and we'll take it from there.",
     "close": "Close",
-    "labels": {
-      "address": "Address",
-      "reason": "Reason",
-      "details": "Note",
-      "phone": "Phone Number"
-    },
     "otherIllustration": "question"
   },
   "setsApart": {
@@ -225,18 +221,10 @@
         "leaks-and-repairs",
         "drains-and-sewer",
         "toilets-and-faucets",
-        "water-softeners",
-        "gas-lines",
         "sump-pumps",
         "emergency-plumbing"
       ],
-      "seeAll": "See All Services",
-      "builderSlugs": [
-        "planning-and-takeoffs",
-        "underground",
-        "rough-in",
-        "trim-and-fixture-set"
-      ]
+      "seeAll": "See All Services"
     },
     "builders": {
       "heading": "What We Do for Builders",
@@ -320,8 +308,8 @@
     "error": "Something went wrong. Call or text 314-220-1827 and we'll take it from there."
   },
   "bid": {
-    "button": "Submit Bid Request",
-    "contractorHeading": "Who is the bid for?",
+    "button": "Request a Bid",
+    "contractorHeading": "Who's the bid for?",
     "contractorLabel": "Contractor or company name",
     "contractorPlaceholder": "Company or contractor name",
     "typeHeading": "What kind of project?",
@@ -344,34 +332,40 @@
     "plansButton": "Choose File",
     "plansSkip": "Skip",
     "plansTooBig": "That file is over 4 MB. Send it by text or email after we call.",
-    "phoneHeading": "What's your phone number?",
-    "phoneLine": "We'll call or text about the bid.",
+    "phoneHeading": "Best number to reach you?",
+    "phoneLine": "Ryan will call or text you about the bid.",
+    "summary": "{type} bid for {contractor}, {plans}.",
+    "summaryPhone": "Ryan will call or text {phone}.",
+    "plansAttached": "plans attached",
     "phonePlaceholder": "Phone number",
-    "send": "Send Bid Request",
+    "send": "Send to Ryan",
     "consent": "By sending your number you agree to a call or text about this request. [SMS consent wording — confirm]",
-    "done": "Got it. We'll call or text about your bid.",
+    "done": "Thanks. Ryan will call or text you about the bid.",
     "error": "Something went wrong. Call or text 314-220-1827 and we'll take it from there.",
     "next": "Next",
     "back": "Back",
     "close": "Close",
-    "labels": {
-      "contractor": "Contractor",
-      "type": "Project Type",
-      "plans": "Plans",
-      "phone": "Phone Number"
-    },
-    "noPlans": "None attached"
+    "noPlans": "no plans attached"
   },
   "banner": {
-    "service": "Submit Service Request",
-    "bid": "Submit Bid Request"
+    "service": "Request a Visit",
+    "bid": "Request a Bid",
+    "homeowners": {
+      "heading": "Water on the Floor?",
+      "line": "Call or text 314-220-1827 and you'll get Ryan. Not urgent? Tell us what's going on and he'll call you back."
+    },
+    "builders": {
+      "heading": "Have Plans to Bid?",
+      "line": "Send them over and Ryan will have a number back within [# business days]. Or call or text 314-220-1827 and talk it through first."
+    }
   },
   "chooser": {
-    "button": "Submit Request",
-    "heading": "Are you a homeowner or a builder?",
-    "homeowner": "Homeowner",
+    "button": "Request a Visit",
+    "barButton": "Request",
+    "heading": "Is this for your home or a job site?",
+    "homeowner": "My Home",
     "homeownerIllustration": "repipe",
-    "builder": "Builder",
+    "builder": "A Job Site",
     "builderIllustration": "rough-in",
     "close": "Close"
   }

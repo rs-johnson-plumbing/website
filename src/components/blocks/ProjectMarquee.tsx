@@ -69,7 +69,7 @@ function ProjectTile({ project, clone, onOpen }: { project: Project; clone: bool
     >
       <Scene photo={project.photos[0]} className="border-b border-hairline" />
       <div className="flex flex-col gap-1 p-4">
-        <div className="text-[12px] font-bold uppercase tracking-[0.04em] text-blue">{project.city}</div>
+        <div className="text-[14px] text-slate">{project.city}</div>
         <div className="text-[17px] font-bold leading-tight">{project.name}</div>
         <div className="text-[14px] font-semibold text-slate">{project.type}</div>
         <div className="mt-1 inline-flex items-center gap-1 text-[14px] font-bold text-blue">
@@ -145,7 +145,7 @@ function ProjectViewer({ project, onClose }: { project: Project; onClose: () => 
               </button>
             </>
           )}
-          <div className="absolute left-2 top-2 rounded-btn bg-charcoal/70 px-2 py-0.5 text-[12px] font-bold text-white">
+          <div className="absolute left-2 top-2 rounded-btn bg-charcoal/70 px-2 py-0.5 text-[13px] font-semibold text-white">
             {index + 1} / {photos.length}
           </div>
         </div>
@@ -164,9 +164,8 @@ function ProjectViewer({ project, onClose }: { project: Project; onClose: () => 
 
         {/* The project */}
         <div className="flex min-h-0 flex-col gap-1.5 overflow-y-auto px-4 py-4 lg:px-5 lg:py-5">
-          <div className="text-[12px] font-bold uppercase tracking-[0.04em] text-blue">{project.city} · {project.type}</div>
+          <div className="text-[14px] text-slate">{project.city} · {project.type}</div>
           <h3 id="project-title" className="text-[22px] font-bold leading-tight tracking-[-0.01em] lg:text-[24px]">{project.name}</h3>
-          <div className="text-[14px] font-semibold text-slate">{project.address}</div>
           <p className="mt-1 text-[15px] leading-relaxed text-charcoal lg:text-[16px]">{project.description}</p>
         </div>
       </div>

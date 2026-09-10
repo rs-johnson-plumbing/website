@@ -4,7 +4,7 @@ import { useCallback, useEffect, useId, useRef, useState } from "react";
 import { home, type IconName } from "@/lib/content";
 import { cn } from "@/lib/cn";
 import { Icon } from "@/components/ui/Icon";
-import { BackLink, Chip, IntakeDialog, Row, intakeBtn as btn, intakeHeading as h2, intakeInput as input } from "./IntakeDialog";
+import { BackLink, Chip, IntakeDialog, intakeBtn as btn, intakeHeading as h2, intakeInput as input } from "./IntakeDialog";
 import { ReadyIllustration } from "./ReadyIllustration";
 
 type Stage = "idle" | "contractor" | "type" | "plans" | "phone" | "done";
@@ -15,7 +15,7 @@ const MAX_PLANS_BYTES = 4 * 1024 * 1024;
 /**
  * Quick-capture bid request in the builders hero:
  *
- *   Submit Bid Request -> dialog: contractor name -> project type
+ *   Request a Bid -> dialog: contractor name -> project type
  *   (New Construction / Renovation) -> plans upload (optional) -> phone ->
  *   done. Posts once, as multipart, to /api/bid. Copy lives in home.json
  *   under bid.
@@ -98,6 +98,8 @@ export function BidRequest({ className, variant = "filled", openSignal = 0, hide
     }
   }
 
+  const summary = b.summary.replace("{type}", type?.label ?? "").replace("{contractor}", contractor).replace("{plans}", plans ? b.plansAttached : b.noPlans);
+
   return (
     <>
       {!hideTrigger && (
@@ -169,7 +171,7 @@ export function BidRequest({ className, variant = "filled", openSignal = 0, hide
             </h2>
             <label className="mt-4 flex min-h-[54px] w-full cursor-pointer items-center gap-3 rounded-btn border border-dashed border-hairline-strong bg-white px-3 py-2 text-left text-[15px] font-bold leading-tight text-charcoal transition-colors hover:border-blue hover:bg-blue-tint">
               <input type="file" accept=".pdf,image/*" onChange={pickPlans} className="sr-only" data-track="bid-plans-pick" />
-              <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-tile bg-blue-tint text-blue">
+              <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-tile bg-sand text-charcoal">
                 <Icon name="upload" size={20} />
               </span>
               <span>{plans ? plans.name : b.plansButton}</span>
@@ -190,13 +192,9 @@ export function BidRequest({ className, variant = "filled", openSignal = 0, hide
             <h2 id={titleId} className={h2}>
               {b.phoneHeading}
             </h2>
-            <dl className="mt-3 divide-y divide-hairline rounded-btn border border-blue/20 bg-blue-tint px-3.5">
-              <Row label={b.labels.contractor}>{contractor}</Row>
-              <Row label={b.labels.type}>{type?.label}</Row>
-              <Row label={b.labels.plans}>{plans ? plans.name : b.noPlans}</Row>
-            </dl>
+            <p className="mt-3 text-[16px] font-semibold leading-snug text-charcoal">{summary}</p>
             <div className="relative mt-4">
-              <span className="pointer-events-none absolute left-3.5 top-1/2 flex h-7 w-7 -translate-y-1/2 items-center justify-center rounded-full bg-blue-tint text-blue">
+              <span className="pointer-events-none absolute left-3.5 top-1/2 flex h-7 w-7 -translate-y-1/2 items-center justify-center rounded-full bg-sand text-charcoal">
                 <Icon name="phone" size={15} />
               </span>
               <input ref={phoneRef} name="phone" type="tel" required placeholder={b.phonePlaceholder} aria-label={b.phoneHeading} autoComplete="tel" className={cn(input, "pl-14")} />
@@ -218,12 +216,8 @@ export function BidRequest({ className, variant = "filled", openSignal = 0, hide
             <h2 id={titleId} className={cn(h2, "mt-2 pr-0 text-center text-[20px] lg:text-[24px]")}>
               {b.done}
             </h2>
-            <dl className="mt-4 divide-y divide-hairline rounded-btn border border-hairline bg-offwhite px-4">
-              <Row label={b.labels.contractor}>{contractor}</Row>
-              <Row label={b.labels.type}>{type?.label}</Row>
-              <Row label={b.labels.plans}>{plans ? plans.name : b.noPlans}</Row>
-              <Row label={b.labels.phone}>{phone}</Row>
-            </dl>
+            <p className="mt-4 text-center text-[16px] font-semibold leading-snug text-charcoal">{summary}</p>
+            <p className="mt-2 text-center text-[15px] text-slate">{b.summaryPhone.replace("{phone}", phone)}</p>
             <button type="button" onClick={reset} className={cn(btn, "mt-5 h-[52px] w-full border-[1.5px] border-charcoal bg-white text-charcoal")}>
               {b.close}
             </button>

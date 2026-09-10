@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { homeowners, faqs, reviews, type IconName } from "@/lib/content";
 import { plumberJsonLd } from "@/lib/jsonld";
+import { pageMetadata } from "@/lib/seo";
 import { JsonLd } from "@/components/blocks/JsonLd";
 import { AnchorBar, type Anchor } from "@/components/blocks/AnchorBar";
 import { ServiceGrid, PageHeading } from "@/components/blocks/ServiceGrid";
@@ -11,18 +12,13 @@ import { TeamStrip } from "@/components/blocks/TeamStrip";
 import { FAQ } from "@/components/blocks/FAQ";
 import { IntakeBanner } from "@/components/blocks/IntakeBanner";
 import { Section, SectionHeading } from "@/components/ui/Section";
+import { PageTitle } from "@/components/ui/PageTitle";
 import { Button } from "@/components/ui/Button";
 import { TextLink } from "@/components/ui/TextLink";
-import { IconTile } from "@/components/ui/Icon";
 import { cn } from "@/lib/cn";
 import { pageH2 } from "@/styles/headings";
 
-export const metadata: Metadata = {
-  title: { absolute: homeowners.meta.title },
-  description: homeowners.meta.description,
-  alternates: { canonical: "/for-homeowners" },
-  openGraph: { title: homeowners.meta.title, description: homeowners.meta.description, url: "/for-homeowners" },
-};
+export const metadata: Metadata = pageMetadata({ ...homeowners.meta, path: "/for-homeowners" });
 
 type Sign = { icon: IconName; title: string; text: string; service: string; link: string };
 
@@ -41,7 +37,7 @@ export default function ForHomeownersPage() {
   return (
     <>
       <JsonLd data={plumberJsonLd()} />
-      <h1 className="sr-only">{homeowners.seoHeading}</h1>
+      <PageTitle title={homeowners.seoHeading} />
 
       <AnchorBar anchors={homeowners.anchors as Anchor[]} />
 
@@ -103,13 +99,12 @@ export default function ForHomeownersPage() {
         </div>
       </Section>
 
-      {/* Signs: each card points to the service it belongs to */}
-      <Section id="signs" tone="white" pad="band" ariaLabelledby="signs-h" className="scroll-mt-[140px] border-y border-hairline">
+      {/* Signs: headed paragraphs with a rule above each, no boxes; each points to the service it belongs to */}
+      <Section id="signs" pad="band" ariaLabelledby="signs-h" className="scroll-mt-[140px]">
         <SectionHeading id="signs-h" title={homeowners.signs.heading} line={homeowners.signs.line} titleClassName={H} />
-        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 lg:gap-5">
+        <div className="grid grid-cols-1 gap-x-10 sm:grid-cols-2 lg:grid-cols-3">
           {signs.map((item) => (
-            <div key={item.title} className="flex flex-col items-start gap-3 rounded-card border border-hairline bg-white p-5 lg:p-6">
-              <IconTile name={item.icon} size={40} />
+            <div key={item.title} className="flex flex-col items-start gap-3 border-t border-hairline py-6 lg:py-7">
               <h3 className="text-[19px] font-bold leading-tight lg:text-[20px]">{item.title}</h3>
               <p className="text-[15px] leading-[1.65] text-charcoal lg:text-[16px]">{item.text}</p>
               <div className="mt-auto pt-1">

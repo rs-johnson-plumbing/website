@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { team, site, type TeamMember } from "@/lib/content";
+import { pageMetadata } from "@/lib/seo";
 import { MemberScene } from "@/components/blocks/MemberScene";
 import { ServiceIllustration } from "@/components/blocks/ServiceIllustration";
 import { IntakeBanner } from "@/components/blocks/IntakeBanner";
@@ -9,12 +10,7 @@ import { Icon } from "@/components/ui/Icon";
 import { cn } from "@/lib/cn";
 import { pageH2 } from "@/styles/headings";
 
-export const metadata: Metadata = {
-  title: { absolute: team.page.meta.title },
-  description: team.page.meta.description,
-  alternates: { canonical: "/our-team" },
-  openGraph: { title: team.page.meta.title, description: team.page.meta.description, url: "/our-team" },
-};
+export const metadata: Metadata = pageMetadata({ ...team.page.meta, path: "/our-team" });
 
 const H = pageH2;
 
@@ -51,7 +47,7 @@ function MemberBand({ member, sceneLeft }: { member: TeamMember; sceneLeft: bool
           {member.badges && (
             <ul className="flex flex-wrap gap-2">
               {member.badges.map((b) => (
-                <li key={b} className="inline-flex items-center gap-1.5 rounded-btn bg-blue-tint px-3 py-1.5 text-[13px] font-bold text-blue-dark">
+                <li key={b} className="inline-flex items-center gap-1.5 rounded-btn bg-sand px-3 py-1.5 text-[13px] font-bold text-charcoal">
                   <Icon name="check-circle" size={14} strokeWidth={2} />
                   {b}
                 </li>
@@ -66,12 +62,15 @@ function MemberBand({ member, sceneLeft }: { member: TeamMember; sceneLeft: bool
 }
 
 /**
- * Our Team: the faces page. Meet the Team, then one band per plumber (Ryan
- * first), the two How We Work lists, then the Submit Request banner.
+ * Our Team: the faces page. Meet the Team, then one band per real plumber
+ * (Ryan today; the four placeholder members stay in the content file but
+ * do not render until their placeholder flag clears), a short note about
+ * the crew, the two How We Work lists, then the Request a Visit banner.
  */
 export default function OurTeamPage() {
   const ryan = team.members.find((m) => m.featured) ?? team.members[0];
-  const members = [ryan, ...team.members.filter((m) => m.id !== ryan.id)];
+  const members = [ryan, ...team.members.filter((m) => m.id !== ryan.id && !m.placeholder)];
+  const hidden = team.members.some((m) => m.placeholder);
   const p = team.page;
 
   return (
@@ -87,24 +86,34 @@ export default function OurTeamPage() {
         <MemberBand key={m.id} member={m} sceneLeft={i % 2 === 0} />
       ))}
 
+      {/* The rest of the crew, until their names and photos are real */}
+      {hidden && (
+        <Section pad="band" ariaLabelledby="crew-h">
+          <h2 id="crew-h" className={cn("mb-3", H)}>
+            {team.crew.heading}
+          </h2>
+          <p className="max-w-[640px] text-[16px] leading-[1.7] lg:text-body">{team.crew.line}</p>
+        </Section>
+      )}
+
       {/* How we work, one list per audience */}
       <Section tone="sand" pad="band" ariaLabelledby="work-h">
         <h2 id="work-h" className={cn("mb-8 lg:mb-10", H)}>
           {p.howWeWorkHeading}
         </h2>
-        <div className="grid grid-cols-1 gap-4 lg:grid-cols-2 lg:gap-5">
+        <div className="grid grid-cols-1 gap-8 lg:grid-cols-2 lg:gap-16">
           {(["homeowners", "builders"] as const).map((k) => {
             const block = team.howWeWork[k];
             return (
-              <div key={k} className="rounded-card border border-hairline bg-white p-5 lg:p-6">
+              <div key={k}>
                 <h3 className="inline-flex items-center gap-2 text-[19px] font-bold lg:text-[20px]">
-                  <Icon name={k === "homeowners" ? "house" : "hammer"} size={20} strokeWidth={1.8} className="text-blue" />
+                  <Icon name={k === "homeowners" ? "house" : "hammer"} size={20} strokeWidth={1.8} className="text-charcoal" />
                   {block.heading}
                 </h3>
                 <ul className="mt-4 flex flex-col gap-3">
                   {block.items.map((item) => (
                     <li key={item} className="flex items-start gap-2.5 text-[16px] leading-snug">
-                      <Icon name="check" size={18} strokeWidth={2.2} className="mt-0.5 shrink-0 text-blue" />
+                      <Icon name="check" size={18} strokeWidth={2.2} className="mt-0.5 shrink-0 text-charcoal" />
                       {item}
                     </li>
                   ))}

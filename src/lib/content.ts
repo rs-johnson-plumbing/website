@@ -121,7 +121,6 @@ export type ProjectPhoto = {
 export type Project = {
   id: string;
   name: string;
-  address: string;
   city: string;
   type: string;
   description: string;

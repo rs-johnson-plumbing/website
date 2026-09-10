@@ -1,17 +1,20 @@
 import { cn } from "@/lib/cn";
+import { colors } from "@/styles/tokens";
 
 /**
  * Wide (4:3) cartoon scenes for the services hub bands, used in the photo
  * slot until a real photo exists. Same palette and outline weight as the
- * service illustrations. Every band with a photo slot has one; swap in the
+ * service illustrations: sand walls, blue for water, flame, pipe runs, and
+ * the one active part, slate for metal. Every band with a photo slot has one; swap in the
  * real photo by setting `ready` on PhotoPlaceholder and removing the slug.
  */
-const C = "#2B2B2B";
-const B = "#2868A8";
-const T = "#E4ECF6";
-const O = "#F7F5F0";
-const W = "#FFFFFF";
-const H = "#E3DFD5";
+const C = colors.charcoal;
+const B = colors.blue;
+const T = colors.sand;
+const M = colors.slate;
+const O = colors.offwhite;
+const W = colors.white;
+const H = colors.hairline;
 
 const scenes: Record<string, React.ReactNode> = {
   "water-heaters": (
@@ -22,10 +25,10 @@ const scenes: Record<string, React.ReactNode> = {
       <path d="M0 250 h400" stroke={C} strokeWidth="4" />
       {/* tank water heater */}
       <path d="M100 20 v40 M150 20 v40" stroke={C} strokeWidth="9" />
-      <rect x="92" y="14" width="16" height="10" rx="2" fill={B} stroke={C} strokeWidth="2" />
-      <rect x="142" y="14" width="16" height="10" rx="2" fill={B} stroke={C} strokeWidth="2" />
+      <rect x="92" y="14" width="16" height="10" rx="2" fill={M} stroke={C} strokeWidth="2" />
+      <rect x="142" y="14" width="16" height="10" rx="2" fill={M} stroke={C} strokeWidth="2" />
       <rect x="70" y="60" width="110" height="190" rx="20" fill={O} stroke={C} strokeWidth="5" />
-      <rect x="70" y="60" width="110" height="30" rx="15" fill={B} stroke={C} strokeWidth="5" />
+      <rect x="70" y="60" width="110" height="30" rx="15" fill={M} stroke={C} strokeWidth="5" />
       <circle cx="125" cy="140" r="16" fill={W} stroke={C} strokeWidth="4" />
       <path d="M125 140 l9 -9" stroke={C} strokeWidth="4" />
       <rect x="108" y="196" width="34" height="30" rx="6" fill={W} stroke={C} strokeWidth="4" />
@@ -33,16 +36,16 @@ const scenes: Record<string, React.ReactNode> = {
       <path d="M84 236 h82" stroke={C} strokeWidth="4" />
       {/* tankless unit on the wall */}
       <path d="M300 22 v48" stroke={C} strokeWidth="9" />
-      <rect x="292" y="16" width="16" height="10" rx="2" fill={B} stroke={C} strokeWidth="2" />
+      <rect x="292" y="16" width="16" height="10" rx="2" fill={M} stroke={C} strokeWidth="2" />
       <rect x="248" y="70" width="104" height="132" rx="14" fill={O} stroke={C} strokeWidth="5" />
       <rect x="262" y="86" width="76" height="66" rx="8" fill={W} stroke={C} strokeWidth="3" />
       <rect x="280" y="104" width="40" height="18" rx="3" fill={B} />
       <circle cx="300" cy="138" r="5" fill={C} />
       <path d="M262 170 h76" stroke={C} strokeWidth="3" opacity="0.4" />
       <path d="M270 202 v48 M300 202 v48 M330 202 v48" stroke={C} strokeWidth="9" />
-      <rect x="262" y="208" width="16" height="10" rx="2" fill={B} stroke={C} strokeWidth="2" />
-      <rect x="292" y="208" width="16" height="10" rx="2" fill={B} stroke={C} strokeWidth="2" />
-      <rect x="322" y="208" width="16" height="10" rx="2" fill={B} stroke={C} strokeWidth="2" />
+      <rect x="262" y="208" width="16" height="10" rx="2" fill={M} stroke={C} strokeWidth="2" />
+      <rect x="292" y="208" width="16" height="10" rx="2" fill={M} stroke={C} strokeWidth="2" />
+      <rect x="322" y="208" width="16" height="10" rx="2" fill={M} stroke={C} strokeWidth="2" />
       <path d="M370 100 c8 6 8 16 0 22 M384 88 c14 12 14 34 0 46" stroke={B} strokeWidth="5" />
       {/* water drop between them */}
       <path d="M214 120 c8 10 14 18 14 26 a14 14 0 0 1 -28 0 c0 -8 6 -16 14 -26z" fill={B} stroke={C} strokeWidth="3" />
@@ -58,13 +61,13 @@ const scenes: Record<string, React.ReactNode> = {
       <path d="M60 0 v96 a16 16 0 0 0 16 16 h324" stroke={C} strokeWidth="22" />
       <path d="M60 0 v96 a16 16 0 0 0 16 16 h324" stroke={O} strokeWidth="14" />
       {/* couplings */}
-      <rect x="46" y="40" width="28" height="18" rx="3" fill={B} stroke={C} strokeWidth="3" />
-      <rect x="150" y="98" width="20" height="28" rx="3" fill={B} stroke={C} strokeWidth="3" />
-      <rect x="300" y="98" width="20" height="28" rx="3" fill={B} stroke={C} strokeWidth="3" />
+      <rect x="46" y="40" width="28" height="18" rx="3" fill={M} stroke={C} strokeWidth="3" />
+      <rect x="150" y="98" width="20" height="28" rx="3" fill={M} stroke={C} strokeWidth="3" />
+      <rect x="300" y="98" width="20" height="28" rx="3" fill={M} stroke={C} strokeWidth="3" />
       {/* shutoff valve with a blue handle */}
       <rect x="226" y="96" width="34" height="32" rx="6" fill={O} stroke={C} strokeWidth="4" />
       <path d="M243 96 v-18" stroke={C} strokeWidth="5" />
-      <rect x="226" y="66" width="34" height="12" rx="4" fill={B} stroke={C} strokeWidth="3" />
+      <rect x="226" y="66" width="34" height="12" rx="4" fill={M} stroke={C} strokeWidth="3" />
       {/* the split, with drips */}
       <path d="M198 104 l6 8 l-6 8 l6 6" stroke={C} strokeWidth="3" />
       <path d="M201 132 c5 7 9 12 9 17 a9 9 0 0 1 -18 0 c0 -5 4 -10 9 -17z" fill={B} stroke={C} strokeWidth="3" />
@@ -77,7 +80,7 @@ const scenes: Record<string, React.ReactNode> = {
       {/* pipe wrench leaning at the joint */}
       <path d="M340 236 l-44 -78" stroke={C} strokeWidth="12" />
       <path d="M340 236 l-44 -78" stroke={O} strokeWidth="6" />
-      <path d="M292 160 l-16 -6 l4 -18 l20 4 l6 12z" fill={B} stroke={C} strokeWidth="4" />
+      <path d="M292 160 l-16 -6 l4 -18 l20 4 l6 12z" fill={M} stroke={C} strokeWidth="4" />
       <path d="M300 146 l-14 -22" stroke={C} strokeWidth="9" />
       <path d="M300 146 l-14 -22" stroke={B} strokeWidth="4" />
       <circle cx="342" cy="238" r="7" fill={C} />
@@ -93,11 +96,11 @@ const scenes: Record<string, React.ReactNode> = {
       <path d="M40 120 l6 -12 l6 12 M210 120 l6 -12 l6 12 M330 120 l6 -12 l6 12" stroke={C} strokeWidth="3" />
       {/* house corner at left */}
       <path d="M0 120 v-70 h70 l-35 -30 h-35" fill={O} stroke={C} strokeWidth="4" />
-      <rect x="18" y="72" width="22" height="30" rx="2" fill={B} stroke={C} strokeWidth="3" />
+      <rect x="18" y="72" width="22" height="30" rx="2" fill={M} stroke={C} strokeWidth="3" />
       {/* cleanout stack up to the surface */}
       <path d="M118 108 v96" stroke={C} strokeWidth="20" />
       <path d="M118 108 v96" stroke={O} strokeWidth="12" />
-      <rect x="104" y="96" width="28" height="16" rx="3" fill={B} stroke={C} strokeWidth="3" />
+      <rect x="104" y="96" width="28" height="16" rx="3" fill={M} stroke={C} strokeWidth="3" />
       {/* sewer pipe underground, cut open */}
       <rect x="40" y="196" width="360" height="56" rx="6" fill={W} stroke={C} strokeWidth="5" />
       <path d="M40 210 h360 M40 238 h360" stroke={C} strokeWidth="2" opacity="0.35" />
@@ -138,18 +141,18 @@ const scenes: Record<string, React.ReactNode> = {
       <path d="M232 150 v-28 a34 34 0 0 0 -68 0 v10" stroke={O} strokeWidth="8" />
       <rect x="220" y="136" width="24" height="18" rx="4" fill={O} stroke={C} strokeWidth="4" />
       <path d="M244 132 h22" stroke={C} strokeWidth="9" />
-      <path d="M244 132 h22" stroke={B} strokeWidth="5" />
+      <path d="M244 132 h22" stroke={M} strokeWidth="5" />
       <path d="M164 136 v34" stroke={B} strokeWidth="6" />
       <path d="M160 176 c-4 6 -6 10 -6 13 a6 6 0 0 0 12 0 c0 -3 -2 -7 -6 -13z" fill={B} />
       {/* toilet standing on the floor at right */}
       <rect x="322" y="104" width="60" height="62" rx="8" fill={W} stroke={C} strokeWidth="4" />
       <rect x="330" y="96" width="44" height="12" rx="4" fill={O} stroke={C} strokeWidth="3" />
-      <circle cx="368" cy="122" r="5" fill={B} />
+      <circle cx="368" cy="122" r="5" fill={M} />
       <rect x="300" y="164" width="96" height="22" rx="11" fill={W} stroke={C} strokeWidth="4" />
       <path d="M314 186 h68 l-8 64 h-52z" fill={W} stroke={C} strokeWidth="4" />
       {/* wrench on the counter */}
       <path d="M60 140 l40 -20" stroke={C} strokeWidth="8" />
-      <path d="M100 120 l12 -6 l6 10 l-12 6z" fill={B} stroke={C} strokeWidth="3" />
+      <path d="M100 120 l12 -6 l6 10 l-12 6z" fill={M} stroke={C} strokeWidth="3" />
     </>
   ),
   "bath-and-kitchen-remodel": (
@@ -178,7 +181,7 @@ const scenes: Record<string, React.ReactNode> = {
       {/* drain stub up through the floor */}
       <path d="M300 228 v-52" stroke={C} strokeWidth="22" />
       <path d="M300 228 v-52" stroke={W} strokeWidth="14" />
-      <rect x="284" y="166" width="32" height="14" rx="3" fill={B} stroke={C} strokeWidth="3" />
+      <rect x="284" y="166" width="32" height="14" rx="3" fill={M} stroke={C} strokeWidth="3" />
       <path d="M300 128 h-20 v-40" stroke={C} strokeWidth="4" strokeDasharray="6 6" />
       {/* level resting on the bottom plate */}
       <rect x="70" y="200" width="100" height="22" rx="4" fill={O} stroke={C} strokeWidth="4" />
@@ -202,22 +205,22 @@ const scenes: Record<string, React.ReactNode> = {
       <rect x="28" y="70" width="56" height="70" rx="8" fill={W} stroke={C} strokeWidth="4" />
       <circle cx="56" cy="98" r="14" fill={O} stroke={C} strokeWidth="4" />
       <path d="M56 98 l7 -8" stroke={C} strokeWidth="3" />
-      <rect x="42" y="120" width="28" height="10" rx="2" fill={B} />
+      <rect x="42" y="120" width="28" height="10" rx="2" fill={M} />
       {/* gas line down the wall, along the patio, into the grill */}
       <path d="M56 140 v40 a12 12 0 0 0 12 12 h140 v-30" stroke={C} strokeWidth="14" />
       <path d="M56 140 v40 a12 12 0 0 0 12 12 h140 v-30" stroke={O} strokeWidth="8" />
-      <rect x="104" y="184" width="20" height="16" rx="3" fill={B} stroke={C} strokeWidth="3" />
-      <rect x="198" y="184" width="20" height="16" rx="3" fill={B} stroke={C} strokeWidth="3" />
+      <rect x="104" y="184" width="20" height="16" rx="3" fill={M} stroke={C} strokeWidth="3" />
+      <rect x="198" y="184" width="20" height="16" rx="3" fill={M} stroke={C} strokeWidth="3" />
       {/* shutoff valve on the line */}
       <rect x="146" y="180" width="30" height="24" rx="5" fill={O} stroke={C} strokeWidth="4" />
       <path d="M161 180 v-14" stroke={C} strokeWidth="4" />
-      <rect x="148" y="158" width="26" height="10" rx="3" fill={B} stroke={C} strokeWidth="3" />
+      <rect x="148" y="158" width="26" height="10" rx="3" fill={M} stroke={C} strokeWidth="3" />
       {/* grill */}
       <rect x="228" y="110" width="150" height="56" rx="10" fill={O} stroke={C} strokeWidth="5" />
       <path d="M228 110 a75 40 0 0 1 150 0" fill={W} stroke={C} strokeWidth="5" />
       <rect x="292" y="60" width="22" height="8" rx="4" fill={C} />
-      <rect x="242" y="128" width="12" height="12" rx="6" fill={B} stroke={C} strokeWidth="3" />
-      <rect x="264" y="128" width="12" height="12" rx="6" fill={B} stroke={C} strokeWidth="3" />
+      <rect x="242" y="128" width="12" height="12" rx="6" fill={M} stroke={C} strokeWidth="3" />
+      <rect x="264" y="128" width="12" height="12" rx="6" fill={M} stroke={C} strokeWidth="3" />
       <path d="M250 166 v64 M356 166 v64" stroke={C} strokeWidth="8" />
       <circle cx="250" cy="234" r="8" fill={C} />
       <circle cx="356" cy="234" r="8" fill={C} />
@@ -239,7 +242,7 @@ const scenes: Record<string, React.ReactNode> = {
       <path d="M135 240 h130" stroke={B} strokeWidth="4" />
       {/* pump in the pit */}
       <rect x="170" y="218" width="60" height="52" rx="8" fill={O} stroke={C} strokeWidth="4" />
-      <rect x="182" y="206" width="36" height="16" rx="4" fill={B} stroke={C} strokeWidth="3" />
+      <rect x="182" y="206" width="36" height="16" rx="4" fill={M} stroke={C} strokeWidth="3" />
       <path d="M176 258 h48" stroke={C} strokeWidth="3" opacity="0.4" />
       {/* float on an arm */}
       <path d="M230 232 l26 -12" stroke={C} strokeWidth="4" />
@@ -247,15 +250,15 @@ const scenes: Record<string, React.ReactNode> = {
       {/* discharge pipe up and out through the wall */}
       <path d="M200 206 v-120 a14 14 0 0 1 14 -14 h186" stroke={C} strokeWidth="18" />
       <path d="M200 206 v-120 a14 14 0 0 1 14 -14 h186" stroke={O} strokeWidth="10" />
-      <rect x="188" y="150" width="24" height="18" rx="3" fill={B} stroke={C} strokeWidth="3" />
-      <rect x="300" y="60" width="18" height="24" rx="3" fill={B} stroke={C} strokeWidth="3" />
+      <rect x="188" y="150" width="24" height="18" rx="3" fill={M} stroke={C} strokeWidth="3" />
+      <rect x="300" y="60" width="18" height="24" rx="3" fill={M} stroke={C} strokeWidth="3" />
       {/* check valve on the riser */}
       <rect x="186" y="110" width="28" height="22" rx="5" fill={O} stroke={C} strokeWidth="4" />
       <path d="M194 121 l8 -6 v12z" fill={B} />
       {/* battery backup on the wall */}
       <rect x="40" y="70" width="90" height="100" rx="10" fill={O} stroke={C} strokeWidth="5" />
       <rect x="54" y="84" width="62" height="36" rx="6" fill={W} stroke={C} strokeWidth="3" />
-      <rect x="62" y="96" width="46" height="12" rx="3" fill={B} />
+      <rect x="62" y="96" width="46" height="12" rx="3" fill={M} />
       <circle cx="70" cy="146" r="6" fill={B} stroke={C} strokeWidth="2" />
       <circle cx="90" cy="146" r="6" fill={W} stroke={C} strokeWidth="2" />
       <path d="M130 130 h40 v90" stroke={C} strokeWidth="4" strokeDasharray="6 6" />
@@ -272,7 +275,7 @@ const scenes: Record<string, React.ReactNode> = {
       <path d="M0 40 h400 M0 80 h400 M0 120 h400 M0 160 h400 M0 200 h400 M80 0 v40 M200 0 v40 M320 0 v40 M140 40 v40 M260 40 v40 M80 80 v40 M200 80 v40 M320 80 v40 M140 120 v40 M260 120 v40 M80 160 v40 M200 160 v40 M320 160 v40" stroke={C} strokeWidth="2" opacity="0.15" />
       {/* resin tank with control head */}
       <rect x="110" y="70" width="80" height="180" rx="18" fill={O} stroke={C} strokeWidth="5" />
-      <rect x="100" y="40" width="100" height="40" rx="12" fill={B} stroke={C} strokeWidth="5" />
+      <rect x="100" y="40" width="100" height="40" rx="12" fill={M} stroke={C} strokeWidth="5" />
       <rect x="126" y="52" width="48" height="16" rx="4" fill={W} stroke={C} strokeWidth="3" />
       <circle cx="150" cy="60" r="4" fill={B} />
       <path d="M130 200 h40" stroke={C} strokeWidth="3" opacity="0.35" />
@@ -286,8 +289,8 @@ const scenes: Record<string, React.ReactNode> = {
       <path d="M0 96 h100" stroke={O} strokeWidth="10" />
       <path d="M200 96 h200" stroke={C} strokeWidth="18" />
       <path d="M200 96 h200" stroke={O} strokeWidth="10" />
-      <rect x="40" y="84" width="22" height="24" rx="3" fill={B} stroke={C} strokeWidth="3" />
-      <rect x="330" y="84" width="22" height="24" rx="3" fill={B} stroke={C} strokeWidth="3" />
+      <rect x="40" y="84" width="22" height="24" rx="3" fill={M} stroke={C} strokeWidth="3" />
+      <rect x="330" y="84" width="22" height="24" rx="3" fill={M} stroke={C} strokeWidth="3" />
       {/* hard water in, soft water out */}
       <path d="M60 150 l-4 -4 M70 146 l4 4 M56 160 l8 0" stroke={C} strokeWidth="3" opacity="0.5" />
       <path d="M350 140 c8 10 14 18 14 26 a14 14 0 0 1 -28 0 c0 -8 6 -16 14 -26z" fill={B} stroke={C} strokeWidth="3" />
@@ -305,8 +308,8 @@ const scenes: Record<string, React.ReactNode> = {
       {/* the pipe across the wall with a split */}
       <path d="M0 110 h400" stroke={C} strokeWidth="22" />
       <path d="M0 110 h400" stroke={O} strokeWidth="14" />
-      <rect x="60" y="98" width="22" height="26" rx="3" fill={B} stroke={C} strokeWidth="3" />
-      <rect x="330" y="98" width="22" height="26" rx="3" fill={B} stroke={C} strokeWidth="3" />
+      <rect x="60" y="98" width="22" height="26" rx="3" fill={M} stroke={C} strokeWidth="3" />
+      <rect x="330" y="98" width="22" height="26" rx="3" fill={M} stroke={C} strokeWidth="3" />
       <path d="M212 100 l6 8 l-6 6 l6 6" stroke={C} strokeWidth="3" />
       {/* spray */}
       <path d="M216 96 l-10 -30 M222 94 l4 -34 M228 96 l18 -26 M232 100 l30 -14" stroke={B} strokeWidth="5" />
@@ -355,7 +358,7 @@ const scenes: Record<string, React.ReactNode> = {
       <rect x="230" y="150" width="120" height="16" rx="3" fill={O} stroke={C} strokeWidth="3" transform="rotate(-20 290 158)" />
       <path d="M244 160 l6 -2 M258 155 l6 -2 M272 150 l6 -2 M286 145 l6 -2 M300 140 l6 -2" stroke={C} strokeWidth="2" opacity="0.6" />
       <path d="M300 200 l70 -40" stroke={C} strokeWidth="12" />
-      <path d="M300 200 l70 -40" stroke={B} strokeWidth="6" />
+      <path d="M300 200 l70 -40" stroke={M} strokeWidth="6" />
       <path d="M298 204 l-12 4 l6 -12z" fill={C} />
       {/* takeoff tally */}
       <rect x="330" y="76" width="50" height="60" rx="6" fill={W} stroke={C} strokeWidth="3" />
@@ -380,11 +383,11 @@ const scenes: Record<string, React.ReactNode> = {
       <path d="M20 224 h360" stroke={W} strokeWidth="16" />
       <path d="M120 224 v-90 M220 224 v-90 M320 224 v-90" stroke={C} strokeWidth="24" />
       <path d="M120 224 v-90 M220 224 v-90 M320 224 v-90" stroke={W} strokeWidth="16" />
-      <rect x="106" y="112" width="28" height="18" rx="3" fill={B} stroke={C} strokeWidth="3" />
-      <rect x="206" y="112" width="28" height="18" rx="3" fill={B} stroke={C} strokeWidth="3" />
-      <rect x="306" y="112" width="28" height="18" rx="3" fill={B} stroke={C} strokeWidth="3" />
-      <rect x="160" y="210" width="30" height="28" rx="4" fill={B} stroke={C} strokeWidth="3" />
-      <rect x="260" y="210" width="30" height="28" rx="4" fill={B} stroke={C} strokeWidth="3" />
+      <rect x="106" y="112" width="28" height="18" rx="3" fill={M} stroke={C} strokeWidth="3" />
+      <rect x="206" y="112" width="28" height="18" rx="3" fill={M} stroke={C} strokeWidth="3" />
+      <rect x="306" y="112" width="28" height="18" rx="3" fill={M} stroke={C} strokeWidth="3" />
+      <rect x="160" y="210" width="30" height="28" rx="4" fill={M} stroke={C} strokeWidth="3" />
+      <rect x="260" y="210" width="30" height="28" rx="4" fill={M} stroke={C} strokeWidth="3" />
       {/* test plug and gauge */}
       <circle cx="60" cy="90" r="18" fill={W} stroke={C} strokeWidth="4" />
       <path d="M60 90 l8 -8" stroke={C} strokeWidth="3" />
@@ -408,10 +411,10 @@ const scenes: Record<string, React.ReactNode> = {
       {/* four branch lines with valves */}
       <path d="M150 128 h230 M150 143 h230 M150 158 h230 M150 173 h230" stroke={C} strokeWidth="9" />
       <path d="M150 128 h230 M150 143 h230 M150 158 h230 M150 173 h230" stroke={O} strokeWidth="4" />
-      <rect x="190" y="121" width="16" height="14" rx="3" fill={B} stroke={C} strokeWidth="2.5" />
-      <rect x="230" y="136" width="16" height="14" rx="3" fill={B} stroke={C} strokeWidth="2.5" />
-      <rect x="270" y="151" width="16" height="14" rx="3" fill={B} stroke={C} strokeWidth="2.5" />
-      <rect x="310" y="166" width="16" height="14" rx="3" fill={B} stroke={C} strokeWidth="2.5" />
+      <rect x="190" y="121" width="16" height="14" rx="3" fill={M} stroke={C} strokeWidth="2.5" />
+      <rect x="230" y="136" width="16" height="14" rx="3" fill={M} stroke={C} strokeWidth="2.5" />
+      <rect x="270" y="151" width="16" height="14" rx="3" fill={M} stroke={C} strokeWidth="2.5" />
+      <rect x="310" y="166" width="16" height="14" rx="3" fill={M} stroke={C} strokeWidth="2.5" />
       {/* drops to appliances */}
       <path d="M380 128 v122 M380 173 v77" stroke={C} strokeWidth="9" />
       <path d="M380 128 v122" stroke={O} strokeWidth="4" />
@@ -438,7 +441,7 @@ const scenes: Record<string, React.ReactNode> = {
       {/* house at right */}
       <path d="M280 130 v-60 h100 v60" fill={O} stroke={C} strokeWidth="4" />
       <path d="M270 72 l60 -40 l60 40" fill={W} stroke={C} strokeWidth="4" />
-      <rect x="318" y="94" width="24" height="36" rx="2" fill={B} stroke={C} strokeWidth="3" />
+      <rect x="318" y="94" width="24" height="36" rx="2" fill={M} stroke={C} strokeWidth="3" />
       {/* water main and service line to the house */}
       <path d="M0 190 h60" stroke={C} strokeWidth="18" />
       <path d="M0 190 h60" stroke={W} strokeWidth="10" />
@@ -456,7 +459,7 @@ const scenes: Record<string, React.ReactNode> = {
       <rect x="196" y="176" width="30" height="28" rx="5" fill={O} stroke={C} strokeWidth="4" />
       <path d="M204 190 l8 -6 v12z" fill={B} />
       <path d="M300 120 v-30" stroke={C} strokeWidth="14" />
-      <rect x="288" y="80" width="24" height="14" rx="3" fill={B} stroke={C} strokeWidth="3" />
+      <rect x="288" y="80" width="24" height="14" rx="3" fill={M} stroke={C} strokeWidth="3" />
       {/* locate flag */}
       <path d="M150 128 v-36" stroke={C} strokeWidth="3" />
       <path d="M150 92 h26 l-8 9 l8 9 h-26z" fill={B} stroke={C} strokeWidth="2.5" />
@@ -479,7 +482,7 @@ const scenes: Record<string, React.ReactNode> = {
       <path d="M90 152 v22 a10 10 0 0 0 10 10 h80 a10 10 0 0 0 10 -10 v-22" fill={W} stroke={C} strokeWidth="4" />
       <path d="M150 150 v-26 a20 20 0 0 0 -40 0 v8" stroke={C} strokeWidth="12" />
       <path d="M150 150 v-26 a20 20 0 0 0 -40 0 v8" stroke={O} strokeWidth="6" />
-      <path d="M156 132 h18" stroke={B} strokeWidth="6" />
+      <path d="M156 132 h18" stroke={M} strokeWidth="6" />
       {/* mirror */}
       <rect x="80" y="40" width="120" height="80" rx="6" fill={W} stroke={C} strokeWidth="4" />
       {/* shower trim on the right */}
@@ -488,7 +491,7 @@ const scenes: Record<string, React.ReactNode> = {
       <path d="M340 60 h24 l6 14 h-36z" fill={O} stroke={C} strokeWidth="4" />
       <path d="M346 82 v10 M356 82 v14 M366 82 v10" stroke={B} strokeWidth="4" />
       <circle cx="330" cy="160" r="22" fill={W} stroke={C} strokeWidth="4" />
-      <circle cx="330" cy="160" r="8" fill={B} />
+      <circle cx="330" cy="160" r="8" fill={M} />
       <path d="M330 160 l0 -14" stroke={C} strokeWidth="4" />
       {/* punch list on the counter */}
       <rect x="252" y="120" width="40" height="30" rx="4" fill={W} stroke={C} strokeWidth="3" />

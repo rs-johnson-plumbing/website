@@ -4,7 +4,7 @@ import { useCallback, useEffect, useId, useRef, useState } from "react";
 import { home, type IconName } from "@/lib/content";
 import { cn } from "@/lib/cn";
 import { Icon } from "@/components/ui/Icon";
-import { BackLink, Chip, IntakeDialog, Row, intakeBtn as btn, intakeHeading as h2, intakeInput as input } from "./IntakeDialog";
+import { BackLink, Chip, IntakeDialog, intakeBtn as btn, intakeHeading as h2, intakeInput as input } from "./IntakeDialog";
 import { ReadyIllustration } from "./ReadyIllustration";
 
 type Stage = "idle" | "address" | "category" | "issue" | "note" | "phone" | "done";
@@ -14,8 +14,7 @@ type Category = { id: string; label: string; icon: IconName; illustration?: stri
 /**
  * Quick-capture flow in the homeowner hero, one modal from the first tap:
  *
- *   Submit Service Request -> address -> "Good news. We service your area."
- *   category -> issue (or Something Else) -> optional note -> phone -> done.
+ *   Request a Visit -> address -> "Got it." category -> issue (or Something Else) -> optional note -> phone -> done.
  *
  * The address posts on its own first so it is captured even if they
  * abandon; the rest posts with the phone number. Copy and the category
@@ -104,7 +103,7 @@ export function AvailabilityCheck({ className, openSignal = 0, hideTrigger = fal
     }
   }
 
-  const summary = [category?.label, issueLabel].filter(Boolean).join(" · ");
+  const summary = a.summary.replace("{category}", category?.label ?? "").replace("{issue}", issueLabel).replace("{address}", address);
 
   return (
     <>
@@ -201,13 +200,10 @@ export function AvailabilityCheck({ className, openSignal = 0, hideTrigger = fal
               {a.phoneHeading}
             </h2>
             <p className="mt-1 text-[14px] text-slate">{a.phoneLine}</p>
-            <dl className="mt-3 divide-y divide-hairline rounded-btn border border-blue/20 bg-blue-tint px-3.5">
-              <Row label={a.labels.address}>{address}</Row>
-              <Row label={a.labels.reason}>{summary}</Row>
-              {note && <Row label={a.labels.details}>{note}</Row>}
-            </dl>
+            <p className="mt-3 text-[16px] font-semibold leading-snug text-charcoal">{summary}</p>
+            {note && <p className="mt-1 text-[15px] leading-snug text-slate">“{note}”</p>}
             <div className="relative mt-4">
-              <span className="pointer-events-none absolute left-3.5 top-1/2 flex h-7 w-7 -translate-y-1/2 items-center justify-center rounded-full bg-blue-tint text-blue">
+              <span className="pointer-events-none absolute left-3.5 top-1/2 flex h-7 w-7 -translate-y-1/2 items-center justify-center rounded-full bg-sand text-charcoal">
                 <Icon name="phone" size={15} />
               </span>
               <input ref={phoneRef} name="phone" type="tel" required placeholder={a.phonePlaceholder} aria-label={a.phoneHeading} autoComplete="tel" className={cn(input, "pl-14")} />
@@ -229,12 +225,9 @@ export function AvailabilityCheck({ className, openSignal = 0, hideTrigger = fal
             <h2 id={titleId} className={cn(h2, "mt-2 pr-0 text-center text-[20px] lg:text-[24px]")}>
               {a.done}
             </h2>
-            <dl className="mt-4 divide-y divide-hairline rounded-btn border border-hairline bg-offwhite px-4">
-              <Row label={a.labels.address}>{address}</Row>
-              <Row label={a.labels.reason}>{summary}</Row>
-              {note && <Row label={a.labels.details}>{note}</Row>}
-              <Row label={a.labels.phone}>{phone}</Row>
-            </dl>
+            <p className="mt-4 text-center text-[16px] font-semibold leading-snug text-charcoal">{summary}</p>
+            {note && <p className="mt-1 text-center text-[15px] leading-snug text-slate">“{note}”</p>}
+            <p className="mt-2 text-center text-[15px] text-slate">{a.summaryPhone.replace("{phone}", phone)}</p>
             <button type="button" onClick={reset} className={cn(btn, "mt-5 h-[52px] w-full border-[1.5px] border-charcoal bg-white text-charcoal")}>
               {a.close}
             </button>

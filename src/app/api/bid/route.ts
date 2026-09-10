@@ -4,7 +4,7 @@ const MAX_PLANS_BYTES = 4 * 1024 * 1024;
 const PLAN_TYPES = /^(application\/pdf|image\/)/;
 
 /**
- * Submit Bid Request intake from the builders hero, one multipart post:
+ * Request a Bid intake from the builders hero, one multipart post:
  * contractor, projectType, phone, and an optional plans file (PDF or image,
  * 4 MB cap so it fits the serverless request limit).
  *

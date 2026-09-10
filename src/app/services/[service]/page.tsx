@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { services, serviceBySlug, servicesHub, site, SITE_URL } from "@/lib/content";
+import { pageMetadata } from "@/lib/seo";
 import { JsonLd } from "@/components/blocks/JsonLd";
 import { IntakeBanner } from "@/components/blocks/IntakeBanner";
 import { TextLink } from "@/components/ui/TextLink";
@@ -17,12 +18,7 @@ export async function generateMetadata({ params }: { params: Promise<Params> }):
   const s = serviceBySlug(slug);
   if (!s) return {};
   const title = `${s.name} ${servicesHub.servicePage.titleSuffix} | ${site.shortName}`;
-  return {
-    title: { absolute: title },
-    description: s.metaDescription,
-    alternates: { canonical: `/services/${s.slug}` },
-    openGraph: { title, description: s.metaDescription, url: `/services/${s.slug}` },
-  };
+  return pageMetadata({ title, description: s.metaDescription, path: `/services/${s.slug}` });
 }
 
 export default async function ServicePage({ params }: { params: Promise<Params> }) {
@@ -67,7 +63,7 @@ export default async function ServicePage({ params }: { params: Promise<Params> 
             <ul className="flex flex-col gap-2 text-[16px] leading-[1.7] lg:text-body">
               {s.problems.map((p) => (
                 <li key={p} className="flex items-start gap-2.5">
-                  <Icon name="check" size={18} strokeWidth={2} className="mt-1.5 shrink-0 text-blue" />
+                  <Icon name="check" size={18} strokeWidth={2} className="mt-1.5 shrink-0 text-charcoal" />
                   {p}
                 </li>
               ))}

@@ -9,10 +9,11 @@ import { AvailabilityCheck } from "./AvailabilityCheck";
 import { BidRequest } from "./BidRequest";
 
 /**
- * One filled "Submit Request" button that asks "Are you a homeowner or a
- * builder?" and hands off: Homeowner goes straight into the service
- * request (address, then the kind of work), Builder straight into the bid
- * request. Used on the phone hero, the sticky phone bar, and the closing
+ * One "Request a Visit" button (filled; outlined and labelled "Request" in
+ * the sticky bar, where Call is the filled one) that
+ * asks "Is this for your home or a job site?" and hands off: My Home goes
+ * straight into the service request (address, then the kind of work), A Job
+ * Site straight into the bid request. Used on the phone hero, the sticky phone bar, and the closing
  * banner on pages that serve both audiences. Copy lives in home.json under
  * chooser.
  */
@@ -29,12 +30,12 @@ export function RequestChooser({ className, size = "bar" }: { className?: string
         onClick={() => setOpen(true)}
         data-track="request-open"
         className={cn(
-          "flex items-center justify-center gap-2 whitespace-nowrap rounded-btn bg-blue font-bold text-white hover:opacity-[0.88] builders:shadow-cream-inset",
-          size === "bar" ? "py-3 text-[14px]" : "h-[52px] px-6 text-[16px]",
+          "flex items-center justify-center gap-2 whitespace-nowrap rounded-btn font-bold hover:opacity-[0.88]",
+          size === "bar" ? "border-[1.5px] border-blue bg-transparent py-3 text-[14px] text-blue" : "h-[52px] bg-blue px-6 text-[16px] text-white builders:shadow-cream-inset",
           className,
         )}
       >
-        {c.button}
+        {size === "bar" ? c.barButton : c.button}
         {size === "full" && <Icon name="arrow-right" size={20} strokeWidth={1.8} className="shrink-0" />}
       </button>
       <IntakeDialog open={open} onClose={() => setOpen(false)} titleId={titleId} closeLabel={c.close}>

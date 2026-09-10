@@ -14,7 +14,7 @@ import type { IconName } from "@/lib/content";
  *
  * Desktop: one banner. The statement, then two doors side by side under it,
  * each an icon subhead with a one-line helper over its own filled blue
- * button, Submit Service Request and Submit Bid Request, with a hairline
+ * button, Request a Visit and Request a Bid, with a hairline
  * between.
  * Two filled buttons in one section is deliberate here: the hero's job is
  * to give each audience its door.
@@ -22,7 +22,7 @@ import type { IconName } from "@/lib/content";
  * Phone: no audience toggle, no builders row, no map. A one-line serving
  * eyebrow with a pin, the statement centered, then two white boxes stacked
  * full width. The first asks "Do you need to submit a request?" over one
- * full-width Submit Request that asks homeowner or builder and hands off to
+ * full-width Request a Visit that asks home or job site and hands off to
  * that flow. The second asks "Do you need to talk to somebody?" over the
  * Call and Text pair side by side. Builders on a phone get their door from
  * the closing banner and the For Builders page. Desktop has no Call and
@@ -39,8 +39,8 @@ export function HomeHero() {
   return (
     <>
       <section className="relative hidden overflow-hidden bg-offwhite text-charcoal lg:block">
-        {/* The metro map sits behind everything, faded out under the headline. */}
-        <MetroMap className="pointer-events-none absolute inset-0 h-full w-full" />
+        {/* The metro map sits behind everything, faded out under the headline, with the roads drawn as pipes. Once per session the water gets turned on at O'Fallon and fills them. */}
+        <MetroMap variant="pipes" animate className="pointer-events-none absolute inset-0 h-full w-full" />
         <div className="site-width gutter relative pb-[64px] pt-[64px]">
           <h1 className="max-w-[760px] text-[52px] font-bold leading-[1.08] tracking-[-0.01em]">{s.heading}</h1>
           <div className="mt-9 flex items-stretch gap-10">
@@ -50,7 +50,7 @@ export function HomeHero() {
                 <div className="flex flex-col gap-4">
                   <div className="flex flex-col gap-1">
                     <span className="inline-flex items-center gap-2 text-[20px] font-semibold tracking-[-0.01em]">
-                      <Icon name={d.icon as IconName} size={22} strokeWidth={1.8} className="text-blue" />
+                      <Icon name={d.icon as IconName} size={22} strokeWidth={1.8} className="text-charcoal" />
                       {d.label}
                     </span>
                     <span className="text-[14px] text-slate">{d.line}</span>
@@ -66,7 +66,7 @@ export function HomeHero() {
       {/* Phone: serving eyebrow, statement, then the two stacked boxes. */}
       <section data-sticky-sentinel className="bg-offwhite text-charcoal lg:hidden">
         <div className="flex flex-col gap-3 px-gutter-m pb-8 pt-6">
-          <p className="mb-2 inline-flex items-center justify-center gap-1.5 text-[14px] font-bold text-blue">
+          <p className="mb-2 inline-flex items-center justify-center gap-1.5 text-[14px] font-bold text-slate">
             <Icon name="map" size={17} strokeWidth={1.8} />
             {s.eyebrow}
           </p>
