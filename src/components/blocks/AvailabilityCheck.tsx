@@ -14,7 +14,7 @@ type Category = { id: string; label: string; icon: IconName; illustration?: stri
 /**
  * Quick-capture flow in the homeowner hero, one modal from the first tap:
  *
- *   Request a Visit -> address -> "Got it." category -> issue (or Something Else) -> optional note -> phone -> done.
+ *   Request Service -> address -> "Got it." category -> issue (or Something Else) -> optional note -> phone -> done.
  *
  * The address posts on its own first so it is captured even if they
  * abandon; the rest posts with the phone number. Copy and the category

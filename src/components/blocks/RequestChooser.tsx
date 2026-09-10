@@ -9,7 +9,7 @@ import { AvailabilityCheck } from "./AvailabilityCheck";
 import { BidRequest } from "./BidRequest";
 
 /**
- * One "Request a Visit" button (filled; outlined and labelled "Request" in
+ * One "Request Service" button (filled; outlined and labelled "Request" in
  * the sticky bar, where Call is the filled one) that
  * asks "Is this for your home or a job site?" and hands off: My Home goes
  * straight into the service request (address, then the kind of work), A Job
