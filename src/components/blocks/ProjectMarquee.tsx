@@ -1,15 +1,16 @@
 "use client";
 
 import { useCallback, useEffect, useRef, useState } from "react";
-import { MarqueeRail } from "./MarqueeRail";
+import { MarqueeRail, type MarqueeRailHandle } from "./MarqueeRail";
 import { projects, type Project, type ProjectPhoto } from "@/lib/content";
 import { BandIllustration } from "./BandIllustration";
 import { Icon } from "@/components/ui/Icon";
 import { cn } from "@/lib/cn";
 
 /**
- * Recent Builder Work on the For Builders page: one row of project cards
- * rolling left to right that a finger can swipe along (MarqueeRail). Tapping a card
+ * Our Recent Projects on the For Builders page: one row of project cards
+ * rolling left to right that a finger or a mouse can drag along, with
+ * previous and next arrows beside the heading on a desktop. Tapping a card
  * opens the project viewer: the page darkens behind a modal with a
  * swipeable strip of the project's photos, a caption under each photo, and
  * the project name, city, type, and description. Until real photos exist
@@ -18,14 +19,26 @@ import { cn } from "@/lib/cn";
 export function ProjectMarquee({ headingClassName }: { headingClassName?: string }) {
   const items = projects.items as Project[];
   const [open, setOpen] = useState<Project | null>(null);
+  const rail = useRef<MarqueeRailHandle>(null);
+  const arrow = "hidden h-11 w-11 items-center justify-center rounded-full border-[1.5px] border-teal text-teal transition-colors hover:bg-teal hover:text-white lg:flex";
 
   return (
     <div className="flex flex-col gap-5 lg:gap-6">
-      <h2 id="projects-h" className={headingClassName ?? "text-h2-m lg:text-h2"}>
-        {projects.heading}
-      </h2>
+      <div className="flex items-center justify-between gap-4">
+        <h2 id="projects-h" className={headingClassName ?? "text-h2-m lg:text-h2"}>
+          {projects.heading}
+        </h2>
+        <div className="hidden gap-2 lg:flex">
+          <button type="button" onClick={() => rail.current?.step(-1)} aria-label={projects.previous} className={arrow}>
+            <Icon name="arrow-right" size={18} strokeWidth={2} className="rotate-180" />
+          </button>
+          <button type="button" onClick={() => rail.current?.step(1)} aria-label={projects.next} className={arrow}>
+            <Icon name="arrow-right" size={18} strokeWidth={2} />
+          </button>
+        </div>
+      </div>
       <div className="-mx-gutter-m lg:-mx-gutter">
-        <MarqueeRail seconds={60} reverse>
+        <MarqueeRail ref={rail} seconds={60} reverse>
           {[false, true].map((clone) =>
             items.map((p) => (
               <ProjectTile key={`${p.id}${clone ? "-clone" : ""}`} project={p} clone={clone} onOpen={() => setOpen(p)} />
@@ -122,10 +135,10 @@ function ProjectViewer({ project, onClose }: { project: Project; onClose: () => 
           </div>
           {photos.length > 1 && (
             <>
-              <button type="button" onClick={() => goTo(index - 1)} aria-label={projects.previous} className="absolute left-2 top-1/2 hidden h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full bg-white/90 text-charcoal shadow hover:bg-white lg:flex">
+              <button type="button" onClick={() => goTo(index - 1)} aria-label={projects.previousPhoto} className="absolute left-2 top-1/2 hidden h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full bg-white/90 text-charcoal shadow hover:bg-white lg:flex">
                 <Icon name="arrow-right" size={18} strokeWidth={2} className="rotate-180" />
               </button>
-              <button type="button" onClick={() => goTo(index + 1)} aria-label={projects.next} className="absolute right-2 top-1/2 hidden h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full bg-white/90 text-charcoal shadow hover:bg-white lg:flex">
+              <button type="button" onClick={() => goTo(index + 1)} aria-label={projects.nextPhoto} className="absolute right-2 top-1/2 hidden h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full bg-white/90 text-charcoal shadow hover:bg-white lg:flex">
                 <Icon name="arrow-right" size={18} strokeWidth={2} />
               </button>
             </>
