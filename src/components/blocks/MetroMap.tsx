@@ -322,8 +322,8 @@ export function MetroMap({ className, variant = "ink", frame = "wide", pin = tru
               <g transform={`translate(${home[0] + 26} ${home[1] - 56})`}>
                 <path data-drop d="M0 0 c6 8 10 14 10 20 a10 10 0 0 1 -20 0 c0 -6 4 -12 10 -20z" fill="#2868A8" stroke="#2B2B2B" strokeWidth="2" style={{ opacity: 0, transformBox: "fill-box", transformOrigin: "center" }} />
               </g>
-              {/* The plumber who turns it on, in the done-screen style: navy shirt and cap, slate wrench. Hidden until the effect pops him in, and gone again once the water is running. */}
-              <g transform={`translate(${home[0] - 92} ${home[1] - 40}) scale(0.55)`}>
+              {/* The plumber who turns it on, in the done-screen style: navy shirt and cap, slate wrench. About a third of the hero's height, standing to the right of the valve and mirrored so the wrench reaches across to it, clear of the headline. Hidden until the effect pops him in, and gone again once the water is running. */}
+              <g transform={`translate(${home[0] + 292} ${home[1] - 124}) scale(-2 2)`}>
                 <g data-plumber style={{ opacity: 0, transformBox: "fill-box", transformOrigin: "50% 100%" }}>
                   <ellipse cx="60" cy="118" rx="44" ry="8" fill="#2B2B2B" opacity="0.12" />
                   <path d="M34 116 v-30 a26 26 0 0 1 52 0 v30z" fill="#0D2A4D" stroke="#2B2B2B" strokeWidth="3" />
