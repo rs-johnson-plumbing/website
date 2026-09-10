@@ -42,6 +42,11 @@ so **the left 40% of the frame has to be house, driveway and planting — no
 subject, nothing that matters**. The plumber stands right of centre, cap to
 waist, with the van filling the right edge. Leave headroom above the cap.
 
+The phone view has no hero photograph for the same reason. The board's mobile
+panel shows the house as a soft backdrop behind the headline; a portrait frame
+of the crew member has no such corner to crop, so the phone hero is
+typographic until a landscape frame exists.
+
 The stand-in is now cropped from the photographic mobile authority rather than
 the desktop one, which frames the same scene wider: the whole torso with the
 arms crossed, the house behind, and headroom above the cap. It is still
