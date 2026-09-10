@@ -98,16 +98,18 @@ one. Only one design mounts at a time, so IDs and H1s are never duplicated.
 
 ## Workflow
 
-1. Small tweaks (copy edits, a class change, a content-file update) go
-   straight to `main` in one commit. New pages, new components, and anything
-   touching more than a few files go on a branch with a PR so Vercel posts a
-   preview first. Either way, one task per commit or PR.
-2. Before every push, to `main` or a branch: `npm run lint`,
-   `npm run typecheck`, `npm run build` (which runs the content check),
-   `npm run test:smoke`. A direct push to `main` skips the PR safety net, so
-   the local checks are the gate.
-3. On a PR, Vercel posts a preview URL. Check it at phone width first; this
-   site is phone-first. On a direct push, check production a minute later.
+1. Everything ships to `main` as soon as it is checked. One task per commit.
+   A repository ruleset rejects a push straight to `main` ("Changes must be
+   made through a pull request"), so the route is: branch, push, open a PR,
+   merge it. Do not sit on a green PR waiting to be told; Daren wants the
+   change live. Never commit on `main` locally — you will only find out at
+   push time, and then you are untangling branches.
+2. Before every push: `npm run lint`, `npm run typecheck`, `npm run build`
+   (which runs the content check), `npm run test:smoke`. There is no review
+   between you and production, so the local checks are the gate.
+3. Do not hand over preview URLs unasked. Check the work yourself before
+   pushing — at phone width first, this site is phone-first — and check
+   production a minute after the merge.
 4. Every push to `main` deploys production. Never force-push or delete
    `main`; the ruleset blocks both.
 5. `NEXT_PUBLIC_SITE_INDEXABLE` gates search indexing. Unset or anything but
