@@ -1,3 +1,7 @@
+"use client";
+
+import { useEffect, useRef } from "react";
+
 /**
  * A quiet line drawing of the St. Louis metro for the homepage hero. Road
  * shapes follow a hand-traced sketch of the artery routes (I-70, I-64, I-44,
@@ -6,6 +10,15 @@
  * local knows the rest. Everything sits at low opacity so it reads as texture
  * behind the headline, not as a map to study. The drawing is weighted to the
  * right and a mask fades it out under the headline. Not to scale.
+ *
+ * With `animate`, the water gets turned on: a small plumber pops in beside a
+ * shutoff valve at O'Fallon, gives it two turns with a wrench, and water
+ * runs out along the roads from the valve, reaching each town in the order
+ * the roads would. Town names pop as the water arrives. It plays once per
+ * session, about four seconds, and everything else on the page stays still.
+ * Under prefers-reduced-motion, or on a repeat view, the map simply shows
+ * the water on. The server renders the map as it is today (no water), so
+ * the first paint is the still map and the animation adds to it.
  */
 export type MetroMapVariant = "ink" | "roads" | "blue" | "pipes" | "blueprint" | "valve";
 
@@ -77,6 +90,34 @@ const shields: { n: string; x: number; y: number }[] = [
 const joints: P[] = [[383, 310], [511, 298], [713, 328], [443, 410], [493, 440], [683, 450], [693, 510], [883, 512], [823, 680], [713, 600], [558, 298], [673, 410]];
 /** O'Fallon, the home base. */
 const home: P = [475, 300];
+/** Towns the water reaches, with where their name sits. Positions follow the sketch, not a survey. */
+const towns: { name: string; x: number; y: number; dx: number; dy: number; anchor: "start" | "end" }[] = [
+  { name: "Wentzville", x: 383, y: 310, dx: -10, dy: -14, anchor: "end" },
+  { name: "Lake St. Louis", x: 428, y: 304, dx: -6, dy: 26, anchor: "end" },
+  { name: "St. Peters", x: 528, y: 300, dx: 2, dy: -14, anchor: "start" },
+  { name: "Chesterfield", x: 622, y: 468, dx: -12, dy: 6, anchor: "end" },
+  { name: "Wildwood", x: 518, y: 560, dx: 10, dy: 6, anchor: "start" },
+  { name: "Ballwin", x: 608, y: 562, dx: 10, dy: 22, anchor: "start" },
+  { name: "Kirkwood", x: 713, y: 600, dx: 12, dy: 26, anchor: "start" },
+];
+
+const dist = (a: P, b: P) => Math.hypot(a[0] - b[0], a[1] - b[1]);
+/** Polyline length, close enough to the smoothed curve for timing. */
+const polylen = (pts: P[]) => pts.reduce((sum, p, i) => (i ? sum + dist(pts[i - 1], p) : 0), 0);
+
+/** Map units per second the water travels, and the seconds before it starts (the plumber's turn). */
+const SPEED = 300;
+const LEAD = 1.2;
+const SESSION_KEY = "rsj-water-on";
+
+/** One water path per road: which end is nearer O'Fallon, and when and how long it fills. */
+const waterPaths = [...interstates.map((pts) => ({ pts, w: 4.5 })), ...routes.map((pts) => ({ pts, w: 3 }))].map(({ pts, w }) => {
+  const dA = dist(pts[0], home);
+  const dB = dist(pts[pts.length - 1], home);
+  const reverse = dB < dA;
+  return { d: smooth(pts), w, reverse, delay: Math.min(dA, dB) / SPEED, dur: polylen(pts) / SPEED };
+});
+
 const labels: { name: string; x: number; y: number }[] = [
   { name: "St. Charles", x: 560, y: 340 },
   { name: "St. Louis", x: 905, y: 496 },
@@ -92,7 +133,55 @@ function Shield({ n, x, y }: { n: string; x: number; y: number }) {
   );
 }
 
-export function MetroMap({ className, variant = "ink", frame = "wide", pin = true }: { className?: string; variant?: MetroMapVariant; /** "wide" fades out under the desktop headline; "phone" crops to the drawing with no fade and sits at the bottom of a tall narrow hero. */ frame?: "wide" | "phone"; /** Blue pin on O'Fallon, the headquarters. */ pin?: boolean }) {
+export function MetroMap({ className, variant = "ink", frame = "wide", pin = true, animate = false }: { className?: string; variant?: MetroMapVariant; /** "wide" fades out under the desktop headline; "phone" crops to the drawing with no fade and sits at the bottom of a tall narrow hero. */ frame?: "wide" | "phone"; /** Blue pin on O'Fallon, the headquarters. */ pin?: boolean; /** Turn the water on from O'Fallon once per session: the valve replaces the pin, the roads fill blue, the towns pop. */ animate?: boolean }) {
+  const stage = useRef<SVGGElement>(null);
+
+  useEffect(() => {
+    const root = stage.current;
+    if (!animate || !root) return;
+    const q = <T extends Element>(sel: string) => Array.from(root.querySelectorAll<T>(sel));
+    const water = q<SVGPathElement>("[data-water]");
+    const townEls = q<SVGGElement>("[data-town]");
+    const handle = root.querySelector<SVGGElement>("[data-handle]");
+    const drop = root.querySelector<SVGPathElement>("[data-drop]");
+    const plumber = root.querySelector<SVGGElement>("[data-plumber]");
+    const arm = root.querySelector<SVGGElement>("[data-arm]");
+    const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    let played = false;
+    try {
+      played = sessionStorage.getItem(SESSION_KEY) === "1";
+    } catch {}
+
+    if (reduce || played) {
+      // Water on, no motion.
+      water.forEach((p) => (p.style.strokeDashoffset = "0"));
+      townEls.forEach((t) => (t.style.opacity = "1"));
+      if (handle) handle.style.transform = "rotate(90deg)";
+      return;
+    }
+
+    const ms = (sec: number) => sec * 1000;
+    const anims: Animation[] = [];
+    if (plumber && arm) {
+      anims.push(plumber.animate([{ opacity: 0, transform: "scale(0.6)" }, { opacity: 1, transform: "scale(1.06)", offset: 0.7 }, { opacity: 1, transform: "scale(1)" }], { delay: ms(0.3), duration: ms(0.35), fill: "forwards", easing: "ease-out" }));
+      anims.push(arm.animate([{ transform: "rotate(0deg)" }, { transform: "rotate(28deg)" }, { transform: "rotate(-10deg)" }, { transform: "rotate(28deg)" }, { transform: "rotate(0deg)" }], { delay: ms(0.6), duration: ms(0.6), fill: "forwards", easing: "ease-in-out" }));
+      anims.push(plumber.animate([{ opacity: 1 }, { opacity: 0 }], { delay: ms(3.6), duration: ms(0.4), fill: "forwards" }));
+    }
+    if (handle) anims.push(handle.animate([{ transform: "rotate(0deg)" }, { transform: "rotate(90deg)" }], { delay: ms(0.75), duration: ms(0.5), fill: "forwards", easing: "cubic-bezier(.3,.9,.4,1)" }));
+    if (drop) anims.push(drop.animate([{ opacity: 0, transform: "translateY(10px) scale(0.6)" }, { opacity: 1, transform: "translateY(-6px) scale(1)", offset: 0.5 }, { opacity: 0, transform: "translateY(-22px) scale(0.9)" }], { delay: ms(LEAD - 0.25), duration: ms(0.7), fill: "forwards" }));
+    water.forEach((p) => {
+      const reverse = p.dataset.reverse === "1";
+      anims.push(p.animate([{ strokeDashoffset: reverse ? "-1" : "1" }, { strokeDashoffset: "0" }], { delay: ms(LEAD + Number(p.dataset.delay)), duration: ms(Number(p.dataset.dur)), fill: "forwards", easing: "cubic-bezier(.2,.6,.4,1)" }));
+    });
+    townEls.forEach((t) => {
+      anims.push(t.animate([{ opacity: 0, transform: "scale(0.4)" }, { opacity: 1, transform: "scale(1.15)", offset: 0.7 }, { opacity: 1, transform: "scale(1)" }], { delay: ms(LEAD + Number(t.dataset.at)), duration: ms(0.35), fill: "forwards", easing: "ease-out" }));
+    });
+    try {
+      sessionStorage.setItem(SESSION_KEY, "1");
+    } catch {}
+    return () => anims.forEach((a) => a.cancel());
+  }, [animate]);
+
   const mono = variant === "blue";
   const pipes = variant === "pipes" || variant === "valve";
   const blueprint = variant === "blueprint";
@@ -123,9 +212,9 @@ export function MetroMap({ className, variant = "ink", frame = "wide", pin = tru
       </defs>
       <g mask={frame === "wide" ? "url(#metro-mask)" : undefined}>
         {blueprint && <rect width="1800" height="500" fill="url(#metro-grid)" opacity="0.35" />}
-        <g transform="translate(920 -70) scale(0.8)" fill="none" strokeLinecap="round" strokeLinejoin="round">
-          {/* Headquarters: a blue pin on O'Fallon. No area outline, the whole metro is served. */}
-          {pin && (
+        <g ref={stage} transform="translate(920 -70) scale(0.8)" fill="none" strokeLinecap="round" strokeLinejoin="round">
+          {/* Headquarters: a blue pin on O'Fallon. No area outline, the whole metro is served. With the water on, the valve below stands in for the pin. */}
+          {pin && !animate && (
             <>
               <g transform="translate(475 300)">
                 <path d="M0 0 c-14 -18 -18 -26 -18 -36 a18 18 0 0 1 36 0 c0 10 -4 18 -18 36z" fill="#2868A8" stroke="#F7F5F0" strokeWidth="3" opacity="0.9" />
@@ -190,6 +279,72 @@ export function MetroMap({ className, variant = "ink", frame = "wide", pin = tru
                 <Shield key={i} {...s} />
               ))}
             </g>
+          )}
+          {/* Water on: one blue path per road, hidden by its dash until the effect reveals it from the end nearer O'Fallon. pathLength=1 keeps the offsets unit-free. */}
+          {animate && (
+            <g stroke="#2868A8" opacity="0.6">
+              {waterPaths.map((wp, i) => (
+                <path key={i} d={wp.d} strokeWidth={wp.w} pathLength={1} strokeDasharray="1 1" style={{ strokeDashoffset: wp.reverse ? -1 : 1 }} data-water data-reverse={wp.reverse ? "1" : "0"} data-delay={wp.delay.toFixed(2)} data-dur={wp.dur.toFixed(2)} />
+              ))}
+            </g>
+          )}
+          {/* Towns the water reaches, each popping in when it arrives */}
+          {animate && (
+            <g fontFamily="var(--font-figtree), system-ui, sans-serif" fontWeight="800" stroke="none">
+              {towns.map((t) => (
+                <g key={t.name} transform={`translate(${t.x} ${t.y})`}>
+                  <g data-town data-at={(dist([t.x, t.y], home) / SPEED + 0.15).toFixed(2)} style={{ opacity: 0, transformBox: "fill-box", transformOrigin: "center" }}>
+                    <circle r="5" fill="#2868A8" stroke="var(--map-ground)" strokeWidth="2.5" />
+                    <text x={t.dx} y={t.dy} fontSize="16" textAnchor={t.anchor} fill="#0D2A4D" opacity="0.85">
+                      {t.name}
+                    </text>
+                  </g>
+                </g>
+              ))}
+            </g>
+          )}
+          {/* The shutoff valve at O'Fallon, a lever handle that turns a quarter turn, and the drop that rises when it opens */}
+          {animate && (
+            <>
+              <g transform={`translate(${home[0]} ${home[1]})`}>
+                <circle r="22" fill="var(--map-ground)" stroke="#2868A8" strokeWidth="4" />
+                <circle r="13" fill="none" stroke="#2868A8" strokeWidth="3" />
+                <g data-handle style={{ transformBox: "fill-box", transformOrigin: "center" }}>
+                  <path d="M-15 0 H15" stroke="#2868A8" strokeWidth="5" />
+                  <circle cx="15" r="5" fill="#2868A8" stroke="var(--map-ground)" strokeWidth="2" />
+                  <circle r="4" fill="#2868A8" />
+                </g>
+              </g>
+              <text x={home[0]} y={home[1] - 34} fontSize="16" fontWeight="800" textAnchor="middle" fill="#2868A8" stroke="none" fontFamily="var(--font-figtree), system-ui, sans-serif">
+                O&apos;Fallon
+              </text>
+              <g transform={`translate(${home[0] + 26} ${home[1] - 56})`}>
+                <path data-drop d="M0 0 c6 8 10 14 10 20 a10 10 0 0 1 -20 0 c0 -6 4 -12 10 -20z" fill="#2868A8" stroke="#2B2B2B" strokeWidth="2" style={{ opacity: 0, transformBox: "fill-box", transformOrigin: "center" }} />
+              </g>
+              {/* The plumber who turns it on, in the done-screen style: navy shirt and cap, slate wrench. Hidden until the effect pops him in, and gone again once the water is running. */}
+              <g transform={`translate(${home[0] - 92} ${home[1] - 40}) scale(0.55)`}>
+                <g data-plumber style={{ opacity: 0, transformBox: "fill-box", transformOrigin: "50% 100%" }}>
+                  <ellipse cx="60" cy="118" rx="44" ry="8" fill="#2B2B2B" opacity="0.12" />
+                  <path d="M34 116 v-30 a26 26 0 0 1 52 0 v30z" fill="#0D2A4D" stroke="#2B2B2B" strokeWidth="3" />
+                  <rect x="52" y="76" width="16" height="10" rx="3" fill="#E9B98E" stroke="#2B2B2B" strokeWidth="2" />
+                  <circle cx="60" cy="54" r="20" fill="#E9B98E" stroke="#2B2B2B" strokeWidth="3" />
+                  <path d="M40 50 a20 20 0 0 1 40 0" fill="#0D2A4D" stroke="#2B2B2B" strokeWidth="3" />
+                  <path d="M38 50 h48" stroke="#2B2B2B" strokeWidth="3" />
+                  <rect x="72" y="46" width="18" height="7" rx="3" fill="#0D2A4D" stroke="#2B2B2B" strokeWidth="2.5" />
+                  <circle cx="54" cy="58" r="2" fill="#2B2B2B" />
+                  <circle cx="66" cy="58" r="2" fill="#2B2B2B" />
+                  <path d="M55 66 q5 4 10 0" stroke="#2B2B2B" strokeWidth="2" />
+                  <g data-arm style={{ transformBox: "fill-box", transformOrigin: "10% 20%" }}>
+                    <path d="M82 94 l24 -26" stroke="#E9B98E" strokeWidth="9" />
+                    <path d="M106 68 l14 -14" stroke="#2B2B2B" strokeWidth="9" />
+                    <path d="M106 68 l14 -14" stroke="var(--map-ground)" strokeWidth="4" />
+                    <path d="M120 54 l-6 -8 l8 -8 l8 4 l-2 10z" fill="#6E7178" stroke="#2B2B2B" strokeWidth="3" />
+                  </g>
+                  <path d="M38 94 l-14 12" stroke="#E9B98E" strokeWidth="9" />
+                  <circle cx="23" cy="107" r="6" fill="#E9B98E" stroke="#2B2B2B" strokeWidth="2.5" />
+                </g>
+              </g>
+            </>
           )}
           {/* The two names */}
           <g className={mono || blueprint ? "text-blue-dark" : "text-charcoal"} fill="currentColor" stroke="none" opacity={mono || blueprint ? 0.92 : 0.9} fontFamily="var(--font-figtree), system-ui, sans-serif" fontWeight="800">
