@@ -21,13 +21,9 @@ export function ProjectMarquee({ headingClassName }: { headingClassName?: string
 
   return (
     <div className="flex flex-col gap-5 lg:gap-6">
-      <div className="flex flex-col gap-1.5">
-        <h2 id="projects-h" className={headingClassName ?? "text-h2-m lg:text-h2"}>
-          {projects.heading}
-        </h2>
-        <p className="text-[15px] text-slate lg:text-[16px]">{projects.hint}</p>
-        <p className="text-[13px] font-semibold text-slate">{projects.line}</p>
-      </div>
+      <h2 id="projects-h" className={headingClassName ?? "text-h2-m lg:text-h2"}>
+        {projects.heading}
+      </h2>
       <div className="-mx-gutter-m lg:-mx-gutter">
         <div
           className="marquee overflow-hidden py-1"
