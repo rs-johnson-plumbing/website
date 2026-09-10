@@ -1,10 +1,11 @@
 import Link from "next/link";
-import { site, services, footerCities, link } from "@/lib/content";
+import { site, services, builderServices, footerCities, link } from "@/lib/content";
 import { Logo } from "@/components/ui/Logo";
 
 /**
- * Three columns: business name and contact, services, service area. Review
- * links sit under the contact column. Bottom line carries the license and
+ * Four columns: business name and contact, services for homeowners,
+ * services for builders, service area. Review links sit under the contact
+ * column. Bottom line carries the license and
  * insurance statement. Email stays bracketed until a domain mailbox exists.
  */
 export function Footer() {
@@ -12,7 +13,7 @@ export function Footer() {
   return (
     <footer className="border-t border-hairline bg-offwhite builders:border-darkborder builders:bg-teal-ink">
       <div className="site-width gutter pb-8 pt-14 lg:pt-16">
-        <div className="mb-10 grid grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="mb-10 grid grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-4">
           <div className="flex flex-col items-start gap-2 text-[15px]">
             <Logo size="footer" />
             <div className="text-slate builders:text-ondark-muted">{site.basedIn}</div>
@@ -40,6 +41,18 @@ export function Footer() {
               {services.map((s) => (
                 <li key={s.slug}>
                   <Link href={`/services#${s.slug}`} className="hover:text-charcoal hover:underline builders:hover:text-offwhite">
+                    {s.name}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+          <div>
+            <div className="mb-3 text-[15px] font-bold">{site.footer.builderServicesHeading}</div>
+            <ul className="flex flex-col gap-2 text-[15px] text-slate builders:text-ondark-muted">
+              {builderServices.map((s) => (
+                <li key={s.slug}>
+                  <Link href={`/services/builders#${s.slug}`} className="hover:text-charcoal hover:underline builders:hover:text-offwhite">
                     {s.name}
                   </Link>
                 </li>
