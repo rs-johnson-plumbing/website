@@ -11,7 +11,7 @@ import { Logo } from "@/components/ui/Logo";
 export function Footer() {
   const reviewLinks = site.footer.reviewLinks as { label: string; hrefKey: "nextdoor" | "googleReviews" }[];
   return (
-    <footer className="border-t border-hairline bg-offwhite builders:border-darkborder builders:bg-teal-ink">
+    <footer className="border-t border-hairline bg-offwhite builders:border-darkborder builders:bg-blue-ink">
       <div className="site-width gutter pb-8 pt-14 lg:pt-16">
         <div className="mb-10 grid grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-4">
           <div className="flex flex-col items-start gap-2 text-[15px]">

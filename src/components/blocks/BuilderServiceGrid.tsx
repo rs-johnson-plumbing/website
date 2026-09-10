@@ -22,7 +22,7 @@ export function BuilderServiceGrid({ slugs, hrefFor }: { slugs?: string[]; /** W
           </>
         );
         return hrefFor ? (
-          <Link key={s.slug} href={hrefFor(s.slug)} className={`${card} transition-colors hover:border-teal hover:no-underline`}>
+          <Link key={s.slug} href={hrefFor(s.slug)} className={`${card} transition-colors hover:border-blue hover:no-underline`}>
             {inner}
           </Link>
         ) : (

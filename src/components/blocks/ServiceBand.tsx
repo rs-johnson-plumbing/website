@@ -13,7 +13,7 @@ type BandProps = {
   callout?: { lead: string; text: string };
   photo?: { src?: string; alt: string; caption: string };
   photoLeft: boolean;
-  /** Deep teal band. */
+  /** Deep blue band. */
   dark?: boolean;
 };
 
@@ -35,7 +35,7 @@ export function Band({ id, illustration, heading, paragraph, whatWeDo, callout, 
         : null
     : null;
   return (
-    <section id={id} className={cn("scroll-mt-[140px] bg-offwhite text-charcoal builders:bg-teal-dark builders:text-offwhite", dark && "band-dark")}>
+    <section id={id} className={cn("scroll-mt-[140px] bg-offwhite text-charcoal builders:bg-blue-dark builders:text-offwhite", dark && "band-dark")}>
       <div className={cn("site-width gutter grid grid-cols-1 items-start gap-6 py-10 lg:gap-16 lg:py-[60px]", scene ? "lg:grid-cols-2" : "lg:max-w-[760px] lg:mr-auto")}>
         {scene}
         <div className="flex flex-col items-start gap-4">
@@ -72,7 +72,7 @@ export function ServiceBand({ service, photoLeft }: { service: Service; photoLef
 }
 
 /** A builder stage band, same layout on the dark ground. */
-export function BuilderBand({ stage, photoLeft, dark }: { stage: BuilderService; photoLeft: boolean; /** Deep teal band, for every other stage on the builders hub. */ dark?: boolean }) {
+export function BuilderBand({ stage, photoLeft, dark }: { stage: BuilderService; photoLeft: boolean; /** Deep blue band, for every other stage on the builders hub. */ dark?: boolean }) {
   const h = stage.hub;
   return <Band id={stage.slug} illustration={stage.illustration} heading={h.heading} paragraph={h.paragraph} whatWeDo={h.whatWeDo} photo={h.photo} photoLeft={photoLeft} dark={dark} />;
 }

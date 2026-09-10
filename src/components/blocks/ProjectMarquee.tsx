@@ -21,7 +21,7 @@ export function ProjectMarquee({ headingClassName }: { headingClassName?: string
   const items = projects.items as Project[];
   const [open, setOpen] = useState<Project | null>(null);
   const rail = useRef<MarqueeRailHandle>(null);
-  const arrow = "hidden h-11 w-11 items-center justify-center rounded-full border-[1.5px] border-teal text-teal transition-colors hover:bg-teal hover:text-white lg:flex";
+  const arrow = "hidden h-11 w-11 items-center justify-center rounded-full border-[1.5px] border-blue text-blue transition-colors hover:bg-blue hover:text-white lg:flex";
 
   return (
     <div className="flex flex-col gap-5 lg:gap-6">
@@ -65,14 +65,14 @@ function ProjectTile({ project, clone, onOpen }: { project: Project; clone: bool
       tabIndex={clone ? -1 : 0}
       aria-hidden={clone || undefined}
       data-track={`project-${project.id}`}
-      className="w-[280px] shrink-0 overflow-hidden rounded-card border border-hairline bg-white text-left text-charcoal transition-transform hover:-translate-y-0.5 focus-visible:outline focus-visible:outline-2 focus-visible:outline-teal lg:w-[340px]"
+      className="w-[280px] shrink-0 overflow-hidden rounded-card border border-hairline bg-white text-left text-charcoal transition-transform hover:-translate-y-0.5 focus-visible:outline focus-visible:outline-2 focus-visible:outline-blue lg:w-[340px]"
     >
       <Scene photo={project.photos[0]} className="border-b border-hairline" />
       <div className="flex flex-col gap-1 p-4">
-        <div className="text-[12px] font-bold uppercase tracking-[0.04em] text-teal">{project.city}</div>
+        <div className="text-[12px] font-bold uppercase tracking-[0.04em] text-blue">{project.city}</div>
         <div className="text-[17px] font-bold leading-tight">{project.name}</div>
         <div className="text-[14px] font-semibold text-slate">{project.type}</div>
-        <div className="mt-1 inline-flex items-center gap-1 text-[14px] font-bold text-teal">
+        <div className="mt-1 inline-flex items-center gap-1 text-[14px] font-bold text-blue">
           {projects.open} <Icon name="arrow-right" size={14} strokeWidth={2} />
         </div>
       </div>
@@ -156,7 +156,7 @@ function ProjectViewer({ project, onClose }: { project: Project; onClose: () => 
           {photos.length > 1 && (
             <div className="mt-1.5 flex shrink-0 gap-1.5" aria-hidden="true">
               {photos.map((ph, i) => (
-                <button key={`${ph.scene}-dot-${i}`} type="button" tabIndex={-1} onClick={() => goTo(i)} className={cn("h-2 w-2 rounded-full", i === index ? "bg-teal" : "bg-hairline-strong")} />
+                <button key={`${ph.scene}-dot-${i}`} type="button" tabIndex={-1} onClick={() => goTo(i)} className={cn("h-2 w-2 rounded-full", i === index ? "bg-blue" : "bg-hairline-strong")} />
               ))}
             </div>
           )}
@@ -164,7 +164,7 @@ function ProjectViewer({ project, onClose }: { project: Project; onClose: () => 
 
         {/* The project */}
         <div className="flex min-h-0 flex-col gap-1.5 overflow-y-auto px-4 py-4 lg:px-5 lg:py-5">
-          <div className="text-[12px] font-bold uppercase tracking-[0.04em] text-teal">{project.city} · {project.type}</div>
+          <div className="text-[12px] font-bold uppercase tracking-[0.04em] text-blue">{project.city} · {project.type}</div>
           <h3 id="project-title" className="text-[22px] font-bold leading-tight tracking-[-0.01em] lg:text-[24px]">{project.name}</h3>
           <div className="text-[14px] font-semibold text-slate">{project.address}</div>
           <p className="mt-1 text-[15px] leading-relaxed text-charcoal lg:text-[16px]">{project.description}</p>

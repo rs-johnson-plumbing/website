@@ -170,11 +170,11 @@ export function Icon({ name, size = 18, className, strokeWidth = stroke.icon, fi
   );
 }
 
-/** Light-teal circle behind an icon, as in the trust bar. */
+/** Light-blue circle behind an icon, as in the trust bar. */
 export function IconCircle({ name, size = 34 }: { name: IconName; size?: number }) {
   return (
     <span
-      className="flex shrink-0 items-center justify-center rounded-full bg-teal-tint text-teal"
+      className="flex shrink-0 items-center justify-center rounded-full bg-blue-tint text-blue"
       style={{ width: size, height: size }}
     >
       <Icon name={name} size={Math.round(size * 0.53)} />
@@ -182,11 +182,11 @@ export function IconCircle({ name, size = 34 }: { name: IconName; size?: number 
   );
 }
 
-/** Light-teal rounded square behind an icon, as on service cards. */
+/** Light-blue rounded square behind an icon, as on service cards. */
 export function IconTile({ name, size = 40 }: { name: IconName; size?: number }) {
   return (
     <span
-      className="flex shrink-0 items-center justify-center rounded-tile bg-teal-tint text-teal"
+      className="flex shrink-0 items-center justify-center rounded-tile bg-blue-tint text-blue"
       style={{ width: size, height: size }}
     >
       <Icon name={name} size={Math.round(size * 0.5)} />

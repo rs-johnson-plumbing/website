@@ -13,7 +13,7 @@ import type { IconName } from "@/lib/content";
  * Homepage hero.
  *
  * Desktop: one banner. The statement, then two doors side by side under it,
- * each an icon subhead with a one-line helper over its own filled teal
+ * each an icon subhead with a one-line helper over its own filled blue
  * button, Submit Service Request and Submit Bid Request, with a hairline
  * between.
  * Two filled buttons in one section is deliberate here: the hero's job is
@@ -50,7 +50,7 @@ export function HomeHero() {
                 <div className="flex flex-col gap-4">
                   <div className="flex flex-col gap-1">
                     <span className="inline-flex items-center gap-2 text-[20px] font-semibold tracking-[-0.01em]">
-                      <Icon name={d.icon as IconName} size={22} strokeWidth={1.8} className="text-teal" />
+                      <Icon name={d.icon as IconName} size={22} strokeWidth={1.8} className="text-blue" />
                       {d.label}
                     </span>
                     <span className="text-[14px] text-slate">{d.line}</span>
@@ -66,7 +66,7 @@ export function HomeHero() {
       {/* Phone: serving eyebrow, statement, then the two stacked boxes. */}
       <section data-sticky-sentinel className="bg-offwhite text-charcoal lg:hidden">
         <div className="flex flex-col gap-3 px-gutter-m pb-8 pt-6">
-          <p className="mb-2 inline-flex items-center justify-center gap-1.5 text-[14px] font-bold text-teal">
+          <p className="mb-2 inline-flex items-center justify-center gap-1.5 text-[14px] font-bold text-blue">
             <Icon name="map" size={17} strokeWidth={1.8} />
             {s.eyebrow}
           </p>

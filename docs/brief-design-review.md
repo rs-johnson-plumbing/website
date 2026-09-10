@@ -41,11 +41,11 @@ Recent Projects, a rolling row of five sample projects that open a photo
 viewer. All five projects, four of the five crew members, all contractor
 quotes, and many facts are placeholders and are marked as such.
 
-The look: off-white page (#F7F5F0), charcoal text, slate teal (#3F6C78) on
-buttons, links, and illustration strokes, copper only on the logo, sand
-bands for rhythm, deep teal bands on the builders pages. Figtree
-everywhere. Buttons are 8px-radius rectangles, outlined teal or filled
-teal. Every image on the site is an inline SVG illustration in one
+The look: off-white page (#F7F5F0), charcoal text, brand blue (#246FF2) on
+buttons, links, and illustration strokes, blue on the logo flanges too, sand
+bands for rhythm, navy bands on the builders pages. Figtree
+everywhere. Buttons are 8px-radius rectangles, outlined blue or filled
+blue. Every image on the site is an inline SVG illustration in one
 cartoon style: service icons, band scenes, cartoon avatars of the crew, a
 metro map behind the desktop hero, and stand-in scenes for project
 photos. There are no photographs anywhere. Ryan has not sent any yet.
@@ -53,8 +53,7 @@ photos. There are no photographs anywhere. Ryan has not sent any yet.
 Rules that will still apply to whatever you recommend (CLAUDE.md has the
 full list): Title Case labels, no ampersands or exclamation points, never
 promise "same day" or "24/7", bracketed facts stay bracketed, one H1 per
-page, no street address, no white-ground buttons, copper only on the
-logo. Read CLAUDE.md, docs/handoff-2026-09-10-seo.md, and
+page, no street address, no white-ground buttons. Read CLAUDE.md, docs/handoff-2026-09-10-seo.md, and
 docs/rsj-claude-design-master-brief.md before you start.
 
 ## How to look
@@ -85,7 +84,7 @@ like an internal tool? Cover at least:
   uniform sections. Which of these are working and which should go.
 - Hero and first screen on a phone. Does it feel like a local company or
   a product landing page?
-- Color and contrast. Is teal doing too much? Where would a warmer or
+- Color and contrast. Is the blue doing too much? Where would a warmer or
   more human accent help without breaking the palette rules?
 - Typography and density. Scale, weight, line length, whitespace, how
   much is on screen at once on a phone.

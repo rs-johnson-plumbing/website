@@ -69,7 +69,7 @@ export default function ForHomeownersPage() {
         <ol className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3 lg:gap-x-12 lg:gap-y-10">
           {homeowners.whyUs.items.map((item, i) => (
             <li key={item.title} className="flex gap-4">
-              <span aria-hidden="true" className="w-9 shrink-0 text-[32px] font-bold leading-none text-teal-ondark lg:text-[36px]">
+              <span aria-hidden="true" className="w-9 shrink-0 text-[32px] font-bold leading-none text-blue-ondark lg:text-[36px]">
                 {i + 1}
               </span>
               <div className="flex flex-col gap-1.5">
@@ -81,7 +81,7 @@ export default function ForHomeownersPage() {
         </ol>
         <div className="mt-8 flex flex-wrap gap-6 lg:mt-10">
           {homeowners.whyUs.links.map((l) => (
-            <Link key={l.href} href={l.href} className="text-[16px] font-bold text-teal-ondark hover:underline">
+            <Link key={l.href} href={l.href} className="text-[16px] font-bold text-blue-ondark hover:underline">
               {l.label}
             </Link>
           ))}

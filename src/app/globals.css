@@ -42,7 +42,7 @@
 }
 
 @layer base {
-  /* Dark bands on the builders pages: deep teal ground, off-white type. */
+  /* Dark bands on the builders pages: deep blue ground, off-white type. */
   .band-dark :is(h1, h2, h3, h4):not([role="dialog"] *) {
     color: #f7f5f0;
   }
@@ -56,13 +56,13 @@
     @apply mx-auto w-full max-w-site;
   }
   .text-link {
-    @apply text-teal font-bold hover:text-teal-dark hover:underline;
+    @apply text-blue font-bold hover:text-blue-dark hover:underline;
   }
-  /* Inside a dark band the link is the pale teal. Written out because @apply
+  /* Inside a dark band the link is the pale blue. Written out because @apply
      does not carry the builders variant onto a component class. */
   .band-dark .text-link,
   .band-dark .text-link:hover {
-    color: #dce9ec;
+    color: #C7D9FA;
   }
   .nav-link {
     @apply text-charcoal font-medium whitespace-nowrap hover:underline underline-offset-[6px] decoration-[1.5px];

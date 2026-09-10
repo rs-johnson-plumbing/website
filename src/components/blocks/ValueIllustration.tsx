@@ -5,12 +5,12 @@ import { IconTile } from "@/components/ui/Icon";
  * Cartoon illustrations for the value-prop cards ("You Talk to the
  * Plumber", "Price Before We Start", "We Show Up When We Say", and the
  * builder set) and the homeowner FAQ. Same style as ServiceIllustration: charcoal outline, brand
- * teal accents, off-white fills, light-teal disc. Keyed by the card's icon
+ * blue accents, off-white fills, light-blue disc. Keyed by the card's icon
  * name so content stays unchanged; falls back to the icon tile.
  */
 const C = "#2B2B2B";
-const B = "#3F6C78";
-const T = "#E3EEF0";
+const B = "#246FF2";
+const T = "#E3ECFD";
 const O = "#F7F5F0";
 const W = "#FFFFFF";
 

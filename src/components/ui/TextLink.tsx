@@ -9,7 +9,7 @@ type Props = {
   arrow?: boolean;
 };
 
-/** Brand-teal text link with an optional trailing arrow. */
+/** Brand-blue text link with an optional trailing arrow. */
 export function TextLink({ href, children, className, arrow = true }: Props) {
   const cls = cn("text-link inline-flex items-center gap-1 text-[15px]", className);
   const inner = (

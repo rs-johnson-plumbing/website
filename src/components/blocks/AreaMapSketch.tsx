@@ -7,11 +7,11 @@ import { cn } from "@/lib/cn";
  * (static image or embedded map) when one exists.
  */
 const C = "#2B2B2B";
-const B = "#3F6C78";
-const T = "#E3EEF0";
+const B = "#246FF2";
+const T = "#E3ECFD";
 const W = "#FFFFFF";
 const S = "#6E7178";
-const RIVER = "#C3D9DE";
+const RIVER = "#C5D6F6";
 
 type Pin = { name: string; x: number; y: number; home?: boolean; anchor?: "start" | "end" | "middle"; dy?: number };
 
