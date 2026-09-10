@@ -6,7 +6,7 @@ export { ActionBlock, ActionBlockPair } from "./blocks/ActionBlock";
 export { ServiceCard } from "./blocks/ServiceCard";
 export { PersonCard } from "./blocks/PersonCard";
 export { ReviewCard, ReviewSummaryTile } from "./blocks/ReviewCard";
-export { ProjectCard } from "./blocks/ProjectCard";
+export { ProjectMarquee } from "./blocks/ProjectMarquee";
 export { FAQ } from "./blocks/FAQ";
 export { IntakeBanner } from "./blocks/IntakeBanner";
 export { JsonLd } from "./blocks/JsonLd";

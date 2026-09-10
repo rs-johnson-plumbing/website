@@ -16,6 +16,11 @@
       "icon": "check-circle"
     },
     {
+      "id": "projects",
+      "label": "Projects",
+      "icon": "hammer"
+    },
+    {
       "id": "team",
       "label": "Team",
       "icon": "shield"

@@ -110,13 +110,22 @@ export type Review = {
 
 export type FaqItem = { q: string; a: string; icon?: IconName };
 
+export type ProjectPhoto = {
+  /** BandIllustration scene standing in for the photo until a real file exists. */
+  scene: string;
+  /** Real photo path, once one exists. */
+  src?: string;
+  caption: string;
+};
+
 export type Project = {
   id: string;
+  name: string;
+  address: string;
   city: string;
   type: string;
-  scope: string;
-  photo: Photo;
-  featured: boolean;
+  description: string;
+  photos: ProjectPhoto[];
 };
 
 export const site = siteJson;

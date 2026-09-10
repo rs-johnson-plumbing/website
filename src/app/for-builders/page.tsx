@@ -7,6 +7,7 @@ import { AudienceProvider } from "@/components/blocks/AudienceContext";
 import { SetsApart } from "@/components/blocks/SetsApart";
 import { BuilderServiceGrid } from "@/components/blocks/BuilderServiceGrid";
 import { BidRequest } from "@/components/blocks/BidRequest";
+import { ProjectMarquee } from "@/components/blocks/ProjectMarquee";
 import { TeamStrip } from "@/components/blocks/TeamStrip";
 import { Neighbors } from "@/components/blocks/Neighbors";
 import { FAQ } from "@/components/blocks/FAQ";
@@ -32,8 +33,8 @@ const H = pageH2;
  * apart from For Homeowners. The audience provider mounts locked on
  * builders so the trust cards, reviews, and sticky bar read the builder
  * set. In order: why builders trust us, what we do for builders (the six
- * stages), meet the team, what other contractors are saying, FAQ, contact
- * us, then the bid request banner.
+ * stages), recent builder work, meet the team, what other contractors are
+ * saying, FAQ, contact us, then the bid request banner.
  */
 export default function ForBuildersPage() {
   return (
@@ -59,17 +60,22 @@ export default function ForBuildersPage() {
         </div>
       </Section>
 
-      {/* 3. Meet the team */}
+      {/* 3. Recent builder work: the project marquee on sand, so it reads as its own band between the teal services and the cream team */}
+      <Section id="projects" tone="sand" pad="band" ariaLabelledby="projects-h" className="scroll-mt-[140px]">
+        <ProjectMarquee headingClassName={H} />
+      </Section>
+
+      {/* 4. Meet the team */}
       <Section id="team" pad="band" ariaLabelledby="b-team-h" className="scroll-mt-[140px]">
         <TeamStrip id="b-team-h" heading={builders.team.heading} titleClassName={H} />
       </Section>
 
-      {/* 4. What other contractors are saying */}
+      {/* 5. What other contractors are saying */}
       <Section id="reviews" tone="sand" pad="band" ariaLabelledby="neighbors-h" className="band-dark scroll-mt-[140px]">
         <Neighbors headingClassName={H} />
       </Section>
 
-      {/* 5. Builder FAQ */}
+      {/* 6. Builder FAQ */}
       <Section id="faq" pad="band" ariaLabelledby="b-faq-h" className="scroll-mt-[140px]">
         <h2 id="b-faq-h" className={cn("mb-8 lg:mb-10", H)}>
           {faqs.builders.heading}
@@ -77,7 +83,7 @@ export default function ForBuildersPage() {
         <FAQ items={faqs.builders.items} />
       </Section>
 
-      {/* 6. Contact us */}
+      {/* 7. Contact us */}
       <Section id="contact" tone="sand" pad="band" ariaLabelledby="contact-h" className="band-dark scroll-mt-[140px]">
         <ContactBlock headingClassName={H} />
       </Section>
