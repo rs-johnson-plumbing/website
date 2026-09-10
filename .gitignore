@@ -45,3 +45,6 @@ yarn-error.log*
 /measure.mjs
 /sections.mjs
 /hero.mjs
+/crop.mjs
+/towebp2.mjs
+/opts.mjs

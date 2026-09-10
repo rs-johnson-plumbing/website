@@ -42,8 +42,11 @@ so **the left 40% of the frame has to be house, driveway and planting — no
 subject, nothing that matters**. The plumber stands right of centre, cap to
 waist, with the van filling the right edge. Leave headroom above the cap.
 
-The stand-in is a tight crop crop of the plumber alone, which is why the fade
-currently reads as a soft grey edge instead of a house.
+The stand-in is now cropped from the photographic mobile authority rather than
+the desktop one, which frames the same scene wider: the whole torso with the
+arms crossed, the house behind, and headroom above the cap. It is still
+portrait, so on a wide window the band has to grow to keep him whole, and the
+photograph never spreads across the page the way a landscape frame would.
 
 If this is Ryan, say so and we will name him in the alt text. If it is a crew
 member, we will keep the alt text generic — we never present a stand-in as Ryan.
