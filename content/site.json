@@ -104,7 +104,8 @@
     "secondary": "Schedule"
   },
   "footer": {
-    "servicesHeading": "Services",
+    "servicesHeading": "Services for Homeowners",
+    "builderServicesHeading": "Services for Builders",
     "areaHeading": "Service Area",
     "reviewsHeading": "Reviews",
     "reviewLinks": [
