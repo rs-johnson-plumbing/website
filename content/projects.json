@@ -1,9 +1,7 @@
 {
-  "heading": "Recent Builder Work",
+  "heading": "Our Recent Projects",
   "open": "View Project",
   "close": "Close",
-  "previous": "Previous photo",
-  "next": "Next photo",
   "items": [
     {
       "id": "magnolia-house",
@@ -119,5 +117,9 @@
         }
       ]
     }
-  ]
+  ],
+  "previousPhoto": "Previous photo",
+  "nextPhoto": "Next photo",
+  "previous": "Previous project",
+  "next": "Next project"
 }

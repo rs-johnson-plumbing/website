@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, type ReactNode } from "react";
+import { forwardRef, useEffect, useImperativeHandle, useRef, type ReactNode } from "react";
 import { cn } from "@/lib/cn";
 
 /**
@@ -13,10 +13,28 @@ import { cn } from "@/lib/cn";
  * friction until it slows back to the base speed. A mouse resting on it
  * pauses it; a tap still reaches the card underneath, a drag does not.
  * Readers who turned motion off get a still row they can still swipe.
+ * The ref exposes `step(n)`, which eases the row by n items (negative for
+ * the other way) for arrow buttons.
  */
-export function MarqueeRail({ children, seconds = 60, reverse = false, className }: { children: ReactNode; /** Seconds for one full loop at the base speed. */ seconds?: number; /** Roll left to right instead of right to left. */ reverse?: boolean; className?: string }) {
+export type MarqueeRailHandle = { step: (n: number) => void };
+
+export const MarqueeRail = forwardRef<MarqueeRailHandle, { children: ReactNode; /** Seconds for one full loop at the base speed. */ seconds?: number; /** Roll left to right instead of right to left. */ reverse?: boolean; className?: string }>(function MarqueeRail({ children, seconds = 60, reverse = false, className }, ref) {
   const track = useRef<HTMLDivElement>(null);
-  const state = useRef({ x: 0, v: 0, drag: false, dragged: false, hover: false, lastX: 0, lastT: 0, still: false });
+  const state = useRef({ x: 0, v: 0, drag: false, dragged: false, hover: false, lastX: 0, lastT: 0, still: false, nudge: 0 });
+
+  useImperativeHandle(ref, () => ({
+    step(n) {
+      const el = track.current;
+      if (!el) return;
+      const first = el.children[0] as HTMLElement | undefined;
+      if (!first) return;
+      const gap = parseFloat(getComputedStyle(el).columnGap || "0") || 0;
+      const item = first.getBoundingClientRect().width + gap;
+      // Moving the content left brings the next item in from the right.
+      state.current.nudge += -n * item;
+      state.current.v = 0;
+    },
+  }));
 
   useEffect(() => {
     const el = track.current;
@@ -34,7 +52,12 @@ export function MarqueeRail({ children, seconds = 60, reverse = false, className
       if (loop > 0) {
         const base = s.still ? 0 : (loop / (seconds * 1000)) * dir;
         if (!s.drag) {
-          if (Math.abs(s.v) > Math.abs(base)) {
+          if (Math.abs(s.nudge) > 0.5) {
+            // An arrow press: ease the remaining distance out over a few frames.
+            const move = s.nudge * (1 - Math.exp(-dt / 90));
+            s.x += move;
+            s.nudge -= move;
+          } else if (Math.abs(s.v) > Math.abs(base)) {
             // A fling: ease the velocity back toward the base speed.
             s.v *= Math.pow(0.94, dt / 16);
             if (Math.abs(s.v) < Math.abs(base)) s.v = base;
@@ -43,7 +66,7 @@ export function MarqueeRail({ children, seconds = 60, reverse = false, className
           } else {
             s.v = 0;
           }
-          s.x += s.v * dt;
+          if (Math.abs(s.nudge) <= 0.5) s.x += s.v * dt;
         }
         // Keep the offset inside one copy so the row never runs out.
         s.x = ((s.x % loop) + loop) % loop - loop;
@@ -87,7 +110,7 @@ export function MarqueeRail({ children, seconds = 60, reverse = false, className
 
   return (
     <div
-      className={cn("marquee overflow-hidden py-1", className)}
+      className={cn("marquee select-none overflow-hidden py-1", className)}
       style={{ touchAction: "pan-y", maskImage: "linear-gradient(to right, transparent, black 6%, black 94%, transparent)", WebkitMaskImage: "linear-gradient(to right, transparent, black 6%, black 94%, transparent)" }}
       onPointerDown={onPointerDown}
       onPointerMove={onPointerMove}
@@ -114,4 +137,4 @@ export function MarqueeRail({ children, seconds = 60, reverse = false, className
       </div>
     </div>
   );
-}
+});
