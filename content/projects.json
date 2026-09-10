@@ -1,12 +1,125 @@
 {
   "heading": "Recent Builder Work",
+  "line": "[Sample projects and photos until the real ones are in]",
+  "hint": "Tap a project to see the photos and what we did.",
+  "open": "View Project",
+  "close": "Close",
+  "previous": "Previous photo",
+  "next": "Next photo",
   "items": [
-    { "id": "chesterfield-01", "city": "Chesterfield", "type": "Custom home", "scope": "Full rough-in through trim, 4.5 baths, tankless water heater [placeholder]", "photo": { "src": "/photos/project-chesterfield-01.jpg", "alt": "Plumbing rough-in at a custom home under construction in Chesterfield, Missouri", "caption": "Chesterfield custom home rough-in" }, "featured": true },
-    { "id": "town-and-country-01", "city": "Town and Country", "type": "Whole-house remodel", "scope": "Master bath and kitchen re-plumb, new fixtures throughout [placeholder]", "photo": { "src": "/photos/project-town-and-country-01.jpg", "alt": "Plumbing work during a whole-house remodel in Town and Country, Missouri", "caption": "Town and Country whole-house remodel" }, "featured": true },
-    { "id": "ofallon-01", "city": "O'Fallon", "type": "Spec build", "scope": "Underground through trim on a 3-bath two-story [placeholder]", "photo": { "src": "/photos/project-ofallon-01.jpg", "alt": "Finished plumbing fixture trim-out at a spec home in O'Fallon, Missouri", "caption": "O'Fallon spec build trim-out" }, "featured": true },
-    { "id": "wentzville-01", "city": "Wentzville", "type": "Spec build", "scope": "[Scope placeholder]", "photo": { "src": "/photos/project-wentzville-01.jpg", "alt": "Plumbing rough-in at a spec home in Wentzville, Missouri", "caption": "Wentzville spec build" }, "featured": false },
-    { "id": "wildwood-01", "city": "Wildwood", "type": "Whole-house remodel", "scope": "[Scope placeholder]", "photo": { "src": "/photos/project-wildwood-01.jpg", "alt": "Plumbing work during a whole-house remodel in Wildwood, Missouri", "caption": "Wildwood whole-house remodel" }, "featured": false },
-    { "id": "st-charles-01", "city": "St. Charles", "type": "Custom home", "scope": "[Scope placeholder]", "photo": { "src": "/photos/project-st-charles-01.jpg", "alt": "Plumbing trim-out at a custom home in St. Charles, Missouri", "caption": "St. Charles custom home" }, "featured": false }
-  ],
-  "contractorQuote": { "quote": "[Contractor quote placeholder]", "author": "[Name]", "company": "[Builder company]", "city": "[City]" }
+    {
+      "id": "magnolia-house",
+      "name": "The Magnolia House",
+      "address": "14 Magnolia Ct, Chesterfield",
+      "city": "Chesterfield",
+      "type": "Custom Home",
+      "description": "A two-story custom build with four and a half baths, a basement bar, and a tankless water heater. We ran underground before the slab, roughed in after framing, and set every fixture at trim.",
+      "photos": [
+        {
+          "scene": "rough-in",
+          "caption": "Supply and drain lines roughed in through the second-floor framing"
+        },
+        {
+          "scene": "underground",
+          "caption": "Underground drain, waste, and vent set and inspected before the slab pour"
+        },
+        {
+          "scene": "trim-and-fixture-set",
+          "caption": "Master bath trim-out with the fixtures set and tested"
+        },
+        {
+          "scene": "water-heaters",
+          "caption": "Tankless water heater and softener hookup in the mechanical room"
+        }
+      ]
+    },
+    {
+      "id": "westminster-2023",
+      "name": "2023 Westminster",
+      "address": "2023 Westminster Dr, Town and Country",
+      "city": "Town and Country",
+      "type": "Whole-House Remodel",
+      "description": "A full re-plumb during a whole-house remodel, with the kitchen moved to the back of the house and two new baths. New supply throughout, new drains where the layout changed, and fixtures set on the builder's schedule.",
+      "photos": [
+        {
+          "scene": "bath-and-kitchen-remodel",
+          "caption": "Kitchen sink and dishwasher lines relocated to the new island"
+        },
+        {
+          "scene": "toilets-and-faucets",
+          "caption": "New toilets and faucets set in both upstairs baths"
+        },
+        {
+          "scene": "water-softeners",
+          "caption": "Whole-house softener plumbed in at the main"
+        }
+      ]
+    },
+    {
+      "id": "hawthorne-build",
+      "name": "The Hawthorne Build",
+      "address": "318 Hawthorne Ln, O'Fallon",
+      "city": "O'Fallon",
+      "type": "Spec Build",
+      "description": "A three-bath two-story spec home, underground through trim. We priced it off the plans, met every inspection, and had trim done a day ahead of the builder's walkthrough.",
+      "photos": [
+        {
+          "scene": "trim-and-fixture-set",
+          "caption": "Final fixture set in the primary bath"
+        },
+        {
+          "scene": "gas-runs",
+          "caption": "Gas runs to the range, fireplace, and water heater, pressure tested"
+        },
+        {
+          "scene": "planning-and-takeoffs",
+          "caption": "Takeoff from the builder's plans before the bid"
+        }
+      ]
+    },
+    {
+      "id": "prairie-ridge-118",
+      "name": "118 Prairie Ridge",
+      "address": "118 Prairie Ridge Way, Wentzville",
+      "city": "Wentzville",
+      "type": "New Construction",
+      "description": "New construction on a walkout lot with a sewer tie-in at the street and a sump system in the lower level. Underground and rough-in on a tight framing schedule.",
+      "photos": [
+        {
+          "scene": "underground",
+          "caption": "Underground set to the plan and ready for the inspector"
+        },
+        {
+          "scene": "water-and-sewer-tie-in",
+          "caption": "Water service and sewer lateral tied in at the street"
+        },
+        {
+          "scene": "rough-in",
+          "caption": "Rough-in through the main floor framing"
+        }
+      ]
+    },
+    {
+      "id": "clearwater-residence",
+      "name": "The Clearwater Residence",
+      "address": "7 Clearwater Ct, Wildwood",
+      "city": "Wildwood",
+      "type": "Basement Finish",
+      "description": "A finished basement with a full bath and wet bar. New drain lines cut into the slab, a sump and ejector pit, and a gas line for the fireplace.",
+      "photos": [
+        {
+          "scene": "drains-and-sewer",
+          "caption": "Drain lines cut in and tied to the main under the slab"
+        },
+        {
+          "scene": "sump-pumps",
+          "caption": "Sump and ejector pit set in the lower level"
+        },
+        {
+          "scene": "gas-lines",
+          "caption": "Gas line run to the new fireplace"
+        }
+      ]
+    }
+  ]
 }

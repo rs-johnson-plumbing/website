@@ -94,3 +94,18 @@
 @media (prefers-reduced-motion: reduce) {
   .anim-rock, .anim-bob, .anim-bob-late, .anim-pop { animation: none; }
 }
+
+/* Project marquee: the track holds the row twice, so sliding by half loops seamlessly.
+   Pauses under a cursor or a finger, and stays still for readers who turned motion off. */
+@keyframes rsj-marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+.marquee-track { animation: rsj-marquee 60s linear infinite; }
+.marquee-reverse { animation-direction: reverse; }
+.marquee:hover .marquee-track, .marquee:focus-within .marquee-track, .marquee[data-paused="true"] .marquee-track { animation-play-state: paused; }
+@media (prefers-reduced-motion: reduce) {
+  .marquee-track { animation: none; }
+}
+.no-scrollbar { scrollbar-width: none; }
+.no-scrollbar::-webkit-scrollbar { display: none; }
