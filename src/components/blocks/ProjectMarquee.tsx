@@ -1,6 +1,7 @@
 "use client";
 
 import { useCallback, useEffect, useRef, useState } from "react";
+import { createPortal } from "react-dom";
 import { MarqueeRail, type MarqueeRailHandle } from "./MarqueeRail";
 import { projects, type Project, type ProjectPhoto } from "@/lib/content";
 import { BandIllustration } from "./BandIllustration";
@@ -117,7 +118,8 @@ function ProjectViewer({ project, onClose }: { project: Project; onClose: () => 
     setIndex(Math.round(el.scrollLeft / el.clientWidth));
   };
 
-  return (
+  if (typeof document === "undefined") return null;
+  return createPortal(
     <div className="fixed inset-0 z-40 flex items-center justify-center bg-charcoal/80 p-3 lg:p-6" onClick={onClose}>
       <div role="dialog" aria-modal="true" aria-labelledby="project-title" onClick={(e) => e.stopPropagation()} className="relative flex max-h-full w-full max-w-[640px] flex-col overflow-hidden rounded-card bg-white text-left text-charcoal shadow-xl">
         <button type="button" onClick={onClose} aria-label={projects.close} className="absolute right-2 top-2 z-10 flex h-9 w-9 items-center justify-center rounded-full bg-white/90 text-[22px] leading-none text-charcoal shadow hover:bg-white">
@@ -168,6 +170,7 @@ function ProjectViewer({ project, onClose }: { project: Project; onClose: () => 
           <p className="mt-1 text-[15px] leading-relaxed text-charcoal lg:text-[16px]">{project.description}</p>
         </div>
       </div>
-    </div>
+    </div>,
+    document.body,
   );
 }
