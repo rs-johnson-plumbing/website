@@ -585,7 +585,9 @@ html[data-concept="2"] body { padding-bottom: 0; }
 @media (min-width: 1024px) {
   /* Inside pages use landscape photography, so they keep a share of the
      width rather than the homepage portrait box. */
-  .c2-hero--page .c2-hero-media { position: absolute; height: auto; width: 50%; aspect-ratio: auto; max-width: none; }
+  /* `left` has to go back to auto: with left, right and width all set, the
+     right offset is dropped and the panel lands behind the copy. */
+  .c2-hero--page .c2-hero-media { position: absolute; height: auto; left: auto; width: 50%; aspect-ratio: auto; max-width: none; }
   .c2-hero--page .c2-hero-inner { min-height: 380px; }
   .c2-hero--page .c2-hero-copy { width: 54%; padding-block: 54px 58px; }
   .c2-hero--page h1 { font-size: clamp(42px, 3.6vw, 52px); }

@@ -120,3 +120,15 @@ test("the action bar sends builders to the bid form, not the homeowner intake", 
   await page.goto("/for-homeowners?concept=2");
   await expect(page.locator(".c2-bar").getByRole("button", { name: copy.ui.request })).toBeVisible();
 });
+
+test("inside-page hero photographs sit on the right of the band", async ({ page }) => {
+  await page.setViewportSize({ width: 1440, height: 900 });
+  for (const route of ["/for-builders", "/for-homeowners", "/services"]) {
+    await page.goto(`${route}?concept=2`);
+    const media = await page.locator(".c2-hero-media").boundingBox();
+    const hero = await page.locator(".c2-hero").boundingBox();
+    // left, right and width together drop the right offset, which once put
+    // the photograph behind the copy on every inside page
+    expect(media!.x, route).toBeGreaterThanOrEqual(hero!.x + hero!.width / 2 - 1);
+  }
+});
