@@ -66,12 +66,15 @@ function MemberBand({ member, sceneLeft }: { member: TeamMember; sceneLeft: bool
 }
 
 /**
- * Our Team: the faces page. Meet the Team, then one band per plumber (Ryan
- * first), the two How We Work lists, then the Request a Visit banner.
+ * Our Team: the faces page. Meet the Team, then one band per real plumber
+ * (Ryan today; the four placeholder members stay in the content file but
+ * do not render until their placeholder flag clears), a short note about
+ * the crew, the two How We Work lists, then the Request a Visit banner.
  */
 export default function OurTeamPage() {
   const ryan = team.members.find((m) => m.featured) ?? team.members[0];
-  const members = [ryan, ...team.members.filter((m) => m.id !== ryan.id)];
+  const members = [ryan, ...team.members.filter((m) => m.id !== ryan.id && !m.placeholder)];
+  const hidden = team.members.some((m) => m.placeholder);
   const p = team.page;
 
   return (
@@ -86,6 +89,16 @@ export default function OurTeamPage() {
       {members.map((m, i) => (
         <MemberBand key={m.id} member={m} sceneLeft={i % 2 === 0} />
       ))}
+
+      {/* The rest of the crew, until their names and photos are real */}
+      {hidden && (
+        <Section pad="band" ariaLabelledby="crew-h">
+          <h2 id="crew-h" className={cn("mb-3", H)}>
+            {team.crew.heading}
+          </h2>
+          <p className="max-w-[640px] text-[16px] leading-[1.7] lg:text-body">{team.crew.line}</p>
+        </Section>
+      )}
 
       {/* How we work, one list per audience */}
       <Section tone="sand" pad="band" ariaLabelledby="work-h">

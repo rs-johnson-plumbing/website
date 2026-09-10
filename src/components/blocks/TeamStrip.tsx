@@ -1,20 +1,26 @@
 import { team } from "@/lib/content";
-import { PersonCard } from "./PersonCard";
+import { Avatar } from "./Avatar";
 import { SectionHeading } from "@/components/ui/Section";
 
 /**
- * "Meet the Team": the crew as compact cards in one panel. The link to the
- * team page is held back until that page exists. Used on the homepage and the
- * For Homeowners page. The panel stays white on the dark builders ground.
+ * "Meet the Team": Ryan's avatar (his photo, once one exists), his name and
+ * title, and one line about the crew, directly on the band with no panel.
+ * The four other plumbers stay off the strip until their real names and
+ * photos arrive; the team page says the same. Used on the homepage, For
+ * Homeowners, and For Builders.
  */
 export function TeamStrip({ id, heading, titleClassName }: { id: string; heading: string; titleClassName?: string }) {
+  const ryan = team.members.find((m) => m.featured) ?? team.members[0];
   return (
     <>
       <SectionHeading id={id} title={heading} titleClassName={titleClassName} />
-      <div className="grid grid-cols-1 gap-3 rounded-card border border-hairline bg-white p-5 text-charcoal sm:grid-cols-2 lg:grid-cols-5 lg:gap-6 lg:p-6">
-        {team.members.map((m) => (
-          <PersonCard key={m.id} member={m} compact />
-        ))}
+      <div className="flex items-start gap-4 lg:items-center lg:gap-6">
+        <Avatar id={ryan.id} title={ryan.photo.alt} className="h-20 w-20 shrink-0 lg:h-24 lg:w-24" />
+        <div>
+          <div className="text-[18px] font-bold leading-tight lg:text-[20px]">{ryan.name}</div>
+          <div className="mt-0.5 text-[14px] font-semibold text-slate builders:text-ondark-muted">{ryan.title}</div>
+          <p className="mt-2 max-w-[560px] text-[16px] leading-[1.6] lg:text-body">{team.strip.line}</p>
+        </div>
       </div>
     </>
   );
