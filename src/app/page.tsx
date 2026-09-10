@@ -45,7 +45,7 @@ export default function HomePage() {
           <SetsApart />
         </Section>
 
-        {/* 2. What we do: the eight homeowner services plus four builder stages, or the six builder stages in builders mode */}
+        {/* 2. What we do: six homeowner services as a list on phones and tiles on desktop, or the six builder stages in builders mode */}
         <Section ariaLabelledby="popular-h">
           <div className="flex flex-col gap-4 lg:gap-6">
             <div className="flex flex-col gap-3 lg:flex-row lg:items-baseline lg:justify-between">
@@ -61,7 +61,7 @@ export default function HomePage() {
               </div>
             </div>
             <div className="builders:hidden">
-              <ServiceGrid hrefFor={(slug) => `/services#${slug}`} slugs={popularHome.slugs} builderSlugs={popularHome.builderSlugs} builderHrefFor={(slug) => `/services/builders#${slug}`} />
+              <ServiceGrid hrefFor={(slug) => `/services#${slug}`} slugs={popularHome.slugs} phoneList />
             </div>
             <div className="hidden builders:block">
               <BuilderServiceGrid slugs={popularBuilders.slugs} />

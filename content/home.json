@@ -221,18 +221,10 @@
         "leaks-and-repairs",
         "drains-and-sewer",
         "toilets-and-faucets",
-        "water-softeners",
-        "gas-lines",
         "sump-pumps",
         "emergency-plumbing"
       ],
-      "seeAll": "See All Services",
-      "builderSlugs": [
-        "planning-and-takeoffs",
-        "underground",
-        "rough-in",
-        "trim-and-fixture-set"
-      ]
+      "seeAll": "See All Services"
     },
     "builders": {
       "heading": "What We Do for Builders",
