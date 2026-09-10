@@ -5,11 +5,16 @@ import { C2Photo } from "../ui/C2Photo";
 
 /**
  * Homepage hero. One canvas: cream ground, copy on the left, the photograph
- * on the right fading into the cream so there is no vertical seam. On phones
- * the photograph drops away and the type carries the page.
+ * on the right fading into the cream so there is no vertical seam. The phone
+ * layout uses a dedicated house crop behind the type so it can match the
+ * mobile visual authority without putting the crew member behind the copy.
  */
 export function C2Hero() {
   const hero = copy.home.hero;
+  const trust = hero.trust.map((item, index) =>
+    index === 0 ? { ...item, line1: "Locally", line2: "Trusted" } : item,
+  );
+
   return (
     <section className="c2-hero" aria-labelledby="c2-hero-heading">
       <div className="c2-wrap c2-hero-inner">
@@ -39,8 +44,8 @@ export function C2Hero() {
             </C2Button>
           </div>
           <div className="c2-hero-trust">
-            {hero.trust.map((item) => (
-              <div key={item.line1}>
+            {trust.map((item) => (
+              <div key={`${item.line1}-${item.line2}`}>
                 <C2Icon name={item.icon as "star"} size={26} />
                 <span>
                   {item.line1}
@@ -52,7 +57,6 @@ export function C2Hero() {
           </div>
         </div>
         <div className="c2-hero-media">
-          {/* hidden below 1024px, so it must not be eager: phones would pay for a photograph they never see */}
           <C2Photo slot="homeHero" sizes="(min-width: 1024px) 52vw, 100vw" />
         </div>
       </div>
