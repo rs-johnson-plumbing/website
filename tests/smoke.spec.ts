@@ -1,13 +1,14 @@
 import { test, expect } from "@playwright/test";
-import services from "../content/services.json";
 import site from "../content/site.json";
+import { siteRoutes } from "../src/lib/routes";
 
 /**
  * Smoke test: every route renders, has exactly one H1, carries the business
  * phone link, and throws no console errors. Runs against the production
- * build at phone size. Add new routes to the list as pages ship.
+ * build at phone size. The route list is shared with the sitemap
+ * (src/lib/routes.ts); add new pages there.
  */
-const routes = ["/", "/for-homeowners", "/for-builders", "/services", "/services/builders", "/our-team", ...services.map((s) => `/services/${s.slug}`)];
+const routes = siteRoutes();
 
 for (const route of routes) {
   test(`${route} renders cleanly`, async ({ page }) => {
@@ -66,4 +67,29 @@ test("bid API rejects a missing contractor and accepts a full request with plans
     },
   });
   expect(good.status()).toBe(200);
+});
+
+test("sitemap lists every route", async ({ request }) => {
+  const res = await request.get("/sitemap.xml");
+  expect(res.status()).toBe(200);
+  const xml = await res.text();
+  for (const route of routes) expect(xml).toContain(`<loc>${site.siteUrl}${route}</loc>`);
+});
+
+test("robots.txt is served", async ({ request }) => {
+  const res = await request.get("/robots.txt");
+  expect(res.status()).toBe(200);
+  expect(await res.text()).toContain("User-Agent: *");
+});
+
+test("pages carry the share image and it loads", async ({ request }) => {
+  // One page with its own metadata block and one service page; a page-level
+  // openGraph replaces the root's, so the image has to be set on each.
+  for (const route of ["/for-builders", "/services/water-heaters"]) {
+    const html = await (await request.get(route)).text();
+    expect(html, route).toContain(`<meta property="og:image" content="${site.siteUrl}/share-image.png"`);
+  }
+  const res = await request.get("/share-image.png");
+  expect(res.status()).toBe(200);
+  expect(res.headers()["content-type"]).toContain("image/png");
 });

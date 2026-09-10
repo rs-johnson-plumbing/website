@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { home, link } from "@/lib/content";
 import { plumberJsonLd } from "@/lib/jsonld";
+import { pageMetadata } from "@/lib/seo";
 import { HomeHero } from "@/components/blocks/HomeHero";
 import { AudienceProvider } from "@/components/blocks/AudienceContext";
 import { SetsApart } from "@/components/blocks/SetsApart";
@@ -15,12 +16,7 @@ import { Section } from "@/components/ui/Section";
 import { Button } from "@/components/ui/Button";
 import { TextLink } from "@/components/ui/TextLink";
 
-export const metadata: Metadata = {
-  title: { absolute: home.meta.title },
-  description: home.meta.description,
-  alternates: { canonical: "/" },
-  openGraph: { title: home.meta.title, description: home.meta.description, url: "/" },
-};
+export const metadata: Metadata = pageMetadata({ ...home.meta, path: "/" });
 
 function H2({ children, id }: { children: React.ReactNode; id?: string }) {
   return (

@@ -4,7 +4,7 @@
  * service illustrations. Swap for the real photo when it exists.
  */
 const C = "#2B2B2B";
-const B = "#246FF2";
+const B = "#2868A8";
 const T = "#EFEBE1";
 const O = "#F7F5F0";
 const W = "#FFFFFF";

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Figtree } from "next/font/google";
 import { site, SITE_URL } from "@/lib/content";
+import { shareImage } from "@/lib/seo";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { StickyMobileBar } from "@/components/layout/StickyMobileBar";
@@ -27,7 +28,9 @@ export const metadata: Metadata = {
     siteName: site.name,
     type: "website",
     locale: "en_US",
+    images: [shareImage],
   },
+  twitter: { card: "summary_large_image" },
   // Search indexing is off until NEXT_PUBLIC_SITE_INDEXABLE=true is set in
   // Vercel. Flip it at launch; nothing else changes.
   robots: process.env.NEXT_PUBLIC_SITE_INDEXABLE === "true" ? { index: true, follow: true } : { index: false, follow: false },

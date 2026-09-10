@@ -41,7 +41,7 @@ Recent Projects, a rolling row of five sample projects that open a photo
 viewer. All five projects, four of the five crew members, all contractor
 quotes, and many facts are placeholders and are marked as such.
 
-The look: off-white page (#F7F5F0), charcoal text, brand blue (#246FF2) on
+The look: off-white page (#F7F5F0), charcoal text, brand blue (#2868A8) on
 buttons, links, and illustration strokes, blue on the logo flanges too, sand
 bands for rhythm, navy bands on the builders pages. Figtree
 everywhere. Buttons are 8px-radius rectangles, outlined blue or filled

@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { team, site, type TeamMember } from "@/lib/content";
+import { pageMetadata } from "@/lib/seo";
 import { MemberScene } from "@/components/blocks/MemberScene";
 import { ServiceIllustration } from "@/components/blocks/ServiceIllustration";
 import { IntakeBanner } from "@/components/blocks/IntakeBanner";
@@ -9,12 +10,7 @@ import { Icon } from "@/components/ui/Icon";
 import { cn } from "@/lib/cn";
 import { pageH2 } from "@/styles/headings";
 
-export const metadata: Metadata = {
-  title: { absolute: team.page.meta.title },
-  description: team.page.meta.description,
-  alternates: { canonical: "/our-team" },
-  openGraph: { title: team.page.meta.title, description: team.page.meta.description, url: "/our-team" },
-};
+export const metadata: Metadata = pageMetadata({ ...team.page.meta, path: "/our-team" });
 
 const H = pageH2;
 

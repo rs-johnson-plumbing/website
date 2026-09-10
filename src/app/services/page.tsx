@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { servicesHub, services } from "@/lib/content";
 import { plumberJsonLd } from "@/lib/jsonld";
+import { pageMetadata } from "@/lib/seo";
 import { JsonLd } from "@/components/blocks/JsonLd";
 import { AudienceTabs, type AudienceTab } from "@/components/blocks/AudienceTabs";
 import { ServiceBand } from "@/components/blocks/ServiceBand";
@@ -8,12 +9,7 @@ import { ServiceGrid, PageHeading } from "@/components/blocks/ServiceGrid";
 import { IntakeBanner } from "@/components/blocks/IntakeBanner";
 import { Section } from "@/components/ui/Section";
 
-export const metadata: Metadata = {
-  title: { absolute: servicesHub.meta.title },
-  description: servicesHub.meta.description,
-  alternates: { canonical: "/services" },
-  openGraph: { title: servicesHub.meta.title, description: servicesHub.meta.description, url: "/services" },
-};
+export const metadata: Metadata = pageMetadata({ ...servicesHub.meta, path: "/services" });
 
 /**
  * Homeowner services: the tabs (this page and /services/builders), the
