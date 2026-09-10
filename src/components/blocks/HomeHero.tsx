@@ -39,7 +39,7 @@ export function HomeHero() {
   return (
     <>
       <section className="relative hidden overflow-hidden bg-offwhite text-charcoal lg:block">
-        {/* The metro map sits behind everything, faded out under the headline, with the roads drawn as pipes. Once per session the water gets turned on at O'Fallon and fills them. */}
+        {/* The metro map sits behind everything, faded out under the headline, with the roads drawn as pipes. The water-on animation is switched off for now; pass `animate` to MetroMap to turn it back on. */}
         <MetroMap variant="pipes" className="pointer-events-none absolute inset-0 h-full w-full" />
         <div className="site-width gutter relative pb-[64px] pt-[64px]">
           <h1 className="max-w-[760px] text-[52px] font-bold leading-[1.08] tracking-[-0.01em]">{s.heading}</h1>
