@@ -59,6 +59,12 @@ export function ConceptProvider({ children }: { children: React.ReactNode }) {
   function select(concept: Concept) {
     if (concept === selected) return;
     const url = new URL(window.location.href);
+    // Pin an implicit preference to the entry being left. Otherwise Back to
+    // plain / would resolve the newly persisted preference, not this design.
+    if (!valid(url.searchParams.get("concept"))) {
+      url.searchParams.set("concept", selected);
+      window.history.replaceState(window.history.state, "", url);
+    }
     url.searchParams.set("concept", concept);
     // An anchor in the old design may not exist in the selected design.
     url.hash = "";

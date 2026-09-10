@@ -13,6 +13,11 @@ test("concept selection survives reloads, respects direct links, and follows his
   await expect(page.locator("h1")).toHaveText(heading);
   await expect(page).toHaveURL(/concept=2/);
   await expect(page.locator("h1")).toHaveCount(1);
+  // The first history entry was a parameterless /, not an explicit concept.
+  await page.goBack();
+  await expect(page.locator("h1")).toHaveText(home.hero.single.heading);
+  await page.goForward();
+  await expect(page.locator("h1")).toHaveText(heading);
   await page.reload();
   await expect(page.locator("h1")).toHaveText(heading);
   await page.goto("/");
