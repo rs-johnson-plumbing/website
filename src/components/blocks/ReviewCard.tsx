@@ -23,7 +23,7 @@ export function ReviewCard({ review, showSource = false }: { review: Review; sho
 export function ReviewSummaryTile({ source, line1, line2 }: { source: string; line1: string; line2: string }) {
   return (
     <div className="flex flex-col gap-1 rounded-card border border-hairline bg-white px-5 py-4 text-charcoal">
-      <div className="text-[13px] font-bold uppercase tracking-[0.04em] text-slate">{source}</div>
+      <div className="text-[14px] font-semibold text-slate">{source}</div>
       <div className="text-[16px] font-semibold">{line1}</div>
       <div className="text-[14px] text-slate">{line2}</div>
     </div>

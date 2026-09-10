@@ -37,7 +37,7 @@ export function PhotoPlaceholder({ photo, aspect = "16/10", className, sizes = "
       style={{ aspectRatio: aspect }}
     >
       <div className="max-w-xs">
-        <div className="text-[12px] font-bold uppercase tracking-[0.06em] text-slate">Photo</div>
+        <div className="text-[13px] font-semibold text-slate">Photo</div>
         <div className="mt-1 text-[15px] font-semibold text-charcoal">{photo.caption}</div>
       </div>
     </div>

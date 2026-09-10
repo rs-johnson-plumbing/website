@@ -158,12 +158,6 @@
     "done": "Thanks. Ryan will call or text you shortly.",
     "error": "Something went wrong. Call or text 314-220-1827 and we'll take it from there.",
     "close": "Close",
-    "labels": {
-      "address": "Address",
-      "reason": "Reason",
-      "details": "Note",
-      "phone": "Phone Number"
-    },
     "otherIllustration": "question"
   },
   "setsApart": {
@@ -359,12 +353,6 @@
     "next": "Next",
     "back": "Back",
     "close": "Close",
-    "labels": {
-      "contractor": "Contractor",
-      "type": "Project Type",
-      "plans": "Plans",
-      "phone": "Phone Number"
-    },
     "noPlans": "no plans attached"
   },
   "banner": {
