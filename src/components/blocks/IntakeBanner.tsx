@@ -5,8 +5,8 @@ import { RequestChooser } from "./RequestChooser";
 
 /**
  * The white banner at the bottom of every page, in place of a closing strip:
- * Submit Service Request on homeowner pages, Submit Bid Request on builder
- * pages, and one Submit Request that asks homeowner or builder first on
+ * Request a Visit on homeowner pages, Request a Bid on builder pages, and
+ * one Request a Visit that asks home or job site first on
  * pages that serve everyone (homepage, team, service area).
  * Stays white on the dark builders ground on purpose.
  */

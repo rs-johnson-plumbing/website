@@ -24,7 +24,7 @@
     }
   },
   "availability": {
-    "button": "Submit Service Request",
+    "button": "Request a Visit",
     "addressHeading": "Where do you need a plumber?",
     "addressLabel": "Service address",
     "addressPlaceholder": "Street address, city",
@@ -151,7 +151,7 @@
     "phoneHeading": "What's your phone number?",
     "phoneLine": "We'll call or text shortly.",
     "phonePlaceholder": "Phone number",
-    "send": "Send",
+    "send": "Send to Ryan",
     "consent": "By sending your number you agree to a call or text about this request. [SMS consent wording — confirm]",
     "done": "Got it. We'll call or text shortly.",
     "error": "Something went wrong. Call or text 314-220-1827 and we'll take it from there.",
@@ -320,7 +320,7 @@
     "error": "Something went wrong. Call or text 314-220-1827 and we'll take it from there."
   },
   "bid": {
-    "button": "Submit Bid Request",
+    "button": "Request a Bid",
     "contractorHeading": "Who is the bid for?",
     "contractorLabel": "Contractor or company name",
     "contractorPlaceholder": "Company or contractor name",
@@ -347,7 +347,7 @@
     "phoneHeading": "What's your phone number?",
     "phoneLine": "We'll call or text about the bid.",
     "phonePlaceholder": "Phone number",
-    "send": "Send Bid Request",
+    "send": "Send to Ryan",
     "consent": "By sending your number you agree to a call or text about this request. [SMS consent wording — confirm]",
     "done": "Got it. We'll call or text about your bid.",
     "error": "Something went wrong. Call or text 314-220-1827 and we'll take it from there.",
@@ -363,15 +363,16 @@
     "noPlans": "None attached"
   },
   "banner": {
-    "service": "Submit Service Request",
-    "bid": "Submit Bid Request"
+    "service": "Request a Visit",
+    "bid": "Request a Bid"
   },
   "chooser": {
-    "button": "Submit Request",
-    "heading": "Are you a homeowner or a builder?",
-    "homeowner": "Homeowner",
+    "button": "Request a Visit",
+    "barButton": "Request",
+    "heading": "Is this for your home or a job site?",
+    "homeowner": "My Home",
     "homeownerIllustration": "repipe",
-    "builder": "Builder",
+    "builder": "A Job Site",
     "builderIllustration": "rough-in",
     "close": "Close"
   }

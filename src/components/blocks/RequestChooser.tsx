@@ -9,10 +9,10 @@ import { AvailabilityCheck } from "./AvailabilityCheck";
 import { BidRequest } from "./BidRequest";
 
 /**
- * One filled "Submit Request" button that asks "Are you a homeowner or a
- * builder?" and hands off: Homeowner goes straight into the service
- * request (address, then the kind of work), Builder straight into the bid
- * request. Used on the phone hero, the sticky phone bar, and the closing
+ * One filled "Request a Visit" button ("Request" in the sticky bar) that
+ * asks "Is this for your home or a job site?" and hands off: My Home goes
+ * straight into the service request (address, then the kind of work), A Job
+ * Site straight into the bid request. Used on the phone hero, the sticky phone bar, and the closing
  * banner on pages that serve both audiences. Copy lives in home.json under
  * chooser.
  */
@@ -34,7 +34,7 @@ export function RequestChooser({ className, size = "bar" }: { className?: string
           className,
         )}
       >
-        {c.button}
+        {size === "bar" ? c.barButton : c.button}
         {size === "full" && <Icon name="arrow-right" size={20} strokeWidth={1.8} className="shrink-0" />}
       </button>
       <IntakeDialog open={open} onClose={() => setOpen(false)} titleId={titleId} closeLabel={c.close}>

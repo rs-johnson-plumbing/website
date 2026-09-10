@@ -67,7 +67,7 @@ function MemberBand({ member, sceneLeft }: { member: TeamMember; sceneLeft: bool
 
 /**
  * Our Team: the faces page. Meet the Team, then one band per plumber (Ryan
- * first), the two How We Work lists, then the Submit Request banner.
+ * first), the two How We Work lists, then the Request a Visit banner.
  */
 export default function OurTeamPage() {
   const ryan = team.members.find((m) => m.featured) ?? team.members[0];

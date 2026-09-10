@@ -15,7 +15,7 @@ const MAX_PLANS_BYTES = 4 * 1024 * 1024;
 /**
  * Quick-capture bid request in the builders hero:
  *
- *   Submit Bid Request -> dialog: contractor name -> project type
+ *   Request a Bid -> dialog: contractor name -> project type
  *   (New Construction / Renovation) -> plans upload (optional) -> phone ->
  *   done. Posts once, as multipart, to /api/bid. Copy lives in home.json
  *   under bid.

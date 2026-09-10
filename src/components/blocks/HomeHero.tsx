@@ -14,7 +14,7 @@ import type { IconName } from "@/lib/content";
  *
  * Desktop: one banner. The statement, then two doors side by side under it,
  * each an icon subhead with a one-line helper over its own filled blue
- * button, Submit Service Request and Submit Bid Request, with a hairline
+ * button, Request a Visit and Request a Bid, with a hairline
  * between.
  * Two filled buttons in one section is deliberate here: the hero's job is
  * to give each audience its door.
@@ -22,7 +22,7 @@ import type { IconName } from "@/lib/content";
  * Phone: no audience toggle, no builders row, no map. A one-line serving
  * eyebrow with a pin, the statement centered, then two white boxes stacked
  * full width. The first asks "Do you need to submit a request?" over one
- * full-width Submit Request that asks homeowner or builder and hands off to
+ * full-width Request a Visit that asks home or job site and hands off to
  * that flow. The second asks "Do you need to talk to somebody?" over the
  * Call and Text pair side by side. Builders on a phone get their door from
  * the closing banner and the For Builders page. Desktop has no Call and
