@@ -92,19 +92,17 @@ test("every homepage service link resolves and any target anchor exists", async 
   }
 });
 
-test("Concept 2 fits every width and loads the desktop hero photograph", async ({ page }) => {
+test("Concept 2 fits every width and loads the hero photograph", async ({ page }) => {
   for (const width of [320, 375, 390, 768, 1023, 1024, 1280, 1440]) {
     await page.setViewportSize({ width, height: 900 });
     await page.goto("/?concept=2");
     await expect(page.locator("h1")).toHaveText(heading);
     expect(await page.evaluate(() => document.documentElement.scrollWidth)).toBeLessThanOrEqual(width);
+    // The photograph lies across the whole band at every width; a scrim over
+    // it carries the copy, so it is present on a phone too.
     const image = page.getByAltText(copy.photos.homeHero.alt);
-    if (width >= 1024) {
-      await expect(image).toBeVisible();
-      await expect.poll(() => image.evaluate((el: HTMLImageElement) => el.complete && el.naturalWidth > 0)).toBe(true);
-    } else {
-      await expect(image).toBeHidden();
-    }
+    await expect(image).toBeVisible();
+    await expect.poll(() => image.evaluate((el: HTMLImageElement) => el.complete && el.naturalWidth > 0)).toBe(true);
   }
 });
 
