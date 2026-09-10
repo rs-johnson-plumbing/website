@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { builders, faqs } from "@/lib/content";
 import { plumberJsonLd } from "@/lib/jsonld";
+import { pageMetadata } from "@/lib/seo";
 import { JsonLd } from "@/components/blocks/JsonLd";
 import { AnchorBar, type Anchor } from "@/components/blocks/AnchorBar";
 import { AudienceProvider } from "@/components/blocks/AudienceContext";
@@ -14,15 +15,11 @@ import { FAQ } from "@/components/blocks/FAQ";
 import { ContactBlock } from "@/components/blocks/ContactBlock";
 import { IntakeBanner } from "@/components/blocks/IntakeBanner";
 import { Section, SectionHeading } from "@/components/ui/Section";
+import { PageTitle } from "@/components/ui/PageTitle";
 import { cn } from "@/lib/cn";
 import { pageH2 } from "@/styles/headings";
 
-export const metadata: Metadata = {
-  title: { absolute: builders.meta.title },
-  description: builders.meta.description,
-  alternates: { canonical: "/for-builders" },
-  openGraph: { title: builders.meta.title, description: builders.meta.description, url: "/for-builders" },
-};
+export const metadata: Metadata = pageMetadata({ ...builders.meta, path: "/for-builders" });
 
 const H = pageH2;
 
@@ -42,7 +39,7 @@ export default function ForBuildersPage() {
       {/* Set the page audience before hydration so the sticky bar shows Request Bid from the first paint. */}
       <script dangerouslySetInnerHTML={{ __html: 'document.body.dataset.audience="builders";' }} />
       <JsonLd data={plumberJsonLd()} />
-      <h1 className="sr-only">{builders.seoHeading}</h1>
+      <PageTitle title={builders.seoHeading} />
 
       <AnchorBar anchors={builders.anchors as Anchor[]} />
 

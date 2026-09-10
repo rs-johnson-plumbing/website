@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { servicesHub, builderServices } from "@/lib/content";
 import { plumberJsonLd } from "@/lib/jsonld";
+import { pageMetadata } from "@/lib/seo";
 import { JsonLd } from "@/components/blocks/JsonLd";
 import { AudienceProvider } from "@/components/blocks/AudienceContext";
 import { AudienceTabs, type AudienceTab } from "@/components/blocks/AudienceTabs";
@@ -10,12 +11,7 @@ import { PageHeading } from "@/components/blocks/ServiceGrid";
 import { IntakeBanner } from "@/components/blocks/IntakeBanner";
 import { Section } from "@/components/ui/Section";
 
-export const metadata: Metadata = {
-  title: { absolute: servicesHub.buildersMeta.title },
-  description: servicesHub.buildersMeta.description,
-  alternates: { canonical: "/services/builders" },
-  openGraph: { title: servicesHub.buildersMeta.title, description: servicesHub.buildersMeta.description, url: "/services/builders" },
-};
+export const metadata: Metadata = pageMetadata({ ...servicesHub.buildersMeta, path: "/services/builders" });
 
 /**
  * Builder services: the tabs, the six stage cards on cream, then one band
