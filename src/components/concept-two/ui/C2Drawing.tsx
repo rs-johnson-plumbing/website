@@ -153,7 +153,9 @@ const drawings: Record<string, ReactNode> = {
 export function C2Drawing({ id, className }: { id: string; className?: string }) {
   return (
     <svg viewBox="0 0 96 96" fill="none" stroke={NAVY} strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" className={className}>
-      {drawings[id] ?? drawings.other}
+      {/* The authority's icons fill their tile; the drawings are keyed to a
+          96 grid with margin, so scale the whole group about its centre. */}
+      <g transform="translate(48 48) scale(1.16) translate(-48 -48)">{drawings[id] ?? drawings.other}</g>
     </svg>
   );
 }
