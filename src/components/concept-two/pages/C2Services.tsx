@@ -25,7 +25,7 @@ export function C2Services() {
  .directory-preview details{background:#fff;color:#182b50;border:1px solid #e5e1da;border-radius:6px;overflow:hidden}
  .directory-preview summary{list-style:none;cursor:pointer;min-height:208px;padding:16px 12px;display:flex;flex-direction:column;align-items:flex-start}
  .directory-preview summary::-webkit-details-marker{display:none}
- .directory-preview summary svg{width:58px;height:58px;margin-bottom:12px;flex:none}
+ .directory-preview summary svg{width:76px;height:76px;margin-bottom:12px;flex:none}
  .directory-preview .dp-title{font-size:17px;font-weight:700;line-height:1.2}
  .directory-preview .dp-short{font-size:13px;line-height:1.4;color:#657080;margin:8px 0 12px}
  .directory-preview .dp-more{font-size:13px;color:#087bcc;font-weight:700;margin-top:auto}
@@ -39,7 +39,7 @@ export function C2Services() {
  .directory-preview .dp-detail a{color:#087bcc;font-weight:700}
  .directory-preview .dp-detail h3{font-size:17px;font-weight:700}
  .directory-preview .dp-builders .dp-grid{grid-template-columns:1fr}
- .directory-preview .dp-builders summary{min-height:0;display:grid;grid-template-columns:62px 1fr;column-gap:14px;padding:18px}
+ .directory-preview .dp-builders summary{min-height:0;display:grid;grid-template-columns:76px 1fr;column-gap:14px;padding:18px}
  .directory-preview .dp-builders summary svg{grid-row:1/5;margin:0}
  .directory-preview .dp-step{font-size:12px;color:#087bcc;font-weight:700;margin-bottom:4px}
  .directory-preview .dp-builders details[open]{grid-column:auto}
