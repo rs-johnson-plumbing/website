@@ -444,7 +444,7 @@ for (const route of ["/", "/services", "/for-homeowners", "/for-builders"]) {
   await expect(tile.locator(".c2-sketch-art")).toHaveCSS("animation-name", "none");
   await expect(svg).not.toHaveAttribute("data-mobile-active", "true", { timeout: 5000 });
   await expect(detail).toHaveCSS("animation-name", "none");
-  await page.evaluate(() => window.scrollTo(0, 0));
+  await page.evaluate(() => window.scrollTo({ top: document.documentElement.scrollHeight, behavior: "instant" }));
   await expect(tile).not.toBeInViewport();
   await tile.scrollIntoViewIfNeeded();
   await expect(svg).toHaveAttribute("data-mobile-active", "true");
