@@ -1,3 +1,5 @@
+"use client";
+import { useRequestBid } from "./C2IntakeContext";
 import Link from "next/link";
 import { C2Icon, type C2IconName } from "./C2Icon";
 
@@ -33,6 +35,8 @@ export function C2Button({
   disabled,
   ...rest
 }: Props) {
+  const requestBid = useRequestBid();
+  if (href?.endsWith("#request-a-bid")) { href = undefined; onClick = requestBid; }
   const classes = ["c2-btn", `c2-btn--${variant}`, size === "sm" ? "c2-btn--sm" : "", block ? "c2-btn--block" : "", className]
     .filter(Boolean)
     .join(" ");

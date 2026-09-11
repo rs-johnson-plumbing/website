@@ -46,7 +46,7 @@ export function C2Home() {
             {services.heading}
           </h2>
           <div className="c2-service-block">
-            <C2ServiceGrid items={services.items} onSelect={selectService} />
+            <C2ServiceGrid items={services.items} detailed onSelect={selectService} />
           </div>
           <div className="c2-center">
             <C2Button href="/services" variant="outline" className="c2-btn--quiet">

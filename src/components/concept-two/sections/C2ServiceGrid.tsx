@@ -9,9 +9,9 @@ export function C2ServiceGrid({ items, columns = 6, detailed = false, onSelect }
   return (
     <ul className={`c2-service-grid c2-service-grid--${columns}`}>
       {items.map((item) => {
-        const content = <>{detailed ? <ServiceSketch id={item.id} /> : <C2Drawing id={item.id} />}<span>{item.label}</span></>;
+        const content = <>{detailed ? <ServiceSketch id={item.id === "remodels" ? "trim" : item.id === "other" ? "fixtures" : item.id} /> : <C2Drawing id={item.id} />}<span>{item.label}</span></>;
         return <li key={item.label}>
-          {onSelect ? <button type="button" className="c2-service" style={{ width: "100%", font: "inherit", cursor: "pointer", ...(detailed ? { color: "#153e65" } : {}) }} aria-haspopup="dialog" onClick={() => onSelect(item)}>{content}</button>
+          {onSelect ? <button type="button" className={`c2-service${detailed ? " c2-service--sketch" : ""}`} style={{ width: "100%", font: "inherit", cursor: "pointer", ...(detailed ? { color: "#153e65" } : {}) }} aria-haspopup="dialog" onClick={() => onSelect(item)}>{content}</button>
             : <Link href={item.href} className="c2-service" style={detailed ? { color: "#153e65" } : undefined}>{content}</Link>}
         </li>;
       })}

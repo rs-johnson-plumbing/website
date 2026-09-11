@@ -133,7 +133,9 @@ test("the action bar sends builders to the bid form, not the homeowner intake", 
   for (const route of ["/for-builders", "/services/builders"]) {
     await page.goto(route);
     await page.evaluate(() => window.scrollTo(0, 1200));
-    await expect(page.locator(".c2-bar").getByRole("link", { name: copy.ui.request })).toHaveAttribute("href", "/for-builders#request-a-bid");
+    await page.locator(".c2-bar").getByRole("button", { name: copy.ui.request }).click();
+    await expect(page.getByRole("dialog", { name: "Request a Bid", exact: true })).toBeVisible();
+    await page.keyboard.press("Escape");
   }
   await page.goto("/for-homeowners");
   await page.evaluate(() => window.scrollTo(0, 1200));
@@ -174,10 +176,10 @@ test("builders page keeps homeowner typography and routes bid actions correctly"
   await page.goto("/for-builders");
   await expect(page.locator("h1")).toHaveCSS("font-weight", "800");
   await expect(page.locator("#why-builders-heading")).toBeVisible();
-  await expect(page.locator(".c2-final-request")).toHaveAttribute("href", "#request-a-bid");
-  await page.locator(".c2-final-request").click();
-  await expect(page.locator("#request-a-bid input[name=contractor]")).toBeVisible();
-  await expect(page.locator("#request-a-bid input[name=plans]")).toHaveAttribute("accept", "application/pdf,image/*");
+  await expect(page.locator("#request-a-bid")).toHaveCount(0);
+  await page.locator(".c2-final-bid").click();
+  await expect(page.getByRole("dialog", { name: "Request a Bid", exact: true }).locator("input[name=contractor]")).toBeVisible();
+  await page.keyboard.press("Escape");
   await page.getByText("What should I send for a bid?", { exact: true }).click();
   await expect(page.locator(".c2-faq-list details[open]")).toContainText("fixture schedule");
   for (const width of [320, 390, 1024, 1440]) {
@@ -253,4 +255,85 @@ test("detailed service artwork loads as responsive lazy images", async ({ page }
   const builderArt = page.locator(".dp-builders .dp-card img").first();
   await builderArt.scrollIntoViewIfNeeded();
   await expect.poll(() => builderArt.evaluate((el: HTMLImageElement) => el.complete && el.naturalWidth > 0)).toBeTruthy();
+});
+
+test("shared bottom actions open the correct workflow on every main page", async ({ page }) => {
+  for (const route of ["/", "/for-homeowners", "/for-builders", "/services", "/our-team"]) {
+    await page.goto(route);
+    for (const [button, title] of [["Submit Bid Request", "Request a Bid"], ["Request Service", "Request Service"]]) {
+      await page.locator(".c2-final").getByRole("button", { name: button, exact: true }).click();
+      await expect(page.getByRole("dialog", { name: title, exact: true })).toBeVisible();
+      await expect(page.getByRole("dialog").locator(".ci-progress li")).toHaveCount(title === "Request a Bid" ? 2 : 6);
+      await page.keyboard.press("Escape");
+    }
+  }
+  await expect(page.getByRole("heading", { name: "The Crew", exact: true })).toHaveCount(0);
+});
+
+test("builder modal keeps details between steps and sends the image with the bid", async ({ page }) => {
+  let payload = "";
+  await page.route("**/api/bid", async route => {
+    payload = route.request().postData() || "";
+    await route.fulfill({ status: 200, contentType: "application/json", body: '{"ok":true}' });
+  });
+  await page.goto("/for-builders");
+  await page.locator(".c2-hero").getByRole("button", { name: "Request a Bid", exact: true }).click();
+  const modal = page.getByRole("dialog", { name: "Request a Bid", exact: true });
+  await modal.getByLabel("Company name").fill("Example Builders");
+  await modal.getByLabel("Your name").fill("Alex Taylor");
+  await modal.getByLabel("Email").fill("alex@example.com");
+  await modal.getByLabel("Phone").fill("3145550100");
+  await modal.getByRole("button", { name: "Continue", exact: true }).click();
+  await modal.getByLabel("Project location").fill("O'Fallon, MO");
+  await modal.getByLabel("Project details").fill("New single family plumbing rough-in.");
+  await modal.locator('input[type=file]').first().setInputFiles({ name: "plan.png", mimeType: "image/png", buffer: Buffer.from("image fixture") });
+  await expect(modal.getByText("plan.png", { exact: true })).toBeVisible();
+  await modal.getByRole("button", { name: "Back", exact: false }).click();
+  await expect(modal.getByLabel("Company name")).toHaveValue("Example Builders");
+  await modal.getByRole("button", { name: "Continue", exact: true }).click();
+  await expect(modal.getByLabel("Project location")).toHaveValue("O'Fallon, MO");
+  await modal.getByRole("button", { name: "Send Bid Request", exact: true }).click();
+  await expect(modal.getByRole("heading", { name: "Thank you." })).toBeVisible();
+  expect(payload).toContain("Example Builders");
+  expect(payload).toContain("plan.png");
+});
+
+test("service workflow selects one category and follows up inline before contact and time", async ({ page }) => {
+  let payload = "";
+  let attempts = 0;
+  await page.route("**/api/message", async route => {
+    payload = route.request().postData() || ""; attempts++;
+    await route.fulfill({ status: attempts === 1 ? 500 : 200, contentType: "application/json", body: JSON.stringify({ ok: attempts > 1 }) });
+  });
+  await page.goto("/");
+  await page.locator(".c2-header-actions").getByRole("button", { name: "Request Service", exact: true }).click();
+  const modal = page.getByRole("dialog", { name: "Request Service", exact: true });
+  await modal.getByLabel("ZIP code").fill("63368");
+  await modal.getByRole("button", { name: "Continue", exact: true }).click();
+  await modal.getByRole("button", { name: "Repair", exact: true }).click();
+  await modal.getByRole("button", { name: "Clogged drain", exact: true }).click();
+  await modal.getByRole("button", { name: "Install", exact: true }).click();
+  await expect(modal.getByRole("button", { name: "Repair", exact: true })).toHaveAttribute("aria-pressed", "false");
+  await expect(modal.getByRole("heading", { name: "What would you like installed?" })).toBeVisible();
+  await modal.getByRole("button", { name: "Water heater", exact: true }).click();
+  await modal.getByLabel("What’s happening?").fill("Replace the old heater.");
+  await modal.getByRole("button", { name: "Continue", exact: true }).click();
+  await modal.locator('input[type=file]').first().setInputFiles({ name: "heater.png", mimeType: "image/png", buffer: Buffer.from("image fixture") });
+  await expect(modal.locator('input[capture=environment]')).toHaveAttribute("accept", "image/*");
+  await modal.getByRole("button", { name: "Continue", exact: true }).click();
+  for (const [label, value] of [["First name", "Alex"], ["Last name", "Taylor"], ["Email", "alex@example.com"], ["Phone", "3145550100"], ["Street address", "123 Example Lane"], ["City", "O'Fallon"]]) await modal.getByLabel(label, { exact: false }).fill(value);
+  await modal.getByRole("button", { name: "Continue", exact: true }).click();
+  const rail = modal.getByRole("group", { name: "Preferred day", exact: true });
+  await rail.getByRole("button").first().click();
+  await modal.getByRole("button", { name: "10:00 a.m. - 12:00 p.m.", exact: true }).click();
+  await modal.getByRole("button", { name: "Continue", exact: true }).click();
+  await expect(modal.locator(".ci-review")).toContainText("Install — Water heater");
+  await expect(modal.locator(".ci-review")).not.toContainText("Clogged drain");
+  await modal.getByRole("button", { name: "Send Service Request", exact: true }).click();
+  await expect(modal.getByRole("alert")).toContainText("couldn’t send");
+  await modal.getByRole("button", { name: "Send Service Request", exact: true }).click();
+  await expect(modal.getByRole("heading", { name: "Thank you." })).toBeVisible();
+  expect(payload).toContain("Replace the old heater.");
+  expect(payload).toContain("heater.png");
+  expect(payload).toContain("10:00 a.m. - 12:00 p.m.");
 });

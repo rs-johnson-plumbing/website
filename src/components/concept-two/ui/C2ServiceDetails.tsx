@@ -6,12 +6,14 @@ import Image from "next/image";
 import { drawingFor, c2Label } from "./drawingFor";
 import { C2Button } from "./C2Button";
 import { C2Icon } from "./C2Icon";
+import { useRequestBid } from "./C2IntakeContext";
 
 export type ServiceDetailsContent = Pick<Service, "slug" | "name" | "short" | "problems"> & { hub: Pick<Service["hub"], "whatWeDo"> };
 
 type Props = { service: ServiceDetailsContent | BuilderService; onClose: () => void; onRequest: () => void };
 
 export function C2ServiceDetails({ service, onClose, onRequest }: Props) {
+  const requestBid = useRequestBid();
   const dialog = useRef<HTMLDialogElement>(null);
   const closeButton = useRef<HTMLButtonElement>(null);
   const homeowner = "problems" in service;
@@ -118,7 +120,7 @@ export function C2ServiceDetails({ service, onClose, onRequest }: Props) {
       </div>
     </div>
     <footer className="sd-footer"><button type="button" className="sd-return" onClick={onClose}>← Back to services</button><div className="sd-actions">
-      {homeowner ? <C2Button onClick={onRequest}>Request Service</C2Button> : <C2Button href="/for-builders#request-a-bid">Request a Bid</C2Button>}
+      {homeowner ? <C2Button onClick={onRequest}>Request Service</C2Button> : <C2Button onClick={() => { onClose(); requestBid(); }}>Request a Bid</C2Button>}
       <C2Button href={site.phone.tel} variant="outline" icon="phone" trailingIcon={null}>Call</C2Button>
     </div></footer>
   </dialog>;

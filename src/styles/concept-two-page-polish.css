@@ -332,3 +332,89 @@
 @media(min-width:1024px) and (max-width:1199px) {
  .c2 .c2-header-phone { display:none; }
 }
+
+/* Shared service and builder intake */
+.c2.ci-dialog{padding:0;border:1px solid #dce4eb;border-radius:8px;width:min(760px,calc(100vw - 32px));max-width:none;max-height:calc(100dvh - 32px);margin:auto;background:#fbf9f7;color:#182b50;box-shadow:0 24px 80px #0b1d4533}
+.c2.ci-dialog::backdrop{background:rgb(18 35 64 / 65%)}
+.c2.ci-dialog[open]{display:flex;flex-direction:column}
+.c2.ci-dialog .ci-header{display:flex;align-items:center;justify-content:space-between;padding:22px 30px;background:white;border-bottom:1px solid #dce4eb;flex-shrink:0}
+.c2.ci-dialog .ci-header>svg{width:230px;height:50px}
+.c2.ci-dialog .ci-header>button{width:44px;height:44px;display:grid;place-items:center;border:1px solid #c9d8eb;border-radius:4px;background:white;color:#182b50;cursor:pointer}
+.c2.ci-dialog form{display:flex;flex-direction:column;min-height:0;overflow:hidden;margin:0}
+.c2.ci-dialog .ci-progress{padding:18px 30px 8px;flex-shrink:0}
+.c2.ci-dialog .ci-progress p{margin:0 0 12px;font-size:13px;font-weight:700;color:#3475d4;letter-spacing:.4px}
+.c2.ci-dialog .ci-progress ol{display:flex;padding:0;margin:0;list-style:none}
+.c2.ci-dialog .ci-progress li{position:relative;display:flex;align-items:center;flex:1}
+.c2.ci-dialog .ci-progress li:after{content:"";height:3px;background:#dae3ee;flex:1}
+.c2.ci-dialog .ci-progress li:last-child{flex:0}
+.c2.ci-dialog .ci-progress li:last-child:after{display:none}
+.c2.ci-dialog .ci-progress li span{display:grid;place-items:center;width:25px;height:25px;border:2px solid #ccd9e8;border-radius:50%;font-size:12px;font-weight:700;background:white;color:#67758b}
+.c2.ci-dialog .ci-progress li.ci-reached span{background:#3978d4;border-color:#3978d4;color:white}
+.c2.ci-dialog .ci-progress li.ci-reached:not([aria-current]):after{background:#3978d4}
+.c2.ci-dialog .ci-body{padding:24px 30px 30px;overflow-y:auto;overscroll-behavior:contain;min-height:0}
+.c2.ci-dialog h2{font-size:32px;line-height:1.12;font-weight:800;margin:0 0 16px;letter-spacing:-.8px;color:#182b50}
+.c2.ci-dialog h3{font-size:20px;font-weight:700;margin:24px 0 14px}
+.c2.ci-dialog p{font-size:16px;line-height:1.5;color:#61718b;margin:0 0 20px}
+.c2.ci-dialog label{display:grid;gap:8px;margin:0 0 18px;min-width:0}
+.c2.ci-dialog label>span{font-size:14px;font-weight:600}
+.c2.ci-dialog input:not([hidden]),.c2.ci-dialog select,.c2.ci-dialog textarea{width:100%;min-width:0;background:white;border:1px solid #b9c9dd;border-radius:4px;padding:14px;font:inherit;font-size:16px;color:#182b50}
+.c2.ci-dialog textarea{resize:vertical;min-height:110px}
+.c2.ci-dialog [hidden]{display:none!important}
+.c2.ci-dialog :focus-visible{outline:3px solid #7ab6ff;outline-offset:3px}
+.c2.ci-dialog h2:focus{outline:none}
+.c2.ci-dialog .ci-fields{display:grid;grid-template-columns:1fr 1fr;gap:0 18px}
+.c2.ci-dialog .ci-categories{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+.c2.ci-dialog .ci-categories button{display:flex;flex-direction:column;align-items:center;gap:8px;padding:12px;background:white;border:1px solid #bccce0;border-radius:5px;color:#182b50;font:inherit;font-weight:700;cursor:pointer}
+.c2.ci-dialog .ci-categories svg{width:72px;height:86px}
+.c2.ci-dialog button[aria-pressed=true]{border-color:#3778d4;box-shadow:0 0 0 1px #3778d4;background:#eaf3fb;color:#1c59ac}
+.c2.ci-dialog .ci-followup{margin-top:24px;padding-top:0;border-top:1px solid #dce4eb}
+.c2.ci-dialog .ci-options{display:flex;flex-wrap:wrap;gap:9px;margin-bottom:22px}
+.c2.ci-dialog .ci-options button,.c2.ci-dialog .ci-times button,.c2.ci-dialog .ci-days button{border:1px solid #bdcce0;background:white;padding:12px 14px;border-radius:4px;color:#182b50;font:inherit;font-size:15px;cursor:pointer;min-height:46px}
+.c2.ci-dialog .ci-options button[aria-pressed=true],.c2.ci-dialog .ci-times button[aria-pressed=true],.c2.ci-dialog .ci-days button[aria-pressed=true]{background:#eaf3fb;border-color:#3778d4}
+.c2.ci-dialog .ci-upload{padding:20px;border:1px dashed #a8bed9;border-radius:5px;background:white}
+.c2.ci-dialog .ci-upload h3{margin-top:0}
+.c2.ci-dialog .ci-upload h3 span{font-size:14px;font-weight:400}
+.c2.ci-dialog .ci-upload-actions{display:flex;gap:10px;flex-wrap:wrap}
+.c2.ci-dialog .ci-camera{display:none}
+.c2.ci-dialog .ci-files{list-style:none;padding:0;margin:16px 0 0}
+.c2.ci-dialog .ci-files li{display:flex;justify-content:space-between;gap:12px;padding:10px 0;border-top:1px solid #dce4eb;font-size:14px}
+.c2.ci-dialog .ci-files li span{overflow-wrap:anywhere}
+.c2.ci-dialog .ci-files button,.c2.ci-dialog .ci-review button{border:0;background:none;color:#2869bd;text-decoration:underline;font:inherit;cursor:pointer}
+.c2.ci-dialog .ci-footer{padding:18px 30px 12px;background:white;border-top:1px solid #dce4eb;flex-shrink:0}
+.c2.ci-dialog .ci-footer>div{display:flex;justify-content:space-between;align-items:center;gap:16px}
+.c2.ci-dialog .ci-footer p{font-size:13px;text-align:center;margin:14px 0 0}
+.c2.ci-dialog .ci-footer a{color:#2767b9}
+.c2.ci-dialog .ci-back{border:0;background:none;color:#2b6bc0;font:inherit;text-decoration:underline;cursor:pointer;min-height:44px}
+.c2.ci-dialog .ci-day-controls{display:flex;justify-content:space-between;align-items:center;font-weight:600;margin-bottom:10px}
+.c2.ci-dialog .ci-day-controls button{border:1px solid #bfd0e5;background:white;border-radius:4px;width:44px;height:44px;color:#2869bd;font:inherit;cursor:pointer}
+.c2.ci-dialog .ci-days{display:flex;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;padding:3px 2px 14px}
+.c2.ci-dialog .ci-days button{flex:0 0 104px;min-height:90px;scroll-snap-align:start;font-weight:600;white-space:normal}
+.c2.ci-dialog .ci-times{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.c2.ci-dialog .ci-review section{border-top:1px solid #dce4eb;padding:6px 0}
+.c2.ci-dialog .ci-review h3{display:flex;justify-content:space-between;gap:12px}
+.c2.ci-dialog .ci-review h3 button{font-size:14px}
+.c2.ci-dialog .ci-error{color:#aa2828;margin:18px 0 0}
+.c2 .c2-service--sketch svg{width:110px;height:130px}
+.c2 .c2-final-actions{flex-wrap:wrap;justify-content:flex-end}
+.c2 .c2-final-bid{white-space:nowrap}
+@media(max-width:600px){
+ .c2.ci-dialog{width:calc(100vw - 16px);max-height:calc(100dvh - 16px)}
+ .c2.ci-dialog .ci-header{padding:14px 18px}
+ .c2.ci-dialog .ci-header>svg{width:195px;height:43px}
+ .c2.ci-dialog .ci-progress{padding:14px 18px 4px}
+ .c2.ci-dialog .ci-body{padding:22px 18px}
+ .c2.ci-dialog h2{font-size:28px}
+ .c2.ci-dialog .ci-fields{grid-template-columns:1fr}
+ .c2.ci-dialog .ci-categories{grid-template-columns:1fr 1fr;gap:10px}
+ .c2.ci-dialog .ci-categories button{flex-direction:row;padding:10px;font-size:15px}
+ .c2.ci-dialog .ci-categories svg{width:46px;height:58px}
+ .c2.ci-dialog .ci-camera{display:inline-flex}
+ .c2.ci-dialog .ci-times{grid-template-columns:1fr}
+ .c2.ci-dialog .ci-footer{padding:14px 18px}
+ .c2.ci-dialog .ci-footer .c2-btn{padding:12px 14px;font-size:14px}
+ .c2.ci-dialog .ci-upload{padding:15px}
+ .c2 .c2-service--sketch svg{width:76px;height:92px}
+ .c2 .c2-final-actions{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+ .c2 .c2-final-actions .c2-btn{min-width:0;font-size:13px;padding:12px 8px;white-space:normal}
+}
+@media(pointer:coarse){.c2.ci-dialog .ci-camera{display:inline-flex}}

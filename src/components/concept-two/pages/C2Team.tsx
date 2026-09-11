@@ -56,14 +56,6 @@ export function C2Team() {
         </div>
       </section>
 
-      <section className="c2-section c2-section--tight c2-section--sand" aria-labelledby="c2-crew">
-        <div className="c2-wrap">
-          <h2 id="c2-crew" className="c2-h2">
-            {page.crew.heading}
-          </h2>
-          <p className="c2-lead c2-crew-line">{team.crew.line}</p>
-        </div>
-      </section>
 
       <C2Apart />
       <C2Reviews heading={copy.homeowners.reviews.heading} />
