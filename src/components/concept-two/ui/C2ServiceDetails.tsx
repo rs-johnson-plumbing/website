@@ -2,7 +2,7 @@
 
 import { useEffect, useRef } from "react";
 import { site, type Service, type BuilderService } from "@/lib/content";
-import { ServiceSketch } from "./ServiceSketch";
+import Image from "next/image";
 import { drawingFor, c2Label } from "./drawingFor";
 import { C2Button } from "./C2Button";
 import { C2Icon } from "./C2Icon";
@@ -41,6 +41,13 @@ export function C2ServiceDetails({ service, onClose, onRequest }: Props) {
 
   return <dialog ref={dialog} className="c2-service-modal" aria-labelledby="service-modal-title"
     onCancel={event => { event.preventDefault(); onClose(); }}
+    onKeyDown={event => {
+      if (event.key !== "Tab") return;
+      const controls = Array.from(event.currentTarget.querySelectorAll<HTMLElement>('button:not([disabled]), a[href]')).filter(el => el.getClientRects().length > 0);
+      const first = controls[0], last = controls[controls.length - 1];
+      if (event.shiftKey && document.activeElement === first) { event.preventDefault(); last?.focus(); }
+      else if (!event.shiftKey && document.activeElement === last) { event.preventDefault(); first?.focus(); }
+    }}
     onClick={event => {
       if (event.target !== event.currentTarget) return;
       const bounds = event.currentTarget.getBoundingClientRect();
@@ -55,7 +62,7 @@ export function C2ServiceDetails({ service, onClose, onRequest }: Props) {
       .c2-service-modal .sd-close{display:grid;place-items:center;width:44px;height:44px;background:#fff;border:1px solid #c7d4e2;border-radius:3px;color:#182b50;cursor:pointer;flex:none}
       .c2-service-modal .sd-scroll{overflow:auto;overscroll-behavior:contain;padding:28px;min-height:0}
       .c2-service-modal .sd-heading{display:grid;grid-template-columns:170px 1fr;gap:28px;align-items:center;padding-bottom:24px}
-      .c2-service-modal .sd-heading>svg{width:170px;height:200px}
+      .c2-service-modal .sd-heading>img{width:170px;height:200px}
       .c2-service-modal h2#service-modal-title{font-size:clamp(28px,3vw,40px);font-weight:800;line-height:1.1;letter-spacing:-.03em;margin:0 0 12px;text-transform:none}
       .c2-service-modal .sd-heading p{font-size:18px;line-height:1.5;color:#536a81;margin:0}
       .c2-service-modal .sd-columns{display:grid;grid-template-columns:1.3fr 1fr;gap:28px;border-top:1px solid #dce4eb;padding-top:24px}
@@ -74,7 +81,7 @@ export function C2ServiceDetails({ service, onClose, onRequest }: Props) {
         .c2-service-modal .sd-top{padding:10px 16px}
         .c2-service-modal .sd-scroll{padding:20px}
         .c2-service-modal .sd-heading{grid-template-columns:100px 1fr;gap:16px;padding-bottom:20px}
-        .c2-service-modal .sd-heading>svg{width:100px;height:130px}
+        .c2-service-modal .sd-heading>img{width:100px;height:130px}
         .c2-service-modal .sd-heading p{font-size:15px}
         .c2-service-modal .sd-columns{grid-template-columns:1fr;gap:20px}
         .c2-service-modal .sd-footer{display:block;padding:12px 16px}
@@ -85,7 +92,7 @@ export function C2ServiceDetails({ service, onClose, onRequest }: Props) {
     `}</style>
     <header className="sd-top"><span className="sd-label">{homeowner ? "Homeowner Services" : "Builder Services"}</span><button ref={closeButton} type="button" className="sd-close" aria-label="Close service details" onClick={onClose}><C2Icon name="close" size={22}/></button></header>
     <div className="sd-scroll">
-      <div className="sd-heading"><ServiceSketch id={drawingFor(service.slug)}/><div><h2 id="service-modal-title">{c2Label(service.slug,service.name)}</h2><p>{service.short}</p></div></div>
+      <div className="sd-heading"><Image src={`/images/service-sketches/${drawingFor(service.slug)}.webp`} alt="" width={560} height={665} sizes="(max-width:600px) 100px, 170px" loading="eager" style={{objectFit:"contain"}}/><div><h2 id="service-modal-title">{c2Label(service.slug,service.name)}</h2><p>{service.short}</p></div></div>
       <div className={`sd-columns ${problems.length ? "" : "sd-single"}`}>
         <div><h3>What We Do</h3><ul>{bullets.map(line=><li key={line}>{line}</li>)}</ul></div>
         {problems.length > 0 && <aside className="sd-problems"><h3>Common Problems</h3><ul>{problems.map(line=><li key={line}>{line}</li>)}</ul></aside>}
