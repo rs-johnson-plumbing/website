@@ -464,3 +464,6 @@
 
 .c2 .directory-preview .dp-header { padding-top:69px; padding-bottom:69px; }
 @media(max-width:767px){.c2 .directory-preview .dp-header { padding-top:55px; padding-bottom:51px; }}
+
+/* Consistent display casing for interface headings and labels; prose and entered values retain their casing. */
+.c2 :is(h1,h2,h3,h4,h5,h6,button,.c2-btn,nav a,label>span,summary,.c2-eyebrow,.dp-title,.dp-short,.dp-more,.ci-progress p) { text-transform:capitalize !important; }
