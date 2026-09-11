@@ -133,7 +133,7 @@ test("the action bar sends builders to the bid form, not the homeowner intake", 
 
 test("inside-page hero photographs sit on the right of the band", async ({ page }) => {
   await page.setViewportSize({ width: 1440, height: 900 });
-  for (const route of ["/for-builders", "/for-homeowners", "/services"]) {
+  for (const route of ["/for-builders", "/for-homeowners"]) {
     await page.goto(`${route}?concept=2`);
     const media = await page.locator(".c2-hero-media").boundingBox();
     const hero = await page.locator(".c2-hero").boundingBox();
@@ -159,4 +159,19 @@ test("builders page keeps homeowner typography and routes bid actions correctly"
     await page.setViewportSize({ width, height: 900 });
     expect(await page.evaluate(() => document.documentElement.scrollWidth)).toBeLessThanOrEqual(width);
   }
+});
+
+test("services directory separates audiences and expands service details on phones", async ({ page }) => {
+  await page.setViewportSize({ width: 390, height: 844 });
+  await page.goto("/services");
+  await expect(page.locator(".c2-hero")).toHaveCount(0);
+  await expect(page.locator(".dp-home details")).toHaveCount(8);
+  await expect(page.locator(".dp-builders details")).toHaveCount(6);
+  const service = page.locator(".dp-home details").first();
+  await service.locator("summary").click();
+  await expect(service).toHaveAttribute("open", "");
+  await expect(service.getByRole("heading", { name: "What we do" })).toBeVisible();
+  await service.locator("summary").click();
+  await expect(service).not.toHaveAttribute("open", "");
+  expect(await page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth)).toBeTruthy();
 });
