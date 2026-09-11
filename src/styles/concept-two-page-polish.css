@@ -368,6 +368,7 @@
 .c2.ci-dialog .ci-categories svg{width:72px;height:86px}
 .c2.ci-dialog button[aria-pressed=true]{border-color:#3778d4;box-shadow:0 0 0 1px #3778d4;background:#eaf3fb;color:#1c59ac}
 .c2.ci-dialog .ci-followup{margin-top:24px;padding-top:0;border-top:1px solid #dce4eb}
+.c2.ci-dialog .ci-followup > label{padding-top:24px}
 .c2.ci-dialog .ci-options{display:flex;flex-wrap:wrap;gap:9px;margin-bottom:22px}
 .c2.ci-dialog .ci-options button,.c2.ci-dialog .ci-times button,.c2.ci-dialog .ci-days button{border:1px solid #bdcce0;background:white;padding:12px 14px;border-radius:4px;color:#182b50;font:inherit;font-size:15px;cursor:pointer;min-height:46px}
 .c2.ci-dialog .ci-options button[aria-pressed=true],.c2.ci-dialog .ci-times button[aria-pressed=true],.c2.ci-dialog .ci-days button[aria-pressed=true]{background:#eaf3fb;border-color:#3778d4}
