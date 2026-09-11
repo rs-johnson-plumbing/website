@@ -395,3 +395,24 @@ test("request forms retain entered data after outside clicks", async ({ page }) 
     await expect(modal).toHaveCount(0);
   }
 });
+
+test("service tile motion follows hover and respects reduced motion", async ({ page }) => {
+  await page.setViewportSize({ width: 1440, height: 900 });
+  await page.emulateMedia({ reducedMotion: "no-preference" });
+  for (const route of ["/", "/services", "/for-homeowners", "/for-builders"]) {
+    await page.goto(route);
+    const tile = page.locator(".c2-service, .dp-card-trigger").first();
+    const art = tile.locator(".c2-sketch-art");
+    await tile.hover();
+    await expect(art).toHaveCSS("animation-name", "c2-tile-lift");
+    await page.emulateMedia({ reducedMotion: "reduce" });
+    await expect(art).toHaveCSS("animation-name", "none");
+    await page.emulateMedia({ reducedMotion: "no-preference" });
+  }
+  await page.goto("/services");
+  const leaks = page.getByRole("button", { name: "View details: Leaks & Repairs", exact: true });
+  await leaks.hover();
+  await expect(leaks.locator(".c2-sketch-flow")).toHaveCSS("animation-name", "c2-tile-water");
+  await page.mouse.move(0, 0);
+  await expect(leaks.locator(".c2-sketch-flow")).toHaveCSS("animation-name", "none");
+});
