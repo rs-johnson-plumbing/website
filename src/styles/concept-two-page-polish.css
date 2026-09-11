@@ -253,3 +253,10 @@
  .c2 section.c2-final .c2-final-actions .c2-final-request>svg { display:none; }
  .c2 section.c2-final .c2-final-request>span { display:flex; flex-direction:row; gap:4px; white-space:nowrap; }
 }
+
+/* One authority-matched button radius, including forms, dialogs and icon controls.
+   Important intentionally wins over legacy page-specific button radius rules. */
+:root { --site-button-radius: 3px; }
+:is(button, [role="button"], input[type="submit"], input[type="button"], input[type="reset"], .c2-btn, .rounded-btn) {
+ border-radius: var(--site-button-radius) !important;
+}
