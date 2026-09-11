@@ -72,14 +72,6 @@ export function C2Header() {
             <C2Icon name="chevron-right" size={18} />
           </Link>
         ))}
-        <div className="c2-mobile-nav-cta">
-          <C2Button href={site.phone.tel} variant="outline" icon="phone" trailingIcon={null} size="sm">
-            {copy.ui.call}
-          </C2Button>
-          <C2Button onClick={requestService} size="sm" trailingIcon={null}>
-            {copy.ui.requestService}
-          </C2Button>
-        </div>
       </nav>
     </header>
   );

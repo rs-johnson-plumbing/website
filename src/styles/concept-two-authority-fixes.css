@@ -233,10 +233,9 @@
   .c2 .c2-hero:not(.c2-hero--page) .c2-hero-media {
     max-width: 1600px;
     margin-left: auto;
-    transform: translateX(30px);
   }
   .c2 .c2-hero:not(.c2-hero--page) .c2-hero-media img {
-    object-position: center 20%;
+    object-position: right 20%;
     border-radius: 0;
   }
   /* The new source has no baked-in scrim. End the only fade beside the
