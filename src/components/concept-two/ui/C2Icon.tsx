@@ -118,13 +118,15 @@ export function C2Icon({ name, size = 20, className }: { name: C2IconName; size?
       height={size}
       fill="none"
       stroke="currentColor"
-      strokeWidth={1.7}
+      strokeWidth={size >= 28 ? 1.1 : 1.7}
       strokeLinecap="round"
       strokeLinejoin="round"
       aria-hidden="true"
       className={className}
     >
+      {size >= 28 && <g strokeWidth=".25" opacity=".3"><path d="M1 2h22M2 1v22M1 22h22M22 1v22" strokeDasharray="1 1" /></g>}
       {paths[name]}
+      {size >= 28 && <g transform="translate(.28 -.2)" strokeWidth=".3" opacity=".28">{paths[name]}</g>}
     </svg>
   );
 }

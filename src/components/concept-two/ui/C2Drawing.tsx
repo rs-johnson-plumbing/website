@@ -1,4 +1,4 @@
-import type { ReactNode } from "react";
+import { useId, type ReactNode } from "react";
 
 const NAVY = "#0D2A4D";
 const BLUE = "#2868A8";
@@ -25,7 +25,7 @@ function Tube({ d, w = 19 }: { d: string; w?: number }) {
   return (
     <>
       <path d={d} stroke={NAVY} strokeWidth={w} />
-      <path d={d} stroke={METAL} strokeWidth={w - 6.6} />
+      <path d={d} stroke={METAL} strokeWidth={w - 2.4} />
     </>
   );
 }
@@ -192,18 +192,46 @@ const drawings: Record<string, ReactNode> = {
 };
 
 export function C2Drawing({ id, className }: { id: string; className?: string }) {
+  const hatch = "sketch-" + useId().replace(/:/g, "");
   return (
     <svg
       viewBox="0 0 96 96"
       fill="none"
       stroke={NAVY}
-      strokeWidth="3.4"
+      strokeWidth="1.35"
       strokeLinecap="round"
       strokeLinejoin="round"
       aria-hidden="true"
       className={className}
     >
-      {drawings[id] ?? drawings.other}
+      <defs>
+        <pattern id={hatch} width="4" height="4" patternUnits="userSpaceOnUse" patternTransform="rotate(32)">
+          <rect width="4" height="4" fill="#f4f7fa" stroke="none" />
+          <path d="M0 0v4" stroke="#7394ad" strokeWidth=".55" opacity=".55" />
+        </pattern>
+      </defs>
+      <g stroke="#6591b5" strokeWidth=".5" opacity=".4">
+        <path d="M7 5v86M89 5v86M3 88h90M5 8h86" strokeDasharray="3 3" />
+        <path d="M12 91h72m-72-2v4m72-4v4M4 15v65m-2-65h4m-4 65h4" />
+        <path d="m12 91 4-2m-4 2 4 2m68-2-4-2m4 2-4 2" />
+      </g>
+      <g className="c2-sketch-object" style={{ "--sketch-fill": `url(#${hatch})` } as React.CSSProperties}>
+        {drawings[id] ?? drawings.other}
+        <g stroke="#476d8e" strokeWidth=".65" opacity=".8" fill="none">
+          {id === "heater" && <><path d="M28 25q20 7 40 0M28 71q20 7 40 0M29 39v26M67 39v26M35 18V5h7M57 18V5h7"/><path d="M49 43h13v19H49zM52 47h7m-7 4h7m-7 4h5"/></>}
+          {id === "leaks" && <><path d="M25 39h15m15 0h16M25 55h12m17 0h17M12 31v32m66-32v32"/><circle cx="16" cy="33" r="1"/><circle cx="16" cy="62" r="1"/></>}
+          {id === "plans" && <><path d="M22 35h28v12H22zM25 38h12v6H25zM54 39h17v29H54zM57 42h11v10H57zM21 77h47" /></>}
+          {id === "roughin" && <><path d="M18 11v74M40 11v74M62 11v74M84 11v74M9 16h78M9 81h78" /></>}
+          {id === "softener" && <><path d="M29 31q17 6 36 0M29 74q17 6 36 0M31 46v23M66 46v23M40 19h15" /></>}
+          {id === "pump" && <><path d="M19 47v28M58 47v28M20 80h37M32 57v16m5-16v16m5-16v16"/><path d="M14 87h50" strokeDasharray="2 2"/></>}
+        </g>
+      </g>
+      <style>{`
+        .c2-sketch-object [fill="#E8E9EA"] { fill: var(--sketch-fill); }
+        .c2-sketch-object [fill="#2868A8"] { fill: #c0d8ec; }
+        .c2-sketch-object [stroke-width="4"], .c2-sketch-object [stroke-width="4.5"],
+        .c2-sketch-object [stroke-width="5"], .c2-sketch-object [stroke-width="7"] { stroke-width: 1.5; }
+      `}</style>
     </svg>
   );
 }
