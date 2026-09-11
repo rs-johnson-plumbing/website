@@ -194,7 +194,7 @@
   .c2 :is(.c2-homeowners, .c2-builders) .c2-hero-media::after { display: block; position: absolute; inset: 0; content: ""; background: linear-gradient(90deg, #fbf9f7 0%, rgba(251,249,247,.98) 38%, rgba(251,249,247,.85) 55%, transparent 75%), linear-gradient(0deg, #fbf9f7, transparent 32%); }
   .c2 :is(.c2-homeowners, .c2-builders) .c2-hero-copy h1 { max-width: 65%; }
   .c2 :is(.c2-homeowners, .c2-builders) .c2-hero-page-lead { max-width: 65%; margin-top: 18px; font-size: 18px; line-height: 1.4; }
-  .c2 :is(.c2-homeowners, .c2-builders) .c2-location { position: relative; white-space: nowrap; background: linear-gradient(90deg, rgba(251,249,247,.95), rgba(251,249,247,.85) 80%, transparent); }
+  .c2 :is(.c2-homeowners, .c2-builders) .c2-location { position: relative; white-space: nowrap; background: transparent; text-shadow: 0 1px 3px #fbf9f7; }
   .c2 :is(.c2-homeowners, .c2-builders) .c2-hero-actions { position: relative; margin-top: 28px; }
 }
 
@@ -277,7 +277,7 @@
  .c2 .c2-team .c2-hero-media::after { display: block; position: absolute; inset: 0; content: ""; background: linear-gradient(90deg,#fbf9f7 0%,rgba(251,249,247,.97) 27%,rgba(251,249,247,.65) 50%,transparent 75%),linear-gradient(0deg,#fbf9f7,transparent 36%); }
  .c2 .c2-team .c2-hero-copy h1 { max-width: 70%; }
  .c2 .c2-team .c2-hero-page-lead { max-width: 65%; font-size: 18px; }
- .c2 .c2-team .c2-location { background: linear-gradient(90deg,#fbf9f7,rgba(251,249,247,.85) 80%,transparent); }
+ .c2 .c2-team .c2-location { background: transparent; text-shadow: 0 1px 3px #fbf9f7; }
 }
 
 /* Match the homepage's broad right-hand artwork and gradual under-copy fade. */
