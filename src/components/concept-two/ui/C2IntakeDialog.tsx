@@ -161,11 +161,7 @@ export function C2IntakeDialog({ kind, onClose }: { kind: Kind; onClose: () => v
   </div>;
 
   if (!mounted) return null;
-  return createPortal(<dialog ref={dialog} className={`c2 ci-dialog${isBid ? "" : " ci-service-dialog"}${status === "done" ? " ci-success-dialog" : ""}`} aria-label={isBid ? "Request a Bid" : "Request Service"} onCancel={event => { event.preventDefault(); if (!busy.current) onClose(); }} onClick={event => {
-    if (event.target !== event.currentTarget || busy.current) return;
-    const r = event.currentTarget.getBoundingClientRect();
-    if (event.clientX < r.left || event.clientX > r.right || event.clientY < r.top || event.clientY > r.bottom) onClose();
-  }}>
+  return createPortal(<dialog ref={dialog} className={`c2 ci-dialog${isBid ? "" : " ci-service-dialog"}${status === "done" ? " ci-success-dialog" : ""}`} aria-label={isBid ? "Request a Bid" : "Request Service"} onCancel={event => { event.preventDefault(); if (!busy.current) onClose(); }}>
     <header className="ci-header"><Lockup title={site.name} /><button type="button" aria-label={isBid ? "Close bid request" : "Close service request"} onClick={onClose} disabled={status === "sending"}><C2Icon name="close" size={22} /></button></header>
     {status !== "done" && !isBid && <div className="ci-progress"><ol aria-label="Request progress">{steps.map((label, i) => <li key={label} className={i <= step ? "ci-reached" : ""} aria-current={i === step ? "step" : undefined}><span aria-label={label}>{i < step ? "✓" : i + 1}</span><small>{label}</small></li>)}</ol></div>}
     <form ref={form} onSubmit={advance}>
