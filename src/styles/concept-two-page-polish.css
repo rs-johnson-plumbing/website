@@ -421,7 +421,7 @@
 
 .c2.ci-dialog .ci-zip{width:180px;max-width:100%}
 
-/* Shared closing call to action: four unbroken actions with generous breathing room. */
+/* Shared closing call to action: two visible actions with generous breathing room. */
 .c2 section.c2-final.c2-final { padding-block:51px; min-height:214px; box-sizing:border-box; }
 .c2 section.c2-final.c2-final .c2-final-inner { gap:24px; }
 .c2 section.c2-final.c2-final .c2-final-actions { display:flex; flex-wrap:nowrap; width:auto; max-width:100%; gap:12px; flex:0 0 auto; }
@@ -431,7 +431,7 @@
 .c2 section.c2-final.c2-final .c2-final-actions :is(.c2-final-bid,.c2-final-request):hover { background:#245eae; border-color:#245eae; color:#fff; }
 @media(max-width:1199px) {
  .c2 section.c2-final.c2-final .c2-final-inner { flex-direction:column; align-items:flex-start; padding-left:var(--c2-gutter); }
- .c2 section.c2-final.c2-final .c2-final-actions { width:100%; justify-content:flex-start; overflow-x:auto; padding-block:4px 10px; }
+ .c2 section.c2-final.c2-final .c2-final-actions { width:100%; justify-content:flex-start; overflow:visible; padding-block:4px 10px; }
 }
 
 .c2.ci-dialog .ci-options button,.c2 .dp-card :is(.dp-title,.dp-short,.dp-more),.c2 .c2-service { text-transform:capitalize; }
@@ -467,3 +467,12 @@
 
 /* Consistent display casing for interface headings and labels; prose and entered values retain their casing. */
 .c2 :is(h1,h2,h3,h4,h5,h6,button,.c2-btn,nav a,label>span,summary,.c2-eyebrow,.dp-title,.dp-short,.dp-more,.ci-progress p) { text-transform:capitalize !important; }
+
+/* Keep both closing actions visible without a horizontal scroll gesture. */
+.c2 section.c2-final.c2-final .c2-final-actions { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); overflow:visible; }
+.c2 section.c2-final.c2-final .c2-final-actions .c2-btn>svg { display:block; width:22px; height:22px; flex-shrink:0; }
+.c2 section.c2-final.c2-final .c2-final-actions .c2-btn>svg path { stroke:currentColor; }
+@media(max-width:600px) {
+ .c2 section.c2-final.c2-final .c2-final-actions { grid-template-columns:1fr; width:100%; }
+ .c2 section.c2-final.c2-final .c2-final-actions .c2-btn { width:100%; min-width:0; min-height:54px; font-size:15px; justify-content:center; }
+}
