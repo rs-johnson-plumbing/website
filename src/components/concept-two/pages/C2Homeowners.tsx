@@ -4,7 +4,6 @@ import { conceptTwo as copy, faqs, site, services } from "@/lib/content";
 import { C2PageHero } from "../sections/C2PageHero";
 import { C2TrustStrip } from "../sections/C2TrustStrip";
 import { C2ServiceGrid } from "../sections/C2ServiceGrid";
-import { C2Split } from "../sections/C2Split";
 import { C2Points } from "../sections/C2Points";
 import { C2Reviews } from "../sections/C2Reviews";
 import { C2Faq } from "../sections/C2Faq";
@@ -58,16 +57,6 @@ export function C2Homeowners() {
           <C2ServiceGrid items={tiles} />
         </div>
       </section>
-
-      <C2Split
-        id="remodels"
-        slot="bathRemodel"
-        eyebrow={page.remodel.eyebrow}
-        heading={page.remodel.heading}
-        line={page.remodel.line}
-        ctaLabel={page.remodel.cta.label}
-        onCta={requestService}
-      />
 
       <C2Points id="why-us" heading={page.why.heading} items={page.why.items} />
       <C2Reviews heading={page.reviews.heading} showProof={false} />
