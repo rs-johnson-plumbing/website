@@ -46,13 +46,12 @@ export function C2Builders() {
       />
       <C2TrustStrip items={page.benefits} />
 
-      <section id="services" className="c2-section c2-section--paper" aria-labelledby="c2-builder-services">
+      <section id="services" className="c2-section" aria-labelledby="c2-builder-services">
         <div className="c2-wrap">
           <div className="c2-section-head">
             <h2 id="c2-builder-services" className="c2-h2">
               {page.services.heading}
             </h2>
-            <p>{page.services.line}</p>
           </div>
           <C2ServiceGrid items={tiles} detailed onSelect={item => setSelected(builderServices.find(service => item.href.endsWith(`#${service.slug}`)) ?? null)} />
         </div>
