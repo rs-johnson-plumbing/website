@@ -377,3 +377,21 @@ test("homeowners can open all eight services without leaving the page", async ({
  }
  await expect(page.locator("#services").getByText("See All Services")).toHaveCount(0);
 });
+
+test("request forms retain entered data after outside clicks", async ({ page }) => {
+  await page.setViewportSize({ width: 1440, height: 900 });
+  await page.goto("/services");
+  for (const [action, title, field, value] of [
+    ["Request Service", "Request Service", "ZIP code", "63368"],
+    ["Submit Bid Request", "Request a Bid", "Company name", "Example Builders"]
+  ]) {
+    await page.locator(".c2-final").getByRole("button", { name: action, exact: true }).click();
+    const modal = page.getByRole("dialog", { name: title, exact: true });
+    await modal.getByLabel(field).fill(value);
+    await page.mouse.click(2, 2);
+    await expect(modal).toBeVisible();
+    await expect(modal.getByLabel(field)).toHaveValue(value);
+    await modal.getByRole("button", { name: title === "Request Service" ? "Close service request" : "Close bid request" }).click();
+    await expect(modal).toHaveCount(0);
+  }
+});
