@@ -147,7 +147,7 @@ export function C2IntakeDialog({ kind, onClose }: { kind: Kind; onClose: () => v
     {isBid && <p>An image or PDF, up to 4 MB.</p>}
     <input ref={upload} type="file" hidden accept={isBid ? "application/pdf,image/*" : "image/*"} multiple={!isBid} onChange={event => { addFiles(event.target.files); event.target.value = ""; }} />
     <input ref={camera} type="file" hidden accept="image/*" capture="environment" onChange={event => { addFiles(event.target.files); event.target.value = ""; }} />
-    <div className="ci-upload-actions"><C2Button onClick={() => upload.current?.click()} variant="outline" trailingIcon={null}>Upload {isBid ? "image or plan" : "photos"}</C2Button><C2Button className="ci-camera" onClick={() => camera.current?.click()} variant="outline" trailingIcon={null}>Take a photo</C2Button></div>
+    <div className="ci-upload-actions"><C2Button onClick={() => upload.current?.click()} variant="outline" trailingIcon={null}>Upload {isBid ? "Image or Plan" : "Photos"}</C2Button><C2Button className="ci-camera" onClick={() => camera.current?.click()} variant="outline" trailingIcon={null}>Take Photo</C2Button></div>
     {files.length > 0 && <ul className="ci-files">{files.map((file, i) => <li key={file.name + i}><span>{photoPreviews[i] && <Image src={photoPreviews[i]} alt={`Preview of ${file.name}`} width={80} height={80} unoptimized className="ci-photo-thumb" />}{file.name}</span><button type="button" aria-label={`Remove ${file.name}`} onClick={() => setFiles(old => old.filter((_, index) => index !== i))}>Remove</button></li>)}</ul>}
   </div>;
 
