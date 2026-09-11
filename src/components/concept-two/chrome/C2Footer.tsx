@@ -1,8 +1,9 @@
 import Link from "next/link";
-import { conceptTwo as copy, site, footerCities } from "@/lib/content";
+import { conceptTwo as copy, site, footerCities, services, builderServices } from "@/lib/content";
+import { c2Label } from "../ui/drawingFor";
 import { Lockup } from "@/components/ui/Logo";
 
-/** Light, quiet footer. Never a sitemap. */
+/** Contact details and service navigation follow the active Concept 2 content. */
 export function C2Footer() {
   const year = 2026;
   return (
@@ -29,6 +30,20 @@ export function C2Footer() {
           ))}
         </nav>
 
+        <div className="c2-footer-service-groups">
+          <nav aria-label="Services for Homeowners">
+            <h2>Services for Homeowners</h2>
+            <ul>{services.map((service) => (
+              <li key={service.slug}><Link href={`/services/${service.slug}`}>{c2Label(service.slug, service.name)}</Link></li>
+            ))}</ul>
+          </nav>
+          <nav aria-label="Services for Builders">
+            <h2>Services for Builders</h2>
+            <ul>{builderServices.map((service) => (
+              <li key={service.slug}><Link href={`/services/builders#${service.slug}`}>{c2Label(service.slug, service.name)}</Link></li>
+            ))}</ul>
+          </nav>
+        </div>
         <div className="c2-footer-meta">
           <span>
             &copy; {year} {copy.footer.legal}

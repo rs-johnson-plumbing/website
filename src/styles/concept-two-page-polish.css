@@ -142,3 +142,14 @@
 @media (max-width: 1023px) {
   .c2 .c2-homeowners .c2-hero-media { left: 0; right: auto; width: 100vw; margin-left: calc((100% - 100vw) / 2); }
 }
+
+/* Useful service navigation, shared with the Concept 2 services pages. */
+.c2 .c2-footer-service-groups { grid-column: 1 / -1; display: grid; gap: 28px; border-top: 1px solid var(--c2-rule); padding-top: 24px; }
+.c2 .c2-footer-service-groups h2 { margin: 0 0 10px; font-size: 16px; line-height: 1.4; color: var(--c2-navy); }
+.c2 .c2-footer-service-groups ul { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 14px; }
+.c2 .c2-footer-service-groups a { display: flex; align-items: center; min-height: 44px; padding-block: 8px; color: var(--c2-slate); font-size: 14px; line-height: 1.4; text-decoration: none; }
+.c2 .c2-footer-service-groups a:hover { color: var(--c2-blue); text-decoration: underline; }
+.c2 .c2-footer-service-groups a:focus-visible { outline: 2px solid var(--c2-blue); outline-offset: 3px; }
+@media (min-width: 768px) {
+  .c2 .c2-footer-service-groups { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 40px; }
+}

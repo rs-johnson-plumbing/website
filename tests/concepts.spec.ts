@@ -1,16 +1,15 @@
 import { test, expect } from "@playwright/test";
 import copy from "../content/concept-two.json";
-import home from "../content/home.json";
 
 // The hero heading renders as deliberate lines past the phone, with a real
 // space at the break so it still reads as a sentence.
 const heading = copy.home.hero.headingLines.join(" ");
 const buildersHeading = copy.builders.hero.headingLines.join(" ");
-const conceptOneHeading = home.hero.single.heading;
 
-test("concept selection survives reloads, respects direct links, and follows history", async ({ page }) => {
+test("Concept 2 stays active across legacy links, reloads and history", async ({ page }) => {
   const errors: string[] = [];
   page.on("pageerror", (error) => errors.push(error.message));
+  await page.addInitScript(() => window.localStorage.setItem("rsj-homepage-concept", "1"));
   await page.goto("/");
   await expect(page.locator("h1")).toHaveText(heading);
   await expect(page.locator("h1")).toHaveText(heading);
@@ -21,23 +20,23 @@ test("concept selection survives reloads, respects direct links, and follows his
   await page.goto("/");
   await expect(page.locator("h1")).toHaveText(heading);
   await page.goto("/?concept=1");
-  await expect(page.locator("h1")).toHaveText(conceptOneHeading);
+  await expect(page.locator("h1")).toHaveText(heading);
   await page.goto("/?concept=2");
   await page.goBack();
-  await expect(page.locator("h1")).toHaveText(conceptOneHeading);
+  await expect(page.locator("h1")).toHaveText(heading);
   await page.goForward();
   await expect(page.locator("h1")).toHaveText(heading);
   expect(errors).toEqual([]);
 });
 
-test("storage disabled still permits switching and direct Concept 2 links", async ({ page }) => {
+test("Concept 2 loads with storage disabled and legacy links", async ({ page }) => {
   await page.addInitScript(() => {
     Object.defineProperty(window, "localStorage", { get() { throw new Error("Storage blocked"); } });
   });
   await page.goto("/?concept=2");
   await expect(page.locator("h1")).toHaveText(heading);
   await page.goto("/?concept=1");
-  await expect(page.locator("h1")).toHaveText(conceptOneHeading);
+  await expect(page.locator("h1")).toHaveText(heading);
 });
 
 test("the selected design carries across routes", async ({ page }) => {
