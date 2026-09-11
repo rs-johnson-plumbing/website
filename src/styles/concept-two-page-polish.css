@@ -199,3 +199,8 @@
   .c2 :is(.c2-homeowners, .c2-builders) .c2-location { position: relative; white-space: nowrap; background: linear-gradient(90deg, rgba(251,249,247,.95), rgba(251,249,247,.85) 80%, transparent); }
   .c2 :is(.c2-homeowners, .c2-builders) .c2-hero-actions { position: relative; margin-top: 28px; }
 }
+
+/* Reveal mobile contact actions after the opening content has scrolled away. */
+.c2 .c2-bar { transform: translateY(110%); opacity: 0; visibility: hidden; pointer-events: none; transition: transform .2s ease, opacity .2s ease, visibility .2s; }
+.c2 .c2-bar--visible { transform: translateY(0); opacity: 1; visibility: visible; pointer-events: auto; }
+@media (prefers-reduced-motion: reduce) { .c2 .c2-bar { transition: none; } }
