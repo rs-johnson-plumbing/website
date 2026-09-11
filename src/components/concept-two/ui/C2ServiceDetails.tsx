@@ -66,8 +66,9 @@ export function C2ServiceDetails({ service, onClose, onRequest }: Props) {
       .c2-service-modal .sd-heading{grid-column:1/-1;padding:0 0 24px;margin-bottom:22px;border-bottom:1px solid #dce4eb}
       .c2-service-modal h2#service-modal-title{font-size:44px;font-weight:800;line-height:1.08;letter-spacing:-.03em;margin:0 0 10px;text-transform:none}
       .c2-service-modal .sd-heading p{font-size:18px;line-height:1.5;color:#536a81;margin:0}
-      .c2-service-modal .sd-art{background:#eaf3fb;border-radius:6px;display:flex;align-items:center;justify-content:center;min-height:340px;padding:12px}
+      .c2-service-modal .sd-art{background:#eaf3fb;border-radius:6px;display:flex;align-items:center;justify-content:center;min-height:340px;padding:12px;overflow:hidden}
       .c2-service-modal .sd-art img{width:100%;height:100%;max-height:430px;object-fit:contain;mix-blend-mode:multiply}
+      .c2-service-modal .sd-art-heater img{transform:scale(1.35)}
       .c2-service-modal .sd-columns{min-width:0}
       .c2-service-modal h3{font-size:28px;line-height:1.2;font-weight:750;letter-spacing:-.02em;margin:10px 0 20px}
       .c2-service-modal ul{list-style:none;padding:0;margin:0}
@@ -92,6 +93,7 @@ export function C2ServiceDetails({ service, onClose, onRequest }: Props) {
         .c2-service-modal .sd-heading p{font-size:15px}
         .c2-service-modal .sd-art{grid-column:2;min-height:0;align-self:start;padding:6px}
         .c2-service-modal .sd-art img{height:180px}
+        .c2-service-modal .sd-art-heater img{transform:scale(1.15)}
         .c2-service-modal .sd-columns{grid-column:1/-1;border-top:1px solid #dce4eb;padding-top:8px}
         .c2-service-modal h3{font-size:23px;margin:10px 0 16px}
         .c2-service-modal li{font-size:14px;padding-left:22px}
@@ -108,7 +110,7 @@ export function C2ServiceDetails({ service, onClose, onRequest }: Props) {
     <header className="sd-top"><span className="sd-label">{homeowner ? "Homeowner Services" : "Builder Services"}</span><button ref={closeButton} type="button" className="sd-close" aria-label="Close service details" onClick={onClose}><C2Icon name="close" size={22}/></button></header>
     <div className="sd-scroll">
       <div className="sd-heading"><h2 id="service-modal-title">{c2Label(service.slug,service.name)}</h2><p>{service.slug === "water-heaters" ? "Repair, replacement, tank and tankless installation." : service.short}</p></div>
-      <div className="sd-art"><Image src={`/images/service-sketches/${drawingFor(service.slug)}.webp`} alt="" width={560} height={665} sizes="(max-width:600px) 130px, 260px" loading="eager" unoptimized /></div>
+      <div className={`sd-art ${service.slug === "water-heaters" ? "sd-art-heater" : ""}`}><Image src={`/images/service-sketches/${drawingFor(service.slug)}.webp`} alt="" width={560} height={665} sizes="(max-width:600px) 130px, 260px" loading="eager" unoptimized /></div>
       <div className={`sd-columns ${problems.length ? "" : "sd-single"}`}>
         <div><h3>What We Do</h3><ul>{bullets.map(line=><li key={line}>{line}</li>)}</ul></div>
         {problems.length > 0 && <aside className="sd-problems"><h3>Common Problems</h3><ul>{problems.map(line=><li key={line}>{line}</li>)}</ul></aside>}
