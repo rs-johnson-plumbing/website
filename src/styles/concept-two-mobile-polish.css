@@ -203,12 +203,18 @@
     min-height: 224px;
   }
   .c2 .c2-builder-photo {
+    overflow: hidden;
+    border-radius: 0;
     min-height: 224px;
     margin-left: -15%;
     width: 115%;
     clip-path: polygon(15% 0,100% 0,100% 100%,0 100%);
   }
   .c2 .c2-builder-photo img {
+    /* Exclude the cream strip embedded above the framing in the source. */
+    top: -16% !important;
+    height: 116% !important;
+    border-radius: 0;
     object-position: 54% 50%;
   }
   .c2 .c2-builder-copy {
