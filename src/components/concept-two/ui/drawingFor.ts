@@ -2,6 +2,8 @@ import { conceptTwo } from "@/lib/content";
 
 /** Which Concept 2 illustration stands for each service slug. */
 const byService: Record<string, string> = {
+  "remodels": "trim",
+  "other-plumbing": "fixtures",
   "water-heaters": "heater",
   "leaks-and-repairs": "leaks",
   "drains-and-sewer": "drains",

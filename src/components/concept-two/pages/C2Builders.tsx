@@ -5,7 +5,6 @@ import { C2PageHero } from "../sections/C2PageHero";
 import { C2TrustStrip } from "../sections/C2TrustStrip";
 import { C2ServiceGrid } from "../sections/C2ServiceGrid";
 import { C2Faq } from "../sections/C2Faq";
-import { C2BidForm } from "../sections/C2BidForm";
 import { C2Split } from "../sections/C2Split";
 import { C2Points } from "../sections/C2Points";
 import { C2FinalCta } from "../sections/C2FinalCta";
@@ -73,7 +72,6 @@ export function C2Builders() {
       </section>
 
       <C2Faq heading={page.faqHeading} items={faqs.builders.items} illustrated />
-      <C2BidForm />
       <C2FinalCta audience="builders" />
     </div>
   );
