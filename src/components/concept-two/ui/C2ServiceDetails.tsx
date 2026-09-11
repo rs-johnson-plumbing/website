@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef } from "react";
-import { site, type Service, type BuilderService } from "@/lib/content";
+import { site, smsLink, type Service, type BuilderService } from "@/lib/content";
 import Image from "next/image";
 import { drawingFor, c2Label } from "./drawingFor";
 import { C2Button } from "./C2Button";
@@ -89,14 +89,14 @@ export function C2ServiceDetails({ service, onClose, onRequest }: Props) {
         .c2-service-modal .sd-top{padding:12px 18px}
         .c2-service-modal .sd-close{width:44px;height:44px}
         .c2-service-modal .sd-label{font-size:11px}
-        .c2-service-modal .sd-scroll{padding:0 18px 18px;grid-template-columns:minmax(0,1fr) 38%;gap:18px}
-        .c2-service-modal .sd-heading{grid-column:1;margin:0;padding:0;border:0}
+        .c2-service-modal .sd-scroll{padding:0 18px 18px;grid-template-columns:minmax(0,1fr) minmax(88px,30%);grid-template-rows:max-content max-content;align-content:start;gap:18px}
+        .c2-service-modal .sd-heading{grid-column:1;grid-row:1;margin:0;padding:0;border:0}
         .c2-service-modal h2#service-modal-title{font-size:32px}
         .c2-service-modal .sd-heading p{font-size:15px}
-        .c2-service-modal .sd-art{grid-column:2;min-height:0;align-self:start;padding:6px}
-        .c2-service-modal .sd-art img{height:180px}
+        .c2-service-modal .sd-art{grid-column:2;grid-row:1;min-height:0;height:130px;box-sizing:border-box;align-self:start;padding:8px}
+        .c2-service-modal .sd-art img{width:100%;height:100%;max-height:114px;object-fit:contain}
         .c2-service-modal .sd-art-heater img{transform:none}
-        .c2-service-modal .sd-columns{grid-column:1/-1;border-top:1px solid #dce4eb;padding-top:8px}
+        .c2-service-modal .sd-columns{grid-column:1/-1;grid-row:2;border-top:1px solid #dce4eb;padding-top:8px}
         .c2-service-modal h3{font-size:23px;margin:10px 0 16px}
         .c2-service-modal li{font-size:14px;padding-left:22px}
         .c2-service-modal li::before{width:9px;height:9px}
@@ -105,14 +105,15 @@ export function C2ServiceDetails({ service, onClose, onRequest }: Props) {
         .c2-service-modal .sd-assurance{font-size:13px;padding:14px}
         .c2-service-modal .sd-footer{display:block;padding:12px 18px}
         .c2-service-modal .sd-return{display:none}
-        .c2-service-modal .sd-actions{display:grid;grid-template-columns:1fr;gap:8px}
+        .c2-service-modal .sd-actions{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+        .c2-service-modal .sd-actions .c2-btn:first-child{grid-column:1/-1}
         .c2-service-modal .sd-actions .c2-btn{padding:10px;font-size:15px;min-height:44px}
       }
     `}</style>
     <header className="sd-top"><span className="sd-label">{homeowner ? "Homeowner Services" : "Builder Services"}</span><button ref={closeButton} type="button" className="sd-close" aria-label="Close service details" onClick={onClose}><C2Icon name="close" size={22}/></button></header>
     <div className="sd-scroll">
       <div className="sd-heading"><h2 id="service-modal-title">{c2Label(service.slug,service.name)}</h2><p>{service.slug === "water-heaters" ? "Repair, replacement, tank and tankless installation." : service.short}</p></div>
-      <div className={`sd-art ${service.slug === "water-heaters" ? "sd-art-heater" : ""}`}><Image src={`/images/service-sketches/${drawingFor(service.slug)}.webp`} alt="" width={560} height={665} sizes="(max-width:600px) 130px, 260px" loading="eager" unoptimized /></div>
+      <div className={`sd-art ${service.slug === "water-heaters" ? "sd-art-heater" : ""}`}><Image src={`/images/service-sketches/${drawingFor(service.slug)}.webp`} alt="" width={560} height={665} sizes="(max-width:600px) 110px, 260px" loading="eager" unoptimized /></div>
       <div className={`sd-columns ${problems.length ? "" : "sd-single"}`}>
         <div><h3>What We Do</h3><ul>{bullets.map(line=><li key={line}>{line}</li>)}</ul></div>
         {problems.length > 0 && <aside className="sd-problems"><h3>Common Problems</h3><ul>{problems.map(line=><li key={line}>{line}</li>)}</ul></aside>}
@@ -122,6 +123,7 @@ export function C2ServiceDetails({ service, onClose, onRequest }: Props) {
     <footer className="sd-footer"><button type="button" className="sd-return" onClick={onClose}>← Back to services</button><div className="sd-actions">
       {homeowner ? <C2Button onClick={onRequest}>Request Service</C2Button> : <C2Button onClick={() => { onClose(); requestBid(); }}>Request a Bid</C2Button>}
       <C2Button href={site.phone.tel} variant="outline" icon="phone" trailingIcon={null}>Call</C2Button>
+      <C2Button href={smsLink()} variant="outline" icon="message" trailingIcon={null}>Text</C2Button>
     </div></footer>
   </dialog>;
 }
