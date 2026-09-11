@@ -476,3 +476,6 @@
  .c2 section.c2-final.c2-final .c2-final-actions { grid-template-columns:1fr; width:100%; }
  .c2 section.c2-final.c2-final .c2-final-actions .c2-btn { width:100%; min-width:0; min-height:54px; font-size:15px; justify-content:center; }
 }
+
+.c2 .c2-mobile-nav .c2-menu-requests { display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1fr); gap:10px; padding:18px 0 22px; }
+.c2 .c2-mobile-nav .c2-menu-requests .c2-btn { width:100%; min-width:0; min-height:48px; padding:12px 8px; font-size:clamp(12px,3.2vw,15px); line-height:1.25; white-space:nowrap; justify-content:center; }

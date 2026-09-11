@@ -7,13 +7,19 @@ import { conceptTwo as copy, site } from "@/lib/content";
 import { Lockup } from "@/components/ui/Logo";
 import { C2Icon } from "../ui/C2Icon";
 import { C2Button } from "../ui/C2Button";
-import { useRequestService } from "../ui/C2Request";
+import { useRequestService, useRequestBid } from "../ui/C2Request";
 
 export function C2Header() {
   const [open, setOpen] = useState(false);
   const pathname = usePathname();
   const menuButton = useRef<HTMLButtonElement>(null);
   const requestService = useRequestService();
+  const requestBid = useRequestBid();
+  const openRequest = (request: () => void) => {
+    setOpen(false);
+    menuButton.current?.focus();
+    request();
+  };
 
   useEffect(() => setOpen(false), [pathname]);
 
@@ -72,6 +78,10 @@ export function C2Header() {
             <C2Icon name="chevron-right" size={18} />
           </Link>
         ))}
+        <div className="c2-menu-requests">
+          <C2Button onClick={() => openRequest(requestService)} trailingIcon={null}>Request Service</C2Button>
+          <C2Button onClick={() => openRequest(requestBid)} trailingIcon={null}>Submit Bid Request</C2Button>
+        </div>
       </nav>
     </header>
   );
