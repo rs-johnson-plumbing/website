@@ -312,8 +312,10 @@ test("service workflow selects one category and follows up inline before contact
   await modal.getByRole("button", { name: "Continue", exact: true }).click();
   await modal.getByRole("button", { name: "Repair", exact: true }).click();
   await modal.getByRole("button", { name: "Clogged Drain", exact: true }).click();
+  await modal.getByRole("button", { name: "Change Service", exact: true }).click();
   await modal.getByRole("button", { name: "Install", exact: true }).click();
-  await expect(modal.getByRole("button", { name: "Repair", exact: true })).toHaveAttribute("aria-pressed", "false");
+  await expect(modal.getByRole("button", { name: "Repair", exact: true })).toHaveCount(0);
+  await expect(modal.locator(".ci-selection")).toContainText("Install");
   await expect(modal.getByRole("heading", { name: "What would you like installed?" })).toBeVisible();
   await modal.getByRole("button", { name: "Water Heater", exact: true }).click();
   await modal.getByLabel("What’s happening?").fill("Replace the old heater.");

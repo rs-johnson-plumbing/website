@@ -435,3 +435,13 @@
 }
 
 .c2.ci-dialog .ci-options button,.c2 .dp-card :is(.dp-title,.dp-short,.dp-more),.c2 .c2-service { text-transform:capitalize; }
+
+.c2.ci-service-dialog { width:min(1100px,calc(100vw - 32px)); }
+.c2.ci-dialog .ci-selection { display:flex; align-items:center; justify-content:space-between; gap:16px; padding:12px 16px; background:#eaf3fb; border:1px solid #bdd3ed; border-radius:4px; }
+.c2.ci-dialog .ci-selection button { border:0; background:none; color:#2869bd; text-decoration:underline; font:inherit; cursor:pointer; min-height:36px; }
+.c2.ci-dialog .ci-selection + .ci-followup { margin-top:16px; border-top:0; }
+.c2.ci-dialog .ci-selection + .ci-followup h3 { margin-top:0; }
+@media(min-width:1024px) {
+ .c2.ci-service-dialog .ci-options { flex-wrap:nowrap; gap:8px; }
+ .c2.ci-service-dialog .ci-options button { white-space:nowrap; padding:10px 12px; font-size:14px; }
+}
