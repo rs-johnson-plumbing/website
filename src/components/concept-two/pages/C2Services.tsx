@@ -50,9 +50,10 @@ export function C2Services() {
 
  /* Illustrated directory authority. */
  .directory-preview .dp-wrap{max-width:1440px}
- .directory-preview .dp-header{position:relative;isolation:isolate;overflow:hidden}
- .directory-preview .dp-header-art{position:absolute;right:0;top:0;width:62%;height:100%;z-index:-1;color:#153e65;mask-image:linear-gradient(90deg,transparent,#000 12%)}
- .directory-preview .dp-header-art svg{width:100%;height:100%}
+ .directory-preview .dp-header{position:relative;isolation:isolate;overflow:hidden;max-width:none;padding-inline:max(32px,calc((100% - 1376px)/2))}
+ .directory-preview .dp-header-art{position:absolute;right:0;top:0;width:64%;height:100%;z-index:-1;color:#153e65;mask-image:linear-gradient(90deg,transparent 0%,rgba(0,0,0,.15) 9%,#000 28%)}
+ .directory-preview .dp-header-art svg{width:100%;height:100%;display:block}
+ .directory-preview .dp-header-art:after{content:"";position:absolute;inset:0;pointer-events:none;background:linear-gradient(90deg,#fbf9f7 0%,rgba(251,249,247,.65) 12%,transparent 32%)}
  .directory-preview .dp-header h1,.directory-preview .dp-header .dp-intro,.directory-preview .dp-jumps{position:relative;max-width:48%}
  .directory-preview .dp-home h2{display:flex;align-items:center;gap:20px}
  .directory-preview .dp-home h2:after{content:"";height:1px;background:#a5b7c6;flex:1}
@@ -91,7 +92,7 @@ export function C2Services() {
  .c2 .c2-services .c2-final-actions .c2-btn:last-child{background:#087bcc;color:#fff;border-color:#087bcc}
  @media(min-width:768px) and (max-width:1199px){.directory-preview .dp-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.directory-preview .dp-builders .dp-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.directory-preview .dp-builders details:after{display:none}}
  @media(max-width:767px){
- .directory-preview .dp-header{padding-top:30px;padding-bottom:26px}
+ .directory-preview .dp-header{padding:30px 20px 26px}
  .directory-preview .dp-header-art{width:75%;height:110px;top:0;opacity:.15}
  .directory-preview .dp-header h1,.directory-preview .dp-header .dp-intro,.directory-preview .dp-jumps{max-width:100%}
  .directory-preview .dp-grid{grid-template-columns:1fr;gap:12px}
