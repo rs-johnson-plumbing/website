@@ -1,19 +1,21 @@
 import { conceptTwo as copy } from "@/lib/content";
-import { C2Icon } from "../ui/C2Icon";
+import { C2Icon, type C2IconName } from "../ui/C2Icon";
 import { C2Button } from "../ui/C2Button";
 import { C2Photo } from "../ui/C2Photo";
 
 /**
  * Homepage hero. One canvas: cream ground, copy on the left, the photograph
- * on the right fading into the cream so there is no vertical seam. The phone
- * layout uses a dedicated house crop behind the type so it can match the
- * mobile visual authority without putting the crew member behind the copy.
+ * on the right fading into the cream so there is no vertical seam. On phones
+ * the media layer is replaced by the dedicated house crop in the authority
+ * override stylesheet so the composition matches the mobile reference.
  */
 export function C2Hero() {
   const hero = copy.home.hero;
-  const trust = hero.trust.map((item, index) =>
-    index === 0 ? { ...item, line1: "Locally", line2: "Trusted" } : item,
-  );
+  const trust: Array<{ icon: C2IconName; line1: string; line2: string }> = [
+    { icon: "star", line1: "Locally", line2: "Trusted" },
+    { icon: "users", line1: "Locally", line2: "Owned" },
+    { icon: "shield", line1: "Licensed", line2: "& Insured" },
+  ];
 
   return (
     <section className="c2-hero" aria-labelledby="c2-hero-heading">
@@ -46,7 +48,7 @@ export function C2Hero() {
           <div className="c2-hero-trust">
             {trust.map((item) => (
               <div key={`${item.line1}-${item.line2}`}>
-                <C2Icon name={item.icon as "star"} size={26} />
+                <C2Icon name={item.icon} size={28} />
                 <span>
                   {item.line1}
                   <br />
