@@ -181,3 +181,14 @@
   .c2 .c2-footer-areas h2,
   .c2 .c2-footer-service-groups h2 { margin-bottom: 12px; font-size: 16px; }
 }
+
+/* Homeowners option 2: a shallow photo opens the unified phone hero. */
+@media (max-width: 1023px) {
+  .c2 .c2-homeowners .c2-hero-inner { display: flex; flex-direction: column; gap: 0; }
+  .c2 .c2-homeowners .c2-hero-media { order: -1; flex: none; width: 100vw; height: clamp(190px, 50vw, 300px); aspect-ratio: auto; margin-left: calc((100% - 100vw) / 2); border-radius: 0; }
+  .c2 .c2-homeowners .c2-hero-media img { object-position: center 40%; }
+  .c2 .c2-homeowners .c2-hero-copy { width: 100%; padding-block: 12px 28px; text-align: center; }
+  .c2 .c2-homeowners .c2-location { justify-content: center; }
+  .c2 .c2-homeowners .c2-hero-page-lead { margin-inline: auto; margin-top: 16px; }
+  .c2 .c2-homeowners .c2-hero-actions { width: 100%; }
+}
