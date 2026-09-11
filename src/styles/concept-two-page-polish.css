@@ -522,3 +522,7 @@
  .c2 section.c2-final.c2-final h2 { margin:0; }
  .c2 section.c2-final.c2-final .c2-final-actions { margin-top:24px; }
 }
+
+@media(max-width:600px) {
+ .c2 .c2-team .c2-hero-copy h1 { font-size:clamp(28px,8vw,34px); max-width:62%; }
+}
