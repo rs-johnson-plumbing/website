@@ -160,3 +160,9 @@
 .c2-builders .c2-plans-upload { border: 1px dashed #9aafc5; padding: 16px; background: #fff; }
 .c2-builders .c2-plans-upload small { color: var(--c2-slate); font-size: 12px; }
 .c2-builders .c2-steps { margin-top: 28px; }
+
+/* Increase the shared service-area label by four typographic points. */
+.c2 .c2-location { font-size: calc(12px + 4pt); }
+@media (max-width: 1023px) {
+  .c2 .c2-location { font-size: clamp(calc(8.5px + 4pt), calc(2.3vw + 4pt), calc(10px + 4pt)); letter-spacing: 0; gap: 5px; }
+}
