@@ -2,6 +2,7 @@ import { conceptTwo as copy } from "@/lib/content";
 import { C2Icon, type C2IconName } from "../ui/C2Icon";
 import { C2Button } from "../ui/C2Button";
 import { C2Photo } from "../ui/C2Photo";
+import { C2Location } from "../ui/C2Location";
 
 /**
  * Homepage hero. One canvas: cream ground, copy on the left, the photograph
@@ -21,7 +22,7 @@ export function C2Hero() {
     <section className="c2-hero" aria-labelledby="c2-hero-heading">
       <div className="c2-wrap c2-hero-inner">
         <div className="c2-hero-copy">
-          <p className="c2-eyebrow c2-hero-eyebrow">{hero.eyebrow}</p>
+          <C2Location />
           <h1 id="c2-hero-heading">
             {hero.headingLines.map((line, index) => (
               <span key={line}>

@@ -224,13 +224,13 @@
   },
   "homeowners": {
     "hero": {
-      "eyebrow": "Trusted in St. Louis",
+      "eyebrow": "Trusted in St. Charles and St. Louis",
       "headingLines": [
         "For Your Home.",
         "A Plumber You Can Count On."
       ],
       "heading": "For Your Home. A Plumber You Can Count On.",
-      "lead": "Repairs, water heaters, drains, fixtures, remodel plumbing and more, across St. Charles and West St. Louis Counties.",
+      "lead": "Repairs, water heaters, drains, fixtures, remodel plumbing and more.",
       "primary": {
         "label": "Request Service"
       },

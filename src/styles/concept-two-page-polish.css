@@ -1,0 +1,68 @@
+/* Shared typography follows the homepage; title sizes remain responsive. */
+.c2 { font-family: var(--font-figtree), Arial, sans-serif; font-weight: 400; }
+.c2 :is(button, input, select, textarea) { font-family: inherit; }
+.c2 .c2-hero h1 { font-weight: 800; letter-spacing: -.04em; }
+.c2 :is(h2, h3, h4, .c2-btn, .c2-faq-list summary) { font-weight: 700; }
+.c2 :is(.c2-hero-sub, .c2-hero-page-lead, .c2-lead) { font-weight: 400; }
+.c2 :is(.c2-eyebrow, .c2-mobile-nav a, .c2-bar) { font-weight: 600; }
+.c2 .c2-hero-page-lead { margin-top: 20px; line-height: 1.4; }
+.c2 .c2-location {
+  display: flex; align-items: center; gap: 9px;
+  padding-block: 16px; margin: 0;
+  color: #4b5563; font-size: 12px; font-weight: 600;
+  line-height: 1.5; letter-spacing: .12em; text-transform: uppercase;
+}
+.c2 .c2-location svg { color: var(--c2-blue); flex: 0 0 20px; }
+.c2 .c2-location span { text-wrap: balance; }
+.c2 .c2-hero--navy .c2-location { color: #e0e9f5; }
+.c2 .c2-hero--navy .c2-location svg { color: #8fc7ff; }
+@media (max-width: 1023px) {
+  .c2 .c2-location { font-size: 10px; letter-spacing: .1em; max-width: 32em; }
+}
+
+/* The remodel photo stretches with its copy instead of ending above the CTA. */
+.c2-homeowners .c2-split-photo { overflow: hidden; }
+.c2-homeowners .c2-split-copy .c2-btn { align-self: flex-start; }
+@media (min-width: 1024px) {
+  .c2-homeowners .c2-split-photo { height: auto; min-height: 360px; }
+  .c2-homeowners .c2-split-copy { padding-block: 32px; }
+  .c2-homeowners .c2-split-copy .c2-btn { margin-top: auto; }
+  .c2-homeowners .c2-split-copy > p:last-of-type { margin-bottom: 24px; }
+}
+
+/* A distinct testimonial band separates the reasons and question sections. */
+.c2-homeowners section[aria-labelledby="c2-reviews-heading"] {
+  background: var(--c2-navy); padding-block: 40px;
+}
+.c2-homeowners .c2-reviews-head h2,
+.c2-homeowners .c2-quote { color: #fff; }
+.c2-homeowners .c2-quote-by { color: #d1deed; }
+.c2-homeowners .c2-reviews-body { border-color: #ffffff35; }
+.c2-homeowners .c2-round { background: transparent; color: #fff; border-color: #ffffff70; }
+.c2-homeowners .c2-round:hover { background: #ffffff18; }
+
+/* Full content-width, left-aligned, keyboard-accessible disclosure rows. */
+.c2-homeowners .c2-faq { max-width: 1440px; text-align: left; }
+.c2-homeowners .c2-faq-list { border: 0; display: grid; gap: 12px; }
+.c2-homeowners .c2-faq-list details { background: #fff; border: 1px solid var(--c2-rule); padding-inline: 20px; }
+.c2-homeowners .c2-faq-list summary { justify-content: flex-start; min-height: 76px; }
+.c2-homeowners .c2-faq-list summary::after { margin-left: auto; }
+.c2-homeowners .c2-faq-list p { max-width: none; padding-left: 60px; }
+.c2-homeowners .c2-faq-icon { display: grid; place-items: center; width: 44px; height: 44px; flex: 0 0 44px; background: #eef5fc; color: var(--c2-blue); border-radius: 8px; }
+
+/* Equal contact buttons with a clear primary request action. */
+.c2-homeowners .c2-final-actions { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; }
+.c2-homeowners .c2-final-actions .c2-btn { min-height: 68px; border-color: #ffffff70; border-radius: 6px; }
+.c2-homeowners .c2-final-actions .c2-btn:last-child { background: #fff; color: var(--c2-navy); border-color: #fff; }
+.c2-homeowners .c2-final-actions .c2-btn > svg { width: 23px; height: 23px; flex-shrink: 0; }
+.c2-homeowners .c2-final-actions .c2-btn:hover { background: #eaf3ff; color: var(--c2-navy); }
+@media (min-width: 1024px) {
+  .c2-homeowners .c2-final-actions { width: 540px; max-width: 100%; }
+  .c2-homeowners .c2-final-actions .c2-btn { padding-inline: 18px; }
+}
+@media (max-width: 600px) {
+  .c2-homeowners .c2-final-actions { gap: 8px; }
+  .c2-homeowners .c2-final-actions .c2-btn { flex-direction: column; padding: 12px 6px; gap: 8px; }
+  .c2-homeowners .c2-faq-list details { padding-inline: 14px; }
+  .c2-homeowners .c2-faq-list p { padding-left: 0; }
+}
