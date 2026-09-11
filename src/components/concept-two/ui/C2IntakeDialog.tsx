@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import { createPortal } from "react-dom";
+import Image from "next/image";
 import { site } from "@/lib/content";
 import { Lockup } from "@/components/ui/Logo";
 import { C2Button } from "./C2Button";
@@ -11,9 +12,9 @@ import { ServiceSketch } from "./ServiceSketch";
 type Kind = "service" | "bid";
 type Fields = Record<string, string>;
 const categories = [
-  { name: "Repair", art: "leaks", question: "What needs to be repaired?", options: ["Clogged drain", "Water heater", "Faucet or shower", "Toilet", "Pipe or leak", "Garbage disposal", "Other"] },
-  { name: "Install", art: "fixtures", question: "What would you like installed?", options: ["Drain or drain piping", "Water heater", "Faucet or shower", "Toilet", "Water softener", "Gas appliance hookup", "Other"] },
-  { name: "Flooding", art: "pump", question: "Where is the water coming from?", options: ["Burst pipe", "Sump pump", "Basement", "Sewer backup", "Not sure"] },
+  { name: "Repair", art: "leaks", question: "What needs to be repaired?", options: ["Clogged Drain", "Water Heater", "Faucet Or Shower", "Toilet", "Pipe Or Leak", "Garbage Disposal", "Other"] },
+  { name: "Install", art: "fixtures", question: "What would you like installed?", options: ["Drain Or Drain Piping", "Water Heater", "Faucet Or Shower", "Toilet", "Water Softener", "Gas Appliance Hookup", "Other"] },
+  { name: "Flooding", art: "pump", question: "Where is the water coming from?", options: ["Burst Pipe", "Sump Pump", "Basement", "Sewer Backup", "Not Sure"] },
   { name: "Other", art: "service", question: "How can we help?", options: [] },
 ];
 const serviceSteps = ["Service area", "Choose a service", "Photos", "Contact information", "Preferred arrival", "Review"];
@@ -31,8 +32,15 @@ export function C2IntakeDialog({ kind, onClose }: { kind: Kind; onClose: () => v
   const isBid = kind === "bid";
   const steps = isBid ? bidSteps : serviceSteps;
   const [step, setStep] = useState(0);
+  const [choosingCategory, setChoosingCategory] = useState(true);
   const [fields, setFields] = useState<Fields>({ state: "MO", country: "United States", projectType: "Single Family" });
   const [files, setFiles] = useState<File[]>([]);
+  const [photoPreviews, setPhotoPreviews] = useState<string[]>([]);
+  useEffect(() => {
+    const urls = files.map(file => file.type.startsWith("image/") ? URL.createObjectURL(file) : "");
+    setPhotoPreviews(urls);
+    return () => urls.forEach(url => { if (url) URL.revokeObjectURL(url); });
+  }, [files]);
   const [status, setStatus] = useState<"idle" | "sending" | "done" | "error">("idle");
   const [error, setError] = useState("");
   const [mounted, setMounted] = useState(false);
@@ -49,7 +57,12 @@ export function C2IntakeDialog({ kind, onClose }: { kind: Kind; onClose: () => v
     return Array.from({ length: 14 }, (_, i) => {
       const date = new Date(start);
       date.setUTCDate(start.getUTCDate() + i + 1);
-      return { value: date.toISOString().slice(0, 10), label: date.toLocaleDateString("en-US", { timeZone: "UTC", weekday: "short", month: "short", day: "numeric" }) };
+      const day = date.getUTCDate();
+      const suffix = day >= 11 && day <= 13 ? "th" : ({ 1: "st", 2: "nd", 3: "rd" } as Record<number, string>)[day % 10] || "th";
+      const weekday = date.toLocaleDateString("en-US", { timeZone: "UTC", weekday: "long" });
+      const month = ["Jan.", "Feb.", "Mar.", "Apr.", "May", "June", "July", "Aug.", "Sept.", "Oct.", "Nov.", "Dec."][date.getUTCMonth()];
+      const dateLabel = `${month} ${day}${suffix}`;
+      return { value: date.toISOString().slice(0, 10), weekday, dateLabel, label: `${weekday}, ${dateLabel}` };
     });
   });
   const selected = categories.find(category => category.name === fields.category);
@@ -131,15 +144,15 @@ export function C2IntakeDialog({ kind, onClose }: { kind: Kind; onClose: () => v
   }
   const photos = <div className="ci-upload">
     <h3>{isBid ? "Add an image or plan" : "Add photos"} <span>(optional)</span></h3>
-    <p>{isBid ? "An image or PDF, up to 4 MB." : "Up to five photos, 4 MB total."}</p>
+    {isBid && <p>An image or PDF, up to 4 MB.</p>}
     <input ref={upload} type="file" hidden accept={isBid ? "application/pdf,image/*" : "image/*"} multiple={!isBid} onChange={event => { addFiles(event.target.files); event.target.value = ""; }} />
     <input ref={camera} type="file" hidden accept="image/*" capture="environment" onChange={event => { addFiles(event.target.files); event.target.value = ""; }} />
     <div className="ci-upload-actions"><C2Button onClick={() => upload.current?.click()} variant="outline" trailingIcon={null}>Upload {isBid ? "image or plan" : "photos"}</C2Button><C2Button className="ci-camera" onClick={() => camera.current?.click()} variant="outline" trailingIcon={null}>Take a photo</C2Button></div>
-    {files.length > 0 && <ul className="ci-files">{files.map((file, i) => <li key={file.name + i}><span>{file.name}</span><button type="button" aria-label={`Remove ${file.name}`} onClick={() => setFiles(old => old.filter((_, index) => index !== i))}>Remove</button></li>)}</ul>}
+    {files.length > 0 && <ul className="ci-files">{files.map((file, i) => <li key={file.name + i}><span>{photoPreviews[i] && <Image src={photoPreviews[i]} alt={`Preview of ${file.name}`} width={80} height={80} unoptimized className="ci-photo-thumb" />}{file.name}</span><button type="button" aria-label={`Remove ${file.name}`} onClick={() => setFiles(old => old.filter((_, index) => index !== i))}>Remove</button></li>)}</ul>}
   </div>;
 
   if (!mounted) return null;
-  return createPortal(<dialog ref={dialog} className="c2 ci-dialog" aria-label={isBid ? "Request a Bid" : "Request Service"} onCancel={event => { event.preventDefault(); if (!busy.current) onClose(); }} onClick={event => {
+  return createPortal(<dialog ref={dialog} className={`c2 ci-dialog${isBid ? "" : " ci-service-dialog"}`} aria-label={isBid ? "Request a Bid" : "Request Service"} onCancel={event => { event.preventDefault(); if (!busy.current) onClose(); }} onClick={event => {
     if (event.target !== event.currentTarget || busy.current) return;
     const r = event.currentTarget.getBoundingClientRect();
     if (event.clientX < r.left || event.clientX > r.right || event.clientY < r.top || event.clientY > r.bottom) onClose();
@@ -154,12 +167,12 @@ export function C2IntakeDialog({ kind, onClose }: { kind: Kind; onClose: () => v
               <><h2 tabIndex={-1}>Tell us about the project.</h2><div className="ci-fields"><Field name="projectLocation" label="Project location" required fields={fields} change={change} autoComplete="street-address" /><label><span>Project type *</span><select name="projectType" value={fields.projectType} onChange={event => change("projectType", event.target.value)}>{["Single Family", "Multi-Family", "Commercial", "Remodel", "Other"].map(type => <option key={type}>{type}</option>)}</select></label></div><label><span>Project details *</span><textarea name="projectDetails" rows={4} required maxLength={2000} value={fields.projectDetails || ""} onChange={event => change("projectDetails", event.target.value)} placeholder="Scope, timing, and anything we should know." /></label>{photos}</>}
           </> : <>
             {step === 0 && <><h2 tabIndex={-1}>Where do you need service?</h2><p>Serving St. Charles and St. Louis.</p><Field name="zip" label="ZIP code" required pattern="[0-9]{5,6}" fields={fields} change={change} autoComplete="postal-code" /></>}
-            {step === 1 && <><h2 tabIndex={-1}>What can we help you with?</h2><p>Choose one service, then tell us a little more.</p><div className="ci-categories" role="group" aria-label="Service type">{categories.map(category => <button type="button" key={category.name} aria-pressed={fields.category === category.name} onClick={() => setFields(old => ({ ...old, category: category.name, issue: "", details: "" }))}><ServiceSketch id={category.art} /><span>{category.name}</span></button>)}</div>
-              {selected && <div className="ci-followup"><h3>{selected.question}</h3>{selected.options.length > 0 && <div className="ci-options" role="group" aria-label={selected.question}>{selected.options.map(option => <button type="button" key={option} aria-pressed={fields.issue === option} onClick={() => change("issue", option)}>{option}</button>)}</div>}<label><span>{fields.category === "Other" ? "What do you need? *" : "What’s happening? (optional)"}</span><textarea name="details" rows={3} required={fields.category === "Other"} maxLength={2000} value={fields.details || ""} onChange={event => change("details", event.target.value)} placeholder="Where is the problem? When did it start?" /></label>{fields.category === "Flooding" && <p>Need urgent help? <a href={site.phone.tel}>Call {site.phone.display}</a>.</p>}</div>}</>}
+            {step === 1 && <><h2 tabIndex={-1}>What can we help you with?</h2>{selected && !choosingCategory ? <div className="ci-selection"><strong>{selected.name}</strong><button type="button" onClick={() => setChoosingCategory(true)}>Change Service</button></div> : <div className="ci-categories" role="group" aria-label="Service type">{categories.map(category => <button type="button" key={category.name} aria-pressed={fields.category === category.name} onClick={() => { setFields(old => old.category === category.name ? old : ({ ...old, category: category.name, issue: "", details: "" })); setChoosingCategory(false); }}><ServiceSketch id={category.art} /><span>{category.name}</span></button>)}</div>}
+              {selected && !choosingCategory && <div className="ci-followup"><h3>{selected.question}</h3>{selected.options.length > 0 && <div className="ci-options" role="group" aria-label={selected.question}>{selected.options.map(option => <button type="button" key={option} aria-pressed={fields.issue === option} onClick={() => change("issue", option)}>{option}</button>)}</div>}<label><span>{fields.category === "Other" ? "What do you need? *" : "What’s happening? (optional)"}</span><textarea name="details" rows={3} required={fields.category === "Other"} maxLength={2000} value={fields.details || ""} onChange={event => change("details", event.target.value)} placeholder="Where is the problem? When did it start?" /></label>{fields.category === "Flooding" && <p>Need urgent help? <a href={site.phone.tel}>Call {site.phone.display}</a>.</p>}</div>}</>}
             {step === 2 && <><h2 tabIndex={-1}>Show us what’s happening.</h2><p>A photo can help us prepare for your visit.</p>{photos}</>}
             {step === 3 && <><h2 tabIndex={-1}>How can we reach you?</h2><div className="ci-fields"><Field name="firstName" label="First name" required fields={fields} change={change} autoComplete="given-name" /><Field name="lastName" label="Last name" required fields={fields} change={change} autoComplete="family-name" /><Field name="email" label="Email" type="email" required fields={fields} change={change} autoComplete="email" /><Field name="phone" label="Phone" type="tel" pattern="[+()0-9 .-]{10,}" required fields={fields} change={change} autoComplete="tel" /><Field name="address" label="Street address" required fields={fields} change={change} autoComplete="address-line1" /><Field name="unit" label="Unit / apartment (optional)" fields={fields} change={change} autoComplete="address-line2" /><Field name="city" label="City" required fields={fields} change={change} autoComplete="address-level2" /><Field name="zip" label="ZIP code" required pattern="[0-9]{5,6}" fields={fields} change={change} autoComplete="postal-code" /><Field name="state" label="State" required fields={fields} change={change} autoComplete="address-level1" /><Field name="country" label="Country" required fields={fields} change={change} autoComplete="country-name" /></div></>}
-            {step === 4 && <><h2 tabIndex={-1}>When would you prefer a visit?</h2><p>Choose a preferred window. We’ll confirm the appointment with you.</p><div className="ci-day-controls"><button type="button" aria-label="Earlier days" onClick={() => dayRail.current?.scrollBy({ left: -300, behavior: "smooth" })}>←</button><span>Choose a day</span><button type="button" aria-label="Later days" onClick={() => dayRail.current?.scrollBy({ left: 300, behavior: "smooth" })}>→</button></div><div className="ci-days" ref={dayRail} role="group" aria-label="Preferred day">{days.map(day => <button type="button" key={day.value} aria-pressed={fields.day === day.value} onClick={() => change("day", day.value)}>{day.label}</button>)}</div><h3>Preferred arrival window</h3><div className="ci-times" role="group" aria-label="Preferred arrival window">{times.map(time => <button key={time} type="button" aria-pressed={fields.time === time} onClick={() => change("time", time)}>{time}</button>)}</div></>}
-            {step === 5 && <><h2 tabIndex={-1}>Your service request</h2><div className="ci-review"><section><h3>Service <button type="button" onClick={() => setStep(1)}>Edit</button></h3><p>{fields.category}{fields.issue ? " — " + fields.issue : ""}</p>{fields.details && <p>{fields.details}</p>}<p>{files.length} photo{files.length === 1 ? "" : "s"} attached</p></section><section><h3>Contact and location <button type="button" onClick={() => setStep(3)}>Edit</button></h3><p>{fields.firstName} {fields.lastName}<br />{fields.phone}<br />{fields.email}</p><p>{fields.address} {fields.unit}<br />{fields.city}, {fields.state} {fields.zip}</p></section><section><h3>Preferred arrival <button type="button" onClick={() => setStep(4)}>Edit</button></h3><p>{days.find(day => day.value === fields.day)?.label}<br />{fields.time}</p><p>Appointment pending confirmation.</p></section></div></>}
+            {step === 4 && <><h2 tabIndex={-1}>When would you prefer a visit?</h2><p>Choose a preferred window. We’ll confirm the appointment with you.</p><h3>Choose a Day</h3><div className="ci-day-carousel"><button className="ci-day-arrow" type="button" aria-label="Earlier days" onClick={() => dayRail.current?.scrollBy({ left: -300, behavior: "smooth" })}>←</button><div className="ci-days" ref={dayRail} role="group" aria-label="Preferred day">{days.map(day => <button type="button" key={day.value} aria-label={day.label} aria-pressed={fields.day === day.value} onClick={() => change("day", day.value)}><strong>{day.weekday}</strong><span>{day.dateLabel}</span></button>)}</div><button className="ci-day-arrow" type="button" aria-label="Later days" onClick={() => dayRail.current?.scrollBy({ left: 300, behavior: "smooth" })}>→</button></div><h3>Preferred arrival window</h3><div className="ci-times" role="group" aria-label="Preferred arrival window">{times.map(time => <button key={time} type="button" aria-pressed={fields.time === time} onClick={() => change("time", time)}>{time}</button>)}</div></>}
+            {step === 5 && <><h2 tabIndex={-1}>Your Service Request</h2><div className="ci-review"><section><h3>Service <button type="button" onClick={() => setStep(1)}>Edit</button></h3><p><strong>Service Requested</strong><br />{fields.category}{fields.issue ? " — " + fields.issue : ""}</p>{fields.details && <p><strong>Details</strong><br />{fields.details}</p>}<p><strong>Photos</strong><br />{files.length} photo{files.length === 1 ? "" : "s"} attached</p>{files.length > 0 && <div className="ci-photo-review">{files.map((file, i) => photoPreviews[i] && <figure key={file.name + i}><Image src={photoPreviews[i]} alt={`Preview of ${file.name}`} width={96} height={96} unoptimized className="ci-photo-thumb" /><figcaption>{file.name}</figcaption></figure>)}</div>}</section><section><h3>Contact and Location <button type="button" onClick={() => setStep(3)}>Edit</button></h3><p>{fields.firstName} {fields.lastName}<br />{fields.phone}<br />{fields.email}</p><p>{fields.address} {fields.unit}<br />{fields.city}, {fields.state} {fields.zip}</p></section><section><h3>Preferred Arrival <button type="button" onClick={() => setStep(4)}>Edit</button></h3><p>{days.find(day => day.value === fields.day)?.label}<br />{fields.time}</p><p>Appointment pending confirmation.</p></section></div></>}
           </>}
           {error && <p className="ci-error" role="alert">{error}</p>}
         </>}
