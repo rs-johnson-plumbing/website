@@ -418,3 +418,5 @@
  .c2 .c2-final-actions .c2-btn{min-width:0;font-size:13px;padding:12px 8px;white-space:normal}
 }
 @media(pointer:coarse){.c2.ci-dialog .ci-camera{display:inline-flex}}
+
+.c2.ci-dialog .ci-zip{width:180px;max-width:100%}
