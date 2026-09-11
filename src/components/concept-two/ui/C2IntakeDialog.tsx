@@ -132,7 +132,7 @@ export function C2IntakeDialog({ kind, onClose }: { kind: Kind; onClose: () => v
   }
   const photos = <div className="ci-upload">
     <h3>{isBid ? "Add an image or plan" : "Add photos"} <span>(optional)</span></h3>
-    <p>{isBid ? "An image or PDF, up to 4 MB." : "Up to five photos, 4 MB total."}</p>
+    {isBid && <p>An image or PDF, up to 4 MB.</p>}
     <input ref={upload} type="file" hidden accept={isBid ? "application/pdf,image/*" : "image/*"} multiple={!isBid} onChange={event => { addFiles(event.target.files); event.target.value = ""; }} />
     <input ref={camera} type="file" hidden accept="image/*" capture="environment" onChange={event => { addFiles(event.target.files); event.target.value = ""; }} />
     <div className="ci-upload-actions"><C2Button onClick={() => upload.current?.click()} variant="outline" trailingIcon={null}>Upload {isBid ? "image or plan" : "photos"}</C2Button><C2Button className="ci-camera" onClick={() => camera.current?.click()} variant="outline" trailingIcon={null}>Take a photo</C2Button></div>
