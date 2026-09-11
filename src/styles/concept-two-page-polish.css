@@ -433,3 +433,5 @@
  .c2 section.c2-final.c2-final .c2-final-inner { flex-direction:column; align-items:flex-start; padding-left:var(--c2-gutter); }
  .c2 section.c2-final.c2-final .c2-final-actions { width:100%; justify-content:flex-start; overflow-x:auto; padding-block:4px 10px; }
 }
+
+.c2.ci-dialog .ci-options button,.c2 .dp-card :is(.dp-title,.dp-short,.dp-more),.c2 .c2-service { text-transform:capitalize; }

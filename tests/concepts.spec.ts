@@ -311,11 +311,11 @@ test("service workflow selects one category and follows up inline before contact
   await modal.getByLabel("ZIP code").fill("63368");
   await modal.getByRole("button", { name: "Continue", exact: true }).click();
   await modal.getByRole("button", { name: "Repair", exact: true }).click();
-  await modal.getByRole("button", { name: "Clogged drain", exact: true }).click();
+  await modal.getByRole("button", { name: "Clogged Drain", exact: true }).click();
   await modal.getByRole("button", { name: "Install", exact: true }).click();
   await expect(modal.getByRole("button", { name: "Repair", exact: true })).toHaveAttribute("aria-pressed", "false");
   await expect(modal.getByRole("heading", { name: "What would you like installed?" })).toBeVisible();
-  await modal.getByRole("button", { name: "Water heater", exact: true }).click();
+  await modal.getByRole("button", { name: "Water Heater", exact: true }).click();
   await modal.getByLabel("What’s happening?").fill("Replace the old heater.");
   await modal.getByRole("button", { name: "Continue", exact: true }).click();
   await modal.locator('input[type=file]').first().setInputFiles({ name: "heater.png", mimeType: "image/png", buffer: Buffer.from("image fixture") });
@@ -327,8 +327,8 @@ test("service workflow selects one category and follows up inline before contact
   await rail.getByRole("button").first().click();
   await modal.getByRole("button", { name: "10:00 a.m. - 12:00 p.m.", exact: true }).click();
   await modal.getByRole("button", { name: "Continue", exact: true }).click();
-  await expect(modal.locator(".ci-review")).toContainText("Install — Water heater");
-  await expect(modal.locator(".ci-review")).not.toContainText("Clogged drain");
+  await expect(modal.locator(".ci-review")).toContainText("Install — Water Heater");
+  await expect(modal.locator(".ci-review")).not.toContainText("Clogged Drain");
   await modal.getByRole("button", { name: "Send Service Request", exact: true }).click();
   await expect(modal.getByRole("alert")).toContainText("couldn’t send");
   await modal.getByRole("button", { name: "Send Service Request", exact: true }).click();
