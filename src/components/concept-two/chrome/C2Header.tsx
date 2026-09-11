@@ -35,7 +35,7 @@ export function C2Header() {
       </a>
       <div className="c2-wrap c2-header-inner">
         <Link href="/" aria-label={`${site.name} home`} className="c2-logo">
-          <Lockup title={site.name} />
+          <Lockup title={site.name} largerWordmark />
         </Link>
         <nav aria-label={copy.ui.primaryNavigation} className="c2-nav">
           {copy.nav.map((item) => (

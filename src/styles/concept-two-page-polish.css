@@ -106,3 +106,9 @@
   .c2 .c2-footer-meta { grid-column: 1 / -1; margin: 0; font-size: 11px; line-height: 1.5; }
   .c2 .c2-footer-meta > span:not(:first-child) { display: none; }
 }
+
+/* Enlarge only header lettering; preserve the pipe mark's rendered scale. */
+.c2 .c2-header .c2-logo svg { width: 199.5px; height: 42px; }
+@media (min-width: 1024px) {
+  .c2 .c2-header .c2-logo svg { width: 256.5px; height: 54px; }
+}
