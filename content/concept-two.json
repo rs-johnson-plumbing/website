@@ -226,11 +226,11 @@
     "hero": {
       "eyebrow": "Serving St. Charles and St. Louis",
       "headingLines": [
-        "For Your Home.",
-        "A Plumber You Can Count On."
+        "Plumbing Made",
+        "Personal."
       ],
-      "heading": "For Your Home. A Plumber You Can Count On.",
-      "lead": "Repairs, water heaters, drains, fixtures, remodel plumbing and more.",
+      "heading": "Plumbing Made Personal.",
+      "lead": "From quick repairs to new installations.",
       "primary": {
         "label": "Request Service"
       },
@@ -305,7 +305,7 @@
         "Together."
       ],
       "heading": "Let's Build Together.",
-      "lead": "Reliable plumbing crews for new construction and renovations, from the first takeoff to the final walk.",
+      "lead": "Reliable plumbing crews for new construction and renovations.",
       "primary": {
         "label": "Request a Bid",
         "href": "#request-a-bid"
