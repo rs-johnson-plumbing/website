@@ -1,4 +1,6 @@
-import type { ReactNode } from "react";
+"use client";
+
+import { useEffect, useRef, useState, type ReactNode } from "react";
 
 const navy = "#102b50", blue = "#439df2", pale = "#dcedfc";
 /** Bold brand silhouettes with restrained drafting detail. Shared by cards and dialogs. */
@@ -46,7 +48,40 @@ function Artwork({id}:{id:string}) {
  }
 }
 export function ServiceSketch({id,className}:{id:string;className?:string}) {
- return <svg viewBox="0 0 160 190" className={className} data-illustration={id} fill="none" stroke={navy} strokeWidth="4.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" focusable="false"><g className="c2-sketch-art"><Artwork id={id}/></g></svg>;
+ const art = useRef<SVGSVGElement>(null);
+ const [mobileActive, setMobileActive] = useState(false);
+ useEffect(() => {
+  const element = art.current;
+  const tile = element?.closest(".c2-service, .dp-card-trigger");
+  if (!element || !tile || !("IntersectionObserver" in window)) return;
+  const touch = window.matchMedia("(hover: none), (pointer: coarse)");
+  const reduced = window.matchMedia("(prefers-reduced-motion: reduce)");
+  let observer: IntersectionObserver | undefined;
+  let timer: ReturnType<typeof setTimeout> | undefined;
+  function stop() { clearTimeout(timer); setMobileActive(false); }
+  function sync() {
+   observer?.disconnect();
+   stop();
+   if (!touch.matches || reduced.matches) return;
+   let visible = false;
+   observer = new IntersectionObserver(entries => {
+    const entry = entries[0];
+    const nowVisible = entry.isIntersecting && entry.intersectionRatio >= .35;
+    if (nowVisible && !visible) {
+     setMobileActive(true);
+     clearTimeout(timer);
+     timer = setTimeout(() => setMobileActive(false), 3200);
+    } else if (!nowVisible) stop();
+    visible = nowVisible;
+   }, { threshold: .35 });
+   observer.observe(tile!);
+  }
+  sync();
+  touch.addEventListener("change", sync);
+  reduced.addEventListener("change", sync);
+  return () => { observer?.disconnect(); clearTimeout(timer); touch.removeEventListener("change", sync); reduced.removeEventListener("change", sync); };
+ }, [id]);
+ return <svg ref={art} data-mobile-active={mobileActive ? "true" : undefined} viewBox="0 0 160 190" className={className} data-illustration={id} fill="none" stroke={navy} strokeWidth="4.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" focusable="false"><g className="c2-sketch-art"><Artwork id={id}/></g></svg>;
 }
 export function PipeBanner() {
  return <svg viewBox="0 0 520 190" preserveAspectRatio="xMaxYMid slice" fill="none" stroke={navy} strokeWidth="4" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
