@@ -65,3 +65,16 @@ export function PipeBanner() {
  <g className="c2-pipe-caption" fill="#3978d4" stroke="none" fontSize="13" fontWeight="600" fontStyle="italic" letterSpacing="1" transform="rotate(-5 335 111)"><text x="335" y="106">QUALITY PLUMBING</text><text x="335" y="126">STRONGER HOMES.</text></g>
  </svg>;
 }
+
+/** One continuous stream around the hero's right edge; no competing branches. */
+export function ServicesHeroPipe() {
+ const route = "M338 390V150Q338 80 268 80H254Q204 80 204 30V-30";
+ return <svg viewBox="0 0 400 360" preserveAspectRatio="xMaxYMid slice" fill="none" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+  <defs><linearGradient id="services-pipe-blue" x1="0" x2="1"><stop stopColor="#83b9f6"/><stop offset=".5" stopColor="#397bd4"/><stop offset="1" stopColor="#9dcfff"/></linearGradient></defs>
+  <path d={route} stroke="#182b50" strokeWidth="46"/>
+  <path d={route} stroke="url(#services-pipe-blue)" strokeWidth="38"/>
+  <path d={route} stroke="#dcedfc" strokeWidth="3" transform="translate(-12 0)" opacity=".7"/>
+  <path d={route} stroke="#fff" strokeWidth="5" strokeDasharray="22 26" className="c2-hero-water" opacity=".85"/>
+  <g stroke="#182b50" strokeWidth="3" fill="#eaf3fb"><rect x="313" y="171" width="50" height="13" rx="2"/><rect x="313" y="294" width="50" height="13" rx="2"/><rect x="244" y="55" width="13" height="50" rx="2"/></g>
+ </svg>;
+}
