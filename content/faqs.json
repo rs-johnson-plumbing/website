@@ -86,39 +86,29 @@
     "heading": "FAQ",
     "items": [
       {
-        "q": "How fast can you turn a bid?",
-        "a": "Send plans and a fixture schedule and you'll have numbers back within [# business days]. A straight takeoff from your drawings, no padding.",
-        "icon": "tag"
-      },
-      {
-        "q": "What do you need from us to bid?",
-        "a": "Plans (PDF is fine), the fixture schedule if you have one, and the job address. If plans aren't final, send what you have and we'll flag the assumptions in the number.",
+        "q": "What should I send for a bid?",
+        "a": "Share your plans, project address and fixture schedule if available. If plans are still developing, tell us what is decided and what remains open so we can discuss the scope.",
         "icon": "building"
       },
       {
-        "q": "Does the same crew handle underground, rough-in, and trim?",
-        "a": "Yes. The crew that sets the underground comes back for rough-in and trim, so nothing gets lost between stages and your super deals with the same people all the way through.",
-        "icon": "clock"
+        "q": "Which areas do you serve?",
+        "a": "St. Charles County and West St. Louis County. For a project farther out, call or text us to discuss the location.",
+        "icon": "map"
       },
       {
-        "q": "Who pulls permits and meets the inspector?",
-        "a": "We pull the plumbing permit and meet the inspector at every stage. [Confirm permit and inspection policy.]",
-        "icon": "shield"
+        "q": "Do you handle remodels and additions?",
+        "a": "Yes. We handle plumbing for new construction, remodels and additions. Share the plans and existing conditions so we can discuss the work.",
+        "icon": "building"
       },
       {
-        "q": "Do you run gas?",
-        "a": "Yes. Gas runs for ranges, fireplaces, water heaters, and generators, sized and pressure tested for inspection.",
-        "icon": "gas"
-      },
-      {
-        "q": "Can you work our schedule?",
-        "a": "We schedule around your super. Daily check-in on active jobs, and we tell you early if a stage is going to slip. [Confirm.]",
+        "q": "How do you coordinate with other trades?",
+        "a": "We review the project schedule and plumbing stages with your team. Talk with us about framing, inspection and finish milestones when requesting a bid.",
         "icon": "calendar"
       },
       {
-        "q": "Where do you work?",
-        "a": "St. Charles County and West St. Louis County. For a job site farther out, send the address and we'll tell you straight.",
-        "icon": "map"
+        "q": "How are changes handled?",
+        "a": "When plans or fixture selections change, we review the revised scope and discuss pricing and scheduling before the additional work begins.",
+        "icon": "tag"
       }
     ]
   }

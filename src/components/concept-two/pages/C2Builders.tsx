@@ -6,6 +6,8 @@ import { C2TrustStrip } from "../sections/C2TrustStrip";
 import { C2ServiceGrid } from "../sections/C2ServiceGrid";
 import { C2Faq } from "../sections/C2Faq";
 import { C2BidForm } from "../sections/C2BidForm";
+import { C2Split } from "../sections/C2Split";
+import { C2Points } from "../sections/C2Points";
 import { C2FinalCta } from "../sections/C2FinalCta";
 import { C2Button } from "../ui/C2Button";
 import { drawingFor, c2Label } from "../ui/drawingFor";
@@ -19,19 +21,18 @@ const tiles = builderServices.map((service) => ({
 export function C2Builders() {
   const page = copy.builders;
   return (
-    <>
+    <div className="c2-builders">
       <C2PageHero
-        tone="navy"
         eyebrow={page.hero.eyebrow}
         headingLines={page.hero.headingLines}
         lead={page.hero.lead}
-        slot="builderFraming"
+        slot="builderHero"
         actions={
           <>
-            <C2Button href={page.hero.primary.href} variant="on-dark">
+            <C2Button href={page.hero.primary.href}>
               {page.hero.primary.label}
             </C2Button>
-            <C2Button href={site.phone.tel} variant="on-dark" icon="phone" trailingIcon={null} data-track="call-hero">
+            <C2Button href={site.phone.tel} variant="outline" icon="phone" trailingIcon={null} data-track="call-hero">
               {page.hero.secondary.label}
             </C2Button>
           </>
@@ -51,6 +52,9 @@ export function C2Builders() {
         </div>
       </section>
 
+      <C2Split id="builder-feature" slot="builderFraming" eyebrow={page.feature.eyebrow} heading={page.feature.heading} line={page.feature.line} ctaLabel={page.feature.cta} ctaHref="#request-a-bid" />
+      <C2Points id="why-builders" heading={page.reasons.heading} items={page.reasons.items} />
+
       <section className="c2-section c2-section--navy" aria-labelledby="c2-phases">
         <div className="c2-wrap">
           <h2 id="c2-phases" className="c2-h2">
@@ -68,9 +72,9 @@ export function C2Builders() {
         </div>
       </section>
 
+      <C2Faq heading={page.faqHeading} items={faqs.builders.items} illustrated />
       <C2BidForm />
-      <C2Faq heading={page.faqHeading} items={faqs.builders.items} />
-      <C2FinalCta />
-    </>
+      <C2FinalCta audience="builders" />
+    </div>
   );
 }
