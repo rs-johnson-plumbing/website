@@ -289,7 +289,7 @@ test("builder modal keeps details between steps and sends the image with the bid
   await modal.getByRole("button", { name: "Continue", exact: true }).click();
   await expect(modal.getByLabel("Project location")).toHaveValue("O'Fallon, MO");
   await modal.getByRole("button", { name: "Send Bid Request", exact: true }).click();
-  await expect(modal.getByRole("heading", { name: "Thank you." })).toBeVisible();
+  await expect(modal.getByRole("heading", { name: "Request Received" })).toBeVisible();
   expect(payload).toContain("Example Builders");
   expect(payload).toContain("plan.png");
 });
@@ -332,7 +332,7 @@ test("service workflow selects one category and follows up inline before contact
   await modal.getByRole("button", { name: "Send Service Request", exact: true }).click();
   await expect(modal.getByRole("alert")).toContainText("couldn’t send");
   await modal.getByRole("button", { name: "Send Service Request", exact: true }).click();
-  await expect(modal.getByRole("heading", { name: "Thank you." })).toBeVisible();
+  await expect(modal.getByRole("heading", { name: "Request Received" })).toBeVisible();
   expect(payload).toContain("Replace the old heater.");
   expect(payload).toContain("heater.png");
   expect(payload).toContain("10:00 a.m. - 12:00 p.m.");

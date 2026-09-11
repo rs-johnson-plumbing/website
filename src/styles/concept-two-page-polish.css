@@ -562,3 +562,14 @@
 }
 
 .c2 :is(.c2-homeowners,.c2-builders) .c2-trust-strip li svg { width:24px; height:24px; flex-shrink:0; }
+
+/* Compact confirmation for both request workflows. */
+.c2.ci-dialog.ci-success-dialog { width:min(560px,calc(100vw - 24px)); }
+.c2.ci-success-dialog .ci-body { padding:32px 28px 36px; }
+.c2.ci-success-dialog .ci-success { text-align:center; }
+.c2.ci-success-dialog .ci-success-mark { display:grid; place-items:center; width:64px; height:64px; border-radius:50%; margin:0 auto 20px; background:#eaf3fb; color:#3778d4; }
+.c2.ci-success-dialog .ci-success h2 { font-size:30px; margin:0 0 12px; }
+.c2.ci-success-dialog .ci-success p { font-size:16px; line-height:1.5; margin:0 auto 16px; max-width:360px; }
+.c2.ci-success-dialog .ci-success .ci-success-note { font-size:14px; color:#61718b; }
+.c2.ci-success-dialog .ci-success .c2-btn { min-width:160px; margin-top:8px; justify-content:center; }
+@media(max-width:600px) { .c2.ci-success-dialog .ci-body { padding:28px 20px; } }
