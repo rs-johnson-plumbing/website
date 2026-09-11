@@ -53,7 +53,7 @@ export function C2Homeowners() {
           </div>
           <C2ServiceGrid items={tiles} />
           <div className="c2-center c2-home-services-more">
-            <C2Button href="/services" variant="outline" size="sm">
+            <C2Button href="/services" variant="outline" className="c2-btn--quiet">
               {page.services.seeAll}
             </C2Button>
           </div>
