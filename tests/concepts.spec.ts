@@ -84,7 +84,7 @@ test("homepage service cards open modals and preserve the homepage", async ({ pa
       await expect(modal).toBeVisible();
       await expect(page).toHaveURL(/\/$/);
       await expect(modal.locator("li").first()).toBeVisible();
-      await expect.poll(() => modal.locator("img").evaluate((el: HTMLImageElement) => el.complete && el.naturalWidth > 0)).toBeTruthy();
+      await expect(modal.locator(".sd-art svg[data-illustration]")).toBeVisible();
       await modal.getByRole("button", { name: "Close service details" }).click();
       await expect(card).toBeFocused();
       expect(Math.abs(await page.evaluate(() => window.scrollY) - scroll)).toBeLessThanOrEqual(2);
@@ -232,7 +232,7 @@ test("every directory card opens its own modal and request hands off without sta
     const modal = page.locator(".c2-service-modal");
     await expect(modal).toBeVisible();
     await expect(modal.locator("li").first()).toBeVisible();
-    await expect.poll(() => modal.locator("img").evaluate((el: HTMLImageElement) => el.complete && el.naturalWidth > 0), { message: `Artwork for card ${i + 1}`, timeout: 10000 }).toBeTruthy();
+    await expect(modal.locator(".sd-art svg[data-illustration]")).toBeVisible();
     await modal.getByRole("button", { name: "Close service details" }).click();
     await expect(trigger).toBeFocused();
   }
@@ -246,15 +246,11 @@ test("every directory card opens its own modal and request hands off without sta
   await expect(page.locator("body")).not.toHaveCSS("position", "fixed");
 });
 
-test("detailed service artwork loads as responsive lazy images", async ({ page }) => {
+test("hybrid illustrations render in both service directories", async ({ page }) => {
   await page.goto("/services");
-  const art = page.locator(".dp-home .dp-card img").first();
-  await art.scrollIntoViewIfNeeded();
-  await expect(art).toHaveAttribute("loading", "lazy");
-  await expect.poll(() => art.evaluate((el: HTMLImageElement) => el.complete && el.naturalWidth > 0)).toBeTruthy();
-  const builderArt = page.locator(".dp-builders .dp-card img").first();
-  await builderArt.scrollIntoViewIfNeeded();
-  await expect.poll(() => builderArt.evaluate((el: HTMLImageElement) => el.complete && el.naturalWidth > 0)).toBeTruthy();
+  await expect(page.locator(".dp-home .dp-card svg[data-illustration]")).toHaveCount(8);
+  await expect(page.locator(".dp-builders .dp-card svg[data-illustration]")).toHaveCount(6);
+  await expect(page.locator(".dp-card img")).toHaveCount(0);
 });
 
 test("shared bottom actions open the correct workflow on every main page", async ({ page }) => {
@@ -263,7 +259,7 @@ test("shared bottom actions open the correct workflow on every main page", async
     for (const [button, title] of [["Submit Bid Request", "Request a Bid"], ["Request Service", "Request Service"]]) {
       await page.locator(".c2-final").getByRole("button", { name: button, exact: true }).click();
       await expect(page.getByRole("dialog", { name: title, exact: true })).toBeVisible();
-      await expect(page.getByRole("dialog").locator(".ci-progress li")).toHaveCount(title === "Request a Bid" ? 2 : 6);
+      await expect(page.getByRole("dialog").locator(".ci-progress li")).toHaveCount(title === "Request a Bid" ? 0 : 6);
       await page.keyboard.press("Escape");
     }
   }
@@ -353,4 +349,17 @@ test("footer services open details without navigating away", async ({ page }) =>
     await modal.getByRole("button", { name: "Close service details" }).click();
     await expect(trigger).toBeFocused();
   }
+});
+
+test("homeowners can open all eight services without leaving the page", async ({ page }) => {
+ await page.goto("/for-homeowners");
+ const cards = page.locator("#services .c2-service");
+ await expect(cards).toHaveCount(8);
+ for (let i = 0; i < 8; i++) {
+  await cards.nth(i).click();
+  await expect(page.locator(".c2-service-modal")).toBeVisible();
+  await expect(page).toHaveURL(/\/for-homeowners$/);
+  await page.getByRole("button", { name: "Close service details" }).click();
+ }
+ await expect(page.locator("#services").getByText("See All Services")).toHaveCount(0);
 });

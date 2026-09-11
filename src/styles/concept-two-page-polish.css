@@ -526,3 +526,31 @@
 @media(max-width:600px) {
  .c2 .c2-team .c2-hero-copy h1 { font-size:clamp(28px,8vw,34px); max-width:62%; }
 }
+
+/* Approved hybrid illustrations: shared artwork, simple interface icons. */
+.c2 .c2-service-grid .c2-service>svg { width:110px; height:130px; background:#eaf3fb; border-radius:6px; padding:8px; box-sizing:border-box; }
+.c2 .directory-preview .dp-card-trigger>svg { background:#eaf3fb; border-radius:6px; padding:8px; box-sizing:border-box; }
+.c2 .directory-preview .dp-house>svg { width:calc(100% - 76px); height:100%; transform:none; mask-image:none; }
+.c2 .c2-homeowners .c2-trust-strip { border:0; padding:20px 0 0; background:#fff; }
+.c2 .c2-homeowners .c2-trust-strip ul { display:flex; justify-content:center; gap:28px; max-width:940px; margin:0 auto; padding:16px 24px; border:0; background:#eaf3fb; border-radius:6px; }
+.c2 .c2-homeowners .c2-trust-strip li { flex:0 1 auto; gap:9px; padding:0; border:0; }
+.c2 .c2-homeowners #services { padding-top:30px; padding-bottom:40px; }
+.c2 .c2-homeowners #services .c2-section-head { margin-bottom:24px; }
+.c2 .c2-homeowners #services .c2-service-grid { grid-template-columns:repeat(4,minmax(0,1fr)); gap:16px; }
+.c2 .c2-homeowners #services .c2-service { padding:16px; min-height:190px; gap:12px; }
+.c2.ci-dialog .ci-progress { padding-bottom:10px; }
+.c2.ci-dialog .ci-progress ol { display:grid; grid-template-columns:repeat(6,minmax(0,1fr)); }
+.c2.ci-dialog .ci-progress li { display:flex; flex-direction:column; align-items:center; gap:7px; min-width:0; }
+.c2.ci-dialog .ci-progress li:after { position:absolute; height:3px; top:12px; left:calc(50% + 13px); width:calc(100% - 26px); z-index:0; }
+.c2.ci-dialog .ci-progress li span { position:relative; z-index:1; }
+.c2.ci-dialog .ci-progress li small { font-size:12px; font-weight:600; color:#61718b; white-space:nowrap; }
+.c2.ci-dialog .ci-progress li[aria-current] small { color:#2869bd; font-weight:700; }
+@media(max-width:767px) {
+ .c2 .c2-homeowners .c2-trust-strip ul { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:14px 12px; padding:16px; }
+ .c2 .c2-homeowners .c2-trust-strip li { font-size:13px; }
+ .c2 .c2-homeowners #services .c2-service-grid { grid-template-columns:repeat(2,minmax(0,1fr)); gap:12px; }
+ .c2 .c2-homeowners #services .c2-service { min-height:170px; padding:12px 8px; font-size:15px; }
+ .c2 .c2-service-grid .c2-service>svg { width:90px; height:108px; }
+ .c2 .directory-preview .dp-house>svg { width:calc(100% - 68px); }
+ .c2.ci-dialog .ci-progress li small { font-size:10px; }
+}

@@ -17,7 +17,7 @@ const categories = [
   { name: "Flooding", art: "pump", question: "Where is the water coming from?", options: ["Burst Pipe", "Sump Pump", "Basement", "Sewer Backup", "Not Sure"] },
   { name: "Other", art: "service", question: "How can we help?", options: [] },
 ];
-const serviceSteps = ["Service area", "Choose a service", "Photos", "Contact information", "Preferred arrival", "Review"];
+const serviceSteps = ["Area", "Service", "Photos", "Contact", "Arrival", "Submit"];
 const bidSteps = ["Contact information", "Project details"];
 const times = ["8:00 a.m. - 10:00 a.m.", "10:00 a.m. - 12:00 p.m.", "12:00 p.m. - 2:00 p.m.", "2:00 p.m. - 4:00 p.m."];
 const maxFileBytes = 4 * 1024 * 1024;
@@ -158,7 +158,7 @@ export function C2IntakeDialog({ kind, onClose }: { kind: Kind; onClose: () => v
     if (event.clientX < r.left || event.clientX > r.right || event.clientY < r.top || event.clientY > r.bottom) onClose();
   }}>
     <header className="ci-header"><Lockup title={site.name} /><button type="button" aria-label={isBid ? "Close bid request" : "Close service request"} onClick={onClose} disabled={status === "sending"}><C2Icon name="close" size={22} /></button></header>
-    {status !== "done" && <div className="ci-progress"><ol aria-label="Request progress">{steps.map((label, i) => <li key={label} className={i <= step ? "ci-reached" : ""} aria-current={i === step ? "step" : undefined}><span aria-label={label}>{i < step ? "✓" : i + 1}</span></li>)}</ol></div>}
+    {status !== "done" && !isBid && <div className="ci-progress"><ol aria-label="Request progress">{steps.map((label, i) => <li key={label} className={i <= step ? "ci-reached" : ""} aria-current={i === step ? "step" : undefined}><span aria-label={label}>{i < step ? "✓" : i + 1}</span><small>{label}</small></li>)}</ol></div>}
     <form ref={form} onSubmit={advance}>
       <div className="ci-body" ref={body}>
         {status === "done" ? <><h2 tabIndex={-1}>Thank you.</h2><p>Your request has been received.</p>{!isBid && <p>Your preferred arrival window still needs confirmation.</p>}<C2Button onClick={onClose}>Done</C2Button></> : <>
@@ -166,7 +166,7 @@ export function C2IntakeDialog({ kind, onClose }: { kind: Kind; onClose: () => v
             {step === 0 ? <><h2 tabIndex={-1}>Let’s talk about your next build.</h2><p>Start with the best person to contact.</p><div className="ci-fields"><Field name="contractor" label="Company name" required fields={fields} change={change} autoComplete="organization" /><Field name="contactName" label="Your name" required fields={fields} change={change} autoComplete="name" /><Field name="email" label="Email" type="email" required fields={fields} change={change} autoComplete="email" /><Field name="phone" label="Phone" type="tel" pattern="[+()0-9 .-]{10,}" required fields={fields} change={change} autoComplete="tel" /></div></> :
               <><h2 tabIndex={-1}>Tell us about the project.</h2><div className="ci-fields"><Field name="projectLocation" label="Project location" required fields={fields} change={change} autoComplete="street-address" /><label><span>Project type *</span><select name="projectType" value={fields.projectType} onChange={event => change("projectType", event.target.value)}>{["Single Family", "Multi-Family", "Commercial", "Remodel", "Other"].map(type => <option key={type}>{type}</option>)}</select></label></div><label><span>Project details *</span><textarea name="projectDetails" rows={4} required maxLength={2000} value={fields.projectDetails || ""} onChange={event => change("projectDetails", event.target.value)} placeholder="Scope, timing, and anything we should know." /></label>{photos}</>}
           </> : <>
-            {step === 0 && <><h2 tabIndex={-1}>Where do you need service?</h2><p>Serving St. Charles and St. Louis.</p><Field name="zip" label="ZIP code" required pattern="[0-9]{5,6}" fields={fields} change={change} autoComplete="postal-code" /></>}
+            {step === 0 && <><h2 tabIndex={-1}>Where do you need service?</h2><Field name="zip" label="ZIP code" required pattern="[0-9]{5,6}" fields={fields} change={change} autoComplete="postal-code" /></>}
             {step === 1 && <><h2 tabIndex={-1}>What can we help you with?</h2>{selected && !choosingCategory ? <div className="ci-selection"><strong>{selected.name}</strong><button type="button" onClick={() => setChoosingCategory(true)}>Change Service</button></div> : <div className="ci-categories" role="group" aria-label="Service type">{categories.map(category => <button type="button" key={category.name} aria-pressed={fields.category === category.name} onClick={() => { setFields(old => old.category === category.name ? old : ({ ...old, category: category.name, issue: "", details: "" })); setChoosingCategory(false); }}><ServiceSketch id={category.art} /><span>{category.name}</span></button>)}</div>}
               {selected && !choosingCategory && <div className="ci-followup"><h3>{selected.question}</h3>{selected.options.length > 0 && <div className="ci-options" role="group" aria-label={selected.question}>{selected.options.map(option => <button type="button" key={option} aria-pressed={fields.issue === option} onClick={() => change("issue", option)}>{option}</button>)}</div>}<label><span>{fields.category === "Other" ? "What do you need? *" : "What’s happening? (optional)"}</span><textarea name="details" rows={3} required={fields.category === "Other"} maxLength={2000} value={fields.details || ""} onChange={event => change("details", event.target.value)} placeholder="Where is the problem? When did it start?" /></label>{fields.category === "Flooding" && <p>Need urgent help? <a href={site.phone.tel}>Call {site.phone.display}</a>.</p>}</div>}</>}
             {step === 2 && <><h2 tabIndex={-1}>Show us what’s happening.</h2><p>A photo can help us prepare for your visit.</p>{photos}</>}
@@ -177,7 +177,7 @@ export function C2IntakeDialog({ kind, onClose }: { kind: Kind; onClose: () => v
           {error && <p className="ci-error" role="alert">{error}</p>}
         </>}
       </div>
-      {status !== "done" && <footer className="ci-footer"><div>{step > 0 ? <button type="button" className="ci-back" disabled={status === "sending"} onClick={() => { setStep(value => value - 1); setError(""); }}>← Back</button> : <span />}<C2Button type="submit" disabled={status === "sending"}>{status === "sending" ? "Sending…" : step === steps.length - 1 ? isBid ? "Send Bid Request" : "Send Service Request" : "Continue"}</C2Button></div><p>Prefer to talk? <a href={site.phone.tel}>{site.phone.display}</a></p></footer>}
+      {status !== "done" && <footer className="ci-footer"><div>{step > 0 ? <button type="button" className="ci-back" disabled={status === "sending"} onClick={() => { setStep(value => value - 1); setError(""); }}>← Back</button> : <span />}<C2Button type="submit" disabled={status === "sending"}>{status === "sending" ? "Sending…" : step === steps.length - 1 ? isBid ? "Send Bid Request" : "Send Service Request" : "Continue"}</C2Button></div></footer>}
     </form>
   </dialog>, document.body);
 }

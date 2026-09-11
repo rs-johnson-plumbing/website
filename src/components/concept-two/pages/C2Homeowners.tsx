@@ -1,5 +1,8 @@
 "use client";
 
+import { useState, useCallback } from "react";
+import type { Service } from "@/lib/content";
+import { C2ServiceDetails } from "../ui/C2ServiceDetails";
 import { conceptTwo as copy, faqs, site, services } from "@/lib/content";
 import { C2PageHero } from "../sections/C2PageHero";
 import { C2TrustStrip } from "../sections/C2TrustStrip";
@@ -13,12 +16,12 @@ import { useRequestService } from "../ui/C2Request";
 import { drawingFor, c2Label } from "../ui/drawingFor";
 
 const tiles = services
-  .filter((service) => service.slug !== "emergency-plumbing")
-  .slice(0, 6)
   .map((service) => ({ id: drawingFor(service.slug), label: c2Label(service.slug, service.name), href: `/services/${service.slug}` }));
 
 export function C2Homeowners() {
   const page = copy.homeowners;
+  const [selected, setSelected] = useState<Service | null>(null);
+  const closeDetails = useCallback(() => setSelected(null), []);
   const requestService = useRequestService();
 
   return (
@@ -46,16 +49,11 @@ export function C2Homeowners() {
           <div className="c2-section-head">
             <div>
               <h2 id="c2-home-services" className="c2-h2">
-                {page.services.heading}
+                Homeowner Services
               </h2>
             </div>
           </div>
-          <C2ServiceGrid items={tiles} detailed />
-          <div className="c2-center c2-home-services-more">
-            <C2Button href="/services" variant="outline" className="c2-btn--quiet">
-              {page.services.seeAll}
-            </C2Button>
-          </div>
+          <C2ServiceGrid items={tiles} columns={4} detailed onSelect={item => setSelected(services.find(service => item.href === `/services/${service.slug}`) ?? null)} />
         </div>
       </section>
 
@@ -63,6 +61,7 @@ export function C2Homeowners() {
       <C2Reviews heading={page.reviews.heading} showProof={false} />
       <C2Faq heading={page.faq.heading} items={faqs.homeowners.items} illustrated />
       <C2FinalCta />
+      {selected && <C2ServiceDetails service={selected} onClose={closeDetails} onRequest={() => { setSelected(null); requestService(); }} />}
     </div>
   );
 }
