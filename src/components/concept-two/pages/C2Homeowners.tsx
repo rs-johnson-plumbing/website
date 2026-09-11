@@ -43,18 +43,20 @@ export function C2Homeowners() {
 
       <section id="services" className="c2-section c2-section--paper" aria-labelledby="c2-home-services">
         <div className="c2-wrap">
-          <div className="c2-section-head c2-section-head--split">
+          <div className="c2-section-head">
             <div>
               <h2 id="c2-home-services" className="c2-h2">
                 {page.services.heading}
               </h2>
               <p>{page.services.line}</p>
             </div>
+          </div>
+          <C2ServiceGrid items={tiles} />
+          <div className="c2-center c2-home-services-more">
             <C2Button href="/services" variant="outline" size="sm">
               {page.services.seeAll}
             </C2Button>
           </div>
-          <C2ServiceGrid items={tiles} />
         </div>
       </section>
 
