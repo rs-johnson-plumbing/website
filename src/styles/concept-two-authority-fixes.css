@@ -1,0 +1,204 @@
+/*
+ * Concept 2 visual-authority overrides.
+ *
+ * These rules are intentionally loaded after concept-two.css. They tune the
+ * live implementation toward the supplied Modern Plumbing visual authority,
+ * especially the phone hero, CTA buttons, trust row, and builder band.
+ */
+
+.c2 {
+  --c2-blue: #0876d1;
+  --c2-blue-dark: #075fa9;
+  --c2-blue-tint: #eaf3fb;
+  --c2-deep: #0a4f8f;
+}
+
+/* The generated/illustrative marker is useful during production, but it is
+   visually absent in the authority design and should not sit on the hero. */
+.c2 .c2-photo-note { display: none !important; }
+
+/* Builder CTA is a filled white button in both the desktop and phone authority. */
+.c2 .c2-builder-copy .c2-btn--on-dark {
+  background: #fff;
+  color: var(--c2-navy);
+  border-color: #fff;
+  min-width: 178px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+}
+.c2 .c2-builder-copy .c2-btn--on-dark:hover {
+  background: #f7fbff;
+  color: var(--c2-blue);
+  border-color: #f7fbff;
+}
+.c2 .c2-builder-copy .c2-btn--on-dark svg:last-child { color: var(--c2-blue); }
+.c2 .c2-builder-photo img { object-position: 52% 50%; }
+
+@media (max-width: 1023px) {
+  /* --- Hero: use a dedicated house-only background on phones. ---
+     The visual authority has a recognizable suburban house behind the upper
+     right of the copy, then fades back to cream before the trust row. */
+  .c2 .c2-hero {
+    background: var(--c2-paper);
+  }
+  .c2 .c2-hero-inner {
+    min-height: 0;
+  }
+  .c2 .c2-hero-copy {
+    padding-top: 25px;
+    padding-bottom: 27px;
+  }
+  .c2 .c2-hero-media {
+    background-image: url('/images/concept-two/mobile-hero-house.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center 8%;
+  }
+  .c2 .c2-hero-media > img {
+    display: none !important;
+  }
+  .c2 .c2-hero-media::after {
+    background:
+      linear-gradient(
+        90deg,
+        rgba(251,249,247,1) 0%,
+        rgba(251,249,247,.98) 20%,
+        rgba(251,249,247,.93) 36%,
+        rgba(251,249,247,.72) 52%,
+        rgba(251,249,247,.34) 70%,
+        rgba(251,249,247,.08) 88%,
+        rgba(251,249,247,0) 100%
+      ),
+      linear-gradient(
+        180deg,
+        rgba(251,249,247,.06) 0%,
+        rgba(251,249,247,.08) 42%,
+        rgba(251,249,247,.36) 62%,
+        rgba(251,249,247,.82) 79%,
+        rgba(251,249,247,1) 91%
+      );
+  }
+
+  /* Match the mobile hierarchy: very bold main line, lighter/smaller secondary. */
+  .c2 .c2-hero h1 {
+    font-size: clamp(39px, 10.9vw, 46px);
+    line-height: .98;
+    letter-spacing: -0.04em;
+  }
+  .c2 .c2-hero-sub {
+    margin-top: 10px;
+    max-width: 12.5em;
+    font-size: clamp(23px, 6.35vw, 27px);
+    line-height: 1.13;
+    letter-spacing: -0.025em;
+    font-weight: 400;
+    color: #656b73;
+  }
+
+  /* Hero doors: brighter Johnson blue, shorter/tighter than the current site,
+     larger iconography, and an opaque white second door like the authority. */
+  .c2 .c2-hero-actions {
+    gap: 10px;
+    margin-top: 19px;
+  }
+  .c2 .c2-hero-actions .c2-btn {
+    min-height: 55px;
+    border-radius: 8px;
+    padding-inline: 20px;
+    font-size: 16px;
+    gap: 14px;
+  }
+  .c2 .c2-hero-actions .c2-btn svg {
+    width: 23px;
+    height: 23px;
+  }
+  .c2 .c2-hero-actions .c2-btn svg:last-child {
+    width: 20px;
+    height: 20px;
+    margin-left: 2px;
+  }
+  .c2 .c2-hero-actions .c2-btn--filled {
+    background: var(--c2-blue);
+    border-color: var(--c2-blue);
+    color: #fff;
+  }
+  .c2 .c2-hero-actions .c2-btn--outline {
+    background: rgba(255,255,255,.94);
+    border-color: var(--c2-blue);
+    color: var(--c2-blue);
+    box-shadow: 0 1px 2px rgba(13,42,77,.04);
+  }
+
+  /* Trust row: three equal columns, authority icon order is star / people /
+     shield, with restrained separators and compact two-line labels. */
+  .c2 .c2-hero-trust {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 0;
+    margin-top: 22px;
+  }
+  .c2 .c2-hero-trust > div {
+    justify-content: center;
+    gap: 8px;
+    min-width: 0;
+    padding-inline: 7px;
+  }
+  .c2 .c2-hero-trust > div + div {
+    margin-left: 0;
+    padding-left: 7px;
+    border-left: 1px solid #ddd9d2;
+  }
+  .c2 .c2-hero-trust svg {
+    width: 29px;
+    height: 29px;
+    flex: 0 0 auto;
+  }
+  .c2 .c2-hero-trust span {
+    font-size: 12px;
+    line-height: 1.22;
+    white-space: normal;
+    color: #2f3337;
+  }
+
+  /* Services begin closer to the authority after the hero. */
+  .c2 .c2-service-block { margin-top: 16px; }
+
+  /* Builder band: preserve the diagonal seam on phones, give the framing
+     photograph nearly half the width, and use the white Request a Bid button. */
+  .c2 .c2-builder-band {
+    grid-template-columns: 55% 45%;
+    min-height: 222px;
+  }
+  .c2 .c2-builder-copy {
+    position: relative;
+    z-index: 2;
+    padding: 26px 14px 28px var(--c2-gutter);
+  }
+  .c2 .c2-builder-copy h2 {
+    margin-top: 10px;
+    font-size: clamp(28px, 7.8vw, 32px);
+    line-height: 1.03;
+  }
+  .c2 .c2-builder-copy .c2-btn {
+    margin-top: 20px;
+    min-height: 48px;
+    padding-inline: 18px;
+    font-size: 14px;
+  }
+  .c2 .c2-builder-photo {
+    min-height: 222px;
+    margin-left: -13%;
+    width: 113%;
+    clip-path: polygon(13% 0, 100% 0, 100% 100%, 0 100%);
+  }
+  .c2 .c2-builder-photo img {
+    object-position: 48% 50%;
+  }
+}
+
+@media (min-width: 1024px) {
+  /* Desktop authority uses a brighter button blue than the first C2 pass. */
+  .c2 .c2-hero-actions .c2-btn--filled {
+    background: var(--c2-blue);
+    border-color: var(--c2-blue);
+  }
+}

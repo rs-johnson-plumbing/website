@@ -6,6 +6,7 @@ import { ConceptProvider } from "@/components/concepts/ConceptProvider";
 import { ConceptShell } from "@/components/concepts/ConceptChrome";
 import "./globals.css";
 import "@/styles/concept-two.css";
+import "@/styles/concept-two-authority-fixes.css";
 
 const figtree = Figtree({
   subsets: ["latin"],
