@@ -204,12 +204,13 @@ test("service modals preserve the directory, scroll and keyboard focus", async (
     await expect(modal.getByRole("link", { name: "Call", exact: true })).toHaveAttribute("href", /^tel:/);
     await expect(modal.getByRole("button", { name: "Request Service", exact: true })).toBeVisible();
     await expect(modal).not.toContainText("[confirm]");
+    await expect(modal.locator(".sd-assurance")).toHaveText("We explain your options before work begins.");
     const during = await trigger.boundingBox();
     expect(Math.abs(during!.x - before!.x)).toBeLessThanOrEqual(2);
     expect(Math.abs(during!.y - before!.y)).toBeLessThanOrEqual(2);
     await expect(modal.getByRole("button", { name: "Close service details" })).toBeFocused();
     await page.keyboard.press("Shift+Tab");
-    await expect(modal.getByRole("button", { name: "Request Service", exact: true })).toBeFocused();
+    await expect(modal.getByRole("link", { name: "Call", exact: true })).toBeFocused();
     await page.keyboard.press("Tab");
     await expect(modal.getByRole("button", { name: "Close service details" })).toBeFocused();
     await page.keyboard.press("Escape");
