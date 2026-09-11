@@ -175,28 +175,70 @@ test("builders page keeps homeowner typography and routes bid actions correctly"
   }
 });
 
-test("services directory separates audiences and expands service details on phones", async ({ page }) => {
-  await page.setViewportSize({ width: 390, height: 844 });
+test("service modals preserve the directory, scroll and keyboard focus", async ({ page }) => {
+  for (const width of [390, 1440]) {
+    await page.setViewportSize({ width, height: 844 });
+    await page.goto("/services");
+    await expect(page.locator(".dp-home .dp-card")).toHaveCount(8);
+    await expect(page.locator(".dp-builders .dp-card")).toHaveCount(6);
+    const trigger = page.getByRole("button", { name: "View details: Water Heaters", exact: true });
+    await trigger.scrollIntoViewIfNeeded();
+    const before = await trigger.boundingBox();
+    const scroll = await page.evaluate(() => window.scrollY);
+    await trigger.click();
+    const modal = page.getByRole("dialog", { name: "Water Heaters", exact: true });
+    await expect(modal).toBeVisible();
+    await expect(modal.getByRole("heading", { name: "What We Do" })).toBeVisible();
+    await expect(modal.getByRole("heading", { name: "Common Problems" })).toBeVisible();
+    await expect(modal.getByRole("link", { name: "Call", exact: true })).toHaveAttribute("href", /^tel:/);
+    await expect(modal.getByRole("button", { name: "Request Service", exact: true })).toBeVisible();
+    await expect(modal).not.toContainText("[confirm]");
+    const during = await trigger.boundingBox();
+    expect(Math.abs(during!.x - before!.x)).toBeLessThanOrEqual(2);
+    expect(Math.abs(during!.y - before!.y)).toBeLessThanOrEqual(2);
+    await expect(modal.getByRole("button", { name: "Close service details" })).toBeFocused();
+    await page.keyboard.press("Shift+Tab");
+    await expect(modal.getByRole("button", { name: "Request Service", exact: true })).toBeFocused();
+    await page.keyboard.press("Tab");
+    await expect(modal.getByRole("button", { name: "Close service details" })).toBeFocused();
+    await page.keyboard.press("Escape");
+    await expect(modal).toHaveCount(0);
+    await expect(trigger).toBeFocused();
+    expect(Math.abs(await page.evaluate(() => window.scrollY) - scroll)).toBeLessThanOrEqual(2);
+    expect(await page.evaluate(() => document.documentElement.scrollWidth)).toBeLessThanOrEqual(width);
+  }
+});
+
+test("every directory card opens its own modal and request hands off without stacked dialogs", async ({ page }) => {
   await page.goto("/services");
-  await expect(page.locator(".c2-hero")).toHaveCount(0);
-  await expect(page.locator(".dp-home details")).toHaveCount(8);
-  await expect(page.locator(".dp-builders details")).toHaveCount(6);
-  const service = page.locator(".dp-home details").first();
-  await service.locator("summary").click();
-  await expect(service).toHaveAttribute("open", "");
-  await expect(service.getByRole("heading", { name: "What we do" })).toBeVisible();
-  await service.locator("summary").click();
-  await expect(service).not.toHaveAttribute("open", "");
-  expect(await page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth)).toBeTruthy();
+  const cards = page.locator(".dp-card-trigger");
+  for (let i = 0; i < await cards.count(); i++) {
+    const trigger = cards.nth(i);
+    await trigger.click();
+    const modal = page.locator(".c2-service-modal");
+    await expect(modal).toBeVisible();
+    await expect(modal.locator("li").first()).toBeVisible();
+    await expect.poll(() => modal.locator("img").evaluate((el: HTMLImageElement) => el.complete && el.naturalWidth > 0)).toBeTruthy();
+    await modal.getByRole("button", { name: "Close service details" }).click();
+    await expect(trigger).toBeFocused();
+  }
+  await cards.first().click();
+  await page.locator(".c2-service-modal").getByRole("button", { name: "Request Service", exact: true }).click();
+  await expect(page.locator(".c2-service-modal")).toHaveCount(0);
+  await expect(page.getByRole("dialog")).toHaveCount(1);
+  await expect(page.getByRole("dialog").locator("input").first()).toBeFocused();
+  await page.keyboard.press("Escape");
+  await expect(page.getByRole("dialog")).toHaveCount(0);
+  await expect(page.locator("body")).not.toHaveCSS("position", "fixed");
 });
 
 test("detailed service artwork loads as responsive lazy images", async ({ page }) => {
   await page.goto("/services");
-  const art = page.locator(".dp-home details img").first();
+  const art = page.locator(".dp-home .dp-card img").first();
   await art.scrollIntoViewIfNeeded();
   await expect(art).toHaveAttribute("loading", "lazy");
   await expect.poll(() => art.evaluate((el: HTMLImageElement) => el.complete && el.naturalWidth > 0)).toBeTruthy();
-  const builderArt = page.locator(".dp-builders details img").first();
+  const builderArt = page.locator(".dp-builders .dp-card img").first();
   await builderArt.scrollIntoViewIfNeeded();
   await expect.poll(() => builderArt.evaluate((el: HTMLImageElement) => el.complete && el.naturalWidth > 0)).toBeTruthy();
 });
