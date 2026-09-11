@@ -3,10 +3,10 @@ import type { ReactNode } from "react";
 const navy = "#102b50", blue = "#439df2", pale = "#dcedfc";
 /** Bold brand silhouettes with restrained drafting detail. Shared by cards and dialogs. */
 function Detail({ children }: { children: ReactNode }) {
- return <g fill="none" stroke="#367bb4" strokeWidth=".8" opacity=".75">{children}</g>;
+ return <g className="c2-sketch-detail" fill="none" stroke="#367bb4" strokeWidth=".8" opacity=".75">{children}</g>;
 }
 function Tube({d,width=15}:{d:string;width?:number}) {
- return <g fill="none"><path d={d} stroke={navy} strokeWidth={width+5}/><path d={d} stroke={blue} strokeWidth={width}/><path d={d} stroke={pale} strokeWidth={Math.max(2,width*.3)} transform="translate(-2 -2)"/></g>;
+ return <g fill="none"><path d={d} stroke={navy} strokeWidth={width+5}/><path d={d} stroke={blue} strokeWidth={width}/><path d={d} stroke={pale} strokeWidth={Math.max(2,width*.3)} transform="translate(-2 -2)"/><path className="c2-sketch-flow" d={d} stroke="white" strokeWidth={Math.max(2,width*.25)} strokeDasharray="7 14" opacity="0"/></g>;
 }
 function Joint({x,y,turn=0}:{x:number;y:number;turn?:number}) {
  return <g transform={`translate(${x} ${y}) rotate(${turn})`}><rect x="-6" y="-13" width="12" height="26" rx="1.5" fill="white" strokeWidth="3.5"/><Detail><path d="M1-9V9M4-9V9"/></Detail></g>;
@@ -46,18 +46,18 @@ function Artwork({id}:{id:string}) {
  }
 }
 export function ServiceSketch({id,className}:{id:string;className?:string}) {
- return <svg viewBox="0 0 160 190" className={className} data-illustration={id} fill="none" stroke={navy} strokeWidth="4.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" focusable="false"><Artwork id={id}/></svg>;
+ return <svg viewBox="0 0 160 190" className={className} data-illustration={id} fill="none" stroke={navy} strokeWidth="4.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" focusable="false"><g className="c2-sketch-art"><Artwork id={id}/></g></svg>;
 }
 export function PipeBanner() {
  return <svg viewBox="0 0 520 190" preserveAspectRatio="xMaxYMid slice" fill="none" stroke={navy} strokeWidth="4" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
  <Tube d="M25 159H85Q112 159 112 131V95Q112 58 153 58H238Q278 58 278 25V0M238 58H540" width={24}/>
  <style>{`
- .c2-pipe-flow { animation: c2-water-flow 1.4s linear infinite; }
+ .c2-pipe-flow { animation: c2-water-flow 3s linear infinite; }
  @keyframes c2-water-flow { from { stroke-dashoffset: 0; } to { stroke-dashoffset: -48; } }
  @media (prefers-reduced-motion: reduce) { .c2-pipe-flow { animation: none; } }
  `}</style>
- <g stroke="#ffffff" strokeWidth="7">
- <path className="c2-pipe-flow" d="M25 159H85Q112 159 112 131V95Q112 58 153 58H540" strokeDasharray="22 26"/>
+ <g stroke="#ffffff" strokeWidth="5" opacity=".85">
+ <path className="c2-pipe-flow" d="M540 58H153Q112 58 112 95V131Q112 159 85 159H25" strokeDasharray="22 26"/>
  <path className="c2-pipe-flow" d="M278 0V25Q278 58 238 58" strokeDasharray="22 26"/>
  </g>
  {[[45,159,0],[112,111,90],[157,58,0],[224,58,0],[278,17,90],[326,58,0],[423,58,0]].map(([x,y,turn])=><Joint key={x+"-"+y} x={x} y={y} turn={turn}/>)}

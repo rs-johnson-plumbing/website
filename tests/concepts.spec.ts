@@ -314,10 +314,24 @@ test("service workflow selects one category and follows up inline before contact
   await expect(modal.locator(".ci-selection")).toContainText("Install");
   await expect(modal.getByRole("heading", { name: "What would you like installed?" })).toBeVisible();
   await modal.getByRole("button", { name: "Water Heater", exact: true }).click();
+  await expect(modal.locator(".ci-options")).toHaveCount(0);
+  await expect(modal.getByRole("button", { name: "Change Selection", exact: true })).toBeFocused();
   await modal.getByLabel("What’s happening?").fill("Replace the old heater.");
+  await modal.getByRole("button", { name: "Change Selection", exact: true }).click();
+  await expect(modal.getByRole("button", { name: "Water Heater", exact: true })).toHaveAttribute("aria-pressed", "true");
+  await modal.getByRole("button", { name: "Water Heater", exact: true }).click();
+  await expect(modal.getByLabel("What’s happening?")).toHaveValue("Replace the old heater.");
   await modal.getByRole("button", { name: "Continue", exact: true }).click();
   await modal.locator('input[type=file]').first().setInputFiles({ name: "heater.png", mimeType: "image/png", buffer: Buffer.from("iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8/x8AAwMCAO+aE1sAAAAASUVORK5CYII=", "base64") });
   await expect(modal.getByRole("img", { name: "Preview of heater.png", exact: true })).toBeVisible();
+  await expect(modal.getByRole("button", { name: "Add More Photos", exact: true })).toBeVisible();
+  await modal.locator('input[capture=environment]').setInputFiles({ name: "camera.png", mimeType: "image/png", buffer: Buffer.from("iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8/x8AAwMCAO+aE1sAAAAASUVORK5CYII=", "base64") });
+  await expect(modal.locator(".ci-files li")).toHaveCount(2);
+  await modal.getByRole("button", { name: "Remove heater.png", exact: true }).click();
+  await modal.getByRole("button", { name: "Remove camera.png", exact: true }).click();
+  await expect(modal.getByRole("button", { name: "Upload Photos", exact: true })).toBeVisible();
+  await modal.locator('input[capture=environment]').setInputFiles({ name: "heater.png", mimeType: "image/png", buffer: Buffer.from("iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8/x8AAwMCAO+aE1sAAAAASUVORK5CYII=", "base64") });
+  await expect(modal.getByRole("button", { name: "Add More Photos", exact: true })).toBeVisible();
   await expect(modal.locator('input[capture=environment]')).toHaveAttribute("accept", "image/*");
   await modal.getByRole("button", { name: "Continue", exact: true }).click();
   for (const [label, value] of [["First name", "Alex"], ["Last name", "Taylor"], ["Email", "alex@example.com"], ["Phone", "3145550100"], ["Street address", "123 Example Lane"], ["City", "O'Fallon"]]) await modal.getByLabel(label, { exact: false }).fill(value);
@@ -362,4 +376,47 @@ test("homeowners can open all eight services without leaving the page", async ({
   await page.getByRole("button", { name: "Close service details" }).click();
  }
  await expect(page.locator("#services").getByText("See All Services")).toHaveCount(0);
+});
+
+test("request forms retain entered data after outside clicks", async ({ page }) => {
+  await page.setViewportSize({ width: 1440, height: 900 });
+  await page.goto("/services");
+  for (const [action, title, field, value] of [
+    ["Request Service", "Request Service", "ZIP code", "63368"],
+    ["Submit Bid Request", "Request a Bid", "Company name", "Example Builders"]
+  ]) {
+    await page.locator(".c2-final").getByRole("button", { name: action, exact: true }).click();
+    const modal = page.getByRole("dialog", { name: title, exact: true });
+    await modal.getByLabel(field).fill(value);
+    await page.mouse.click(2, 2);
+    await expect(modal).toBeVisible();
+    await expect(modal.getByLabel(field)).toHaveValue(value);
+    await modal.getByRole("button", { name: title === "Request Service" ? "Close service request" : "Close bid request" }).click();
+    await expect(modal).toHaveCount(0);
+  }
+});
+
+test.describe("desktop pointer interactions", () => {
+ test.use({ isMobile: false, hasTouch: false });
+ test("service tile motion follows hover and respects reduced motion", async ({ page }) => {
+  await page.setViewportSize({ width: 1440, height: 900 });
+  await page.emulateMedia({ reducedMotion: "no-preference" });
+  for (const route of ["/", "/services", "/for-homeowners", "/for-builders"]) {
+    await page.goto(route);
+    const tile = page.locator(".c2-service, .dp-card-trigger").first();
+    const art = tile.locator(".c2-sketch-art");
+    await tile.hover();
+    await expect(art).toHaveCSS("animation-name", "c2-tile-lift");
+    await page.emulateMedia({ reducedMotion: "reduce" });
+    await expect(art).toHaveCSS("animation-name", "none");
+    await page.emulateMedia({ reducedMotion: "no-preference" });
+  }
+  await page.goto("/services");
+  const leaks = page.getByRole("button", { name: "View details: Leaks & Repairs", exact: true });
+  await leaks.hover();
+  await expect(leaks.locator(".c2-sketch-flow")).toHaveCSS("animation-name", "c2-tile-water");
+  await page.mouse.move(0, 0);
+  await expect(leaks.locator(".c2-sketch-flow")).toHaveCSS("animation-name", "none");
+});
+
 });
