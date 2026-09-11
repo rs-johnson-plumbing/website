@@ -430,3 +430,28 @@ test.describe("desktop pointer interactions", () => {
 });
 
 });
+
+for (const route of ["/", "/services", "/for-homeowners", "/for-builders"]) {
+ test(`phone illustrations animate briefly on entry: ${route}`, async ({ page }) => {
+  await page.emulateMedia({ reducedMotion: "no-preference" });
+  await page.goto(route);
+  const tile = page.locator(".c2-service, .dp-card-trigger").first();
+  const svg = tile.locator("svg[data-illustration]");
+  const detail = tile.locator("[data-motion], .c2-sketch-flow").first();
+  await tile.scrollIntoViewIfNeeded();
+  await expect(svg).toHaveAttribute("data-mobile-active", "true");
+  await expect(detail).not.toHaveCSS("animation-name", "none");
+  await expect(tile.locator(".c2-sketch-art")).toHaveCSS("animation-name", "none");
+  await expect(svg).not.toHaveAttribute("data-mobile-active", "true", { timeout: 5000 });
+  await expect(detail).toHaveCSS("animation-name", "none");
+  await page.evaluate(() => window.scrollTo({ top: document.documentElement.scrollHeight, behavior: "instant" }));
+  await expect(tile).not.toBeInViewport();
+  await tile.scrollIntoViewIfNeeded();
+  await expect(svg).toHaveAttribute("data-mobile-active", "true");
+  await page.emulateMedia({ reducedMotion: "reduce" });
+  await expect(svg).not.toHaveAttribute("data-mobile-active", "true");
+  await expect(detail).toHaveCSS("animation-name", "none");
+  await tile.click();
+  await expect(page.locator(".c2-service-modal")).toBeVisible();
+ });
+}
