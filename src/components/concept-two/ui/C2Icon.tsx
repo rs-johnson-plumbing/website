@@ -95,10 +95,8 @@ const paths: Record<C2IconName, ReactNode> = {
   ),
   "hard-hat": (
     <>
-      <path d="m4 4 16 16-3 2L2 7Z" />
-      <path d="m6 7 2-2m2 6 2-2m2 6 2-2" stroke="#0876D1" />
-      <path d="m4 20 9-9 3 3-9 9Z" fill="white" />
-      <path d="m12 7 5-5 5 5-2 2-2-2-3 3Z" fill="white" />
+      <path d="M13.7 8.3 4.6 17.4a1.9 1.9 0 0 0 2.7 2.7l9.1-9.1" />
+      <path d="M12.2 3.4 21 12.2l-2.5 2.5-1.6-1.6-3.7-3.7-1.6-1.6Z" />
     </>
   ),
   check: <path d="m5 12.6 4.5 4.4L19 7.4" strokeWidth="2" />,
