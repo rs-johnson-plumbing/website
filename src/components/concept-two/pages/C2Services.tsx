@@ -163,8 +163,13 @@ export function C2Services() {
  .c2 .directory-preview .dp-house { width:58%; height:220px; top:-32px; gap:18px; pointer-events:none; }
  .c2 .directory-preview .dp-house>img { width:calc(100% - 94px); height:100%; object-fit:contain; object-position:center; mix-blend-mode:screen; mask-image:radial-gradient(ellipse at center,#000 42%,transparent 74%); opacity:.9; }
  @media(max-width:767px) {
- .c2 .directory-preview .dp-house { width:100%; height:145px; top:auto; gap:12px; }
- .c2 .directory-preview .dp-house>img { width:calc(100% - 80px); }
+ /* Decorative artwork never reserves a row above the mobile cards. */
+ .c2 .directory-preview .dp-builders>.dp-wrap { position:relative; isolation:isolate; overflow:hidden; }
+ .c2 .directory-preview .dp-builder-heading { position:static; }
+ .c2 .directory-preview .dp-house { position:absolute; width:600px; height:300px; top:12px; right:-130px; margin:0; gap:0; opacity:.28; z-index:0; }
+ .c2 .directory-preview .dp-house>img { width:100%; }
+ .c2 .directory-preview .dp-house-caption { display:none; }
+ .c2 .directory-preview .dp-builders .dp-grid { z-index:1; }
  }
  `}</style>
  <div className="dp-wrap dp-header"><div className="dp-header-art"><PipeBanner/></div><C2Location/><h1>Our Services</h1><p className="dp-intro">Find the right help for your home or next build.</p><nav className="dp-jumps" aria-label="Service audiences"><a href="#homeowner-services">Homeowner Services ↓</a><a href="#builder-services">Builder Services ↓</a></nav></div>
