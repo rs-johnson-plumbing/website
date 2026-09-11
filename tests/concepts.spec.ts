@@ -50,6 +50,7 @@ test("the selected design carries across routes", async ({ page }) => {
 
 test("the request dialog opens, traps escape, and the mobile menu returns focus", async ({ page }) => {
   await page.goto("/?concept=2");
+  await page.evaluate(() => window.scrollTo(0, 1200));
   await page.locator(".c2-bar").getByRole("button", { name: copy.ui.request }).click();
   await expect(page.getByRole("dialog")).toBeVisible();
   // Focus has to land inside the modal, not stay behind it.
@@ -66,7 +67,7 @@ test("the request dialog opens, traps escape, and the mobile menu returns focus"
 test("the public design has no floating concept toggle", async ({ page }) => {
   await page.goto("/");
   await expect(page.getByRole("group", { name: copy.ui.switcherLabel })).toHaveCount(0);
-  await expect(page.locator(".c2-bar")).toBeVisible();
+  await expect(page.locator(".c2-bar")).toBeHidden();
 });
 
 test("every homepage service link resolves and any target anchor exists", async ({ page, request }) => {
@@ -117,18 +118,30 @@ test("Concept 2 fits every width and loads the hero photograph", async ({ page }
 });
 
 test("the action bar sends builders to the bid form, not the homeowner intake", async ({ page }) => {
-  await page.goto("/for-builders?concept=2");
-  await expect(page.locator(".c2-bar").getByRole("link", { name: copy.ui.request })).toHaveAttribute(
-    "href",
-    "/for-builders#request-a-bid",
-  );
-  await page.goto("/services/builders?concept=2");
-  await expect(page.locator(".c2-bar").getByRole("link", { name: copy.ui.request })).toHaveAttribute(
-    "href",
-    "/for-builders#request-a-bid",
-  );
-  await page.goto("/for-homeowners?concept=2");
+  await page.setViewportSize({ width: 390, height: 844 });
+  for (const route of ["/for-builders", "/services/builders"]) {
+    await page.goto(route);
+    await page.evaluate(() => window.scrollTo(0, 1200));
+    await expect(page.locator(".c2-bar").getByRole("link", { name: copy.ui.request })).toHaveAttribute("href", "/for-builders#request-a-bid");
+  }
+  await page.goto("/for-homeowners");
+  await page.evaluate(() => window.scrollTo(0, 1200));
   await expect(page.locator(".c2-bar").getByRole("button", { name: copy.ui.request })).toBeVisible();
+});
+
+test("mobile contact bar appears after opening content and hides again at top", async ({ page }) => {
+  await page.setViewportSize({ width: 390, height: 844 });
+  for (const route of ["/", "/for-homeowners", "/for-builders", "/services", "/our-team", "/services/water-heaters"]) {
+    await page.goto(route);
+    const bar = page.locator(".c2-bar");
+    await expect(bar).toBeHidden();
+    await expect(bar).toHaveAttribute("inert", "");
+    await page.evaluate(() => window.scrollTo(0, 1200));
+    await expect(bar).toBeVisible();
+    await expect(bar).not.toHaveAttribute("inert", "");
+    await page.evaluate(() => window.scrollTo(0, 0));
+    await expect(bar).toBeHidden();
+  }
 });
 
 test("inside-page hero photographs sit on the right of the band", async ({ page }) => {
