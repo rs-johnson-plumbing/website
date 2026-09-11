@@ -1,0 +1,231 @@
+/* Concept 2 mobile polish pass: visual authority alignment for the phone hero, navigation, logo, and sticky actions. */
+
+@media (max-width: 1023px) {
+  /* Slightly larger lockup in the phone header, matching the authority's visual weight. */
+  .c2 .c2-header-inner {
+    height: 70px;
+  }
+  .c2 .c2-logo svg {
+    width: 168px;
+    height: 42px;
+  }
+  .c2 .c2-menu-btn {
+    width: 46px;
+    height: 46px;
+    margin-right: -4px;
+    border-radius: 8px;
+  }
+  .c2 .c2-menu-btn svg {
+    width: 30px;
+    height: 30px;
+    stroke-width: 1.8;
+  }
+
+  /* Clean dropdown treatment instead of letting the links read as an extension of the page. */
+  .c2 .c2-header {
+    overflow: visible;
+  }
+  .c2 .c2-mobile-nav {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 70px;
+    z-index: 50;
+    width: 100%;
+    padding: 8px 20px 20px;
+    background: rgba(255,255,255,.985);
+    border-top: 1px solid rgba(13,42,77,.08);
+    border-bottom: 1px solid rgba(13,42,77,.10);
+    box-shadow: 0 18px 32px rgba(13,42,77,.14), 0 100vh 0 100vh rgba(13,42,77,.18);
+    backdrop-filter: blur(16px);
+  }
+  .c2 .c2-mobile-nav a {
+    min-height: 52px;
+    padding: 0 2px;
+    border-bottom: 1px solid #ece8e1;
+    font-size: 16px;
+    font-weight: 650;
+    color: var(--c2-navy);
+  }
+  .c2 .c2-mobile-nav a svg {
+    width: 18px;
+    height: 18px;
+    color: var(--c2-blue);
+  }
+  .c2 .c2-mobile-nav-cta {
+    display: grid;
+    grid-template-columns: 1fr 1.25fr;
+    gap: 10px;
+    margin-top: 16px;
+  }
+  .c2 .c2-mobile-nav-cta .c2-btn {
+    min-height: 48px;
+    border-radius: 8px;
+    font-size: 14px;
+  }
+
+  /* The visual authority shows a recognizable, softly faded house — not a blurred wash. */
+  .c2 .c2-hero-media {
+    background-image: url('https://images.unsplash.com/photo-1784932328923-ff5506cf425b?auto=format&fit=crop&fm=jpg&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&ixlib=rb-4.1.0&q=78&w=2000');
+    background-size: cover;
+    background-position: 62% 45%;
+    filter: none;
+  }
+  .c2 .c2-hero-media::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    pointer-events: none;
+    background: linear-gradient(180deg, rgba(255,255,255,.02) 0%, rgba(255,255,255,.02) 45%, rgba(251,249,247,.10) 58%, rgba(251,249,247,.34) 70%, rgba(251,249,247,.72) 83%, rgba(251,249,247,.97) 94%);
+  }
+  .c2 .c2-hero-media::after {
+    background:
+      linear-gradient(90deg,
+        var(--c2-paper) 0%,
+        rgba(251,249,247,.97) 18%,
+        rgba(251,249,247,.84) 34%,
+        rgba(251,249,247,.58) 50%,
+        rgba(251,249,247,.26) 66%,
+        rgba(251,249,247,.06) 82%,
+        rgba(251,249,247,0) 100%),
+      linear-gradient(180deg,
+        rgba(251,249,247,.00) 0%,
+        rgba(251,249,247,.00) 52%,
+        rgba(251,249,247,.16) 64%,
+        rgba(251,249,247,.52) 76%,
+        rgba(251,249,247,.86) 87%,
+        var(--c2-paper) 96%);
+  }
+
+  /* Slightly more compact hero composition so the background remains visible without overpowering the copy. */
+  .c2 .c2-hero-copy {
+    padding-top: 30px;
+    padding-bottom: 25px;
+  }
+  .c2 .c2-hero h1 {
+    font-size: clamp(38px, 10.5vw, 45px);
+    line-height: .99;
+  }
+  .c2 .c2-hero-sub {
+    max-width: 12em;
+    font-size: clamp(22px, 5.9vw, 25px);
+    line-height: 1.14;
+    color: #636970;
+  }
+
+  /* Authority-style hero doors: shorter, cleaner, sharper icons. */
+  .c2 .c2-hero-actions {
+    margin-top: 18px;
+    gap: 9px;
+  }
+  .c2 .c2-hero-actions .c2-btn {
+    min-height: 52px;
+    border-radius: 7px;
+    padding-inline: 18px;
+    font-size: 15.5px;
+    font-weight: 700;
+    gap: 12px;
+    box-shadow: none;
+  }
+  .c2 .c2-hero-actions .c2-btn svg:first-child {
+    width: 22px;
+    height: 22px;
+    stroke-width: 1.9;
+  }
+  .c2 .c2-hero-actions .c2-btn svg:last-child {
+    width: 19px;
+    height: 19px;
+  }
+  .c2 .c2-hero-actions .c2-btn--filled {
+    background: #0876d1;
+    border-color: #0876d1;
+  }
+  .c2 .c2-hero-actions .c2-btn--outline {
+    background: rgba(255,255,255,.97);
+    border-width: 1.5px;
+    color: #0876d1;
+  }
+
+  /* Trust row closer to the reference: smaller copy, more breathing room, cleaner icon balance. */
+  .c2 .c2-hero-trust {
+    margin-top: 19px;
+  }
+  .c2 .c2-hero-trust > div {
+    gap: 7px;
+    padding-inline: 5px;
+  }
+  .c2 .c2-hero-trust > div + div {
+    padding-left: 7px;
+  }
+  .c2 .c2-hero-trust svg {
+    width: 26px;
+    height: 26px;
+    stroke-width: 1.7;
+  }
+  .c2 .c2-hero-trust span {
+    font-size: 11px;
+    line-height: 1.18;
+    font-weight: 500;
+  }
+
+  /* The authority's mobile action bar is a polished blue dock with white icons and hairline separators. */
+  .c2 .c2-bar {
+    min-height: 70px;
+    background: linear-gradient(180deg, #0876d1 0%, #086cc0 100%);
+    border-top: 1px solid rgba(255,255,255,.22);
+    box-shadow: 0 -8px 24px rgba(13,42,77,.18);
+  }
+  .c2 .c2-bar .c2-btn {
+    min-height: 70px;
+    gap: 5px;
+    padding: 8px 4px 7px;
+    font-size: 13px;
+    font-weight: 650;
+    line-height: 1;
+  }
+  .c2 .c2-bar .c2-btn svg {
+    width: 22px;
+    height: 22px;
+    stroke-width: 1.8;
+  }
+  .c2 .c2-bar .c2-btn + .c2-btn {
+    box-shadow: inset 1px 0 0 rgba(255,255,255,.28);
+  }
+  .c2 .c2-bar .c2-btn:hover,
+  .c2 .c2-bar .c2-btn:active {
+    background: rgba(255,255,255,.07);
+  }
+
+  /* Builder band: slightly stronger image presence and tighter CTA like the authority. */
+  .c2 .c2-builder-band {
+    grid-template-columns: 54% 46%;
+    min-height: 224px;
+  }
+  .c2 .c2-builder-photo {
+    min-height: 224px;
+    margin-left: -15%;
+    width: 115%;
+    clip-path: polygon(15% 0,100% 0,100% 100%,0 100%);
+  }
+  .c2 .c2-builder-photo img {
+    object-position: 54% 50%;
+  }
+  .c2 .c2-builder-copy {
+    padding: 25px 12px 27px var(--c2-gutter);
+  }
+  .c2 .c2-builder-copy h2 {
+    margin-top: 9px;
+    font-size: clamp(28px, 7.6vw, 31px);
+    line-height: 1.02;
+  }
+  .c2 .c2-builder-copy .c2-btn {
+    min-width: 148px;
+    min-height: 44px;
+    margin-top: 18px;
+    padding-inline: 16px;
+    border-radius: 7px;
+    font-size: 13.5px;
+    box-shadow: none;
+  }
+}
