@@ -321,3 +321,14 @@
 @media(min-width:1024px) {
  .c2 .c2-reviews-band { height:200px; padding-block:24px; }
 }
+
+/* Header and directory use the same content edges at every viewport. */
+.c2 .directory-preview .dp-wrap { max-width:1440px; padding-inline:var(--c2-gutter); }
+.c2 .directory-preview .dp-header { max-width:none; padding-inline:max(var(--c2-gutter),calc((100% - 1440px)/2 + var(--c2-gutter))); }
+@media(min-width:1024px) {
+ .c2 .c2-nav a { font-size:16px; }
+ .c2 .directory-preview .dp-header-art { right:max(var(--c2-gutter),calc((100% - 1440px)/2 + var(--c2-gutter))); }
+}
+@media(min-width:1024px) and (max-width:1199px) {
+ .c2 .c2-header-phone { display:none; }
+}
