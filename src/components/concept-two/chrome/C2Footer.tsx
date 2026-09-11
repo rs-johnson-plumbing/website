@@ -1,5 +1,4 @@
 import Link from "next/link";
-import { C2Button } from "../ui/C2Button";
 import { conceptTwo as copy, site, footerCities, services, builderServices } from "@/lib/content";
 import { c2Label } from "../ui/drawingFor";
 import { Lockup } from "@/components/ui/Logo";
@@ -19,7 +18,6 @@ export function C2Footer() {
         <a href={site.phone.tel} className="c2-footer-phone" data-track="call-footer">
           {site.phone.display}
         </a>
-        <C2Button href="/for-builders#request-a-bid" size="sm" variant="outline">Request a Bid</C2Button>
         </div>
 
         <div className="c2-footer-service-groups">
