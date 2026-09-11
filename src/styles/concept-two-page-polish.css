@@ -131,3 +131,10 @@
 .c2 .c2-final-actions .c2-final-request > span { align-items: flex-start; text-align: left; }
 .c2 :is(.c2-home, .c2-homeowners) .c2-final-mark { opacity: .14; }
 .c2 :is(.c2-home, .c2-homeowners) .c2-final-mark path { stroke: #2868a8; }
+
+/* Keep the enlarged wordmark clear of navigation on narrow desktops. */
+@media (min-width: 1024px) and (max-width: 1199px) {
+  .c2 .c2-header-inner { gap: 16px; }
+  .c2 .c2-nav { gap: 16px; }
+  .c2 .c2-header-actions { gap: 12px; }
+}
