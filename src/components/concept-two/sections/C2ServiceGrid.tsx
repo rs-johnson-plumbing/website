@@ -10,7 +10,7 @@ export function C2ServiceGrid({ items, columns = 6, detailed = false }: { items:
     <ul className={`c2-service-grid c2-service-grid--${columns}`}>
       {items.map((item) => (
         <li key={item.label}>
-          <Link href={item.href} className="c2-service">
+          <Link href={item.href} className="c2-service" style={detailed ? { color: "#153e65" } : undefined}>
             {detailed ? <ServiceSketch id={item.id} /> : <C2Drawing id={item.id} />}
             <span>{item.label}</span>
           </Link>
