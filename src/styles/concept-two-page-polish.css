@@ -124,3 +124,10 @@
 .c2 :is(.c2-home, .c2-homeowners) .c2-final-actions .c2-btn { background: #fff; color: var(--c2-navy); border-color: #9aafc5; }
 .c2 :is(.c2-home, .c2-homeowners) .c2-final-actions .c2-btn:last-child { background: var(--c2-blue); color: #fff; border-color: var(--c2-blue); }
 .c2 :is(.c2-home, .c2-homeowners) .c2-final-actions .c2-btn:hover { background: #dce9f6; color: var(--c2-navy); }
+
+/* Balanced contact labels with the brand watermark retained on the light band. */
+.c2 .c2-final-actions { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.c2 .c2-final-actions .c2-btn { min-height: 68px; }
+.c2 .c2-final-actions .c2-final-request > span { align-items: flex-start; text-align: left; }
+.c2 :is(.c2-home, .c2-homeowners) .c2-final-mark { opacity: .14; }
+.c2 :is(.c2-home, .c2-homeowners) .c2-final-mark path { stroke: #2868a8; }
