@@ -50,6 +50,7 @@ test("the selected design carries across routes", async ({ page }) => {
 
 test("the request dialog opens, traps escape, and the mobile menu returns focus", async ({ page }) => {
   await page.goto("/?concept=2");
+  await page.evaluate(() => window.scrollTo(0, 1200));
   await page.locator(".c2-bar").getByRole("button", { name: copy.ui.request }).click();
   await expect(page.getByRole("dialog")).toBeVisible();
   // Focus has to land inside the modal, not stay behind it.
@@ -66,7 +67,7 @@ test("the request dialog opens, traps escape, and the mobile menu returns focus"
 test("the public design has no floating concept toggle", async ({ page }) => {
   await page.goto("/");
   await expect(page.getByRole("group", { name: copy.ui.switcherLabel })).toHaveCount(0);
-  await expect(page.locator(".c2-bar")).toBeVisible();
+  await expect(page.locator(".c2-bar")).toBeHidden();
 });
 
 test("every homepage service link resolves and any target anchor exists", async ({ page, request }) => {
