@@ -53,7 +53,7 @@
     background-size: cover;
     background-position: center 8%;
   }
-  .c2 .c2-hero-media > img {
+  .c2 .c2-hero-media img {
     display: none !important;
   }
   .c2 .c2-hero-media::after {
@@ -196,6 +196,68 @@
 }
 
 @media (min-width: 1024px) {
+  /* Homepage only: retain the completed phone and inside-page compositions.
+     Remove 60px from each end of the former 620px desktop canvas. */
+  .c2 .c2-hero:not(.c2-hero--page) .c2-hero-inner {
+    min-height: 500px;
+  }
+  .c2 .c2-hero:not(.c2-hero--page) .c2-hero-copy {
+    padding-block: 24px;
+  }
+  .c2 .c2-hero:not(.c2-hero--page) .c2-hero-sub {
+    margin-top: 20px;
+    max-width: 20em;
+    font-size: clamp(26px, 2.15vw, 32px);
+    font-weight: 400;
+    line-height: 1.18;
+    color: #656b73;
+  }
+  .c2 .c2-hero:not(.c2-hero--page) .c2-hero-actions {
+    margin-top: 24px;
+  }
+  .c2 .c2-hero:not(.c2-hero--page) .c2-hero-actions .c2-btn {
+    min-height: 60px;
+    padding-inline: 24px;
+  }
+  .c2 .c2-hero:not(.c2-hero--page) .c2-hero-actions .c2-btn svg:first-child {
+    width: 26px;
+    height: 26px;
+    stroke-width: 1.9;
+  }
+  .c2 .c2-hero:not(.c2-hero--page) .c2-hero-actions .c2-btn--outline {
+    background: rgba(255, 255, 255, .97);
+  }
+  .c2 .c2-hero:not(.c2-hero--page) .c2-hero-trust {
+    margin-top: 24px;
+  }
+  .c2 .c2-hero:not(.c2-hero--page) .c2-hero-media img {
+    object-position: right 30%;
+    border-radius: 0;
+  }
+  /* The new source has no baked-in scrim. End the only fade beside the
+     headline, leaving the plumber, van and bottom-right fully opaque. */
+  .c2 .c2-hero:not(.c2-hero--page) .c2-hero-media::after {
+    background: linear-gradient(to right,
+      var(--c2-paper) 0%,
+      var(--c2-paper) 24%,
+      rgba(251, 249, 247, .97) 30%,
+      rgba(251, 249, 247, .65) 37%,
+      rgba(251, 249, 247, .18) 44%,
+      rgba(251, 249, 247, 0) 50%);
+  }
+  /* Crop the cream strip and small navy tip embedded in the source's top
+     20px. Keep the diagonal seam clipped to one clean, level band. */
+  .c2 .c2-builder-photo {
+    overflow: hidden;
+    border-radius: 0;
+    clip-path: polygon(12% 0, 100% 0, 100% 100%, 0 100%);
+  }
+  .c2 .c2-builder-photo img {
+    border-radius: 0;
+    top: -16% !important;
+    height: 116% !important;
+    object-position: 52% 50%;
+  }
   /* Desktop authority uses a brighter button blue than the first C2 pass. */
   .c2 .c2-hero-actions .c2-btn--filled {
     background: var(--c2-blue);

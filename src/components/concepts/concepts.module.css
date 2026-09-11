@@ -44,6 +44,7 @@
 @media (max-width: 1023px) {
   :global(html[data-concept="2"]) .switcher {
     left: 10px;
-    bottom: calc(70px + env(safe-area-inset-bottom, 0px));
+    /* 70px controls + 1px top border, with an 8px gap above the dock. */
+    bottom: calc(79px + env(safe-area-inset-bottom, 0px));
   }
 }
