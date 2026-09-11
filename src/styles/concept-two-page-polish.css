@@ -302,3 +302,15 @@
  .c2 :is(.c2-homeowners,.c2-builders,.c2-team) .c2-hero-media { width:90vw; }
  .c2 .directory-preview .dp-header-art { width:90%; height:100%; opacity:.24; }
 }
+
+@media(min-width:1024px) {
+ .c2 :is(.c2-homeowners,.c2-builders) .c2-hero-media { width:78vw; max-width:1248px; }
+ .c2 :is(.c2-homeowners,.c2-builders) .c2-hero-media img { object-position:right 18%; }
+ .c2 :is(.c2-homeowners,.c2-builders) .c2-hero-media::after {
+  background:linear-gradient(90deg,#fbf9f7 0%,rgba(251,249,247,.97) 12%,rgba(251,249,247,.8) 25%,rgba(251,249,247,.35) 38%,transparent 53%);
+ }
+ .c2 :is(.c2-homeowners,.c2-builders,.c2-team) .c2-hero-page-lead { max-width:28em; }
+ .c2 .c2-team .c2-hero-media::after {
+  background:linear-gradient(90deg,#fbf9f7 0%,#fbf9f7 30%,rgba(251,249,247,.97) 36%,rgba(251,249,247,.8) 42%,rgba(251,249,247,.36) 48%,transparent 56%);
+ }
+}
