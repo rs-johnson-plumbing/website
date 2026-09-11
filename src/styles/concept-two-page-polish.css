@@ -241,7 +241,7 @@
  .c2 .c2-footer-desktop-details svg { width:16px; height:16px; flex:none; }
  .c2 .c2-footer-desktop-details p { margin:4px 0 0; }
  .c2 section.c2-final.c2-final { background:linear-gradient(105deg,#d9edf9,#edf7fd); border:0; padding-block:26px; overflow:hidden; position:relative; }
- .c2 section.c2-final .c2-final-inner { display:flex; align-items:center; justify-content:space-between; gap:28px; position:relative; z-index:1; padding-left:145px; }
+ .c2 section.c2-final .c2-final-inner { display:flex; align-items:center; justify-content:space-between; gap:28px; position:relative; z-index:1; padding-left:145px; padding-block:0; }
  .c2 section.c2-final .c2-eyebrow { display:none; }
  .c2 section.c2-final h2 { font-size:clamp(27px,2.6vw,38px); line-height:1.15; color:#0d2a4d; margin:0; letter-spacing:-.035em; }
  .c2 section.c2-final .c2-final-mark { width:150px; height:180px; left:18px; top:50%; transform:translateY(-50%); opacity:.2; }
