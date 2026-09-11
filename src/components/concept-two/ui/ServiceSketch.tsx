@@ -47,10 +47,59 @@ export function ServiceSketch({id}: {id:string}) {
  </svg>;
 }
 
+/** Drafting guides use distinct weights, lengths and fades rather than graph paper. */
+function BlueprintGuides() {
+ const id=useId().replace(/:/g,"");
+ return <g fill="none" strokeLinecap="round">
+  <defs>
+   <linearGradient id={`${id}-horizontal`} gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="520" y2="0">
+    <stop offset="0" stopColor="#3279a6" stopOpacity="0"/><stop offset=".21" stopColor="#3279a6" stopOpacity=".24"/><stop offset=".49" stopColor="#165583" stopOpacity=".65"/><stop offset=".78" stopColor="#508fb5" stopOpacity=".3"/><stop offset="1" stopColor="#508fb5" stopOpacity="0"/>
+   </linearGradient>
+   <linearGradient id={`${id}-horizontal-light`} gradientUnits="userSpaceOnUse" x1="18" y1="0" x2="485" y2="0">
+    <stop stopColor="#659ebd" stopOpacity="0"/><stop offset=".3" stopColor="#659ebd" stopOpacity=".18"/><stop offset=".67" stopColor="#2b719e" stopOpacity=".36"/><stop offset="1" stopColor="#659ebd" stopOpacity="0"/>
+   </linearGradient>
+   <linearGradient id={`${id}-vertical`} gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="0" y2="190">
+    <stop stopColor="#286994" stopOpacity="0"/><stop offset=".16" stopColor="#286994" stopOpacity=".48"/><stop offset=".53" stopColor="#236694" stopOpacity=".34"/><stop offset=".89" stopColor="#5a96ba" stopOpacity=".12"/><stop offset="1" stopColor="#5a96ba" stopOpacity="0"/>
+   </linearGradient>
+   <linearGradient id={`${id}-vertical-reverse`} gradientUnits="userSpaceOnUse" x1="0" y1="3" x2="0" y2="185">
+    <stop stopColor="#659dbc" stopOpacity="0"/><stop offset=".35" stopColor="#659dbc" stopOpacity=".15"/><stop offset=".71" stopColor="#236b9a" stopOpacity=".55"/><stop offset="1" stopColor="#659dbc" stopOpacity="0"/>
+   </linearGradient>
+  </defs>
+  <g stroke={`url(#${id}-horizontal-light)`} strokeWidth=".45">
+   <path d="M34 19.5 196 20 299 19.7M309 20H505"/><path d="M5 42H154M160 42.4 494 42"/>
+   <path d="M17 110.5 341 111M355 111H485"/><path d="M48 137H197M202 137.3 511 137"/>
+   <path d="M8 184H144M153 183.6 471 184"/>
+  </g>
+  <g stroke={`url(#${id}-horizontal)`}>
+   <path d="M0 82H365M377 82.4 520 82" strokeWidth=".85"/>
+   <path d="M21 160 218 159.7M225 160H516" strokeWidth=".65"/>
+   <path d="M62 58H193M202 58H499" strokeWidth=".3"/>
+  </g>
+  <g stroke={`url(#${id}-vertical)`}>
+   <path d="M68 8V122M68.3 133V188" strokeWidth=".45"/>
+   <path d="M157 0V91M156.7 99V190" strokeWidth=".85"/>
+   <path d="M237 4 237.4 187" strokeWidth=".45"/>
+   <path d="M327 0V109M327.3 121V190" strokeWidth=".75"/>
+   <path d="M478 0 477.7 165" strokeWidth=".4"/>
+  </g>
+  <g stroke={`url(#${id}-vertical-reverse)`}>
+   <path d="M110 2V190" strokeWidth=".75"/>
+   <path d="M194 14 194.4 188" strokeWidth=".35"/>
+   <path d="M278 0V190" strokeWidth=".55"/>
+   <path d="M380 6 380.3 164" strokeWidth=".35"/>
+   <path d="M423 0V104M423.4 114V188" strokeWidth=".85"/>
+  </g>
+  <g stroke="#397ca7" strokeWidth=".4" opacity=".28">
+   <path d="M107 79h6m-3-3v6M154 157h6m-3-3v6M324 79h6m-3-3v6M420 157h6m-3-3v6"/>
+   <path d="M158.5 24V69M328.5 44V73M424.4 126V165M90 83.4H136M282 161.3H321" opacity=".5"/>
+  </g>
+ </g>;
+}
+
 export function PipeBanner() {
  const route="M25 159H85Q112 159 112 131V95Q112 58 153 58H238Q278 58 278 25V0M238 58H540";
  return <svg viewBox="0 0 520 190" preserveAspectRatio="xMaxYMid meet" fill="none" stroke="currentColor" strokeWidth="1.2" aria-hidden="true">
- <g opacity=".2" strokeWidth=".5">{Array.from({length:15},(_,i)=><path key={i} d={`M${i*36} 0V190`}/>)}{[20,55,90,125,160].map(y=><path key={y} d={`M0 ${y}H520`}/>)}</g>
+ <BlueprintGuides/>
  <Pipe d={route} width={24}/>
  <path d={route} stroke="#2f72a5" strokeWidth=".8" transform="translate(1.5 2)" opacity=".6"/>
  <g stroke="#387fac" strokeWidth=".65" opacity=".75">

@@ -1,6 +1,7 @@
 "use client";
 
 import { conceptTwo as copy, site, smsLink } from "@/lib/content";
+import { Mark } from "@/components/ui/Logo";
 import { C2Button } from "../ui/C2Button";
 import { useRequestService } from "../ui/C2Request";
 
@@ -11,9 +12,7 @@ export function C2FinalCta({ audience = "homeowners" }: { audience?: "homeowners
   const requestService = useRequestService();
   return (
     <section className="c2-final" aria-labelledby="c2-final-heading">
-      <svg className="c2-final-mark" viewBox="0 0 200 240" fill="none" aria-hidden="true">
-        <path d="M140 22 V150 A35 35 0 0 1 70 150 V138 A24 24 0 0 0 46 114 H18" stroke="#fff" strokeWidth="34" strokeLinejoin="round" />
-      </svg>
+      <Mark className="c2-final-mark" />
       <div className="c2-wrap c2-final-inner">
         <div>
           <p className="c2-eyebrow">{cta.eyebrow}</p>
