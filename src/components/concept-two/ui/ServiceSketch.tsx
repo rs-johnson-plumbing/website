@@ -1,4 +1,5 @@
 import { useId } from "react";
+import Image from "next/image";
 
 /** Shared detailed service artwork and vector blueprint decorations. */
 function Pipe({ d, width = 14 }: { d: string; width?: number }) {
@@ -26,7 +27,7 @@ export function ServiceSketch({id}: {id:string}) {
  const uid=useId().replace(/:/g,"");
  if (illustratedServices.has(id)) {
   return <svg viewBox="0 0 160 190" aria-hidden="true" focusable="false">
-   <image href={`/images/service-sketches/${id}.webp`} x="0" y="0" width="160" height="190" preserveAspectRatio="xMidYMid meet"/>
+   <foreignObject x="0" y="0" width="160" height="190"><Image src={`/images/service-sketches/${id}.webp`} alt="" width={560} height={665} sizes="(max-width: 767px) 108px, 160px" loading="lazy" style={{ width: "100%", height: "100%", objectFit: "contain" }}/></foreignObject>
   </svg>;
  }
  return <svg viewBox="0 0 160 190" fill="none" stroke="currentColor" className={`sketch-${uid}`} strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" focusable="false">
