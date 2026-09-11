@@ -1,122 +1,58 @@
-import { useId } from "react";
-import Image from "next/image";
+import type { ReactNode } from "react";
 
-/** Shared detailed service artwork and vector blueprint decorations. */
-function Pipe({ d, width = 14 }: { d: string; width?: number }) {
- return <><path d={d} stroke="#123d66" strokeWidth={width + 3.4}/><path d={d} stroke="#4585b5" strokeWidth={width}/><path d={d} stroke="#a9cce6" strokeWidth={width - 2.5}/><path d={d} stroke="#edf7fd" strokeWidth={Math.max(1,width - 6)} transform="translate(-1 -1)"/><path d={d} stroke="#fff" strokeWidth=".8" transform="translate(-2 -2)" opacity=".9"/></>;
+const navy = "#102b50", blue = "#439df2", pale = "#dcedfc";
+/** Bold brand silhouettes with restrained drafting detail. Shared by cards and dialogs. */
+function Detail({ children }: { children: ReactNode }) {
+ return <g fill="none" stroke="#367bb4" strokeWidth=".8" opacity=".75">{children}</g>;
 }
-function Collar({ x, y, rotate = 0 }: {x:number;y:number;rotate?:number}) {
- return <g transform={`translate(${x} ${y}) rotate(${rotate})`} fill="#fff"><rect x="-4" y="-12" width="8" height="24" rx="1" strokeWidth="2"/><path d="M3-10V10" stroke="#2678b5" strokeWidth="2.2"/><path d="M-1-11V11M2-11V11" strokeWidth=".65"/></g>;
+function Tube({d,width=15}:{d:string;width?:number}) {
+ return <g fill="none"><path d={d} stroke={navy} strokeWidth={width+5}/><path d={d} stroke={blue} strokeWidth={width}/><path d={d} stroke={pale} strokeWidth={Math.max(2,width*.3)} transform="translate(-2 -2)"/></g>;
 }
-function Valve({x=80,y=80}: {x?:number;y?:number}) {
- return <g transform={`translate(${x} ${y})`} fill="#fff"><path d="M-12-8H12V8H-12ZM-5-8V-23H5V-8"/><ellipse cy="-25" rx="19" ry="4"/><path d="M-16-25H16M0-28V-22M-8-29V-21M8-29V-21" strokeWidth=".75"/><path d="M-8 4H8M-8-4H8"/></g>;
+function Joint({x,y,turn=0}:{x:number;y:number;turn?:number}) {
+ return <g transform={`translate(${x} ${y}) rotate(${turn})`}><rect x="-6" y="-13" width="12" height="26" rx="1.5" fill="white" strokeWidth="3.5"/><Detail><path d="M1-9V9M4-9V9"/></Detail></g>;
 }
-function Tap({ x=80,y=70 }: {x?:number;y?:number}) {
- return <g transform={`translate(${x} ${y})`}><Pipe d="M0 60V0C0-24 30-24 30 0V8" width={7}/><path d="M-9 61H10V65H-9ZM25 7H35V12H25M-15 51V30H-9V51M-21 30H-3" fill="#fff"/></g>;
+function Drop({x=105,y=121}:{x?:number;y?:number}) {
+ return <g transform={`translate(${x} ${y})`}><path d="M0-15C-3-8-12 1-12 8a12 12 0 0 0 24 0C12 1 3-8 0-15Z" fill={blue} strokeWidth="3.5"/><path d="M-5 3q-5 9 2 12" stroke="white" strokeWidth="2.5" fill="none"/></g>;
 }
-function Tank({x=45,y=40,w=70,h=108}: {x?:number;y?:number;w?:number;h?:number}) {
- return <g fill="#fff"><path d={`M${x} ${y}v${h}c0 12 ${w} 12 ${w} 0V${y}`} strokeWidth="2.5"/><path d={`M${x+w-6} ${y+8}v${h-11}`} stroke="#397aa8" strokeWidth="7" opacity=".55"/><path d={`M${x+13} ${y+10}v${h-17}`} stroke="#fff" strokeWidth="4"/><ellipse cx={x+w/2} cy={y} rx={w/2} ry="9"/><path d={`M${x+4} ${y+5}v${h-4}M${x+8} ${y+7}v${h-6}M${x+w-6} ${y+7}v${h-6}`} stroke="#819db4" strokeWidth=".7"/><path d={`M${x+2} ${y+h-5}q${w/2} 12 ${w-4} 0M${x+8} ${y+h+9}v6m${w-16} -6v6`}/></g>;
+function Tank({x=44,y=34,w=72,h=125}:{x?:number;y?:number;w?:number;h?:number}) {
+ return <g><rect x={x} y={y} width={w} height={h} rx="12" fill="white"/><path d={`M${x+w-12} ${y+12}V${y+h-12}`} stroke={blue} strokeWidth="13"/><rect x={x} y={y} width={w} height={h} rx="12" fill="none"/><Detail><path d={`M${x+5} ${y+12}H${x+w-5}M${x+5} ${y+h-12}H${x+w-5}M${x+w/2} ${y+3}V${y+h-3}`} strokeDasharray="4 3"/></Detail></g>;
 }
-function Drops() {return <g fill="#399bdd"><path d="M73 119c-2 7-7 11-7 16a7 7 0 0 0 14 0c0-5-5-9-7-16ZM67 147c-2 5-5 8-5 11a5 5 0 0 0 10 0c0-3-3-6-5-11Z"/></g>}
+function Faucet() {
+ return <g><Tube d="M32 157V108Q32 85 57 85H65" width={9}/><path d="M22 159H44M27 114H15V104M11 104H23" fill="none"/><path d="M59 79H72V91H59Z" fill="white"/><Detail><path d="M36 112V146M42 94H55"/></Detail></g>;
+}
+function Toilet() {
+ return <g fill="white"><rect x="83" y="48" width="56" height="48" rx="5"/><path d="M81 45H141V55H81ZM77 99H144Q144 130 123 135L131 158H91L99 132Q78 122 77 99Z"/><path d="M80 102H140Q133 122 111 123Q90 121 80 102Z" fill={blue}/><path d="M99 135H121M94 158H132"/><circle cx="96" cy="67" r="3" fill={blue} strokeWidth="2"/><Detail><path d="M111 59V95M111 111V153" strokeDasharray="3 3"/><path d="M88 89H134M96 150H125"/></Detail></g>;
+}
 function House() {
- return <g fill="none"><path d="M9 78L73 25L151 59L92 104ZM9 78V148L92 169L151 117V59M92 104V169M73 25V89M9 148L73 89L151 117M6 82L73 20L157 57"/>{[23,37,51,65].map(x=><path key={x} d={`M${x} ${78-(x-9)*.82}V${148-(x-9)*.91}M${x} ${82+(x-9)*.27}V${148+(x-9)*.25}`}/>)}{[104,116,128,140].map(x=><path key={x} d={`M${x} ${104-(x-92)*.76}V${169-(x-92)*.88}`}/>)}<path d="M14 126L86 145M14 132L86 151M98 139L147 96M98 145L147 102M35 100V132H54V105ZM109 113V142L128 126V97M73 31L17 79L91 99L146 60Z"/><path d="M31 137V110H44V128H65V103H81V147M101 153V119L120 103V82" strokeWidth="3" stroke="#7da6c6"/><path d="M0 158L94 183L160 126M0 163L94 188M4 49H155M73 6V177M0 175H160" strokeWidth=".45" opacity=".55"/></g>;
+ return <g><path d="M16 78L77 28L146 78M26 74V158H136V73" fill="white"/><path d="M30 81L77 42L132 82" fill="none" stroke={blue} strokeWidth="8"/><path d="M53 158V113H81V158M96 99H121V124H96Z" fill={pale}/><Detail><path d="M39 87V150M91 79V152M126 88V150M30 137H132M30 143H132M31 82H129M102 103V120M97 111H120M77 17V172" strokeDasharray="4 3"/></Detail><Tube d="M36 146H96V132H127" width={6}/></g>;
 }
-
-const illustratedServices = new Set(["heater","leaks","drains","fixtures","softener","gas","pump","emergency","plans","underground","roughin","service","trim"]);
-export function ServiceSketch({id}: {id:string}) {
- const uid=useId().replace(/:/g,"");
- if (illustratedServices.has(id)) {
-  return <svg viewBox="0 0 160 190" aria-hidden="true" focusable="false">
-   <foreignObject x="0" y="0" width="160" height="190"><Image src={`/images/service-sketches/${id}.webp`} alt="" width={560} height={665} sizes="(max-width: 767px) 108px, 160px" loading="lazy" style={{ width: "100%", height: "100%", objectFit: "contain" }}/></foreignObject>
-  </svg>;
+function Artwork({id}:{id:string}) {
+ switch(id) {
+ case "heater": return <><path d="M59 35V17H66V35M94 35V17H101V35" fill={blue}/><Tank/><path d="M53 161V168M106 161V168"/><rect x="65" y="96" width="31" height="44" rx="4" fill={blue} strokeWidth="3"/><circle cx="80" cy="67" r="10" fill="white" strokeWidth="3"/><path d="M80 67L84 61" strokeWidth="2"/><Detail><path d="M72 100V135M102 144l6-5m-6 9 6-5"/><circle cx="71" cy="102" r="1.4"/><circle cx="90" cy="133" r="1.4"/></Detail></>;
+ case "leaks": return <><Tube d="M38 159V91Q38 58 72 58H143" width={22}/><Joint x={38} y={132} turn={90}/><Joint x={93} y={58}/><Detail><path d="M38 113V91Q38 58 72 58H139" strokeDasharray="4 4"/><path d="M113 65l6-5m0 5 6-5m0 5 6-5m0 5 6-5"/></Detail><Drop x={112} y={115}/></>;
+ case "drains": return <><Tube d="M40 60V116Q40 153 79 153Q118 153 118 116V37" width={21}/><Joint x={40} y={66} turn={90}/><Joint x={118} y={91} turn={90}/><Joint x={118} y={35} turn={90}/><Detail><path d="M40 80V117Q40 153 79 153Q118 153 118 116V49" strokeDasharray="4 4"/><path d="M60 153l4-6m3 8 4-6m3 8 4-6"/></Detail></>;
+ case "fixtures": return <><Faucet/><Toilet/></>;
+ case "softener": return <><Tank x={24} y={52} w={53} h={108}/><Tank x={93} y={89} w={43} h={71}/><rect x="28" y="25" width="47" height="24" rx="4" fill="white"/><rect x="35" y="31" width="23" height="11" fill={blue} strokeWidth="2"/><circle cx="66" cy="34" r="2" fill={navy} stroke="none"/><path d="M49 49V52M77 66H111V89" fill="none"/><Detail><path d="M31 147l7-5m-3 9 7-5m-3 9 7-5M100 148H130"/></Detail></>;
+ case "gas": return <><Tube d="M23 130H139" width={21}/><Joint x={35} y={130}/><Joint x={126} y={130}/><rect x="61" y="117" width="41" height="26" rx="4" fill={blue}/><path d="M80 116V99M63 99H98" fill="none"/><path d="M81 83C56 79 59 61 71 53Q71 66 79 65Q91 55 80 32C111 52 114 75 92 83Z" fill={blue} strokeWidth="3"/><Detail><path d="M47 137l5-5m0 5 5-5M68 123H96M80 125V139" strokeDasharray="3 3"/></Detail></>;
+ case "pump": return <><path d="M19 69V148Q19 167 39 167H125Q143 167 143 148V69" fill={pale}/><path d="M24 130H138V148Q138 162 125 162H39Q24 162 24 148Z" fill={blue} stroke="none"/><Tube d="M86 124V33H123" width={10}/><Joint x={86} y={60} turn={90}/><path d="M11 69H46M119 69H151M65 157V115Q65 108 72 108H101Q108 108 108 115V157Z" fill="white"/><rect x="70" y="129" width="33" height="23" rx="2" fill={blue} strokeWidth="2"/><path d="M58 70V104L49 132M43 113L54 116L51 137L40 134Z" fill={blue} strokeWidth="3"/><Detail><path d="M18 78l-7 7m7 2-7 7m7 2-7 7M143 78l7 7m-7 2 7 7m-7 2 7 7M28 96H136M29 146H136" strokeDasharray="3 3"/></Detail></>;
+ case "emergency": return <><path d="M43 140V96a37 37 0 0 1 74 0V140Z" fill={blue}/><path d="M36 140H124V153H36Z" fill="white"/><path d="M80 28V43M30 50L41 61M12 94H28M130 50L119 61M133 94H149" stroke={blue} fill="none"/><path d="M58 128V98Q58 76 79 75" stroke="white" strokeWidth="7" fill="none"/><Detail><path d="M80 64V133" strokeDasharray="3 3"/><path d="M103 122l7-5m-7 11 7-5"/></Detail></>;
+ case "plans": return <><path d="M34 22H105L131 49V166H34Z" fill="white"/><path d="M104 23V50H131" fill={pale}/><path d="M49 66H115V123H49ZM77 67V91H114M50 104H76V123" fill={pale} strokeWidth="3"/><path d="M78 110H98V124M52 141H97M52 151H83" stroke={blue} strokeWidth="4"/><Detail><path d="M44 59H121M44 130H121M43 58V132M121 58V132M49 95H77" strokeDasharray="3 3"/><path d="M107 143l7-5m-7 10 7-5"/></Detail></>;
+ case "underground": return <><path d="M16 50H144M22 51V158H138V51" fill={pale} strokeWidth="3"/><Tube d="M38 64V112Q38 130 57 130H115M81 132V158" width={15}/><Joint x={38} y={79} turn={90}/><Joint x={114} y={130}/><Detail><path d="M24 62l10-7m-10 16 10-7M126 70l10-7m-10 16 10-7M29 145H132M80 56V170" strokeDasharray="3 3"/></Detail></>;
+ case "roughin": return <><path d="M26 25H135V163H26Z" fill="white"/><g stroke={blue} strokeWidth="3"><path d="M57 27V161M96 27V161M28 43H133M28 148H133"/></g><Tube d="M40 61H112V94H77V134H43" width={10}/><Joint x={78} y={61}/><Detail><path d="M31 31H130M32 156H130M48 26V164M108 26V164" strokeDasharray="4 4"/><path d="M36 151l7-5m1 5 7-5"/></Detail></>;
+ case "service": return <><path d="M22 84L65 49L107 84M32 80V121H97V80" fill="white"/><path d="M50 121V91H75V121" fill={pale}/><Tube d="M17 155H81V137H136V105" width={12}/><Joint x={110} y={137}/><rect x="121" y="83" width="29" height="22" rx="3" fill={blue}/><Detail><path d="M15 128H147M16 170H148M65 54V115" strokeDasharray="4 4"/><path d="M34 163l7-4m0 4 7-4"/></Detail></>;
+ case "trim": case "remodels": return <><Faucet/><path d="M85 50H141V152H85Z" fill="white"/><path d="M92 65H132M92 89H132M92 113H132" stroke={blue} strokeWidth="3"/><path d="M96 136l8 7 18-19" stroke={blue} fill="none"/><Detail><path d="M111 55V119" strokeDasharray="3 3"/><path d="M128 144l7-5m-7 10 7-5"/></Detail></>;
+ case "house": return <House/>;
+ default: return <><Tube d="M29 132L117 44" width={12}/><path d="M109 32Q142 26 134 61L121 58L109 45Z" fill={blue}/><Detail><path d="M45 120L101 64" strokeDasharray="4 4"/></Detail></>;
  }
- return <svg viewBox="0 0 160 190" fill="none" stroke="currentColor" className={`sketch-${uid}`} strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" focusable="false">
- <defs><linearGradient id={`${uid}-metal`} x1="0" y1="0" x2="1" y2=".25"><stop offset="0" stopColor="#7ea9ca"/><stop offset=".16" stopColor="#e4f2fb"/><stop offset=".36" stopColor="#fff"/><stop offset=".65" stopColor="#eaf5fb"/><stop offset=".88" stopColor="#a7cce5"/><stop offset="1" stopColor="#4d88b2"/></linearGradient><linearGradient id={`${uid}-wash`} x1="0" y1="0" x2="0" y2="1"><stop stopColor="#e2f1fa" stopOpacity=".25"/><stop offset="1" stopColor="#89b6d5" stopOpacity=".5"/></linearGradient><pattern id={uid} width="5" height="5" patternUnits="userSpaceOnUse" patternTransform="rotate(35)"><path d="M0 0V5" stroke="#588eb4" strokeWidth=".9"/></pattern></defs><style>{`.sketch-${uid} [fill="#fff"]{fill:url(#${uid}-metal)} .sketch-${uid} [stroke="#819db4"]{stroke:#3679ad} .sketch-${uid} [stroke="#86aac6"]{stroke:#287db7;stroke-width:2.4}`}</style>{id!=="house"&&<ellipse cx="81" cy="173" rx="55" ry="5" fill="#397dad" opacity=".12" stroke="none"/>}
- <g stroke="#b3c8d9" strokeWidth=".45" opacity=".65"><path d="M9 17V179M151 17V179M4 173H156M4 22H156M6 176l6-6M148 176l6-6M6 25l6-6M148 25l6-6"/><path d="M80 7V184M3 95H157" strokeDasharray="5 4"/></g>
- <g>
- {id==="heater"&&<><Tank/><Pipe d="M60 31V16M100 31V16" width={6}/><Collar x={60} y={22} rotate={90}/><Collar x={100} y={22} rotate={90}/><path d="M74 30V13H86V30M77 13V7H83V13" fill="#fff"/><circle cx="80" cy="64" r="8"/><circle cx="80" cy="64" r="5"/><path d="M80 64l3-3"/><rect x="69" y="111" width="23" height="28" rx="2" fill={`url(#${uid})`}/><rect x="74" y="116" width="13" height="13" fill="#fff"/><circle cx="80" cy="122" r="3"/><Pipe d="M44 137H31V161H22" width={5}/><path d="M25 135H37M29 131H33V140M58 151H103"/></>}
- {id==="leaks"&&<><Pipe d="M42 19V81Q42 105 67 105H143"/><Collar x={42} y={51} rotate={90}/><Collar x={89} y={105}/><Collar x={123} y={105}/><path d="M64 99l7 5-6 6 8 6M29 22V73M34 22V74M97 100H118M97 108H118" strokeWidth=".65"/><Drops/></>}
- {id==="drains"&&<><ellipse cx="49" cy="32" rx="24" ry="6" fill="#fff"/><Pipe d="M49 39V115Q49 143 76 143Q102 143 102 116V95Q102 78 132 78" width={16}/><Collar x={49} y={60} rotate={90}/><Collar x={102} y={111} rotate={90}/><Collar x={127} y={78}/><ellipse cx="49" cy="32" rx="17" ry="3"/><path d="M36 40H61M38 45H60M56 133Q77 151 91 132M127 67V90" strokeWidth=".65"/></>}
- {id==="fixtures"&&<><Tap x={28} y={55}/><g fill="#fff"><rect x="82" y="64" width="56" height="47" rx="5"/><path d="M79 63H141V69H79ZM84 112H139Q139 139 119 143L131 165H92L97 140Q81 130 84 112Z"/><ellipse cx="111" cy="113" rx="29" ry="6"/><ellipse cx="111" cy="114" rx="23" ry="3"/><path d="M99 141H119M96 158H124M88 73H132M88 100H132"/><circle cx="94" cy="80" r="2"/></g></>}
- {id==="softener"&&<><Tank x={75} y={60} w={49} h={94}/><Tank x={19} y={94} w={43} h={64}/><rect x="82" y="25" width="39" height="28" rx="3" fill="#fff"/><rect x="87" y="30" width="20" height="13" fill={`url(#${uid})`}/><circle cx="114" cy="34" r="2"/><circle cx="114" cy="43" r="2"/><path d="M93 54V59H106V54M39 88V69H81M42 88V73H81M25 97H56M25 101H56M84 145H116"/></>}
- {id==="gas"&&<><Pipe d="M27 163V93Q27 79 43 79H146" width={10}/><Valve x={91} y={79}/><Collar x={53} y={79}/><Collar x={131} y={79}/><path d="M19 163H35M18 156H36M18 151H36M59 76H72M108 76H120M59 82H72M108 82H120" strokeWidth=".7"/></>}
- {id==="pump"&&<><path d="M16 93H49M108 93H146M39 96V160Q79 181 124 160V96"/><path d="M18 99H37V167Q81 190 129 167V99H146" fill={`url(#${uid})`}/><ellipse cx="81" cy="158" rx="34" ry="11"/><Pipe d="M84 145V28Q84 18 95 18H119" width={7}/><Collar x={84} y={62} rotate={90}/><path d="M62 142V159H105V141L96 129H73Z" fill="#fff"/><path d="M67 146V158M72 143V160M77 143V160M96 141V159M101 144V159M58 141V119H66V143M101 129V105Q111 95 110 68V42"/><circle cx="110" cy="64" r="4"/><path d="M29 88l-8-5m10-6-9-4m113 13 8-5M47 151H57M107 151H120"/></>}
- {id==="emergency"&&<><path d="M49 132V92a31 31 0 0 1 62 0V132M43 132H117V145H43ZM39 145H121V151H39Z" fill="#fff"/><path d="M58 123V94Q58 73 77 71M63 124V94Q63 80 76 77M85 72Q103 76 104 94V125" stroke="#86aac6"/><path d="M80 41V24M44 54L31 40M27 87H11M115 54L128 40M132 87H149M59 44L53 30M102 44L108 30" strokeWidth="2"/></>}
- {id==="plans"&&<><path d="M23 53L127 31L143 138L40 164Z" fill="#fff"/><path d="M23 53Q12 46 14 33Q20 23 28 32L45 148Q39 166 29 157M127 31Q135 20 140 32L153 129Q150 140 143 138" fill="#fff"/><g transform="rotate(-12 80 96)"><path d="M45 61H118V129H45ZM45 89H80V61M80 89H118M80 129V104M45 113H64V129M94 89V111H118M84 111H96M52 68H69V79H52ZM99 66H111V79H99Z"/><path d="M48 86H61M65 86H77M83 92V104M48 110H60M98 115H113M37 59V134M34 61H40M34 129H40M44 138H119M45 135V141M118 135V141" strokeWidth=".55"/><path d="M67 113a15 15 0 0 1 13-14M95 90a16 16 0 0 0 15 15" strokeWidth=".7"/></g></>}
- {id==="underground"&&<><path d="M7 102L111 35L153 51L49 132ZM7 102V130L50 155L153 78V51M50 132V155" fill={`url(#${uid})`}/><path d="M26 113L127 47M41 127L144 58M26 113V136M41 127V146" fill="#fff"/><Pipe d="M34 135L137 63" width={11}/>{[55,81,108].map((x)=><Collar key={x} x={x} y={135-(x-34)*.699} rotate={-35}/>)}<path d="M13 100L18 96M27 91L32 88M50 77L55 74M67 67L72 64M98 47L102 44M55 160L156 86" strokeDasharray="2 4"/></>}
- {id==="roughin"&&<><path d="M23 31L139 16V155L23 175Z" fill={`url(#${uid})`}/>{[27,58,91,126].map(x=><path key={x} d={`M${x} ${34-(x-27)*.13}V${170-(x-27)*.15}H${x+6}V${33-(x-27)*.13}Z`} fill="#fff"/>)}<path d="M23 35L139 20M23 167L139 149"/><Pipe d="M42 151V110H78V57H113V135" width={6}/><Pipe d="M78 110V148M42 86H78M78 75H107" width={4}/><Collar x={78} y={94} rotate={90}/><path d="M38 112H47M74 58H83M107 132H120"/></>}
- {id==="service"&&<><path d="M14 43H146V65H14ZM14 110H146V148H14Z" fill={`url(#${uid})`}/><path d="M95 26V159H123V26Z" fill={`url(#${uid})`}/><Pipe d="M13 91H108V154M108 91H147" width={10}/><Collar x={46} y={91}/><Collar x={82} y={91}/><Collar x={136} y={91}/><path d="M95 67H123M96 119H123M22 48H64M71 54H88M19 129H70M24 138H83M130 121H143" strokeWidth=".6"/><path d="M54 74V64H76V76" fill="#fff"/><rect x="52" y="76" width="27" height="24" rx="3" fill="#fff"/><circle cx="65" cy="86" r="8"/><path d="M65 86l4-3"/></>}
- {id==="trim"&&<><Tap x={36} y={87}/><Pipe d="M96 154V42Q96 26 113 26H130V42" width={5}/><path d="M121 42H139L145 51H115ZM116 55v4m7-4v4m7-4v4m7-4v4m7-4v4M90 94H104V117H90Z" fill="#fff"/><circle cx="97" cy="105" r="4"/><path d="M22 158H62V165H22M85 155H110V163H85M63 123H82V144H63Z" fill="#fff"/></>}
- {id==="house"&&<House/>}
- </g>
- {id==="heater"&&<g stroke="#2b72a5" strokeWidth=".6" opacity=".65">{Array.from({length:13},(_,i)=><path key={i} d={`M99 ${78+i*4}l11-5`}/>)}</g>}
- {id==="emergency"&&<path d="M52 128V92a28 28 0 0 1 56 0V128Z" fill={`url(#${uid}-wash)`} stroke="none"/>}
- </svg>;
 }
-
-/** Drafting guides use distinct weights, lengths and fades rather than graph paper. */
-function BlueprintGuides() {
- const id=useId().replace(/:/g,"");
- return <g fill="none" strokeLinecap="round">
-  <defs>
-   <linearGradient id={`${id}-horizontal`} gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="520" y2="0">
-    <stop offset="0" stopColor="#3279a6" stopOpacity="0"/><stop offset=".21" stopColor="#3279a6" stopOpacity=".24"/><stop offset=".49" stopColor="#165583" stopOpacity=".65"/><stop offset=".78" stopColor="#508fb5" stopOpacity=".3"/><stop offset="1" stopColor="#508fb5" stopOpacity="0"/>
-   </linearGradient>
-   <linearGradient id={`${id}-horizontal-light`} gradientUnits="userSpaceOnUse" x1="18" y1="0" x2="485" y2="0">
-    <stop stopColor="#659ebd" stopOpacity="0"/><stop offset=".3" stopColor="#659ebd" stopOpacity=".18"/><stop offset=".67" stopColor="#2b719e" stopOpacity=".36"/><stop offset="1" stopColor="#659ebd" stopOpacity="0"/>
-   </linearGradient>
-   <linearGradient id={`${id}-vertical`} gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="0" y2="190">
-    <stop stopColor="#286994" stopOpacity="0"/><stop offset=".16" stopColor="#286994" stopOpacity=".48"/><stop offset=".53" stopColor="#236694" stopOpacity=".34"/><stop offset=".89" stopColor="#5a96ba" stopOpacity=".12"/><stop offset="1" stopColor="#5a96ba" stopOpacity="0"/>
-   </linearGradient>
-   <linearGradient id={`${id}-vertical-reverse`} gradientUnits="userSpaceOnUse" x1="0" y1="3" x2="0" y2="185">
-    <stop stopColor="#659dbc" stopOpacity="0"/><stop offset=".35" stopColor="#659dbc" stopOpacity=".15"/><stop offset=".71" stopColor="#236b9a" stopOpacity=".55"/><stop offset="1" stopColor="#659dbc" stopOpacity="0"/>
-   </linearGradient>
-  </defs>
-  <g stroke={`url(#${id}-horizontal-light)`} strokeWidth=".45">
-   <path d="M34 19.5 196 20 299 19.7M309 20H505"/><path d="M5 42H154M160 42.4 494 42"/>
-   <path d="M17 110.5 341 111M355 111H485"/><path d="M48 137H197M202 137.3 511 137"/>
-   <path d="M8 184H144M153 183.6 471 184"/>
-  </g>
-  <g stroke={`url(#${id}-horizontal)`}>
-   <path d="M0 82H365M377 82.4 520 82" strokeWidth=".85"/>
-   <path d="M21 160 218 159.7M225 160H516" strokeWidth=".65"/>
-   <path d="M62 58H193M202 58H499" strokeWidth=".3"/>
-  </g>
-  <g stroke={`url(#${id}-vertical)`}>
-   <path d="M68 8V122M68.3 133V188" strokeWidth=".45"/>
-   <path d="M157 0V91M156.7 99V190" strokeWidth=".85"/>
-   <path d="M237 4 237.4 187" strokeWidth=".45"/>
-   <path d="M327 0V109M327.3 121V190" strokeWidth=".75"/>
-   <path d="M478 0 477.7 165" strokeWidth=".4"/>
-  </g>
-  <g stroke={`url(#${id}-vertical-reverse)`}>
-   <path d="M110 2V190" strokeWidth=".75"/>
-   <path d="M194 14 194.4 188" strokeWidth=".35"/>
-   <path d="M278 0V190" strokeWidth=".55"/>
-   <path d="M380 6 380.3 164" strokeWidth=".35"/>
-   <path d="M423 0V104M423.4 114V188" strokeWidth=".85"/>
-  </g>
-  <g stroke="#397ca7" strokeWidth=".4" opacity=".28">
-   <path d="M107 79h6m-3-3v6M154 157h6m-3-3v6M324 79h6m-3-3v6M420 157h6m-3-3v6"/>
-   <path d="M158.5 24V69M328.5 44V73M424.4 126V165M90 83.4H136M282 161.3H321" opacity=".5"/>
-  </g>
- </g>;
+export function ServiceSketch({id,className}:{id:string;className?:string}) {
+ return <svg viewBox="0 0 160 190" className={className} data-illustration={id} fill="none" stroke={navy} strokeWidth="4.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" focusable="false"><Artwork id={id}/></svg>;
 }
-
 export function PipeBanner() {
- const route="M25 159H85Q112 159 112 131V95Q112 58 153 58H238Q278 58 278 25V0M238 58H540";
- return <svg viewBox="0 0 520 190" preserveAspectRatio="xMaxYMid slice" fill="none" stroke="currentColor" strokeWidth="1.2" aria-hidden="true">
- <BlueprintGuides/>
- <Pipe d={route} width={24}/>
- <path d={route} stroke="#2f72a5" strokeWidth=".8" transform="translate(1.5 2)" opacity=".6"/>
- <g stroke="#387fac" strokeWidth=".65" opacity=".75">
- {Array.from({length:27},(_,i)=><path key={i} d={`M${168+i*12} 65l6-5`}/>)}
- {Array.from({length:7},(_,i)=><path key={i} d={`M116 ${89+i*6}l6-4`}/>)}
- <path d="M90 168q31-4 32-35M125 94q1-23 29-24M31 149H85M156 46H236M289 5V22" />
- </g>
- {[[45,159,0],[112,111,90],[157,58,0],[224,58,0],[278,17,90],[326,58,0],[423,58,0]].map(([x,y,r])=><g key={`${x}-${y}`} transform={`translate(${x} ${y}) scale(1.3)`}><Collar x={0} y={0} rotate={r}/></g>)}
- <path d="M30 178H100M133 91V142M150 37H247M341 80H508M326 32V85M20 184H105M20 180V188M105 180V188" strokeWidth=".6"/>
- <g fill="#087bcc" stroke="none" fontSize="13" fontWeight="600" fontStyle="italic" letterSpacing="1" transform="rotate(-5 335 111)">
- <text x="335" y="106">QUALITY PLUMBING</text><text x="335" y="126">STRONGER HOMES.</text>
- </g></svg>;
+ return <svg viewBox="0 0 520 190" preserveAspectRatio="xMaxYMid slice" fill="none" stroke={navy} strokeWidth="4" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+ <Tube d="M25 159H85Q112 159 112 131V95Q112 58 153 58H238Q278 58 278 25V0M238 58H540" width={24}/>
+ {[[45,159,0],[112,111,90],[157,58,0],[224,58,0],[278,17,90],[326,58,0],[423,58,0]].map(([x,y,turn])=><Joint key={x+"-"+y} x={x} y={y} turn={turn}/>)}
+ <Detail><path d="M32 159H85Q112 159 112 131V95Q112 58 153 58H508M278 7V26" strokeDasharray="6 5"/><path d="M148 84H500M135 96V150M155 81V87M500 81V87"/>{[175,185,195,205,345,355,365].map(x=><path key={x} d={`M${x} 65l6-5`}/>)}</Detail>
+ <g fill="#3978d4" stroke="none" fontSize="13" fontWeight="600" fontStyle="italic" letterSpacing="1" transform="rotate(-5 335 111)"><text x="335" y="106">QUALITY PLUMBING</text><text x="335" y="126">STRONGER HOMES.</text></g>
+ </svg>;
 }

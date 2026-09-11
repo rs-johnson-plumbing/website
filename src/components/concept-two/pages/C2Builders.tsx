@@ -1,5 +1,9 @@
 "use client";
 
+import { useState, useCallback } from "react";
+import type { BuilderService } from "@/lib/content";
+import { C2ServiceDetails } from "../ui/C2ServiceDetails";
+import { useRequestBid } from "../ui/C2Request";
 import { conceptTwo as copy, builderServices, faqs, site } from "@/lib/content";
 import { C2PageHero } from "../sections/C2PageHero";
 import { C2TrustStrip } from "../sections/C2TrustStrip";
@@ -19,6 +23,9 @@ const tiles = builderServices.map((service) => ({
 
 export function C2Builders() {
   const page = copy.builders;
+  const requestBid = useRequestBid();
+  const [selected, setSelected] = useState<BuilderService | null>(null);
+  const closeDetails = useCallback(() => setSelected(null), []);
   return (
     <div className="c2-builders">
       <C2PageHero
@@ -47,7 +54,7 @@ export function C2Builders() {
             </h2>
             <p>{page.services.line}</p>
           </div>
-          <C2ServiceGrid items={tiles} />
+          <C2ServiceGrid items={tiles} detailed onSelect={item => setSelected(builderServices.find(service => item.href.endsWith(`#${service.slug}`)) ?? null)} />
         </div>
       </section>
 
@@ -73,6 +80,7 @@ export function C2Builders() {
 
       <C2Faq heading={page.faqHeading} items={faqs.builders.items} illustrated />
       <C2FinalCta audience="builders" />
+      {selected && <C2ServiceDetails service={selected} onClose={closeDetails} onRequest={() => { setSelected(null); requestBid(); }} />}
     </div>
   );
 }

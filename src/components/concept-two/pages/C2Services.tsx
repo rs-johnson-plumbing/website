@@ -1,5 +1,4 @@
 "use client";
-import Image from "next/image";
 import { useCallback, useState } from "react";
 import { C2ServiceDetails } from "../ui/C2ServiceDetails";
 import type { Service, BuilderService } from "@/lib/content";
@@ -123,7 +122,7 @@ export function C2Services() {
  .directory-preview .dp-builder-heading { min-height:120px; align-items:flex-start; padding-top:4px; }
  .directory-preview .dp-builder-heading>div:first-child { max-width:50%; padding-top:12px; }
  .directory-preview .dp-house { position:absolute; top:-32px; right:0; width:55%; height:180px; margin:0; opacity:1; display:flex; align-items:center; overflow:visible; }
- .directory-preview .dp-house img { width:calc(100% - 76px); height:100%; object-fit:contain; object-position:right center; mask-image:radial-gradient(ellipse at center,#000 55%,transparent 76%); }
+ .directory-preview .dp-house>svg { width:calc(100% - 76px); height:100%; object-fit:contain; object-position:right center; mask-image:radial-gradient(ellipse at center,#000 55%,transparent 76%); }
  .directory-preview .dp-house-caption { flex:0 0 76px; color:#d7e8f7; font-size:12px; line-height:1.45; letter-spacing:.08em; text-transform:uppercase; font-style:italic; transform:rotate(-5deg); }
  .directory-preview .dp-house-caption:after { content:""; display:block; width:54px; height:1px; background:#a3c3dd; margin-top:12px; }
  .directory-preview .dp-builders .dp-card-trigger { grid-template-columns:minmax(100px,38%) minmax(0,1fr); min-height:178px; padding:16px 18px; gap:0 16px; }
@@ -141,7 +140,7 @@ export function C2Services() {
   .directory-preview .dp-builder-heading>div:first-child { max-width:48%; }
   .directory-preview .dp-house { top:-12px; height:180px; width:53%; }
   .directory-preview .dp-house-caption { font-size:10px; flex-basis:62px; }
-  .directory-preview .dp-house img { width:calc(100% - 62px); }
+  .directory-preview .dp-house>svg { width:calc(100% - 62px); }
  }
  @media(max-width:767px) {
   .directory-preview .dp-home h2 { gap:10px; }
@@ -149,7 +148,7 @@ export function C2Services() {
   .directory-preview .dp-builder-heading { min-height:0; padding:0; display:block; }
   .directory-preview .dp-builder-heading>div:first-child { max-width:100%; padding:0; }
   .directory-preview .dp-house { position:relative; top:auto; right:auto; width:100%; height:130px; margin:12px 0 -2px; }
-  .directory-preview .dp-house img { width:calc(100% - 68px); }
+  .directory-preview .dp-house>svg { width:calc(100% - 68px); }
   .directory-preview .dp-house-caption { font-size:10px; flex-basis:68px; }
   .directory-preview .dp-builders .dp-card-trigger { grid-template-columns:108px minmax(0,1fr); min-height:174px; padding:14px; gap:0 16px; }
   .directory-preview .dp-builders .dp-card-trigger svg { height:142px; }
@@ -161,7 +160,7 @@ export function C2Services() {
  `}</style>
  <div className="dp-wrap dp-header"><div className="dp-header-art"><PipeBanner/></div><h1>Our Services</h1><p className="dp-intro">Find the right help for your home or next build.</p><nav className="dp-jumps" aria-label="Service audiences"><a href="#homeowner-services">Homeowner Services ↓</a><a href="#builder-services">Builder Services ↓</a></nav></div>
  <section className="dp-home" id="homeowner-services"><div className="dp-wrap"><h2>Homeowner Services</h2><p className="dp-section-intro">Repairs, replacements, and new installations.</p><div className="dp-grid">{services.map(s=><article className="dp-card" key={s.slug}><button type="button" className="dp-card-trigger" onClick={()=>setSelected(s)} aria-haspopup="dialog" aria-label={`View details: ${c2Label(s.slug,s.name)}`}><ServiceSketch id={drawingFor(s.slug)}/><span className="dp-title">{c2Label(s.slug,s.name)}</span><span className="dp-short">{s.short}</span><span className="dp-more"><span>View details</span><span aria-hidden="true"> →</span></span></button></article>)}</div></div></section>
- <section className="dp-builders" id="builder-services"><div className="dp-wrap"><div className="dp-builder-heading"><div><h2>Builder Services</h2><p className="dp-section-intro">Plumbing through every phase of your build.</p></div><div className="dp-house"><Image src="/images/service-sketches/house-cutaway.webp" alt="" width={2172} height={724} unoptimized/><span className="dp-house-caption">From<br/>Foundation<br/>to Finish</span></div></div><div className="dp-grid">{builderServices.map((s,i)=><article className="dp-card" key={s.slug}><button type="button" className="dp-card-trigger" onClick={()=>setSelected(s)} aria-haspopup="dialog" aria-label={`View details: ${c2Label(s.slug,s.name)}`}><ServiceSketch id={drawingFor(s.slug)}/><span className="dp-step"><span className="dp-sr-only">Phase </span>{String(i+1).padStart(2,"0")}</span><span className="dp-title">{c2Label(s.slug,s.name)}</span><span className="dp-short">{s.short}</span><span className="dp-more"><span>View details</span><span aria-hidden="true"> →</span></span></button></article>)}</div><div className="dp-bid"><C2Button href="/for-builders#request-a-bid" variant="on-dark">Request a Bid</C2Button></div></div></section>
+ <section className="dp-builders" id="builder-services"><div className="dp-wrap"><div className="dp-builder-heading"><div><h2>Builder Services</h2><p className="dp-section-intro">Plumbing through every phase of your build.</p></div><div className="dp-house"><ServiceSketch id="house"/><span className="dp-house-caption">From<br/>Foundation<br/>to Finish</span></div></div><div className="dp-grid">{builderServices.map((s,i)=><article className="dp-card" key={s.slug}><button type="button" className="dp-card-trigger" onClick={()=>setSelected(s)} aria-haspopup="dialog" aria-label={`View details: ${c2Label(s.slug,s.name)}`}><ServiceSketch id={drawingFor(s.slug)}/><span className="dp-step"><span className="dp-sr-only">Phase </span>{String(i+1).padStart(2,"0")}</span><span className="dp-title">{c2Label(s.slug,s.name)}</span><span className="dp-short">{s.short}</span><span className="dp-more"><span>View details</span><span aria-hidden="true"> →</span></span></button></article>)}</div><div className="dp-bid"><C2Button href="/for-builders#request-a-bid" variant="on-dark">Request a Bid</C2Button></div></div></section>
  {selected && <C2ServiceDetails service={selected} onClose={closeDetails} onRequest={()=>{setSelected(null);request();}}/>}
  <C2FinalCta/>
  </div>;

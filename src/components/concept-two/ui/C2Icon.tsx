@@ -95,9 +95,10 @@ const paths: Record<C2IconName, ReactNode> = {
   ),
   "hard-hat": (
     <>
-      <path d="M3.3 16.6a8.7 8.7 0 0 1 17.4 0" />
-      <path d="M2.6 16.6h18.8v2.1H2.6z" />
-      <path d="M9.6 8.4V4.9c0-.5.4-.9.9-.9h3c.5 0 .9.4.9.9v3.5" stroke="#0876D1" />
+      <path d="m4 4 16 16-3 2L2 7Z" />
+      <path d="m6 7 2-2m2 6 2-2m2 6 2-2" stroke="#0876D1" />
+      <path d="m4 20 9-9 3 3-9 9Z" fill="white" />
+      <path d="m12 7 5-5 5 5-2 2-2-2-3 3Z" fill="white" />
     </>
   ),
   check: <path d="m5 12.6 4.5 4.4L19 7.4" strokeWidth="2" />,
@@ -118,15 +119,13 @@ export function C2Icon({ name, size = 20, className }: { name: C2IconName; size?
       height={size}
       fill="none"
       stroke="currentColor"
-      strokeWidth={size >= 28 ? 1.1 : 1.7}
+      strokeWidth={1.7}
       strokeLinecap="round"
       strokeLinejoin="round"
       aria-hidden="true"
       className={className}
     >
-      {size >= 28 && <g strokeWidth=".25" opacity=".3"><path d="M1 2h22M2 1v22M1 22h22M22 1v22" strokeDasharray="1 1" /></g>}
       {paths[name]}
-      {size >= 28 && <g transform="translate(.28 -.2)" strokeWidth=".3" opacity=".28">{paths[name]}</g>}
     </svg>
   );
 }
