@@ -581,3 +581,18 @@
  .c2 .directory-preview .dp-header-art::after { background:linear-gradient(90deg,#eaf3fb 0%,rgba(234,243,251,.7) 35%,transparent 80%); }
  .c2 .directory-preview .dp-header-art .c2-pipe-caption { display:none; }
 }
+
+/* Motion is activated by the tile, not only its illustration. */
+@keyframes c2-tile-water { to { stroke-dashoffset:-21; } }
+@keyframes c2-tile-detail { 50% { opacity:.3; } }
+@keyframes c2-tile-lift { 50% { transform:translateY(-3px); } }
+@media(prefers-reduced-motion:no-preference) {
+ .c2 :is(.c2-service,.dp-card-trigger):focus-visible svg[data-illustration] .c2-sketch-art { animation:c2-tile-lift 2.8s ease-in-out infinite; }
+ .c2 :is(.c2-service,.dp-card-trigger):focus-visible svg[data-illustration] .c2-sketch-flow { opacity:.85; animation:c2-tile-water 1.6s linear infinite; }
+ .c2 :is(.c2-service,.dp-card-trigger):focus-visible svg[data-illustration] .c2-sketch-detail { animation:c2-tile-detail 2.8s ease-in-out infinite; }
+}
+@media(hover:hover) and (prefers-reduced-motion:no-preference) {
+ .c2 :is(.c2-service,.dp-card-trigger):hover svg[data-illustration] .c2-sketch-art { animation:c2-tile-lift 2.8s ease-in-out infinite; }
+ .c2 :is(.c2-service,.dp-card-trigger):hover svg[data-illustration] .c2-sketch-flow { opacity:.85; animation:c2-tile-water 1.6s linear infinite; }
+ .c2 :is(.c2-service,.dp-card-trigger):hover svg[data-illustration] .c2-sketch-detail { animation:c2-tile-detail 2.8s ease-in-out infinite; }
+}
