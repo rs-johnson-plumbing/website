@@ -268,3 +268,10 @@
     border-color: var(--c2-blue);
   }
 }
+
+@media (min-width: 1024px) and (max-width: 1199px) {
+  /* Keep the secondary copy on the light side of the image at laptop widths. */
+  .c2 .c2-hero:not(.c2-hero--page) .c2-hero-sub {
+    max-width: 15em;
+  }
+}
