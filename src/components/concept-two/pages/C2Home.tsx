@@ -13,7 +13,7 @@ import { C2Button } from "../ui/C2Button";
 export function C2Home() {
   const services = copy.home.services;
   return (
-    <>
+    <div className="c2-home">
       <C2Hero />
 
       <section className="c2-section c2-section--sand" aria-labelledby="c2-services-heading">
@@ -44,8 +44,8 @@ export function C2Home() {
         ctaHref={copy.home.remodel.cta.href}
       />
 
-      <C2Reviews heading={copy.home.reviews.heading} />
+      <C2Reviews heading={copy.home.reviews.heading} showProof={false} />
       <C2FinalCta />
-    </>
+    </div>
   );
 }

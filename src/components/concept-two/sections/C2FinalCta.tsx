@@ -4,7 +4,7 @@ import { conceptTwo as copy, site, smsLink } from "@/lib/content";
 import { C2Button } from "../ui/C2Button";
 import { useRequestService } from "../ui/C2Request";
 
-/** The closing band: call, text, or request, on brand blue. */
+/** The closing band keeps a subtle brand mark behind the contact actions. */
 export function C2FinalCta() {
   const cta = copy.home.finalCta;
   const requestService = useRequestService();
@@ -21,14 +21,13 @@ export function C2FinalCta() {
         <div className="c2-final-actions">
           <C2Button href={site.phone.tel} variant="on-dark" icon="phone" trailingIcon={null} data-track="call-final">
             {copy.ui.call}
-            <small>{site.phone.display}</small>
           </C2Button>
           <C2Button href={smsLink()} variant="on-dark" icon="message" trailingIcon={null} data-track="text-final">
             {copy.ui.text}
           </C2Button>
-          <C2Button onClick={requestService} variant="on-dark" icon="calendar" trailingIcon={null}>
+          <C2Button onClick={requestService} className="c2-final-request" variant="on-dark" icon="calendar" trailingIcon={null}>
             {copy.ui.requestShort}
-            <span className="c2-only-lg">&nbsp;Service</span>
+            <span className="c2-only-lg">Service</span>
           </C2Button>
         </div>
       </div>

@@ -64,12 +64,12 @@ export function Badge({ className, title }: { className?: string; title?: string
  * appears in the footer text. Same drawing as /public/logo/rsj-lockup.svg.
  * Scales by height; width follows (4:1).
  */
-export function Lockup({ className, title, reversed = false }: { className?: string; title?: string; reversed?: boolean }) {
+export function Lockup({ className, title, reversed = false, largerWordmark = false }: { className?: string; title?: string; reversed?: boolean; largerWordmark?: boolean }) {
   // Ink follows the parent's text color so the header can flip it in
   // For Builders mode; `reversed` forces off-white regardless.
   const ink = reversed ? "#F7F5F0" : "currentColor";
   return (
-    <svg viewBox="0 0 800 200" aria-hidden={title ? undefined : true} role={title ? "img" : undefined} className={className}>
+    <svg viewBox={largerWordmark ? "0 0 950 200" : "0 0 800 200"} aria-hidden={title ? undefined : true} role={title ? "img" : undefined} className={className}>
       {title && <title>{title}</title>}
       <g transform="translate(0 18) scale(0.78)" fill="none">
         <path d="M140 22 V150 A35 35 0 0 1 70 150 V138 A24 24 0 0 0 46 114 H18" stroke={ink} strokeWidth="34" strokeLinejoin="round" />
@@ -80,10 +80,10 @@ export function Lockup({ className, title, reversed = false }: { className?: str
       <g fontFamily="var(--font-figtree), Figtree, system-ui, sans-serif" fontWeight="800" fill={ink} letterSpacing="1">
         {/* textLength pins the wordmark width so a fallback font can never
             overflow the box before Figtree loads. */}
-        <text x="150" y="72" fontSize="50">
+        <text x="150" y="72" fontSize={largerWordmark ? 64 : 50}>
           R.S.
         </text>
-        <text x="150" y="148" fontSize="58" textLength="620" lengthAdjust="spacingAndGlyphs">
+        <text x="150" y="148" fontSize={largerWordmark ? 72 : 58} textLength={largerWordmark ? 770 : 620} lengthAdjust="spacingAndGlyphs">
           JOHNSON PLUMBING
         </text>
       </g>
