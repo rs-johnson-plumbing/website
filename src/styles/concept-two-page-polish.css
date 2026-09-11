@@ -166,3 +166,5 @@
 @media (max-width: 1023px) {
   .c2 .c2-location { font-size: clamp(calc(8.5px + 4pt), calc(2.3vw + 4pt), calc(10px + 4pt)); letter-spacing: 0; gap: 5px; }
 }
+
+.c2-home-services-more { margin-top: 24px; }
