@@ -1,4 +1,5 @@
 "use client";
+import Image from "next/image";
 import { services, builderServices } from "@/lib/content";
 import { ServiceSketch, PipeBanner } from "@/components/concept-two/ui/ServiceSketch";
 import { drawingFor, c2Label } from "@/components/concept-two/ui/drawingFor";
@@ -109,10 +110,58 @@ export function C2Services() {
  .directory-preview .dp-builders details:after{display:block!important;left:50%;top:100%;height:26px;width:1px}
  .directory-preview .dp-builders details:last-child:after{display:none!important}
  }
+
+ /* Finished reference treatment: compact art-led cards and a connected build sequence. */
+ .directory-preview :is(.dp-home,.dp-builders) h2 { text-transform:uppercase; font-weight:800; font-size:clamp(26px,2.45vw,34px); letter-spacing:-.025em; }
+ .directory-preview .dp-section-intro { font-size:clamp(18px,1.65vw,22px); line-height:1.4; margin:0; }
+ .directory-preview .dp-more { font-weight:700; }
+ .directory-preview .dp-more>span:first-child { text-decoration:underline; text-decoration-thickness:1.5px; text-underline-offset:3px; }
+ .directory-preview details[open] .dp-more>span { display:none; }
+ .directory-preview .dp-grid { margin-top:24px; }
+ .directory-preview .dp-builders { background:#182b50; }
+ .directory-preview .dp-builders>.dp-wrap { padding-block:32px; }
+ .directory-preview .dp-builder-heading { min-height:120px; align-items:flex-start; padding-top:4px; }
+ .directory-preview .dp-builder-heading>div:first-child { max-width:50%; padding-top:12px; }
+ .directory-preview .dp-house { position:absolute; top:-32px; right:0; width:55%; height:180px; margin:0; opacity:1; display:flex; align-items:center; overflow:visible; }
+ .directory-preview .dp-house img { width:calc(100% - 76px); height:100%; object-fit:contain; object-position:right center; mask-image:radial-gradient(ellipse at center,#000 55%,transparent 76%); }
+ .directory-preview .dp-house-caption { flex:0 0 76px; color:#d7e8f7; font-size:12px; line-height:1.45; letter-spacing:.08em; text-transform:uppercase; font-style:italic; transform:rotate(-5deg); }
+ .directory-preview .dp-house-caption:after { content:""; display:block; width:54px; height:1px; background:#a3c3dd; margin-top:12px; }
+ .directory-preview .dp-builders summary { grid-template-columns:minmax(100px,38%) minmax(0,1fr); min-height:178px; padding:16px 18px; gap:0 16px; }
+ .directory-preview .dp-builders summary svg { height:148px; }
+ .directory-preview .dp-builders .dp-short { font-size:14px; margin:6px 0 8px; }
+ .directory-preview .dp-builders details::before { content:""; position:absolute; left:100%; top:50%; width:29px; height:2px; background:#d9e9f6; z-index:-1; }
+ .directory-preview .dp-builders details::after { content:""; display:block; position:absolute; left:calc(100% + 10px); top:calc(50% - 3px); width:8px; height:8px; border-radius:50%; background:#fff; z-index:1; }
+ .directory-preview .dp-builders details:nth-child(3n)::before,.directory-preview .dp-builders details:nth-child(3n)::after { display:none; }
+ .directory-preview .dp-bid { margin-top:24px; }
+ .directory-preview .dp-bid .c2-btn { min-width:210px; min-height:44px; padding:10px 22px; }
+ @media(min-width:768px) and (max-width:1199px) {
+  .directory-preview .dp-builders details:nth-child(n)::before,.directory-preview .dp-builders details:nth-child(n)::after { display:block; }
+  .directory-preview .dp-builders details:nth-child(2n)::before,.directory-preview .dp-builders details:nth-child(2n)::after { display:none; }
+  .directory-preview .dp-builder-heading { min-height:180px; }
+  .directory-preview .dp-builder-heading>div:first-child { max-width:48%; }
+  .directory-preview .dp-house { top:-12px; height:180px; width:53%; }
+  .directory-preview .dp-house-caption { font-size:10px; flex-basis:62px; }
+  .directory-preview .dp-house img { width:calc(100% - 62px); }
+ }
+ @media(max-width:767px) {
+  .directory-preview .dp-home h2 { gap:10px; }
+  .directory-preview :is(.dp-home,.dp-builders) h2 { font-size:clamp(24px,6.5vw,29px); }
+  .directory-preview .dp-builder-heading { min-height:0; padding:0; display:block; }
+  .directory-preview .dp-builder-heading>div:first-child { max-width:100%; padding:0; }
+  .directory-preview .dp-house { position:relative; top:auto; right:auto; width:100%; height:130px; margin:12px 0 -2px; }
+  .directory-preview .dp-house img { width:calc(100% - 68px); }
+  .directory-preview .dp-house-caption { font-size:10px; flex-basis:68px; }
+  .directory-preview .dp-builders summary { grid-template-columns:108px minmax(0,1fr); min-height:174px; padding:14px; gap:0 16px; }
+  .directory-preview .dp-builders summary svg { height:142px; }
+  .directory-preview .dp-builders details:nth-child(n)::before { display:block; left:50%; top:100%; height:26px; width:2px; }
+  .directory-preview .dp-builders details:nth-child(n)::after { display:block!important; left:calc(50% - 3px); top:calc(100% + 9px); width:8px; height:8px; }
+  .directory-preview .dp-builders details:last-child::before,.directory-preview .dp-builders details:last-child::after { display:none!important; }
+ }
+
  `}</style>
  <div className="dp-wrap dp-header"><div className="dp-header-art"><PipeBanner/></div><h1>Our Services</h1><p className="dp-intro">Find the right help for your home or next build.</p><nav className="dp-jumps" aria-label="Service audiences"><a href="#homeowner-services">Homeowner Services ↓</a><a href="#builder-services">Builder Services ↓</a></nav></div>
- <section className="dp-home" id="homeowner-services"><div className="dp-wrap"><h2>Homeowner Services</h2><p>Repairs, replacements, and new installations.</p><div className="dp-grid">{services.map(s=><details key={s.slug}><summary><ServiceSketch id={drawingFor(s.slug)}/><span className="dp-title">{c2Label(s.slug,s.name)}</span><span className="dp-short">{s.short}</span><span className="dp-more">View details →</span></summary><div className="dp-detail"><h3>What we do</h3><ul>{s.hub.whatWeDo.filter(x=>!x.includes("[")).map(x=><li key={x}>{x}</li>)}</ul>{s.slug==="gas-lines"&&<p>New gas runs, repairs, and appliance hookups.</p>}<p><a href={`/services/${s.slug}`}>Full service details →</a></p><C2Button onClick={request}>Request Service</C2Button></div></details>)}</div></div></section>
- <section className="dp-builders" id="builder-services"><div className="dp-wrap"><div className="dp-builder-heading"><div><h2>Builder Services</h2><p>Plumbing through every phase of your build.</p></div><div className="dp-house"><ServiceSketch id="house"/></div></div><div className="dp-grid">{builderServices.map((s,i)=><details key={s.slug}><summary><ServiceSketch id={drawingFor(s.slug)}/><span className="dp-step"><span className="dp-sr-only">Phase </span>{String(i+1).padStart(2,"0")}</span><span className="dp-title">{c2Label(s.slug,s.name)}</span><span className="dp-short">{s.short}</span><span className="dp-more">View details →</span></summary><div className="dp-detail"><h3>What we do</h3><ul>{s.hub.whatWeDo.map(x=><li key={x}>{x}</li>)}</ul><a href="/for-builders#request-a-bid">Discuss your project →</a></div></details>)}</div><div className="dp-bid"><C2Button href="/for-builders#request-a-bid" variant="on-dark">Request a Bid</C2Button></div></div></section>
+ <section className="dp-home" id="homeowner-services"><div className="dp-wrap"><h2>Homeowner Services</h2><p className="dp-section-intro">Repairs, replacements, and new installations.</p><div className="dp-grid">{services.map(s=><details key={s.slug}><summary><ServiceSketch id={drawingFor(s.slug)}/><span className="dp-title">{c2Label(s.slug,s.name)}</span><span className="dp-short">{s.short}</span><span className="dp-more"><span>View details</span><span aria-hidden="true"> →</span></span></summary><div className="dp-detail"><h3>What we do</h3><ul>{s.hub.whatWeDo.filter(x=>!x.includes("[")).map(x=><li key={x}>{x}</li>)}</ul>{s.slug==="gas-lines"&&<p>New gas runs, repairs, and appliance hookups.</p>}<p><a href={`/services/${s.slug}`}>Full service details →</a></p><C2Button onClick={request}>Request Service</C2Button></div></details>)}</div></div></section>
+ <section className="dp-builders" id="builder-services"><div className="dp-wrap"><div className="dp-builder-heading"><div><h2>Builder Services</h2><p className="dp-section-intro">Plumbing through every phase of your build.</p></div><div className="dp-house"><Image src="/images/service-sketches/house-cutaway.webp" alt="" width={2172} height={724} unoptimized/><span className="dp-house-caption">From<br/>Foundation<br/>to Finish</span></div></div><div className="dp-grid">{builderServices.map((s,i)=><details key={s.slug}><summary><ServiceSketch id={drawingFor(s.slug)}/><span className="dp-step"><span className="dp-sr-only">Phase </span>{String(i+1).padStart(2,"0")}</span><span className="dp-title">{c2Label(s.slug,s.name)}</span><span className="dp-short">{s.short}</span><span className="dp-more"><span>View details</span><span aria-hidden="true"> →</span></span></summary><div className="dp-detail"><h3>What we do</h3><ul>{s.hub.whatWeDo.map(x=><li key={x}>{x}</li>)}</ul><a href="/for-builders#request-a-bid">Discuss your project →</a></div></details>)}</div><div className="dp-bid"><C2Button href="/for-builders#request-a-bid" variant="on-dark">Request a Bid</C2Button></div></div></section>
  <C2FinalCta/>
  </div>;
 }
