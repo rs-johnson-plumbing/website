@@ -406,12 +406,22 @@ test.describe("desktop pointer interactions", () => {
     const tile = page.locator(".c2-service, .dp-card-trigger").first();
     const art = tile.locator(".c2-sketch-art");
     await tile.hover();
-    await expect(art).toHaveCSS("animation-name", "c2-tile-lift");
-    await page.emulateMedia({ reducedMotion: "reduce" });
     await expect(art).toHaveCSS("animation-name", "none");
+    const detail = tile.locator("[data-motion]").first();
+    await expect(detail).not.toHaveCSS("animation-name", "none");
+    await page.emulateMedia({ reducedMotion: "reduce" });
+    await expect(detail).toHaveCSS("animation-name", "none");
     await page.emulateMedia({ reducedMotion: "no-preference" });
   }
   await page.goto("/services");
+  for (const card of await page.locator(".dp-card-trigger").all()) {
+    await card.hover();
+    await expect(card.locator(".c2-sketch-art")).toHaveCSS("animation-name", "none");
+    const movingPart = card.locator("[data-motion], .c2-sketch-flow").first();
+    await expect(movingPart).not.toHaveCSS("animation-name", "none");
+    await page.mouse.move(0, 0);
+    await expect(movingPart).toHaveCSS("animation-name", "none");
+  }
   const leaks = page.getByRole("button", { name: "View details: Leaks & Repairs", exact: true });
   await leaks.hover();
   await expect(leaks.locator(".c2-sketch-flow")).toHaveCSS("animation-name", "c2-tile-water");
