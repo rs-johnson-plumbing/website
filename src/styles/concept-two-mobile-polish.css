@@ -98,6 +98,24 @@
         var(--c2-paper) 96%);
   }
 
+  /* Selected soft-fade concept: protect every line of homepage copy while
+     letting the stone gable remain visible at the upper right. */
+  .c2 .c2-hero:not(.c2-hero--page) .c2-hero-media {
+    background-image: url('/images/concept-two/hero-mobile-soft-fade.webp');
+    background-position: right top;
+    border-radius: 0;
+  }
+  .c2 .c2-hero:not(.c2-hero--page) .c2-hero-media::before {
+    background: linear-gradient(180deg, transparent 0%, rgba(251,249,247,.35) 24%, rgba(251,249,247,.78) 44%, var(--c2-paper) 82%);
+  }
+  .c2 .c2-hero:not(.c2-hero--page) .c2-hero-media::after {
+    background: linear-gradient(90deg, var(--c2-paper) 0%, rgba(251,249,247,.98) 30%, rgba(251,249,247,.90) 55%, rgba(251,249,247,.65) 76%, rgba(251,249,247,.12) 100%);
+  }
+  .c2 .c2-hero:not(.c2-hero--page) .c2-eyebrow {
+    max-width: 24em;
+    color: #4b5563;
+  }
+
   /* Slightly more compact hero composition so the background remains visible without overpowering the copy. */
   .c2 .c2-hero-copy {
     padding-top: 30px;
