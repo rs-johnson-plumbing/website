@@ -1,4 +1,4 @@
-import type { ReactNode } from "react";
+import { useId, type ReactNode } from "react";
 
 const NAVY = "#0D2A4D";
 const BLUE = "#2868A8";
@@ -25,7 +25,7 @@ function Tube({ d, w = 19 }: { d: string; w?: number }) {
   return (
     <>
       <path d={d} stroke={NAVY} strokeWidth={w} />
-      <path d={d} stroke={METAL} strokeWidth={w - 6.6} />
+      <path d={d} stroke={METAL} strokeWidth={w - 2.4} />
     </>
   );
 }
@@ -192,18 +192,38 @@ const drawings: Record<string, ReactNode> = {
 };
 
 export function C2Drawing({ id, className }: { id: string; className?: string }) {
+  const hatch = "sketch-" + useId().replace(/:/g, "");
   return (
     <svg
       viewBox="0 0 96 96"
       fill="none"
       stroke={NAVY}
-      strokeWidth="3.4"
+      strokeWidth="1.35"
       strokeLinecap="round"
       strokeLinejoin="round"
       aria-hidden="true"
       className={className}
     >
-      {drawings[id] ?? drawings.other}
+      <defs>
+        <pattern id={hatch} width="4" height="4" patternUnits="userSpaceOnUse" patternTransform="rotate(32)">
+          <rect width="4" height="4" fill="#f4f7fa" />
+          <path d="M0 0v4" stroke="#7394ad" strokeWidth=".55" opacity=".55" />
+        </pattern>
+      </defs>
+      <g stroke="#6591b5" strokeWidth=".5" opacity=".4">
+        <path d="M7 5v86M89 5v86M3 88h90M5 8h86" strokeDasharray="3 3" />
+        <path d="M12 91h72m-72-2v4m72-4v4M4 15v65m-2-65h4m-4 65h4" />
+        <path d="m12 91 4-2m-4 2 4 2m68-2-4-2m4 2-4 2" />
+      </g>
+      <g className="c2-sketch-object" style={{ "--sketch-fill": `url(#${hatch})` } as React.CSSProperties}>
+        {drawings[id] ?? drawings.other}
+      </g>
+      <style>{`
+        .c2-sketch-object [fill="#E8E9EA"] { fill: var(--sketch-fill); }
+        .c2-sketch-object [fill="#2868A8"] { fill: #c0d8ec; }
+        .c2-sketch-object [stroke-width="4"], .c2-sketch-object [stroke-width="4.5"],
+        .c2-sketch-object [stroke-width="5"], .c2-sketch-object [stroke-width="7"] { stroke-width: 1.5; }
+      `}</style>
     </svg>
   );
 }
