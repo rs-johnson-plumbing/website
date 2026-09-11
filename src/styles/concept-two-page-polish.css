@@ -182,8 +182,8 @@
 
 
 /* Service discovery follows the homepage's text-and-arrow pattern. */
-.c2 .c2-btn--quiet { border-color: transparent; background: transparent; }
-.c2 .c2-btn--quiet:hover { border-color: transparent; background: transparent; text-decoration: underline; }
+.c2 .c2-btn.c2-btn--quiet { border-color: transparent; background: transparent; }
+.c2 .c2-btn.c2-btn--quiet:hover { border-color: transparent; background: transparent; text-decoration: underline; }
 
 /* Short inside-page messages leave room for a right-hand photo on phones. */
 @media (max-width: 1023px) {
