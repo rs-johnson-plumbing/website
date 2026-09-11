@@ -51,6 +51,15 @@ export function ServiceSketch({id,className}:{id:string;className?:string}) {
 export function PipeBanner() {
  return <svg viewBox="0 0 520 190" preserveAspectRatio="xMaxYMid slice" fill="none" stroke={navy} strokeWidth="4" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
  <Tube d="M25 159H85Q112 159 112 131V95Q112 58 153 58H238Q278 58 278 25V0M238 58H540" width={24}/>
+ <style>{`
+ .c2-pipe-flow { animation: c2-water-flow 3s linear infinite; }
+ @keyframes c2-water-flow { from { stroke-dashoffset: 0; } to { stroke-dashoffset: -48; } }
+ @media (prefers-reduced-motion: reduce) { .c2-pipe-flow { animation: none; } }
+ `}</style>
+ <g stroke="#e9f7ff" strokeWidth="3" opacity=".8">
+ <path className="c2-pipe-flow" d="M25 159H85Q112 159 112 131V95Q112 58 153 58H540" strokeDasharray="16 32"/>
+ <path className="c2-pipe-flow" d="M278 0V25Q278 58 238 58" strokeDasharray="16 32"/>
+ </g>
  {[[45,159,0],[112,111,90],[157,58,0],[224,58,0],[278,17,90],[326,58,0],[423,58,0]].map(([x,y,turn])=><Joint key={x+"-"+y} x={x} y={y} turn={turn}/>)}
  <Detail><path d="M32 159H85Q112 159 112 131V95Q112 58 153 58H508M278 7V26" strokeDasharray="6 5"/><path d="M148 84H500M135 96V150M155 81V87M500 81V87"/>{[175,185,195,205,345,355,365].map(x=><path key={x} d={`M${x} 65l6-5`}/>)}</Detail>
  <g fill="#3978d4" stroke="none" fontSize="13" fontWeight="600" fontStyle="italic" letterSpacing="1" transform="rotate(-5 335 111)"><text x="335" y="106">QUALITY PLUMBING</text><text x="335" y="126">STRONGER HOMES.</text></g>
