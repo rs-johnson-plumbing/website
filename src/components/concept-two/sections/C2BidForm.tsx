@@ -49,6 +49,11 @@ export function C2BidForm() {
               <input name="contractor" required autoComplete="organization" />
             </label>
             <div className="c2-form-row">
+              <label><span>Contact Name</span><input name="contactName" autoComplete="name" maxLength={80} /></label>
+              <label><span>Email</span><input name="email" type="email" autoComplete="email" maxLength={254} /></label>
+            </div>
+            <label><span>Project Location</span><input name="projectLocation" autoComplete="street-address" maxLength={200} /></label>
+            <div className="c2-form-row">
               <label>
                 <span>{form.projectType}</span>
                 <select name="projectType" defaultValue={form.projectTypes[0]}>
@@ -62,9 +67,11 @@ export function C2BidForm() {
                 <input name="phone" type="tel" inputMode="tel" required autoComplete="tel" />
               </label>
             </div>
-            <label>
+            <label><span>Project Details</span><textarea name="projectDetails" rows={3} maxLength={2000} /></label>
+            <label className="c2-plans-upload">
               <span>{form.plans}</span>
-              <input name="plans" type="file" accept="application/pdf,image/*" />
+              <input name="plans" type="file" accept="application/pdf,image/*" aria-describedby="c2-plans-help" />
+              <small id="c2-plans-help">PDF or image, up to 4 MB.</small>
             </label>
             {state === "error" && <p className="c2-form-error">{form.error}</p>}
             <C2Button type="submit" trailingIcon={null} disabled={state === "sending"}>

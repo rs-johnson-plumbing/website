@@ -142,3 +142,21 @@ test("inside-page hero photographs sit on the right of the band", async ({ page 
     expect(media!.x, route).toBeGreaterThanOrEqual(hero!.x + hero!.width / 2 - 1);
   }
 });
+
+
+
+test("builders page keeps homeowner typography and routes bid actions correctly", async ({ page }) => {
+  await page.goto("/for-builders");
+  await expect(page.locator("h1")).toHaveCSS("font-weight", "800");
+  await expect(page.locator("#why-builders-heading")).toBeVisible();
+  await expect(page.locator(".c2-final-request")).toHaveAttribute("href", "#request-a-bid");
+  await page.locator(".c2-final-request").click();
+  await expect(page.locator("#request-a-bid input[name=contractor]")).toBeVisible();
+  await expect(page.locator("#request-a-bid input[name=plans]")).toHaveAttribute("accept", "application/pdf,image/*");
+  await page.getByText("What should I send for a bid?", { exact: true }).click();
+  await expect(page.locator(".c2-faq-list details[open]")).toContainText("fixture schedule");
+  for (const width of [320, 390, 1024, 1440]) {
+    await page.setViewportSize({ width, height: 900 });
+    expect(await page.evaluate(() => document.documentElement.scrollWidth)).toBeLessThanOrEqual(width);
+  }
+});

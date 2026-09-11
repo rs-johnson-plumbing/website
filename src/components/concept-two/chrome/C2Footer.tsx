@@ -55,3 +55,4 @@ export function C2Footer() {
     </footer>
   );
 }
+

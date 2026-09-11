@@ -37,6 +37,10 @@ export async function POST(req: Request) {
   }
   const lead = {
     contractor,
+    contactName: String(form.get("contactName") ?? "").trim().slice(0, 80),
+    email: String(form.get("email") ?? "").trim().slice(0, 254),
+    projectLocation: String(form.get("projectLocation") ?? "").trim().slice(0, 200),
+    projectDetails: String(form.get("projectDetails") ?? "").trim().slice(0, 2000),
     projectType: String(form.get("projectType") ?? "").slice(0, 40),
     phone,
     plans: plansInfo,

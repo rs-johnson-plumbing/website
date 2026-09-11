@@ -68,9 +68,9 @@
       "illustrative": true
     },
     "builderHero": {
-      "src": null,
-      "alt": "A plumber running supply lines through the framing of a house under construction.",
-      "note": "Rough-in inside framing, PEX or copper visible"
+      "src": "/images/concept-two/builders-plans-review.webp",
+      "alt": "An R.S. Johnson plumber and a general contractor standing at a framing site reviewing architectural plans.",
+      "illustrative": true
     },
     "servicesHero": {
       "src": null,
@@ -362,8 +362,8 @@
       ]
     },
     "form": {
-      "heading": "Request a Bid",
-      "line": "Send the drawings and Ryan will call you back.",
+      "heading": "Tell Us About Your Next Build.",
+      "line": "Share your project details to start the conversation.",
       "contractor": "Company or Contractor",
       "projectType": "Project Type",
       "projectTypes": [
@@ -381,7 +381,38 @@
       "error": "That didn't send. Call or text us instead.",
       "orCall": "Or call 314-220-1827"
     },
-    "faqHeading": "Builder Questions"
+    "faqHeading": "Common Questions",
+    "feature": {
+      "eyebrow": "From Plans to Punch List",
+      "heading": "One Crew. Every Phase.",
+      "line": "Coordinate your plumbing from underground through final fixtures with one point of contact.",
+      "cta": "Discuss Your Project"
+    },
+    "reasons": {
+      "heading": "Why Builders Work With Us",
+      "items": [
+        {
+          "title": "Direct Communication",
+          "text": "Talk with the plumber who bids your job."
+        },
+        {
+          "title": "Clear Scope",
+          "text": "Review plans, fixtures and assumptions before work starts."
+        },
+        {
+          "title": "Coordinated Scheduling",
+          "text": "Plan plumbing around the other trades."
+        },
+        {
+          "title": "Consistent Crew",
+          "text": "Keep the handoff simple from rough-in to trim."
+        }
+      ]
+    },
+    "finalCta": {
+      "eyebrow": "Ready to Get Started?",
+      "heading": "Let’s Talk About Your Next Build."
+    }
   },
   "services": {
     "hero": {
