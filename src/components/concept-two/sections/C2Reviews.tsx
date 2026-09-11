@@ -13,7 +13,7 @@ export function C2Reviews({ heading, showProof = false }: { heading: string; sho
   const step = (delta: number) => setIndex((current) => (current + delta + items.length) % items.length);
 
   return (
-    <section className="c2-section c2-section--tight c2-section--paper" aria-labelledby="c2-reviews-heading">
+    <section className="c2-section c2-section--tight c2-reviews-band" aria-labelledby="c2-reviews-heading">
       <div className="c2-wrap c2-reviews">
         <div className="c2-reviews-head">
           <h2 id="c2-reviews-heading">{heading}</h2>
