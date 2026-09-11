@@ -314,3 +314,10 @@
   background:linear-gradient(90deg,#fbf9f7 0%,#fbf9f7 30%,rgba(251,249,247,.97) 36%,rgba(251,249,247,.8) 42%,rgba(251,249,247,.36) 48%,transparent 56%);
  }
 }
+
+/* A consistent 200px testimonial band, with room to grow for phone copy. */
+.c2 .c2-reviews-band { min-height:200px; box-sizing:border-box; display:flex; align-items:center; }
+.c2 .c2-reviews-band .c2-reviews { width:100%; }
+@media(min-width:1024px) {
+ .c2 .c2-reviews-band { height:200px; padding-block:24px; }
+}

@@ -144,15 +144,16 @@ test("mobile contact bar appears after opening content and hides again at top", 
   }
 });
 
-test("inside-page hero photographs sit on the right of the band", async ({ page }) => {
+test("inside-page hero photographs span under the copy and fade from the right", async ({ page }) => {
   await page.setViewportSize({ width: 1440, height: 900 });
-  for (const route of ["/for-builders", "/for-homeowners"]) {
+  for (const route of ["/for-builders", "/for-homeowners", "/our-team"]) {
     await page.goto(`${route}?concept=2`);
     const media = await page.locator(".c2-hero-media").boundingBox();
     const hero = await page.locator(".c2-hero").boundingBox();
-    // left, right and width together drop the right offset, which once put
-    // the photograph behind the copy on every inside page
-    expect(media!.x, route).toBeGreaterThanOrEqual(hero!.x + hero!.width / 2 - 1);
+    expect(Math.abs(media!.x + media!.width - hero!.x - hero!.width), route).toBeLessThanOrEqual(2);
+    expect(media!.x, route).toBeLessThan(hero!.x + hero!.width * .4);
+    const fade = await page.locator(".c2-hero-media").evaluate(el => getComputedStyle(el, "::after").backgroundImage);
+    expect(fade, route).toContain("linear-gradient");
   }
 });
 
@@ -187,4 +188,15 @@ test("services directory separates audiences and expands service details on phon
   await service.locator("summary").click();
   await expect(service).not.toHaveAttribute("open", "");
   expect(await page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth)).toBeTruthy();
+});
+
+test("detailed service artwork loads as responsive lazy images", async ({ page }) => {
+  await page.goto("/services");
+  const art = page.locator(".dp-home details img").first();
+  await art.scrollIntoViewIfNeeded();
+  await expect(art).toHaveAttribute("loading", "lazy");
+  await expect.poll(() => art.evaluate((el: HTMLImageElement) => el.complete && el.naturalWidth > 0)).toBeTruthy();
+  const builderArt = page.locator(".dp-builders details img").first();
+  await builderArt.scrollIntoViewIfNeeded();
+  await expect.poll(() => builderArt.evaluate((el: HTMLImageElement) => el.complete && el.naturalWidth > 0)).toBeTruthy();
 });
