@@ -70,20 +70,31 @@ test("the public design has no floating concept toggle", async ({ page }) => {
   await expect(page.locator(".c2-bar")).toBeHidden();
 });
 
-test("every homepage service link resolves and any target anchor exists", async ({ page, request }) => {
-  await page.goto("/?concept=2");
-  const services = page.getByRole("region", { name: copy.home.services.heading });
-  for (const item of copy.home.services.items) {
-    await expect(services.getByRole("link", { name: item.label, exact: true })).toHaveAttribute("href", item.href);
-    const [path, hash] = item.href.split("#");
-    const response = await request.get(path);
-    expect(response.status()).toBe(200);
-  }
-  // Anchors that only exist in Concept 2 have to be checked in Concept 2.
-  for (const item of copy.home.services.items.filter((service) => service.href.includes("#"))) {
-    const [path, hash] = item.href.split("#");
-    await page.goto(`${path}?concept=2`);
-    await expect(page.locator(`#${hash}`)).toHaveCount(1);
+test("homepage service cards open modals and preserve the homepage", async ({ page }) => {
+  for (const width of [390, 1440]) {
+    await page.setViewportSize({ width, height: 900 });
+    await page.goto("/");
+    const services = page.getByRole("region", { name: copy.home.services.heading });
+    for (const item of copy.home.services.items) {
+      const card = services.getByRole("button", { name: item.label, exact: true });
+      await card.scrollIntoViewIfNeeded();
+      const scroll = await page.evaluate(() => window.scrollY);
+      await card.click();
+      const modal = page.getByRole("dialog", { name: item.label, exact: true });
+      await expect(modal).toBeVisible();
+      await expect(page).toHaveURL(/\/$/);
+      await expect(modal.locator("li").first()).toBeVisible();
+      await expect.poll(() => modal.locator("img").evaluate((el: HTMLImageElement) => el.complete && el.naturalWidth > 0)).toBeTruthy();
+      await modal.getByRole("button", { name: "Close service details" }).click();
+      await expect(card).toBeFocused();
+      expect(Math.abs(await page.evaluate(() => window.scrollY) - scroll)).toBeLessThanOrEqual(2);
+    }
+    await services.getByRole("button", { name: "Water Heaters", exact: true }).click();
+    await page.locator(".c2-service-modal").getByRole("button", { name: "Request Service", exact: true }).click();
+    await expect(page.getByRole("dialog")).toHaveCount(1);
+    await expect(page.getByRole("dialog").locator("input").first()).toBeFocused();
+    await page.keyboard.press("Escape");
+    await expect(services.getByRole("link", { name: "See All Services" })).toHaveAttribute("href", "/services");
   }
 });
 

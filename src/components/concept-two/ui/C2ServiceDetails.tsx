@@ -7,7 +7,9 @@ import { drawingFor, c2Label } from "./drawingFor";
 import { C2Button } from "./C2Button";
 import { C2Icon } from "./C2Icon";
 
-type Props = { service: Service | BuilderService; onClose: () => void; onRequest: () => void };
+export type ServiceDetailsContent = Pick<Service, "slug" | "name" | "short" | "problems"> & { hub: Pick<Service["hub"], "whatWeDo"> };
+
+type Props = { service: ServiceDetailsContent | BuilderService; onClose: () => void; onRequest: () => void };
 
 export function C2ServiceDetails({ service, onClose, onRequest }: Props) {
   const dialog = useRef<HTMLDialogElement>(null);
