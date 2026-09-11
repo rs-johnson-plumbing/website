@@ -285,7 +285,7 @@ test("builder modal keeps details between steps and sends the image with the bid
   await modal.getByLabel("Phone").fill("3145550100");
   await modal.getByRole("button", { name: "Continue", exact: true }).click();
   await modal.getByLabel("Project location").fill("O'Fallon, MO");
-  await modal.getByLabel("Project details").fill("New single family plumbing rough-in.");
+  await modal.getByRole("textbox", { name: "Project details *", exact: true }).fill("New single family plumbing rough-in.");
   await modal.locator('input[type=file]').first().setInputFiles({ name: "plan.png", mimeType: "image/png", buffer: Buffer.from("image fixture") });
   await expect(modal.getByText("plan.png", { exact: true })).toBeVisible();
   await modal.getByRole("button", { name: "Back", exact: false }).click();
@@ -306,7 +306,7 @@ test("service workflow selects one category and follows up inline before contact
     await route.fulfill({ status: attempts === 1 ? 500 : 200, contentType: "application/json", body: JSON.stringify({ ok: attempts > 1 }) });
   });
   await page.goto("/");
-  await page.locator(".c2-header-actions").getByRole("button", { name: "Request Service", exact: true }).click();
+  await page.locator(".c2-final").getByRole("button", { name: "Request Service", exact: true }).click();
   const modal = page.getByRole("dialog", { name: "Request Service", exact: true });
   await modal.getByLabel("ZIP code").fill("63368");
   await modal.getByRole("button", { name: "Continue", exact: true }).click();
