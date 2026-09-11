@@ -341,3 +341,16 @@ test("service workflow selects one category and follows up inline before contact
   expect(payload).toContain("heater.png");
   expect(payload).toContain("10:00 a.m. - 12:00 p.m.");
 });
+
+test("footer services open details without navigating away", async ({ page }) => {
+  await page.goto("/our-team");
+  for (const [audience, service] of [["Services for Homeowners", "Water Heaters"], ["Services for Builders", "Plans & Takeoffs"]]) {
+    const trigger = page.getByRole("navigation", { name: audience }).getByRole("button", { name: service, exact: true });
+    await trigger.click();
+    const modal = page.getByRole("dialog");
+    await expect(modal.getByRole("heading", { name: service, exact: true })).toBeVisible();
+    await expect(page).toHaveURL(/\/our-team$/);
+    await modal.getByRole("button", { name: "Close service details" }).click();
+    await expect(trigger).toBeFocused();
+  }
+});

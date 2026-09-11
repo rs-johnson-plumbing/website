@@ -158,7 +158,7 @@ export function C2IntakeDialog({ kind, onClose }: { kind: Kind; onClose: () => v
     if (event.clientX < r.left || event.clientX > r.right || event.clientY < r.top || event.clientY > r.bottom) onClose();
   }}>
     <header className="ci-header"><Lockup title={site.name} /><button type="button" aria-label={isBid ? "Close bid request" : "Close service request"} onClick={onClose} disabled={status === "sending"}><C2Icon name="close" size={22} /></button></header>
-    {status !== "done" && <div className="ci-progress"><p>Step {step + 1} of {steps.length} · {steps[step]}</p><ol aria-label="Request progress">{steps.map((label, i) => <li key={label} className={i <= step ? "ci-reached" : ""} aria-current={i === step ? "step" : undefined}><span aria-label={label}>{i < step ? "✓" : i + 1}</span></li>)}</ol></div>}
+    {status !== "done" && <div className="ci-progress"><ol aria-label="Request progress">{steps.map((label, i) => <li key={label} className={i <= step ? "ci-reached" : ""} aria-current={i === step ? "step" : undefined}><span aria-label={label}>{i < step ? "✓" : i + 1}</span></li>)}</ol></div>}
     <form ref={form} onSubmit={advance}>
       <div className="ci-body" ref={body}>
         {status === "done" ? <><h2 tabIndex={-1}>Thank you.</h2><p>Your request has been received.</p>{!isBid && <p>Your preferred arrival window still needs confirmation.</p>}<C2Button onClick={onClose}>Done</C2Button></> : <>

@@ -1,4 +1,10 @@
+"use client";
+
 import Link from "next/link";
+import { useCallback, useState } from "react";
+import type { Service, BuilderService } from "@/lib/content";
+import { C2ServiceDetails } from "../ui/C2ServiceDetails";
+import { useRequestService } from "../ui/C2Request";
 import { conceptTwo as copy, site, footerCities, services, builderServices } from "@/lib/content";
 import { c2Label } from "../ui/drawingFor";
 import { Lockup } from "@/components/ui/Logo";
@@ -6,6 +12,9 @@ import { Lockup } from "@/components/ui/Logo";
 /** Contact details and service navigation follow the active Concept 2 content. */
 export function C2Footer() {
   const year = 2026;
+  const request = useRequestService();
+  const [selected, setSelected] = useState<Service | BuilderService | null>(null);
+  const closeDetails = useCallback(() => setSelected(null), []);
   return (
     <footer className="c2-footer">
       <div className="c2-wrap c2-footer-inner">
@@ -24,13 +33,13 @@ export function C2Footer() {
           <nav aria-label="Services for Homeowners">
             <h2><span className="c2-footer-heading-phone">Services for Homeowners</span><span className="c2-footer-heading-desktop">Services</span></h2>
             <ul>{services.map((service) => (
-              <li key={service.slug}><Link href={`/services/${service.slug}`}>{c2Label(service.slug, service.name)}</Link></li>
+              <li key={service.slug}><button type="button" className="c2-footer-service-trigger" aria-haspopup="dialog" onClick={() => setSelected(service)}>{c2Label(service.slug, service.name)}</button></li>
             ))}</ul>
           </nav>
           <nav aria-label="Services for Builders">
             <h2><span className="c2-footer-heading-phone">Services for Builders</span><span className="c2-footer-heading-desktop">Builders</span></h2>
             <ul>{builderServices.map((service) => (
-              <li key={service.slug}><Link href={`/services/builders#${service.slug}`}>{c2Label(service.slug, service.name)}</Link></li>
+              <li key={service.slug}><button type="button" className="c2-footer-service-trigger" aria-haspopup="dialog" onClick={() => setSelected(service)}>{c2Label(service.slug, service.name)}</button></li>
             ))}</ul>
           </nav>
         </div>
@@ -51,6 +60,7 @@ export function C2Footer() {
           <span>{copy.footer.servingLine}</span>
         </div>
       </div>
+      {selected && <C2ServiceDetails service={selected} onClose={closeDetails} onRequest={() => { setSelected(null); request(); }} />}
     </footer>
   );
 }
