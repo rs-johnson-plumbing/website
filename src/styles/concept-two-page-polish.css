@@ -166,3 +166,18 @@
 @media (max-width: 1023px) {
   .c2 .c2-location { font-size: clamp(calc(8.5px + 4pt), calc(2.3vw + 4pt), calc(10px + 4pt)); letter-spacing: 0; gap: 5px; }
 }
+
+.c2-home-services-more { margin-top: 24px; }
+
+/* Distinct adjacent homeowner sections, with a consistent compact footer rhythm. */
+.c2-homeowners #services { background: #fff; }
+.c2-homeowners #why-us { background: #f3f0e9; border-top: 1px solid #e6e0d6; }
+@media (max-width: 1023px) {
+  .c2 .c2-footer-service-groups { order: -1; border-top: 0; padding-top: 0; border-bottom: 1px solid var(--c2-rule); padding-bottom: 24px; gap: 24px; }
+  .c2 .c2-footer-service-groups ul,
+  .c2 .c2-footer-areas ul { font-size: 14px; line-height: 1.45; gap: 8px 14px; }
+  .c2 .c2-footer-service-groups a { min-height: 0; padding: 0; font-size: inherit; line-height: inherit; }
+  .c2 .c2-footer-contact { gap: 12px; }
+  .c2 .c2-footer-areas h2,
+  .c2 .c2-footer-service-groups h2 { margin-bottom: 12px; font-size: 16px; }
+}
