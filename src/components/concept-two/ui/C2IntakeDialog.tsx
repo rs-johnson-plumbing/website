@@ -152,7 +152,7 @@ export function C2IntakeDialog({ kind, onClose }: { kind: Kind; onClose: () => v
   </div>;
 
   if (!mounted) return null;
-  return createPortal(<dialog ref={dialog} className={`c2 ci-dialog${isBid ? "" : " ci-service-dialog"}`} aria-label={isBid ? "Request a Bid" : "Request Service"} onCancel={event => { event.preventDefault(); if (!busy.current) onClose(); }} onClick={event => {
+  return createPortal(<dialog ref={dialog} className={`c2 ci-dialog${isBid ? "" : " ci-service-dialog"}${status === "done" ? " ci-success-dialog" : ""}`} aria-label={isBid ? "Request a Bid" : "Request Service"} onCancel={event => { event.preventDefault(); if (!busy.current) onClose(); }} onClick={event => {
     if (event.target !== event.currentTarget || busy.current) return;
     const r = event.currentTarget.getBoundingClientRect();
     if (event.clientX < r.left || event.clientX > r.right || event.clientY < r.top || event.clientY > r.bottom) onClose();
@@ -161,7 +161,7 @@ export function C2IntakeDialog({ kind, onClose }: { kind: Kind; onClose: () => v
     {status !== "done" && !isBid && <div className="ci-progress"><ol aria-label="Request progress">{steps.map((label, i) => <li key={label} className={i <= step ? "ci-reached" : ""} aria-current={i === step ? "step" : undefined}><span aria-label={label}>{i < step ? "✓" : i + 1}</span><small>{label}</small></li>)}</ol></div>}
     <form ref={form} onSubmit={advance}>
       <div className="ci-body" ref={body}>
-        {status === "done" ? <><h2 tabIndex={-1}>Thank you.</h2><p>Your request has been received.</p>{!isBid && <p>Your preferred arrival window still needs confirmation.</p>}<C2Button onClick={onClose}>Done</C2Button></> : <>
+        {status === "done" ? <section className="ci-success"><span className="ci-success-mark"><C2Icon name="check" size={32} /></span><h2 tabIndex={-1}>Request Received</h2><p>Thank you for choosing R.S. Johnson Plumbing.</p>{!isBid && <p className="ci-success-note">Your preferred arrival time is pending confirmation.</p>}<C2Button onClick={onClose} trailingIcon={null}>Done</C2Button></section> : <>
           {isBid ? <>
             {step === 0 ? <><h2 tabIndex={-1}>Let’s talk about your next build.</h2><p>Start with the best person to contact.</p><div className="ci-fields"><Field name="contractor" label="Company name" required fields={fields} change={change} autoComplete="organization" /><Field name="contactName" label="Your name" required fields={fields} change={change} autoComplete="name" /><Field name="email" label="Email" type="email" required fields={fields} change={change} autoComplete="email" /><Field name="phone" label="Phone" type="tel" pattern="[+()0-9 .-]{10,}" required fields={fields} change={change} autoComplete="tel" /></div></> :
               <><h2 tabIndex={-1}>Tell us about the project.</h2><div className="ci-fields"><Field name="projectLocation" label="Project location" required fields={fields} change={change} autoComplete="street-address" /><label><span>Project type *</span><select name="projectType" value={fields.projectType} onChange={event => change("projectType", event.target.value)}>{["Single Family", "Multi-Family", "Commercial", "Remodel", "Other"].map(type => <option key={type}>{type}</option>)}</select></label></div><label><span>Project details *</span><textarea name="projectDetails" rows={4} required maxLength={2000} value={fields.projectDetails || ""} onChange={event => change("projectDetails", event.target.value)} placeholder="Scope, timing, and anything we should know." /></label>{photos}</>}
