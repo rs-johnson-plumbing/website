@@ -12,10 +12,9 @@ test("concept selection survives reloads, respects direct links, and follows his
   const errors: string[] = [];
   page.on("pageerror", (error) => errors.push(error.message));
   await page.goto("/");
-  await expect(page.locator("h1")).toHaveText(conceptOneHeading);
-  await page.getByRole("button", { name: "Concept 2", exact: true }).click();
   await expect(page.locator("h1")).toHaveText(heading);
-  await expect(page).toHaveURL(/concept=2/);
+  await expect(page.locator("h1")).toHaveText(heading);
+  await expect(page.getByRole("group", { name: copy.ui.switcherLabel })).toHaveCount(0);
   await expect(page.locator("h1")).toHaveCount(1);
   await page.reload();
   await expect(page.locator("h1")).toHaveText(heading);
@@ -23,7 +22,7 @@ test("concept selection survives reloads, respects direct links, and follows his
   await expect(page.locator("h1")).toHaveText(heading);
   await page.goto("/?concept=1");
   await expect(page.locator("h1")).toHaveText(conceptOneHeading);
-  await page.getByRole("button", { name: "Concept 2", exact: true }).click();
+  await page.goto("/?concept=2");
   await page.goBack();
   await expect(page.locator("h1")).toHaveText(conceptOneHeading);
   await page.goForward();
@@ -37,7 +36,7 @@ test("storage disabled still permits switching and direct Concept 2 links", asyn
   });
   await page.goto("/?concept=2");
   await expect(page.locator("h1")).toHaveText(heading);
-  await page.getByRole("button", { name: "Concept 1", exact: true }).click();
+  await page.goto("/?concept=1");
   await expect(page.locator("h1")).toHaveText(conceptOneHeading);
 });
 
@@ -47,7 +46,7 @@ test("the selected design carries across routes", async ({ page }) => {
   await page.getByRole("navigation", { name: copy.ui.mobileNavigation, exact: true }).getByRole("link", { name: "Builders" }).click();
   await expect(page).toHaveURL(/\/for-builders$/);
   await expect(page.locator("h1")).toHaveText(buildersHeading);
-  await expect(page.getByRole("group", { name: copy.ui.switcherLabel })).toBeVisible();
+  await expect(page.getByRole("group", { name: copy.ui.switcherLabel })).toHaveCount(0);
 });
 
 test("the request dialog opens, traps escape, and the mobile menu returns focus", async ({ page }) => {
@@ -65,14 +64,10 @@ test("the request dialog opens, traps escape, and the mobile menu returns focus"
   await expect(menuButton).toBeFocused();
 });
 
-test("the switcher stays clear of Concept 2's action bar", async ({ page }) => {
-  await page.goto("/?concept=2");
-  const switcher = page.getByRole("group", { name: copy.ui.switcherLabel });
-  const bar = page.locator(".c2-bar");
-  await expect(bar).toBeVisible();
-  const switchBounds = await switcher.boundingBox();
-  const barBounds = await bar.boundingBox();
-  expect(switchBounds!.y + switchBounds!.height).toBeLessThanOrEqual(barBounds!.y);
+test("the public design has no floating concept toggle", async ({ page }) => {
+  await page.goto("/");
+  await expect(page.getByRole("group", { name: copy.ui.switcherLabel })).toHaveCount(0);
+  await expect(page.locator(".c2-bar")).toBeVisible();
 });
 
 test("every homepage service link resolves and any target anchor exists", async ({ page, request }) => {
