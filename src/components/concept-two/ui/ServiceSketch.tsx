@@ -62,6 +62,6 @@ export function PipeBanner() {
  </g>
  {[[45,159,0],[112,111,90],[157,58,0],[224,58,0],[278,17,90],[326,58,0],[423,58,0]].map(([x,y,turn])=><Joint key={x+"-"+y} x={x} y={y} turn={turn}/>)}
  <Detail><path d="M148 84H500M135 96V150M155 81V87M500 81V87"/>{[175,185,195,205,345,355,365].map(x=><path key={x} d={`M${x} 65l6-5`}/>)}</Detail>
- <g fill="#3978d4" stroke="none" fontSize="13" fontWeight="600" fontStyle="italic" letterSpacing="1" transform="rotate(-5 335 111)"><text x="335" y="106">QUALITY PLUMBING</text><text x="335" y="126">STRONGER HOMES.</text></g>
+ <g className="c2-pipe-caption" fill="#3978d4" stroke="none" fontSize="13" fontWeight="600" fontStyle="italic" letterSpacing="1" transform="rotate(-5 335 111)"><text x="335" y="106">QUALITY PLUMBING</text><text x="335" y="126">STRONGER HOMES.</text></g>
  </svg>;
 }
