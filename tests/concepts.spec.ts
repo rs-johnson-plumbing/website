@@ -396,7 +396,9 @@ test("request forms retain entered data after outside clicks", async ({ page }) 
   }
 });
 
-test("service tile motion follows hover and respects reduced motion", async ({ page }) => {
+test.describe("desktop pointer interactions", () => {
+ test.use({ isMobile: false, hasTouch: false });
+ test("service tile motion follows hover and respects reduced motion", async ({ page }) => {
   await page.setViewportSize({ width: 1440, height: 900 });
   await page.emulateMedia({ reducedMotion: "no-preference" });
   for (const route of ["/", "/services", "/for-homeowners", "/for-builders"]) {
@@ -415,4 +417,6 @@ test("service tile motion follows hover and respects reduced motion", async ({ p
   await expect(leaks.locator(".c2-sketch-flow")).toHaveCSS("animation-name", "c2-tile-water");
   await page.mouse.move(0, 0);
   await expect(leaks.locator(".c2-sketch-flow")).toHaveCSS("animation-name", "none");
+});
+
 });
