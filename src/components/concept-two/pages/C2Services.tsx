@@ -71,7 +71,7 @@ export function C2Services() {
  .directory-preview .dp-builder-heading{display:flex;justify-content:space-between;align-items:center;position:relative;min-height:146px}
  .directory-preview .dp-builder-heading>div:first-child{position:relative;z-index:1}
  .directory-preview .dp-house{width:330px;height:190px;color:#bed3e5;opacity:.8;margin-top:-32px;margin-bottom:-10px}
- .directory-preview .dp-house svg{width:100%;height:100%;transform:scaleX(1.35)}
+ .directory-preview .dp-house svg{width:100%;height:100%;transform:scaleX(1.35);transform-origin:right center}
  .directory-preview .dp-builders .dp-grid{gap:26px 28px;position:relative}
  .directory-preview .dp-builders details{position:relative;overflow:visible;isolation:isolate}
  .directory-preview .dp-builders .dp-step{position:absolute;top:-15px;left:-11px;background:#087bcc;border:3px solid #fff;border-radius:50%;width:38px;height:38px;display:grid;place-items:center;color:#fff;font-size:16px;z-index:2}
@@ -103,7 +103,7 @@ export function C2Services() {
  .directory-preview .dp-detail{border-left:0;border-top:1px solid #dce4eb;margin:0;padding:18px}
  .directory-preview .dp-builder-heading{min-height:142px;align-items:flex-start;padding:5px 0 22px}
  .directory-preview .dp-builder-heading>div:first-child{max-width:78%}
- .directory-preview .dp-house{position:absolute;right:-12px;top:0;width:150px;height:150px;opacity:.2;margin:0}
+ .directory-preview .dp-house{position:absolute;right:-12px;top:0;width:150px;height:150px;opacity:.2;margin:0;overflow:hidden}
  .directory-preview .dp-builders .dp-grid{gap:25px}
  .directory-preview .dp-builders details:after{display:block!important;left:50%;top:100%;height:26px;width:1px}
  .directory-preview .dp-builders details:last-child:after{display:none!important}
