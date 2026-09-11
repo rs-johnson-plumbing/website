@@ -453,3 +453,9 @@
 .c2.ci-dialog .ci-days button { flex-basis:132px; display:flex; flex-direction:column; justify-content:center; align-items:center; gap:8px; }
 .c2.ci-dialog .ci-days button strong,.c2.ci-dialog .ci-days button span { white-space:nowrap; }
 .c2.ci-dialog .ci-days button span { font-weight:400; }
+
+.c2.ci-dialog .ci-files li>span { display:flex; align-items:center; gap:12px; }
+.c2.ci-dialog .ci-photo-thumb { object-fit:cover; border:1px solid #c9d8e8; border-radius:4px; flex-shrink:0; background:#eaf3fb; }
+.c2.ci-dialog .ci-photo-review { display:flex; flex-wrap:wrap; gap:16px; margin-bottom:20px; }
+.c2.ci-dialog .ci-photo-review figure { margin:0; width:96px; }
+.c2.ci-dialog .ci-photo-review figcaption { font-size:12px; overflow-wrap:anywhere; margin-top:6px; }
