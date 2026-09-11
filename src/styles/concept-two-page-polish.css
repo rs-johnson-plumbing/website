@@ -459,3 +459,5 @@
 .c2.ci-dialog .ci-photo-review { display:flex; flex-wrap:wrap; gap:16px; margin-bottom:20px; }
 .c2.ci-dialog .ci-photo-review figure { margin:0; width:96px; }
 .c2.ci-dialog .ci-photo-review figcaption { font-size:12px; overflow-wrap:anywhere; margin-top:6px; }
+
+.c2 .c2-team .c2-section--apart { background:#eaf3fb; border-top:1px solid #d9e5f0; }
