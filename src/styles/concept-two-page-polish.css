@@ -573,3 +573,11 @@
 .c2.ci-success-dialog .ci-success .ci-success-note { font-size:14px; color:#61718b; }
 .c2.ci-success-dialog .ci-success .c2-btn { min-width:160px; margin-top:8px; justify-content:center; }
 @media(max-width:600px) { .c2.ci-success-dialog .ci-body { padding:28px 20px; } }
+
+/* The phone hero keeps a soft pipe motif without background lettering. */
+@media(max-width:767px) {
+ .c2 .directory-preview .dp-header-art { display:block; inset:0; width:100%; height:100%; opacity:.22; mask-image:none; pointer-events:none; }
+ .c2 .directory-preview .dp-header-art svg { position:absolute; width:620px; height:350px; right:-220px; top:0; transform:none; }
+ .c2 .directory-preview .dp-header-art::after { background:linear-gradient(90deg,#eaf3fb 0%,rgba(234,243,251,.7) 35%,transparent 80%); }
+ .c2 .directory-preview .dp-header-art .c2-pipe-caption { display:none; }
+}
