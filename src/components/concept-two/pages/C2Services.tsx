@@ -160,8 +160,8 @@ export function C2Services() {
  }
 
 
- .c2 .directory-preview .dp-house { width:55%; height:180px; top:-22px; gap:18px; }
- .c2 .directory-preview .dp-house>img { width:calc(100% - 94px); height:100%; object-fit:contain; object-position:center; mix-blend-mode:screen; }
+ .c2 .directory-preview .dp-house { width:58%; height:220px; top:-32px; gap:18px; pointer-events:none; }
+ .c2 .directory-preview .dp-house>img { width:calc(100% - 94px); height:100%; object-fit:contain; object-position:center; mix-blend-mode:screen; mask-image:radial-gradient(ellipse at center,#000 42%,transparent 74%); opacity:.9; }
  @media(max-width:767px) {
  .c2 .directory-preview .dp-house { width:100%; height:145px; top:auto; gap:12px; }
  .c2 .directory-preview .dp-house>img { width:calc(100% - 80px); }
