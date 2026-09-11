@@ -1,5 +1,6 @@
 import { conceptTwo } from "@/lib/content";
 import { C2Photo } from "../ui/C2Photo";
+import { C2Location } from "../ui/C2Location";
 
 type Slot = keyof typeof conceptTwo.photos;
 
@@ -8,7 +9,6 @@ type Slot = keyof typeof conceptTwo.photos;
  * the right that fades into it. Same canvas idea as the homepage, shorter.
  */
 export function C2PageHero({
-  eyebrow,
   headingLines,
   lead,
   actions,
@@ -26,7 +26,7 @@ export function C2PageHero({
     <section className={`c2-hero c2-hero--page ${tone === "navy" ? "c2-hero--navy" : ""}`} aria-labelledby="c2-page-heading">
       <div className="c2-wrap c2-hero-inner">
         <div className="c2-hero-copy">
-          <p className={`c2-eyebrow c2-hero-eyebrow ${tone === "navy" ? "c2-eyebrow--on-dark" : ""}`}>{eyebrow}</p>
+          <C2Location />
           <h1 id="c2-page-heading">
             {headingLines.map((line, index) => (
               <span key={line}>

@@ -23,7 +23,7 @@ export function C2Homeowners() {
   const requestService = useRequestService();
 
   return (
-    <>
+    <div className="c2-homeowners">
       <C2PageHero
         eyebrow={page.hero.eyebrow}
         headingLines={page.hero.headingLines}
@@ -70,9 +70,9 @@ export function C2Homeowners() {
       />
 
       <C2Points id="why-us" heading={page.why.heading} items={page.why.items} />
-      <C2Reviews heading={page.reviews.heading} />
-      <C2Faq heading={page.faq.heading} items={faqs.homeowners.items} />
+      <C2Reviews heading={page.reviews.heading} showProof={false} />
+      <C2Faq heading={page.faq.heading} items={faqs.homeowners.items} illustrated />
       <C2FinalCta />
-    </>
+    </div>
   );
 }
