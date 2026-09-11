@@ -286,7 +286,7 @@ test("builder modal keeps details between steps and sends the image with the bid
   await modal.getByRole("button", { name: "Continue", exact: true }).click();
   await modal.getByLabel("Project location").fill("O'Fallon, MO");
   await modal.getByRole("textbox", { name: "Project details *", exact: true }).fill("New single family plumbing rough-in.");
-  await modal.locator('input[type=file]').first().setInputFiles({ name: "plan.png", mimeType: "image/png", buffer: Buffer.from("image fixture") });
+  await modal.locator('input[type=file]').first().setInputFiles({ name: "plan.png", mimeType: "image/png", buffer: Buffer.from("iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8/x8AAwMCAO+aE1sAAAAASUVORK5CYII=", "base64") });
   await expect(modal.getByText("plan.png", { exact: true })).toBeVisible();
   await modal.getByRole("button", { name: "Back", exact: false }).click();
   await expect(modal.getByLabel("Company name")).toHaveValue("Example Builders");
@@ -320,7 +320,8 @@ test("service workflow selects one category and follows up inline before contact
   await modal.getByRole("button", { name: "Water Heater", exact: true }).click();
   await modal.getByLabel("What’s happening?").fill("Replace the old heater.");
   await modal.getByRole("button", { name: "Continue", exact: true }).click();
-  await modal.locator('input[type=file]').first().setInputFiles({ name: "heater.png", mimeType: "image/png", buffer: Buffer.from("image fixture") });
+  await modal.locator('input[type=file]').first().setInputFiles({ name: "heater.png", mimeType: "image/png", buffer: Buffer.from("iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8/x8AAwMCAO+aE1sAAAAASUVORK5CYII=", "base64") });
+  await expect(modal.getByRole("img", { name: "Preview of heater.png", exact: true })).toBeVisible();
   await expect(modal.locator('input[capture=environment]')).toHaveAttribute("accept", "image/*");
   await modal.getByRole("button", { name: "Continue", exact: true }).click();
   for (const [label, value] of [["First name", "Alex"], ["Last name", "Taylor"], ["Email", "alex@example.com"], ["Phone", "3145550100"], ["Street address", "123 Example Lane"], ["City", "O'Fallon"]]) await modal.getByLabel(label, { exact: false }).fill(value);
@@ -330,6 +331,7 @@ test("service workflow selects one category and follows up inline before contact
   await modal.getByRole("button", { name: "10:00 a.m. - 12:00 p.m.", exact: true }).click();
   await modal.getByRole("button", { name: "Continue", exact: true }).click();
   await expect(modal.locator(".ci-review")).toContainText("Install — Water Heater");
+  await expect(modal.locator(".ci-review").getByRole("img", { name: "Preview of heater.png", exact: true })).toBeVisible();
   await expect(modal.locator(".ci-review")).not.toContainText("Clogged Drain");
   await modal.getByRole("button", { name: "Send Service Request", exact: true }).click();
   await expect(modal.getByRole("alert")).toContainText("couldn’t send");
