@@ -582,21 +582,6 @@
  .c2 .directory-preview .dp-header-art .c2-pipe-caption { display:none; }
 }
 
-/* Motion is activated by the tile, not only its illustration. */
-@keyframes c2-tile-water { to { stroke-dashoffset:-21; } }
-@keyframes c2-tile-detail { 50% { opacity:.3; } }
-@keyframes c2-tile-lift { 50% { transform:translateY(-3px); } }
-@media(prefers-reduced-motion:no-preference) {
- .c2 :is(.c2-service,.dp-card-trigger):focus-visible svg[data-illustration] .c2-sketch-art { animation:c2-tile-lift 2.8s ease-in-out infinite; }
- .c2 :is(.c2-service,.dp-card-trigger):focus-visible svg[data-illustration] .c2-sketch-flow { opacity:.85; animation:c2-tile-water 1.6s linear infinite; }
- .c2 :is(.c2-service,.dp-card-trigger):focus-visible svg[data-illustration] .c2-sketch-detail { animation:c2-tile-detail 2.8s ease-in-out infinite; }
-}
-@media(hover:hover) and (prefers-reduced-motion:no-preference) {
- .c2 :is(.c2-service,.dp-card-trigger):hover svg[data-illustration] .c2-sketch-art { animation:c2-tile-lift 2.8s ease-in-out infinite; }
- .c2 :is(.c2-service,.dp-card-trigger):hover svg[data-illustration] .c2-sketch-flow { opacity:.85; animation:c2-tile-water 1.6s linear infinite; }
- .c2 :is(.c2-service,.dp-card-trigger):hover svg[data-illustration] .c2-sketch-detail { animation:c2-tile-detail 2.8s ease-in-out infinite; }
-}
-
 /* Approved flowing-pipe hero and background blueprint composition. */
 .c2 .directory-preview.c2-services .dp-header { background:#eaf3fb; }
 .c2 .directory-preview.c2-services .dp-header-art { display:block; inset:0; width:100%; height:100%; opacity:1; mask-image:none; }
@@ -628,3 +613,37 @@
  .c2 .directory-preview.c2-services .dp-house>img { object-position:65% center; mask-image:radial-gradient(ellipse at center,#000 35%,transparent 75%); }
 }
 @media(prefers-reduced-motion:reduce) { .c2 .c2-hero-water { animation:none; } }
+
+/* The card, title, and illustration silhouette stay still; only working parts move. */
+.c2 :is(.c2-service,.dp-card-trigger):is(:hover,:focus-visible) { transform:none; }
+.c2 .c2-gauge-needle { transform-origin:80px 67px; --art-animation:c2-gauge 2.8s ease-in-out infinite; }
+.c2 .c2-droplet { --art-animation:c2-drop 2.2s ease-in infinite; }
+.c2 .c2-flame { transform-origin:82px 83px; --art-animation:c2-flame-dance 1.8s ease-in-out infinite; }
+.c2 .c2-pump-water { transform-origin:81px 162px; --art-animation:c2-pump-level 3s ease-in-out infinite; }
+.c2 .c2-salt-pellet { --art-animation:c2-salt-fall 2.6s ease-in infinite; }
+.c2 .c2-beacon-ray { --art-animation:c2-beacon 2s ease-in-out infinite; }
+.c2 .c2-draw-check,.c2 .c2-draw-plan { stroke-dasharray:100; --art-animation:c2-draw 3s ease-in-out infinite; }
+.c2 .c2-bowl-swirl { --art-animation:c2-swirl 2.4s linear infinite; }
+@keyframes c2-gauge { 0%,100% { transform:rotate(-20deg); } 50% { transform:rotate(24deg); } }
+@keyframes c2-drop { 0%,15% { transform:translateY(-8px) scale(.85); opacity:0; } 30% { opacity:1; } 80% { transform:translateY(18px) scale(1); opacity:1; } 100% { transform:translateY(28px); opacity:0; } }
+@keyframes c2-flame-dance { 0%,100% { transform:scale(1); } 35% { transform:scale(.94,1.08) skewX(-3deg); } 70% { transform:scale(1.04,.96) skewX(3deg); } }
+@keyframes c2-pump-level { 0%,100% { transform:scaleY(1); } 65% { transform:scaleY(.45); } }
+@keyframes c2-salt-fall { 0% { transform:translateY(-6px); opacity:0; } 20%,75% { opacity:1; } 100% { transform:translateY(26px); opacity:0; } }
+@keyframes c2-beacon { 0%,100% { opacity:.3; } 45% { opacity:1; } }
+@keyframes c2-draw { 0% { stroke-dashoffset:100; } 55%,100% { stroke-dashoffset:0; } }
+@keyframes c2-swirl { to { stroke-dashoffset:-40; } }
+@keyframes c2-tile-water { to { stroke-dashoffset:-21; } }
+@media(prefers-reduced-motion:no-preference) {
+ .c2 :is(.c2-service,.dp-card-trigger):focus-visible [data-motion] { animation:var(--art-animation); }
+ .c2 :is(.c2-service,.dp-card-trigger):focus-visible :is(.c2-sketch-flow,.c2-bowl-swirl) { opacity:.85; }
+ .c2 :is(.c2-service,.dp-card-trigger):focus-visible .c2-sketch-flow { animation:c2-tile-water 1.6s linear infinite; }
+}
+@media(hover:hover) and (prefers-reduced-motion:no-preference) {
+ .c2 :is(.c2-service,.dp-card-trigger):hover [data-motion] { animation:var(--art-animation); }
+ .c2 :is(.c2-service,.dp-card-trigger):hover :is(.c2-sketch-flow,.c2-bowl-swirl) { opacity:.85; }
+ .c2 :is(.c2-service,.dp-card-trigger):hover .c2-sketch-flow { animation:c2-tile-water 1.6s linear infinite; }
+}
+.c2 .c2-salt-pellet:nth-child(2),.c2 .c2-beacon-ray:nth-child(2) { animation-delay:.3s!important; }
+.c2 .c2-salt-pellet:nth-child(3),.c2 .c2-beacon-ray:nth-child(3) { animation-delay:.6s!important; }
+.c2 .c2-beacon-ray:nth-child(4) { animation-delay:.9s!important; }
+.c2 .c2-beacon-ray:nth-child(5) { animation-delay:1.2s!important; }
