@@ -30,12 +30,12 @@ export function Badge({ className, title }: { className?: string; title?: string
 }
 
 /** Bold two-line vector wordmark: navy company name, blue plumbing descriptor. */
-export function Lockup({ className, title, reversed = false }: { className?: string; title?: string; reversed?: boolean; largerWordmark?: boolean }) {
- return <svg viewBox="0 0 800 180" aria-hidden={title ? undefined : true} role={title ? "img" : undefined} className={className}>
+export function Lockup({ className, title, reversed = false, largerWordmark = false }: { className?: string; title?: string; reversed?: boolean; largerWordmark?: boolean }) {
+ return <svg viewBox={largerWordmark ? "0 0 855 180" : "0 0 800 180"} aria-hidden={title ? undefined : true} role={title ? "img" : undefined} className={className}>
  {title&&<title>{title}</title>}<g transform="translate(0 1) scale(.8)"><PipeJ reversed={reversed}/></g>
  <g fontFamily="var(--font-figtree),Figtree,Arial,sans-serif" fontWeight="800">
- <text x="174" y="84" fontSize="74" fill={reversed?"#fff":"#12345b"} textLength="610" lengthAdjust="spacingAndGlyphs">R.S. JOHNSON</text>
- <text x="177" y="144" fontSize="53" letterSpacing="6" fill={reversed?"#8ec6eb":"#087bcc"}>PLUMBING</text>
+ <text x="174" y="84" fontSize={largerWordmark ? 80 : 74} fill={reversed?"#fff":"#12345b"} textLength={largerWordmark ? 665 : 610} lengthAdjust="spacingAndGlyphs">R.S. JOHNSON</text>
+ <text x="177" y="144" fontSize={largerWordmark ? 59 : 53} letterSpacing="6" fill={reversed?"#8ec6eb":"#087bcc"}>PLUMBING</text>
  </g></svg>;
 }
 
