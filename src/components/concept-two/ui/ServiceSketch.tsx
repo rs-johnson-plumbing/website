@@ -47,5 +47,20 @@ export function ServiceSketch({id}: {id:string}) {
  </svg>;
 }
 
-export function PipeBanner() {return <svg viewBox="0 0 520 190" fill="none" stroke="currentColor" strokeWidth="1.2" aria-hidden="true"><g opacity=".25" strokeWidth=".5">{Array.from({length:15},(_,i)=><path key={i} d={`M${i*36} 0V190`}/>)}{[20,55,90,125,160].map(y=><path key={y} d={`M0 ${y}H520`}/>)}</g><Pipe d="M25 159H85Q112 159 112 131V95Q112 58 153 58H238Q278 58 278 25V0M238 58H515" width={18}/>{[[45,159,0],[112,111,90],[157,58,0],[224,58,0],[278,17,90],[326,58,0],[423,58,0]].map(([x,y,r])=><Collar key={`${x}-${y}`} x={x} y={y} rotate={r}/>)}<path d="M30 175H100M129 91V142M150 39H247M341 77H508M326 35V85M20 184H105M20 180V188M105 180V188" strokeWidth=".6"/><text x="360" y="120" fill="currentColor" stroke="none" fontSize="12" fontStyle="italic" letterSpacing="1" transform="rotate(-5 360 120)">QUALITY PLUMBING</text><text x="360" y="140" fill="currentColor" stroke="none" fontSize="13" letterSpacing="2" transform="rotate(-5 360 140)">STRONGER HOMES.</text></svg>}
-
+export function PipeBanner() {
+ const route="M25 159H85Q112 159 112 131V95Q112 58 153 58H238Q278 58 278 25V0M238 58H540";
+ return <svg viewBox="0 0 520 190" preserveAspectRatio="xMaxYMid meet" fill="none" stroke="currentColor" strokeWidth="1.2" aria-hidden="true">
+ <g opacity=".2" strokeWidth=".5">{Array.from({length:15},(_,i)=><path key={i} d={`M${i*36} 0V190`}/>)}{[20,55,90,125,160].map(y=><path key={y} d={`M0 ${y}H520`}/>)}</g>
+ <Pipe d={route} width={24}/>
+ <path d={route} stroke="#2f72a5" strokeWidth=".8" transform="translate(1.5 2)" opacity=".6"/>
+ <g stroke="#387fac" strokeWidth=".65" opacity=".75">
+ {Array.from({length:27},(_,i)=><path key={i} d={`M${168+i*12} 65l6-5`}/>)}
+ {Array.from({length:7},(_,i)=><path key={i} d={`M116 ${89+i*6}l6-4`}/>)}
+ <path d="M90 168q31-4 32-35M125 94q1-23 29-24M31 149H85M156 46H236M289 5V22" />
+ </g>
+ {[[45,159,0],[112,111,90],[157,58,0],[224,58,0],[278,17,90],[326,58,0],[423,58,0]].map(([x,y,r])=><g key={`${x}-${y}`} transform={`translate(${x} ${y}) scale(1.3)`}><Collar x={0} y={0} rotate={r}/></g>)}
+ <path d="M30 178H100M133 91V142M150 37H247M341 80H508M326 32V85M20 184H105M20 180V188M105 180V188" strokeWidth=".6"/>
+ <g fill="#087bcc" stroke="none" fontSize="13" fontWeight="600" fontStyle="italic" letterSpacing="1" transform="rotate(-5 335 111)">
+ <text x="335" y="106">QUALITY PLUMBING</text><text x="335" y="126">STRONGER HOMES.</text>
+ </g></svg>;
+}
