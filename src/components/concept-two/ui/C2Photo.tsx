@@ -10,7 +10,7 @@ type PhotoEntry = { src?: string | null; alt: string; illustrative?: boolean; no
  * content/concept-two.json; until then the slot renders a labeled navy panel
  * at the same crop, so the layout never shifts when photography arrives.
  */
-export function C2Photo({ slot, className, priority = false, sizes = "100vw" }: { slot: Slot; className?: string; priority?: boolean; sizes?: string }) {
+export function C2Photo({ slot, className, priority = false, sizes = "100vw", desktopSrc }: { slot: Slot; className?: string; priority?: boolean; sizes?: string; desktopSrc?: string }) {
   const photo = conceptTwo.photos[slot] as PhotoEntry;
   if (!photo?.src) {
     return (
@@ -27,7 +27,14 @@ export function C2Photo({ slot, className, priority = false, sizes = "100vw" }: 
       {/* Served as-is. These are small stand-ins, and the optimizer's WASM
           fallback (no sharp outside Vercel) is slow enough on a CI runner to
           time the hero out. Revisit when real photography lands. */}
-      <Image src={photo.src} alt={photo.alt} fill sizes={sizes} priority={priority} unoptimized className={className} />
+      {desktopSrc ? (
+        <picture>
+          <source media="(min-width: 1024px)" srcSet={desktopSrc} />
+          <Image src={photo.src} alt={photo.alt} fill sizes={sizes} priority={priority} unoptimized className={className} />
+        </picture>
+      ) : (
+        <Image src={photo.src} alt={photo.alt} fill sizes={sizes} priority={priority} unoptimized className={className} />
+      )}
       {photo.illustrative && <span className="c2-photo-note">{conceptTwo.ui.illustrativePhoto}</span>}
     </>
   );

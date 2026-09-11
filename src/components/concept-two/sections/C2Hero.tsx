@@ -59,7 +59,7 @@ export function C2Hero() {
           </div>
         </div>
         <div className="c2-hero-media">
-          <C2Photo slot="homeHero" sizes="(min-width: 1024px) 52vw, 100vw" />
+          <C2Photo slot="homeHero" sizes="100vw" desktopSrc="/images/concept-two/hero-desktop-authority.webp" />
         </div>
       </div>
     </section>

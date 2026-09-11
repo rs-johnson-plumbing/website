@@ -98,11 +98,27 @@ test("Concept 2 fits every width and loads the hero photograph", async ({ page }
     await page.goto("/?concept=2");
     await expect(page.locator("h1")).toHaveText(heading);
     expect(await page.evaluate(() => document.documentElement.scrollWidth)).toBeLessThanOrEqual(width);
-    // The photograph lies across the whole band at every width; a scrim over
-    // it carries the copy, so it is present on a phone too.
+    // Phones deliberately use a house background; desktop uses the clean
+    // landscape photo. Verify the asset that is actually presented.
     const image = page.getByAltText(copy.photos.homeHero.alt);
-    await expect(image).toBeVisible();
-    await expect.poll(() => image.evaluate((el: HTMLImageElement) => el.complete && el.naturalWidth > 0)).toBe(true);
+    if (width < 1024) {
+      await expect(image).toBeHidden();
+      const media = page.locator(".c2-hero-media");
+      await expect(media).toBeVisible();
+      const background = await media.evaluate((el) => getComputedStyle(el).backgroundImage);
+      expect(background).toMatch(/^url\(/);
+      expect(await media.evaluate(async (el) => {
+        const src = getComputedStyle(el).backgroundImage.slice(5, -2);
+        const photo = new Image();
+        photo.src = src;
+        try { await photo.decode(); return photo.naturalWidth > 0; }
+        catch { return false; }
+      })).toBe(true);
+    } else {
+      await expect(image).toBeVisible();
+      await expect.poll(() => image.evaluate((el: HTMLImageElement) => el.complete && el.naturalWidth > 0)).toBe(true);
+      expect(await image.evaluate((el: HTMLImageElement) => el.currentSrc)).toContain("hero-desktop-authority.webp");
+    }
   }
 });
 
