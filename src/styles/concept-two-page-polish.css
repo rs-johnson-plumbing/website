@@ -88,3 +88,21 @@
   .c2 .c2-homeowners .c2-hero-media img { object-position: center; }
   .c2 .c2-homeowners .c2-hero-media::after { background: linear-gradient(90deg, #fbf9f7 0%, rgba(251,249,247,.85) 8%, transparent 28%); }
 }
+
+/* Phone footer puts business details beside the existing service-area list. */
+.c2-footer-contact { display: contents; }
+.c2-footer-address, .c2-footer-areas { display: none; }
+@media (max-width: 1023px) {
+  .c2 .c2-footer-inner { grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr); gap: 24px 18px; align-items: start; padding-block: 32px; }
+  .c2 .c2-footer-contact { display: flex; flex-direction: column; align-items: flex-start; min-width: 0; gap: 14px; }
+  .c2 .c2-footer-contact .c2-logo { max-width: 100%; }
+  .c2 .c2-footer-contact .c2-logo svg { width: 100%; max-width: 180px; height: auto; }
+  .c2 .c2-footer-address { display: block; font-style: normal; font-size: 15px; font-weight: 500; line-height: 1.5; color: var(--c2-navy); }
+  .c2 .c2-footer-phone { font-size: clamp(15px, 4vw, 19px); white-space: nowrap; }
+  .c2 .c2-footer-nav { display: none; }
+  .c2 .c2-footer-areas { display: block; border-left: 1px solid var(--c2-rule); padding-left: 16px; }
+  .c2 .c2-footer-areas h2 { font-size: 15px; line-height: 1.4; margin: 0 0 12px; }
+  .c2 .c2-footer-areas ul { list-style: none; padding: 0; margin: 0; display: grid; gap: 6px; font-size: 12px; line-height: 1.45; color: var(--c2-slate); }
+  .c2 .c2-footer-meta { grid-column: 1 / -1; margin: 0; font-size: 11px; line-height: 1.5; }
+  .c2 .c2-footer-meta > span:not(:first-child) { display: none; }
+}
