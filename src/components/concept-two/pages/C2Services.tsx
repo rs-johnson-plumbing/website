@@ -6,6 +6,7 @@ import { services, builderServices } from "@/lib/content";
 import { ServiceSketch, PipeBanner } from "@/components/concept-two/ui/ServiceSketch";
 import { drawingFor, c2Label } from "@/components/concept-two/ui/drawingFor";
 import { C2FinalCta } from "@/components/concept-two/sections/C2FinalCta";
+import { C2Location } from "../ui/C2Location";
 import { C2Button } from "@/components/concept-two/ui/C2Button";
 import { useRequestService } from "@/components/concept-two/ui/C2Request";
 
@@ -93,7 +94,7 @@ export function C2Services() {
  .directory-preview .dp-header{padding:30px 20px 26px}
  .directory-preview .dp-header{background:#eaf3fb;border-bottom:1px solid #d9e5f0}
  .directory-preview .dp-header-art{display:none}
- .directory-preview .dp-header h1:before{content:"";display:block;width:44px;height:4px;background:var(--c2-blue);border-radius:2px;margin-bottom:20px}
+ .directory-preview .dp-header .c2-location{font-size:12px;line-height:1.5;letter-spacing:.06em;align-items:flex-start}
  .directory-preview .dp-jumps{gap:8px 22px}
  .directory-preview .dp-jumps a{min-height:44px;display:inline-flex;align-items:center}
  .directory-preview .dp-header h1,.directory-preview .dp-header .dp-intro,.directory-preview .dp-jumps{max-width:100%}
@@ -158,7 +159,7 @@ export function C2Services() {
  }
 
  `}</style>
- <div className="dp-wrap dp-header"><div className="dp-header-art"><PipeBanner/></div><h1>Our Services</h1><p className="dp-intro">Find the right help for your home or next build.</p><nav className="dp-jumps" aria-label="Service audiences"><a href="#homeowner-services">Homeowner Services ↓</a><a href="#builder-services">Builder Services ↓</a></nav></div>
+ <div className="dp-wrap dp-header"><div className="dp-header-art"><PipeBanner/></div><C2Location/><h1>Our Services</h1><p className="dp-intro">Find the right help for your home or next build.</p><nav className="dp-jumps" aria-label="Service audiences"><a href="#homeowner-services">Homeowner Services ↓</a><a href="#builder-services">Builder Services ↓</a></nav></div>
  <section className="dp-home" id="homeowner-services"><div className="dp-wrap"><h2>Homeowner Services</h2><p className="dp-section-intro">Repairs, replacements, and new installations.</p><div className="dp-grid">{services.map(s=><article className="dp-card" key={s.slug}><button type="button" className="dp-card-trigger" onClick={()=>setSelected(s)} aria-haspopup="dialog" aria-label={`View details: ${c2Label(s.slug,s.name)}`}><ServiceSketch id={drawingFor(s.slug)}/><span className="dp-title">{c2Label(s.slug,s.name)}</span><span className="dp-short">{s.short}</span><span className="dp-more"><span>View details</span><span aria-hidden="true"> →</span></span></button></article>)}</div></div></section>
  <section className="dp-builders" id="builder-services"><div className="dp-wrap"><div className="dp-builder-heading"><div><h2>Builder Services</h2><p className="dp-section-intro">Plumbing through every phase of your build.</p></div><div className="dp-house"><ServiceSketch id="house"/><span className="dp-house-caption">From<br/>Foundation<br/>to Finish</span></div></div><div className="dp-grid">{builderServices.map((s,i)=><article className="dp-card" key={s.slug}><button type="button" className="dp-card-trigger" onClick={()=>setSelected(s)} aria-haspopup="dialog" aria-label={`View details: ${c2Label(s.slug,s.name)}`}><ServiceSketch id={drawingFor(s.slug)}/><span className="dp-step"><span className="dp-sr-only">Phase </span>{String(i+1).padStart(2,"0")}</span><span className="dp-title">{c2Label(s.slug,s.name)}</span><span className="dp-short">{s.short}</span><span className="dp-more"><span>View details</span><span aria-hidden="true"> →</span></span></button></article>)}</div><div className="dp-bid"><C2Button href="/for-builders#request-a-bid" variant="on-dark">Request a Bid</C2Button></div></div></section>
  {selected && <C2ServiceDetails service={selected} onClose={closeDetails} onRequest={()=>{setSelected(null);request();}}/>}
