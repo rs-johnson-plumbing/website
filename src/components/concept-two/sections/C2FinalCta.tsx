@@ -17,7 +17,7 @@ export function C2FinalCta({ audience = "homeowners" }: { audience?: "homeowners
       <div className="c2-wrap c2-final-inner">
         <div>
           <p className="c2-eyebrow">{cta.eyebrow}</p>
-          <h2 id="c2-final-heading">{cta.heading}</h2>
+          <h2 id="c2-final-heading">{copy.home.finalCta.heading}</h2>
         </div>
         <div className="c2-final-actions">
           <C2Button href={site.phone.tel} variant="on-dark" icon="phone" trailingIcon={null} data-track="call-final">
