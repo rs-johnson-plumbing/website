@@ -30,16 +30,16 @@
   :is(.c2-homeowners, .c2-builders) .c2-split-copy > p:last-of-type { margin-bottom: 24px; }
 }
 
-/* A distinct testimonial band separates the reasons and question sections. */
-:is(.c2-home, .c2-homeowners, .c2-builders) section[aria-labelledby="c2-reviews-heading"] {
-  background: var(--c2-navy); padding-block: 40px;
-}
-:is(.c2-home, .c2-homeowners, .c2-builders) .c2-reviews-head h2,
-:is(.c2-home, .c2-homeowners, .c2-builders) .c2-quote { color: #fff; }
-:is(.c2-home, .c2-homeowners, .c2-builders) .c2-quote-by { color: #d1deed; }
-:is(.c2-home, .c2-homeowners, .c2-builders) .c2-reviews-body { border-color: #ffffff35; }
-:is(.c2-home, .c2-homeowners, .c2-builders) .c2-round { background: transparent; color: #fff; border-color: #ffffff70; }
-:is(.c2-home, .c2-homeowners, .c2-builders) .c2-round:hover { background: #ffffff18; }
+/* One shared testimonial treatment on every page that uses C2Reviews. */
+.c2 .c2-reviews-band { background: var(--c2-navy); padding-block: 40px; }
+.c2 .c2-reviews-band .c2-reviews-head h2,
+.c2 .c2-reviews-band .c2-quote { color: #fff; }
+.c2 .c2-reviews-band .c2-reviews-head h2 { white-space: nowrap; }
+.c2 .c2-reviews-band .c2-quote { font-size: clamp(23px, 2vw, 29px); line-height: 1.45; }
+.c2 .c2-reviews-band .c2-quote-by { color: #d1deed; }
+.c2 .c2-reviews-band .c2-reviews-body { border-color: #ffffff35; }
+.c2 .c2-reviews-band .c2-round { background: transparent; color: #fff; border-color: #ffffff70; }
+.c2 .c2-reviews-band .c2-round:hover { background: #ffffff18; }
 
 /* Full content-width, left-aligned, keyboard-accessible disclosure rows. */
 :is(.c2-homeowners, .c2-builders) .c2-faq { max-width: 1440px; text-align: left; }
@@ -114,8 +114,6 @@
 }
 
 /* Give the testimonial its own strong band, followed by a quiet contact area. */
-.c2 :is(.c2-home, .c2-homeowners, .c2-builders) section[aria-labelledby="c2-reviews-heading"] { background: #102b4e; border-top: 4px solid var(--c2-blue); padding-block: 44px; }
-.c2 :is(.c2-home, .c2-homeowners, .c2-builders) .c2-quote { font-size: clamp(23px, 2vw, 29px); line-height: 1.45; color: #fff; }
 .c2 :is(.c2-home, .c2-homeowners, .c2-builders) .c2-final { background: #eef3f8; border-bottom: 1px solid var(--c2-rule); }
 .c2 :is(.c2-home, .c2-homeowners, .c2-builders) .c2-final h2 { color: var(--c2-navy); }
 .c2 :is(.c2-home, .c2-homeowners, .c2-builders) .c2-final .c2-eyebrow { color: #426080; }
@@ -184,8 +182,8 @@
 
 
 /* Service discovery follows the homepage's text-and-arrow pattern. */
-.c2 .c2-btn--quiet { border-color: transparent; background: transparent; }
-.c2 .c2-btn--quiet:hover { border-color: transparent; background: transparent; text-decoration: underline; }
+.c2 .c2-btn.c2-btn--quiet { border-color: transparent; background: transparent; }
+.c2 .c2-btn.c2-btn--quiet:hover { border-color: transparent; background: transparent; text-decoration: underline; }
 
 /* Short inside-page messages leave room for a right-hand photo on phones. */
 @media (max-width: 1023px) {
@@ -259,4 +257,25 @@
 :root { --site-button-radius: 3px; }
 :is(button, [role="button"], input[type="submit"], input[type="button"], input[type="reset"], .c2-btn, .rounded-btn) {
  border-radius: var(--site-button-radius) !important;
+}
+
+/* About uses the approved photographs in its existing hero and owner layout. */
+.c2 .c2-team .c2-hero-media img { object-position: 75% center; }
+.c2 .c2-team .c2-owner-photo { min-height: 0; aspect-ratio: 4 / 3; align-self: center; }
+.c2 .c2-team .c2-owner-photo img { object-fit: cover; object-position: center; }
+@media (min-width: 1024px) {
+ .c2 .c2-team .c2-hero-media { width: 62%; }
+ .c2 .c2-team .c2-hero-media::after { background: linear-gradient(90deg,#fbf9f7 0%,rgba(251,249,247,.95) 12%,rgba(251,249,247,.4) 30%,transparent 48%); }
+ .c2 .c2-team .c2-owner { grid-template-columns: minmax(0,.9fr) minmax(0,1.1fr); align-items: center; }
+}
+@media (max-width: 1023px) {
+ .c2 .c2-team .c2-hero-inner { position: relative; display: block; }
+ .c2 .c2-team .c2-hero-copy { position: relative; z-index: 2; width: 100%; padding-block: 18px 28px; }
+ .c2 .c2-team .c2-hero-media { position: absolute; top: 0; bottom: auto; left: auto; right: calc((100% - 100vw) / 2); width: 78vw; height: 340px; margin: 0; background: none; pointer-events: none; }
+ .c2 .c2-team .c2-hero-media img { display: block !important; object-position: 75% center; }
+ .c2 .c2-team .c2-hero-media::before { display: none; }
+ .c2 .c2-team .c2-hero-media::after { display: block; position: absolute; inset: 0; content: ""; background: linear-gradient(90deg,#fbf9f7 0%,rgba(251,249,247,.97) 27%,rgba(251,249,247,.65) 50%,transparent 75%),linear-gradient(0deg,#fbf9f7,transparent 36%); }
+ .c2 .c2-team .c2-hero-copy h1 { max-width: 70%; }
+ .c2 .c2-team .c2-hero-page-lead { max-width: 65%; font-size: 18px; }
+ .c2 .c2-team .c2-location { background: linear-gradient(90deg,#fbf9f7,rgba(251,249,247,.85) 80%,transparent); }
 }

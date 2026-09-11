@@ -78,14 +78,14 @@
       "note": "Close crop on hands and a fitting, shallow depth of field"
     },
     "crewGroup": {
-      "src": null,
-      "alt": "The R.S. Johnson Plumbing crew in front of two marked trucks.",
-      "note": "Whole crew, trucks behind, waist up"
+      "src": "/images/concept-two/hero-desktop-authority.webp",
+      "alt": "Illustration of Ryan Johnson beside the R.S. Johnson Plumbing van outside a home.",
+      "illustrative": true
     },
     "ownerPortrait": {
-      "src": null,
-      "alt": "Ryan Johnson, owner and Master Plumber.",
-      "note": "Ryan, head and shoulders, company gear, outdoors"
+      "src": "/images/concept-two/ryan-homeowner-conversation.webp",
+      "alt": "Illustration of Ryan Johnson talking with a happy homeowner in a kitchen.",
+      "illustrative": true
     }
   },
   "home": {
@@ -213,7 +213,7 @@
       }
     },
     "reviews": {
-      "heading": "What Your Neighbors Are Saying",
+      "heading": "What Others Are Saying",
       "proof": "Nextdoor Neighborhood Favorite 2023",
       "proofLine": "24 neighbor recommendations"
     },
@@ -291,7 +291,7 @@
       ]
     },
     "reviews": {
-      "heading": "What Your Neighbors Are Saying"
+      "heading": "What Others Are Saying"
     },
     "faq": {
       "heading": "Common Questions"

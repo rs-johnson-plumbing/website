@@ -14,7 +14,7 @@ export function C2Team() {
   const ryan = team.members.find((member) => member.featured) ?? team.members[0];
 
   return (
-    <>
+    <div className="c2-team">
       <C2PageHero
         eyebrow={page.hero.eyebrow}
         headingLines={page.hero.headingLines}
@@ -68,6 +68,6 @@ export function C2Team() {
       <C2Apart />
       <C2Reviews heading={copy.homeowners.reviews.heading} />
       <C2FinalCta />
-    </>
+    </div>
   );
 }

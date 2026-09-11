@@ -6,7 +6,7 @@
   },
   "crew": {
     "heading": "The Crew",
-    "line": "Four licensed plumbers, background-checked, in marked R.S. Johnson trucks. Their names and photos are on the way; until then, the plumber who shows up will text you a name and an ETA first."
+    "line": "The same licensed crew, in marked R.S. Johnson trucks. Your plumber texts a name and an ETA before arriving."
   },
   "groupPhoto": {
     "src": "/photos/crew-group.jpg",
@@ -19,11 +19,11 @@
       "name": "Ryan Johnson",
       "title": "Owner · Master Plumber",
       "role": "Runs every bid, walks every job, and still takes service calls",
-      "bio": "I started R.S. Johnson Plumbing in [year] after [#] years working for other outfits, because I wanted to do the work the way I'd want it done in my own house: show up when we say we will, leave it cleaner than we found it, and explain what we fixed and why. Most of our work is new construction and remodels for builders across St. Charles County, and we take on homeowner repairs in between. I've lived in O'Fallon since [year] with [family detail], and there's a good chance we've already worked on a house on your street.",
+      "bio": "Ryan leads R.S. Johnson Plumbing from O’Fallon, working with homeowners and builders across St. Charles and St. Louis. Our approach is straightforward: explain the work, respect the space, and keep you informed. From homeowner repairs to new construction, we bring practical experience to the job.",
       "badges": [
-        "Missouri Master Plumber",
-        "[#] years in the trade",
-        "O'Fallon since [year]"
+        "Locally Owned",
+        "O’Fallon, Missouri",
+        "Licensed and Insured"
       ],
       "photo": {
         "src": "/photos/crew-ryan.jpg",
