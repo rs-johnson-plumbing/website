@@ -93,7 +93,7 @@ export function C2ServiceDetails({ service, onClose, onRequest }: Props) {
         .c2-service-modal .sd-heading p{font-size:15px}
         .c2-service-modal .sd-art{grid-column:2;min-height:0;align-self:start;padding:6px}
         .c2-service-modal .sd-art img{height:180px}
-        .c2-service-modal .sd-art-heater img{transform:scale(1.15)}
+        .c2-service-modal .sd-art-heater img{transform:none}
         .c2-service-modal .sd-columns{grid-column:1/-1;border-top:1px solid #dce4eb;padding-top:8px}
         .c2-service-modal h3{font-size:23px;margin:10px 0 16px}
         .c2-service-modal li{font-size:14px;padding-left:22px}
