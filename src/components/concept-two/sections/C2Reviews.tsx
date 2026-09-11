@@ -7,7 +7,7 @@ import { C2Icon } from "../ui/C2Icon";
 const items = reviews.items.filter((review) => review.audience === "homeowner" && !review.placeholder);
 
 /** One compact strip, not a wall of cards. */
-export function C2Reviews({ heading, showProof = true }: { heading: string; showProof?: boolean }) {
+export function C2Reviews({ heading, showProof = false }: { heading: string; showProof?: boolean }) {
   const [index, setIndex] = useState(0);
   const review = items[index];
   const step = (delta: number) => setIndex((current) => (current + delta + items.length) % items.length);
@@ -27,7 +27,7 @@ export function C2Reviews({ heading, showProof = true }: { heading: string; show
         <div className="c2-reviews-body">
           <blockquote className="c2-quote">&ldquo;{review.quote}&rdquo;</blockquote>
           <p className="c2-quote-by">
-            {review.author}, {review.city} &middot; {review.source}
+            {review.author}, {review.city}
           </p>
         </div>
         <div className="c2-reviews-nav">

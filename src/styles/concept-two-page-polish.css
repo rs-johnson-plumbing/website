@@ -112,3 +112,15 @@
 @media (min-width: 1024px) {
   .c2 .c2-header .c2-logo svg { width: 256.5px; height: 54px; }
 }
+
+/* Give the testimonial its own strong band, followed by a quiet contact area. */
+.c2 :is(.c2-home, .c2-homeowners) section[aria-labelledby="c2-reviews-heading"] { background: #102b4e; border-top: 4px solid var(--c2-blue); padding-block: 44px; }
+.c2 :is(.c2-home, .c2-homeowners) .c2-quote { font-size: clamp(23px, 2vw, 29px); line-height: 1.45; color: #fff; }
+.c2 :is(.c2-home, .c2-homeowners) .c2-final { background: #eef3f8; border-bottom: 1px solid var(--c2-rule); }
+.c2 :is(.c2-home, .c2-homeowners) .c2-final h2 { color: var(--c2-navy); }
+.c2 :is(.c2-home, .c2-homeowners) .c2-final .c2-eyebrow { color: #426080; }
+.c2 :is(.c2-home, .c2-homeowners) .c2-final-mark { opacity: .06; }
+.c2 :is(.c2-home, .c2-homeowners) .c2-final-mark path { stroke: var(--c2-navy); }
+.c2 :is(.c2-home, .c2-homeowners) .c2-final-actions .c2-btn { background: #fff; color: var(--c2-navy); border-color: #9aafc5; }
+.c2 :is(.c2-home, .c2-homeowners) .c2-final-actions .c2-btn:last-child { background: var(--c2-blue); color: #fff; border-color: var(--c2-blue); }
+.c2 :is(.c2-home, .c2-homeowners) .c2-final-actions .c2-btn:hover { background: #dce9f6; color: var(--c2-navy); }
