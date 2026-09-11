@@ -58,8 +58,30 @@ export default async function Page({params}:{params:Promise<{concept:string}>}) 
  .ap .compact-owner{grid-template-columns:1fr;gap:24px}
  .ap .story p{font-size:18px}.ap .audience .photo{height:185px}
  }
+
+ .ap .owner-hero{position:relative;overflow:hidden;background:#fbf9f7}
+ .ap .owner-scene{position:absolute;inset:0 0 0 32%;pointer-events:none}
+ .ap .owner-scene img{object-fit:cover;object-position:75% center}
+ .ap .owner-scene:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,#fbf9f7 0%,rgba(251,249,247,.94) 12%,rgba(251,249,247,.45) 30%,transparent 51%)}
+ .ap .owner-hero-inner{position:relative;min-height:510px;display:flex;align-items:center}
+ .ap .owner-hero-copy{width:52%;position:relative;z-index:1}
+ .ap .owner-role{font-size:17px;font-weight:600;max-width:420px}
+ .ap .owner-intro{font-size:21px;max-width:430px}
+ .ap .owner-location{font-size:13px;max-width:390px;margin:24px 0 0;color:#526477}
+ @media(max-width:700px){
+ .ap .owner-scene{inset:0 0 auto 16%;height:370px}
+ .ap .owner-scene img{object-position:72% center}
+ .ap .owner-scene:after{background:linear-gradient(90deg,#fbf9f7 0%,rgba(251,249,247,.95) 25%,rgba(251,249,247,.65) 48%,transparent 75%),linear-gradient(0deg,#fbf9f7 0%,transparent 35%)}
+ .ap .owner-hero-inner{min-height:0;padding-top:26px}
+ .ap .owner-hero-copy{width:100%}
+ .ap .owner-hero h1{max-width:65%;font-size:38px}
+ .ap .owner-role{max-width:60%;font-size:15px}
+ .ap .owner-intro{max-width:62%;font-size:17px}
+ .ap .owner-hero .eyebrow{font-size:10px;background:linear-gradient(90deg,#fbf9f7,rgba(251,249,247,.7),transparent)}
+ .ap .owner-location{font-size:12px;margin-top:18px}
+ }
  `}</style>
- {owner?<><section className="aw split"><div><p className="eyebrow">About R.S. Johnson Plumbing</p><h1>A name behind<br/>the work.</h1><p>Meet Ryan Johnson, owner and Master Plumber. Based in O’Fallon, serving homes and builders across St. Charles and St. Louis.</p><div className="actions"><C2Button href="tel:3142201827" icon="phone" trailingIcon={null}>Talk to Ryan</C2Button><C2Button href="/services" variant="outline" className="c2-btn--quiet">Explore Services</C2Button></div></div><div><div className="portrait"><Image src="/images/concept-two/hero-desktop-authority.webp" alt="Approved illustration of Ryan beside the company van" fill priority sizes="(min-width:701px) 50vw,100vw"/></div><p className="caption">Ryan Johnson · Owner & Master Plumber</p></div></section>
+ {owner?<><section className="owner-hero"><div className="owner-scene"><Image src="/images/concept-two/hero-desktop-authority.webp" alt="Ryan beside the R.S. Johnson Plumbing van outside a welcoming home" fill priority sizes="100vw"/></div><div className="aw owner-hero-inner"><div className="owner-hero-copy"><p className="eyebrow">About R.S. Johnson Plumbing</p><h1>A Name Behind<br/>the Work.</h1><p className="owner-role">Ryan Johnson · Owner & Master Plumber</p><p className="owner-intro">Personal service. Professional care.<br/>For your home and your next build.</p><div className="actions c2-hero-actions"><C2Button href="tel:3142201827" icon="phone" trailingIcon={null}>Talk to Ryan</C2Button><C2Button href="/services" variant="outline" className="c2-btn--quiet">Explore Services</C2Button></div><p className="owner-location">Based in O’Fallon · Serving St. Charles and St. Louis</p></div></div></section>
  <section className="cream"><div className="aw"><div className="story"><p className="eyebrow">A local business. A personal approach.</p><h2>Plumbing is personal.</h2><p>It is your home, your project, and your time. Our approach is straightforward: explain the work, respect the space, and keep you informed.</p><p>From homeowner repairs to new construction, R.S. Johnson Plumbing brings practical experience to the job.</p><div className="rule">Locally owned · O’Fallon, Missouri · Licensed & insured</div></div></div></section>
  <section className="aw"><h2>What you can expect</h2><div className="grid">{values.map(v=><div className="value" key={v.id}><C2Drawing id={v.id}/><div><h3>{v.title}</h3><p>{v.line}</p></div></div>)}</div></section></>:
  <><section className="aw craft-opening"><p className="eyebrow">About R.S. Johnson Plumbing</p><h1>Good work.<br/>Clear communication.</h1><p className="story">A local plumbing company for the people who live in homes—and the people who build them.</p><div className="actions"><C2Button href="/services" variant="outline" className="c2-btn--quiet">Explore Our Services</C2Button></div></section>
