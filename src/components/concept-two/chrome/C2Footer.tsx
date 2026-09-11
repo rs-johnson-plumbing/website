@@ -18,17 +18,6 @@ export function C2Footer() {
           {site.phone.display}
         </a>
         </div>
-        <section className="c2-footer-areas" aria-labelledby="c2-footer-areas-heading">
-          <h2 id="c2-footer-areas-heading">Service Areas</h2>
-          <ul>{footerCities().map((city) => <li key={city.slug}>{city.name}</li>)}</ul>
-        </section>
-        <nav className="c2-footer-nav" aria-label="Footer">
-          {copy.nav.map((item) => (
-            <Link key={item.href} href={item.href}>
-              {item.label}
-            </Link>
-          ))}
-        </nav>
 
         <div className="c2-footer-service-groups">
           <nav aria-label="Services for Homeowners">
@@ -44,6 +33,10 @@ export function C2Footer() {
             ))}</ul>
           </nav>
         </div>
+        <section className="c2-footer-areas" aria-labelledby="c2-footer-areas-heading">
+          <h2 id="c2-footer-areas-heading">Service Areas</h2>
+          <ul>{footerCities().map((city) => <li key={city.slug}>{city.name}</li>)}</ul>
+        </section>
         <div className="c2-footer-meta">
           <span>
             &copy; {year} {copy.footer.legal}
