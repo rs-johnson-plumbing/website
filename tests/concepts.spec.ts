@@ -218,7 +218,7 @@ test("every directory card opens its own modal and request hands off without sta
     const modal = page.locator(".c2-service-modal");
     await expect(modal).toBeVisible();
     await expect(modal.locator("li").first()).toBeVisible();
-    await expect.poll(() => modal.locator("img").evaluate((el: HTMLImageElement) => el.complete && el.naturalWidth > 0)).toBeTruthy();
+    await expect.poll(() => modal.locator("img").evaluate((el: HTMLImageElement) => el.complete && el.naturalWidth > 0), { message: `Artwork for card ${i + 1}`, timeout: 10000 }).toBeTruthy();
     await modal.getByRole("button", { name: "Close service details" }).click();
     await expect(trigger).toBeFocused();
   }

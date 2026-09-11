@@ -92,7 +92,7 @@ export function C2ServiceDetails({ service, onClose, onRequest }: Props) {
     `}</style>
     <header className="sd-top"><span className="sd-label">{homeowner ? "Homeowner Services" : "Builder Services"}</span><button ref={closeButton} type="button" className="sd-close" aria-label="Close service details" onClick={onClose}><C2Icon name="close" size={22}/></button></header>
     <div className="sd-scroll">
-      <div className="sd-heading"><Image src={`/images/service-sketches/${drawingFor(service.slug)}.webp`} alt="" width={560} height={665} sizes="(max-width:600px) 100px, 170px" loading="eager" style={{objectFit:"contain"}}/><div><h2 id="service-modal-title">{c2Label(service.slug,service.name)}</h2><p>{service.short}</p></div></div>
+      <div className="sd-heading"><Image src={`/images/service-sketches/${drawingFor(service.slug)}.webp`} alt="" width={560} height={665} sizes="(max-width:600px) 100px, 170px" loading="eager" unoptimized style={{objectFit:"contain"}}/><div><h2 id="service-modal-title">{c2Label(service.slug,service.name)}</h2><p>{service.short}</p></div></div>
       <div className={`sd-columns ${problems.length ? "" : "sd-single"}`}>
         <div><h3>What We Do</h3><ul>{bullets.map(line=><li key={line}>{line}</li>)}</ul></div>
         {problems.length > 0 && <aside className="sd-problems"><h3>Common Problems</h3><ul>{problems.map(line=><li key={line}>{line}</li>)}</ul></aside>}
