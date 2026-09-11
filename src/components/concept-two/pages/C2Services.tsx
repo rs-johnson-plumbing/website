@@ -51,9 +51,9 @@ export function C2Services() {
  /* Illustrated directory authority. */
  .directory-preview .dp-wrap{max-width:1440px}
  .directory-preview .dp-header{position:relative;isolation:isolate;overflow:hidden}
- .directory-preview .dp-header-art{position:absolute;right:0;top:0;width:45%;height:100%;z-index:-1;color:#153e65;mask-image:linear-gradient(90deg,transparent,#000 18%)}
+ .directory-preview .dp-header-art{position:absolute;right:0;top:0;width:62%;height:100%;z-index:-1;color:#153e65;mask-image:linear-gradient(90deg,transparent,#000 12%)}
  .directory-preview .dp-header-art svg{width:100%;height:100%}
- .directory-preview .dp-header h1,.directory-preview .dp-header .dp-intro,.directory-preview .dp-jumps{position:relative;max-width:55%}
+ .directory-preview .dp-header h1,.directory-preview .dp-header .dp-intro,.directory-preview .dp-jumps{position:relative;max-width:48%}
  .directory-preview .dp-home h2{display:flex;align-items:center;gap:20px}
  .directory-preview .dp-home h2:after{content:"";height:1px;background:#a5b7c6;flex:1}
  .directory-preview .dp-grid{align-items:stretch;gap:16px}
