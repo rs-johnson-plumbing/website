@@ -92,7 +92,11 @@ export function C2Services() {
  @media(min-width:768px) and (max-width:1199px){.directory-preview .dp-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.directory-preview .dp-builders .dp-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.directory-preview .dp-builders .dp-card:after{display:none}}
  @media(max-width:767px){
  .directory-preview .dp-header{padding:30px 20px 26px}
- .directory-preview .dp-header-art{width:75%;height:110px;top:0;opacity:.15}
+ .directory-preview .dp-header{background:#eaf3fb;border-bottom:1px solid #d9e5f0}
+ .directory-preview .dp-header-art{display:none}
+ .directory-preview .dp-header h1:before{content:"";display:block;width:44px;height:4px;background:var(--c2-blue);border-radius:2px;margin-bottom:20px}
+ .directory-preview .dp-jumps{gap:8px 22px}
+ .directory-preview .dp-jumps a{min-height:44px;display:inline-flex;align-items:center}
  .directory-preview .dp-header h1,.directory-preview .dp-header .dp-intro,.directory-preview .dp-jumps{max-width:100%}
  .directory-preview .dp-grid{grid-template-columns:1fr;gap:12px}
  .directory-preview .dp-card-trigger,.directory-preview .dp-builders .dp-card-trigger{grid-template-columns:108px minmax(0,1fr);min-height:170px;padding:14px;gap:0 16px}
