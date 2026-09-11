@@ -193,9 +193,9 @@
   .c2 :is(.c2-homeowners, .c2-builders) .c2-hero-copy { position: relative; z-index: 2; width: 100%; padding-block: 18px 28px; }
   .c2 :is(.c2-homeowners, .c2-builders) .c2-hero-media { position: absolute; top: 0; bottom: auto; left: auto; right: calc((100% - 100vw) / 2); margin: 0; width: 78vw; height: 310px; aspect-ratio: auto; border-radius: 0; pointer-events: none; }
   .c2 :is(.c2-homeowners, .c2-builders) .c2-hero-media img { object-position: 60% center; }
-  .c2 :is(.c2-homeowners, .c2-builders) .c2-hero-media::after { display: block; position: absolute; inset: 0; content: ""; background: linear-gradient(90deg, #fbf9f7 0%, rgba(251,249,247,.96) 28%, rgba(251,249,247,.65) 48%, transparent 75%), linear-gradient(0deg, #fbf9f7, transparent 32%); }
+  .c2 :is(.c2-homeowners, .c2-builders) .c2-hero-media::after { display: block; position: absolute; inset: 0; content: ""; background: linear-gradient(90deg, #fbf9f7 0%, rgba(251,249,247,.98) 38%, rgba(251,249,247,.85) 55%, transparent 75%), linear-gradient(0deg, #fbf9f7, transparent 32%); }
   .c2 :is(.c2-homeowners, .c2-builders) .c2-hero-copy h1 { max-width: 65%; }
   .c2 :is(.c2-homeowners, .c2-builders) .c2-hero-page-lead { max-width: 65%; margin-top: 18px; font-size: 18px; line-height: 1.4; }
-  .c2 :is(.c2-homeowners, .c2-builders) .c2-location { position: relative; white-space: nowrap; }
+  .c2 :is(.c2-homeowners, .c2-builders) .c2-location { position: relative; white-space: nowrap; background: linear-gradient(90deg, rgba(251,249,247,.95), rgba(251,249,247,.85) 80%, transparent); }
   .c2 :is(.c2-homeowners, .c2-builders) .c2-hero-actions { position: relative; margin-top: 28px; }
 }
