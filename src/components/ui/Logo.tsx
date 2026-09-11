@@ -13,6 +13,11 @@ function PipeJ({ reversed = false }: { reversed?: boolean }) {
   <path d="M148 36V143C148 171 133 187 111 191M45 158l14-5M56 177l12-9M77 189l6-13" stroke="#2868a8" strokeWidth="2"/>
   <path d="M117 12H162V32H117ZM16 126H49V143H16Z" fill={reversed?"#eef7ff":"#fff"} stroke={navy} strokeWidth="6"/>
   <path d="M122 22H157M22 135H44" stroke="#2868a8" strokeWidth="3"/>
+  <g fill={reversed?"#eef7ff":"#fff"} stroke={navy} strokeWidth="5">
+   <path d="M119 103H160V121H119Z"/>
+   <path d="M48 162L62 153L73 170L59 179Z"/>
+  </g>
+  <path d="M123 109H156M123 116H156M54 163L64 175" stroke="#2868a8" strokeWidth="2.5"/>
  </g>;
 }
 

@@ -279,3 +279,56 @@
  .c2 .c2-team .c2-hero-page-lead { max-width: 65%; font-size: 18px; }
  .c2 .c2-team .c2-location { background: linear-gradient(90deg,#fbf9f7,rgba(251,249,247,.85) 80%,transparent); }
 }
+
+/* Match the homepage's broad right-hand artwork and gradual under-copy fade. */
+@media (min-width:1024px) {
+ .c2 :is(.c2-homeowners,.c2-builders,.c2-team) .c2-hero-media {
+  width:100vw; max-width:1600px; left:auto; right:calc(50% - 50vw); margin-left:auto;
+ }
+ .c2 :is(.c2-homeowners,.c2-builders,.c2-team) .c2-hero-media::after {
+  background:linear-gradient(90deg,var(--c2-paper) 0%,var(--c2-paper) 25%,rgba(251,249,247,.97) 31%,rgba(251,249,247,.80) 38%,rgba(251,249,247,.36) 46%,transparent 56%);
+ }
+ .c2 :is(.c2-homeowners,.c2-builders) .c2-hero-media img { object-position:right 40%; }
+ .c2 .c2-team .c2-hero-media img { object-position:right 20%; }
+ .c2 .directory-preview .dp-header-art {
+  width:78%; mask-image:linear-gradient(90deg,transparent 0%,rgba(0,0,0,.2) 14%,#000 40%);
+ }
+ .c2 .directory-preview .dp-header-art svg { width:100%; height:100%; }
+ .c2 .directory-preview .dp-header-art::after {
+  background:linear-gradient(90deg,#fbf9f7 0%,rgba(251,249,247,.85) 12%,rgba(251,249,247,.3) 28%,transparent 42%);
+ }
+}
+@media (max-width:1023px) {
+ .c2 :is(.c2-homeowners,.c2-builders,.c2-team) .c2-hero-media { width:90vw; }
+ .c2 .directory-preview .dp-header-art { width:90%; height:100%; opacity:.24; }
+}
+
+@media(min-width:1024px) {
+ .c2 :is(.c2-homeowners,.c2-builders) .c2-hero-media { width:78vw; max-width:1248px; }
+ .c2 :is(.c2-homeowners,.c2-builders) .c2-hero-media img { object-position:right 18%; }
+ .c2 :is(.c2-homeowners,.c2-builders) .c2-hero-media::after {
+  background:linear-gradient(90deg,#fbf9f7 0%,rgba(251,249,247,.97) 12%,rgba(251,249,247,.8) 25%,rgba(251,249,247,.35) 38%,transparent 53%);
+ }
+ .c2 :is(.c2-homeowners,.c2-builders,.c2-team) .c2-hero-page-lead { max-width:28em; }
+ .c2 .c2-team .c2-hero-media::after {
+  background:linear-gradient(90deg,#fbf9f7 0%,#fbf9f7 30%,rgba(251,249,247,.97) 36%,rgba(251,249,247,.8) 42%,rgba(251,249,247,.36) 48%,transparent 56%);
+ }
+}
+
+/* A consistent 200px testimonial band, with room to grow for phone copy. */
+.c2 .c2-reviews-band { min-height:200px; box-sizing:border-box; display:flex; align-items:center; }
+.c2 .c2-reviews-band .c2-reviews { width:100%; }
+@media(min-width:1024px) {
+ .c2 .c2-reviews-band { height:200px; padding-block:24px; }
+}
+
+/* Header and directory use the same content edges at every viewport. */
+.c2 .directory-preview .dp-wrap { max-width:1440px; padding-inline:var(--c2-gutter); }
+.c2 .directory-preview .dp-header { max-width:none; padding-inline:max(var(--c2-gutter),calc((100% - 1440px)/2 + var(--c2-gutter))); }
+@media(min-width:1024px) {
+ .c2 .c2-nav a { font-size:16px; }
+ .c2 .directory-preview .dp-header-art { right:max(var(--c2-gutter),calc((100% - 1440px)/2 + var(--c2-gutter))); }
+}
+@media(min-width:1024px) and (max-width:1199px) {
+ .c2 .c2-header-phone { display:none; }
+}
