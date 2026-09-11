@@ -68,7 +68,7 @@ export function PipeBanner() {
 
 /** One continuous stream around the hero's right edge; no competing branches. */
 export function ServicesHeroPipe() {
- const route = "M338 390V150Q338 80 268 80H254Q204 80 204 30V-30";
+ const route = "M204 -30V30Q204 80 254 80H268Q338 80 338 150V390";
  return <svg viewBox="0 0 400 360" preserveAspectRatio="xMaxYMid slice" fill="none" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
   <defs><linearGradient id="services-pipe-blue" x1="0" x2="1"><stop stopColor="#83b9f6"/><stop offset=".5" stopColor="#397bd4"/><stop offset="1" stopColor="#9dcfff"/></linearGradient></defs>
   <path d={route} stroke="#182b50" strokeWidth="46"/>

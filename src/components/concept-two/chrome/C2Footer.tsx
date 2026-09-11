@@ -59,7 +59,6 @@ export function C2Footer() {
           <ul>{footerCities().map((city) => <li key={city.slug}>{city.name}</li>)}</ul>
         </section>
         <div className="c2-footer-meta">
-          <span>{copy.footer.basedIn}</span>
           <span>{copy.footer.servingLine}</span>
         </div>
       </div>
