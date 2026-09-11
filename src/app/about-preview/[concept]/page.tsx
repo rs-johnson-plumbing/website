@@ -25,7 +25,7 @@ export default async function Page({params}:{params:Promise<{concept:string}>}) 
  .ap .cream{background:#f1eee7}
  .ap .navy{background:#102b4e;color:#fff}
  .ap .navy .eyebrow{color:#a9c8e4}
- .ap .navy p{color:#dbe5ee}
+ .ap .navy p{color:#dbe5ee}.ap .navy h2,.ap .navy h3{color:#fff}
  .ap .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:32px;margin-top:30px}
  .ap .value svg{width:90px;height:90px}
  .ap .value p{font-size:16px}
