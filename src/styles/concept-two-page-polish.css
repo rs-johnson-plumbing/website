@@ -647,3 +647,10 @@
 .c2 .c2-salt-pellet:nth-child(3),.c2 .c2-beacon-ray:nth-child(3) { animation-delay:.6s!important; }
 .c2 .c2-beacon-ray:nth-child(4) { animation-delay:.9s!important; }
 .c2 .c2-beacon-ray:nth-child(5) { animation-delay:1.2s!important; }
+
+/* Phones play a short illustration sequence on entry, without intercepting taps. */
+@media(prefers-reduced-motion:no-preference) {
+ .c2 svg[data-mobile-active="true"] [data-motion] { animation:var(--art-animation); }
+ .c2 svg[data-mobile-active="true"] :is(.c2-sketch-flow,.c2-bowl-swirl) { opacity:.85; }
+ .c2 svg[data-mobile-active="true"] .c2-sketch-flow { animation:c2-tile-water 1.6s linear infinite; }
+}
