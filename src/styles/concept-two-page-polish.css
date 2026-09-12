@@ -698,3 +698,11 @@
 
 /* Preserve the authored lowercase a.m./p.m. in arrival choices. */
 .c2.ci-dialog .ci-times button { text-transform:none !important; }
+
+/* Keep two complete dates visible between the phone carousel controls. */
+@media(max-width:600px) {
+ .c2.ci-dialog .ci-day-carousel { grid-template-columns:32px minmax(0,1fr) 32px; gap:6px; }
+ .c2.ci-dialog .ci-day-arrow { width:32px; }
+ .c2.ci-dialog .ci-days { gap:8px; }
+ .c2.ci-dialog .ci-days button { flex:0 0 calc((100% - 8px)/2); min-width:0; box-sizing:border-box; padding:12px 4px; font-size:13px; }
+}
