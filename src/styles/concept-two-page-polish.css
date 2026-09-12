@@ -448,7 +448,7 @@
 }
 
 .c2.ci-dialog .ci-day-carousel { display:grid; grid-template-columns:44px minmax(0,1fr) 44px; gap:10px; align-items:center; }
-.c2.ci-dialog .ci-day-arrow { width:44px; height:60px; border:1px solid #bdd0e6; background:white; color:#2869bd; font-size:24px; cursor:pointer; }
+.c2.ci-dialog .ci-day-arrow { width:44px; height:44px; border:1px solid #bdd0e6; background:white; color:#2869bd; font-size:18px; cursor:pointer; }
 .c2.ci-dialog .ci-days { scrollbar-width:none; padding:4px 2px; }
 .c2.ci-dialog .ci-days::-webkit-scrollbar { display:none; }
 .c2.ci-dialog .ci-days button { flex-basis:132px; display:flex; flex-direction:column; justify-content:center; align-items:center; gap:8px; }
