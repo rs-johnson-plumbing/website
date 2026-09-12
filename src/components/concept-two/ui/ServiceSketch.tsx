@@ -101,54 +101,29 @@ export function PipeBanner() {
  </svg>;
 }
 
-
-/** Decorative services vignette; animation is limited to working details. */
-export function ServicesHeroPipe() {
- return <svg className="c2-services-fixtures" viewBox="0 0 640 340" fill="none" stroke="#182b50" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" focusable="false">
-  <g stroke="#bdddf2" strokeWidth="1.5" opacity=".65">
-   <path d="M196 90H620M196 150H620M196 210H620M235 55V265M305 55V265M375 55V265M445 55V265M515 55V265M585 55V265" strokeDasharray="4 5"/>
-   <path d="M170 298H627"/>
-   <rect x="556" y="32" width="60" height="70"/>
-  </g>
-  <g stroke="#8ab9dc" strokeWidth="2">
-   <path d="M353 75H417"/><circle cx="350" cy="75" r="4" fill="#fff"/><circle cx="420" cy="75" r="4" fill="#fff"/>
-   <path d="M365 73H406V123H365Z" fill="#6aa8e8"/><path d="M367 111H404"/>
-  </g>
-  <g fill="#fff">
-   <path d="M69 34V12H76V34M116 34V12H123V34" fill="#68a9ef"/>
-   <path d="M51 56Q51 34 96 34Q143 34 143 56V289Q96 310 51 289Z"/>
-   <path d="M53 60Q96 45 141 60M53 284Q97 299 141 284" stroke="#a7d0ef" strokeWidth="2"/>
-   <path d="M60 299V305H72V301M123 300V305H134V296"/>
-   <path d="M130 69V273" stroke="#62a0ed" strokeWidth="10"/>
-   <rect x="72" y="224" width="32" height="54" rx="5" fill="#64a2ed"/>
-   <circle cx="96" cy="98" r="17"/>
-   <path d="M82 94l3 1M86 85l2 3M96 82v4M106 85l-2 3M110 94l-3 1" stroke="#80b8e7" strokeWidth="2"/>
-   <path className="c2-hero-gauge" d="M96 98L105 88" strokeWidth="3"/>
-   <circle cx="96" cy="98" r="2" fill="#182b50"/>
-  </g>
-  <g>
-   <path d="M231 291V209H263V291Z" fill="#fff"/>
-   <path d="M232 222Q289 185 337 206Q345 210 345 222H330Q319 214 309 219L263 240" fill="#fff"/>
-   <path d="M237 215Q291 195 331 212" stroke="#8dc3ed" strokeWidth="5"/>
-   <path d="M236 204V188H262V204M237 187V174L291 158L295 164L252 181V188" fill="#fff"/>
-   <path d="M227 291H267V297H227Z" fill="#fff"/>
-   <g className="c2-hero-drop"><path d="M337 235Q319 258 337 262Q355 258 337 235Z" fill="#60a7ec" strokeWidth="2"/><path d="M333 249Q330 255 336 256" stroke="#dcedff" strokeWidth="2"/></g>
-   <ellipse cx="281" cy="319" rx="74" ry="10" stroke="#add4ef" strokeWidth="2"/>
-  </g>
-  <g fill="#fff">
-   <path d="M457 153H551L545 224H464Z"/>
-   <rect x="451" y="143" width="106" height="14" rx="4"/>
-   <path d="M468 222H544Q544 258 520 272L531 317H480L491 272Q468 258 468 222Z"/>
-   <path d="M491 273H520M484 306H527" stroke="#9ec7e8" strokeWidth="2"/>
-   <ellipse cx="506" cy="233" rx="44" ry="16"/>
-   <ellipse cx="506" cy="233" rx="33" ry="10" fill="#78b9ee" stroke="#aed9f8" strokeWidth="2"/>
-   <ellipse className="c2-hero-bowl" cx="506" cy="233" rx="26" ry="6" stroke="#fff" strokeWidth="2" strokeDasharray="22 12" fill="none"/>
-   <ellipse className="c2-hero-bowl" cx="506" cy="233" rx="14" ry="3" stroke="#e8f6ff" strokeWidth="1.5" strokeDasharray="12 8" fill="none"/>
-   <path d="M466 170H479" strokeWidth="5"/>
-  </g>
-  <g stroke="#92bed8" strokeWidth="2">
-   <path d="M589 284V231M590 257Q570 249 573 235Q589 239 590 257M590 245Q607 236 607 221Q592 225 590 245" fill="#a7d1d9"/>
-   <path d="M576 282H604L600 302H580Z" fill="#fff"/>
-  </g>
+function MobileServicesPipe() {
+ const route = "M204 -30V30Q204 80 254 80H268Q338 80 338 150V390";
+ return <svg className="c2-services-pipe-mobile" viewBox="0 0 400 360" preserveAspectRatio="xMaxYMid slice" fill="none" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+  <defs><linearGradient id="services-pipe-blue" x1="0" x2="1"><stop stopColor="#83b9f6"/><stop offset=".5" stopColor="#397bd4"/><stop offset="1" stopColor="#9dcfff"/></linearGradient></defs>
+  <path d={route} stroke="#182b50" strokeWidth="46"/>
+  <path d={route} stroke="url(#services-pipe-blue)" strokeWidth="38"/>
+  <path d={route} stroke="#dcedfc" strokeWidth="3" transform="translate(-12 0)" opacity=".7"/>
+  <path d={route} stroke="#fff" strokeWidth="5" strokeDasharray="22 26" className="c2-hero-water" opacity=".85"/>
+  <g stroke="#182b50" strokeWidth="3" fill="#eaf3fb"><rect x="313" y="171" width="50" height="13" rx="2"/><rect x="313" y="294" width="50" height="13" rx="2"/><rect x="244" y="55" width="13" height="50" rx="2"/></g>
  </svg>;
+}
+
+
+/** Desktop approved artwork; mobile retains its compact downward pipe. */
+export function ServicesHeroPipe() {
+ return <>
+  <MobileServicesPipe/>
+  <svg className="c2-services-fixtures" viewBox="0 0 1536 1024" fill="none" aria-hidden="true" focusable="false">
+   <image href="/images/concept-two/services-fixtures-approved.svg" width="1536" height="1024"/>
+   <circle cx="251" cy="335" r="25" fill="#fbfdff"/>
+   <path className="c2-hero-gauge" d="M251 335L267 316" stroke="#182b50" strokeWidth="6" strokeLinecap="round"/>
+   <circle cx="251" cy="335" r="5" fill="#182b50"/>
+   <ellipse className="c2-hero-bowl" cx="1188" cy="664" rx="71" ry="13" stroke="#e7f7ff" strokeWidth="3" strokeDasharray="34 28" opacity=".7"/>
+  </svg>
+ </>;
 }
