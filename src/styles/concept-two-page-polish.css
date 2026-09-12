@@ -678,3 +678,20 @@
  .c2 .directory-preview.c2-services .dp-header-art svg.c2-services-fixtures { display:block; inset:0; width:100%; height:100%; transform:none; }
  .c2 .directory-preview.c2-services .dp-header-art::after { background:linear-gradient(90deg,#faf9f6 0%,rgba(250,249,246,.65) 10%,rgba(250,249,246,.18) 24%,transparent 42%); }
 }
+
+/* Services shares the audience-page hero's text origin and responsive type scale. */
+.c2 .directory-preview.c2-services .dp-header h1 { margin:0; }
+.c2 .directory-preview.c2-services .dp-header .dp-intro { margin:20px 0 0; color:var(--c2-slate); }
+.c2 .directory-preview.c2-services .dp-jumps { margin-top:20px; }
+.c2 .directory-preview.c2-services .dp-jumps a { font-size:17px; }
+@media(min-width:768px) {
+ .c2 .directory-preview.c2-services .dp-header { padding-top:54px; }
+ .c2 .directory-preview.c2-services .dp-header h1 { font-size:clamp(42px,3.6vw,52px); }
+}
+@media(max-width:767px) {
+ .c2 .directory-preview.c2-services .dp-header { padding-top:18px; padding-bottom:28px; }
+ .c2 .directory-preview.c2-services .dp-header .c2-location { font-size:clamp(calc(8.5px + 4pt),calc(2.3vw + 4pt),calc(10px + 4pt)); line-height:1.5; letter-spacing:0; gap:5px; }
+ .c2 .directory-preview.c2-services .dp-header h1 { font-size:clamp(38px,10.5vw,45px); line-height:.99; letter-spacing:-.04em; }
+ .c2 .directory-preview.c2-services .dp-header .dp-intro { margin-top:18px; font-size:18px; line-height:1.4; }
+ .c2 .directory-preview.c2-services .dp-jumps { margin-top:18px; }
+}
