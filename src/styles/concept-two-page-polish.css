@@ -656,13 +656,27 @@
  .c2 svg[data-mobile-active="true"] .c2-sketch-flow { animation:c2-tile-water 1.6s linear infinite; }
 }
 
-/* Connected Johnson J fills the desktop hero; the phone keeps its downward run. */
-.c2 .directory-preview.c2-services .dp-header-art .c2-services-pipe-desktop { display:none; }
-@media(min-width:768px) {
- .c2 .directory-preview.c2-services .dp-header { min-height:440px; padding-top:45px; padding-bottom:145px; box-sizing:border-box; }
- .c2 .directory-preview.c2-services .dp-header-art .c2-services-pipe-mobile { display:none; }
- .c2 .directory-preview.c2-services .dp-header-art .c2-services-pipe-desktop { display:block; inset:0; width:100%; height:100%; transform:none; }
- .c2 .directory-preview.c2-services .dp-header-art::after { background:none; }
- .c2 .directory-preview.c2-services .dp-header .dp-intro { max-width:58%; }
- .c2 .directory-preview.c2-services .dp-header .c2-location { max-width:65%; }
+
+/* Services hero only: the approved fixture vignette and shared inside-page type. */
+.c2 .directory-preview.c2-services .dp-header { min-height:360px; padding-block:55px; background:#eaf3fb; box-sizing:border-box; }
+.c2 .directory-preview.c2-services .dp-header h1 { font-size:clamp(36px,3.6vw,52px); font-weight:800; line-height:1.08; letter-spacing:-.04em; }
+.c2 .directory-preview.c2-services .dp-header .dp-intro { max-width:44%; font-size:16.5px; line-height:1.4; font-weight:400; }
+.c2 .directory-preview.c2-services .dp-header .c2-location { position:relative; z-index:1; }
+.c2 .directory-preview.c2-services .dp-header-art { inset:0 0 0 auto; width:53%; height:100%; opacity:1; pointer-events:none; }
+.c2 .directory-preview.c2-services .dp-header-art::after { display:none; }
+.c2 .directory-preview.c2-services .dp-header-art svg.c2-services-fixtures { inset:0; width:100%; height:100%; transform:none; }
+.c2 .c2-hero-gauge { transform-origin:96px 98px; }
+@keyframes c2-hero-gauge-sweep { 0%,100% { transform:rotate(-16deg); } 50% { transform:rotate(16deg); } }
+@keyframes c2-hero-bowl-swirl { to { stroke-dashoffset:-68; } }
+@keyframes c2-hero-faucet-drop { 0%,15% { opacity:0; transform:translateY(-4px); } 30%,65% { opacity:1; } 100% { opacity:0; transform:translateY(20px); } }
+@media(prefers-reduced-motion:no-preference) {
+ .c2 .c2-services-fixtures .c2-hero-gauge { animation:c2-hero-gauge-sweep 4s ease-in-out infinite; }
+ .c2 .c2-services-fixtures .c2-hero-bowl { animation:c2-hero-bowl-swirl 5s linear infinite; }
+ .c2 .c2-services-fixtures .c2-hero-drop { animation:c2-hero-faucet-drop 3.5s ease-in infinite; }
+}
+@media(max-width:767px) {
+ .c2 .directory-preview.c2-services .dp-header { min-height:0; padding-block:30px 205px; }
+ .c2 .directory-preview.c2-services .dp-header h1 { font-size:clamp(28px,8vw,36px); }
+ .c2 .directory-preview.c2-services .dp-header .dp-intro { max-width:100%; }
+ .c2 .directory-preview.c2-services .dp-header-art { top:auto; bottom:0; right:0; width:100%; height:190px; }
 }
