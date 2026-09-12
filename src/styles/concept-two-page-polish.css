@@ -706,3 +706,10 @@
  .c2.ci-dialog .ci-days { gap:8px; }
  .c2.ci-dialog .ci-days button { flex:0 0 calc((100% - 8px)/2); min-width:0; box-sizing:border-box; padding:12px 4px; font-size:13px; }
 }
+
+/* Short, stable photo actions fit alongside each other on narrow phones. */
+.c2.ci-service-dialog .ci-upload-actions { flex-wrap:nowrap; }
+.c2.ci-service-dialog .ci-upload-actions .c2-btn { min-width:0; white-space:nowrap; text-transform:none !important; }
+@media(max-width:600px) {
+ .c2.ci-service-dialog .ci-upload-actions .c2-btn { flex:1; padding-inline:8px; font-size:14px; }
+}
