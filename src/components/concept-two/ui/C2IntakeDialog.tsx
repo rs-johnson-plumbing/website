@@ -22,6 +22,39 @@ const bidSteps = ["Contact information", "Project details"];
 const times = ["8:00 a.m. - 10:00 a.m.", "10:00 a.m. - 12:00 p.m.", "12:00 p.m. - 2:00 p.m.", "2:00 p.m. - 4:00 p.m."];
 const maxFileBytes = 4 * 1024 * 1024;
 
+
+function photoGuidance(category: string | undefined, issue: string | undefined) {
+  if (category === "Install") {
+    const subjects: Record<string, string> = {
+      "Drain Or Drain Piping": "the existing drain or piping and the area where the new work will go",
+      "Water Heater": "the current water heater, its label, and the space around it",
+      "Faucet Or Shower": "the existing faucet or shower and its connections",
+      "Toilet": "the existing toilet and the space around its base",
+      "Water Softener": "the installation area and nearby water connections",
+      "Gas Appliance Hookup": "the appliance, its label, and the existing hookup",
+    };
+    return subjects[issue || ""]
+      ? `Take a photo of ${subjects[issue || ""]}.`
+      : "Take a photo of the installation area and any existing fixture or equipment.";
+  }
+  const guidance: Record<string, string> = {
+    "Clogged Drain": "Take a photo of the clogged drain and any standing water.",
+    "Water Heater": "Take a photo of the water heater, its label, and any visible leak or error message.",
+    "Faucet Or Shower": "Take a photo of the faucet or shower and the part that needs attention.",
+    "Toilet": "Take a photo of the toilet and the area where you see the problem.",
+    "Pipe Or Leak": "Take a photo of where the leak is coming from and the surrounding area.",
+    "Garbage Disposal": "Take a photo of the disposal and its connections under the sink.",
+    "Burst Pipe": "From a dry, safe spot, take a photo of the burst pipe and the affected area.",
+    "Sump Pump": "From a dry, safe spot, take a photo of the sump pump and pit.",
+    "Basement": "From a dry, safe spot, take a photo of the affected basement area and where water is entering, if visible.",
+    "Sewer Backup": "From a safe distance, take a photo of the backed-up drain and affected area.",
+    "Not Sure": "From a dry, safe spot, take a wide photo showing where water is collecting.",
+  };
+  return guidance[issue || ""] || (category === "Flooding"
+    ? "From a dry, safe spot, take a photo of the affected area and where water is entering, if visible."
+    : "Take a photo of the fixture or area you need help with, plus a close-up of the problem.");
+}
+
 function Field({ name, label, fields, change, required = false, type = "text", autoComplete, pattern }: {
   name: string; label: string; fields: Fields; change: (name: string, value: string) => void; required?: boolean; type?: string; autoComplete?: string; pattern?: string;
 }) {
@@ -153,11 +186,11 @@ export function C2IntakeDialog({ kind, onClose }: { kind: Kind; onClose: () => v
     } finally { busy.current = false; }
   }
   const photos = <div className="ci-upload">
-    <h3>{isBid ? "Add an image or plan" : "Add photos"} <span>(optional)</span></h3>
+    <h3>{isBid ? "Add an image or plan" : files.length ? "Add more photos" : "Add photos"} <span>(optional)</span></h3>
     {isBid && <p>An image or PDF, up to 4 MB.</p>}
     <input ref={upload} type="file" hidden accept={isBid ? "application/pdf,image/*" : "image/*"} multiple={!isBid} onChange={event => { addFiles(event.target.files); event.target.value = ""; }} />
     <input ref={camera} type="file" hidden accept="image/*" capture="environment" onChange={event => { addFiles(event.target.files); event.target.value = ""; }} />
-    <div className="ci-upload-actions"><C2Button onClick={() => upload.current?.click()} variant="outline" trailingIcon={null}>{isBid ? "Upload Image or Plan" : files.length ? "Add More Photos" : "Upload Photos"}</C2Button><C2Button className="ci-camera" onClick={() => camera.current?.click()} variant="outline" trailingIcon={null}>Take Photo</C2Button></div>
+    <div className="ci-upload-actions"><C2Button onClick={() => upload.current?.click()} variant="outline" trailingIcon={null}>{isBid ? "Upload Image or Plan" : "Upload photo"}</C2Button><C2Button className="ci-camera" onClick={() => camera.current?.click()} variant="outline" trailingIcon={null}>Take photo</C2Button></div>
     {files.length > 0 && <ul className="ci-files">{files.map((file, i) => <li key={file.name + i}><span>{photoPreviews[i] && <Image src={photoPreviews[i]} alt={`Preview of ${file.name}`} width={80} height={80} unoptimized className="ci-photo-thumb" />}{file.name}</span><button type="button" aria-label={`Remove ${file.name}`} onClick={() => setFiles(old => old.filter((_, index) => index !== i))}>Remove</button></li>)}</ul>}
   </div>;
 
@@ -175,7 +208,7 @@ export function C2IntakeDialog({ kind, onClose }: { kind: Kind; onClose: () => v
             {step === 0 && <><h2 tabIndex={-1}><span style={{ textTransform: "none" }}>Where are you located?</span></h2><Field name="zip" label="ZIP code" required pattern="[0-9]{5,6}" fields={fields} change={change} autoComplete="postal-code" /></>}
             {step === 1 && <><h2 tabIndex={-1}><span style={{ textTransform: "none" }}>How can we help?</span></h2>{selected && !choosingCategory ? <div className="ci-selection"><strong>{selected.name}</strong><button type="button" onClick={() => setChoosingCategory(true)}>Change Service</button></div> : <div className="ci-categories" role="group" aria-label="Service type">{categories.map(category => <button type="button" key={category.name} aria-pressed={fields.category === category.name} onClick={() => { setFields(old => old.category === category.name ? old : ({ ...old, category: category.name, issue: "", details: "" })); setChoosingCategory(false); setChoosingIssue(true); }}><ServiceSketch id={category.art} /><span>{category.name}</span></button>)}</div>}
               {selected && !choosingCategory && <div className="ci-followup"><h3>{selected.question}</h3>{selected.options.length > 0 && (fields.issue && !choosingIssue ? <div className="ci-selection"><strong>{fields.issue}</strong><button ref={issueSummary} type="button" onClick={() => setChoosingIssue(true)}>Change Selection</button></div> : <div className="ci-options" role="group" aria-label={selected.question}>{selected.options.map(option => <button type="button" key={option} aria-pressed={fields.issue === option} onClick={() => { change("issue", option); setChoosingIssue(false); }}>{option}</button>)}</div>)}<label ref={detailsLabel}><span>{fields.category === "Other" ? "What do you need? *" : "What’s happening? (optional)"}</span><textarea name="details" rows={3} required={fields.category === "Other"} maxLength={2000} value={fields.details || ""} onChange={event => change("details", event.target.value)} placeholder="Where is the problem? When did it start?" /></label>{fields.category === "Flooding" && <p>Need urgent help? <a href={site.phone.tel}>Call {site.phone.display}</a>.</p>}</div>}</>}
-            {step === 2 && <><h2 tabIndex={-1}><span style={{ textTransform: "none" }}>Help us Prepare</span></h2><p>A photo can help us prepare for your visit.</p>{photos}</>}
+            {step === 2 && <><h2 tabIndex={-1}><span style={{ textTransform: "none" }}>Help us Prepare</span></h2><p>{photoGuidance(fields.category, fields.issue)}</p>{photos}</>}
             {step === 3 && <><h2 tabIndex={-1}>How can we reach you?</h2><div className="ci-fields"><Field name="firstName" label="First name" required fields={fields} change={change} autoComplete="given-name" /><Field name="lastName" label="Last name" required fields={fields} change={change} autoComplete="family-name" /><Field name="email" label="Email" type="email" required fields={fields} change={change} autoComplete="email" /><Field name="phone" label="Phone" type="tel" pattern="[+()0-9 .-]{10,}" required fields={fields} change={change} autoComplete="tel" /><Field name="address" label="Street address" required fields={fields} change={change} autoComplete="address-line1" /><Field name="unit" label="Unit / apartment (optional)" fields={fields} change={change} autoComplete="address-line2" /><Field name="city" label="City" required fields={fields} change={change} autoComplete="address-level2" /><Field name="zip" label="ZIP code" required pattern="[0-9]{5,6}" fields={fields} change={change} autoComplete="postal-code" /><Field name="state" label="State" required fields={fields} change={change} autoComplete="address-level1" /><Field name="country" label="Country" required fields={fields} change={change} autoComplete="country-name" /></div></>}
             {step === 4 && <><h3 tabIndex={-1}>Choose a Day</h3><div className="ci-day-carousel"><button className="ci-day-arrow" type="button" aria-label="Earlier days" onClick={() => dayRail.current?.scrollBy({ left: -300, behavior: "smooth" })}>←</button><div className="ci-days" ref={dayRail} role="group" aria-label="Preferred day">{days.map(day => <button type="button" key={day.value} aria-label={day.label} aria-pressed={fields.day === day.value} onClick={() => change("day", day.value)}><strong>{day.weekday}</strong><span>{day.dateLabel}</span></button>)}</div><button className="ci-day-arrow" type="button" aria-label="Later days" onClick={() => dayRail.current?.scrollBy({ left: 300, behavior: "smooth" })}>→</button></div><h3>Preferred arrival window</h3><div className="ci-times" role="group" aria-label="Preferred arrival window">{times.map(time => <button key={time} type="button" aria-pressed={fields.time === time} onClick={() => change("time", time)}>{time}</button>)}</div></>}
             {step === 5 && <><h2 tabIndex={-1}>Your Service Request</h2><div className="ci-review"><section><h3>Service <button type="button" onClick={() => setStep(1)}>Edit</button></h3><p><strong>Service Requested</strong><br />{fields.category}{fields.issue ? " — " + fields.issue : ""}</p>{fields.details && <p><strong>Details</strong><br />{fields.details}</p>}<p><strong>Photos</strong><br />{files.length} photo{files.length === 1 ? "" : "s"} attached</p>{files.length > 0 && <div className="ci-photo-review">{files.map((file, i) => photoPreviews[i] && <figure key={file.name + i}><Image src={photoPreviews[i]} alt={`Preview of ${file.name}`} width={96} height={96} unoptimized className="ci-photo-thumb" /><figcaption>{file.name}</figcaption></figure>)}</div>}</section><section><h3>Contact and Location <button type="button" onClick={() => setStep(3)}>Edit</button></h3><p>{fields.firstName} {fields.lastName}<br />{fields.phone}<br />{fields.email}</p><p>{fields.address} {fields.unit}<br />{fields.city}, {fields.state} {fields.zip}</p></section><section><h3>Preferred Arrival <button type="button" onClick={() => setStep(4)}>Edit</button></h3><p>{days.find(day => day.value === fields.day)?.label}<br />{fields.time}</p><p>Appointment pending confirmation.</p></section></div></>}

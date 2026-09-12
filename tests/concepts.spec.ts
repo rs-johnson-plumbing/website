@@ -322,16 +322,18 @@ test("service workflow selects one category and follows up inline before contact
   await modal.getByRole("button", { name: "Water Heater", exact: true }).click();
   await expect(modal.getByLabel("What’s happening?")).toHaveValue("Replace the old heater.");
   await modal.getByRole("button", { name: "Continue", exact: true }).click();
+  await expect(modal.getByText("Take a photo of the current water heater, its label, and the space around it.", { exact: true })).toBeVisible();
+  await expect(modal.getByRole("button", { name: "Upload photo", exact: true })).toBeVisible();
   await modal.locator('input[type=file]').first().setInputFiles({ name: "heater.png", mimeType: "image/png", buffer: Buffer.from("iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8/x8AAwMCAO+aE1sAAAAASUVORK5CYII=", "base64") });
   await expect(modal.getByRole("img", { name: "Preview of heater.png", exact: true })).toBeVisible();
-  await expect(modal.getByRole("button", { name: "Add More Photos", exact: true })).toBeVisible();
+  await expect(modal.getByRole("heading", { name: /Add more photos/i })).toBeVisible();
   await modal.locator('input[capture=environment]').setInputFiles({ name: "camera.png", mimeType: "image/png", buffer: Buffer.from("iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8/x8AAwMCAO+aE1sAAAAASUVORK5CYII=", "base64") });
   await expect(modal.locator(".ci-files li")).toHaveCount(2);
   await modal.getByRole("button", { name: "Remove heater.png", exact: true }).click();
   await modal.getByRole("button", { name: "Remove camera.png", exact: true }).click();
-  await expect(modal.getByRole("button", { name: "Upload Photos", exact: true })).toBeVisible();
+  await expect(modal.getByRole("button", { name: "Upload photo", exact: true })).toBeVisible();
   await modal.locator('input[capture=environment]').setInputFiles({ name: "heater.png", mimeType: "image/png", buffer: Buffer.from("iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8/x8AAwMCAO+aE1sAAAAASUVORK5CYII=", "base64") });
-  await expect(modal.getByRole("button", { name: "Add More Photos", exact: true })).toBeVisible();
+  await expect(modal.getByRole("heading", { name: /Add more photos/i })).toBeVisible();
   await expect(modal.locator('input[capture=environment]')).toHaveAttribute("accept", "image/*");
   await modal.getByRole("button", { name: "Continue", exact: true }).click();
   for (const [label, value] of [["First name", "Alex"], ["Last name", "Taylor"], ["Email", "alex@example.com"], ["Phone", "3145550100"], ["Street address", "123 Example Lane"], ["City", "O'Fallon"]]) await modal.getByLabel(label, { exact: false }).fill(value);
@@ -455,3 +457,27 @@ for (const route of ["/", "/services", "/for-homeowners", "/for-builders"]) {
   await expect(page.locator(".c2-service-modal")).toBeVisible();
  });
 }
+
+test("photo guidance follows changed issues and photo buttons stay compact on phone", async ({ page }) => {
+  await page.setViewportSize({ width: 320, height: 740 });
+  await page.goto("/");
+  await page.locator(".c2-final").getByRole("button", { name: "Request Service", exact: true }).click();
+  const modal = page.getByRole("dialog", { name: "Request Service", exact: true });
+  await modal.getByLabel("ZIP code").fill("63368");
+  await modal.getByRole("button", { name: "Continue", exact: true }).click();
+  await modal.getByRole("button", { name: "Repair", exact: true }).click();
+  await modal.getByRole("button", { name: "Pipe Or Leak", exact: true }).click();
+  await modal.getByRole("button", { name: "Continue", exact: true }).click();
+  await expect(modal.getByText("Take a photo of where the leak is coming from and the surrounding area.", { exact: true })).toBeVisible();
+  await modal.getByRole("button", { name: /Back/ }).click();
+  await modal.getByRole("button", { name: "Change Selection", exact: true }).click();
+  await modal.getByRole("button", { name: "Water Heater", exact: true }).click();
+  await modal.getByRole("button", { name: "Continue", exact: true }).click();
+  await expect(modal.getByText("Take a photo of the water heater, its label, and any visible leak or error message.", { exact: true })).toBeVisible();
+  for (const name of ["Upload photo", "Take photo"]) {
+    const button = modal.getByRole("button", { name, exact: true });
+    await expect(button).toBeVisible();
+    await expect(button).toHaveCSS("white-space", "nowrap");
+    expect(await button.evaluate(el => el.scrollWidth <= el.clientWidth)).toBe(true);
+  }
+});
