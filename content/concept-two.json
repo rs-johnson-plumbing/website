@@ -445,7 +445,7 @@
     "buildersSplit": {
       "eyebrow": "Builders & Contractors",
       "heading": "Plans and Takeoffs Through Trim.",
-      "line": "Underground, rough-in, gas, water service and trim, run by one crew on your schedule.",
+      "line": "Underground, rough-in, gas and trim, run by one crew on your schedule.",
       "cta": "See Builder Services"
     }
   },
@@ -508,7 +508,6 @@
     "leaks-and-repairs": "Leaks & Repairs",
     "drains-and-sewer": "Drains & Sewer",
     "toilets-and-faucets": "Toilets & Faucets",
-    "water-and-sewer-tie-in": "Water Service & Sewer",
     "planning-and-takeoffs": "Plans & Takeoffs",
     "trim-and-fixture-set": "Trim & Fixture Set"
   }
