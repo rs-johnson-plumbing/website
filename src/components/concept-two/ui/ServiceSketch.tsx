@@ -114,26 +114,16 @@ function MobileServicesPipe() {
 }
 
 
-/** Desktop J silhouette: both feeds converge before the continuous outlet. */
+/** Desktop approved artwork; mobile retains its compact downward pipe. */
 export function ServicesHeroPipe() {
- const main = "M1480 92H1160Q1090 92 1090 162V320C1090 420 940 420 940 330Q940 318 922 318H-40";
- const feed = "M1260 -30V42Q1260 92 1210 92";
  return <>
   <MobileServicesPipe/>
-  <svg className="c2-services-pipe-desktop" viewBox="0 0 1440 440" preserveAspectRatio="none" fill="none" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" focusable="false">
-   <g stroke="#182b50"><path d={main} strokeWidth="50"/><path d={feed} strokeWidth="32"/></g>
-   <g stroke="#65a7ef"><path d={main} strokeWidth="42"/><path d={feed} strokeWidth="24"/></g>
-   <g stroke="#d7ecff" opacity=".65"><path d={main} strokeWidth="19"/><path d={feed} strokeWidth="11"/></g>
-   <g stroke="#fff" strokeWidth="4" strokeDasharray="22 26" opacity=".9">
-    <path d={main} className="c2-hero-water"/>
-    <path d={feed} className="c2-hero-water"/>
-   </g>
-   <g stroke="#182b50" strokeWidth="3" fill="#edf6ff">
-    <rect x="1241" y="22" width="38" height="12" rx="3"/>
-    <rect x="1340" y="63" width="14" height="58" rx="3"/>
-    <rect x="1061" y="180" width="58" height="14" rx="3"/>
-    <rect x="884" y="289" width="14" height="58" rx="3"/>
-   </g>
+  <svg className="c2-services-fixtures" viewBox="0 0 1536 1024" fill="none" aria-hidden="true" focusable="false">
+   <image href="/images/concept-two/services-fixtures-approved.svg" width="1536" height="1024"/>
+   <circle cx="251" cy="335" r="25" fill="#fbfdff"/>
+   <path className="c2-hero-gauge" d="M251 335L267 316" stroke="#182b50" strokeWidth="6" strokeLinecap="round"/>
+   <circle cx="251" cy="335" r="5" fill="#182b50"/>
+   <ellipse className="c2-hero-bowl" cx="1188" cy="664" rx="71" ry="13" stroke="#e7f7ff" strokeWidth="3" strokeDasharray="34 28" opacity=".7"/>
   </svg>
  </>;
 }

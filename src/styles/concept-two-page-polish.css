@@ -656,13 +656,25 @@
  .c2 svg[data-mobile-active="true"] .c2-sketch-flow { animation:c2-tile-water 1.6s linear infinite; }
 }
 
-/* Connected Johnson J fills the desktop hero; the phone keeps its downward run. */
-.c2 .directory-preview.c2-services .dp-header-art .c2-services-pipe-desktop { display:none; }
+
+/* Only the services hero changes; all service sections keep their existing layout. */
+.c2 .directory-preview.c2-services .dp-header { background:#faf9f6; }
+.c2 .directory-preview.c2-services .dp-header-art .c2-services-fixtures { display:none; }
+.c2 .directory-preview.c2-services .dp-header-art::after { background:linear-gradient(90deg,#faf9f6 0%,rgba(250,249,246,.95) 50%,rgba(250,249,246,.55) 76%,transparent 100%); }
+.c2 .c2-hero-gauge { transform-origin:251px 335px; }
+@keyframes c2-hero-gauge-sweep { 0%,100% { transform:rotate(-12deg); } 50% { transform:rotate(18deg); } }
+@keyframes c2-hero-bowl-swirl { to { stroke-dashoffset:-62; } }
+@media(prefers-reduced-motion:no-preference) {
+ .c2 .c2-services-fixtures .c2-hero-gauge { animation:c2-hero-gauge-sweep 5s ease-in-out infinite; }
+ .c2 .c2-services-fixtures .c2-hero-bowl { animation:c2-hero-bowl-swirl 5s linear infinite; }
+}
 @media(min-width:768px) {
- .c2 .directory-preview.c2-services .dp-header { min-height:440px; padding-top:45px; padding-bottom:145px; box-sizing:border-box; }
+ .c2 .directory-preview.c2-services .dp-header { min-height:360px; padding-block:55px; box-sizing:border-box; }
+ .c2 .directory-preview.c2-services .dp-header h1 { font-size:clamp(36px,3.6vw,52px); font-weight:800; line-height:1.08; letter-spacing:-.04em; }
+ .c2 .directory-preview.c2-services .dp-header .dp-intro { max-width:44%; font-size:16.5px; line-height:1.4; font-weight:400; }
+ .c2 .directory-preview.c2-services .dp-header .c2-location { position:relative; z-index:1; }
+ .c2 .directory-preview.c2-services .dp-header-art { inset:0 0 0 auto; width:56%; height:100%; opacity:1; pointer-events:none; }
  .c2 .directory-preview.c2-services .dp-header-art .c2-services-pipe-mobile { display:none; }
- .c2 .directory-preview.c2-services .dp-header-art .c2-services-pipe-desktop { display:block; inset:0; width:100%; height:100%; transform:none; }
- .c2 .directory-preview.c2-services .dp-header-art::after { background:none; }
- .c2 .directory-preview.c2-services .dp-header .dp-intro { max-width:58%; }
- .c2 .directory-preview.c2-services .dp-header .c2-location { max-width:65%; }
+ .c2 .directory-preview.c2-services .dp-header-art svg.c2-services-fixtures { display:block; inset:0; width:100%; height:100%; transform:none; }
+ .c2 .directory-preview.c2-services .dp-header-art::after { background:linear-gradient(90deg,#faf9f6 0%,rgba(250,249,246,.65) 10%,rgba(250,249,246,.18) 24%,transparent 42%); }
 }
