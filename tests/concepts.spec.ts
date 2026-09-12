@@ -193,7 +193,7 @@ test("service modals preserve the directory, scroll and keyboard focus", async (
     await page.setViewportSize({ width, height: 844 });
     await page.goto("/services");
     await expect(page.locator(".dp-home .dp-card")).toHaveCount(8);
-    await expect(page.locator(".dp-builders .dp-card")).toHaveCount(6);
+    await expect(page.locator(".dp-builders .dp-card")).toHaveCount(5);
     const trigger = page.getByRole("button", { name: "View details: Water Heaters", exact: true });
     await trigger.scrollIntoViewIfNeeded();
     const before = await trigger.boundingBox();
@@ -249,7 +249,7 @@ test("every directory card opens its own modal and request hands off without sta
 test("hybrid illustrations render in both service directories", async ({ page }) => {
   await page.goto("/services");
   await expect(page.locator(".dp-home .dp-card svg[data-illustration]")).toHaveCount(8);
-  await expect(page.locator(".dp-builders .dp-card svg[data-illustration]")).toHaveCount(6);
+  await expect(page.locator(".dp-builders .dp-card svg[data-illustration]")).toHaveCount(5);
   await expect(page.locator(".dp-card img")).toHaveCount(0);
 });
 
@@ -480,4 +480,15 @@ test("photo guidance follows changed issues and photo buttons stay compact on ph
     await expect(button).toHaveCSS("white-space", "nowrap");
     expect(await button.evaluate(el => el.scrollWidth <= el.clientWidth)).toBe(true);
   }
+});
+
+test("unavailable water and sewer service is absent across public navigation and cards", async ({ page }) => {
+  for (const path of ["/", "/for-homeowners", "/for-builders", "/services", "/services/builders"]) {
+    await page.goto(path);
+    await expect(page.getByText(/Water Service (?:&|and) Sewer/i)).toHaveCount(0);
+    await expect(page.locator('a[href*="water-and-sewer-tie-in"]')).toHaveCount(0);
+  }
+  await page.goto("/services");
+  await expect(page.locator(".dp-builders .dp-step")).toHaveText(["Phase 01", "Phase 02", "Phase 03", "Phase 04", "Phase 05"]);
+  await expect(page.locator(".dp-home .dp-card")).toHaveCount(8);
 });
