@@ -695,3 +695,6 @@
  .c2 .directory-preview.c2-services .dp-header .dp-intro { margin-top:18px; font-size:18px; line-height:1.4; }
  .c2 .directory-preview.c2-services .dp-jumps { margin-top:18px; }
 }
+
+/* Preserve the authored lowercase a.m./p.m. in arrival choices. */
+.c2.ci-dialog .ci-times button { text-transform:none !important; }
