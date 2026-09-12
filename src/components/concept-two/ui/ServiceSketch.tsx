@@ -101,10 +101,9 @@ export function PipeBanner() {
  </svg>;
 }
 
-/** One continuous stream around the hero's right edge; no competing branches. */
-export function ServicesHeroPipe() {
+function MobileServicesPipe() {
  const route = "M204 -30V30Q204 80 254 80H268Q338 80 338 150V390";
- return <svg viewBox="0 0 400 360" preserveAspectRatio="xMaxYMid slice" fill="none" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+ return <svg className="c2-services-pipe-mobile" viewBox="0 0 400 360" preserveAspectRatio="xMaxYMid slice" fill="none" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
   <defs><linearGradient id="services-pipe-blue" x1="0" x2="1"><stop stopColor="#83b9f6"/><stop offset=".5" stopColor="#397bd4"/><stop offset="1" stopColor="#9dcfff"/></linearGradient></defs>
   <path d={route} stroke="#182b50" strokeWidth="46"/>
   <path d={route} stroke="url(#services-pipe-blue)" strokeWidth="38"/>
@@ -112,4 +111,29 @@ export function ServicesHeroPipe() {
   <path d={route} stroke="#fff" strokeWidth="5" strokeDasharray="22 26" className="c2-hero-water" opacity=".85"/>
   <g stroke="#182b50" strokeWidth="3" fill="#eaf3fb"><rect x="313" y="171" width="50" height="13" rx="2"/><rect x="313" y="294" width="50" height="13" rx="2"/><rect x="244" y="55" width="13" height="50" rx="2"/></g>
  </svg>;
+}
+
+
+/** Desktop J silhouette: both feeds converge before the continuous outlet. */
+export function ServicesHeroPipe() {
+ const main = "M1480 92H1160Q1090 92 1090 162V320C1090 420 940 420 940 330Q940 318 922 318H-40";
+ const feed = "M1260 -30V42Q1260 92 1210 92";
+ return <>
+  <MobileServicesPipe/>
+  <svg className="c2-services-pipe-desktop" viewBox="0 0 1440 440" preserveAspectRatio="none" fill="none" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" focusable="false">
+   <g stroke="#182b50"><path d={main} strokeWidth="50"/><path d={feed} strokeWidth="32"/></g>
+   <g stroke="#65a7ef"><path d={main} strokeWidth="42"/><path d={feed} strokeWidth="24"/></g>
+   <g stroke="#d7ecff" opacity=".65"><path d={main} strokeWidth="19"/><path d={feed} strokeWidth="11"/></g>
+   <g stroke="#fff" strokeWidth="4" strokeDasharray="22 26" opacity=".9">
+    <path d={main} className="c2-hero-water"/>
+    <path d={feed} className="c2-hero-water"/>
+   </g>
+   <g stroke="#182b50" strokeWidth="3" fill="#edf6ff">
+    <rect x="1241" y="22" width="38" height="12" rx="3"/>
+    <rect x="1340" y="63" width="14" height="58" rx="3"/>
+    <rect x="1061" y="180" width="58" height="14" rx="3"/>
+    <rect x="884" y="289" width="14" height="58" rx="3"/>
+   </g>
+  </svg>
+ </>;
 }
