@@ -29,7 +29,6 @@
       "paragraph": "Drain, waste, and vent under the slab, set to the plans and inspected before the pour. We coordinate with the excavator and the concrete crew so the pour never waits on us.",
       "whatWeDo": [
         "DWV layout under the slab",
-        "Water service sleeve and stub-ups",
         "Pressure test and inspection before the pour",
         "Coordination with excavation and concrete"
       ],
@@ -76,26 +75,6 @@
       "photo": {
         "alt": "Gas manifold and branch lines on a wall",
         "caption": "Gas Runs"
-      }
-    }
-  },
-  {
-    "slug": "water-and-sewer-tie-in",
-    "name": "Water Service and Sewer",
-    "short": "Meter to house, sewer lateral, and backflow, tied in and inspected",
-    "illustration": "water-and-sewer-tie-in",
-    "hub": {
-      "heading": "Water Service and Sewer",
-      "paragraph": "Meter to house and house to main. Water service, sewer lateral, and backflow, tied in and inspected with the municipality.",
-      "whatWeDo": [
-        "Water service from the meter",
-        "Sewer lateral to the main or septic",
-        "Backflow and pressure-reducing valves",
-        "Municipal inspections and locates"
-      ],
-      "photo": {
-        "alt": "Water service and sewer lateral from the street to the house",
-        "caption": "Water Service and Sewer"
       }
     }
   },

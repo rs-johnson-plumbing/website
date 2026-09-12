@@ -75,15 +75,11 @@
       "name": "118 Prairie Ridge",
       "city": "Wentzville",
       "type": "New Construction",
-      "description": "New construction on a walkout lot with a sewer tie-in at the street and a sump system in the lower level. Underground and rough-in on a tight framing schedule.",
+      "description": "New construction on a walkout lot with a sump system in the lower level. Underground and rough-in on a tight framing schedule.",
       "photos": [
         {
           "scene": "underground",
           "caption": "Underground set to the plan and ready for the inspector"
-        },
-        {
-          "scene": "water-and-sewer-tie-in",
-          "caption": "Water service and sewer lateral tied in at the street"
         },
         {
           "scene": "rough-in",
