@@ -7,6 +7,11 @@ on:
 
 jobs:
   checks:
+    strategy:
+      matrix:
+        service-provider: [housecall, custom]
+    env:
+      NEXT_PUBLIC_SERVICE_REQUEST_PROVIDER: ${{ matrix.service-provider }}
     runs-on: ubuntu-latest
     timeout-minutes: 15
     steps:
