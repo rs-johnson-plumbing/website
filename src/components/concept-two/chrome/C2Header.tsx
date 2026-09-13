@@ -2,27 +2,12 @@
 
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
-import Script from "next/script";
 import { usePathname } from "next/navigation";
 import { conceptTwo as copy, site } from "@/lib/content";
 import { Lockup } from "@/components/ui/Logo";
 import { C2Icon } from "../ui/C2Icon";
 import { C2Button } from "../ui/C2Button";
 import { useRequestService, useRequestBid } from "../ui/C2Request";
-
-const housecallToken = "d509e8f43f414e87b70566cc9cb066dc";
-const housecallOrg = "R-S-Johnson-Plumbing-LLC";
-const housecallBookingUrl = `https://book.housecallpro.com/book/${housecallOrg}/${housecallToken}?v2=true`;
-
-function openHousecallBooking() {
-  const widget = (window as Window & { HCPWidget?: { openModal: () => void } }).HCPWidget;
-  if (widget) {
-    widget.openModal();
-  } else {
-    // Keep booking available if the third-party script is still loading or blocked.
-    window.location.assign(housecallBookingUrl);
-  }
-}
 
 export function C2Header() {
   const [open, setOpen] = useState(false);
@@ -51,11 +36,6 @@ export function C2Header() {
 
   return (
     <header className="c2-header">
-      <Script
-        id="housecall-online-booking"
-        src={`https://online-booking.housecallpro.com/script.js?token=${housecallToken}&orgName=${housecallOrg}`}
-        strategy="afterInteractive"
-      />
       <a className="c2-skip" href="#c2-main">
         {copy.ui.skipToContent}
       </a>
@@ -75,7 +55,7 @@ export function C2Header() {
             <C2Icon name="phone" size={18} />
             {site.phone.display}
           </a>
-          <C2Button onClick={openHousecallBooking} size="sm" trailingIcon={null}>
+          <C2Button onClick={requestService} size="sm" trailingIcon={null}>
             {copy.ui.requestService}
           </C2Button>
         </div>

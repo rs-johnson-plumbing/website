@@ -40,3 +40,7 @@ rules, `CONTRIBUTING.md` for what to edit, and `HOW-TO-EDIT.md` for prompts.
 
 Anything in square brackets in the content files, like `[hours]`, is an
 unconfirmed fact. Leave it bracketed until Ryan confirms it.
+
+## Request Service Forms
+
+Housecall is currently active. The original custom form is preserved: see [Custom Request Service Form](docs/forms/custom-request-service-form.md) for restoration and future API integration.

@@ -49,6 +49,7 @@ test("the selected design carries across routes", async ({ page }) => {
 });
 
 test("the request dialog opens, traps escape, and the mobile menu returns focus", async ({ page }) => {
+  test.skip(process.env.NEXT_PUBLIC_SERVICE_REQUEST_PROVIDER !== "custom", "Preserved form coverage runs in the custom CI build.");
   await page.goto("/?concept=2");
   await page.evaluate(() => window.scrollTo(0, 1200));
   await page.locator(".c2-bar").getByRole("button", { name: copy.ui.request }).click();
@@ -71,6 +72,7 @@ test("the public design has no floating concept toggle", async ({ page }) => {
 });
 
 test("homepage service cards open modals and preserve the homepage", async ({ page }) => {
+  test.skip(process.env.NEXT_PUBLIC_SERVICE_REQUEST_PROVIDER !== "custom", "Preserved form coverage runs in the custom CI build.");
   for (const width of [390, 1440]) {
     await page.setViewportSize({ width, height: 900 });
     await page.goto("/");
@@ -224,6 +226,7 @@ test("service modals preserve the directory, scroll and keyboard focus", async (
 });
 
 test("every directory card opens its own modal and request hands off without stacked dialogs", async ({ page }) => {
+  test.skip(process.env.NEXT_PUBLIC_SERVICE_REQUEST_PROVIDER !== "custom", "Preserved form coverage runs in the custom CI build.");
   await page.goto("/services");
   const cards = page.locator(".dp-card-trigger");
   for (let i = 0; i < await cards.count(); i++) {
@@ -254,6 +257,7 @@ test("hybrid illustrations render in both service directories", async ({ page })
 });
 
 test("shared bottom actions open the correct workflow on every main page", async ({ page }) => {
+  test.skip(process.env.NEXT_PUBLIC_SERVICE_REQUEST_PROVIDER !== "custom", "Preserved form coverage runs in the custom CI build.");
   for (const route of ["/", "/for-homeowners", "/for-builders", "/services", "/our-team"]) {
     await page.goto(route);
     for (const [button, title] of [["Submit Bid Request", "Request a Bid"], ["Request Service", "Request Service"]]) {
@@ -295,6 +299,7 @@ test("builder modal keeps details between steps and sends the image with the bid
 });
 
 test("service workflow selects one category and follows up inline before contact and time", async ({ page }) => {
+  test.skip(process.env.NEXT_PUBLIC_SERVICE_REQUEST_PROVIDER !== "custom", "Preserved form coverage runs in the custom CI build.");
   let payload = "";
   let attempts = 0;
   await page.route("**/api/message", async route => {
@@ -381,6 +386,7 @@ test("homeowners can open all eight services without leaving the page", async ({
 });
 
 test("request forms retain entered data after outside clicks", async ({ page }) => {
+  test.skip(process.env.NEXT_PUBLIC_SERVICE_REQUEST_PROVIDER !== "custom", "Preserved form coverage runs in the custom CI build.");
   await page.setViewportSize({ width: 1440, height: 900 });
   await page.goto("/services");
   for (const [action, title, field, value] of [
@@ -459,6 +465,7 @@ for (const route of ["/", "/services", "/for-homeowners", "/for-builders"]) {
 }
 
 test("photo guidance follows changed issues and photo buttons stay compact on phone", async ({ page }) => {
+  test.skip(process.env.NEXT_PUBLIC_SERVICE_REQUEST_PROVIDER !== "custom", "Preserved form coverage runs in the custom CI build.");
   await page.setViewportSize({ width: 320, height: 740 });
   await page.goto("/");
   await page.locator(".c2-final").getByRole("button", { name: "Request Service", exact: true }).click();
