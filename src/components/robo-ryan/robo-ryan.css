@@ -6,3 +6,5 @@
 .rr-root .rr-launch{border-radius:40px!important}.rr-root .rr-launch-personal{border-radius:18px!important}
 
 
+
+.rr-sources{display:grid;gap:7px;margin-top:12px;white-space:normal}.rr-sources a{color:#235d94;font-size:11px;text-decoration:underline;overflow-wrap:anywhere}

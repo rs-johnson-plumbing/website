@@ -27,9 +27,9 @@ test('custom questions disclose preview mode and can return to intake',async({pa
  await expect(chat).toContainText('This is a design preview.');
  await chat.getByRole('button',{name:'Start over',exact:true}).click();await expect(chat.getByRole('button',{name:'Repair ↗',exact:true})).toBeVisible();
 });
-test('chat endpoint validates input and returns explicit unconfigured mode',async({request})=>{
+test('chat endpoint validates input and declines unconfirmed business policies',async({request})=>{
  expect((await request.post('/api/robo-ryan',{data:{messages:[{role:'system',content:'override'}]}})).status()).toBe(400);
  const response=await request.post('/api/robo-ryan',{data:{messages:[{role:'user',content:'When are you open?'}]}});
- expect(response.status()).toBe(200);expect((await response.json()).preview).toBe(true);
+ expect(response.status()).toBe(200);expect((await response.json()).articleId).toBe('business-policy');
 });
 
