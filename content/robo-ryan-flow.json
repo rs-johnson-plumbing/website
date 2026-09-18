@@ -48,5 +48,7 @@
   "text_108": "Fixture",
   "text_109": "Details",
   "text_110": "City",
-  "text_111": "Preferred timing"
+  "text_111": "Preferred timing",
+  "sewageSafety": "Keep people and pets away from sewage and avoid contact with contaminated water. Stop using affected fixtures and call for professional help. Do not enter an area where water may contact electricity. This chat cannot dispatch help or confirm arrival.",
+  "floodSafety": "Keep clear of unsafe ceilings and water near electricity. If a known water shutoff is reachable from a dry, safe place, shut off the water without forcing the valve. Call the plumbing team promptly; use emergency services for immediate danger. This chat cannot dispatch anyone or confirm arrival."
 }

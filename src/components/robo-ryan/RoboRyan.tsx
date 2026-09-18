@@ -6,7 +6,7 @@ import { greeting, initialChoices, nextIntake, summarize, urgentReply, type Inta
 import './robo-ryan.css';
 import { openHousecallBooking } from '@/lib/service-request';
 
-export function RoboRyan({ studio=false, offline=false }: { studio?:boolean; offline?:boolean }) {
+export function RoboRyan({ studio=false, offline=false, live=false }: { studio?:boolean; offline?:boolean; live?:boolean }) {
   const [open,setOpen]=useState(false),[variant,setVariant]=useState('pill');
   const [messages,setMessages]=useState<ChatMessage[]>([{role:'assistant',content:greeting}]);
   const [choices,setChoices]=useState(initialChoices),[step,setStep]=useState<Step>('kind');
@@ -24,7 +24,7 @@ export function RoboRyan({ studio=false, offline=false }: { studio?:boolean; off
     const urgent=urgentReply(text);if(urgent){setMessages([...history,{role:'assistant',content:urgent}]);return}
     if(step==='question'||(step==='kind'&&![copy.text_2,copy.text_3,copy.text_4].includes(text))){
       setStep('question');if(offline){setMessages([...history,{role:'assistant',content:copy.text_100}]);return}setBusy(true);
-      try{const response=await fetch('/api/robo-ryan',{method:copy.text_101,headers:{'Content-Type':'application/json'},body:JSON.stringify({messages:history.slice(-30)}),signal:AbortSignal.timeout(27000)});const result=await response.json();if(!response.ok)throw new Error(result.error);setMessages([...history,{role:'assistant',content:result.reply}])}catch{setMessages([...history,{role:'assistant',content:copy.text_102}])}finally{setBusy(false)}return;
+      try{const response=await fetch('/api/robo-ryan',{method:copy.text_101,headers:{'Content-Type':'application/json'},body:JSON.stringify({messages:history.slice(-30).map(({role,content})=>({role,content}))}),signal:AbortSignal.timeout(27000)});const result=await response.json();if(!response.ok)throw new Error(result.error);setMessages([...history,{role:'assistant',content:result.reply,sources:result.sources}])}catch{setMessages([...history,{role:'assistant',content:copy.text_102}])}finally{setBusy(false)}return;
     }
     const next=nextIntake(step,text,intake);setStep(next.step);setIntake(next.intake);setChoices(next.choices);setMessages([...history,{role:'assistant',content:next.reply}]);
     if(!next.choices.length&&next.step!=='review')input.current?.focus();
@@ -36,8 +36,8 @@ export function RoboRyan({ studio=false, offline=false }: { studio?:boolean; off
     <button ref={launch} className={`rr-launch rr-launch-${variant}`} aria-label={open?copy.text_26:copy.text_27} aria-expanded={open} aria-controls="rr-panel" onClick={()=>{if(open)close();else{setOpen(true);setTimeout(()=>input.current?.focus(),100)}}}><span className="rr-launch-icon">{variant==='personal'?copy.text_28:<ChatIcon/>}</span>{variant!=='compact'&&<span>{variant==='personal'?copy.text_29:copy.text_30}{variant==='personal'&&<small>{copy.text_31}</small>}</span>}<span className="rr-dot"/></button>
     {open&&<section id="rr-panel" className="rr-panel" role="dialog" aria-label={copy.text_32} onKeyDown={e=>{if(e.key==="Escape")close()}}>
       <header className="rr-head"><span className="rr-avatar">{copy.text_34}</span><div><strong>{copy.text_35}</strong><small>{copy.text_36}</small></div><button aria-label={copy.text_37} onClick={close}>{copy.text_38}</button></header>
-      <div className="rr-context"><span/> {offline ? copy.text_39 : copy.text_40}</div><button className="rr-service-link" onClick={requestService}>{copy.text_41}<strong>{copy.text_42}</strong></button>
-      <div ref={log} className="rr-log" role="log" aria-live="polite"><div className="rr-date">{copy.text_43}</div>{messages.map((m,i)=><div className={`rr-message rr-${m.role}`} key={i}>{m.role==='assistant'&&<small>{copy.text_44}</small>}{m.content}</div>)}
+      <div className="rr-context"><span/> {offline ? copy.text_39 : live ? copy.text_40 : copy.knowledgeLabel}</div><button className="rr-service-link" onClick={requestService}>{copy.text_41}<strong>{copy.text_42}</strong></button>
+      <div ref={log} className="rr-log" role="log" aria-live="polite"><div className="rr-date">{copy.text_43}</div>{messages.map((m,i)=><div className={`rr-message rr-${m.role}`} key={i}>{m.role==='assistant'&&<small>{copy.text_44}</small>}{m.content}{!!m.sources?.length&&<nav className="rr-sources" aria-label={copy.sourcesLabel}>{m.sources.map(source=><a key={source.url} href={source.url} target="_blank" rel="noopener noreferrer">{source.title} ↗</a>)}</nav>}</div>)}
         {!!choices.length&&<div className="rr-choices">{choices.map(c=><button key={c} disabled={busy} onClick={()=>send(c)}>{c}<span>{copy.text_45}</span></button>)}</div>}
         {busy&&<div className="rr-typing" role="status">{copy.text_46}</div>}
         {step==='review'&&<div className="rr-review"><small>{copy.text_47}</small><dl>{Object.entries(intake).map(([key,value])=><div key={key}><dt>{({kind:copy.text_103,fixture:copy.text_104,detail:copy.text_105,city:copy.text_106,timing:copy.text_107} as Record<string,string>)[key]}</dt><dd>{value}</dd></div>)}</dl><button onClick={requestService}>{copy.text_48}</button><button className="rr-text-button" onClick={copySummary}>{copy.text_49}</button><button className="rr-text-button" onClick={()=>{setStep('fixture');setChoices([copy.text_50,copy.text_51,copy.text_52,copy.text_53,copy.text_54]);setMessages(m=>[...m,{role:'assistant',content:copy.text_108}])}}>{copy.text_55}</button></div>}

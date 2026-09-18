@@ -1,6 +1,6 @@
 
 import copy from '../../content/robo-ryan-flow.json';
-export type ChatMessage = { role: 'user' | 'assistant'; content: string };
+export type ChatMessage = { role: 'user' | 'assistant'; content: string; sources?: {title:string;url:string}[] };
 export type Intake = { kind?: string; fixture?: string; detail?: string; city?: string; timing?: string };
 export type Step = 'kind' | 'fixture' | 'detail' | 'city' | 'timing' | 'review' | 'question';
 export const greeting = copy.text_0;
@@ -30,7 +30,9 @@ export function nextIntake(step: Step, text: string, intake: Intake): { step: St
 }
 export function summarize(intake:Intake){return Object.entries(intake).map(([key,value])=>`${({kind:copy.text_107,fixture:copy.text_108,detail:copy.text_109,city:copy.text_110,timing:copy.text_111} as Record<string,string>)[key]}: ${value}`).join('\n');}
 export function urgentReply(text:string):string|null {
-  if(/gas (?:leak|smell)|smell.*gas|carbon monoxide|co alarm|rotten egg/i.test(text)) return copy.text_36;
-  if(/water.*(?:electri|outlet|socket)|sparking/i.test(text)) return copy.text_37;
+  if(/gas (?:leak|smell)|smell.*gas|hiss.*gas|gas.*hiss|carbon monoxide|co (?:alarm|detector)|rotten egg/i.test(text)) return copy.text_36;
+  if(/(?:water|flood).*(?:electri|outlet|socket)|(?:electri|outlet|socket).*(?:water|flood)|sparking/i.test(text)) return copy.text_37;
+  if(/(?:sewage|sewer).*(?:back|floor|flood|overflow)|(?:back|flood|overflow).*sewage/i.test(text)) return copy.sewageSafety;
+  if(/burst pipe|pipe.*burst|water.*pour|flooding|ceiling.*(?:water|leak)|water.*ceiling/i.test(text)) return copy.floodSafety;
   return null;
 }

@@ -1,0 +1,1448 @@
+{
+  "version": "2026-09-17.1",
+  "reviewedOn": "2026-09-17",
+  "description": "Authored reference answers grounded in primary sources and the current website service catalog. General guidance is not diagnosis or a business commitment.",
+  "sources": [
+    {
+      "id": "site",
+      "title": "Johnson Plumbing Service Catalog",
+      "url": "https://gojohnsonplumbing.com/services",
+      "type": "business",
+      "reviewedOn": "2026-09-17"
+    },
+    {
+      "id": "builders",
+      "title": "Johnson Plumbing Builder Services",
+      "url": "https://gojohnsonplumbing.com/services/builders",
+      "type": "business",
+      "reviewedOn": "2026-09-17"
+    },
+    {
+      "id": "areas",
+      "title": "Johnson Plumbing Service Areas",
+      "url": "https://gojohnsonplumbing.com/",
+      "type": "business",
+      "reviewedOn": "2026-09-17"
+    },
+    {
+      "id": "heater",
+      "title": "A. O. Smith: Tankless Buying Guide",
+      "url": "https://www.hotwater.com/info-center/tankless-water-heater-buying-guide.html",
+      "type": "manufacturer",
+      "reviewedOn": "2026-09-17"
+    },
+    {
+      "id": "maintenance",
+      "title": "A. O. Smith: Water Heater Maintenance",
+      "url": "https://www.hotwater.com/info-center/water-heater-maintenance.html",
+      "type": "manufacturer",
+      "reviewedOn": "2026-09-17"
+    },
+    {
+      "id": "replace",
+      "title": "Rheem: Repair or Replace a Water Heater",
+      "url": "https://www.rheem.com/water-heating/articles/water-heater-lifespan-when-to-repair-vs-replace/",
+      "type": "manufacturer",
+      "reviewedOn": "2026-09-17"
+    },
+    {
+      "id": "rheem",
+      "title": "Rheem: Tank and Tankless Maintenance",
+      "url": "https://www.rheem.com/water-heating/articles/how-to-keep-your-tank-and-tankless-water-heaters-running-at-peak-performance/",
+      "type": "manufacturer",
+      "reviewedOn": "2026-09-17"
+    },
+    {
+      "id": "leaks",
+      "title": "EPA WaterSense: Finding Household Leaks",
+      "url": "https://www.epa.gov/watersense/fix-leak-week",
+      "type": "government",
+      "reviewedOn": "2026-09-17"
+    },
+    {
+      "id": "toilets",
+      "title": "EPA WaterSense: Residential Toilets",
+      "url": "https://www.epa.gov/watersense/residential-toilets",
+      "type": "government",
+      "reviewedOn": "2026-09-17"
+    },
+    {
+      "id": "faucets",
+      "title": "Moen: Bathroom Faucet Low Flow",
+      "url": "https://solutions.moen.com/Article_Library/Bathroom_Faucet:_Low_Flow",
+      "type": "manufacturer",
+      "reviewedOn": "2026-09-17"
+    },
+    {
+      "id": "freeze",
+      "title": "American Red Cross: Frozen Pipes",
+      "url": "https://www.redcross.org/get-help/how-to-prepare-for-emergencies/types-of-emergencies/winter-storm/frozen-pipes.html",
+      "type": "safety",
+      "reviewedOn": "2026-09-17"
+    },
+    {
+      "id": "grease",
+      "title": "MSD Project Clear: Grease Management",
+      "url": "https://msdprojectclear.org/customers/problems-tips/healthy-home-tips/grease-management/",
+      "type": "utility",
+      "reviewedOn": "2026-09-17"
+    },
+    {
+      "id": "flush",
+      "title": "MSD Project Clear: What Not to Flush",
+      "url": "https://msdprojectclear.org/customers/problems-tips/healthy-home-tips/dont-flush-or-drain/",
+      "type": "utility",
+      "reviewedOn": "2026-09-17"
+    },
+    {
+      "id": "sewage",
+      "title": "MSD Project Clear: Sewage and Flood Safety",
+      "url": "https://msdprojectclear.org/customers/problems-tips/building-cleanup-guide/health-safety-tips/",
+      "type": "utility",
+      "reviewedOn": "2026-09-17"
+    },
+    {
+      "id": "treatment",
+      "title": "CDC: Home Water Treatment Systems",
+      "url": "https://www.cdc.gov/drinking-water/about/about-home-water-treatment-systems.html",
+      "type": "government",
+      "reviewedOn": "2026-09-17"
+    },
+    {
+      "id": "filters",
+      "title": "CDC: Choosing Home Water Filters",
+      "url": "https://www.cdc.gov/drinking-water/prevention/about-choosing-home-water-filters.html",
+      "type": "government",
+      "reviewedOn": "2026-09-17"
+    },
+    {
+      "id": "gas",
+      "title": "Spire: What to Do if You Smell Gas",
+      "url": "https://ourstory.spireenergy.com/if-you-smell-gas",
+      "type": "utility",
+      "reviewedOn": "2026-09-17"
+    },
+    {
+      "id": "co",
+      "title": "CPSC: Carbon Monoxide Alarms",
+      "url": "https://www.cpsc.gov/safety-education/safety-guides/carbon-monoxide/get-know-carbon-monoxide-alarms",
+      "type": "government",
+      "reviewedOn": "2026-09-17"
+    },
+    {
+      "id": "pump",
+      "title": "Liberty Pumps: General Pump Questions",
+      "url": "https://www.libertypumps.com/About/About-Us/FAQ-General",
+      "type": "manufacturer",
+      "reviewedOn": "2026-09-17"
+    },
+    {
+      "id": "backup",
+      "title": "Zoeller: Backup Sump Systems",
+      "url": "https://zoellerpumps.com/homeowners/",
+      "type": "manufacturer",
+      "reviewedOn": "2026-09-17"
+    },
+    {
+      "id": "waterbackup",
+      "title": "Zoeller: Water-Powered Backup",
+      "url": "https://zoellerpumps.com/product/540-flex/",
+      "type": "manufacturer",
+      "reviewedOn": "2026-09-17"
+    },
+    {
+      "id": "permits",
+      "title": "St. Charles County Community Development",
+      "url": "https://www.sccmo.org/203/Community-Development",
+      "type": "government",
+      "reviewedOn": "2026-09-17"
+    }
+  ],
+  "articles": [
+    {
+      "id": "water-heaters-overview",
+      "category": "water-heaters",
+      "title": "Water Heater Service",
+      "terms": [
+        "water heater",
+        "hot water",
+        "tankless",
+        "heater repair"
+      ],
+      "questions": [
+        "Do you repair water heaters?",
+        "What kind of water heaters do you work on?"
+      ],
+      "answer": "The website lists water heater repair, replacement, and tankless installation. For a useful service request, include whether it is a tank or tankless unit, gas or electric if known, the model, and what changed. A technician must inspect the equipment before deciding which repair is appropriate. Parts, timing, price, and brand-specific support require confirmation.",
+      "followUp": "Is the problem no hot water, a leak, or inconsistent temperature?",
+      "sourceIds": [
+        "site"
+      ],
+      "kind": "business",
+      "reviewedOn": "2026-09-17"
+    },
+    {
+      "id": "tank-vs-tankless",
+      "category": "water-heaters",
+      "title": "Tank or Tankless",
+      "terms": [
+        "tankless",
+        "tank",
+        "on demand",
+        "comparison",
+        "difference"
+      ],
+      "questions": [
+        "What is the difference between tank and tankless?",
+        "Is tankless better?"
+      ],
+      "answer": "A storage tank holds heated water; a tankless unit heats water as it flows through. Tankless capacity still has limits: simultaneous demand and incoming-water temperature matter. Converting may require changes to utilities and venting. Neither type is automatically best for every home.",
+      "followUp": "Are you replacing an existing heater or planning a new installation?",
+      "sourceIds": [
+        "heater"
+      ],
+      "kind": "general",
+      "reviewedOn": "2026-09-17"
+    },
+    {
+      "id": "heater-sizing",
+      "category": "water-heaters",
+      "title": "Sizing Hot Water Equipment",
+      "terms": [
+        "size water heater",
+        "sizing",
+        "gallons",
+        "gpm",
+        "showers",
+        "capacity"
+      ],
+      "questions": [
+        "What size tankless heater do I need?",
+        "Can two showers run at once?"
+      ],
+      "answer": "For tankless sizing, a professional considers the hot-water flow needed at the same time and how much the incoming water must be warmed. Household size alone is not enough. Share your busiest combination of showers and appliances; the installer should check the actual equipment ratings and available utilities.",
+      "followUp": "Which fixtures usually need hot water at the same time?",
+      "sourceIds": [
+        "heater"
+      ],
+      "kind": "general",
+      "reviewedOn": "2026-09-17"
+    },
+    {
+      "id": "heater-no-hot-water",
+      "category": "water-heaters",
+      "title": "No Hot Water",
+      "terms": [
+        "no hot water",
+        "cold shower",
+        "water not hot",
+        "not heating",
+        "hot water runs out"
+      ],
+      "questions": [
+        "Why is there no hot water?",
+        "My hot water runs out quickly"
+      ],
+      "answer": "Loss of hot water can involve equipment performance or demand. Note whether every hot tap is affected, whether the problem was sudden, and any displayed error code. Do not remove electrical covers, bypass controls, or work on gas components. A service visit is needed to establish the cause; an error code alone is not a diagnosis.",
+      "followUp": "Is the hot-water problem at one fixture or throughout the home?",
+      "sourceIds": [
+        "site"
+      ],
+      "kind": "general",
+      "reviewedOn": "2026-09-17"
+    },
+    {
+      "id": "heater-leak",
+      "category": "water-heaters",
+      "title": "Water Around a Heater",
+      "terms": [
+        "water heater leaking",
+        "heater leak",
+        "puddle heater",
+        "tank leaking"
+      ],
+      "questions": [
+        "My water heater is leaking",
+        "Does a leaking tank need replacing?"
+      ],
+      "answer": "Water near a heater needs prompt inspection. A connection or valve leak and a leaking tank body are different problems, so the source matters. A damaged tank generally calls for replacement rather than patching. Stay away if water could contact electricity, and do not cap a relief-valve discharge pipe.",
+      "followUp": "Can you see the source from a dry, safe location?",
+      "sourceIds": [
+        "replace"
+      ],
+      "kind": "general",
+      "reviewedOn": "2026-09-17"
+    },
+    {
+      "id": "heater-repair-replace",
+      "category": "water-heaters",
+      "title": "Repair or Replace",
+      "terms": [
+        "repair or replace",
+        "heater age",
+        "old heater",
+        "heater lifespan"
+      ],
+      "questions": [
+        "Should I repair or replace my water heater?",
+        "How long does a water heater last?"
+      ],
+      "answer": "Age, condition, repeated failures, repair scope, and warranty status all influence repair-versus-replacement decisions. A serviceable part may be repairable; a deteriorated tank is a different situation. There is no reliable replacement deadline based only on age, and the chatbot cannot inspect the unit or confirm warranty coverage.",
+      "followUp": "Do you know the heater model and approximate age?",
+      "sourceIds": [
+        "replace"
+      ],
+      "kind": "general",
+      "reviewedOn": "2026-09-17"
+    },
+    {
+      "id": "heater-maintenance",
+      "category": "water-heaters",
+      "title": "Tank Heater Maintenance",
+      "terms": [
+        "flush heater",
+        "heater maintenance",
+        "anode",
+        "sediment",
+        "rumbling",
+        "popping heater"
+      ],
+      "questions": [
+        "How often should a water heater be serviced?",
+        "Why does my water heater rumble?"
+      ],
+      "answer": "Tank service can include sediment removal and inspection of the anode, safety valve, and venting. Sediment may contribute to noise and poorer performance, but noise alone does not identify a fault. Follow the specific owner manual and have a qualified professional handle hot-water, gas, and electrical service.",
+      "followUp": "Do you have the model number or the owner manual?",
+      "sourceIds": [
+        "maintenance"
+      ],
+      "kind": "general",
+      "reviewedOn": "2026-09-17"
+    },
+    {
+      "id": "tankless-maintenance",
+      "category": "water-heaters",
+      "title": "Tankless Maintenance",
+      "terms": [
+        "tankless maintenance",
+        "descale",
+        "descale tankless",
+        "descale heater",
+        "scale heater",
+        "tankless filter"
+      ],
+      "questions": [
+        "Does a tankless heater need maintenance?",
+        "How often should tankless be descaled?",
+        "Do I need to descale my tankless water heater?"
+      ],
+      "answer": "Tankless equipment may need inlet-filter cleaning, descaling, and checks of venting and combustion components. Water conditions and the exact model determine the schedule; some models have different scale-control features. Have a professional follow the manufacturer instructions rather than assuming every heater needs the same procedure.",
+      "followUp": "What make and model is the tankless unit?",
+      "sourceIds": [
+        "rheem"
+      ],
+      "kind": "general",
+      "reviewedOn": "2026-09-17"
+    },
+    {
+      "id": "heater-relief-valve",
+      "category": "water-heaters",
+      "title": "Relief Valve Discharge",
+      "terms": [
+        "relief valve",
+        "tpr",
+        "temperature pressure",
+        "discharge pipe",
+        "cap valve"
+      ],
+      "questions": [
+        "Can I cap a dripping relief valve?",
+        "Why is the relief pipe dripping?"
+      ],
+      "answer": "A temperature-and-pressure relief valve is a safety device. Do not plug its outlet or disable it to stop a leak. Discharge calls for professional evaluation, not a guessed repair. Avoid the discharge area because water can be hot; describe what you observe from a safe location when requesting help.",
+      "followUp": "",
+      "sourceIds": [
+        "maintenance"
+      ],
+      "kind": "general",
+      "reviewedOn": "2026-09-17"
+    },
+    {
+      "id": "leaks-overview",
+      "category": "leaks-and-repairs",
+      "title": "Leaks and Pipe Repairs",
+      "terms": [
+        "pipe leak",
+        "leaking pipe",
+        "leaks repairs",
+        "shutoff",
+        "valve",
+        "repiping"
+      ],
+      "questions": [
+        "Do you fix leaking pipes?",
+        "Can you replace a shutoff valve?"
+      ],
+      "answer": "The website lists pipe leaks, valves, shutoffs, and low-water-pressure work. Tell the team where you see water, whether it is continuing, and which fixtures are affected. Hidden leaks need investigation; a stain does not prove which pipe is responsible. Avoid opening walls or forcing a stuck valve just to investigate.",
+      "followUp": "Is water actively escaping now?",
+      "sourceIds": [
+        "site"
+      ],
+      "kind": "business",
+      "reviewedOn": "2026-09-17"
+    },
+    {
+      "id": "hidden-leak",
+      "category": "leaks-and-repairs",
+      "title": "Finding a Hidden Leak",
+      "terms": [
+        "water bill",
+        "hidden leak",
+        "meter",
+        "unexpected usage"
+      ],
+      "questions": [
+        "Why did my water bill jump?",
+        "How can I tell if I have a hidden leak?"
+      ],
+      "answer": "Unexplained water use can come from a running toilet, dripping fixture, or less-visible leak. Comparing meter readings during a period with no water use can help flag a problem. Check for visible drips from a safe location and arrange service if the cause is unclear.",
+      "followUp": "Have you noticed a running toilet, damp area, or unusual water use?",
+      "sourceIds": [
+        "leaks"
+      ],
+      "kind": "general",
+      "reviewedOn": "2026-09-17"
+    },
+    {
+      "id": "frozen-pipes",
+      "category": "leaks-and-repairs",
+      "title": "Frozen Pipes",
+      "terms": [
+        "frozen pipe",
+        "freezing",
+        "pipe froze",
+        "thaw",
+        "freeze pipe"
+      ],
+      "questions": [
+        "What should I do about a frozen pipe?",
+        "Can I use a torch to thaw a pipe?"
+      ],
+      "answer": "Very little flow during freezing weather can indicate a frozen pipe, but other causes are possible. Never use an open flame to thaw plumbing. An inaccessible frozen section or a suspected split pipe calls for a licensed plumber. Stay clear of water and electrical hazards.",
+      "followUp": "Is there visible leaking or only reduced flow?",
+      "sourceIds": [
+        "freeze"
+      ],
+      "kind": "general",
+      "reviewedOn": "2026-09-17"
+    },
+    {
+      "id": "freeze-prevention",
+      "category": "leaks-and-repairs",
+      "title": "Cold-Weather Preparation",
+      "terms": [
+        "winterize",
+        "prevent freezing",
+        "pipe insulation",
+        "frozen prevention",
+        "outdoor hose"
+      ],
+      "questions": [
+        "How do I help prevent frozen pipes?",
+        "What should I do with outdoor hoses in winter?"
+      ],
+      "answer": "Before cold weather, protect exposed plumbing and disconnect outdoor hoses as directed for the fixture. Keep indoor heat on and follow Red Cross guidance for vulnerable indoor pipes. Insulation helps, but is not a guarantee against freezing. Have a plumber evaluate repeated freezing or inaccessible problem areas.",
+      "followUp": "Which part of the home has frozen before?",
+      "sourceIds": [
+        "freeze"
+      ],
+      "kind": "general",
+      "reviewedOn": "2026-09-17"
+    },
+    {
+      "id": "pressure",
+      "category": "leaks-and-repairs",
+      "title": "Low Flow and Low Pressure",
+      "terms": [
+        "low pressure",
+        "low flow",
+        "weak shower",
+        "water pressure",
+        "whole house"
+      ],
+      "questions": [
+        "Why is my water pressure low?",
+        "Only one tap has weak flow"
+      ],
+      "answer": "First distinguish a single weak fixture from a problem throughout the home, and whether it affects hot water, cold water, or both. A fixture restriction and a broader supply problem need different investigation. Do not adjust a pressure regulator blindly. Record when the change began for the service request.",
+      "followUp": "Is the problem at one fixture or several?",
+      "sourceIds": [
+        "faucets"
+      ],
+      "kind": "general",
+      "reviewedOn": "2026-09-17"
+    },
+    {
+      "id": "leak-sensors",
+      "category": "leaks-and-repairs",
+      "title": "Leak Alerts",
+      "terms": [
+        "leak detector",
+        "leak sensor",
+        "automatic shutoff",
+        "flow monitor"
+      ],
+      "questions": [
+        "Are leak detectors useful?",
+        "Can a device detect water leaks?"
+      ],
+      "answer": "Leak sensors and flow monitors can alert you to water or unusual usage. Some systems also offer automatic shutoff. Coverage, installation requirements, and maintenance vary, so choose for the places and risks you want to monitor. Confirm which systems the team installs before purchasing equipment.",
+      "followUp": "Are you mainly concerned about a heater, appliance, or whole-home leak?",
+      "sourceIds": [
+        "leaks"
+      ],
+      "kind": "general",
+      "reviewedOn": "2026-09-17"
+    },
+    {
+      "id": "drains-overview",
+      "category": "drains-and-sewer",
+      "title": "Drain and Sewer Service",
+      "terms": [
+        "drain clog",
+        "clogged drain",
+        "blocked drain",
+        "slow drain",
+        "sewer",
+        "gurgling"
+      ],
+      "questions": [
+        "Can you help with a slow drain?",
+        "My toilet gurgles when the washer drains"
+      ],
+      "answer": "The website lists drain clearing, sewer camera inspection, and main-line work. Note whether one drain or several are affected, where water appears, and whether it happens during rain or ordinary use. Those observations help plan an inspection; they do not confirm roots, a broken pipe, or a particular repair.",
+      "followUp": "Is one fixture affected, or are multiple drains backing up?",
+      "sourceIds": [
+        "site"
+      ],
+      "kind": "business",
+      "reviewedOn": "2026-09-17"
+    },
+    {
+      "id": "sewer-camera",
+      "category": "drains-and-sewer",
+      "title": "Camera Inspection",
+      "terms": [
+        "camera inspection",
+        "sewer camera",
+        "roots",
+        "recurring clog",
+        "line belly"
+      ],
+      "questions": [
+        "Why would a sewer camera inspection help?",
+        "Do recurring clogs mean tree roots?"
+      ],
+      "answer": "A camera inspection can help investigate recurring sewer problems and document visible pipe conditions. The website describes inspecting for issues such as roots, low sections, or breaks. Repeated blockage alone cannot identify the cause. Ask the team to explain the findings and repair choices before approving work.",
+      "followUp": "Has this drain or sewer line been cleared before?",
+      "sourceIds": [
+        "site"
+      ],
+      "kind": "business",
+      "reviewedOn": "2026-09-17"
+    },
+    {
+      "id": "grease",
+      "category": "drains-and-sewer",
+      "title": "Kitchen Grease",
+      "terms": [
+        "grease",
+        "cooking oil",
+        "fat drain",
+        "kitchen clog"
+      ],
+      "questions": [
+        "Can I pour cooking oil down the sink?",
+        "Does hot water wash grease away?"
+      ],
+      "answer": "Keep cooking grease, fats, and oils out of drains. They can build up in sewer pipes and contribute to blockages. Collect cooled grease for proper disposal and wipe greasy cookware before washing. Running hot water is not a dependable way to prevent a grease blockage.",
+      "followUp": "",
+      "sourceIds": [
+        "grease"
+      ],
+      "kind": "general",
+      "reviewedOn": "2026-09-17"
+    },
+    {
+      "id": "flush-wipes",
+      "category": "drains-and-sewer",
+      "title": "Wipes and Drain Prevention",
+      "terms": [
+        "flushable wipes",
+        "wipes",
+        "paper towels",
+        "flush toilet",
+        "prevent clog"
+      ],
+      "questions": [
+        "Are flushable wipes okay?",
+        "What should not go down a toilet?"
+      ],
+      "answer": "Keep wipes, paper towels, hygiene products, and other trash out of toilets, including products marketed as flushable. They can contribute to blockages. Use the trash for these materials and follow your sewer utility guidance. Repeated clogs deserve inspection rather than repeated flushing.",
+      "followUp": "",
+      "sourceIds": [
+        "flush"
+      ],
+      "kind": "general",
+      "reviewedOn": "2026-09-17"
+    },
+    {
+      "id": "sewer-backup",
+      "category": "drains-and-sewer",
+      "title": "Sewage Backup",
+      "terms": [
+        "sewage backup",
+        "sewer backing up",
+        "sewage floor",
+        "basement drain backup",
+        "sewage clean"
+      ],
+      "questions": [
+        "Sewage is backing up in my basement",
+        "How should I handle sewer water?"
+      ],
+      "answer": "Keep people and pets away from sewage and avoid contact with contaminated water. Stop using affected fixtures and call for professional help. Do not enter an area where water may contact electricity. The plumber handles the plumbing cause; contaminated-material cleanup may need a separate qualified service.",
+      "followUp": "",
+      "sourceIds": [
+        "sewage"
+      ],
+      "kind": "general",
+      "reviewedOn": "2026-09-17"
+    },
+    {
+      "id": "drain-chemicals",
+      "category": "drains-and-sewer",
+      "title": "Drain Chemicals",
+      "terms": [
+        "drain cleaner",
+        "drano",
+        "chemical clog",
+        "mix cleaners",
+        "bleach drain"
+      ],
+      "questions": [
+        "Should I add more drain cleaner?",
+        "I already used a chemical drain cleaner"
+      ],
+      "answer": "Do not mix cleaning products or keep adding chemicals to a backed-up fixture. Tell the plumber the exact product used and when, so the service can be planned safely. A recurring or multi-fixture blockage needs assessment. The chatbot does not recommend chemical combinations or promise a chemical will clear the problem.",
+      "followUp": "",
+      "sourceIds": [
+        "flush"
+      ],
+      "kind": "general",
+      "reviewedOn": "2026-09-17"
+    },
+    {
+      "id": "fixtures-overview",
+      "category": "toilets-and-faucets",
+      "title": "Toilets and Faucets",
+      "terms": [
+        "toilet repair",
+        "faucet repair",
+        "new faucet",
+        "fixture replacement",
+        "shower valve",
+        "disposal"
+      ],
+      "questions": [
+        "Do you install toilets and faucets?",
+        "Can you replace a garbage disposal?"
+      ],
+      "answer": "The website lists toilet and faucet repair or replacement, shower valve and cartridge work, and garbage disposal replacement. Make, model, fixture location, and a description of the problem help the team prepare. Compatibility and whether customer-supplied parts can be used should be confirmed before buying anything.",
+      "followUp": "Which fixture needs attention?",
+      "sourceIds": [
+        "site"
+      ],
+      "kind": "business",
+      "reviewedOn": "2026-09-17"
+    },
+    {
+      "id": "running-toilet",
+      "category": "toilets-and-faucets",
+      "title": "A Running Toilet",
+      "terms": [
+        "running toilet",
+        "toilet keeps running",
+        "toilet refills",
+        "flapper",
+        "toilet wasting"
+      ],
+      "questions": [
+        "Why does my toilet keep running?",
+        "My toilet refills without flushing"
+      ],
+      "answer": "A worn tank seal or flapper can let water leak into the bowl. Running or refilling does not establish which part failed, so model-specific inspection matters. EPA describes a food-coloring tank test for detecting a leak into the bowl; flush afterward to avoid staining.",
+      "followUp": "Does the toilet run continuously or refill intermittently?",
+      "sourceIds": [
+        "leaks"
+      ],
+      "kind": "general",
+      "reviewedOn": "2026-09-17"
+    },
+    {
+      "id": "faucet-low-flow",
+      "category": "toilets-and-faucets",
+      "title": "One Faucet Has Low Flow",
+      "terms": [
+        "faucet low flow",
+        "tap weak",
+        "aerator",
+        "only faucet",
+        "one faucet"
+      ],
+      "questions": [
+        "Why is only my bathroom faucet weak?",
+        "Could an aerator cause low flow?"
+      ],
+      "answer": "At a single faucet, restricted flow can involve the aerator, cartridge, supply, or model-specific components. Check whether hot and cold are affected equally. Do not force valves or dismantle a faucet under pressure. The correct service procedure and replacement parts depend on the faucet model.",
+      "followUp": "Is flow weak on hot, cold, or both?",
+      "sourceIds": [
+        "faucets"
+      ],
+      "kind": "general",
+      "reviewedOn": "2026-09-17"
+    },
+    {
+      "id": "efficient-toilet",
+      "category": "toilets-and-faucets",
+      "title": "Water-Efficient Toilets",
+      "terms": [
+        "watersense",
+        "efficient toilet",
+        "toilet gallons",
+        "low flush",
+        "toilet selection"
+      ],
+      "questions": [
+        "What does WaterSense mean for a toilet?",
+        "Will a water-saving toilet work well?"
+      ],
+      "answer": "The WaterSense label identifies toilets evaluated against EPA efficiency and performance criteria. When choosing a replacement, also confirm that its dimensions and installation requirements fit the bathroom. A label does not identify which model fits your plumbing or guarantee a particular household saving.",
+      "followUp": "Are you replacing an existing toilet or fitting out a new bathroom?",
+      "sourceIds": [
+        "toilets"
+      ],
+      "kind": "general",
+      "reviewedOn": "2026-09-17"
+    },
+    {
+      "id": "toilet-base",
+      "category": "toilets-and-faucets",
+      "title": "A Rocking or Leaking Toilet",
+      "terms": [
+        "toilet rocks",
+        "rocking toilet",
+        "toilet base",
+        "toilet floor leak",
+        "wax ring"
+      ],
+      "questions": [
+        "My toilet leaks at the base",
+        "Can I just caulk around a rocking toilet?"
+      ],
+      "answer": "A rocking toilet or water around its base needs inspection. The website lists toilet repair, resetting, and replacement. Do not assume that covering the outside with caulk resolves the source. Avoid using a leaking fixture and tell the plumber whether the movement or water appears during flushing.",
+      "followUp": "Does the water appear only after a flush?",
+      "sourceIds": [
+        "site"
+      ],
+      "kind": "business",
+      "reviewedOn": "2026-09-17"
+    },
+    {
+      "id": "softeners-overview",
+      "category": "water-softeners",
+      "title": "Softeners and Filtration",
+      "terms": [
+        "softener",
+        "water softeners",
+        "filtration",
+        "hard water"
+      ],
+      "questions": [
+        "Do you work on water softeners?",
+        "Can you install whole-house filtration?"
+      ],
+      "answer": "Water softeners and filtration appear in the website service catalog. The exact systems and installation scope still need confirmation from Ryan. I can explain the general choices and help prepare questions, but cannot confirm a brand, treatment result, or installation capability for your home.",
+      "followUp": "Are you concerned about mineral buildup, taste, or a test result?",
+      "sourceIds": [
+        "site"
+      ],
+      "kind": "business",
+      "reviewedOn": "2026-09-17"
+    },
+    {
+      "id": "hard-water",
+      "category": "water-softeners",
+      "title": "Hard Water and Scale",
+      "terms": [
+        "hard water",
+        "scale faucet",
+        "white buildup",
+        "calcium",
+        "magnesium"
+      ],
+      "questions": [
+        "What is hard water?",
+        "Does white scale mean my water is unsafe?"
+      ],
+      "answer": "Hardness mainly involves dissolved calcium and magnesium. These minerals can contribute to scale and affect soap performance. Scale is not a test for overall drinking-water safety. Water quality varies by supply and location; use your utility report or appropriate testing rather than assuming a countywide hardness value.",
+      "followUp": "Do you have a recent water report or hardness test?",
+      "sourceIds": [
+        "treatment"
+      ],
+      "kind": "general",
+      "reviewedOn": "2026-09-17"
+    },
+    {
+      "id": "softener-filter",
+      "category": "water-softeners",
+      "title": "Softener or Filter",
+      "terms": [
+        "softener vs filter",
+        "filter difference",
+        "remove bacteria",
+        "softened water safe"
+      ],
+      "questions": [
+        "Is a softener the same as a filter?",
+        "Will a softener disinfect my water?"
+      ],
+      "answer": "A softener targets hardness minerals. It should not be treated as disinfection or assumed to remove every contaminant. Other treatment methods address different concerns. Match treatment to a tested problem and the product label; no single generic filter or softener can be assumed to make all water safe.",
+      "followUp": "",
+      "sourceIds": [
+        "treatment"
+      ],
+      "kind": "general",
+      "reviewedOn": "2026-09-17"
+    },
+    {
+      "id": "choose-filter",
+      "category": "water-softeners",
+      "title": "Choosing Water Treatment",
+      "terms": [
+        "choose filter",
+        "water test",
+        "certified filter",
+        "nsf",
+        "contaminant",
+        "under sink",
+        "whole house"
+      ],
+      "questions": [
+        "How do I choose a water filter?",
+        "Do I need whole-house or under-sink filtration?"
+      ],
+      "answer": "Start with the water concern and, where appropriate, testing. Compare the specific contaminants a product is certified to reduce. Point-of-use treatment serves a selected tap; whole-home treatment serves incoming water more broadly. Replacement filters, maintenance, and installation requirements matter as much as the initial purchase.",
+      "followUp": "What problem or contaminant are you trying to address?",
+      "sourceIds": [
+        "filters"
+      ],
+      "kind": "general",
+      "reviewedOn": "2026-09-17"
+    },
+    {
+      "id": "filter-maintenance",
+      "category": "water-softeners",
+      "title": "Filter Upkeep",
+      "terms": [
+        "filter change",
+        "replace cartridge",
+        "filter maintenance",
+        "water taste",
+        "water odor"
+      ],
+      "questions": [
+        "How often should I change a water filter?",
+        "Does clear water mean the filter is working?"
+      ],
+      "answer": "Follow the exact filter manufacturer replacement and maintenance schedule. Taste, appearance, or lack of odor cannot establish that water is safe or that a contaminant has been removed. Follow utility advisories, and use an appropriately certified system for a known concern.",
+      "followUp": "What type of filter do you have?",
+      "sourceIds": [
+        "filters"
+      ],
+      "kind": "general",
+      "reviewedOn": "2026-09-17"
+    },
+    {
+      "id": "gas-overview",
+      "category": "gas-lines",
+      "title": "Gas Line Projects",
+      "terms": [
+        "gas line",
+        "gas range",
+        "gas dryer",
+        "gas grill",
+        "fireplace",
+        "generator",
+        "gas hookup"
+      ],
+      "questions": [
+        "Can you run a gas line to a grill?",
+        "What information is needed for a gas appliance?"
+      ],
+      "answer": "The website lists gas piping for appliances such as ranges, grills, fireplaces, and generators. Share the appliance specifications, location, and whether this is a new line or replacement. The professional must determine sizing, permitted materials, and inspection requirements. This chat does not provide gas-pipe sizing or installation instructions.",
+      "followUp": "Which appliance is the project for?",
+      "sourceIds": [
+        "site"
+      ],
+      "kind": "business",
+      "reviewedOn": "2026-09-17"
+    },
+    {
+      "id": "gas-safety",
+      "category": "gas-lines",
+      "title": "Suspected Gas Leak",
+      "terms": [
+        "gas smell",
+        "smell gas",
+        "gas leak",
+        "rotten eggs",
+        "hissing gas"
+      ],
+      "questions": [
+        "I smell gas",
+        "What should I do about a gas leak?"
+      ],
+      "answer": "Leave the area immediately. Avoid flames, switches, electronics, and attempts to find or fix the leak. From a safe location, call the gas utility emergency line or 911. Stay away until responders say it is safe. Plumbing repair comes after the immediate hazard is made safe.",
+      "followUp": "",
+      "sourceIds": [
+        "gas"
+      ],
+      "kind": "general",
+      "reviewedOn": "2026-09-17"
+    },
+    {
+      "id": "gas-diy",
+      "category": "gas-lines",
+      "title": "Gas Work Requires a Professional",
+      "terms": [
+        "diy gas",
+        "gas connector",
+        "gas test",
+        "gas pressure",
+        "gas pipe size",
+        "relight pilot"
+      ],
+      "questions": [
+        "How do I connect a gas appliance myself?",
+        "What size gas pipe should I use?"
+      ],
+      "answer": "Gas connections, sizing, testing, and appliance startup need qualified assessment and the applicable manufacturer and local requirements. The chatbot cannot verify a safe installation remotely. Arrange professional service and provide the appliance model and rated input. If you suspect escaping gas, leave and contact the utility or 911 from safety.",
+      "followUp": "",
+      "sourceIds": [
+        "site",
+        "gas"
+      ],
+      "kind": "general",
+      "reviewedOn": "2026-09-17"
+    },
+    {
+      "id": "co-alarm",
+      "category": "emergency-plumbing",
+      "title": "Carbon Monoxide Alarm",
+      "terms": [
+        "carbon monoxide",
+        "co detector",
+        "co alarm",
+        "monoxide alarm"
+      ],
+      "questions": [
+        "My carbon monoxide alarm is sounding",
+        "Can I reset a CO alarm and stay inside?"
+      ],
+      "answer": "Treat a sounding carbon monoxide alarm as an emergency: move everyone outside to fresh air and call emergency services from a safe location. Do not stay inside to investigate or return until responders allow it. A chatbot cannot determine whether the air or appliance is safe.",
+      "followUp": "",
+      "sourceIds": [
+        "co"
+      ],
+      "kind": "general",
+      "reviewedOn": "2026-09-17"
+    },
+    {
+      "id": "sump-overview",
+      "category": "sump-pumps",
+      "title": "Sump Pump Service",
+      "terms": [
+        "sump pump",
+        "basement pump",
+        "sump pit",
+        "basin pump"
+      ],
+      "questions": [
+        "What does a sump pump do?",
+        "Do you replace sump pumps?"
+      ],
+      "answer": "A sump pump removes collected water from a sump basin. Johnson Plumbing lists installation, replacement, and backup systems. A sump pump is different from equipment designed to move sewage. Share the pump model, whether water is rising, and when the problem happens so the team can plan an inspection.",
+      "followUp": "Is the basin filling with water right now?",
+      "sourceIds": [
+        "pump",
+        "site"
+      ],
+      "kind": "general",
+      "reviewedOn": "2026-09-17"
+    },
+    {
+      "id": "sump-backup",
+      "category": "sump-pumps",
+      "title": "Backup Sump Protection",
+      "terms": [
+        "battery backup",
+        "backup sump",
+        "power outage",
+        "backup pump"
+      ],
+      "questions": [
+        "Can a sump pump work during a power outage?",
+        "Why add a battery backup?"
+      ],
+      "answer": "A suitable backup pump can add protection when the primary pump or its power supply fails. Battery capacity, pump demand, and system condition affect run time; there is no universal number of hours. The charger, battery, alarms, and pump need the checks specified for that system.",
+      "followUp": "Do you already have a backup system?",
+      "sourceIds": [
+        "backup"
+      ],
+      "kind": "general",
+      "reviewedOn": "2026-09-17"
+    },
+    {
+      "id": "sump-water-backup",
+      "category": "sump-pumps",
+      "title": "Water-Powered Backup",
+      "terms": [
+        "water powered",
+        "water-powered",
+        "sumpjet",
+        "water backup"
+      ],
+      "questions": [
+        "How does a water-powered sump backup work?"
+      ],
+      "answer": "A water-powered backup uses a compatible pressurized water supply rather than a battery as its energy source. Suitability depends on the property, supply, installation, and backflow requirements. It is not appropriate to assume every home can use one; have a qualified installer assess it.",
+      "followUp": "Is your home on public water or a well?",
+      "sourceIds": [
+        "waterbackup"
+      ],
+      "kind": "general",
+      "reviewedOn": "2026-09-17"
+    },
+    {
+      "id": "sump-trouble",
+      "category": "sump-pumps",
+      "title": "A Pump That Will Not Stop or Start",
+      "terms": [
+        "pump runs constantly",
+        "sump not working",
+        "sump wont",
+        "pump noise",
+        "sump alarm",
+        "pump never runs"
+      ],
+      "questions": [
+        "My sump pump runs all the time",
+        "My sump pump is not running"
+      ],
+      "answer": "Pump problems need assessment of the pump and the surrounding system, including the float and discharge. Do not reach into a powered pit or handle electrical equipment in a wet area. If water is rising, call for help promptly. A sound or alarm alone does not identify the failed component.",
+      "followUp": "Is water rising, or is the pump running while the basin is low?",
+      "sourceIds": [
+        "site"
+      ],
+      "kind": "general",
+      "reviewedOn": "2026-09-17"
+    },
+    {
+      "id": "sump-check-valve",
+      "category": "sump-pumps",
+      "title": "Discharge and Check Valves",
+      "terms": [
+        "check valve",
+        "sump discharge",
+        "water returns pit",
+        "discharge line"
+      ],
+      "questions": [
+        "Why does water come back into the sump pit?",
+        "What does a sump check valve do?"
+      ],
+      "answer": "Sump-system performance depends on the pump, discharge route, and associated components. The website lists check-valve, float, and discharge-line work. Have the system inspected if water repeatedly returns or the pump cycles unusually often. A larger pump is not automatically the solution.",
+      "followUp": "",
+      "sourceIds": [
+        "site"
+      ],
+      "kind": "business",
+      "reviewedOn": "2026-09-17"
+    },
+    {
+      "id": "urgent-water",
+      "category": "emergency-plumbing",
+      "title": "Active Water Damage",
+      "terms": [
+        "burst pipe",
+        "water pouring",
+        "active leak",
+        "flooding",
+        "ceiling water",
+        "water emergency"
+      ],
+      "questions": [
+        "A pipe burst",
+        "Water is pouring through the ceiling"
+      ],
+      "answer": "For active water damage, keep clear of unsafe ceilings and any water near electricity. If a known water shutoff is reachable from a dry, safe place, shut off the water without forcing the valve. Call the plumbing team promptly; use emergency services for immediate danger. The chat cannot dispatch anyone or confirm arrival.",
+      "followUp": "",
+      "sourceIds": [
+        "site"
+      ],
+      "kind": "business",
+      "reviewedOn": "2026-09-17"
+    },
+    {
+      "id": "electrical-water",
+      "category": "emergency-plumbing",
+      "title": "Water Near Electricity",
+      "terms": [
+        "water outlet",
+        "wet socket",
+        "electric flood",
+        "water electrical",
+        "sparking",
+        "flooded electrical"
+      ],
+      "questions": [
+        "Water is near an electrical outlet",
+        "Can I walk through the flooded basement?"
+      ],
+      "answer": "Stay out of water that may contact outlets, cords, appliances, or electrical equipment. Do not touch switches or attempt repairs from a wet area. Have emergency responders, the utility, or a qualified electrical professional make it safe before entering. A plumbing appointment does not resolve an electrical hazard.",
+      "followUp": "",
+      "sourceIds": [
+        "sewage"
+      ],
+      "kind": "general",
+      "reviewedOn": "2026-09-17"
+    },
+    {
+      "id": "emergency-availability",
+      "category": "emergency-plumbing",
+      "title": "Urgent Service Availability",
+      "terms": [
+        "emergency plumber",
+        "after hours",
+        "weekend",
+        "open tonight",
+        "response time",
+        "how soon",
+        "available today"
+      ],
+      "questions": [
+        "Can someone come right now?",
+        "Do you provide after-hours service?"
+      ],
+      "answer": "Emergency plumbing is listed on the website, but current availability, operating hours, and arrival times are not confirmed in this library. Call 314-220-1827 for an urgent plumbing issue. Do not wait for a chat response during an immediate safety emergency. No visit has been booked or dispatched by this conversation.",
+      "followUp": "",
+      "sourceIds": [
+        "site"
+      ],
+      "kind": "business",
+      "reviewedOn": "2026-09-17"
+    },
+    {
+      "id": "builder-plans",
+      "category": "planning-and-takeoffs",
+      "title": "Plans and Takeoffs",
+      "terms": [
+        "plans",
+        "takeoff",
+        "takeoffs",
+        "builder bid",
+        "contractor estimate",
+        "drawings"
+      ],
+      "questions": [
+        "What should a builder send for a bid?",
+        "What is a plumbing takeoff?"
+      ],
+      "answer": "The builder service list includes plans and takeoffs. Prepare the current drawings, fixture schedule, job city, scope, and target construction phases. Clear revision dates help avoid pricing from an outdated plan. Use Request A Bid on the builder page for this workflow; the chat has not submitted plans or a bid request.",
+      "followUp": "Do you have drawings and a fixture schedule ready?",
+      "sourceIds": [
+        "builders"
+      ],
+      "kind": "business",
+      "reviewedOn": "2026-09-17"
+    },
+    {
+      "id": "builder-underground",
+      "category": "underground",
+      "title": "Underground Plumbing",
+      "terms": [
+        "underground",
+        "under slab",
+        "under-slab",
+        "before pour",
+        "concrete",
+        "dwv"
+      ],
+      "questions": [
+        "What is underground plumbing?",
+        "When does plumbing happen before a slab pour?"
+      ],
+      "answer": "The listed underground phase covers drain, waste, and vent piping beneath the slab, coordinated with excavation and concrete work. Layout and required inspection should be resolved before the pour. Final routing, elevations, tests, and signoff belong to the project professionals and inspecting authority.",
+      "followUp": "Is this a new build or work in an existing slab?",
+      "sourceIds": [
+        "builders"
+      ],
+      "kind": "business",
+      "reviewedOn": "2026-09-17"
+    },
+    {
+      "id": "builder-rough",
+      "category": "rough-in",
+      "title": "Rough-In Plumbing",
+      "terms": [
+        "rough in",
+        "rough-in",
+        "framing",
+        "drywall",
+        "venting",
+        "pex",
+        "copper"
+      ],
+      "questions": [
+        "What happens during plumbing rough-in?",
+        "What does DWV mean?"
+      ],
+      "answer": "DWV means drain, waste, and vent. The website describes rough-in as supply piping and DWV through the framing, including tub and shower valve locations, before inspection and drywall. Confirm fixture specifications and layout changes early. This chat does not approve structural penetrations, pipe dimensions, or code compliance.",
+      "followUp": "Are framing and fixture selections ready for review?",
+      "sourceIds": [
+        "builders"
+      ],
+      "kind": "business",
+      "reviewedOn": "2026-09-17"
+    },
+    {
+      "id": "builder-gas",
+      "category": "gas-runs",
+      "title": "Builder Gas Runs",
+      "terms": [
+        "gas runs",
+        "gas manifold",
+        "gas load",
+        "csst",
+        "black iron"
+      ],
+      "questions": [
+        "What is included in builder gas runs?"
+      ],
+      "answer": "Builder gas work listed on the website includes piping for appliances, load sizing, testing, and coordination with inspection. Provide specifications for every planned gas appliance, including future additions. The installer must determine the system design; the chatbot will not calculate or authorize a gas installation.",
+      "followUp": "Which appliances are shown on the plans?",
+      "sourceIds": [
+        "builders"
+      ],
+      "kind": "business",
+      "reviewedOn": "2026-09-17"
+    },
+    {
+      "id": "builder-trim",
+      "category": "trim-and-fixture-set",
+      "title": "Trim and Fixture Set",
+      "terms": [
+        "trim",
+        "fixture set",
+        "punch list",
+        "final inspection",
+        "finish plumbing"
+      ],
+      "questions": [
+        "What happens during plumbing trim?",
+        "When are fixtures installed?"
+      ],
+      "answer": "The listed trim phase includes setting fixtures, water-heating equipment and appliance connections, followed by final inspection and a walkthrough. Confirm that chosen fixtures, matching valves, and required parts are available before scheduling. The team must confirm readiness and timing; chat cannot commit an inspection date.",
+      "followUp": "Is the project ready for fixture installation or still in rough-in?",
+      "sourceIds": [
+        "builders"
+      ],
+      "kind": "business",
+      "reviewedOn": "2026-09-17"
+    },
+    {
+      "id": "remodel",
+      "category": "planning-and-takeoffs",
+      "title": "Remodel Planning",
+      "terms": [
+        "remodel",
+        "renovation",
+        "move sink",
+        "move toilet",
+        "bathroom addition",
+        "kitchen project"
+      ],
+      "questions": [
+        "Can plumbing be moved for a remodel?",
+        "What should I prepare for a bathroom remodel?"
+      ],
+      "answer": "For a remodel inquiry, prepare the existing and proposed fixture locations, product selections, and job city. Relocation needs a professional assessment of access and the existing system before a scope or price can be confirmed. Send drawings through the builder bid workflow when the project involves a contractor or broader construction.",
+      "followUp": "Are fixtures staying in the same locations?",
+      "sourceIds": [
+        "site",
+        "builders"
+      ],
+      "kind": "business",
+      "reviewedOn": "2026-09-17"
+    },
+    {
+      "id": "permits",
+      "category": "planning-and-takeoffs",
+      "title": "Permits and Jurisdiction",
+      "terms": [
+        "permit",
+        "inspection",
+        "code",
+        "jurisdiction",
+        "licensed work"
+      ],
+      "questions": [
+        "Will my project need a permit?",
+        "Which plumbing code applies?"
+      ],
+      "answer": "Permit and inspection requirements depend on the project address, scope, and responsible jurisdiction. St. Charles County Community Development provides county permitting resources; a municipality may have its own process. The contractor and local authority must confirm current requirements. This chat does not provide a code approval or a permit exemption.",
+      "followUp": "Which city or jurisdiction is the project in?",
+      "sourceIds": [
+        "permits"
+      ],
+      "kind": "general",
+      "reviewedOn": "2026-09-17"
+    },
+    {
+      "id": "business-area",
+      "category": "business",
+      "title": "Service Area",
+      "terms": [
+        "service area",
+        "location",
+        "serve",
+        "ofallon",
+        "o fallon",
+        "st charles",
+        "st peters",
+        "wentzville",
+        "chesterfield",
+        "wildwood",
+        "ballwin",
+        "kirkwood",
+        "lake st louis",
+        "dardenne"
+      ],
+      "questions": [
+        "Do you serve my area?",
+        "Where is Johnson Plumbing based?"
+      ],
+      "answer": "R.S. Johnson Plumbing LLC is based in O'Fallon, Missouri. The website identifies St. Charles County and West St. Louis County, including O'Fallon, St. Charles, St. Peters, Wentzville, Lake St. Louis, Dardenne Prairie, Chesterfield, Wildwood, Ballwin, and Kirkwood. The team or Housecall form must confirm a particular address.",
+      "followUp": "What city is the property in?",
+      "sourceIds": [
+        "areas"
+      ],
+      "kind": "business",
+      "reviewedOn": "2026-09-17"
+    },
+    {
+      "id": "business-policy",
+      "category": "business",
+      "title": "Prices and Business Policies",
+      "terms": [
+        "price",
+        "cost",
+        "charge",
+        "quote",
+        "fee",
+        "warranty",
+        "financing",
+        "discount",
+        "hours",
+        "open",
+        "callback",
+        "return text",
+        "insurance"
+      ],
+      "questions": [
+        "How much will it cost?",
+        "What are your hours?",
+        "How soon will Ryan text back?"
+      ],
+      "answer": "I do not have confirmed prices, fees, hours, callback windows, financing terms, or warranty policies. The team must confirm those details for your request. Use Request Service to open the existing Housecall form, or call 314-220-1827. I cannot promise a price, response time, or appointment.",
+      "followUp": "",
+      "sourceIds": [
+        "areas"
+      ],
+      "kind": "policy",
+      "reviewedOn": "2026-09-17"
+    },
+    {
+      "id": "booking",
+      "category": "business",
+      "title": "Requesting Service",
+      "terms": [
+        "book appointment",
+        "schedule service",
+        "request service",
+        "appointment",
+        "send request"
+      ],
+      "questions": [
+        "Can you book a plumber?",
+        "Has my appointment been scheduled?"
+      ],
+      "answer": "Use Request Service to open Johnson Plumbing's existing Housecall form. Chatting here or opening that form does not book an appointment. Follow the form's steps and the confirmation you receive. A chat summary is not automatically transferred; use Copy Summary if you want to paste it into the service form.",
+      "followUp": "",
+      "sourceIds": [
+        "site"
+      ],
+      "kind": "policy",
+      "reviewedOn": "2026-09-17"
+    },
+    {
+      "id": "uncertain-offerings",
+      "category": "business",
+      "title": "Specialized Work Needs Confirmation",
+      "terms": [
+        "trenchless",
+        "hydro jet",
+        "hydrojet",
+        "septic",
+        "well pump",
+        "water service sewer",
+        "excavation",
+        "brand certified"
+      ],
+      "questions": [
+        "Do you offer trenchless repair?",
+        "Do you work on wells or septic systems?"
+      ],
+      "answer": "The library cannot confirm that specialized method or offering for Johnson Plumbing. Describe the project and ask the team to confirm the scope before scheduling or purchasing equipment. General plumbing knowledge and a manufacturer reference do not establish company certification or a promise to perform a particular service.",
+      "followUp": "",
+      "sourceIds": [
+        "site"
+      ],
+      "kind": "policy",
+      "reviewedOn": "2026-09-17"
+    }
+  ],
+  "pendingConfirmation": [
+    "Operating hours and after-hours arrangements",
+    "Dispatch, callback, text response and bid turnaround",
+    "Prices, diagnostic fees, payment and financing",
+    "Workmanship and manufacturer warranty handling",
+    "Specific softener and filtration installations",
+    "Trenchless, jetting, and other specialized methods",
+    "Brands, certifications, inventory and customer-supplied parts"
+  ],
+  "fallback": "I do not have a reliable match for that question in the plumbing library yet. Try naming the fixture and symptom, such as a running toilet, tankless maintenance, or sump pump backup. For a specific diagnosis or business detail, the team must confirm. You can use Request Service or call 314-220-1827.",
+  "answerLead": "From the plumbing library:",
+  "sourceLabel": "References"
+}
