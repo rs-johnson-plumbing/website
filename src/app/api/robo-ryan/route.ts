@@ -5,6 +5,8 @@ import { knowledgeAnswer } from '@/lib/robo-ryan-knowledge';
 import { productLookup, manufacturerFallback, searchManufacturer } from '@/lib/robo-ryan-external';
 import photoCopy from '../../../../content/robo-ryan-photos.json';
 import {validPhotos,readProductLabel} from '@/lib/robo-ryan-photos';
+import {conversationEnabled,converse} from '@/lib/robo-ryan-conversation';
+import conversationCopy from '../../../../content/robo-ryan-conversation.json';
 
 export const runtime='nodejs';
 export const maxDuration=60;
@@ -16,7 +18,7 @@ async function limitedBody(request:NextRequest){
   try{while(true){const {done,value}=await reader.read();if(done)break;size+=value.byteLength;if(size>2200000){await reader.cancel();return null}text+=decoder.decode(value,{stream:true})}return text+decoder.decode()}
   finally{reader.releaseLock()}
 }
-// Explicit activation keeps an unconfigured preview from generating paid requests.
+// A server-side key activates conversation; explicit false flags disable it.
 export async function POST(request:NextRequest){
   const origin=request.headers.get('origin');
   if(origin && origin!==request.nextUrl.origin)return NextResponse.json({error:'Origin not allowed.'},{status:403});
@@ -38,6 +40,27 @@ export async function POST(request:NextRequest){
     searchCount++;
     try{return NextResponse.json(await readProductLabel(photos),{headers:{'Cache-Control':'no-store'}})}
     catch{return NextResponse.json({reply:photoCopy.failure},{headers:{'Cache-Control':'no-store'}})}
+  }
+  if(conversationEnabled()){
+    const headers={'Cache-Control':'no-store, no-transform'};
+    const now=Date.now();if(now-searchWindow>=60000){searchWindow=now;searchCount=0}
+    if(searchCount>=20)return NextResponse.json({reply:conversationCopy.busy,offerService:true},{headers});
+    searchCount++;
+    const failure={reply:conversationCopy.unavailable,offerService:true};
+    if(!request.headers.get('Accept')?.includes('application/x-ndjson')){
+      try{return NextResponse.json(await converse(messages,()=>{},request.signal),{headers})}
+      catch{return NextResponse.json(failure,{headers})}
+    }
+    const encoder=new TextEncoder(),abort=new AbortController();let cancelled=false;
+    return new Response(new ReadableStream({
+      async start(controller){
+        const emit=(data:unknown)=>{if(!cancelled)controller.enqueue(encoder.encode(JSON.stringify(data)+'\n'))};
+        emit({type:'status',status:'thinking'});
+        try{const answer=await converse(messages,()=>emit({type:'status',status:'searching'}),AbortSignal.any([request.signal,abort.signal]));emit({type:'answer',...answer})}
+        catch{emit({type:'answer',...failure})}
+        finally{if(!cancelled)controller.close()}
+      },cancel(){cancelled=true;abort.abort()},
+    }),{headers:{...headers,'Content-Type':'application/x-ndjson'}});
   }
   const reference=knowledgeAnswer(messages.at(-1).content);
   const lookup=productLookup(messages);

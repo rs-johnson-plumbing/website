@@ -37,9 +37,9 @@ test('manufacturer fetch restricts domains and redacts contact data',async()=>{
  }finally{global.fetch=originalFetch}
 });
 test('route prioritizes product specifics but preserves hazards and business facts',async()=>{
- const keys=['OPENAI_API_KEY','OPENAI_MODEL','ROBO_RYAN_AI_ENABLED','ROBO_RYAN_WEB_SEARCH_ENABLED'];
+ const keys=['OPENAI_API_KEY','OPENAI_MODEL','ROBO_RYAN_AI_ENABLED','ROBO_RYAN_WEB_SEARCH_ENABLED','ROBO_RYAN_CONVERSATION_ENABLED'];
  const original=Object.fromEntries(keys.map(k=>[k,process.env[k]])),originalFetch=global.fetch;let calls=0;
- for(const k of keys)process.env[k]=k.includes('ENABLED')?'true':'test-fixture';
+ for(const k of keys)process.env[k]=k==='ROBO_RYAN_CONVERSATION_ENABLED'?'false':k.includes('ENABLED')?'true':'test-fixture';
  global.fetch=async()=>{calls++;return new Response(JSON.stringify(fixture()))};
  try{
    const product=await(await POST(request('Can you find the Rinnai RU199iN water heater manual?'))).json();
@@ -64,11 +64,11 @@ test('chat shows clickable inline citations from product answers',async({page})=
 });
 
 test('search progress arrives before the answer and is absent when search is disabled',async()=>{
- const keys=['OPENAI_API_KEY','OPENAI_MODEL','ROBO_RYAN_AI_ENABLED','ROBO_RYAN_WEB_SEARCH_ENABLED'];
+ const keys=['OPENAI_API_KEY','OPENAI_MODEL','ROBO_RYAN_AI_ENABLED','ROBO_RYAN_WEB_SEARCH_ENABLED','ROBO_RYAN_CONVERSATION_ENABLED'];
  const original=Object.fromEntries(keys.map(k=>[k,process.env[k]])),originalFetch=global.fetch;
  let finish!:()=>void;
  const pending=new Promise<void>(resolve=>{finish=resolve});
- for(const k of keys)process.env[k]=k.includes('ENABLED')?'true':'test-fixture';
+ for(const k of keys)process.env[k]=k==='ROBO_RYAN_CONVERSATION_ENABLED'?'false':k.includes('ENABLED')?'true':'test-fixture';
  global.fetch=async()=>{await pending;throw new Error('Simulated search outage')};
  try{
    const response=await POST(request('Rinnai RU199iN manual'));

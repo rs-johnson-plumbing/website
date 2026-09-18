@@ -11,6 +11,7 @@ import './robo-ryan.css';
 import { useChatVoice } from './useChatVoice';
 import { CitedAnswer } from './CitedAnswer';
 import { openHousecallBooking } from '@/lib/service-request';
+import {readChatResponse,recentChatHistory} from '@/lib/robo-ryan-response';
 
 export function RoboRyan({ studio=false, offline=false }: { studio?:boolean; offline?:boolean; live?:boolean }) {
   const [open,setOpen]=useState(false),[variant,setVariant]=useState('personal');
@@ -43,9 +44,9 @@ export function RoboRyan({ studio=false, offline=false }: { studio?:boolean; off
     if(!attached.length&&/^(request service|book|schedule)( now| service)?[.!]?$/i.test(text.trim())){setBookingOffered(true);setStep('question');setMessages([...history,{role:'assistant',content:copy.bookingReply}]);return}
     setBookingOffered(false);
     const urgent=urgentReply(text);if(urgent){setMessages([...history,{role:'assistant',content:urgent}]);return}
-    if(attached.length||step==='question'||step==='review'||(step==='kind'&&![copy.text_2,copy.text_3,copy.text_4].includes(text))){
+    if(attached.length||step==='question'||step==='review'||(!choices.includes(text)&&!(step==='city'&&!choices.length))){
       setStep('question');if(offline){setMessages([...history,{role:'assistant',content:attached.length?photoCopy.preview:copy.text_100}]);return}setSearchingWeb(false);setBusy(true);
-      try{const response=await fetch('/api/robo-ryan',{method:copy.text_101,headers:{'Content-Type':'application/json'},body:JSON.stringify({messages:history.slice(-30).map(({role,content})=>({role,content})),photos:attached}),signal:AbortSignal.timeout(55000)});if(response.ok&&response.headers.get('X-Robo-Ryan-Activity')==='web-search')setSearchingWeb(true);const result=await response.json();if(!response.ok)throw new Error(result.error);setMessages([...history,{role:'assistant',content:result.reply,sources:result.sources,citations:result.citations,productSuggestion:result.productSuggestion,followUp:result.followUp,emailAvailable:result.emailAvailable}])}catch{setMessages([...history,{role:'assistant',content:copy.text_102,followUp:true}])}finally{setSearchingWeb(false);setBusy(false)}return;
+      try{const response=await fetch('/api/robo-ryan',{method:copy.text_101,headers:{'Content-Type':'application/json','Accept':'application/x-ndjson'},body:JSON.stringify({messages:recentChatHistory(history),photos:attached}),signal:AbortSignal.timeout(55000)});const result=await readChatResponse(response,()=>setSearchingWeb(true));setBookingOffered(!!result.offerService);setMessages([...history,{role:'assistant',content:result.reply,sources:result.sources,citations:result.citations,productSuggestion:result.productSuggestion,followUp:result.followUp,emailAvailable:result.emailAvailable}])}catch{setMessages([...history,{role:'assistant',content:copy.text_102,followUp:true}])}finally{setSearchingWeb(false);setBusy(false)}return;
     }
     const next=nextIntake(step,text,intake);setStep(next.step);setIntake(next.intake);setChoices(next.choices);setMessages([...history,{role:'assistant',content:next.reply}]);
     if(!next.choices.length&&next.step!=='review')input.current?.focus();
