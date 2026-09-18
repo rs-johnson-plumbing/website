@@ -1,5 +1,6 @@
 import { test, expect } from '@playwright/test';
 for(const width of [390,1440])test(`RoboRyan prepares a request and hands off to Housecall at ${width}px`,async({page})=>{
+  test.skip(process.env.NEXT_PUBLIC_SERVICE_REQUEST_PROVIDER === 'custom', 'Housecall widget coverage runs in the Housecall build.');
   await page.setViewportSize({width,height:844});
   await page.route('https://online-booking.housecallpro.com/script.js?**',route=>route.fulfill({contentType:'application/javascript',body:'window.HCPWidget={openModal(){document.body.dataset.roboBooking="open"}}'}));
   await page.goto('/robo-ryan-preview');
@@ -31,3 +32,4 @@ test('chat endpoint validates input and returns explicit unconfigured mode',asyn
  const response=await request.post('/api/robo-ryan',{data:{messages:[{role:'user',content:'When are you open?'}]}});
  expect(response.status()).toBe(200);expect((await response.json()).preview).toBe(true);
 });
+
