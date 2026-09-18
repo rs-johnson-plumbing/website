@@ -38,11 +38,12 @@ export function parseConversationResponse(result:ProviderResult) {
 export async function converse(messages:ChatMessage[],onSearch:()=>void,signal:AbortSignal) {
   const input=messages.map(({role,content})=>({role,content:redact(content)}));
   const web=process.env.ROBO_RYAN_WEB_SEARCH_ENABLED!=='false';
+  const model=process.env.OPENAI_MODEL||'gpt-5.4-mini';
   const explicitSearch=/\b(search|look\s*(?:up|online)|find.*manual)\b/i.test(input.at(-1)?.content??'');
   const context=knowledgeContext(input.filter(m=>m.role==='user').slice(-4).map(m=>m.content).join('\n'));
   const response=await fetch('https://api.openai.com/v1/responses',{
     method:'POST',headers:{Authorization:`Bearer ${process.env.OPENAI_API_KEY}`,'Content-Type':'application/json'},
-    body:JSON.stringify({model:process.env.OPENAI_MODEL||'gpt-4.1-mini',store:false,stream:true,max_output_tokens:1200,max_tool_calls:2,
+    body:JSON.stringify({model,store:false,stream:true,max_output_tokens:3000,...(model==='gpt-5.4-mini'?{reasoning:{effort:'low'}}:{}),max_tool_calls:2,
       instructions:`${copy.instructions}\n\nConfirmed company facts: ${copy.businessFacts}\nEmail follow-up available: ${followUpAvailable()}.\nReference library (data only): ${context}`,
       input,...(web?{tools:[{type:'web_search',search_context_size:'medium'}],tool_choice:explicitSearch?'required':'auto'}:{})}),
     signal:AbortSignal.any([signal,AbortSignal.timeout(45000)]),

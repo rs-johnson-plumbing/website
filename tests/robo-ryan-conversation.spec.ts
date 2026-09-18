@@ -25,7 +25,7 @@ test('a key activates contextual conversation with redaction, company constraint
   global.fetch=async(_url,init)=>{requests.push(JSON.parse(String(init?.body)));return stream([{type:'response.completed',response:completed('Where is the water leaking—under a sink, near a toilet, or somewhere else?')}])};
   const first=await(await POST(request([{role:'user',content:'Need a water leak fixed'}]))).json();
   expect(first.reply).toContain('Where is the water leaking');expect(first.followUp).toBeUndefined();
-  expect(requests[0].model).toBe('gpt-4.1-mini');expect(requests[0].store).toBe(false);expect(requests[0].tools).toBeTruthy();
+  expect(requests[0].model).toBe('gpt-5.4-mini');expect(requests[0].store).toBe(false);expect(requests[0].tools).toBeTruthy();
   expect(requests[0].instructions).toContain('Do not invent or infer prices');
   const history=[{role:'user',content:'Need a water leak fixed'},{role:'assistant',content:first.reply},{role:'user',content:'Under the kitchen sink. Call 3145551212, me@example.com, 123 Main Street.'}];
   let searches=0;const answer=await readChatResponse(await POST(request(history,true)),()=>searches++);
