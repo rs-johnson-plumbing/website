@@ -18,6 +18,7 @@ export function RoboRyan({ studio=false, offline=false }: { studio?:boolean; off
   const [choices,setChoices]=useState(initialChoices),[step,setStep]=useState<Step>('kind');
   const [intake,setIntake]=useState<Intake>({}),[draft,setDraft]=useState('');
   const [busy,setBusy]=useState(false),[notice,setNotice]=useState('');
+  const [searchingWeb,setSearchingWeb]=useState(false);
   const [photos,setPhotos]=useState<ChatPhoto[]>([]),[preparingPhoto,setPreparingPhoto]=useState(false);
   const [bookingOffered,setBookingOffered]=useState(false);
   const voice=useChatVoice(setDraft);
@@ -38,8 +39,8 @@ export function RoboRyan({ studio=false, offline=false }: { studio?:boolean; off
     setBookingOffered(false);
     const urgent=urgentReply(text);if(urgent){setMessages([...history,{role:'assistant',content:urgent}]);return}
     if(attached.length||step==='question'||step==='review'||(step==='kind'&&![copy.text_2,copy.text_3,copy.text_4].includes(text))){
-      setStep('question');if(offline){setMessages([...history,{role:'assistant',content:attached.length?photoCopy.preview:copy.text_100}]);return}setBusy(true);
-      try{const response=await fetch('/api/robo-ryan',{method:copy.text_101,headers:{'Content-Type':'application/json'},body:JSON.stringify({messages:history.slice(-30).map(({role,content})=>({role,content})),photos:attached}),signal:AbortSignal.timeout(55000)});const result=await response.json();if(!response.ok)throw new Error(result.error);setMessages([...history,{role:'assistant',content:result.reply,sources:result.sources,citations:result.citations,productSuggestion:result.productSuggestion,followUp:result.followUp,emailAvailable:result.emailAvailable}])}catch{setMessages([...history,{role:'assistant',content:copy.text_102,followUp:true}])}finally{setBusy(false)}return;
+      setStep('question');if(offline){setMessages([...history,{role:'assistant',content:attached.length?photoCopy.preview:copy.text_100}]);return}setSearchingWeb(false);setBusy(true);
+      try{const response=await fetch('/api/robo-ryan',{method:copy.text_101,headers:{'Content-Type':'application/json'},body:JSON.stringify({messages:history.slice(-30).map(({role,content})=>({role,content})),photos:attached}),signal:AbortSignal.timeout(55000)});if(response.ok&&response.headers.get('X-Robo-Ryan-Activity')==='web-search')setSearchingWeb(true);const result=await response.json();if(!response.ok)throw new Error(result.error);setMessages([...history,{role:'assistant',content:result.reply,sources:result.sources,citations:result.citations,productSuggestion:result.productSuggestion,followUp:result.followUp,emailAvailable:result.emailAvailable}])}catch{setMessages([...history,{role:'assistant',content:copy.text_102,followUp:true}])}finally{setSearchingWeb(false);setBusy(false)}return;
     }
     const next=nextIntake(step,text,intake);setStep(next.step);setIntake(next.intake);setChoices(next.choices);setMessages([...history,{role:'assistant',content:next.reply}]);
     if(!next.choices.length&&next.step!=='review')input.current?.focus();
@@ -54,7 +55,7 @@ export function RoboRyan({ studio=false, offline=false }: { studio?:boolean; off
       <div ref={log} className="rr-log" role="log" aria-live="polite">{messages.map((m,i)=><div className={`rr-message rr-${m.role}`} key={i}>{m.role==='assistant'&&<div className="rr-message-label"><small>{copy.text_44}</small><button type="button" aria-label={copy.voice.replay} title={copy.voice.replay} onClick={()=>voice.readAnswer(m.content)}><SpeakerIcon/></button></div>}{!!m.photos?.length&&<div className="rr-message-photos">{m.photos.map((photo,index)=><img key={index} src={photo.dataUrl} alt={`${photoCopy.alt} ${index+1}`}/>)}</div>}<CitedAnswer message={m}/>{m.followUp&&<FollowUp messages={messages.slice(0,i+1)} emailAvailable={m.emailAvailable} requestService={requestService}/>}{m.productSuggestion&&<div className="rr-choices rr-confirm-product"><button disabled={busy||preparingPhoto||!!photos.length} onClick={()=>send(`${m.productSuggestion!.brand} model ${m.productSuggestion!.model}`)}>{photoCopy.confirm}</button></div>}{!!m.sources?.length&&<nav className="rr-sources" aria-label={copy.sourcesLabel}>{m.sources.map(source=><a key={source.url} href={source.url} target="_blank" rel="noopener noreferrer">{source.title} ↗</a>)}</nav>}</div>)}
         {!!choices.length&&<div className="rr-choices">{choices.map(c=><button key={c} disabled={busy} onClick={()=>send(c)}>{c}</button>)}</div>}
         {bookingOffered&&<div className="rr-choices"><button onClick={requestService}>{copy.text_48}</button></div>}
-        {busy&&<div className="rr-typing" role="status">{copy.text_46}</div>}
+        {busy&&<div className="rr-typing" role="status">{searchingWeb?copy.searchingWeb:copy.text_46}</div>}
         {step==='review'&&<div className="rr-review"><small>{copy.text_47}</small><dl>{Object.entries(intake).map(([key,value])=><div key={key}><dt>{({kind:copy.text_103,fixture:copy.text_104,detail:copy.text_105,city:copy.text_106,timing:copy.text_107} as Record<string,string>)[key]}</dt><dd>{value}</dd></div>)}</dl><button onClick={requestService}>{copy.text_48}</button><button className="rr-text-button" onClick={copySummary}>{copy.text_49}</button><button className="rr-text-button" onClick={()=>{setStep('fixture');setChoices([copy.text_50,copy.text_51,copy.text_52,copy.text_53,copy.text_54]);setMessages(m=>[...m,{role:'assistant',content:copy.text_108}])}}>{copy.text_55}</button></div>}
 
       </div>
