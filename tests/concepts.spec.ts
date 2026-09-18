@@ -499,3 +499,8 @@ test("unavailable water and sewer service is absent across public navigation and
   await expect(page.locator(".dp-builders .dp-step")).toHaveText(["Phase 01", "Phase 02", "Phase 03", "Phase 04", "Phase 05"]);
   await expect(page.locator(".dp-home .dp-card")).toHaveCount(8);
 });
+
+// Keep the timed chat invitation from racing unrelated page interactions.
+test.beforeEach(async({page})=>{
+  await page.addInitScript(()=>sessionStorage.setItem('robo-ryan-seen','yes'));
+});

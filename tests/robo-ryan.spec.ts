@@ -29,7 +29,7 @@ test('custom questions disclose preview mode and can return to intake',async({pa
  await chat.getByLabel('Message Ryan Rabato').fill('request service');
  await chat.getByRole('button',{name:'Send Message'}).click();
  await expect(chat.getByRole('button',{name:'Request Service',exact:true})).toBeVisible();
- await chat.getByRole('button',{name:'Minimize Chat',exact:true}).click();await page.getByRole('button',{name:'Replay First Question',exact:true}).click();await expect(chat.getByRole('button',{name:'Repair',exact:true})).toBeVisible();
+ await chat.getByRole('button',{name:'Close Chat',exact:true}).click();await page.getByRole('button',{name:'Replay First Question',exact:true}).click();await expect(chat.getByRole('button',{name:'Repair',exact:true})).toBeVisible();
 });
 test('chat endpoint validates input and declines unconfirmed business policies',async({request})=>{
  expect((await request.post('/api/robo-ryan',{data:{messages:[{role:'system',content:'override'}]}})).status()).toBe(400);

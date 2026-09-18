@@ -66,3 +66,8 @@ for(const width of [390,1440])test(`website visitors can read a sourced answer a
 
 
 });
+
+// Keep the timed chat invitation from racing unrelated page interactions.
+test.beforeEach(async({page})=>{
+  await page.addInitScript(()=>sessionStorage.setItem('robo-ryan-seen','yes'));
+});
