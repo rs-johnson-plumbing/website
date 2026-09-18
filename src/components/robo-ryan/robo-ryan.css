@@ -134,3 +134,35 @@
 .rr-followup button{justify-self:start;min-height:44px;border:1px solid #2868A8;border-radius:8px;padding:9px 14px;background:transparent;color:#2868A8;font:inherit;font-weight:600;cursor:pointer}
 .rr-followup button[type=submit]{background:#2868A8;color:#fff}
 .rr-followup button:disabled{opacity:.6;cursor:wait}
+
+/* Conversation layout: content-sized customer bubbles and quiet assistant replies. */
+.rr-root .rr-head{padding:12px 16px}
+.rr-root .rr-head strong{font-size:17px}
+.rr-root .rr-avatar{width:34px;height:34px}
+.rr-root .rr-log{padding:20px 18px 12px;scrollbar-width:thin}
+.rr-root .rr-message{width:fit-content;min-width:0;max-width:100%;margin-bottom:18px}
+.rr-root .rr-user{max-width:85%;margin-left:auto;padding:9px 14px;border-radius:18px 18px 5px 18px;background:var(--rr-blue);color:#fff}
+.rr-root .rr-assistant{position:relative;padding:0 36px 0 2px;background:transparent;border-radius:0;color:var(--rr-ink)}
+.rr-message-actions{position:absolute;top:-3px;right:0;display:flex;margin:0}
+.rr-root .rr-message-actions button{display:grid;place-items:center;width:32px;height:32px;padding:7px;border:0;background:transparent;color:var(--rr-muted)}
+.rr-message-actions svg{width:17px;height:17px}
+.rr-root .rr-choices{gap:8px;margin:0 0 20px}
+.rr-root .rr-choices button{min-height:44px;padding:8px 12px;border:1px solid #2868a860;border-radius:8px!important;font-size:14px;font-weight:500;line-height:1.4}
+.rr-root .rr-typing{padding:0 2px 16px}
+.rr-root .rr-message-photos{width:min(230px,100%)}
+.rr-root .rr-latest{align-self:center;flex-shrink:0;min-height:36px;padding:5px 12px;margin:0 0 8px;border:1px solid #dce5ed;border-radius:8px;background:#fff;color:var(--rr-blue);font-size:13px;box-shadow:0 2px 8px #0d2a4d0a}
+.rr-root .rr-compose{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:4px 8px;align-items:end;flex-shrink:0;max-height:48%;overflow:auto;margin:0 12px 12px;padding:10px;border:1px solid #cbd5df;border-radius:16px;background:#f8fafc}
+.rr-root .rr-compose:focus-within{border-color:var(--rr-blue);box-shadow:0 0 0 1px #2868a812}
+.rr-root .rr-compose textarea{grid-column:1/-1;display:block;width:100%;min-height:36px;max-height:140px;resize:none;overflow-y:auto;padding:5px 4px;border:0;border-radius:0;outline:none;box-shadow:none;background:transparent;color:var(--rr-ink);font:inherit;font-size:16px;line-height:1.5}
+.rr-root .rr-compose textarea:focus,.rr-root .rr-compose textarea:focus-visible{outline:none;box-shadow:none;border:0}
+.rr-root .rr-compose textarea::placeholder{color:var(--rr-muted);opacity:1}
+.rr-root .rr-compose>.rr-compose-actions{display:flex;grid-column:2;gap:4px;padding:0;border:0;border-radius:0;background:transparent;box-shadow:none}
+.rr-root .rr-compose>.rr-photos{align-self:end;min-width:0;margin:0;padding:0}
+.rr-root .rr-compose>.rr-photos-expanded{grid-column:1/-1}
+.rr-root .rr-photos .rr-photo-toggle{min-height:40px;padding:6px 4px;font-weight:500}
+.rr-root .rr-compose .rr-mic{width:40px;height:40px;flex-basis:40px}
+.rr-root .rr-compose .rr-send{width:38px;height:38px;flex-basis:38px;border-radius:50%!important;background:var(--rr-blue);box-shadow:none}
+.rr-root .rr-compose>.rr-voice-status{grid-column:1/-1}
+@media(hover:hover){.rr-message-actions{opacity:0;transition:opacity .15s}.rr-assistant:hover .rr-message-actions,.rr-assistant:focus-within .rr-message-actions{opacity:1}}
+@media(prefers-reduced-motion:reduce){.rr-message-actions{transition:none}}
+@media(max-width:700px){.rr-root .rr-panel{bottom:calc(8px + env(safe-area-inset-bottom));height:min(710px,calc(100dvh - 16px - env(safe-area-inset-bottom)))}.rr-root .rr-log{padding-inline:16px}}

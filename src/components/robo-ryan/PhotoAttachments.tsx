@@ -31,7 +31,7 @@ export function PhotoAttachments({photos,onChange,disabled,onPreparing}:{photos:
     catch(error){setError(error instanceof Error&&[copy.tooLarge,copy.unsupported].includes(error.message)?error.message:copy.unsupported)}
     finally{setPreparing(false);onPreparing(false)}
   }
-  return <div className="rr-photos">
+  return <div className={`rr-photos${expanded||photos.length||error||preparing?' rr-photos-expanded':''}`}>
     <button type="button" className="rr-photo-toggle" aria-expanded={expanded} onClick={()=>setExpanded(!expanded)} disabled={disabled||preparing}>
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" aria-hidden="true"><path d="M3 7h4l2-3h6l2 3h4v14H3Z"/><circle cx="12" cy="13" r="4"/></svg>{copy.add}
     </button>
