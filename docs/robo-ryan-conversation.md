@@ -1,6 +1,6 @@
 # Contextual Plumbing Conversation
 
-With `OPENAI_API_KEY` set on the server, free-text chat uses OpenAI Responses with the recent user and assistant history, verified company facts, and matching plumbing reference entries. A missing keyword match does not block a conversation. The default model is `gpt-4.1-mini`; `OPENAI_MODEL` overrides it. Voice remains the separate OpenAI speech endpoint.
+With `OPENAI_API_KEY` set on the server, free-text chat uses OpenAI Responses with the recent user and assistant history, verified company facts, and matching plumbing reference entries. A missing keyword match does not block a conversation. The default model is `gpt-5.4-mini`; `OPENAI_MODEL` overrides it. Voice remains the separate OpenAI speech endpoint.
 
 `ROBO_RYAN_AI_ENABLED=false` or `ROBO_RYAN_CONVERSATION_ENABLED=false` disables conversation. `ROBO_RYAN_WEB_SEARCH_ENABLED=false` disables the search tool independently. An absent key retains the local reference fallback; adding a key requires a new Vercel deployment.
 
