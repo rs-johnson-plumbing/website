@@ -5,10 +5,10 @@
   "text_5": "Opening the service request form. Your chat has not booked an appointment.",
   "text_6": "Summary copied. You can paste it into the service form.",
   "text_7": "Please select and copy the summary above.",
-  "text_8": "ROBORYAN / BUTTON STUDY",
-  "text_9": "A Familiar Hello.",
-  "text_10": "A Helpful Next Step.",
-  "text_11": "Choose a button treatment, then try the conversation. Designed for desktop and your phone.",
+  "text_8": "Chat Button Concepts",
+  "text_9": "A Clearer Invitation.",
+  "text_10": "Three Ways to Stand Out.",
+  "text_11": "Choose a color and message below. The floating button updates so you can try it on your phone or desktop.",
   "text_12": "Friendly Pill",
   "text_13": "The original, refined. Clear and easy to find.",
   "text_14": "Personal Invitation",
@@ -22,7 +22,7 @@
   "text_22": "Chat with Ryan Rabato",
   "text_23": "Replay First Question",
   "text_24": "See the Website",
-  "text_25": "Interactive preview · guided preview · live AI requires setup",
+  "text_25": "Design comparison. Select a concept, then open the floating chat button.",
   "text_26": "Minimize Ryan Rabato chat",
   "text_27": "Open Ryan Rabato chat",
   "text_28": "RR",
@@ -80,5 +80,38 @@
     "playbackUnavailable": "Spoken playback is unavailable in this browser. You can read the full answer in the chat.",
     "playbackBlocked": "Audio did not start. Tap Read Answer beside the reply to try again.",
     "stopped": "Microphone stopped. Review your message or tap the microphone to speak again."
-  }
+  },
+  "assistantLabel": "Automated Assistant",
+  "sceneBrand": "R.S. Johnson Plumbing LLC",
+  "sceneTitle": "Plumbing Made Personal.",
+  "sceneDetail": "From quick repairs to new installations.",
+  "launcherConcepts": [
+    {
+      "id": "charcoal",
+      "number": "01",
+      "title": "Charcoal",
+      "description": "A strong contrast against the website’s blue buttons. The clearest everyday choice.",
+      "label": "Chat with a Plumber",
+      "detail": "",
+      "tag": "Main Website"
+    },
+    {
+      "id": "cream",
+      "number": "02",
+      "title": "Warm Cream",
+      "description": "A lighter, quieter invitation with a dark outline and a soft shadow.",
+      "label": "Chat Now with a Plumber",
+      "detail": "",
+      "tag": "Light Option"
+    },
+    {
+      "id": "copper",
+      "number": "03",
+      "title": "Copper",
+      "description": "A warm accent that stands apart from the blues, with room for chat and voice.",
+      "label": "Chat or Talk Now",
+      "detail": "with a Plumber",
+      "tag": "Chat and Voice"
+    }
+  ]
 }
