@@ -6,15 +6,15 @@ import copy from '../content/robo-ryan-followup.json';
 
 const payload = {email: 'visitor@example.com', requestId: '12345678-1234-1234-1234-123456789012', messages: [{role: 'user', content: 'Can you research this question?'}]};
 const request = (body: unknown, origin = 'https://example.com') => new NextRequest('https://example.com/api/robo-ryan/follow-up', {method: 'POST', headers: {origin}, body: JSON.stringify(body)});
-test('unknown questions never invoke ungrounded generation, even when AI is enabled', async () => {
-  const originalFetch = global.fetch, original = process.env.ROBO_RYAN_AI_ENABLED;
+test('unconfigured chat never invokes a paid provider', async () => {
+  const originalFetch = global.fetch, original = process.env.ROBO_RYAN_AI_ENABLED, originalKey = process.env.OPENAI_API_KEY;
   let calls = 0;
-  process.env.ROBO_RYAN_AI_ENABLED = 'true';
+  process.env.ROBO_RYAN_AI_ENABLED = 'true'; delete process.env.OPENAI_API_KEY;
   global.fetch = async () => {calls++; throw new Error('Unexpected provider call')};
   try {
     const result = await (await answer(new NextRequest('https://example.com/api/robo-ryan', {method: 'POST', body: JSON.stringify({messages: [{role: 'user', content: 'What does zqxv mean?'}]})}))).json();
     expect(result.reply).toContain(copy.unknown); expect(result.followUp).toBe(true); expect(calls).toBe(0);
-  } finally {global.fetch = originalFetch; if(original === undefined) delete process.env.ROBO_RYAN_AI_ENABLED; else process.env.ROBO_RYAN_AI_ENABLED = original}
+  } finally {global.fetch = originalFetch; if(original === undefined) delete process.env.ROBO_RYAN_AI_ENABLED; else process.env.ROBO_RYAN_AI_ENABLED = original; if(originalKey === undefined) delete process.env.OPENAI_API_KEY; else process.env.OPENAI_API_KEY = originalKey}
 });
 test('follow-up requires configuration and provider acceptance; recipient cannot be changed', async () => {
   const keys = ['ROBO_RYAN_FOLLOWUP_ENABLED', 'RESEND_API_KEY', 'ROBO_RYAN_FOLLOWUP_FROM'];
