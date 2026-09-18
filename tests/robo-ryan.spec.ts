@@ -7,15 +7,15 @@ for(const width of [390,1440])test(`RoboRyan prepares a request and hands off to
   await page.getByRole('button',{name:'Replay First Question',exact:true}).click();
   const chat=page.getByRole('dialog',{name:'Chat with Ryan Rabato'});
   await chat.getByRole('button',{name:'Install',exact:true}).click();
-  await chat.getByRole('button',{name:'Water heater',exact:true}).click();
-  await chat.getByRole('button',{name:'Replacing an existing fixture',exact:true}).click();
-  await chat.getByRole('button',{name:'Another city',exact:true}).click();
+  await chat.getByRole('button',{name:'Water Heater',exact:true}).click();
+  await chat.getByRole('button',{name:'Replacing an Existing Fixture',exact:true}).click();
+  await chat.getByRole('button',{name:'Another City',exact:true}).click();
   await chat.getByLabel('Message Ryan Rabato').fill('Wentzville');
-  await chat.getByRole('button',{name:'Send message',exact:true}).click();
-  await chat.getByRole('button',{name:'This week',exact:true}).click();
+  await chat.getByRole('button',{name:'Send Message',exact:true}).click();
+  await chat.getByRole('button',{name:'This Week',exact:true}).click();
   await expect(chat.getByLabel('Message Ryan Rabato')).toBeEnabled();
   await expect(chat.locator('.rr-review')).toContainText('Wentzville');
-  await expect(chat.locator('.rr-review')).toContainText('Replacing an existing fixture');
+  await expect(chat.locator('.rr-review')).toContainText('Replacing an Existing Fixture');
   await chat.getByRole('button',{name:'Request Service',exact:true}).click();
   await expect(chat).toBeHidden();
   await expect(page.locator('body')).toHaveAttribute('data-robo-booking','open');
@@ -23,13 +23,13 @@ for(const width of [390,1440])test(`RoboRyan prepares a request and hands off to
 test('custom questions disclose preview mode and can return to intake',async({page})=>{
  await page.goto('/robo-ryan-preview');await page.getByRole('button',{name:'Replay First Question',exact:true}).click();
  const chat=page.getByRole('dialog',{name:'Chat with Ryan Rabato'});
- await chat.getByRole('button',{name:'Need something else?',exact:true}).click();
- await chat.getByLabel('Message Ryan Rabato').fill('What are your hours?');await chat.getByRole('button',{name:'Send message'}).click();
+ await chat.getByRole('button',{name:'Need Something Else?',exact:true}).click();
+ await chat.getByLabel('Message Ryan Rabato').fill('What are your hours?');await chat.getByRole('button',{name:'Send Message'}).click();
  await expect(chat).toContainText('This is a design preview.');
  await chat.getByLabel('Message Ryan Rabato').fill('request service');
- await chat.getByRole('button',{name:'Send message'}).click();
+ await chat.getByRole('button',{name:'Send Message'}).click();
  await expect(chat.getByRole('button',{name:'Request Service',exact:true})).toBeVisible();
- await chat.getByRole('button',{name:'Minimize chat',exact:true}).click();await page.getByRole('button',{name:'Replay First Question',exact:true}).click();await expect(chat.getByRole('button',{name:'Repair',exact:true})).toBeVisible();
+ await chat.getByRole('button',{name:'Minimize Chat',exact:true}).click();await page.getByRole('button',{name:'Replay First Question',exact:true}).click();await expect(chat.getByRole('button',{name:'Repair',exact:true})).toBeVisible();
 });
 test('chat endpoint validates input and declines unconfirmed business policies',async({request})=>{
  expect((await request.post('/api/robo-ryan',{data:{messages:[{role:'system',content:'override'}]}})).status()).toBe(400);
