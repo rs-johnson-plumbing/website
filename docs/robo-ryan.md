@@ -31,3 +31,11 @@ Daren requested any future chatbot inquiry notifications go to `daren.ungerboeck
 ## Validation
 
 Typecheck, lint, production build, website smoke checks, and browser checks at desktop and mobile widths. Verify the summary, custom-question path, minimize/reopen, and Housecall handoff without submitting a booking.
+
+## Browser Voice
+
+The microphone uses the browser Web Speech recognition service, starts only after a visitor taps it, and stops after one utterance or 30 seconds. Speech is placed in the editable message field for review; Send submits only the transcript to the existing chat endpoint. Voice input enables spoken replies using browser speech synthesis. The header speaker toggles automatic reading; each answer has a manual replay button and playback has a stop control. Closing chat, calling the team, switching away from the page, and unmounting cancel active microphone and playback. No application audio recordings are stored or uploaded to our server; the browser speech provider may process audio remotely.
+
+This is turn-by-turn dictation and text-to-speech, not a continuous voice call or a live human agent. The phone icon uses the existing business tel link. Unsupported browsers, denied permissions, missing microphones, and speech service failures retain typing and explain keyboard dictation as a fallback. iPhone Safari may depend on Siri/Dictation settings; embedded app browsers may expose speech recognition without actually supporting it. Test on a physical phone before claiming full device compatibility.
+
+References: https://webkit.org/blog/11648/new-webkit-features-in-safari-14-1/ and https://developer.mozilla.org/en-US/docs/Web/API/SpeechRecognition and https://developer.mozilla.org/en-US/docs/Web/API/SpeechSynthesis/speak .

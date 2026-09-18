@@ -45,3 +45,19 @@
 .rr-root .rr-studies p{font-weight:400;color:var(--rr-muted)}
 .rr-root .rr-studio>div>span:first-child,.rr-root .rr-studies small,.rr-root .rr-studio-actions span,.rr-root .rr-sample,.rr-root .rr-launch small{font-size:14px;line-height:1.5}
 .rr-root .rr-studio-actions span{color:var(--rr-muted)}
+
+/* Voice controls share the same compact Figtree chat styling. */
+.rr-root .rr-head>div:first-of-type{min-width:0}
+.rr-root .rr-head-actions{display:flex;align-items:center;gap:3px;flex:0 0 auto}
+.rr-root .rr-head-actions button,.rr-root .rr-head-actions a{display:grid;place-items:center;width:40px;height:44px;padding:9px;color:#fff;text-decoration:none}
+.rr-head-actions svg,.rr-mic svg,.rr-message-label svg{width:19px;height:19px}
+.rr-root .rr-head-actions button[aria-pressed=true]{background:#ffffff30}
+.rr-message-label{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:3px}
+.rr-root .rr-message-label small{margin:0}
+.rr-root .rr-message-label button{display:grid;place-items:center;flex:0 0 36px;width:36px;min-height:36px;border:0;background:transparent;color:var(--rr-blue);padding:7px}
+.rr-root .rr-compose .rr-mic{display:grid;place-items:center;flex:0 0 40px;width:40px;height:44px;border:0;background:transparent;color:var(--rr-blue);padding:9px}
+.rr-root .rr-compose .rr-mic[aria-pressed=true]{background:var(--rr-navy);color:white}
+.rr-root .rr-compose .rr-voice-status{display:block;padding:8px 3px 0;background:transparent;border:0;box-shadow:none;border-radius:0}
+.rr-root .rr-voice-status p{font-size:12px;line-height:1.5;color:var(--rr-muted);margin:0}
+.rr-root .rr-compose .rr-voice-status button{width:auto;height:auto;background:transparent;color:var(--rr-blue);font-size:14px;font-weight:600;padding:8px 0;border:0}
+@media(max-width:380px){.rr-root .rr-head{gap:7px;padding:12px}.rr-root .rr-head strong{font-size:16px}.rr-avatar{width:32px;height:32px}.rr-root .rr-head-actions button,.rr-root .rr-head-actions a{width:36px}.rr-compose{padding-inline:10px}}
