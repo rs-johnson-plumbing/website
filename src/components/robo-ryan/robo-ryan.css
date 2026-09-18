@@ -107,3 +107,20 @@
 .rr-root .rr-launch-personal small{font-size:11px;color:#ffffffcf}
 .rr-theme-personal .rr-head{background:#2b2b2b}
 .rr-root .rr-citation{color:var(--rr-blue);font-size:.85em;font-weight:600;text-decoration:underline;text-underline-offset:2px;padding:0 2px}
+
+/* Photo controls keep the message field full width on phones. */
+.rr-root .rr-compose>.rr-photos{display:block;border:0;background:none;box-shadow:none;padding:0;margin:0 0 7px}
+.rr-root .rr-photos button{width:auto;height:auto;min-height:36px;font-size:13px;padding:6px 9px;background:transparent;color:var(--rr-blue);border:1px solid #ccd8e3;border-radius:8px}
+.rr-root .rr-photos .rr-photo-toggle{display:flex;align-items:center;gap:6px;border:0;padding:3px 0;font-weight:600}
+.rr-photo-toggle svg{width:19px;height:19px}
+.rr-root .rr-photos p{margin:4px 0 8px;font-size:12px;line-height:1.45;color:var(--rr-muted)}
+.rr-photo-options button+button{margin-left:8px}
+.rr-photo-previews,.rr-message-photos{display:flex;flex-wrap:wrap;gap:8px;margin:8px 0}
+.rr-photo-previews>div{position:relative}
+.rr-photo-previews img{width:64px;height:64px;object-fit:cover;border-radius:8px;border:1px solid #ccd8e3}
+.rr-root .rr-photo-previews button{position:absolute;top:-6px;right:-6px;width:27px;height:27px;min-height:27px;padding:0;border-radius:50%;background:#fff;color:#2b2b2b;font-size:20px}
+.rr-message-photos img{display:block;width:100%;max-height:210px;object-fit:contain;border-radius:8px;background:#ffffff20}
+.rr-root .rr-photos .rr-photo-error{color:#914b2a}
+.rr-root .rr-confirm-product{margin:12px 0 0}
+.rr-root .rr-confirm-product button{background:#fff}
+.rr-compose{max-height:52%;overflow:auto}

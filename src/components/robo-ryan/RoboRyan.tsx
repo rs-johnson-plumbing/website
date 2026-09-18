@@ -1,8 +1,11 @@
 
 'use client';
+/* eslint-disable @next/next/no-img-element -- Chat photos stay as local data URLs, without an image proxy or public storage. */
 import copy from '../../../content/robo-ryan-ui.json';
+import photoCopy from '../../../content/robo-ryan-photos.json';
+import {PhotoAttachments} from './PhotoAttachments';
 import { useEffect, useRef, useState } from 'react';
-import { greeting, initialChoices, nextIntake, summarize, urgentReply, type Intake, type Step, type ChatMessage } from '@/lib/robo-ryan';
+import { greeting, initialChoices, nextIntake, summarize, urgentReply, type Intake, type Step, type ChatMessage, type ChatPhoto } from '@/lib/robo-ryan';
 import './robo-ryan.css';
 import { useChatVoice } from './useChatVoice';
 import { CitedAnswer } from './CitedAnswer';
@@ -14,6 +17,7 @@ export function RoboRyan({ studio=false, offline=false }: { studio?:boolean; off
   const [choices,setChoices]=useState(initialChoices),[step,setStep]=useState<Step>('kind');
   const [intake,setIntake]=useState<Intake>({}),[draft,setDraft]=useState('');
   const [busy,setBusy]=useState(false),[notice,setNotice]=useState('');
+  const [photos,setPhotos]=useState<ChatPhoto[]>([]),[preparingPhoto,setPreparingPhoto]=useState(false);
   const [bookingOffered,setBookingOffered]=useState(false);
   const voice=useChatVoice(setDraft);
   const messageCount=useRef(messages.length);
@@ -26,15 +30,15 @@ export function RoboRyan({ studio=false, offline=false }: { studio?:boolean; off
   useEffect(()=>{if(studio)return;let seen=false;try{seen=sessionStorage.getItem('robo-ryan-seen')==='yes'}catch{};if(seen&&!studio)return;let autoOpened=false;const timer=setTimeout(()=>{autoOpened=true;setOpen(true)},2500);const cancel=()=>{autoOpened=false;clearTimeout(timer)};const onScroll=()=>{clearTimeout(timer);if(autoOpened){autoOpened=false;setOpen(false)}};document.addEventListener('pointerdown',cancel,{once:true});window.addEventListener('scroll',onScroll,{once:true,passive:true});return()=>{clearTimeout(timer);document.removeEventListener('pointerdown',cancel);window.removeEventListener('scroll',onScroll)}},[studio]);
   useEffect(()=>{log.current?.scrollTo({top:log.current.scrollHeight,behavior:window.matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth'})},[messages,busy,open]);
   function close(){voice.stopAll();setOpen(false);try{sessionStorage.setItem('robo-ryan-seen','yes')}catch{};launch.current?.focus()}
-  function reset(){if(busy)return;voice.stopAll();setMessages([{role:'assistant',content:greeting}]);setChoices(initialChoices);setStep('kind');setIntake({});setDraft('');setNotice('');setBookingOffered(false);setOpen(true)}
+  function reset(){if(busy||preparingPhoto)return;setPhotos([]);voice.stopAll();setMessages([{role:'assistant',content:greeting}]);setChoices(initialChoices);setStep('kind');setIntake({});setDraft('');setNotice('');setBookingOffered(false);setOpen(true)}
   async function send(text:string){
-    if(busy||!text.trim()||voice.listening)return;voice.stopAll();const normalized=text.trim().toLowerCase().replace(/[.!?]+$/,'');text=choices.find(choice=>choice.toLowerCase().replace(/[.!?]+$/,'')===normalized)??text;setNotice('');setDraft('');const history=[...messages,{role:'user' as const,content:text.trim()}];setMessages(history);setChoices([]);
-    if(/^(request service|book|schedule)( now| service)?[.!]?$/i.test(text.trim())){setBookingOffered(true);setStep('question');setMessages([...history,{role:'assistant',content:copy.bookingReply}]);return}
+    if(busy||preparingPhoto||(!text.trim()&&!photos.length)||voice.listening)return;text=text.trim()||photoCopy.sendPhoto;const attached=photos;setPhotos([]);voice.stopAll();const normalized=text.trim().toLowerCase().replace(/[.!?]+$/,'');text=choices.find(choice=>choice.toLowerCase().replace(/[.!?]+$/,'')===normalized)??text;setNotice('');setDraft('');const history=[...messages,{role:'user' as const,content:text.trim(),...(attached.length?{photos:attached}:{})}];setMessages(history);setChoices([]);
+    if(!attached.length&&/^(request service|book|schedule)( now| service)?[.!]?$/i.test(text.trim())){setBookingOffered(true);setStep('question');setMessages([...history,{role:'assistant',content:copy.bookingReply}]);return}
     setBookingOffered(false);
     const urgent=urgentReply(text);if(urgent){setMessages([...history,{role:'assistant',content:urgent}]);return}
-    if(step==='question'||step==='review'||(step==='kind'&&![copy.text_2,copy.text_3,copy.text_4].includes(text))){
-      setStep('question');if(offline){setMessages([...history,{role:'assistant',content:copy.text_100}]);return}setBusy(true);
-      try{const response=await fetch('/api/robo-ryan',{method:copy.text_101,headers:{'Content-Type':'application/json'},body:JSON.stringify({messages:history.slice(-30).map(({role,content})=>({role,content}))}),signal:AbortSignal.timeout(55000)});const result=await response.json();if(!response.ok)throw new Error(result.error);setMessages([...history,{role:'assistant',content:result.reply,sources:result.sources,citations:result.citations}])}catch{setMessages([...history,{role:'assistant',content:copy.text_102}])}finally{setBusy(false)}return;
+    if(attached.length||step==='question'||step==='review'||(step==='kind'&&![copy.text_2,copy.text_3,copy.text_4].includes(text))){
+      setStep('question');if(offline){setMessages([...history,{role:'assistant',content:attached.length?photoCopy.preview:copy.text_100}]);return}setBusy(true);
+      try{const response=await fetch('/api/robo-ryan',{method:copy.text_101,headers:{'Content-Type':'application/json'},body:JSON.stringify({messages:history.slice(-30).map(({role,content})=>({role,content})),photos:attached}),signal:AbortSignal.timeout(55000)});const result=await response.json();if(!response.ok)throw new Error(result.error);setMessages([...history,{role:'assistant',content:result.reply,sources:result.sources,citations:result.citations,productSuggestion:result.productSuggestion}])}catch{setMessages([...history,{role:'assistant',content:copy.text_102}])}finally{setBusy(false)}return;
     }
     const next=nextIntake(step,text,intake);setStep(next.step);setIntake(next.intake);setChoices(next.choices);setMessages([...history,{role:'assistant',content:next.reply}]);
     if(!next.choices.length&&next.step!=='review')input.current?.focus();
@@ -46,7 +50,7 @@ export function RoboRyan({ studio=false, offline=false }: { studio?:boolean; off
     <button ref={launch} className={`rr-launch rr-launch-${variant}`} aria-label={open?copy.text_26:copy.text_27} aria-expanded={open} aria-controls="rr-panel" onClick={()=>{if(open)close();else{setOpen(true);setTimeout(()=>input.current?.focus(),100)}}}><span className="rr-launch-icon">{variant==='personal'?copy.text_28:variant==='copper'?<MicIcon/>:<ChatIcon/>}</span><span>{selectedConcept.label}{selectedConcept.detail&&<small>{selectedConcept.detail}</small>}</span></button>
     {open&&<section id="rr-panel" className="rr-panel" role="dialog" aria-label={copy.text_32} onKeyDown={e=>{if(e.key==="Escape")close()}}>
       <header className="rr-head"><span className="rr-avatar">{copy.text_34}</span><div><strong>{copy.text_35}</strong><small>{copy.assistantLabel}</small></div><div className="rr-head-actions"><button type="button" aria-label={voice.readReplies?copy.voice.mute:copy.voice.read} title={voice.readReplies?copy.voice.mute:copy.voice.read} aria-pressed={voice.readReplies} onClick={voice.toggleReadReplies}><SpeakerIcon muted={!voice.readReplies}/></button><a href="tel:3142201827" aria-label={copy.voice.call} title={copy.voice.call} onClick={voice.stopAll}><PhoneIcon/></a><button aria-label={copy.text_37} onClick={close}>{copy.text_38}</button></div></header>
-      <div ref={log} className="rr-log" role="log" aria-live="polite">{messages.map((m,i)=><div className={`rr-message rr-${m.role}`} key={i}>{m.role==='assistant'&&<div className="rr-message-label"><small>{copy.text_44}</small><button type="button" aria-label={copy.voice.replay} title={copy.voice.replay} onClick={()=>voice.readAnswer(m.content)}><SpeakerIcon/></button></div>}<CitedAnswer message={m}/>{!!m.sources?.length&&<nav className="rr-sources" aria-label={copy.sourcesLabel}>{m.sources.map(source=><a key={source.url} href={source.url} target="_blank" rel="noopener noreferrer">{source.title} ↗</a>)}</nav>}</div>)}
+      <div ref={log} className="rr-log" role="log" aria-live="polite">{messages.map((m,i)=><div className={`rr-message rr-${m.role}`} key={i}>{m.role==='assistant'&&<div className="rr-message-label"><small>{copy.text_44}</small><button type="button" aria-label={copy.voice.replay} title={copy.voice.replay} onClick={()=>voice.readAnswer(m.content)}><SpeakerIcon/></button></div>}{!!m.photos?.length&&<div className="rr-message-photos">{m.photos.map((photo,index)=><img key={index} src={photo.dataUrl} alt={`${photoCopy.alt} ${index+1}`}/>)}</div>}<CitedAnswer message={m}/>{m.productSuggestion&&<div className="rr-choices rr-confirm-product"><button disabled={busy||preparingPhoto||!!photos.length} onClick={()=>send(`${m.productSuggestion!.brand} model ${m.productSuggestion!.model}`)}>{photoCopy.confirm}</button></div>}{!!m.sources?.length&&<nav className="rr-sources" aria-label={copy.sourcesLabel}>{m.sources.map(source=><a key={source.url} href={source.url} target="_blank" rel="noopener noreferrer">{source.title} ↗</a>)}</nav>}</div>)}
         {!!choices.length&&<div className="rr-choices">{choices.map(c=><button key={c} disabled={busy} onClick={()=>send(c)}>{c}</button>)}</div>}
         {bookingOffered&&<div className="rr-choices"><button onClick={requestService}>{copy.text_48}</button></div>}
         {busy&&<div className="rr-typing" role="status">{copy.text_46}</div>}
@@ -54,7 +58,7 @@ export function RoboRyan({ studio=false, offline=false }: { studio?:boolean; off
 
       </div>
       {notice&&<div className="rr-notice" role="status">{notice}</div>}
-      <form className="rr-compose" onSubmit={e=>{e.preventDefault();void send(draft)}}><label className="rr-sr" htmlFor="rr-input">{copy.text_57}</label><div><button className="rr-mic" type="button" disabled={busy} aria-label={voice.listening?copy.voice.stop:copy.voice.start} title={voice.listening?copy.voice.stop:copy.voice.start} aria-pressed={voice.listening} onClick={()=>voice.startListening(draft)}><MicIcon active={voice.listening}/></button><input ref={input} id="rr-input" value={draft} onChange={e=>setDraft(e.target.value)} placeholder={copy.text_58} maxLength={1500} disabled={busy||voice.listening}/><button className="rr-send" type="submit" disabled={busy||voice.listening||!draft.trim()} aria-label={copy.text_59}><SendIcon/></button></div>{(voice.help||voice.speaking)&&<div className="rr-voice-status"><p role="status">{voice.listening?copy.voice.listening:voice.help}</p>{voice.speaking&&<button type="button" onClick={voice.stopSpeaking}>{copy.voice.stopPlayback}</button>}</div>}</form>
+      <form className="rr-compose" onSubmit={e=>{e.preventDefault();void send(draft)}}><PhotoAttachments photos={photos} onChange={setPhotos} disabled={busy||voice.listening} onPreparing={setPreparingPhoto}/><label className="rr-sr" htmlFor="rr-input">{copy.text_57}</label><div><button className="rr-mic" type="button" disabled={busy} aria-label={voice.listening?copy.voice.stop:copy.voice.start} title={voice.listening?copy.voice.stop:copy.voice.start} aria-pressed={voice.listening} onClick={()=>voice.startListening(draft)}><MicIcon active={voice.listening}/></button><input ref={input} id="rr-input" value={draft} onChange={e=>setDraft(e.target.value)} placeholder={copy.text_58} maxLength={1500} disabled={busy||voice.listening}/><button className="rr-send" type="submit" disabled={busy||preparingPhoto||voice.listening||(!draft.trim()&&!photos.length)} aria-label={copy.text_59}><SendIcon/></button></div>{(voice.help||voice.speaking)&&<div className="rr-voice-status"><p role="status">{voice.listening?copy.voice.listening:voice.help}</p>{voice.speaking&&<button type="button" onClick={voice.stopSpeaking}>{copy.voice.stopPlayback}</button>}</div>}</form>
     </section>}
   </div>
 }
