@@ -2,6 +2,7 @@
 
 import { useCallback, useEffect, useRef, useState } from 'react';
 import copy from '../../../content/robo-ryan-ui.json';
+import speechCopy from '../../../content/robo-ryan-speech.json';
 
 type RecognitionResult = { isFinal: boolean; [index: number]: { transcript: string } };
 type Recognition = {
@@ -29,7 +30,10 @@ export function useChatVoice(onTranscript: (text: string) => void) {
   const [help, setHelp] = useState('');
   const recognition = useRef<Recognition | null>(null);
   const timeout = useRef<ReturnType<typeof setTimeout> | null>(null);
-  const utterance = useRef<SpeechSynthesisUtterance | null>(null);
+  const audioContext = useRef<AudioContext | null>(null);
+  const source = useRef<AudioBufferSourceNode | null>(null);
+  const speechRequest = useRef<AbortController | null>(null);
+  const speechCache = useRef(new Map<string, AudioBuffer>());
   const enabled = useRef(false);
   const receive = useRef(onTranscript);
   receive.current = onTranscript;
@@ -54,12 +58,25 @@ export function useChatVoice(onTranscript: (text: string) => void) {
   }, []);
 
   const stopSpeaking = useCallback(() => {
-    if (utterance.current) {
-      utterance.current.onend = utterance.current.onerror = null;
-      utterance.current = null;
+    speechRequest.current?.abort();
+    speechRequest.current = null;
+    if (source.current) {
+      source.current.onended = null;
+      try { source.current.stop(); } catch { /* Already stopped. */ }
+      source.current.disconnect();
+      source.current = null;
     }
-    if ('speechSynthesis' in window) window.speechSynthesis.cancel();
     setSpeaking(false);
+    setHelp(previous => previous === speechCopy.loading ? speechCopy.disclosure : previous);
+  }, []);
+
+  // Resume inside the user's speaker/microphone gesture so later replies can
+  // play on mobile without requiring a second tap after the network request.
+  const unlockAudio = useCallback(() => {
+    if (!audioContext.current || audioContext.current.state === 'closed') audioContext.current = new AudioContext();
+    const context = audioContext.current;
+    void context.resume().catch(() => {});
+    return context;
   }, []);
 
   const stopAll = useCallback(() => {
@@ -67,29 +84,41 @@ export function useChatVoice(onTranscript: (text: string) => void) {
     stopSpeaking();
   }, [stopListening, stopSpeaking]);
 
-  const readAnswer = useCallback((text: string) => {
+  const readAnswer = useCallback(async (text: string) => {
     stopAll();
-    if (!('speechSynthesis' in window) || !('SpeechSynthesisUtterance' in window)) {
+    if (!('AudioContext' in window)) {
       setHelp(copy.voice.playbackUnavailable);
       return;
     }
-    const speech = new SpeechSynthesisUtterance(text);
-    speech.lang = 'en-US';
-    speech.rate = 1;
-    const voices = window.speechSynthesis.getVoices();
-    const voice = voices.find(v => v.lang === 'en-US' && v.localService) ?? voices.find(v => v.lang.startsWith('en'));
-    if (voice) speech.voice = voice;
-    speech.onend = () => { if (utterance.current === speech) { utterance.current = null; setSpeaking(false); } };
-    speech.onerror = event => {
-      if (utterance.current !== speech) return;
-      utterance.current = null;
-      setSpeaking(false);
-      if (event.error !== 'canceled' && event.error !== 'interrupted') setHelp(copy.voice.playbackBlocked);
-    };
-    utterance.current = speech;
+    const pending = new AbortController();
+    speechRequest.current = pending;
     setSpeaking(true);
-    try { window.speechSynthesis.speak(speech); } catch { utterance.current = null; setSpeaking(false); setHelp(copy.voice.playbackBlocked); }
-  }, [stopAll]);
+    setHelp(speechCopy.loading);
+    try {
+      const context = unlockAudio();
+      let buffer = speechCache.current.get(text);
+      if (!buffer) {
+        const response = await fetch('/api/robo-ryan/speech', {method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify({text}), signal: AbortSignal.any([pending.signal, AbortSignal.timeout(55000)])});
+        if (!response.ok) throw new Error('Speech unavailable');
+        buffer = await context.decodeAudioData(await response.arrayBuffer());
+        if (pending.signal.aborted) return;
+        // Keep only a few replies in browser memory; never persist speech audio.
+        if (speechCache.current.size >= 3) speechCache.current.delete(speechCache.current.keys().next().value!);
+        speechCache.current.set(text, buffer);
+      }
+      if (pending.signal.aborted) return;
+      if (context.state !== 'running') {setHelp(copy.voice.playbackBlocked); setSpeaking(false); return}
+      const playback = context.createBufferSource();
+      playback.buffer = buffer;
+      playback.connect(context.destination);
+      playback.onended = () => {if (source.current === playback) {playback.disconnect(); source.current = null; setSpeaking(false)}};
+      source.current = playback;
+      setHelp(speechCopy.disclosure);
+      playback.start();
+    } catch {
+      if (!pending.signal.aborted) {setSpeaking(false); setHelp(speechCopy.unavailable)}
+    } finally {if (speechRequest.current === pending) speechRequest.current = null}
+  }, [stopAll, unlockAudio]);
 
   const speakReply = useCallback((text: string) => {
     if (enabled.current && document.visibilityState === 'visible') readAnswer(text);
@@ -108,6 +137,7 @@ export function useChatVoice(onTranscript: (text: string) => void) {
   const startListening = useCallback((draft: string) => {
     if (recognition.current) { stopListening(); return; }
     stopSpeaking();
+    try { unlockAudio(); } catch { /* Dictation still works without playback. */ }
     const Constructor = (window as VoiceWindow).SpeechRecognition ?? (window as VoiceWindow).webkitSpeechRecognition;
     if (!Constructor || !window.isSecureContext) { setHelp(copy.voice.unsupported); return; }
     let active: Recognition;
@@ -155,12 +185,13 @@ export function useChatVoice(onTranscript: (text: string) => void) {
       active.start();
       timeout.current = setTimeout(() => stopListening(), 30000);
     } catch { stopListening(true); setHelp(copy.voice.unavailable); }
-  }, [stopListening, stopSpeaking]);
+  }, [stopListening, stopSpeaking, unlockAudio]);
 
   useEffect(() => {
     const onVisibility = () => { if (document.visibilityState !== 'visible') stopAll(); };
     document.addEventListener('visibilitychange', onVisibility);
-    return () => { document.removeEventListener('visibilitychange', onVisibility); stopAll(); };
+    const cache = speechCache.current;
+    return () => { document.removeEventListener('visibilitychange', onVisibility); stopAll(); void audioContext.current?.close().catch(() => {}); audioContext.current = null; cache.clear(); };
   }, [stopAll]);
 
   return { listening, readReplies, speaking, help, startListening, stopAll, stopSpeaking, toggleReadReplies, speakReply, readAnswer };

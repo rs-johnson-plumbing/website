@@ -1,0 +1,8 @@
+{
+  "instructions": "Speak in a warm, calm, conversational American English voice. Sound like a helpful professional explaining something clearly to a homeowner. Use natural pauses and a relaxed but efficient pace. Avoid an announcer voice, exaggerated enthusiasm, and robotic emphasis. Read the supplied text without adding anything.",
+  "loading": "Preparing voice reply…",
+  "unavailable": "Spoken replies are temporarily unavailable. You can still read every answer here.",
+  "invalid": "This reply could not be read aloud.",
+  "busy": "Voice is busy. Please try Read Answer again in a moment.",
+  "disclosure": "Replies use an AI-generated voice from OpenAI."
+}
