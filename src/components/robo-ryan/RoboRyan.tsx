@@ -4,6 +4,7 @@ import copy from '../../../content/robo-ryan-ui.json';
 import { useEffect, useRef, useState } from 'react';
 import { greeting, initialChoices, nextIntake, summarize, urgentReply, type Intake, type Step, type ChatMessage } from '@/lib/robo-ryan';
 import './robo-ryan.css';
+import { useChatVoice } from './useChatVoice';
 import { openHousecallBooking } from '@/lib/service-request';
 
 export function RoboRyan({ studio=false, offline=false }: { studio?:boolean; offline?:boolean; live?:boolean }) {
@@ -13,15 +14,19 @@ export function RoboRyan({ studio=false, offline=false }: { studio?:boolean; off
   const [intake,setIntake]=useState<Intake>({}),[draft,setDraft]=useState('');
   const [busy,setBusy]=useState(false),[notice,setNotice]=useState('');
   const [bookingOffered,setBookingOffered]=useState(false);
+  const voice=useChatVoice(setDraft);
+  const messageCount=useRef(messages.length);
+  const {speakReply}=voice;
+  useEffect(()=>{const added=messages.length>messageCount.current;messageCount.current=messages.length;const last=messages.at(-1);if(open&&added&&last?.role==='assistant')speakReply(last.content)},[messages,open,speakReply]);
   
   const log=useRef<HTMLDivElement>(null),input=useRef<HTMLInputElement>(null),launch=useRef<HTMLButtonElement>(null);
 
   useEffect(()=>{let seen=false;try{seen=sessionStorage.getItem('robo-ryan-seen')==='yes'}catch{};if(seen&&!studio)return;let autoOpened=false;const timer=setTimeout(()=>{autoOpened=true;setOpen(true)},2500);const cancel=()=>{autoOpened=false;clearTimeout(timer)};const onScroll=()=>{clearTimeout(timer);if(autoOpened){autoOpened=false;setOpen(false)}};document.addEventListener('pointerdown',cancel,{once:true});window.addEventListener('scroll',onScroll,{once:true,passive:true});return()=>{clearTimeout(timer);document.removeEventListener('pointerdown',cancel);window.removeEventListener('scroll',onScroll)}},[studio]);
   useEffect(()=>{log.current?.scrollTo({top:log.current.scrollHeight,behavior:window.matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth'})},[messages,busy,open]);
-  function close(){setOpen(false);try{sessionStorage.setItem('robo-ryan-seen','yes')}catch{};launch.current?.focus()}
-  function reset(){if(busy)return;setMessages([{role:'assistant',content:greeting}]);setChoices(initialChoices);setStep('kind');setIntake({});setDraft('');setNotice('');setBookingOffered(false);setOpen(true)}
+  function close(){voice.stopAll();setOpen(false);try{sessionStorage.setItem('robo-ryan-seen','yes')}catch{};launch.current?.focus()}
+  function reset(){if(busy)return;voice.stopAll();setMessages([{role:'assistant',content:greeting}]);setChoices(initialChoices);setStep('kind');setIntake({});setDraft('');setNotice('');setBookingOffered(false);setOpen(true)}
   async function send(text:string){
-    if(busy||!text.trim())return;setNotice('');setDraft('');const history=[...messages,{role:'user' as const,content:text.trim()}];setMessages(history);setChoices([]);
+    if(busy||!text.trim()||voice.listening)return;voice.stopAll();const normalized=text.trim().toLowerCase().replace(/[.!?]+$/,'');text=choices.find(choice=>choice.toLowerCase().replace(/[.!?]+$/,'')===normalized)??text;setNotice('');setDraft('');const history=[...messages,{role:'user' as const,content:text.trim()}];setMessages(history);setChoices([]);
     if(/^(request service|book|schedule)( now| service)?[.!]?$/i.test(text.trim())){setBookingOffered(true);setStep('question');setMessages([...history,{role:'assistant',content:copy.bookingReply}]);return}
     setBookingOffered(false);
     const urgent=urgentReply(text);if(urgent){setMessages([...history,{role:'assistant',content:urgent}]);return}
@@ -32,14 +37,14 @@ export function RoboRyan({ studio=false, offline=false }: { studio?:boolean; off
     const next=nextIntake(step,text,intake);setStep(next.step);setIntake(next.intake);setChoices(next.choices);setMessages([...history,{role:'assistant',content:next.reply}]);
     if(!next.choices.length&&next.step!=='review')input.current?.focus();
   }
-  function requestService(){setNotice('');setOpen(false);openHousecallBooking()}
+  function requestService(){voice.stopAll();setNotice('');setOpen(false);openHousecallBooking()}
   async function copySummary(){try{await navigator.clipboard.writeText(summarize(intake));setNotice(copy.text_6)}catch{setNotice(copy.text_7)}}
   return <div className="rr-root">
     {studio&&<section className="rr-studio"><div><span>{copy.text_8}</span><h1>{copy.text_9}<br/>{copy.text_10}</h1><p>{copy.text_11}</p></div><div className="rr-studies">{[['pill','01',copy.text_12,copy.text_13],['personal','02',copy.text_14,copy.text_15],['compact','03',copy.text_16,copy.text_17]].map(([id,n,title,desc])=><button key={id} aria-pressed={variant===id} onClick={()=>{setVariant(id);setOpen(false)}}><small>{n} {copy.text_18}{variant===id?copy.text_19:copy.text_20}</small><strong>{title}</strong><p>{desc}</p><span className={`rr-sample rr-sample-${id}`}><ChatIcon/>{id!=='compact'&&(id==='personal'?copy.text_21:copy.text_22)}</span></button>)}</div><div className="rr-studio-actions"><button onClick={reset}>{copy.text_23}</button><a href="https://gojohnsonplumbing.com">{copy.text_24}</a><span>{copy.text_25}</span></div></section>}
     <button ref={launch} className={`rr-launch rr-launch-${variant}`} aria-label={open?copy.text_26:copy.text_27} aria-expanded={open} aria-controls="rr-panel" onClick={()=>{if(open)close();else{setOpen(true);setTimeout(()=>input.current?.focus(),100)}}}><span className="rr-launch-icon">{variant==='personal'?copy.text_28:<ChatIcon/>}</span>{variant!=='compact'&&<span>{variant==='personal'?copy.text_29:copy.text_30}{variant==='personal'&&<small>{copy.text_31}</small>}</span>}<span className="rr-dot"/></button>
     {open&&<section id="rr-panel" className="rr-panel" role="dialog" aria-label={copy.text_32} onKeyDown={e=>{if(e.key==="Escape")close()}}>
-      <header className="rr-head"><span className="rr-avatar">{copy.text_34}</span><div><strong>{copy.text_35}</strong></div><button aria-label={copy.text_37} onClick={close}>{copy.text_38}</button></header>
-      <div ref={log} className="rr-log" role="log" aria-live="polite">{messages.map((m,i)=><div className={`rr-message rr-${m.role}`} key={i}>{m.role==='assistant'&&<small>{copy.text_44}</small>}{m.content}{!!m.sources?.length&&<nav className="rr-sources" aria-label={copy.sourcesLabel}>{m.sources.map(source=><a key={source.url} href={source.url} target="_blank" rel="noopener noreferrer">{source.title} ↗</a>)}</nav>}</div>)}
+      <header className="rr-head"><span className="rr-avatar">{copy.text_34}</span><div><strong>{copy.text_35}</strong></div><div className="rr-head-actions"><button type="button" aria-label={voice.readReplies?copy.voice.mute:copy.voice.read} title={voice.readReplies?copy.voice.mute:copy.voice.read} aria-pressed={voice.readReplies} onClick={voice.toggleReadReplies}><SpeakerIcon muted={!voice.readReplies}/></button><a href="tel:3142201827" aria-label={copy.voice.call} title={copy.voice.call} onClick={voice.stopAll}><PhoneIcon/></a><button aria-label={copy.text_37} onClick={close}>{copy.text_38}</button></div></header>
+      <div ref={log} className="rr-log" role="log" aria-live="polite">{messages.map((m,i)=><div className={`rr-message rr-${m.role}`} key={i}>{m.role==='assistant'&&<div className="rr-message-label"><small>{copy.text_44}</small><button type="button" aria-label={copy.voice.replay} title={copy.voice.replay} onClick={()=>voice.readAnswer(m.content)}><SpeakerIcon/></button></div>}{m.content}{!!m.sources?.length&&<nav className="rr-sources" aria-label={copy.sourcesLabel}>{m.sources.map(source=><a key={source.url} href={source.url} target="_blank" rel="noopener noreferrer">{source.title} ↗</a>)}</nav>}</div>)}
         {!!choices.length&&<div className="rr-choices">{choices.map(c=><button key={c} disabled={busy} onClick={()=>send(c)}>{c}</button>)}</div>}
         {bookingOffered&&<div className="rr-choices"><button onClick={requestService}>{copy.text_48}</button></div>}
         {busy&&<div className="rr-typing" role="status">{copy.text_46}</div>}
@@ -47,7 +52,7 @@ export function RoboRyan({ studio=false, offline=false }: { studio?:boolean; off
 
       </div>
       {notice&&<div className="rr-notice" role="status">{notice}</div>}
-      <form className="rr-compose" onSubmit={e=>{e.preventDefault();void send(draft)}}><label className="rr-sr" htmlFor="rr-input">{copy.text_57}</label><div><input ref={input} id="rr-input" value={draft} onChange={e=>setDraft(e.target.value)} placeholder={copy.text_58} maxLength={1500} disabled={busy}/><button className="rr-send" type="submit" disabled={busy||!draft.trim()} aria-label={copy.text_59}><SendIcon/></button></div></form>
+      <form className="rr-compose" onSubmit={e=>{e.preventDefault();void send(draft)}}><label className="rr-sr" htmlFor="rr-input">{copy.text_57}</label><div><button className="rr-mic" type="button" disabled={busy} aria-label={voice.listening?copy.voice.stop:copy.voice.start} title={voice.listening?copy.voice.stop:copy.voice.start} aria-pressed={voice.listening} onClick={()=>voice.startListening(draft)}><MicIcon active={voice.listening}/></button><input ref={input} id="rr-input" value={draft} onChange={e=>setDraft(e.target.value)} placeholder={copy.text_58} maxLength={1500} disabled={busy||voice.listening}/><button className="rr-send" type="submit" disabled={busy||voice.listening||!draft.trim()} aria-label={copy.text_59}><SendIcon/></button></div>{(voice.help||voice.speaking)&&<div className="rr-voice-status"><p role="status">{voice.listening?copy.voice.listening:voice.help}</p>{voice.speaking&&<button type="button" onClick={voice.stopSpeaking}>{copy.voice.stopPlayback}</button>}</div>}</form>
     </section>}
   </div>
 }
@@ -55,3 +60,7 @@ function ChatIcon(){return <svg viewBox={"0 0 24 24"} fill="none" stroke="curren
 
 
 function SendIcon(){return <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M12 19V5M5 12l7-7 7 7"/></svg>}
+
+function MicIcon({active=false}:{active?:boolean}){return <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" aria-hidden="true">{active?<rect x="7" y="7" width="10" height="10" rx="2" fill="currentColor"/>:<><rect x="9" y="2" width="6" height="13" rx="3"/><path d="M5 10v2a7 7 0 0 0 14 0v-2M12 19v3M8 22h8"/></>}</svg>}
+function SpeakerIcon({muted=false}:{muted?:boolean}){return <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M11 4 5 9H2v6h3l6 5Z"/>{muted?<path d="m16 9 6 6m0-6-6 6"/>:<><path d="M15 8a6 6 0 0 1 0 8M18 4a11 11 0 0 1 0 16"/></>}</svg>}
+function PhoneIcon(){return <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="m5 3 4 4-2 3a15 15 0 0 0 7 7l3-2 4 4-2 3C9 22 2 15 2 5Z"/></svg>}

@@ -58,5 +58,27 @@
   "text_107": "Timing",
   "text_108": "Let’s update the details. What needs attention?",
   "sourcesLabel": "Answer References",
-  "bookingReply": "You can request a plumber using our service form. Opening it does not book an appointment or send this chat."
+  "bookingReply": "You can request a plumber using our service form. Opening it does not book an appointment or send this chat.",
+  "voice": {
+    "start": "Use Microphone",
+    "stop": "Stop Listening",
+    "read": "Read Replies Aloud",
+    "mute": "Mute Spoken Replies",
+    "replay": "Read Answer",
+    "stopPlayback": "Stop Speaking",
+    "call": "Call Plumbing Team",
+    "disclosure": "Voice replies come from the automated plumbing assistant.",
+    "enabledAnnouncement": "Spoken replies are on. You are chatting with an automated plumbing assistant.",
+    "listening": "Listening… Tap the microphone to finish. Your browser’s speech service processes your voice.",
+    "review": "Review your words, then tap Send. Use the speaker to control spoken replies from the automated assistant.",
+    "unsupported": "This browser does not support voice input here. Use the microphone on your phone’s keyboard, or try opening this page in Safari or Chrome.",
+    "denied": "Microphone access was not allowed. You can enable it in your browser settings, use keyboard dictation, or keep typing.",
+    "noMicrophone": "No microphone is available. Check your microphone or use the keyboard to type.",
+    "noSpeech": "No words were heard. Tap the microphone to try again, or type your message.",
+    "network": "The browser’s speech service could not connect. Try again or use keyboard dictation.",
+    "unavailable": "Voice input is unavailable in this browser right now. Try your keyboard’s microphone or type your message.",
+    "playbackUnavailable": "Spoken playback is unavailable in this browser. You can read the full answer in the chat.",
+    "playbackBlocked": "Audio did not start. Tap Read Answer beside the reply to try again.",
+    "stopped": "Microphone stopped. Review your message or tap the microphone to speak again."
+  }
 }
