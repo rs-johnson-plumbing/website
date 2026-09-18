@@ -96,3 +96,13 @@
 @media(min-width:701px) and (max-width:1100px){.rr-root .rr-studies{grid-template-columns:1fr;max-width:580px}.rr-root .rr-studies p{min-height:0}}
 @media(max-width:700px){.rr-root .rr-launch{font-size:14px;right:16px;padding:13px 17px}.rr-root .rr-studio{padding-inline:20px}.rr-root .rr-studies p{min-height:0}}
 @media(max-width:360px){.rr-root .rr-studies>button{padding:15px}.rr-root .rr-studies>button[aria-pressed=true]{padding:14px}.rr-root .rr-sample{font-size:12px;padding:12px 10px}.rr-concept-scene{padding-inline:12px}}
+
+/* Selected personal invitation: compact initials badge and modest corner radius. */
+.rr-root .rr-launch-personal,.rr-root .rr-sample-personal{border-radius:8px!important;background:#2b2b2b;color:#fff;text-align:left}
+.rr-root .rr-launch-personal{padding:10px 16px 10px 10px}
+.rr-root .rr-launch-personal .rr-launch-icon,.rr-root .rr-personal-badge{width:38px;height:38px;flex:0 0 38px;display:grid;place-items:center;border-radius:50%;background:#ffffff20;font-size:12px;font-weight:700}
+.rr-root .rr-sample-personal{white-space:normal;padding:10px;gap:8px}
+.rr-root .rr-sample-personal>span:last-child{min-width:0}
+.rr-root .rr-launch-personal>span:last-child{white-space:nowrap}
+.rr-root .rr-launch-personal small{font-size:11px;color:#ffffffcf}
+.rr-theme-personal .rr-head{background:#2b2b2b}
