@@ -122,7 +122,6 @@
 .rr-message-photos img{display:block;width:100%;max-height:210px;object-fit:contain;border-radius:8px;background:#ffffff20}
 .rr-root .rr-photos .rr-photo-error{color:#914b2a}
 .rr-root .rr-confirm-product{margin:12px 0 0}
-.rr-root .rr-confirm-product button{background:#fff}
 .rr-compose{max-height:52%;overflow:auto}
 
 .rr-followup{display:grid;gap:10px;margin-top:16px}
@@ -147,7 +146,23 @@
 .rr-root .rr-message-actions button{display:grid;place-items:center;width:32px;height:32px;padding:7px;border:0;background:transparent;color:var(--rr-muted)}
 .rr-message-actions svg{width:17px;height:17px}
 .rr-root .rr-choices{gap:8px;margin:0 0 20px}
-.rr-root .rr-choices button{min-height:44px;padding:8px 12px;border:1px solid #2868a860;border-radius:8px!important;font-size:14px;font-weight:500;line-height:1.4}
+/* Use the website's compact filled-button treatment for conversation actions. */
+.rr-root{--rr-blue:var(--c2-blue,#0876d1);--rr-blue-dark:var(--c2-blue-dark,#075fa9)}
+.rr-root .rr-choices button,
+.rr-root .rr-review button:not(.rr-text-button),
+.rr-root .rr-contact>button,
+.rr-root .rr-followup button{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:44px;padding:10px 18px;border:1.5px solid var(--rr-blue);border-radius:var(--site-button-radius,3px)!important;background:var(--rr-blue);color:#fff;font-size:14px;font-weight:700;line-height:1.3;text-align:center;transition:background-color .18s,color .18s,border-color .18s}
+.rr-root .rr-choices button:hover:not(:disabled),
+.rr-root .rr-review button:not(.rr-text-button):hover:not(:disabled),
+.rr-root .rr-contact>button:hover:not(:disabled),
+.rr-root .rr-followup button:hover:not(:disabled){background:var(--rr-blue-dark);border-color:var(--rr-blue-dark)}
+.rr-root .rr-followup form+button{background:transparent;color:var(--rr-blue)}
+.rr-root .rr-followup form+button:hover:not(:disabled){background:var(--c2-blue-tint,#eaf4fc);border-color:var(--rr-blue)}
+.rr-root .rr-followup input{border-color:var(--rr-blue)}
+.rr-root .rr-followup input:focus-visible{outline-color:var(--rr-blue)}
+.rr-root .rr-review .rr-text-button{min-height:44px;font-size:14px;font-weight:600}
+.rr-root .rr-compose .rr-send:not(:disabled){border-color:var(--rr-blue)}
+.rr-root .rr-compose .rr-send:hover:not(:disabled){background:var(--rr-blue-dark);border-color:var(--rr-blue-dark);box-shadow:none}
 .rr-root .rr-typing{padding:0 2px 16px}
 .rr-root .rr-message-photos{width:min(230px,100%)}
 .rr-root .rr-latest{align-self:center;flex-shrink:0;min-height:36px;padding:5px 12px;margin:0 0 8px;border:1px solid #dce5ed;border-radius:8px;background:#fff;color:var(--rr-blue);font-size:13px;box-shadow:0 2px 8px #0d2a4d0a}
@@ -164,5 +179,5 @@
 .rr-root .rr-compose .rr-send{width:38px;height:38px;flex-basis:38px;border-radius:50%!important;background:var(--rr-blue);box-shadow:none}
 .rr-root .rr-compose>.rr-voice-status{grid-column:1/-1}
 @media(hover:hover){.rr-message-actions{opacity:0;transition:opacity .15s}.rr-assistant:hover .rr-message-actions,.rr-assistant:focus-within .rr-message-actions{opacity:1}}
-@media(prefers-reduced-motion:reduce){.rr-message-actions{transition:none}}
+@media(prefers-reduced-motion:reduce){.rr-message-actions,.rr-root .rr-choices button,.rr-root .rr-review button,.rr-root .rr-contact>button,.rr-root .rr-followup button{transition:none}}
 @media(max-width:700px){.rr-root .rr-panel{bottom:calc(8px + env(safe-area-inset-bottom));height:min(710px,calc(100dvh - 16px - env(safe-area-inset-bottom)))}.rr-root .rr-log{padding-inline:16px}}
