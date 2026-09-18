@@ -4,6 +4,7 @@ import { site, SITE_URL } from "@/lib/content";
 import { shareImage } from "@/lib/seo";
 import { ConceptProvider } from "@/components/concepts/ConceptProvider";
 import { ConceptShell } from "@/components/concepts/ConceptChrome";
+import { RoboRyanMount } from "@/components/robo-ryan/RoboRyanMount";
 import "./globals.css";
 import "@/styles/concept-two.css";
 import "@/styles/concept-two-authority-fixes.css";
@@ -45,6 +46,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body>
         <ConceptProvider>
           <ConceptShell>{children}</ConceptShell>
+          {process.env.ROBO_RYAN_WIDGET_ENABLED !== "false" && <RoboRyanMount live={process.env.ROBO_RYAN_AI_ENABLED === "true" && !!process.env.OPENAI_API_KEY && !!process.env.OPENAI_MODEL} />}
         </ConceptProvider>
       </body>
     </html>
