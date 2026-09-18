@@ -64,3 +64,8 @@ test("blocked widget falls back to hosted booking", async ({ page }) => {
   await page.locator(".c2-hero").getByRole("button", { name: "Request Service", exact: true }).click();
   await expect(page).toHaveURL(housecallBookingUrl);
 });
+
+// Keep the timed chat invitation from racing unrelated page interactions.
+test.beforeEach(async({page})=>{
+  await page.addInitScript(()=>sessionStorage.setItem('robo-ryan-seen','yes'));
+});

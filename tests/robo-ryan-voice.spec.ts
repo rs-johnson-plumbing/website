@@ -72,7 +72,7 @@ test('spoken choices ignore casing and closing stops active audio',async({page})
   await expect(chat).toContainText('What needs repair?');
   await expect.poll(()=>page.evaluate(()=>Reflect.get(window,'voiceTest').spoken.length)).toBe(1);
   await chat.getByRole('button',{name:'Use Microphone',exact:true}).click();
-  await chat.getByRole('button',{name:'Minimize Chat',exact:true}).click();
+  await chat.getByRole('button',{name:'Close Chat',exact:true}).click();
   expect(await page.evaluate(()=>Reflect.get(window,'voiceTest').aborts)).toBe(1);
   expect(await page.evaluate(()=>Reflect.get(window,'voiceTest').cancels)).toBeGreaterThan(0);
   await page.getByRole('button',{name:'Open Ryan Rabato chat',exact:true}).click();

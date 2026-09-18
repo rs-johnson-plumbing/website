@@ -37,7 +37,7 @@ export function RoboRyan({ studio=false, offline=false }: { studio?:boolean; off
   useEffect(()=>{const field=input.current;if(field){field.style.height='auto';field.style.height=Math.min(field.scrollHeight,140)+'px'}},[draft,open]);
   function latest(){nearBottom.current=true;setShowLatest(false);log.current?.scrollTo({top:log.current.scrollHeight,behavior:'auto'})}
   function trackScroll(){const el=log.current;if(el){nearBottom.current=el.scrollHeight-el.scrollTop-el.clientHeight<64;setShowLatest(!nearBottom.current)}}
-  function close(){voice.stopAll();setOpen(false);try{sessionStorage.setItem('robo-ryan-seen','yes')}catch{};launch.current?.focus()}
+  function close(){voice.stopAll();setOpen(false);try{sessionStorage.setItem('robo-ryan-seen','yes')}catch{};requestAnimationFrame(()=>launch.current?.focus())}
   function reset(){if(busy||preparingPhoto)return;nearBottom.current=true;setShowLatest(false);setPhotos([]);voice.stopAll();setMessages([{role:'assistant',content:greeting}]);setChoices(initialChoices);setStep('kind');setIntake({});setDraft('');setNotice('');setBookingOffered(false);setOpen(true)}
   async function send(text:string){
     if(busy||preparingPhoto||(!text.trim()&&!photos.length)||voice.listening)return;nearBottom.current=true;setShowLatest(false);text=text.trim()||photoCopy.sendPhoto;const attached=photos;setPhotos([]);voice.stopAll();const normalized=text.trim().toLowerCase().replace(/[.!?]+$/,'');text=choices.find(choice=>choice.toLowerCase().replace(/[.!?]+$/,'')===normalized)??text;setNotice('');setDraft('');const history=[...messages,{role:'user' as const,content:text.trim(),...(attached.length?{photos:attached}:{})}];setMessages(history);setChoices([]);
