@@ -26,7 +26,7 @@
   "text_26": "Minimize Ryan Rabato chat",
   "text_27": "Open Ryan Rabato chat",
   "text_28": "RR",
-  "text_29": "Ask Ryan Rabato",
+  "text_29": "Chat with Plumber Now",
   "text_30": "Chat with Ryan Rabato",
   "text_31": "Plumbing questions? Ask away.",
   "text_32": "Chat with Ryan Rabato",
@@ -87,12 +87,12 @@
   "sceneDetail": "From quick repairs to new installations.",
   "launcherConcepts": [
     {
-      "id": "charcoal",
+      "id": "personal",
       "number": "01",
-      "title": "Charcoal",
-      "description": "A strong contrast against the website’s blue buttons. The clearest everyday choice.",
-      "label": "Chat with a Plumber",
-      "detail": "",
+      "title": "Personal Invitation",
+      "description": "A personal invitation with an initials badge, charcoal contrast, and gently softened corners.",
+      "label": "Chat with Plumber Now",
+      "detail": "Plumbing questions? Ask away.",
       "tag": "Main Website"
     },
     {
