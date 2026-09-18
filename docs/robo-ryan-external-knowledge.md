@@ -22,6 +22,8 @@ Without activation, a product question receives an honest explanation that live 
 
 ## Answer behavior
 
+While an enabled manufacturer lookup is running, the chat displays “Searching the web…”. The server flushes an activity header and leading JSON whitespace before waiting for the provider; the final body remains JSON for existing clients. Disabled, rate-limited, photo, urgent, and local-answer paths do not emit the web-search activity. The status clears when the answer or failure arrives.
+
 Urgent safety responses run before any lookup. Business questions stay in approved local policy. Manufacturer lookup can override a generic plumbing FAQ match, so a Rinnai model question is not answered from a generic water-heater article. Recent user messages retain brand context for follow-up model numbers; assistant messages cannot select a brand.
 
 Lookup requests require web search on approved manufacturer domains. The response must contain a completed search and a valid inline URL citation on an approved HTTPS domain. Otherwise the bot returns the official support link and says it could not verify the answer. Incomplete responses and provider failures do not produce guessed product instructions. Inline citations are clickable and source links remain below the answer.

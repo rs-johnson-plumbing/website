@@ -51,8 +51,19 @@ export async function POST(request:NextRequest){
     const now=Date.now();if(now-searchWindow>=60000){searchWindow=now;searchCount=0}
     if(searchCount>=20)return NextResponse.json(manufacturerFallback(lookup.brands,'busy'),{headers:{'Cache-Control':'no-store'}});
     searchCount++;
-    try{return NextResponse.json(await searchManufacturer(messages,lookup.brands),{headers:{'Cache-Control':'no-store'}})}
-    catch{return NextResponse.json(manufacturerFallback(lookup.brands),{headers:{'Cache-Control':'no-store'}})}
+    // Flush headers before waiting for the search. Leading whitespace keeps the
+    // response valid JSON for existing callers while the chat can show progress.
+    const encoder=new TextEncoder();let cancelled=false;
+    return new Response(new ReadableStream({
+      async start(controller){
+        controller.enqueue(encoder.encode(' '));
+        let answer;
+        try{answer=await searchManufacturer(messages,lookup.brands)}
+        catch{answer=manufacturerFallback(lookup.brands)}
+        if(!cancelled){controller.enqueue(encoder.encode(JSON.stringify(answer)));controller.close()}
+      },
+      cancel(){cancelled=true},
+    }),{headers:{'Content-Type':'application/json','Cache-Control':'no-store, no-transform','X-Robo-Ryan-Activity':'web-search'}});
   }
   // Unknown questions never fall through to ungrounded model generation.
   const answer = !reference.matched ? {...reference, ...offerFollowUp()}

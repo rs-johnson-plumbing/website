@@ -62,3 +62,49 @@ test('chat shows clickable inline citations from product answers',async({page})=
  await expect(chat.locator('.rr-citation')).toHaveAttribute('href','https://www.rinnai.us/professional/document-library');
  await expect(chat.locator('.rr-citation')).toHaveText('[1]');
 });
+
+test('search progress arrives before the answer and is absent when search is disabled',async()=>{
+ const keys=['OPENAI_API_KEY','OPENAI_MODEL','ROBO_RYAN_AI_ENABLED','ROBO_RYAN_WEB_SEARCH_ENABLED'];
+ const original=Object.fromEntries(keys.map(k=>[k,process.env[k]])),originalFetch=global.fetch;
+ let finish!:()=>void;
+ const pending=new Promise<void>(resolve=>{finish=resolve});
+ for(const k of keys)process.env[k]=k.includes('ENABLED')?'true':'test-fixture';
+ global.fetch=async()=>{await pending;throw new Error('Simulated search outage')};
+ try{
+   const response=await POST(request('Rinnai RU199iN manual'));
+   expect(response.headers.get('X-Robo-Ryan-Activity')).toBe('web-search');
+   const reader=response.body!.getReader();
+   expect(new TextDecoder().decode((await reader.read()).value)).toBe(' ');
+   finish();
+   let body='';const decoder=new TextDecoder();
+   while(true){const chunk=await reader.read();if(chunk.done)break;body+=decoder.decode(chunk.value,{stream:true})}
+   expect(JSON.parse(body).followUp).toBe(true);
+   expect(JSON.parse(body).externalSearch).toBe(false);
+   process.env.ROBO_RYAN_WEB_SEARCH_ENABLED='false';
+   const disabled=await POST(request('Rinnai RU199iN manual'));
+   expect(disabled.headers.get('X-Robo-Ryan-Activity')).toBeNull();
+ }finally{finish();global.fetch=originalFetch;for(const k of keys){if(original[k]===undefined)delete process.env[k];else process.env[k]=original[k]}}
+});
+
+test('chat shows Searching the web while awaiting an answer and clears it afterwards',async({page})=>{
+ await page.addInitScript(()=>{
+   sessionStorage.setItem('robo-ryan-seen','yes');
+   const originalFetch=window.fetch;
+   window.fetch=async(input,init)=>{
+     if(input==='/api/robo-ryan'){
+       const encoder=new TextEncoder();
+       return new Response(new ReadableStream({start(controller){
+         controller.enqueue(encoder.encode(' '));
+         setTimeout(()=>{controller.enqueue(encoder.encode(JSON.stringify({reply:'Search fixture finished.',externalSearch:true})));controller.close()},1500);
+       }}),{headers:{'Content-Type':'application/json','X-Robo-Ryan-Activity':'web-search'}});
+     }
+     return originalFetch(input,init);
+   };
+ });
+ await page.goto('/');await page.getByRole('button',{name:'Open Ryan Rabato chat',exact:true}).click();
+ const chat=page.getByRole('dialog',{name:'Chat with Ryan Rabato'});
+ await chat.getByLabel('Message Ryan Rabato').fill('Rinnai RU199iN manual');await chat.getByRole('button',{name:'Send Message',exact:true}).click();
+ await expect(chat.getByRole('status')).toHaveText('Searching the web…');
+ await expect(chat.locator('.rr-assistant').last()).toContainText('Search fixture finished.');
+ await expect(chat.getByText('Searching the web…',{exact:true})).toHaveCount(0);
+});
