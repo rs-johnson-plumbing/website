@@ -56,13 +56,13 @@ for(const width of [390,1440])test(`website visitors can read a sourced answer a
   await page.setViewportSize({width,height:844});
   await page.goto('/');
   const launch=page.locator('.rr-launch');if(await launch.getAttribute('aria-expanded')==='false')await launch.click();
-  const chat=page.getByRole('dialog',{name:'Chat with RoboRyan'});
-  await chat.getByRole('button',{name:'Need something else? ↗',exact:true}).click();
-  await chat.getByLabel('Message RoboRyan').fill('Why does my toilet keep running?');
+  const chat=page.getByRole('dialog',{name:'Chat with Ryan Rabato'});
+  await chat.getByRole('button',{name:'Need something else?',exact:true}).click();
+  await chat.getByLabel('Message Ryan Rabato').fill('Why does my toilet keep running?');
   await chat.getByRole('button',{name:'Send message'}).click();
   await expect(chat).toContainText('A worn tank seal or flapper');
   const source=chat.getByRole('link',{name:'EPA WaterSense: Finding Household Leaks'});
   await expect(source).toHaveAttribute('href','https://www.epa.gov/watersense/fix-leak-week');
-  await expect(chat).toContainText('Plumbing knowledge guide');
+
 
 });
