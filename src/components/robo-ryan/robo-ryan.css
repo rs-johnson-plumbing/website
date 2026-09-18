@@ -106,3 +106,4 @@
 .rr-root .rr-launch-personal>span:last-child{white-space:nowrap}
 .rr-root .rr-launch-personal small{font-size:11px;color:#ffffffcf}
 .rr-theme-personal .rr-head{background:#2b2b2b}
+.rr-root .rr-citation{color:var(--rr-blue);font-size:.85em;font-weight:600;text-decoration:underline;text-underline-offset:2px;padding:0 2px}
