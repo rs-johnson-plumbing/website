@@ -1,6 +1,6 @@
 
 import copy from '../../content/robo-ryan-flow.json';
-export type ChatMessage = { role: 'user' | 'assistant'; content: string; sources?: {title:string;url:string}[] };
+export type ChatMessage = { role: 'user' | 'assistant'; content: string; sources?: {title:string;url:string}[]; citations?: {start:number;end:number;title:string;url:string}[] };
 export type Intake = { kind?: string; fixture?: string; detail?: string; city?: string; timing?: string };
 export type Step = 'kind' | 'fixture' | 'detail' | 'city' | 'timing' | 'review' | 'question';
 export const greeting = copy.text_0;
