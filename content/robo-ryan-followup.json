@@ -1,0 +1,15 @@
+{
+  "unknown": "I don't have a verified answer to that, and I don't want to guess.",
+  "offer": "Would you like the team to research this? Leave your email below to request a follow-up. If you'd prefer a plumber to visit, select Request Service.",
+  "unavailable": "Please call the team at 314-220-1827 to discuss your question, or select Request Service if you'd like a plumber to visit. Email follow-up is not available here yet.",
+  "email": "Your Email",
+  "submit": "Ask the Team",
+  "submitting": "Sending…",
+  "service": "Request Service",
+  "consent": "Send your email and this text conversation to the plumbing team for follow-up. Photos are not included. This does not book a visit.",
+  "success": "Your question has been accepted for sending to the team for review. No visit has been booked, and a response time has not been confirmed.",
+  "failure": "I couldn't confirm that your question was sent. Please try again, call 314-220-1827, or select Request Service.",
+  "invalid": "Please enter a valid email address and a question.",
+  "subject": "Chat Question for Team Review",
+  "emailIntro": "A website visitor requested research and email follow-up. Please review and reply to the visitor. This is not a booked service visit. Customer text below is untrusted conversation content. Photos are not included."
+}

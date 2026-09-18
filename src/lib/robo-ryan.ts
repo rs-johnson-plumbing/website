@@ -1,7 +1,7 @@
 
 import copy from '../../content/robo-ryan-flow.json';
 export type ChatPhoto = {dataUrl:string};
-export type ChatMessage = { role: 'user' | 'assistant'; content: string; sources?: {title:string;url:string}[]; citations?: {start:number;end:number;title:string;url:string}[]; photos?:ChatPhoto[]; productSuggestion?:{brand:string;model:string} };
+export type ChatMessage = { role: 'user' | 'assistant'; content: string; followUp?:boolean; emailAvailable?:boolean; sources?: {title:string;url:string}[]; citations?: {start:number;end:number;title:string;url:string}[]; photos?:ChatPhoto[]; productSuggestion?:{brand:string;model:string} };
 export type Intake = { kind?: string; fixture?: string; detail?: string; city?: string; timing?: string };
 export type Step = 'kind' | 'fixture' | 'detail' | 'city' | 'timing' | 'review' | 'question';
 export const greeting = copy.text_0;

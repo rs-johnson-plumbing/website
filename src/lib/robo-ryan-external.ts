@@ -1,3 +1,4 @@
+import { offerFollowUp } from './robo-ryan-followup';
 import config from '../../content/robo-ryan-external.json';
 import type { ChatMessage } from './robo-ryan';
 
@@ -19,7 +20,8 @@ export function productLookup(messages:ChatMessage[]) {
 }
 
 export function manufacturerFallback(brands:Brand[],reason:'unavailable'|'unverified'|'busy'='unavailable') {
-  return {reply:brands.length?(reason==='busy'?config.busy:reason==='unverified'?config.noVerifiedAnswer:config.searchUnavailable):config.identifyProduct,
+  const reply=brands.length?(reason==='busy'?config.busy:reason==='unverified'?config.noVerifiedAnswer:config.searchUnavailable):config.identifyProduct;
+  return {...offerFollowUp(reply),
     sources:brands.map(b=>({title:`${b.name} ${config.sourceSuffix}`,url:b.supportUrl})),externalSearch:false};
 }
 

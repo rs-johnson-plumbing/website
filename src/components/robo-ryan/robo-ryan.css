@@ -124,3 +124,13 @@
 .rr-root .rr-confirm-product{margin:12px 0 0}
 .rr-root .rr-confirm-product button{background:#fff}
 .rr-compose{max-height:52%;overflow:auto}
+
+.rr-followup{display:grid;gap:10px;margin-top:16px}
+.rr-followup form{display:grid;gap:10px}
+.rr-followup label{display:grid;gap:6px;font-size:14px;font-weight:600;color:#0D2A4D}
+.rr-followup input{width:100%;min-width:0;min-height:44px;border:1px solid #2868A8;border-radius:8px;padding:10px;background:#fff;font:inherit}
+.rr-followup input:focus-visible{outline:2px solid #2868A8;outline-offset:2px}
+.rr-followup p{font-size:13px;line-height:1.5;margin:0}
+.rr-followup button{justify-self:start;min-height:44px;border:1px solid #2868A8;border-radius:8px;padding:9px 14px;background:transparent;color:#2868A8;font:inherit;font-weight:600;cursor:pointer}
+.rr-followup button[type=submit]{background:#2868A8;color:#fff}
+.rr-followup button:disabled{opacity:.6;cursor:wait}
