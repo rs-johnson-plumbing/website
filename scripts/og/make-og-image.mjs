@@ -30,7 +30,10 @@ const color = (name) => {
   return m[1];
 };
 
+const logo = readFileSync(new URL("public/logo/johnson-plumbing.png", root)).toString("base64");
+
 const html = template
+  .replaceAll("{{logo}}", logo)
   .replaceAll("{{font}}", font)
   .replaceAll("{{offwhite}}", color("offwhite"))
   .replaceAll("{{charcoal}}", color("charcoal"))

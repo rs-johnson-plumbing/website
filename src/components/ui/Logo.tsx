@@ -7,16 +7,16 @@ type BrandProps = { className?: string; title?: string; reversed?: boolean; larg
 
 /** The supplied artwork is cropped in the SVG viewport without altering it. */
 export function Lockup({ className, title }: BrandProps) {
-  return <svg viewBox="145 170 1880 405" aria-hidden={title ? undefined : true} role={title ? "img" : undefined} className={className} style={{mixBlendMode:"multiply"}}>
+  return <svg viewBox="256 157 1504 426" aria-hidden={title ? undefined : true} role={title ? "img" : undefined} className={className} style={{mixBlendMode:"multiply"}}>
     {title && <title>{title}</title>}
-    <image href="/logo/rsj-approved.png" width="2169" height="725" />
+    <image href="/logo/johnson-plumbing.png" width="2169" height="725" />
   </svg>;
 }
 
 export function Mark({ className, title }: BrandProps) {
-  return <svg viewBox="145 170 330 405" aria-hidden={title ? undefined : true} role={title ? "img" : undefined} className={className}>
+  return <svg viewBox="256 157 350 426" aria-hidden={title ? undefined : true} role={title ? "img" : undefined} className={className}>
     {title && <title>{title}</title>}
-    <image href="/logo/rsj-approved.png" width="2169" height="725" />
+    <image href="/logo/johnson-plumbing.png" width="2169" height="725" />
   </svg>;
 }
 
@@ -24,7 +24,7 @@ export function Badge({ className, title }: BrandProps) {
   return <svg viewBox="0 0 400 400" aria-hidden={title ? undefined : true} role={title ? "img" : undefined} className={className}>
     {title && <title>{title}</title>}
     <circle cx="200" cy="200" r="196" fill="#fff" stroke="#12345b" strokeWidth="4"/>
-    <svg x="24" y="156" width="352" height="76" viewBox="145 170 1880 405"><image href="/logo/rsj-approved.png" width="2169" height="725"/></svg>
+    <svg x="24" y="150" width="352" height="100" viewBox="256 157 1504 426"><image href="/logo/johnson-plumbing.png" width="2169" height="725"/></svg>
   </svg>;
 }
 

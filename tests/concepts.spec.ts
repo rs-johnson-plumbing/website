@@ -125,7 +125,7 @@ test("Concept 2 fits every width and loads the hero photograph", async ({ page }
     } else {
       await expect(image).toBeVisible();
       await expect.poll(() => image.evaluate((el: HTMLImageElement) => el.complete && el.naturalWidth > 0)).toBe(true);
-      expect(await image.evaluate((el: HTMLImageElement) => el.currentSrc)).toContain("hero-desktop-authority.webp");
+      expect(await image.evaluate((el: HTMLImageElement) => el.currentSrc)).toContain("johnson-hero-van.webp");
     }
   }
 });

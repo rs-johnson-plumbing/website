@@ -1,18 +1,14 @@
-# Logo files
+# Website logo
 
-The R.S. Johnson Plumbing logo: the P-trap "J" from the original business
-card, redrawn as vector. Charcoal pipe (#2B2B2B), copper flanges (#A85A2E)
-(#2F6FE0). Wordmark in Figtree ExtraBold, converted to outlines in the SVG so no
-font needs to be installed.
+The active website artwork is `johnson-plumbing.png`: the owner's selected
+Refined Original concept, with JOHNSON PLUMBING and no R.S. prefix.
+The source PNG is preserved unchanged at 2169 × 725 pixels.
 
-| File | Use |
-|---|---|
-| `rsj-badge.svg` / `rsj-badge-1024.png` | Round badge. Website header, shirts, truck doors, Nextdoor and Google avatars. |
-| `rsj-mark.svg` / `rsj-mark-1024.png` | Mark alone on light backgrounds. App icons, favicons, stickers. |
-| `rsj-mark-reversed.svg` / `rsj-mark-reversed-1024.png` | Mark alone on dark backgrounds. |
-| `rsj-lockup.svg` / `rsj-lockup-2280.png` / `rsj-lockup-2280-white.png` | Full horizontal lockup with the wordmark. Invoices, letterhead, signage. |
+`src/components/ui/Logo.tsx` uses SVG viewports to display the full wordmark,
+standalone pipe mark, and badge from this same artwork. Shared components
+cover the header, footer, intake dialog, and final call-to-action mark.
 
-The PNGs with no color suffix have transparent backgrounds.
-
-The badge SVG still uses Georgia as a live font; ask a print vendor to
-outline it, or send the PNG.
+The browser icon in `src/app/icon.svg` contains a resized crop of the pipe
+mark. `npm run og:image` regenerates `public/share-image.png` using the
+selected artwork. The `rsj-*` assets are retained as historical originals;
+they are no longer used by the active website logo components.
