@@ -3,7 +3,7 @@ import {useRef, useState} from 'react';
 import type {ChatMessage} from '@/lib/robo-ryan';
 import copy from '../../../content/robo-ryan-followup.json';
 
-export function FollowUp({messages, emailAvailable, requestService}: {messages: ChatMessage[]; emailAvailable?: boolean; requestService: () => void}) {
+export function FollowUp({messages, emailAvailable}: {messages: ChatMessage[]; emailAvailable?: boolean}) {
   const [email, setEmail] = useState(''), [sending, setSending] = useState(false);
   const [sent, setSent] = useState(false), [error, setError] = useState('');
   const requestId = useRef('');
@@ -30,6 +30,5 @@ export function FollowUp({messages, emailAvailable, requestService}: {messages: 
       <button type="submit" disabled={sending}>{sending ? copy.submitting : copy.submit}</button>
       {error && <p role="alert">{error}</p>}
     </form>}
-    <button type="button" onClick={requestService}>{copy.service}</button>
   </div>;
 }

@@ -117,5 +117,6 @@
   ],
   "latestMessage": "Latest Message",
   "askQuestion": "Ask a Question",
+  "serviceQuestion": "Do you need service?",
   "questionPrompt": "What can I help you understand about your plumbing?"
 }

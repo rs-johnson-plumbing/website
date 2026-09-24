@@ -21,7 +21,6 @@ export function RoboRyan({ studio=false, offline=false }: { studio?:boolean; off
   const [busy,setBusy]=useState(false);
   const [searchingWeb,setSearchingWeb]=useState(false);
   const [photos,setPhotos]=useState<ChatPhoto[]>([]),[preparingPhoto,setPreparingPhoto]=useState(false);
-  const [bookingOffered,setBookingOffered]=useState(false);
   const nearBottom=useRef(true);
   const [showLatest,setShowLatest]=useState(false);
   const voice=useChatVoice(setDraft);
@@ -37,23 +36,22 @@ export function RoboRyan({ studio=false, offline=false }: { studio?:boolean; off
   function latest(){nearBottom.current=true;setShowLatest(false);log.current?.scrollTo({top:log.current.scrollHeight,behavior:'auto'})}
   function trackScroll(){const el=log.current;if(el){nearBottom.current=el.scrollHeight-el.scrollTop-el.clientHeight<64;setShowLatest(!nearBottom.current)}}
   function close(){voice.stopAll();setOpen(false);try{sessionStorage.setItem('robo-ryan-seen','yes')}catch{};requestAnimationFrame(()=>launch.current?.focus())}
-  function reset(){if(busy||preparingPhoto)return;nearBottom.current=true;setShowLatest(false);setPhotos([]);voice.stopAll();setMessages([{role:'assistant',content:greeting}]);setShowWelcome(true);setDraft('');setBookingOffered(false);setOpen(true)}
+  function reset(){if(busy||preparingPhoto)return;nearBottom.current=true;setShowLatest(false);setPhotos([]);voice.stopAll();setMessages([{role:'assistant',content:greeting}]);setShowWelcome(true);setDraft('');setOpen(true)}
   async function send(text:string){
     if(busy||preparingPhoto||(!text.trim()&&!photos.length)||voice.listening)return;
     nearBottom.current=true;setShowLatest(false);text=text.trim()||photoCopy.sendPhoto;
     const attached=photos;setPhotos([]);voice.stopAll();setDraft('');
     const history=[...messages,{role:'user' as const,content:text,...(attached.length?{photos:attached}:{})}];
-    setMessages(history);setShowWelcome(false);setBookingOffered(false);
+    setMessages(history);setShowWelcome(false);
     // Safety advice stays visible instead of being hidden by the booking modal.
     const urgent=urgentReply(text);
-    if(urgent){setMessages([...history,{role:'assistant',content:urgent}]);setBookingOffered(true);return}
+    if(urgent){setMessages([...history,{role:'assistant',content:urgent}]);return}
     if(requestsService(text,showWelcome)){requestService();return}
     if(offline){setMessages([...history,{role:'assistant',content:attached.length?photoCopy.preview:copy.text_100}]);return}
     setSearchingWeb(false);setBusy(true);
     try{
       const response=await fetch('/api/robo-ryan',{method:copy.text_101,headers:{'Content-Type':'application/json','Accept':'application/x-ndjson'},body:JSON.stringify({messages:recentChatHistory(history),photos:attached}),signal:AbortSignal.timeout(55000)});
       const result=await readChatResponse(response,()=>setSearchingWeb(true));
-      setBookingOffered(!!result.offerService);
       setMessages([...history,{role:'assistant',content:result.reply,sources:result.sources,citations:result.citations,productSuggestion:result.productSuggestion,followUp:result.followUp,emailAvailable:result.emailAvailable}]);
     }catch{setMessages([...history,{role:'assistant',content:copy.text_102,followUp:true}])}
     finally{setSearchingWeb(false);setBusy(false)}
@@ -65,13 +63,13 @@ export function RoboRyan({ studio=false, offline=false }: { studio?:boolean; off
     <button ref={launch} className={`rr-launch rr-launch-${variant}`} aria-label={open?copy.text_26:copy.text_27} aria-expanded={open} aria-controls="rr-panel" onClick={()=>{if(open)close();else{setOpen(true);setTimeout(()=>input.current?.focus(),100)}}}><span className="rr-launch-icon">{variant==='personal'?copy.text_28:variant==='copper'?<MicIcon/>:<ChatIcon/>}</span><span>{selectedConcept.label}{selectedConcept.detail&&<small>{selectedConcept.detail}</small>}</span></button>
     {open&&<section id="rr-panel" className="rr-panel" role="dialog" aria-label={copy.text_32} onKeyDown={e=>{if(e.key==="Escape")close()}}>
       <header className="rr-head"><span className="rr-avatar">{copy.text_34}</span><div><strong>{copy.text_35}</strong><small>{copy.assistantLabel}</small></div><div className="rr-head-actions"><button type="button" aria-label={voice.readReplies?copy.voice.mute:copy.voice.read} title={voice.readReplies?copy.voice.mute:copy.voice.read} aria-pressed={voice.readReplies} onClick={voice.toggleReadReplies}><SpeakerIcon muted={!voice.readReplies}/></button><a href="tel:3142201827" aria-label={copy.voice.call} title={copy.voice.call} onClick={voice.stopAll}><PhoneIcon/></a><button aria-label={copy.text_37} onClick={close}>{copy.text_38}</button></div></header>
-      <div ref={log} className="rr-log" onScroll={trackScroll} role="log" aria-live="polite">{messages.map((m,i)=><div className={`rr-message rr-${m.role}`} key={i}>{!!m.photos?.length&&<div className="rr-message-photos">{m.photos.map((photo,index)=><img key={index} src={photo.dataUrl} alt={`${photoCopy.alt} ${index+1}`}/>)}</div>}<CitedAnswer message={m}/>{m.followUp&&<FollowUp messages={messages.slice(0,i+1)} emailAvailable={m.emailAvailable} requestService={requestService}/>}{m.productSuggestion&&<div className="rr-choices rr-confirm-product"><button disabled={busy||preparingPhoto||!!photos.length} onClick={()=>send(`${m.productSuggestion!.brand} model ${m.productSuggestion!.model}`)}>{photoCopy.confirm}</button></div>}{!!m.sources?.length&&<nav className="rr-sources" aria-label={copy.sourcesLabel}>{m.sources.map(source=><a key={source.url} href={source.url} target="_blank" rel="noopener noreferrer">{source.title} ↗</a>)}</nav>}{m.role==='assistant'&&<div className="rr-message-actions"><button type="button" aria-label={copy.voice.replay} title={copy.voice.replay} onClick={()=>voice.readAnswer(m.content)}><SpeakerIcon/></button></div>}</div>)}
-        {showWelcome&&<div className="rr-choices"><button onClick={requestService}>{copy.text_48}</button><button onClick={askQuestion}>{copy.askQuestion}</button></div>}
-        {bookingOffered&&<div className="rr-choices"><button onClick={requestService}>{copy.text_48}</button></div>}
+      <div ref={log} className="rr-log" onScroll={trackScroll} role="log" aria-live="polite">{messages.map((m,i)=><div className={`rr-message rr-${m.role}`} key={i}>{!!m.photos?.length&&<div className="rr-message-photos">{m.photos.map((photo,index)=><img key={index} src={photo.dataUrl} alt={`${photoCopy.alt} ${index+1}`}/>)}</div>}<CitedAnswer message={m}/>{m.followUp&&m.emailAvailable&&<FollowUp messages={messages.slice(0,i+1)} emailAvailable={m.emailAvailable}/>}{m.productSuggestion&&<div className="rr-choices rr-confirm-product"><button disabled={busy||preparingPhoto||!!photos.length} onClick={()=>send(`${m.productSuggestion!.brand} model ${m.productSuggestion!.model}`)}>{photoCopy.confirm}</button></div>}{!!m.sources?.length&&<nav className="rr-sources" aria-label={copy.sourcesLabel}>{m.sources.map(source=><a key={source.url} href={source.url} target="_blank" rel="noopener noreferrer">{source.title} ↗</a>)}</nav>}{m.role==='assistant'&&<div className="rr-message-actions"><button type="button" aria-label={copy.voice.replay} title={copy.voice.replay} onClick={()=>voice.readAnswer(m.content)}><SpeakerIcon/></button></div>}</div>)}
+        {showWelcome&&<div className="rr-choices"><button onClick={askQuestion}>{copy.askQuestion}</button></div>}
         {busy&&<div className="rr-typing" role="status">{searchingWeb?copy.searchingWeb:copy.text_46}</div>}
 
       </div>
       {showLatest&&<button className="rr-latest" type="button" onClick={latest}>{copy.latestMessage} <span aria-hidden="true">↓</span></button>}
+      <div className="rr-service-offer"><p>{copy.serviceQuestion}</p><div className="rr-choices"><button type="button" onClick={requestService}>{copy.text_48}</button></div></div>
       <form className="rr-compose" onSubmit={e=>{e.preventDefault();void send(draft)}}>
         <label className="rr-sr" htmlFor="rr-input">{copy.text_57}</label>
         <textarea ref={input} id="rr-input" rows={1} value={draft} onChange={e=>setDraft(e.target.value)} placeholder={copy.text_58} maxLength={1500} disabled={busy||voice.listening} onKeyDown={e=>{if(e.key==='Enter'&&!e.shiftKey&&!e.nativeEvent.isComposing&&!window.matchMedia('(pointer: coarse)').matches){e.preventDefault();void send(draft)}}}/>

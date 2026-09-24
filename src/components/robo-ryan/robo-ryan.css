@@ -186,3 +186,7 @@
 .rr-root .rr-panel,.rr-root .rr-compose,.rr-root .rr-launch-personal,.rr-root .rr-sample-personal{border-radius:var(--site-button-radius,3px)!important}
 .rr-root .rr-launch[aria-expanded=true]{display:none}
 @media(min-width:701px){.rr-root .rr-panel{bottom:24px;height:min(650px,calc(100dvh - 48px))}}
+
+.rr-root .rr-service-offer{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-shrink:0;margin:0;padding:10px 16px;border-top:1px solid #dce5ed}
+.rr-root .rr-service-offer p{margin:0;font-size:15px;line-height:1.5}
+.rr-root .rr-service-offer .rr-choices{margin:0;flex-shrink:0}
