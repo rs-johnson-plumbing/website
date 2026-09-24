@@ -52,7 +52,7 @@ test('actual search events drive progress and searched answers retain citations'
   expect(()=>parseConversationResponse({status:'completed',output:[{type:'web_search_call',status:'completed'},...completed('Unsupported claim').output]})).toThrow();
 }));
 
-for(const width of [390,1440])test(`free typing during intake goes to contextual chat at ${width}px`,async({page})=>{
+for(const width of [390,1440])test(`plumbing questions goes to contextual chat at ${width}px`,async({page})=>{
   await page.setViewportSize({width,height:900});await page.addInitScript(()=>sessionStorage.setItem('robo-ryan-seen','yes'));
   let received:{role:string;content:string}[]=[];
   await page.route('**/api/robo-ryan',route=>{
@@ -61,10 +61,10 @@ for(const width of [390,1440])test(`free typing during intake goes to contextual
   });
   await page.goto('/');await page.getByRole('button',{name:'Open Ryan Rabato chat',exact:true}).click();
   const chat=page.getByRole('dialog',{name:'Chat with Ryan Rabato'});
-  await chat.getByRole('button',{name:'Repair',exact:true}).click();
-  await chat.getByLabel('Message Ryan Rabato').fill('Need a water leak fixed under my sink');await chat.getByRole('button',{name:'Send Message',exact:true}).click();
+  await chat.getByRole('button',{name:'Ask a Question',exact:true}).click();
+  await chat.getByLabel('Message Ryan Rabato').fill('Why is water leaking under my sink?');await chat.getByRole('button',{name:'Send Message',exact:true}).click();
   await expect(chat.locator('.rr-assistant').last()).toContainText('pipe connection');
-  expect(received.some(message=>message.content==='Repair')).toBe(true);expect(received.at(-1)?.content).toBe('Need a water leak fixed under my sink');
+  expect(received.some(message=>message.content.includes('What can I help you understand'))).toBe(true);expect(received.at(-1)?.content).toBe('Why is water leaking under my sink?');
   await chat.getByLabel('Message Ryan Rabato').fill('Only when I use the faucet');await chat.getByRole('button',{name:'Send Message',exact:true}).click();
   await expect.poll(()=>received.at(-1)?.content).toBe('Only when I use the faucet');
   expect(received.some(message=>message.content.includes('pipe connection'))).toBe(true);expect(await chat.evaluate(el=>el.scrollWidth<=el.clientWidth)).toBe(true);

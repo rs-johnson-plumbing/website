@@ -64,12 +64,12 @@ for(const mode of ['unsupported','denied'] as const)test(`${mode} speech preserv
     await expect(chat.getByLabel('Message Ryan Rabato')).toHaveValue('My faucet leaks');
 });
 
-test('spoken choices ignore casing and closing stops active audio',async({page})=>{
+test('spoken questions work and closing stops active audio',async({page})=>{
   await fakeVoice(page);const chat=await openChat(page);
   await chat.getByRole('button',{name:'Use Microphone',exact:true}).click();
-  await page.evaluate(()=>{const r=Reflect.get(window,'testRecognition');r.onresult({results:[{isFinal:true,0:{transcript:'repair.'}}]});r.onend()});
+  await page.evaluate(()=>{const r=Reflect.get(window,'testRecognition');r.onresult({results:[{isFinal:true,0:{transcript:'Why does my toilet keep running?'}}]});r.onend()});
   await chat.getByRole('button',{name:'Send Message',exact:true}).click();
-  await expect(chat).toContainText('What needs repair?');
+  await expect(chat).toContainText('A worn tank seal or flapper');
   await expect.poll(()=>page.evaluate(()=>Reflect.get(window,'voiceTest').spoken.length)).toBe(1);
   await chat.getByRole('button',{name:'Use Microphone',exact:true}).click();
   await chat.getByRole('button',{name:'Close Chat',exact:true}).click();

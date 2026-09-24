@@ -115,5 +115,7 @@
       "tag": "Chat and Voice"
     }
   ],
-  "latestMessage": "Latest Message"
+  "latestMessage": "Latest Message",
+  "askQuestion": "Ask a Question",
+  "questionPrompt": "What can I help you understand about your plumbing?"
 }
