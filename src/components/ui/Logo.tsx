@@ -7,7 +7,7 @@ type BrandProps = { className?: string; title?: string; reversed?: boolean; larg
 
 /** The supplied artwork is cropped in the SVG viewport without altering it. */
 export function Lockup({ className, title }: BrandProps) {
-  return <svg viewBox="256 157 1504 426" aria-hidden={title ? undefined : true} role={title ? "img" : undefined} className={className} style={{mixBlendMode:"multiply"}}>
+  return <svg preserveAspectRatio="xMinYMid meet" viewBox="256 157 1504 426" aria-hidden={title ? undefined : true} role={title ? "img" : undefined} className={className} style={{mixBlendMode:"multiply"}}>
     {title && <title>{title}</title>}
     <image href="/logo/johnson-plumbing.png" width="2169" height="725" />
   </svg>;
@@ -34,3 +34,4 @@ export function Logo({ size = "header", className }: Props) {
     <Lockup className={cn("shrink-0", dims)} title={site.name} />
   </Link>;
 }
+
