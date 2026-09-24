@@ -43,8 +43,8 @@
   ],
   "photos": {
     "homeHero": {
-      "src": "/images/concept-two/hero-plumber-van.webp",
-      "alt": "A plumber in R.S. Johnson Plumbing gear standing with arms crossed in front of a marked company van, outside a stone-fronted home.",
+      "src": "/images/concept-two/johnson-hero-van.webp",
+      "alt": "A plumber in Johnson Plumbing gear standing with arms crossed in front of a marked company van, outside a stone-fronted home.",
       "illustrative": true
     },
     "builderFraming": {
@@ -63,13 +63,13 @@
       "illustrative": true
     },
     "homeownerHero": {
-      "src": "/images/concept-two/homeowner-personal-service.webp",
-      "alt": "A plumber and homeowner standing in a bright kitchen discussing service, with R.S. Johnson Plumbing lettering on his shirt.",
+      "src": "/images/concept-two/johnson-homeowner-service.webp",
+      "alt": "A plumber and homeowner standing in a bright kitchen discussing service, with Johnson Plumbing lettering on his shirt.",
       "illustrative": true
     },
     "builderHero": {
-      "src": "/images/concept-two/builders-plans-review.webp",
-      "alt": "An R.S. Johnson plumber and a general contractor standing at a framing site reviewing architectural plans.",
+      "src": "/images/concept-two/johnson-builders-plans.webp",
+      "alt": "A Johnson Plumbing plumber and a general contractor standing at a framing site reviewing architectural plans.",
       "illustrative": true
     },
     "servicesHero": {
@@ -78,12 +78,12 @@
       "note": "Close crop on hands and a fitting, shallow depth of field"
     },
     "crewGroup": {
-      "src": "/images/concept-two/hero-desktop-authority.webp",
-      "alt": "Illustration of Ryan Johnson beside the R.S. Johnson Plumbing van outside a home.",
+      "src": "/images/concept-two/johnson-hero-van.webp",
+      "alt": "Illustration of Ryan Johnson beside the Johnson Plumbing van outside a home.",
       "illustrative": true
     },
     "ownerPortrait": {
-      "src": "/images/concept-two/ryan-homeowner-conversation.webp",
+      "src": "/images/concept-two/johnson-owner-conversation.webp",
       "alt": "Illustration of Ryan Johnson talking with a happy homeowner in a kitchen.",
       "illustrative": true
     }
