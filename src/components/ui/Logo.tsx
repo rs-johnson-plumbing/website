@@ -34,4 +34,3 @@ export function Logo({ size = "header", className }: Props) {
     <Lockup className={cn("shrink-0", dims)} title={site.name} />
   </Link>;
 }
-
