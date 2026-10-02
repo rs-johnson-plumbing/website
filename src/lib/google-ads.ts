@@ -39,6 +39,30 @@ export function initializeGoogleAds() {
   return target.gtag;
 }
 
+type InteractionEvent = "click_to_call" | "click_to_text" | "booking_start";
+
+/** Fixed event names only: never send form values, chat text, or customer details. */
+export function trackInteraction(name: InteractionEvent) {
+  try {
+    initializeGoogleAds()?.("event", name, {
+      send_to: GOOGLE_ANALYTICS_ID,
+      page_path: window.location.pathname,
+      transport_type: "beacon",
+    });
+  } catch {
+    // Measurement must never prevent a call, text, or booking.
+  }
+}
+
+export function trackContactClick(event: MouseEvent) {
+  const target = event.target;
+  if (!(target instanceof Element)) return;
+  const link = target.closest<HTMLAnchorElement>("a[href]");
+  const href = link?.getAttribute("href") || "";
+  if (href.startsWith("tel:")) trackInteraction("click_to_call");
+  if (href.startsWith("sms:")) trackInteraction("click_to_text");
+}
+
 function saveReceipt(receipt: BookingReceipt) {
   sessionStorage.setItem(RECEIPT_KEY, JSON.stringify(receipt));
 }
@@ -89,6 +113,11 @@ export function trackConfirmedBooking() {
     if (!gtag) return;
     gtag("event", "conversion", {
       send_to: BOOK_APPOINTMENT_SEND_TO,
+      transaction_id: receipt.id,
+    });
+    gtag("event", "generate_lead", {
+      send_to: GOOGLE_ANALYTICS_ID,
+      lead_source: "housecall_booking",
       transaction_id: receipt.id,
     });
     saveReceipt({ ...receipt, sent: true });
