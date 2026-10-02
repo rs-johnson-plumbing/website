@@ -11,8 +11,9 @@ production at https://gojohnsonplumbing.com and every branch gets a preview.
 
 Two audiences: homeowners (the site's first job is homeowner calls and
 bookings) and general contractors (a credible second door). Positioning:
-owner-operated, you talk to the plumber, same crew every time, a Master
-Plumber on every job.
+owner-operated, you talk to the plumber, free estimates, no service-call fee,
+arrival texts, and owner Ryan Johnson is a master plumber. Do not promise the
+same crew every time or a master plumber on every job.
 
 ## Where things live
 
@@ -39,7 +40,9 @@ Plumber on every job.
   Body copy, helper lines, and list bullets stay sentence case. The hub's
   "WHAT WE DO" heading is all caps on purpose.
 - **No ampersands. No exclamation points.** Write "and".
-- **Never promise "same day" or "24/7".** Ryan has not confirmed either.
+- **Never promise "same day".** Daren confirmed 24/7 emergency service,
+  Mon–Fri 8 a.m.–4 p.m. regular hours, free estimates, no service-call fee,
+  and licensed, bonded and insured status on 2026-10-01.
 - Buttons: 8px radius, never pills. Labels never wrap, three words max. One
   filled blue button per section; the rest outlined (the homepage hero, with
   a door per audience, is the one exception). Outlined buttons are blue
@@ -112,9 +115,9 @@ one. Only one design mounts at a time, so IDs and H1s are never duplicated.
    production a minute after the merge.
 4. Every push to `main` deploys production. Never force-push or delete
    `main`; the ruleset blocks both.
-5. `NEXT_PUBLIC_SITE_INDEXABLE` gates search indexing. Unset or anything but
-   `true` means every page carries `noindex`. Flip it to `true` in Vercel at
-   launch.
+5. `src/lib/indexing.ts` enables indexing only for Vercel production.
+   Previews and development remain blocked. For non-Vercel builds only,
+   `NEXT_PUBLIC_SITE_INDEXABLE=true` explicitly enables indexing.
 
 ## SEO patterns (do not change casually)
 

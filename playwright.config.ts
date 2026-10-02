@@ -13,7 +13,7 @@ export default defineConfig({
     launchOptions: process.env.PW_CHROMIUM_PATH ? { executablePath: process.env.PW_CHROMIUM_PATH } : {},
   },
   webServer: {
-    command: "npx next start -p 3200",
+    command: "npx next start -p 3200 -H localhost",
     url: "http://localhost:3200",
     reuseExistingServer: !process.env.CI,
     timeout: 60_000,

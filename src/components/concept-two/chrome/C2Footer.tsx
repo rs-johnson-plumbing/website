@@ -33,6 +33,8 @@ export function C2Footer() {
         <a href={site.phone.tel} className="c2-footer-phone" data-track="call-footer">
           {site.phone.display}
         </a>
+        <p>{site.hours}</p>
+        <p>{site.emergencyLine}</p>
         </div>
 
         <div className="c2-footer-service-groups">

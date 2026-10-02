@@ -9,19 +9,19 @@
       },
       {
         "q": "Do you handle emergencies?",
-        "a": "Yes. Burst pipes, active leaks, sewer backups, and no hot water. Call or text 314-220-1827 and you'll reach Ryan directly. [Emergency and after-hours policy — confirm.]"
+        "a": "Yes. Emergency plumbing service is available 24/7. Call or text 314-220-1827 for emergency assistance and current availability. Regular business hours are Monday through Friday, 8 a.m. to 4 p.m."
       },
       {
         "q": "Do you work with builders and contractors?",
-        "a": "Most of our week is builder work — new construction and renovation plumbing, rough-in through trim, for custom homes, spec builds, and whole-house remodels. Use the Request a Bid form and Ryan will have a number back within [# business days]."
+        "a": "Yes. We work with builders and contractors on new construction, remodels and additions. Submit a bid request with your plans and project details so Ryan can review the scope."
       },
       {
-        "q": "Are you licensed and insured?",
-        "a": "Yes. Ryan Johnson is a Missouri Master Plumber, license #[number], and the company is fully insured. Every plumber on the crew is licensed and background-checked."
+        "q": "Are You Licensed, Bonded and Insured?",
+        "a": "Yes. R.S. Johnson Plumbing LLC is licensed, bonded and insured. Owner Ryan Johnson is a master plumber."
       },
       {
         "q": "How does pricing work?",
-        "a": "You get a price before we start. We look at the job, explain what it needs, and give you a number. No surprises on the invoice."
+        "a": "Estimates are free, and there is no service-call fee. We explain the proposed work and pricing before you approve the repair."
       }
     ]
   },
@@ -30,15 +30,15 @@
     "items": [
       {
         "q": "How soon can you get here?",
-        "a": "[Response time — confirm.] Call or text and we'll give you a real window, not a four-hour guess."
+        "a": "Call or text for current availability. We will confirm scheduling with you; arrival times depend on the job and crew availability."
       },
       {
         "q": "Do you charge for an estimate?",
-        "a": "[Estimate policy — confirm.]"
+        "a": "No. Estimates are free, and there is no service-call fee. Repairs and installations are quoted separately."
       },
       {
         "q": "Who will show up?",
-        "a": "One of the licensed plumbers on our team page, in a marked truck and company shirt. You'll get a text with a name and ETA before we arrive."
+        "a": "A member of the Johnson Plumbing team will handle your service. You will receive an arrival text before the visit."
       }
     ]
   },
@@ -52,32 +52,32 @@
       },
       {
         "q": "Do you handle emergencies?",
-        "a": "Yes. Call 314-220-1827 for burst pipes, active leaks, sewer backups, and no hot water. [Hours / after-hours policy — CONFIRM.]",
+        "a": "Yes. Emergency plumbing service is available 24/7. Call or text 314-220-1827 for emergency assistance and current availability. Regular business hours are Monday through Friday, 8 a.m. to 4 p.m.",
         "icon": "bolt"
       },
       {
-        "q": "Are you licensed and insured?",
-        "a": "Yes. Ryan Johnson is a Missouri Master Plumber [license #], and R.S. Johnson Plumbing LLC is fully insured. We pull permits and meet inspections on work that requires them.",
+        "q": "Are You Licensed, Bonded and Insured?",
+        "a": "Yes. R.S. Johnson Plumbing LLC is licensed, bonded and insured. Owner Ryan Johnson is a master plumber.",
         "icon": "shield"
       },
       {
         "q": "How does pricing work?",
-        "a": "We quote the price before starting. For repairs, that's usually after a short diagnosis on site. For water heaters, remodels, and larger jobs, we can often quote from photos and a phone call.",
+        "a": "Estimates are free, and there is no service-call fee. We explain the proposed work and pricing before you approve the repair.",
         "icon": "tag"
       },
       {
         "q": "Will I know who's coming?",
-        "a": "Yes. You get a text with the plumber's name and an ETA before we arrive, and the crew on our team page is the crew at your door.",
+        "a": "A member of the Johnson Plumbing team will handle your service. You will receive an arrival text before the visit.",
         "icon": "phone"
       },
       {
         "q": "Should I repair or replace my water heater?",
-        "a": "If it's under about [8] years old and the tank isn't leaking, repair is usually worth it. If the tank itself is leaking or the unit is past [10–12] years, replacement is the better investment. We'll tell you which before we quote.",
+        "a": "We assess the symptoms, condition and repair options before recommending a repair or replacement. A leaking tank may require replacement; age alone does not determine the right choice.",
         "icon": "water-heater"
       },
       {
         "q": "Can I book online?",
-        "a": "Yes, for scheduled service — repairs, water heaters, remodel work. For emergencies, call so we can help you shut off water while we're on the way.",
+        "a": "Select Request Service to use our Housecall Pro booking system. Follow the confirmation you receive for scheduling details. For emergency assistance, call or text 314-220-1827.",
         "icon": "calendar"
       }
     ]
