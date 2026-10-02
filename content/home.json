@@ -154,7 +154,7 @@
     "summaryPhone": "Ryan will call or text {phone}.",
     "phonePlaceholder": "Phone number",
     "send": "Send to Ryan",
-    "consent": "By sending your number you agree to a call or text about this request. [SMS consent wording — confirm]",
+    "consent": "By sending your number you agree to a call or text about this request.",
     "done": "Thanks. Ryan will call or text you shortly.",
     "error": "Something went wrong. Call or text 314-220-1827 and we'll take it from there.",
     "close": "Close",
@@ -182,7 +182,7 @@
         {
           "icon": "shield",
           "title": "Dependable",
-          "line": "The same crew from the first visit to the last. No handoffs, no strangers at the door."
+          "line": "Arrival text updates before your service visit."
         },
         {
           "icon": "check-circle",
@@ -197,12 +197,12 @@
         {
           "icon": "clock",
           "title": "Dependable",
-          "line": "Same crew on your job start to finish. Daily check-in with your super, and we meet the inspector."
+          "line": "Clear communication from the first visit through project completion."
         },
         {
           "icon": "tag",
           "title": "Competitive",
-          "line": "Straight numbers from your plans. A bid back within [# business days]."
+          "line": "Send your plans and fixture details for a project estimate."
         },
         {
           "icon": "check-circle",
@@ -294,7 +294,7 @@
   },
   "form": {
     "heading": "Send Us a Message",
-    "line": "We'll call you back. [confirm turnaround]",
+    "line": "Request a callback from Ryan.",
     "fields": {
       "firstName": "First Name",
       "lastName": "Last Name",
@@ -303,7 +303,7 @@
       "comments": "Comments"
     },
     "button": "Send Message",
-    "success": "Got it. Ryan will call you back. [confirm turnaround]",
+    "success": "Your request has been received.",
     "error": "Something went wrong. Call or text 314-220-1827 and we'll take it from there."
   },
   "bid": {
@@ -338,7 +338,7 @@
     "plansAttached": "plans attached",
     "phonePlaceholder": "Phone number",
     "send": "Send to Ryan",
-    "consent": "By sending your number you agree to a call or text about this request. [SMS consent wording — confirm]",
+    "consent": "By sending your number you agree to a call or text about this request.",
     "done": "Thanks. Ryan will call or text you about the bid.",
     "error": "Something went wrong. Call or text 314-220-1827 and we'll take it from there.",
     "next": "Next",
@@ -355,7 +355,7 @@
     },
     "builders": {
       "heading": "Have Plans to Bid?",
-      "line": "Send them over and Ryan will have a number back within [# business days]. Or call or text 314-220-1827 and talk it through first."
+      "line": "Send your plans for Ryan to review, or call or text 314-220-1827 to discuss the project."
     }
   },
   "chooser": {

@@ -13,14 +13,14 @@
     "smsBody": "Hi, I need a plumber at "
   },
   "email": "[email]",
-  "hours": "Mon–Sat [hours]",
-  "emergencyLine": "Emergency line [confirm]",
-  "licenseLine": "Missouri Master Plumber License #[number]",
-  "insuredLine": "Licensed and insured",
+  "hours": "Monday–Friday, 8 a.m.–4 p.m.",
+  "emergencyLine": "24/7 Emergency Service — Call or Text",
+  "licenseLine": "Owner Ryan Johnson, Master Plumber",
+  "insuredLine": "Licensed, Bonded and Insured",
   "owner": {
     "name": "Ryan Johnson",
     "title": "Owner · Master Plumber",
-    "credential": "Missouri Master Plumber"
+    "credential": "Master Plumber"
   },
   "founded": "[year]",
   "yearsInTrade": "[##]",
@@ -79,11 +79,11 @@
   "trustBar": [
     {
       "icon": "star",
-      "label": "Missouri Master Plumber"
+      "label": "Owner Ryan Johnson, Master Plumber"
     },
     {
       "icon": "shield",
-      "label": "Licensed and Insured"
+      "label": "Licensed, Bonded and Insured"
     },
     {
       "icon": "check-circle",

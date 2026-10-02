@@ -57,20 +57,20 @@
         "text": "Ryan answers the phone and bids every job. There's no call center and no dispatcher between you and the person doing the work."
       },
       {
-        "title": "A Master Plumber on Every Job",
-        "text": "Ryan holds a Missouri Master Plumber license [license # and link to the state or county lookup]. The crew is licensed, insured, and background-checked, and you can see who they are on our team page."
+        "title": "Owned by a Master Plumber",
+        "text": "R.S. Johnson Plumbing LLC is licensed, bonded and insured. Owner Ryan Johnson is a master plumber."
       },
       {
         "title": "Price Before We Start",
         "text": "You get the price before work begins. If we open something up and find more, we stop and talk before we go further."
       },
       {
-        "title": "The Same Crew Builders Trust",
-        "text": "Most of our work is new construction and remodels for builders in St. Charles County — schedules that don't tolerate no-shows. Homeowners get the same crew and the same standard."
+        "title": "Arrival Text Updates",
+        "text": "You receive an arrival text before your service visit."
       },
       {
         "title": "Neighbors Recommend Us",
-        "text": "R.S. Johnson was a Nextdoor Neighborhood Favorite in 2023 and has [24] neighbor recommendations. [Google rating and count when available.]"
+        "text": "See what customers have shared about working with Johnson Plumbing."
       }
     ],
     "links": [
@@ -127,7 +127,7 @@
       {
         "icon": "water-heater",
         "title": "Water Heater Acting Up",
-        "text": "Lukewarm water, hot water that runs out fast, rumbling or popping from the tank, rust-colored water, or moisture around the base. Most tank water heaters last [10–12] years; many homes built in St. Charles County in the [late 1990s and 2000s] are on their second or third unit, and a lot of those are due.",
+        "text": "Lukewarm water, hot water that runs out fast, unusual tank noises or moisture around the base are reasons to request an assessment. We can discuss repair and replacement options.",
         "service": "water-heaters",
         "link": "See Water Heaters"
       },

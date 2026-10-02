@@ -1145,13 +1145,13 @@
         "Can someone come right now?",
         "Do you provide after-hours service?"
       ],
-      "answer": "Emergency plumbing is listed on the website, but current availability, operating hours, and arrival times are not confirmed in this library. Call 314-220-1827 for an urgent plumbing issue. Do not wait for a chat response during an immediate safety emergency. No visit has been booked or dispatched by this conversation.",
+      "answer": "Emergency plumbing service is available 24/7. Call or text 314-220-1827 for urgent plumbing assistance and current arrival availability. Regular business hours are Monday through Friday, 8 a.m. to 4 p.m. This chat cannot book or dispatch a visit. For immediate danger, contact emergency services.",
       "followUp": "",
       "sourceIds": [
         "site"
       ],
       "kind": "business",
-      "reviewedOn": "2026-09-17"
+      "reviewedOn": "2026-10-01"
     },
     {
       "id": "builder-plans",
@@ -1375,13 +1375,13 @@
         "What are your hours?",
         "How soon will Ryan text back?"
       ],
-      "answer": "I do not have confirmed prices, fees, hours, callback windows, financing terms, or warranty policies. The team must confirm those details for your request. Use Request Service to open the existing Housecall form, or call 314-220-1827. I cannot promise a price, response time, or appointment.",
+      "answer": "Regular business hours are Monday through Friday, 8 a.m. to 4 p.m. Emergency plumbing service is available 24/7 by call or text at 314-220-1827. Estimates are free and there is no service-call fee. R.S. Johnson Plumbing LLC is licensed, bonded and insured; owner Ryan Johnson is a master plumber. Customers receive arrival texts. Repair prices, individual arrival times, callback windows, financing and warranty terms require confirmation from the team. This chat cannot book or dispatch a visit.",
       "followUp": "",
       "sourceIds": [
         "areas"
       ],
       "kind": "policy",
-      "reviewedOn": "2026-09-17"
+      "reviewedOn": "2026-10-01"
     },
     {
       "id": "booking",
@@ -1434,9 +1434,8 @@
     }
   ],
   "pendingConfirmation": [
-    "Operating hours and after-hours arrangements",
     "Dispatch, callback, text response and bid turnaround",
-    "Prices, diagnostic fees, payment and financing",
+    "Repair prices, payment and financing",
     "Workmanship and manufacturer warranty handling",
     "Specific softener and filtration installations",
     "Trenchless, jetting, and other specialized methods",

@@ -1,3 +1,4 @@
+import { isSiteIndexable } from "@/lib/indexing";
 import type { Metadata } from "next";
 import { Figtree } from "next/font/google";
 import { site, SITE_URL } from "@/lib/content";
@@ -36,9 +37,8 @@ export const metadata: Metadata = {
     images: [shareImage],
   },
   twitter: { card: "summary_large_image" },
-  // Search indexing is off until NEXT_PUBLIC_SITE_INDEXABLE=true is set in
-  // Vercel. Flip it at launch; nothing else changes.
-  robots: process.env.NEXT_PUBLIC_SITE_INDEXABLE === "true" ? { index: true, follow: true } : { index: false, follow: false },
+  // Only the production deployment is indexable.
+  robots: isSiteIndexable() ? { index: true, follow: true } : { index: false, follow: false },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

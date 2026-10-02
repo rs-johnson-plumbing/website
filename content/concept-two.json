@@ -199,8 +199,8 @@
         },
         {
           "icon": "shield-check",
-          "line1": "The Same Crew",
-          "line2": "Every Time"
+          "line1": "Free Estimates",
+          "line2": "No Service-Call Fee"
         }
       ]
     },
@@ -241,7 +241,7 @@
     "trust": [
       {
         "icon": "phone-heart",
-        "label": "Same Trusted Crew"
+        "label": "Licensed, Bonded & Insured"
       },
       {
         "icon": "tag",
@@ -264,7 +264,7 @@
     "remodel": {
       "eyebrow": "Remodels",
       "heading": "From Quick Fixes to Full Remodels.",
-      "line": "New tubs, showers, vanities and kitchens, roughed in and trimmed out by the same crew that builds them new.",
+      "line": "Plumbing for new tubs, showers, vanities and kitchens, from rough-in through fixture installation.",
       "cta": {
         "label": "Request Service"
       }
@@ -277,16 +277,16 @@
           "text": "Ryan answers the phone and bids every job. No call center between you and the person doing the work."
         },
         {
-          "title": "Price Before We Start",
-          "text": "You get the price before work begins. If we open something up and find more, we stop and talk first."
+          "title": "Free Estimates",
+          "text": "Estimates are free, and there is no service-call fee. We explain the proposed work and pricing before you approve the repair."
         },
         {
-          "title": "A Master Plumber on Every Job",
-          "text": "Ryan holds a Missouri Master Plumber license. The crew is licensed, insured and background-checked."
+          "title": "Owned by a Master Plumber",
+          "text": "R.S. Johnson Plumbing LLC is licensed, bonded and insured. Owner Ryan Johnson is a master plumber."
         },
         {
-          "title": "The Same Crew Builders Trust",
-          "text": "Most of our work is new construction for builders on schedules that don't tolerate no-shows. You get that same crew."
+          "title": "Arrival Text Updates",
+          "text": "You receive an arrival text before your service visit."
         }
       ]
     },
@@ -453,7 +453,7 @@
     "hero": {
       "eyebrow": "About Us",
       "heading": "You Talk to the Plumber.",
-      "lead": "Owner-operated out of O'Fallon, with the same licensed crew on every job.",
+      "lead": "Owner-operated out of O'Fallon. Licensed, bonded and insured.",
       "headingLines": [
         "You Talk to",
         "the Plumber."
@@ -462,7 +462,7 @@
     "crewHeading": "The Crew",
     "crew": {
       "heading": "The Crew",
-      "line": "Four licensed plumbers, background-checked, in marked R.S. Johnson trucks."
+      "line": "Plumbing professionals serving homeowners and builders."
     },
     "ownerHeading": "Owner and Master Plumber"
   },

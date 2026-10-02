@@ -6,16 +6,16 @@
     "short": "Repair, replacement, tankless",
     "hubShort": "Repair, replacement, tank and tankless installation",
     "metaDescription": "Water heater repair, replacement, and tankless installation in St. Charles County from Master Plumber Ryan Johnson and crew. Call or text 314-220-1827.",
-    "intro": "We repair and replace gas and electric tank water heaters and install tankless systems. If your heater is under [8] years old and the problem is a thermostat, element, or valve, repair usually makes sense. If it's older and leaking from the tank itself, replacement is the only fix — and we'll tell you which one it is before we start.",
+    "intro": "We repair and replace gas and electric tank water heaters and install tankless systems. We assess the symptoms, condition and repair options before recommending a repair or replacement. A leaking tank may require replacement; age alone does not determine the right choice.",
     "problems": [
       "No hot water",
       "Hot water runs out fast",
       "Rumbling or popping from the tank",
       "Rust-colored water",
       "Moisture around the base",
-      "Unit is [10–12] years old"
+      "An aging or unreliable water heater"
     ],
-    "whatToExpect": "[What to expect paragraph — water heaters]",
+    "whatToExpect": "Request service through Housecall Pro, or call or text to discuss the problem. Estimates are free, with no service-call fee. We review the proposed work and pricing with you, and send an arrival text before the visit.",
     "crew": [
       "tyler",
       "ryan"
@@ -23,10 +23,10 @@
     "hub": {
       "heading": "Water Heater Repair and Replacement",
       "anchor": "Water Heaters",
-      "paragraph": "We repair and replace gas and electric tank water heaters and install tankless systems. If your heater is under [8] years old and the problem is a thermostat, element, or valve, repair usually makes sense. If it's older and leaking from the tank itself, replacement is the only fix — and we'll tell you which one it is before we start.",
+      "paragraph": "We repair and replace gas and electric tank water heaters and install tankless systems. We assess the symptoms, condition and repair options before recommending a repair or replacement. A leaking tank may require replacement; age alone does not determine the right choice.",
       "whatWeDo": [
-        "Diagnosis and repair on the first visit when parts are available [confirm]",
-        "Tank replacement, including code upgrades (expansion tank, pan, venting) that inspectors in St. Charles County require",
+        "Assess the problem and explain repair or replacement options",
+        "Tank replacement, with installation requirements assessed for your address and equipment",
         "Tankless installation and conversion, including gas line sizing",
         "Annual flush and anode inspection to extend tank life"
       ],
@@ -54,7 +54,7 @@
       "Dripping shutoff valve",
       "Low pressure through the house"
     ],
-    "whatToExpect": "[What to expect paragraph — leaks and repairs]",
+    "whatToExpect": "Request service through Housecall Pro, or call or text to discuss the problem. Estimates are free, with no service-call fee. We review the proposed work and pricing with you, and send an arrival text before the visit.",
     "crew": [
       "tyler",
       "ryan"
@@ -78,45 +78,6 @@
     }
   },
   {
-    "slug": "drains-and-sewer",
-    "name": "Drains and Sewer",
-    "icon": "drain",
-    "short": "Clogs, camera inspection, main lines",
-    "hubShort": "Clogs, camera inspections, main line repair and replacement",
-    "metaDescription": "Drain cleaning, sewer camera inspection, and main line repair in St. Charles County. Licensed crew, upfront pricing. Call or text 314-220-1827 or book online now.",
-    "intro": "From a slow bathroom sink to a main line backing up into the basement, we clear it and find out why it happened. We run a camera on recurring main-line problems so you can see the cause — roots, a belly in the line, a break — instead of guessing.",
-    "problems": [
-      "Drain that keeps clogging",
-      "Toilet gurgles when the washer drains",
-      "Sewer smell in the house",
-      "Slow drains throughout",
-      "Water backing up in the basement",
-      "Roots in the main line"
-    ],
-    "whatToExpect": "[What to expect paragraph — drains and sewer]",
-    "crew": [
-      "danny",
-      "ryan"
-    ],
-    "hub": {
-      "heading": "Drain Cleaning and Sewer Repair",
-      "anchor": "Drains and Sewer",
-      "paragraph": "From a slow bathroom sink to a main line backing up into the basement, we clear it and find out why it happened. We run a camera on recurring main-line problems so you can see the cause — roots, a belly in the line, a break — instead of guessing.",
-      "whatWeDo": [
-        "Kitchen, bath, laundry, and floor drain clearing",
-        "Main sewer line clearing and camera inspection",
-        "Sewer line repair and replacement, including [trenchless options where the line allows]",
-        "Advice on what's actually worth fixing versus watching"
-      ],
-      "photo": {
-        "src": "/photos/site-sewer-camera.jpg",
-        "alt": "Sewer camera inspection in O'Fallon MO",
-        "caption": "Camera inspection"
-      },
-      "link": "Drains and Sewer"
-    }
-  },
-  {
     "slug": "toilets-and-faucets",
     "name": "Toilets and Faucets",
     "icon": "faucet",
@@ -132,7 +93,7 @@
       "Handle is loose or stuck",
       "Want a new fixture installed"
     ],
-    "whatToExpect": "[What to expect paragraph — toilets and faucets]",
+    "whatToExpect": "Request service through Housecall Pro, or call or text to discuss the problem. Estimates are free, with no service-call fee. We review the proposed work and pricing with you, and send an arrival text before the visit.",
     "crew": [
       "tyler",
       "chris"
@@ -156,13 +117,52 @@
     }
   },
   {
+    "slug": "drains-and-sewer",
+    "name": "Drains and Sewer",
+    "icon": "drain",
+    "short": "Clogs, camera inspection, main lines",
+    "hubShort": "Clogs, camera inspections, main line repair and replacement",
+    "metaDescription": "Drain cleaning, sewer camera inspection, and main line repair in St. Charles County. Licensed crew, upfront pricing. Call or text 314-220-1827 or book online now.",
+    "intro": "From a slow bathroom sink to a main line backing up into the basement, we clear it and find out why it happened. We run a camera on recurring main-line problems so you can see the cause — roots, a belly in the line, a break — instead of guessing.",
+    "problems": [
+      "Drain that keeps clogging",
+      "Toilet gurgles when the washer drains",
+      "Sewer smell in the house",
+      "Slow drains throughout",
+      "Water backing up in the basement",
+      "Roots in the main line"
+    ],
+    "whatToExpect": "Request service through Housecall Pro, or call or text to discuss the problem. Estimates are free, with no service-call fee. We review the proposed work and pricing with you, and send an arrival text before the visit.",
+    "crew": [
+      "danny",
+      "ryan"
+    ],
+    "hub": {
+      "heading": "Drain Cleaning and Sewer Repair",
+      "anchor": "Drains and Sewer",
+      "paragraph": "From a slow bathroom sink to a main line backing up into the basement, we clear it and find out why it happened. We run a camera on recurring main-line problems so you can see the cause — roots, a belly in the line, a break — instead of guessing.",
+      "whatWeDo": [
+        "Kitchen, bath, laundry, and floor drain clearing",
+        "Main sewer line clearing and camera inspection",
+        "Sewer line repair and replacement options assessed for your property",
+        "Advice on what's actually worth fixing versus watching"
+      ],
+      "photo": {
+        "src": "/photos/site-sewer-camera.jpg",
+        "alt": "Sewer camera inspection in O'Fallon MO",
+        "caption": "Camera inspection"
+      },
+      "link": "Drains and Sewer"
+    }
+  },
+  {
     "slug": "water-softeners",
     "name": "Water Softeners",
     "icon": "filter",
     "short": "Softeners, filtration, hard water",
     "hubShort": "Softener installation, replacement, and whole-house filtration",
     "metaDescription": "Water softener installation, replacement, and whole-house filtration in St. Charles County from a Master Plumber crew. Hard water fixed. Call or text 314-220-1827.",
-    "intro": "Water in St. Charles County runs hard, and it shows up as spotted glasses, scale on fixtures, and water heaters that die early. We size and install softeners, replace units that stopped regenerating, and add whole-house or under-sink filtration where it makes sense. [confirm Ryan offers softeners and filtration]",
+    "intro": "Seeing scale on fixtures or concerned about water quality? Contact us to discuss your existing equipment and the scope of water softener or filtration work before scheduling.",
     "problems": [
       "Spots on glasses and dishes",
       "White scale on faucets and showerheads",
@@ -171,7 +171,7 @@
       "Water heater scaling up early",
       "Taste or odor in the water"
     ],
-    "whatToExpect": "[What to expect paragraph — water softeners]",
+    "whatToExpect": "Request service through Housecall Pro, or call or text to discuss the problem. Estimates are free, with no service-call fee. We review the proposed work and pricing with you, and send an arrival text before the visit.",
     "crew": [
       "mike",
       "ryan"
@@ -179,12 +179,11 @@
     "hub": {
       "heading": "Water Softeners and Filtration",
       "anchor": "Softeners",
-      "paragraph": "Water in St. Charles County runs hard, and it shows up as spotted glasses, scale on fixtures, and water heaters that die early. We size and install softeners, replace units that stopped regenerating, and add whole-house or under-sink filtration where it makes sense. [confirm Ryan offers softeners and filtration]",
+      "paragraph": "Seeing scale on fixtures or concerned about water quality? Contact us to discuss your existing equipment and the scope of water softener or filtration work before scheduling.",
       "whatWeDo": [
-        "Softener sizing, installation, and replacement",
-        "Bypass and drain setup that passes inspection",
-        "Whole-house sediment and carbon filtration",
-        "Under-sink drinking water filtration"
+        "Discuss your water quality concerns and current equipment",
+        "Review the proposed work and confirm which options we can provide",
+        "Provide a free estimate for the agreed scope"
       ],
       "photo": {
         "src": "/photos/site-water-softener.jpg",
@@ -210,7 +209,7 @@
       "Suspected gas leak",
       "Old fittings that need replacing"
     ],
-    "whatToExpect": "[What to expect paragraph — gas lines]",
+    "whatToExpect": "Request service through Housecall Pro, or call or text to discuss the problem. Estimates are free, with no service-call fee. We review the proposed work and pricing with you, and send an arrival text before the visit.",
     "crew": [
       "ryan",
       "mike"
@@ -248,7 +247,7 @@
       "No battery backup",
       "Don't know how old the pump is"
     ],
-    "whatToExpect": "[What to expect paragraph — sump pumps]",
+    "whatToExpect": "Request service through Housecall Pro, or call or text to discuss the problem. Estimates are free, with no service-call fee. We review the proposed work and pricing with you, and send an arrival text before the visit.",
     "crew": [
       "danny",
       "tyler"
@@ -278,7 +277,7 @@
     "short": "Burst pipes, leaks, backups",
     "hubShort": "Burst pipes, active leaks, sewer backups, no hot water",
     "metaDescription": "Emergency plumbing services in St. Charles County. Burst pipes, active leaks, sewer backups, and no hot water, handled by a licensed crew. Call 314-220-1827.",
-    "intro": "Burst pipe, water pouring through a ceiling, sewer backing up, no hot water in January. Call 314-220-1827 — for emergencies, call rather than book online so we can talk you through shutting off water while we're on the way.",
+    "intro": "Emergency plumbing service is available 24/7. Call or text 314-220-1827 for assistance and current availability. Arrival timing is confirmed by the team.",
     "problems": [
       "Burst pipe",
       "Active leak you can't stop",
@@ -287,7 +286,7 @@
       "Water heater leaking",
       "Frozen pipes"
     ],
-    "whatToExpect": "[What to expect paragraph — emergency plumbing]",
+    "whatToExpect": "Request service through Housecall Pro, or call or text to discuss the problem. Estimates are free, with no service-call fee. We review the proposed work and pricing with you, and send an arrival text before the visit.",
     "crew": [
       "tyler",
       "ryan"
@@ -295,7 +294,7 @@
     "hub": {
       "heading": "Emergency Services",
       "anchor": "Emergency",
-      "paragraph": "Burst pipe, water pouring through a ceiling, sewer backing up, no hot water in January. Call 314-220-1827 — for emergencies, call rather than book online so we can talk you through shutting off water while we're on the way.",
+      "paragraph": "Emergency plumbing service is available 24/7. Call or text 314-220-1827 for assistance and current availability. Arrival timing is confirmed by the team.",
       "whatWeDo": [
         "Burst and frozen pipe repair",
         "Active leaks and shutoff help over the phone",

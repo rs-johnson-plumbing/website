@@ -1,12 +1,12 @@
 {
   "heading": "Meet the Team",
-  "line": "Every plumber on our crew is licensed, insured, background-checked, and drives a marked R.S. Johnson truck.",
+  "line": "R.S. Johnson Plumbing LLC is licensed, bonded and insured. Owner Ryan Johnson is a master plumber.",
   "strip": {
-    "line": "Ryan answers the phone, bids the job, and brings the same four licensed plumbers every time. No call center, no strangers at the door."
+    "line": "Owner-operated plumbing with direct communication and arrival text updates."
   },
   "crew": {
     "heading": "The Crew",
-    "line": "The same licensed crew, in marked R.S. Johnson trucks. Your plumber texts a name and an ETA before arriving."
+    "line": "You will receive an arrival text before your service visit."
   },
   "groupPhoto": {
     "src": "/photos/crew-group.jpg",
@@ -23,7 +23,7 @@
       "badges": [
         "Locally Owned",
         "O’Fallon, Missouri",
-        "Licensed and Insured"
+        "Licensed, Bonded and Insured"
       ],
       "photo": {
         "src": "/photos/crew-ryan.jpg",
@@ -94,7 +94,7 @@
   "whoShowsUp": {
     "heading": "Here's Who Shows Up at Your Door",
     "items": [
-      "Licensed and background-checked",
+      "Licensed, bonded and insured business",
       "Marked truck and company shirt",
       "Text before we arrive"
     ],
@@ -113,7 +113,7 @@
     "builders": {
       "heading": "For Builders",
       "items": [
-        "Same crew on your job start to finish",
+        "Coordination through every phase of your plumbing project",
         "Daily check-in with your super",
         "We schedule and meet inspections"
       ]
@@ -144,7 +144,7 @@
   "page": {
     "meta": {
       "title": "Our Team | R.S. Johnson Plumbing, O'Fallon, MO",
-      "description": "Meet Master Plumber Ryan Johnson and the R.S. Johnson Plumbing crew. Licensed, insured, background-checked, and the same faces on every St. Charles County job."
+      "description": "Meet owner and master plumber Ryan Johnson. R.S. Johnson Plumbing LLC is licensed, bonded and insured, serving homeowners and builders in the St. Louis area."
     },
     "howWeWorkHeading": "How We Work"
   }

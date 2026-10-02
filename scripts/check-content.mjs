@@ -3,7 +3,7 @@
  * Content checks. Runs before every build (see package.json "prebuild").
  *
  * Fails on: unparsable JSON, missing required fields, duplicate slugs,
- * ampersands, exclamation points, "same day", "24/7", and any tel: link
+ * ampersands, exclamation points, "same day", and any tel: link
  * that isn't the business number.
  *
  * Prints, without failing: every remaining [bracket] placeholder, so the
@@ -36,7 +36,7 @@ function walk(value, path, name) {
     const isQuote = name === "reviews.json" && /\.quote$/.test(path);
     if (value.includes("!") && !isQuote) errors.push(`${where}: exclamation point in "${value.slice(0, 60)}"`);
     if (/same[- ]day/i.test(value)) errors.push(`${where}: promises "same day"`);
-    if (/24\s*\/\s*7/.test(value)) errors.push(`${where}: promises "24/7"`);
+    // 24/7 emergency service was explicitly confirmed by Daren on 2026-10-01.
     if (/tel:/.test(value) && value !== "tel:3142201827") errors.push(`${where}: phone link is not tel:3142201827`);
     const found = value.match(/\[[^\]]+\]/g);
     if (found) brackets.push(`${where}: ${found.join(" ")}`);

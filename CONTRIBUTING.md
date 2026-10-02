@@ -31,7 +31,7 @@ section) go through a pull request:
 
 `npm run build` runs `scripts/check-content.mjs`. It fails the build if a
 content file is malformed, a service or city is missing a required field, or
-copy contains an ampersand, an exclamation point, "same day", or "24/7". It
+copy contains an ampersand, an exclamation point, "same day". It
 also prints every remaining `[bracket]` so you can see what still needs a
 real value from Ryan.
 
