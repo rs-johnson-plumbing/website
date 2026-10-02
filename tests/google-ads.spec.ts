@@ -9,9 +9,23 @@ const receiptKey = "johnson-plumbing:confirmed-booking";
 test.setTimeout(60_000);
 
 async function conversions(page: Page) {
+  const events = await page.evaluate(() => {
+    const queue = (window as Window & { dataLayer?: ArrayLike<unknown>[] }).dataLayer || [];
+    return queue.map(entry => Array.from(entry)).filter(entry => entry[0] === "event");
+  });
+  const ads = events.filter(entry => entry[1] === "conversion");
+  const leads = events.filter(entry => entry[1] === "generate_lead");
+  expect(leads).toHaveLength(ads.length);
+  for (const [index, lead] of leads.entries()) {
+    expect(lead[2]).toEqual({ send_to: GOOGLE_ANALYTICS_ID, lead_source: "housecall_booking", transaction_id: (ads[index][2] as { transaction_id: string }).transaction_id });
+  }
+  return ads;
+}
+
+async function interactions(page: Page) {
   return page.evaluate(() => {
     const queue = (window as Window & { dataLayer?: ArrayLike<unknown>[] }).dataLayer || [];
-    return queue.map(entry => Array.from(entry)).filter(entry => entry[0] === "event" && entry[1] === "conversion");
+    return queue.map(entry => Array.from(entry)).filter(entry => entry[0] === "event" && ["click_to_call", "click_to_text", "booking_start"].includes(String(entry[1])));
   });
 }
 
@@ -89,7 +103,22 @@ test("local and preview builds do not load the Ads tag", async ({ page, baseURL 
     await expect(page.getByRole("heading", { name: "Thanks for choosing Johnson Plumbing." })).toBeVisible();
     await expect(page.locator("#google-ads-tag")).toHaveCount(0);
     expect(await conversions(page)).toEqual([]);
+    await page.locator('a[href^="tel:"]').first().dispatchEvent("click");
+    expect(await interactions(page)).toEqual([]);
   }
+});
+
+test("phone and text clicks are separate GA4 contact attempts without customer data", async ({ page }) => {
+  await page.goto(production);
+  await expect(page.locator("#google-ads-tag")).toHaveCount(1);
+  await page.evaluate(() => document.addEventListener("click", event => event.preventDefault()));
+  await page.locator('a[href^="tel:"]').first().dispatchEvent("click");
+  await page.locator('a[href^="sms:"]').first().dispatchEvent("click");
+  expect(await interactions(page)).toEqual([
+    ["event", "click_to_call", { send_to: GOOGLE_ANALYTICS_ID, page_path: "/", transport_type: "beacon" }],
+    ["event", "click_to_text", { send_to: GOOGLE_ANALYTICS_ID, page_path: "/", transport_type: "beacon" }],
+  ]);
+  expect(await conversions(page)).toEqual([]);
 });
 
 test("a trusted embedded completion converts once, opening the form does not", async ({ page }) => {
@@ -99,6 +128,9 @@ test("a trusted embedded completion converts once, opening the form does not", a
   await page.locator(".c2-hero").getByRole("button", { name: "Request Service", exact: true }).click();
   await expect(page.locator("body")).toHaveAttribute("data-booking-open", "true");
   expect(await conversions(page)).toEqual([]);
+  expect(await interactions(page)).toEqual([
+    ["event", "booking_start", { send_to: GOOGLE_ANALYTICS_ID, page_path: "/for-homeowners", transport_type: "beacon" }],
+  ]);
 
   await expect(page.frameLocator("iframe.hcp-iframe").getByRole("heading", { name: "Test booking provider" })).toBeVisible();
   const frame = page.frames().find(frame => frame.url() === housecallBookingUrl)!;
