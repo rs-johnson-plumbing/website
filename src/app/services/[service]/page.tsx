@@ -1,9 +1,10 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { services, serviceBySlug, servicesHub, site, SITE_URL, type Service } from "@/lib/content";
+import { services, serviceBySlug, servicesHub, site, conceptTwo, SITE_URL, type Service } from "@/lib/content";
 import { ConceptPage } from "@/components/concepts/ConceptPage";
 import { C2ServiceDetail } from "@/components/concept-two/pages/C2ServiceDetail";
 import { pageMetadata } from "@/lib/seo";
+import { FAQ } from "@/components/blocks/FAQ";
 import { JsonLd } from "@/components/blocks/JsonLd";
 import { IntakeBanner } from "@/components/blocks/IntakeBanner";
 import { TextLink } from "@/components/ui/TextLink";
@@ -19,7 +20,7 @@ export async function generateMetadata({ params }: { params: Promise<Params> }):
   const { service: slug } = await params;
   const s = serviceBySlug(slug);
   if (!s) return {};
-  const title = `${s.name} ${servicesHub.servicePage.titleSuffix} | ${site.shortName}`;
+  const title = `${s.detail?.heading ?? s.name} ${servicesHub.servicePage.titleSuffix} | ${site.shortName}`;
   return pageMetadata({ title, description: s.metaDescription, path: `/services/${s.slug}` });
 }
 
@@ -39,7 +40,7 @@ function ConceptOneServiceDetail({ service: s }: { service: Service }) {
             <div className="flex items-center gap-3">
               <IconTile name={s.icon} size={44} />
               <h1 className="text-h1-m lg:text-[40px] lg:leading-[1.1]">
-                {s.name} {sp.titleSuffix}
+                {s.detail?.heading ?? s.name} {sp.titleSuffix}
               </h1>
             </div>
             <p className="text-[16px] leading-[1.7] lg:text-body">{s.intro}</p>
@@ -62,6 +63,19 @@ function ConceptOneServiceDetail({ service: s }: { service: Service }) {
                     <li key={w}>{w}</li>
                   ))}
                 </ul>
+              </>
+            )}
+
+            {s.detail && (
+              <>
+                {s.detail.sections.map(section => <div key={section.heading}>
+                  <h2 className="text-h3">{section.heading}</h2>
+                  <p className="mt-3 leading-relaxed">{section.body}</p>
+                </div>)}
+                <h2 className="text-h3">{conceptTwo.services.detail.areaHeading}</h2>
+                <p className="leading-relaxed">{conceptTwo.services.detail.areaText}</p>
+                <h2 className="text-h3">{conceptTwo.services.detail.faqHeading}</h2>
+                <FAQ items={s.detail.faqs} withJsonLd={false} />
               </>
             )}
 
@@ -88,17 +102,21 @@ export default async function ServicePage({ params }: { params: Promise<Params> 
   const serviceLd = {
     "@context": "https://schema.org",
     "@type": "Service",
-    name: service.name,
-    serviceType: service.name,
+    name: service.detail?.heading ?? service.name,
+    serviceType: service.detail?.heading ?? service.name,
     description: service.metaDescription,
     url: `${SITE_URL}/services/${service.slug}`,
     provider: { "@id": `${SITE_URL}/#business` },
-    areaServed: { "@type": "AdministrativeArea", name: "St. Charles County, MO" },
+    areaServed: service.detail ? ["St. Charles County, MO", "West St. Louis County, MO"].map(name => ({ "@type": "Place", name })) : { "@type": "AdministrativeArea", name: "St. Charles County, MO" },
   };
 
   return (
     <>
       <JsonLd data={serviceLd} />
+      {service.detail && <JsonLd data={{
+        "@context": "https://schema.org", "@type": "FAQPage",
+        mainEntity: service.detail.faqs.map(item => ({ "@type": "Question", name: item.q, acceptedAnswer: { "@type": "Answer", text: item.a } })),
+      }} /> }
       <ConceptPage one={<ConceptOneServiceDetail service={service} />} two={<C2ServiceDetail service={service} />} />
     </>
   );

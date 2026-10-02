@@ -5,7 +5,7 @@
     "icon": "water-heater",
     "short": "Repair, replacement, tankless",
     "hubShort": "Repair, replacement, tank and tankless installation",
-    "metaDescription": "Water heater repair, replacement, and tankless installation in St. Charles County from Master Plumber Ryan Johnson and crew. Call or text 314-220-1827.",
+    "metaDescription": "Water heater repair and replacement in St. Charles County and west St. Louis County. Free estimates, no service-call fee. Call R.S. Johnson Plumbing today.",
     "intro": "We repair and replace gas and electric tank water heaters and install tankless systems. We assess the symptoms, condition and repair options before recommending a repair or replacement. A leaking tank may require replacement; age alone does not determine the right choice.",
     "problems": [
       "No hot water",
@@ -36,6 +36,37 @@
         "caption": "Tank and tankless installs"
       },
       "link": "Water Heater Repair and Replacement"
+    },
+    "detail": {
+      "heading": "Water Heater Repair and Replacement",
+      "sections": [
+        {
+          "heading": "Repair or Replace Your Water Heater?",
+          "body": "Start with the symptoms, not just the age of the unit. Tell us whether you have no hot water, fluctuating temperature, noise or visible moisture. We assess the equipment and explain whether a repair is practical or replacement is the better option. A leaking tank may require replacement; a leak at a connection can call for a different repair."
+        },
+        {
+          "heading": "Planning a Water Heater Replacement",
+          "body": "The right replacement depends on household hot-water use, available space and the existing gas or electrical setup. We discuss tank and tankless options and assess the connections and installation requirements for your home before quoting the work. Share the model information and photos of the existing unit when requesting an estimate."
+        }
+      ],
+      "faqs": [
+        {
+          "q": "Do You Repair Gas and Electric Water Heaters?",
+          "a": "Yes. We repair and replace gas and electric tank water heaters and install tankless systems. Include your water heater type and the symptoms in your service request so we can discuss the next step."
+        },
+        {
+          "q": "Should I Switch to a Tankless Water Heater?",
+          "a": "That depends on your hot-water needs and the installation work involved. We assess the existing setup, including gas line sizing where applicable, and explain the options before recommending a conversion."
+        },
+        {
+          "q": "How Much Does Water Heater Replacement Cost?",
+          "a": "The estimate depends on the equipment, access and changes needed for the installation. We provide free estimates with no service-call fee and review the proposed work and pricing with you."
+        },
+        {
+          "q": "Can I Get Help With No Hot Water After Hours?",
+          "a": "Emergency service is available 24/7 by call or text at 314-220-1827. Contact the team for current availability and arrival timing. An online request does not guarantee immediate dispatch."
+        }
+      ]
     }
   },
   {
@@ -44,8 +75,8 @@
     "icon": "drop",
     "short": "Pipes, valves, fixtures",
     "hubShort": "Pipe leaks, valves, shutoffs, low water pressure",
-    "metaDescription": "Leak detection and plumbing repair in St. Charles County. Pipes, valves, shutoffs, and low water pressure fixed by a licensed crew. Call or text 314-220-1827 today.",
-    "intro": "Pinhole leaks in copper, failed fittings, frozen and split lines in winter, and the shutoff valve that won't shut off. We find the source, fix it properly, and check the surrounding lines so you're not calling us back for the next joint over.",
+    "metaDescription": "Plumbing leak and pipe repair in St. Charles County and west St. Louis County. Free estimates, no service-call fee. Call or text R.S. Johnson Plumbing today.",
+    "intro": "A dripping pipe, damp cabinet or unexplained increase in your water bill deserves a closer look. R.S. Johnson Plumbing LLC assesses plumbing leaks, failed fittings and shutoff valves, then explains the repair options before work begins.",
     "problems": [
       "Stains on a ceiling",
       "Soft spot in drywall",
@@ -62,7 +93,7 @@
     "hub": {
       "heading": "Leak Repair and Pipe Repair",
       "anchor": "Leaks",
-      "paragraph": "Pinhole leaks in copper, failed fittings, frozen and split lines in winter, and the shutoff valve that won't shut off. We find the source, fix it properly, and check the surrounding lines so you're not calling us back for the next joint over.",
+      "paragraph": "A dripping pipe, damp cabinet or unexplained increase in your water bill deserves a closer look. R.S. Johnson Plumbing LLC assesses plumbing leaks, failed fittings and shutoff valves, then explains the repair options before work begins.",
       "whatWeDo": [
         "Supply line and drain line leak repair",
         "Shutoff valve and pressure-reducing valve replacement",
@@ -75,6 +106,37 @@
         "caption": "Leak repair on a copper supply line"
       },
       "link": "Leaks and Repairs"
+    },
+    "detail": {
+      "heading": "Plumbing Leak and Pipe Repair",
+      "sections": [
+        {
+          "heading": "Tell Us Where You Notice the Problem",
+          "body": "A leak may be obvious under a sink or show up as a stain away from the pipe. Tell us when you first noticed it, whether it happens continuously or only when a fixture runs, and which areas are affected. Photos of visible moisture and nearby plumbing can help the team understand the problem before the visit."
+        },
+        {
+          "heading": "A Targeted Repair or a Larger Replacement?",
+          "body": "A failed fitting or valve may need a focused repair. Recurring leaks or deteriorated pipe can warrant a discussion about replacing a section of line. We assess the affected plumbing, explain the proposed scope and review pricing before you decide how to proceed."
+        }
+      ],
+      "faqs": [
+        {
+          "q": "Can You Repair a Leaking Shutoff Valve?",
+          "a": "Yes. Shutoff valves, supply lines and leaking fittings are part of our plumbing repair work. Tell us which fixture the valve serves and whether the leak is active when you contact us."
+        },
+        {
+          "q": "Do You Repair Both Supply and Drain Lines?",
+          "a": "Yes. We handle supply line and drain line leaks. Let us know whether water appears continuously or only when you use a sink, shower, toilet or appliance."
+        },
+        {
+          "q": "Does a Leak Mean My Whole House Needs Repiping?",
+          "a": "Not necessarily. The source of the leak and the condition of the surrounding plumbing determine the options. We explain whether a local repair, section replacement or broader work makes sense for the problem we find."
+        },
+        {
+          "q": "How Do I Request Help With an Active Leak?",
+          "a": "Call or text 314-220-1827 for an active leak or after-hours emergency. Emergency service is available 24/7; the team confirms availability and arrival timing. For a routine repair, you can also submit a website service request."
+        }
+      ]
     }
   },
   {
@@ -83,8 +145,8 @@
     "icon": "faucet",
     "short": "Repair and replacement",
     "hubShort": "Repair and replacement",
-    "metaDescription": "Toilet and faucet repair and replacement in St. Charles County. Running toilets, dripping faucets, and new fixtures installed right. Call or text 314-220-1827.",
-    "intro": "The unglamorous work that makes up most homeowner calls. Running toilets, toilets that rock, faucets that drip or spray, and fixtures you'd like to swap for something newer. We stock common parts on the truck and can usually handle these in one visit.",
+    "metaDescription": "Toilet and faucet replacement in St. Charles County and west St. Louis County. Repairs, free estimates and no service-call fee from R.S. Johnson Plumbing.",
+    "intro": "Replace an outdated fixture or get help with a running toilet, dripping faucet or leak around the base. R.S. Johnson Plumbing LLC assesses the fixture and its connections, explains repair and replacement options, and reviews the work with you before starting.",
     "problems": [
       "Toilet runs constantly",
       "Toilet rocks or leaks at the base",
@@ -101,7 +163,7 @@
     "hub": {
       "heading": "Toilet and Faucet Repair and Replacement",
       "anchor": "Toilets and Faucets",
-      "paragraph": "The unglamorous work that makes up most homeowner calls. Running toilets, toilets that rock, faucets that drip or spray, and fixtures you'd like to swap for something newer. We stock common parts on the truck and can usually handle these in one visit.",
+      "paragraph": "Replace an outdated fixture or get help with a running toilet, dripping faucet or leak around the base. R.S. Johnson Plumbing LLC assesses the fixture and its connections, explains repair and replacement options, and reviews the work with you before starting.",
       "whatWeDo": [
         "Toilet repair, reset, and replacement",
         "Kitchen and bath faucet repair and replacement",
@@ -114,6 +176,37 @@
         "caption": "Faucet replacement in a kitchen"
       },
       "link": "Toilets and Faucets"
+    },
+    "detail": {
+      "heading": "Toilet and Faucet Repair and Replacement",
+      "sections": [
+        {
+          "heading": "Fix the Problem or Update the Fixture",
+          "body": "A worn internal part can sometimes be repaired without replacing the whole fixture. If you want a different toilet or faucet, we can discuss replacement instead. Tell us about running water, drips, loose fixtures or reduced flow, as well as any changes you want to make."
+        },
+        {
+          "heading": "Plan the Replacement Before You Buy",
+          "body": "Fixture fit and existing connections matter. For a toilet, share the model you are considering and photos of the existing installation. For a faucet, include the sink or countertop mounting arrangement and connections below it. Contact us before buying if you want to discuss the installation scope and what information we need."
+        }
+      ],
+      "faqs": [
+        {
+          "q": "Can a Running Toilet Be Repaired?",
+          "a": "A running toilet does not automatically need replacement. We assess the tank components and explain the repair options. If you prefer a new fixture, we can also discuss replacement."
+        },
+        {
+          "q": "Do You Replace Kitchen and Bathroom Faucets?",
+          "a": "Yes. We repair and replace kitchen and bathroom faucets. Tell us where the fixture is installed, what is wrong with it and whether you already have a replacement in mind."
+        },
+        {
+          "q": "Can I Supply My Own Toilet or Faucet?",
+          "a": "Contact us with the model information before purchasing or scheduling. We can discuss compatibility, the installation scope and any additional parts that may be needed for your existing plumbing."
+        },
+        {
+          "q": "Is There a Charge for a Replacement Estimate?",
+          "a": "Estimates are free, and there is no service-call fee. The proposed price depends on the fixture and installation work. We review the scope and pricing with you before work begins."
+        }
+      ]
     }
   },
   {

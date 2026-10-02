@@ -63,6 +63,7 @@ export type Service = {
   short: string;
   hubShort: string;
   metaDescription: string;
+  detail?: { heading: string; sections: { heading: string; body: string }[]; faqs: FaqItem[] };
   intro: string;
   problems: string[];
   whatToExpect: string;
