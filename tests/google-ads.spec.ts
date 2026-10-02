@@ -1,5 +1,5 @@
 import { test, expect, type Page } from "@playwright/test";
-import { BOOK_APPOINTMENT_SEND_TO, BOOKING_CONFIRMATION_PATH, GOOGLE_ADS_ID } from "../src/lib/google-ads";
+import { BOOK_APPOINTMENT_SEND_TO, BOOKING_CONFIRMATION_PATH, GOOGLE_ADS_ID, GOOGLE_ANALYTICS_ID } from "../src/lib/google-ads";
 import { housecallBookingUrl } from "../src/lib/service-request";
 
 const production = "https://gojohnsonplumbing.com";
@@ -72,6 +72,11 @@ test("tag loads once and normal visits / direct confirmation visits do not conve
   await page.waitForLoadState("networkidle");
   await expect(page.locator("#google-ads-tag")).toHaveCount(1);
   expect(await conversions(page)).toEqual([]);
+  const configs = await page.evaluate(() => {
+    const queue = (window as Window & { dataLayer?: ArrayLike<unknown>[] }).dataLayer || [];
+    return queue.map(entry => Array.from(entry)).filter(entry => entry[0] === "config").map(entry => entry[1]);
+  });
+  expect(configs).toEqual([GOOGLE_ADS_ID, GOOGLE_ANALYTICS_ID]);
   await page.goto(confirmation);
   await expect(page.getByRole("heading", { name: "Thanks for choosing Johnson Plumbing." })).toBeVisible();
   await expect(page.locator('meta[name="robots"]')).toHaveAttribute("content", "noindex, nofollow");
