@@ -1,5 +1,6 @@
 // Public identifiers from the owner's Google Ads installation files.
 export const GOOGLE_ADS_ID = "AW-18469026355";
+export const GOOGLE_ANALYTICS_ID = "G-E210NRHFEF";
 export const BOOK_APPOINTMENT_SEND_TO = `${GOOGLE_ADS_ID}/KRr-CJTB6YEdELP02-ZE`;
 export const BOOKING_CONFIRMATION_PATH = "/booking-confirmed";
 
@@ -31,6 +32,8 @@ export function initializeGoogleAds() {
   if (!target.johnsonAdsInitialized) {
     target.gtag("js", new Date());
     target.gtag("config", GOOGLE_ADS_ID);
+    // Share the existing loader; GA4 enhanced measurement handles page views.
+    target.gtag("config", GOOGLE_ANALYTICS_ID);
     target.johnsonAdsInitialized = true;
   }
   return target.gtag;
