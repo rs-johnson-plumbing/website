@@ -439,7 +439,11 @@
       "introHeading": "What We Do",
       "back": "All Services",
       "otherHeading": "Other Services",
-      "faqHeading": "Common Questions"
+      "faqHeading": "Common Questions",
+      "areaHeading": "Serving Homeowners Across the Area",
+      "areaText": "Based in O'Fallon, MO, we serve homeowners in St. Charles County and west St. Louis County, including O'Fallon, Wentzville, St. Peters, Chesterfield, Ballwin and Kirkwood. Share your ZIP code when requesting service so the team can confirm scheduling for your address.",
+      "areaLink": "Service Areas",
+      "pageLink": "Full Service Details"
     },
     "otherHeading": "Other Services",
     "buildersSplit": {

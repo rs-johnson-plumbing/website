@@ -27,7 +27,7 @@ export function C2ServiceDetail({ service }: { service: Service }) {
     <>
       <C2PageHero
         eyebrow={copy.services.hero.eyebrow}
-        headingLines={[c2Label(service.slug, service.name)]}
+        headingLines={[service.detail?.heading ?? c2Label(service.slug, service.name)]}
         lead={service.hubShort}
         slot="servicesHero"
         actions={
@@ -81,6 +81,21 @@ export function C2ServiceDetail({ service }: { service: Service }) {
         </div>
       </section>
 
+      {service.detail && (
+        <section className="c2-section c2-section--paper">
+          <div className="c2-wrap">
+            {service.detail.sections.map((section) => (
+              <div key={section.heading}>
+                <h2 className="c2-h2">{section.heading}</h2>
+                <p className="c2-detail-intro">{section.body}</p>
+              </div>
+            ))}
+            <h2 className="c2-h2">{detail.areaHeading}</h2>
+            <p className="c2-detail-intro">{detail.areaText}</p>
+          </div>
+        </section>
+      )}
+
       <section className="c2-section c2-section--sand" aria-labelledby="c2-other-services">
         <div className="c2-wrap">
           <div className="c2-section-head c2-section-head--split">
@@ -96,7 +111,7 @@ export function C2ServiceDetail({ service }: { service: Service }) {
         </div>
       </section>
 
-      <C2Faq heading={detail.faqHeading} items={faqs.service.items} />
+      <C2Faq heading={detail.faqHeading} items={service.detail?.faqs ?? faqs.service.items} />
       <C2FinalCta />
     </>
   );
