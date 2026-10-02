@@ -25,6 +25,9 @@ export const metadata: Metadata = {
   // every phone number on the site is an explicit tel: link already.
   formatDetection: { telephone: false, address: false, email: false },
   metadataBase: new URL(SITE_URL),
+  verification: {
+    google: "I62BZucCRKOpnU8wrQpl56YYs5JYRPs5q9G4zNxYNvo",
+  },
   title: {
     default: `Plumber in O'Fallon, MO | ${site.shortName}, Master Plumber`,
     template: `%s | ${site.shortName}`,
