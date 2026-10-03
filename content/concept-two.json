@@ -514,5 +514,276 @@
     "toilets-and-faucets": "Toilets & Faucets",
     "planning-and-takeoffs": "Plans & Takeoffs",
     "trim-and-fixture-set": "Trim & Fixture Set"
+  },
+  "serviceAreas": {
+    "title": "Plumbing Service Areas | R.S. Johnson Plumbing",
+    "description": "Plumbing service across St. Charles and west St. Louis counties. Explore local coverage for water heaters, leaks and fixtures. Free estimates. Call or text us.",
+    "heading": "Plumbing Service Areas",
+    "eyebrow": "Based in O'Fallon, Missouri",
+    "lead": "Home plumbing help across St. Charles County and west St. Louis County. Explore service in your community, then request an estimate or call to discuss the problem.",
+    "navLabel": "Service Areas",
+    "homeLabel": "Home",
+    "breadcrumbLabel": "Page Navigation",
+    "backLabel": "All Service Areas",
+    "zipLabel": "ZIP Codes",
+    "zipNote": "ZIP codes are a starting point, not exact service boundaries. Share your full address so we can confirm coverage and scheduling.",
+    "citiesHeading": "Find Your Community",
+    "otherHeading": "Other Communities We Serve",
+    "otherText": "Our service area also includes the communities listed below. Call or text to confirm scheduling for your address.",
+    "servicesHeading": "How We Can Help",
+    "detailsLabel": "Service Details",
+    "localHeading": "Local Homeowner Resources",
+    "planHeading": "Arrange Your Visit",
+    "faqHeading": "Local Service Questions",
+    "nearbyHeading": "Nearby Service Areas",
+    "planText": "Submit a service request through our website, or call or text 314-220-1827. Requests go to Ryan through Housecall Pro. Regular hours are Monday through Friday, 8 a.m. to 4 p.m. We provide free estimates, charge no service-call fee and send arrival texts. Work and pricing are reviewed with you before the repair begins.",
+    "emergencyText": "For an active leak or after-hours problem, call or text. Emergency service is available 24/7; the team confirms availability and arrival timing.",
+    "credentials": "Owner Ryan Johnson is a master plumber. The business is insured and bonded.",
+    "closingHeading": "Tell Us What Needs Attention",
+    "closingText": "Include your address, the symptoms and any equipment or fixture details. We will discuss the next step with you.",
+    "services": [
+      {
+        "slug": "water-heaters",
+        "heading": "Water Heater Repair and Replacement",
+        "body": "No hot water, unreliable temperature or planning a replacement? We assess gas and electric tank water heaters and discuss tankless installation options."
+      },
+      {
+        "slug": "leaks-and-repairs",
+        "heading": "Plumbing Leaks and Repairs",
+        "body": "Get help with leaking supply or drain lines, failed fittings and shutoff valves. Tell us where water appears and whether the leak is active."
+      },
+      {
+        "slug": "toilets-and-faucets",
+        "heading": "Toilet and Faucet Replacement",
+        "body": "Repair a running toilet or dripping faucet, or plan a fixture upgrade. Share the model and existing connections before purchasing a replacement."
+      }
+    ],
+    "pages": [
+      {
+        "slug": "ofallon",
+        "name": "O'Fallon",
+        "county": "St. Charles County",
+        "zips": [
+          "63366",
+          "63368"
+        ],
+        "intro": "Based in O'Fallon, R.S. Johnson Plumbing LLC helps homeowners with water heater problems, plumbing leaks and fixture replacements. Tell us what is happening at your home, and the team will discuss the next step and scheduling.",
+        "heading": "Plumbing Help Close to Our Home Base",
+        "body": "For an O'Fallon service request, include your street address and whether the problem affects one fixture or the whole house. For a water heater, a photo of the model label and surrounding connections is useful. For a leak, tell us where water appears and when it happens. This helps us understand the work before the visit; it does not replace an on-site assessment.",
+        "localHeading": "Which Water Provider Serves Your Address?",
+        "localBody": "The City of O'Fallon provides water and sewer service to only parts of the city. Check the provider shown on your utility bill when reporting an outage or a suspected public-system problem. The city's water and sewer page includes a water district map and resident information. Household fixture and pipe repairs can be discussed with our team.",
+        "resource": {
+          "label": "O'Fallon Water and Sewer",
+          "href": "https://www.ofallon.mo.us/water-and-sewer"
+        },
+        "title": "Plumber in O'Fallon, MO | R.S. Johnson Plumbing",
+        "description": "Plumbing service in O'Fallon, MO: water heaters, leaks, toilets and faucets. Free estimates and no service-call fee. Call or text R.S. Johnson Plumbing.",
+        "faqs": [
+          {
+            "q": "Do You Serve Both O'Fallon ZIP Codes?",
+            "a": "We take homeowner service requests in the O'Fallon area, including 63366 and 63368. ZIP codes cross community boundaries, so share your full address when arranging the visit."
+          },
+          {
+            "q": "Are You Based in O'Fallon?",
+            "a": "Yes. R.S. Johnson Plumbing LLC is based in O'Fallon, Missouri. We travel to customers' homes; these service pages describe coverage rather than separate storefronts."
+          },
+          {
+            "q": "Can I Request More Than One Repair?",
+            "a": "Yes. Include each concern in your request, such as a dripping faucet and a water heater problem. The team can discuss the scope and scheduling with you before the visit."
+          }
+        ],
+        "related": [
+          "wentzville",
+          "st-peters"
+        ]
+      },
+      {
+        "slug": "wentzville",
+        "name": "Wentzville",
+        "county": "St. Charles County",
+        "zips": [
+          "63385"
+        ],
+        "intro": "For a water heater replacement, recurring leak or new toilet in Wentzville, start with a clear description of what needs attention. R.S. Johnson Plumbing LLC serves Wentzville homeowners, with crew members in O'Fallon and Troy supporting this part of our service area.",
+        "heading": "Plan Repairs and Replacements Together",
+        "body": "If you have several plumbing items to address, list them when you request service. Include the water heater type, the location of any visible leak and any toilet or faucet models you are considering. Tell us about access restrictions or work by other trades. We can discuss how to organize the visit and what information is needed for your free estimate.",
+        "localHeading": "Setting Up Utilities at a Wentzville Home",
+        "localBody": "Wentzville's utility services page explains how to arrange city water and sewer accounts. If you have just moved in, use that resource for account setup and billing questions. When contacting us about low flow or no water, tell us whether service has been established and whether the issue is at one fixture or throughout the home.",
+        "resource": {
+          "label": "Wentzville Utility Services",
+          "href": "https://www.wentzvillemo.gov/residents/utility-services/"
+        },
+        "title": "Plumber in Wentzville, MO | R.S. Johnson Plumbing",
+        "description": "Plumbing service in Wentzville, MO: water heaters, leaks, toilets and faucets. Free estimates and no service-call fee. Call or text R.S. Johnson Plumbing.",
+        "faqs": [
+          {
+            "q": "Do Your Crews Cover Wentzville?",
+            "a": "Yes. Wentzville is part of our homeowner service area. Crew members are based in O'Fallon and Troy, but assignments and arrival times depend on the schedule and the work required."
+          },
+          {
+            "q": "Can You Help Me Plan a Water Heater Replacement?",
+            "a": "Yes. Share the current unit's type, model information and any hot-water problems. We discuss repair and replacement options, including the installation work involved, before you choose equipment."
+          },
+          {
+            "q": "Should I Buy Fixtures Before Requesting an Estimate?",
+            "a": "Contact us with the models you are considering first. Existing connections, fit and installation access can affect the work and the estimate."
+          }
+        ],
+        "related": [
+          "ofallon",
+          "st-peters"
+        ]
+      },
+      {
+        "slug": "st-peters",
+        "name": "St. Peters",
+        "county": "St. Charles County",
+        "zips": [
+          "63376"
+        ],
+        "intro": "R.S. Johnson Plumbing LLC serves St. Peters homeowners who need help with leaking pipes, unreliable hot water and worn toilets or faucets. We explain the proposed repair or replacement and pricing before work begins, with free estimates and no service-call fee.",
+        "heading": "Describe What Changed in Your Plumbing",
+        "body": "A higher water bill, a toilet that keeps running or new moisture under a sink can all be useful starting points for a service request. Tell us when the change began and whether it is constant or happens only when water is used. For replacement work, include the existing fixture and your preferred new model so we can discuss compatibility.",
+        "localHeading": "A Household Problem or a Utility Emergency?",
+        "localBody": "St. Peters publishes a water and sewer emergency call guide for issues such as a sudden whole-home or neighborhood water outage, street flooding and water coming from the ground. Consult the city's guide when the problem may involve public infrastructure. For a running toilet, leaking faucet or household pipe repair, contact our team to discuss service.",
+        "resource": {
+          "label": "St. Peters Utility Emergency Guide",
+          "href": "https://www.stpetersmo.net/832/Water-Sewer-Utility-Emergency-Call-Guide"
+        },
+        "title": "Plumber in St. Peters, MO | R.S. Johnson Plumbing",
+        "description": "Plumbing service in St. Peters, MO: water heaters, leaks, toilets and faucets. Free estimates and no service-call fee. Call or text R.S. Johnson Plumbing.",
+        "faqs": [
+          {
+            "q": "Who Should I Contact if My Whole Home Loses Water?",
+            "a": "Check the St. Peters utility emergency guide linked on this page and contact your water provider about a possible outage. If the issue is limited to plumbing within your home, our team can discuss an assessment."
+          },
+          {
+            "q": "Can You Check a Running Toilet and a Dripping Faucet?",
+            "a": "Yes. Include both items when requesting service. We assess the fixtures and explain repair or replacement options rather than assuming both need to be replaced."
+          },
+          {
+            "q": "Do You Charge a Service-Call Fee in St. Peters?",
+            "a": "No. Estimates are free and there is no service-call fee. We review the proposed work and pricing with you before beginning the repair."
+          }
+        ],
+        "related": [
+          "ofallon",
+          "wentzville"
+        ]
+      },
+      {
+        "slug": "chesterfield",
+        "name": "Chesterfield",
+        "county": "St. Louis County",
+        "zips": [
+          "63005",
+          "63017"
+        ],
+        "intro": "R.S. Johnson Plumbing LLC provides homeowner plumbing service in Chesterfield, including water heater repair and replacement, leak repairs and toilet or faucet replacements. Share your address and the work you need so we can confirm availability for your home.",
+        "heading": "Prepare for an Equipment or Fixture Upgrade",
+        "body": "Before choosing a new water heater or faucet, gather the existing model details and photos of the connections. Tell us whether your goal is to solve a recurring problem, change the fixture or improve the hot-water setup for your household. We assess the installation requirements and discuss the scope before recommending equipment or quoting the work.",
+        "localHeading": "Finding the Right Utility Contact",
+        "localBody": "Chesterfield does not operate its own utility services. The city's resident resource page links to utility providers and other agencies serving the area. Use your utility bill and that directory for provider questions or service interruptions. An appointment with a plumber addresses the household plumbing scope agreed with the team.",
+        "resource": {
+          "label": "Chesterfield Resident Utility Resources",
+          "href": "https://www.chesterfield.mo.us/residents"
+        },
+        "title": "Plumber in Chesterfield, MO | R.S. Johnson Plumbing",
+        "description": "Plumbing service in Chesterfield, MO: water heaters, leaks, toilets and faucets. Free estimates and no service-call fee. Call or text R.S. Johnson Plumbing.",
+        "faqs": [
+          {
+            "q": "Do You Serve Chesterfield Addresses in 63005 and 63017?",
+            "a": "Yes. We accept service requests in the Chesterfield area, including these ZIP codes. Give us the full service address so the team can confirm coverage and scheduling."
+          },
+          {
+            "q": "Can You Assess Tankless Water Heater Options?",
+            "a": "Yes. We can discuss a tankless installation or conversion and assess the existing setup, including gas line sizing where applicable. The right option depends on your household needs and installation requirements."
+          },
+          {
+            "q": "Do You Have a Chesterfield Storefront?",
+            "a": "Our business is based in O'Fallon and travels to customers' homes in Chesterfield. This page describes a service area, not a separate office."
+          }
+        ],
+        "related": [
+          "ballwin",
+          "kirkwood"
+        ]
+      },
+      {
+        "slug": "ballwin",
+        "name": "Ballwin",
+        "county": "St. Louis County",
+        "zips": [
+          "63011",
+          "63021"
+        ],
+        "intro": "For plumbing repairs and fixture replacements in the Ballwin area, R.S. Johnson Plumbing LLC offers free estimates and no service-call fee. Contact us about a leaking connection, running toilet, dripping faucet or water heater that needs attention.",
+        "heading": "Get the Details Right Before Replacing a Fixture",
+        "body": "For a kitchen or bathroom faucet replacement, share photos of the fixture, its mounting arrangement and the plumbing below it. For a toilet, tell us about any movement or moisture at the base, along with the model you want installed. We discuss the existing connections and any additional work needed so the estimate covers the proposed scope.",
+        "localHeading": "Ballwin Utility Providers and Household Repairs",
+        "localBody": "Ballwin's utilities directory lists separate companies for water, sewer, gas and electricity. It identifies Missouri American Water and the Metropolitan Sewer District as local utility contacts. Check the directory and your bill for provider matters. Let us know whether a plumbing problem is inside your home or appears to involve an outside utility system when you call.",
+        "resource": {
+          "label": "Ballwin Utilities and Services",
+          "href": "https://www.ballwin.mo.us/Utilities-and-Services/"
+        },
+        "title": "Plumber in Ballwin, MO | R.S. Johnson Plumbing",
+        "description": "Plumbing service in Ballwin, MO: water heaters, leaks, toilets and faucets. Free estimates and no service-call fee. Call or text R.S. Johnson Plumbing.",
+        "faqs": [
+          {
+            "q": "Does a Ballwin Mailing Address Confirm My Service Area?",
+            "a": "Share the complete address when requesting service. We serve the Ballwin area, including 63011 and 63021, but postal ZIP boundaries and municipal boundaries are not the same."
+          },
+          {
+            "q": "Can You Replace a Faucet I Already Purchased?",
+            "a": "Send us the model information and photos of the existing installation. We can discuss compatibility and the installation scope before scheduling; some replacements require additional parts or connection work."
+          },
+          {
+            "q": "Can You Help With Water Heater and Fixture Work Together?",
+            "a": "Include all planned work in your request. The team can discuss the scope, equipment information and scheduling rather than treating a booking request as a guaranteed single-visit completion."
+          }
+        ],
+        "related": [
+          "chesterfield",
+          "kirkwood"
+        ]
+      },
+      {
+        "slug": "kirkwood",
+        "name": "Kirkwood",
+        "county": "St. Louis County",
+        "zips": [
+          "63122"
+        ],
+        "intro": "R.S. Johnson Plumbing LLC serves Kirkwood homeowners with plumbing leak repairs, water heater repairs and replacements, and toilet or faucet installation. We review the existing plumbing and explain the proposed work before you decide how to proceed.",
+        "heading": "Account for the Plumbing Already in Place",
+        "body": "A replacement fixture needs to work with the existing connections and available space. Tell us about previous repairs, visible pipe conditions and any access limitations around the work area. For hot-water problems, share whether the issue affects every fixture or only one. These details help frame the assessment without assuming that the age of the home determines the repair.",
+        "localHeading": "Reporting a Kirkwood Water Main Problem",
+        "localBody": "Kirkwood's official contact page provides a dedicated contact for reporting a water main break. Use that city resource when the concern appears to involve a public main. A dripping indoor faucet, leaking household pipe or water heater problem is a different service request; describe what you are seeing when you contact our plumbing team.",
+        "resource": {
+          "label": "Kirkwood City and Water Contacts",
+          "href": "https://www.kirkwoodmo.org/government/contact-us"
+        },
+        "title": "Plumber in Kirkwood, MO | R.S. Johnson Plumbing",
+        "description": "Plumbing service in Kirkwood, MO: water heaters, leaks, toilets and faucets. Free estimates and no service-call fee. Call or text R.S. Johnson Plumbing.",
+        "faqs": [
+          {
+            "q": "Do You Handle Plumbing Repairs in Kirkwood's 63122 Area?",
+            "a": "Yes. Kirkwood is part of our homeowner service area. Submit your address and a description of the problem, or call or text for current availability."
+          },
+          {
+            "q": "Does Older Plumbing Always Need Full Replacement?",
+            "a": "No. The condition and source of the problem determine the options. We assess the affected plumbing and explain whether a targeted repair or a larger replacement makes sense."
+          },
+          {
+            "q": "How Do I Request After-Hours Help in Kirkwood?",
+            "a": "Call or text 314-220-1827. Emergency service is available 24/7, with availability and arrival timing confirmed by the team. An online request does not guarantee immediate dispatch."
+          }
+        ],
+        "related": [
+          "chesterfield",
+          "ballwin"
+        ]
+      }
+    ]
   }
 }

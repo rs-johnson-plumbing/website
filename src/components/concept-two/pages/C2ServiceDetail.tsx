@@ -92,6 +92,7 @@ export function C2ServiceDetail({ service }: { service: Service }) {
             ))}
             <h2 className="c2-h2">{detail.areaHeading}</h2>
             <p className="c2-detail-intro">{detail.areaText}</p>
+            <Link href="/service-areas" className="c2-textlink">{detail.areaLink}</Link>
           </div>
         </section>
       )}

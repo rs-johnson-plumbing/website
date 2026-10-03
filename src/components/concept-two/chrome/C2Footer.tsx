@@ -55,10 +55,11 @@ export function C2Footer() {
           <address><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 22s8-9 8-14a8 8 0 1 0-16 0c0 5 8 14 8 14Z" fill="currentColor"/><circle cx="12" cy="8" r="3" fill="white"/></svg>{site.city}, {site.state}</address>
           <a href={site.phone.tel} data-track="call-footer"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 3 4 4-2 3c2 3 4 5 7 7l3-2 4 4c-2 6-9 1-13-3S0 5 5 3Z" fill="currentColor"/></svg>{site.phone.display}</a>
           <p>{copy.footer.servingLine}</p>
+          <Link href="/service-areas">{copy.serviceAreas.navLabel}</Link>
         </div>
         <section className="c2-footer-areas" aria-labelledby="c2-footer-areas-heading">
-          <h2 id="c2-footer-areas-heading">Service Areas</h2>
-          <ul>{footerCities().map((city) => <li key={city.slug}>{city.name}</li>)}</ul>
+          <h2 id="c2-footer-areas-heading"><Link href="/service-areas">{copy.serviceAreas.navLabel}</Link></h2>
+          <ul>{footerCities().map((city) => <li key={city.slug}>{copy.serviceAreas.pages.some(page => page.slug === city.slug) ? <Link href={`/service-areas/${city.slug}`}>{city.name}</Link> : city.name}</li>)}</ul>
         </section>
         <div className="c2-footer-meta">
           <span>{copy.footer.servingLine}</span>
@@ -68,4 +69,3 @@ export function C2Footer() {
     </footer>
   );
 }
-
