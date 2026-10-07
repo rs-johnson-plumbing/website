@@ -192,3 +192,19 @@ test("bad / expired receipts and storage failure never create conversions or bre
   await expect(page.getByRole("heading", { name: "Thanks for choosing Johnson Plumbing." })).toBeVisible();
   expect(await conversions(page)).toEqual([]);
 });
+
+test("section exposure is deduplicated and foreground time stays diagnostic", async ({ page }) => {
+  await page.goto(`${production}/for-homeowners`);
+  await page.bringToFront();
+  const events = () => page.evaluate(() => ((window as Window & { dataLayer?: ArrayLike<unknown>[] }).dataLayer || []).map(x => Array.from(x)));
+  await expect.poll(async () => (await events()).filter(e => e[1] === "section_view" && (e[2] as { section_id?: string }).section_id === "hero").length, { timeout: 10000 }).toBe(1);
+  await page.locator('section[aria-labelledby="c2-reviews-heading"]').scrollIntoViewIfNeeded();
+  await expect.poll(async () => (await events()).filter(e => e[1] === "section_view" && (e[2] as { section_id?: string }).section_id === "reviews").length, { timeout: 10000 }).toBe(1);
+  await expect.poll(async () => (await events()).filter(e => e[1] === "page_active_time").length, { timeout: 15000 }).toBeGreaterThan(0);
+  expect(await conversions(page)).toEqual([]);
+  const diagnostic = (await events()).filter(e => ["section_view", "page_active_time"].includes(String(e[1])));
+  for (const e of diagnostic) {
+    expect(e[2]).toMatchObject({ send_to: GOOGLE_ANALYTICS_ID, page_path: "/for-homeowners", page_location: `${production}/for-homeowners` });
+    expect(Object.keys(e[2] as object).every(k => ["send_to", "page_path", "page_location", "transport_type", "section_id", "active_time_ms"].includes(k))).toBe(true);
+  }
+});
