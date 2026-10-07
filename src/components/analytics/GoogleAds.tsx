@@ -2,9 +2,13 @@
 
 import { useEffect, useState } from "react";
 import Script from "next/script";
+import { usePathname } from "next/navigation";
+import { startVisitTracking } from "@/lib/visit-tracking";
 import { GOOGLE_ADS_ID, initializeGoogleAds, isGoogleAdsHost, rememberHousecallConfirmation, trackContactClick } from "@/lib/google-ads";
 
 export function GoogleAds() {
+  const pathname = usePathname();
+  useEffect(() => startVisitTracking(pathname), [pathname]);
   const [enabled, setEnabled] = useState(false);
   useEffect(() => {
     if (!isGoogleAdsHost()) return;
